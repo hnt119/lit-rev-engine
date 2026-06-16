@@ -47,4 +47,18 @@ class VectorStore:
             n_results=k
         )
 
-        return results
+        hits = []
+
+        for doc, meta, distance in zip(
+            results["documents"][0],
+            results["metadatas"][0],
+            results["distances"][0]
+        ):
+            hits.append({
+                "paper_id": meta["paper_id"],
+                "chunk_id": meta["chunk_id"],
+                "distance": distance,
+                "text": doc
+            })
+
+        return hits
