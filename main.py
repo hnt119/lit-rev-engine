@@ -3,6 +3,7 @@ from src.download.pdf_downloader import download_many
 from src.parser.pdf_parser import parse_pdf
 from src.chunking.chunker import chunk_text
 from src.embeddings.embedder import Embedder
+from src.vectorstore.chroma_store import VectorStore
 import json
 import os
 
@@ -78,6 +79,12 @@ def main():
 
     print(f"Embedded {len(embedded_chunks)} chunks")
 
+    print("\nStoring embeddings in vector DB...\n")
+
+    store = VectorStore()
+    store.add_chunks(embedded_chunks)
+
+    print("Stored in ChromaDB")
 
 if __name__ == "__main__":
     main()
