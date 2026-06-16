@@ -2,6 +2,7 @@ from src.search.arxiv_search import search_arxiv
 from src.download.pdf_downloader import download_many
 from src.parser.pdf_parser import parse_pdf
 from src.chunking.chunker import chunk_text
+from src.embeddings.embedder import Embedder
 import json
 import os
 
@@ -47,20 +48,35 @@ def main():
         # Chunk
         chunks = chunk_text(parsed["text"])
 
-        all_chunks.append({
-            "pdf_path": pdf_path,
-            "chunks": chunks
-        })
+        paper_id = pdf_path.split("/")[-1].replace(".pdf", "")
+
+        for c in chunks:
+            all_chunks.append({
+                "paper_id": paper_id,
+                "chunk_id": c["chunk_id"],
+                "text": c["text"]
+            })
+    
+    print("\nEmbedding chunks...\n")
+
+    embedder = Embedder()
+    embedded_chunks = embedder.embed_chunks(all_chunks)
 
     # Save parsed data
     with open("data/processed/all_parsed.json", "w") as f:
         json.dump(all_parsed, f, indent=2)
+    
+    print(f"\nDone. Parsed {len(paths)} papers.")
 
     # Save chunk data
     with open("data/chunks/all_chunks.json", "w") as f:
         json.dump(all_chunks, f, indent=2)
+    
+    # Save embedded chunks
+    with open("data/embeddings/chunks_embedded.json", "w") as f:
+        json.dump(embedded_chunks, f, indent=2)
 
-    print(f"\nDone. Parsed {len(paths)} papers.")
+    print(f"Embedded {len(embedded_chunks)} chunks")
 
 
 if __name__ == "__main__":
