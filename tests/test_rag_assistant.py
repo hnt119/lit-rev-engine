@@ -29,6 +29,7 @@ def test_rag_assistant_retrieves_and_generates():
     assistant = RAGAssistant(
         searcher=FakeSearcher(),
         generator=FakeGenerator(),
+        min_source_words=0,
     )
 
     result = assistant.answer(
@@ -38,6 +39,22 @@ def test_rag_assistant_retrieves_and_generates():
 
     assert "[Source 1]" in result["answer"]
     assert len(result["sources"]) == 1
+
+
+def test_rag_assistant_filters_short_sources():
+    assistant = RAGAssistant(
+        searcher=FakeSearcher(),
+        generator=FakeGenerator(),
+        min_source_words=80,
+    )
+
+    result = assistant.answer(
+        "What were the study limitations?",
+        top_k=3,
+    )
+
+    assert result["sources"] == []
+    assert "No relevant evidence" in result["answer"]
 
 
 def test_rag_assistant_rejects_empty_question():

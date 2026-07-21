@@ -10,16 +10,14 @@ class RAGAssistant:
         self,
         searcher: Optional[SemanticSearcher] = None,
         generator: Optional[AgnesGenerator] = None,
+        min_source_words: int = 80,
     ):
         self.searcher = searcher or SemanticSearcher()
         self.generator = generator or AgnesGenerator()
+        self.min_source_words = min_source_words
 
     @staticmethod
     def _format_context(results: List[Dict]) -> str:
-        """
-        Convert retrieved chunks into clearly labelled source passages.
-        """
-
         context_blocks = []
 
         for index, result in enumerate(results, start=1):
@@ -49,11 +47,11 @@ class RAGAssistant:
         )
 
         sources = [
-             source
-             for source in sources
-             if len(source["text"].split()) >= 80
-]
-        
+            source
+            for source in sources
+            if len(source["text"].split()) >= self.min_source_words
+        ]
+
         sources = sources[:3]
 
         if not sources:
