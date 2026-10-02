@@ -1,16 +1,30 @@
-"""Offline noninteractive commands for the review ledger."""
+"""Noninteractive review ledger, offline replay, and explicit PubMed searches."""
 
 import argparse
 import hashlib
 import json
+import os
+import shlex
 import sqlite3
 import sys
 from datetime import datetime
 from pathlib import Path
 
-from .importers import load_records
+from src.search.pubmed_search import PubMedClient, capture_pubmed_search, import_pubmed_capture, verify_pubmed_capture
+
+from .importers import load_records_bytes
 from .models import SearchRunSpec
 from .store import ReviewStore
+
+
+def _redact(message):
+    key = os.environ.get("NCBI_API_KEY")
+    return message.replace(key, "[REDACTED]") if key else message
+
+
+class _ArgumentParser(argparse.ArgumentParser):
+    def error(self, message):
+        super().error(_redact(message))
 
 
 def _json_argument(value, name, dictionary=False):
@@ -24,8 +38,8 @@ def _json_argument(value, name, dictionary=False):
 
 
 def _parser():
-    parser = argparse.ArgumentParser(
-        description="Offline review ledger: import citation records, screen reports, and export reconciled counts. Included reports are not linked into studies automatically.",
+    parser = _ArgumentParser(
+        description="Review ledger: import citation records, explicitly search PubMed, screen reports, and export reconciled counts. Included reports are not linked into studies automatically.",
     )
     parser.add_argument("--db", metavar="PATH", help="SQLite ledger path (default: repository data/reviews.sqlite3)")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -47,6 +61,23 @@ def _parser():
     imported.add_argument("--notes", default="")
     imported.add_argument("--reported-count", type=int)
     imported.add_argument("--import-key")
+    search = commands.add_parser("search-pubmed", help="Capture one explicit PubMed search and import its verified records")
+    search.add_argument("project_id")
+    search.add_argument("--query", required=True)
+    search.add_argument("--output", required=True, metavar="DIRECTORY")
+    search.add_argument("--email", help="NCBI contact email (otherwise NCBI_EMAIL); optional API key uses NCBI_API_KEY only")
+    search.add_argument("--sort", choices=("pub_date", "relevance"), default="pub_date")
+    search.add_argument("--datetype", choices=("pdat", "edat"))
+    search.add_argument("--mindate", metavar="DATE")
+    search.add_argument("--maxdate", metavar="DATE")
+    search.add_argument("--batch-size", type=int, default=200)
+    search.add_argument("--import-key")
+    verify = commands.add_parser("verify-pubmed", help="Verify saved PubMed artifacts offline without opening a ledger")
+    verify.add_argument("directory")
+    replay = commands.add_parser("import-pubmed", help="Import a complete verified PubMed capture offline")
+    replay.add_argument("project_id")
+    replay.add_argument("directory")
+    replay.add_argument("--import-key")
     for name, help_text in (
         ("records", "List canonical records and current screening/retrieval states"),
         ("history", "List immutable search/import runs"),
@@ -91,9 +122,7 @@ def _execute(store, args):
                 raise ValueError("searched-at must be an ISO date or datetime") from error
         path = Path(args.file)
         content = path.read_bytes()
-        records = load_records(path, args.format)
-        if content != path.read_bytes():
-            raise ValueError("Import file changed while being read; retry with a stable file")
+        records = load_records_bytes(content, args.format or path.suffix.lstrip("."), source_name=str(path))
         imported_format = args.format or {".json": "json", ".ris": "ris", ".xml": "pubmed_xml"}.get(path.suffix.lower(), "")
         spec = SearchRunSpec(
             source=args.source, query=args.query, searched_at=args.searched_at,
@@ -102,6 +131,29 @@ def _execute(store, args):
             reported_count=args.reported_count,
         )
         return store.import_records(args.project_id, spec, records, args.import_key)
+    if command == "import-pubmed":
+        store.get_project(args.project_id)
+        return import_pubmed_capture(store, args.project_id, args.directory, args.import_key)
+    if command == "search-pubmed":
+        store.get_project(args.project_id)
+        if args.import_key is not None and not args.import_key.strip():
+            raise ValueError("Idempotency key must be a nonempty string")
+        email = args.email if args.email is not None else os.environ.get("NCBI_EMAIL")
+        client = PubMedClient(email=email, api_key=os.environ.get("NCBI_API_KEY") or None)
+        filters = {field: getattr(args, field) for field in ("datetype", "mindate", "maxdate") if getattr(args, field) is not None}
+        capture = capture_pubmed_search(args.query, args.output, client=client, sort=args.sort, filters=filters, batch_size=args.batch_size)
+        try:
+            imported = import_pubmed_capture(store, args.project_id, capture["directory"], args.import_key)
+        except (Exception, KeyboardInterrupt) as error:
+            recovery = [sys.executable, str(Path(__file__).resolve().parents[2] / "review.py")]
+            if args.db is not None:
+                recovery.extend(["--db", str(Path(args.db).absolute())])
+            recovery.extend(["import-pubmed", args.project_id, capture["directory"]])
+            if args.import_key is not None:
+                recovery.extend(["--import-key", args.import_key])
+            detail = str(error) or "interrupted"
+            raise ValueError(f"Capture retained at {capture['directory']}. Ledger import failed: {detail}. Recover with: {shlex.join(recovery)}") from None
+        return {"capture": capture, "import": imported}
     if command == "records":
         return store.list_records(args.project_id)
     if command == "history":
@@ -125,10 +177,14 @@ def _execute(store, args):
 def main(argv=None):
     args = _parser().parse_args(argv)
     try:
-        with ReviewStore(args.db) as store:
-            result = _execute(store, args)
+        if args.command == "verify-pubmed":
+            # Offline verification is independent of even an invalid supplied DB path.
+            result = verify_pubmed_capture(args.directory)
+        else:
+            with ReviewStore(args.db) as store:
+                result = _execute(store, args)
         print(json.dumps(result, ensure_ascii=False, sort_keys=True, allow_nan=False))
-    except (ValueError, OSError, sqlite3.Error) as error:
-        print(f"review: {error}", file=sys.stderr)
+    except (ValueError, OSError, sqlite3.Error, KeyboardInterrupt) as error:
+        print(f"review: {_redact(str(error) or 'interrupted')}", file=sys.stderr)
         return 1
     return 0

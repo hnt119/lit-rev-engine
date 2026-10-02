@@ -2,6 +2,8 @@
 
 The review ledger imports saved citation exports without making network requests or loading an embedding model. It stores search/import history and screening decisions in SQLite. JSON, RIS, and PubMed XML are supported; importing records does not retrieve full text or execute a database search.
 
+Python callers can use `load_records(path, format=None)` or `load_records_bytes(content, format, source_name="<memory>")` from `src.review.importers`. The byte API requires a `bytes` value and an explicit supported format (`json`, `ris`, `xml`, `pubmed`, `pubmed_xml`, or `pubmed-xml`, ignoring case); it handles UTF-8/BOM and returns the same validated records and raw fields as the path API. `source_name` labels errors without opening that file. This lets a capture workflow hash, store, and parse the same bytes instead of rereading a mutable source file.
+
 Run the commands below from the repository root with the existing Python environment activated. Use a fresh database path for the demonstration. All files under `examples/review/` contain deliberately synthetic metadata, authors, and identifiers; they describe no real publications or clinical findings. Do not resolve or cite those identifiers. `expected-import-counts.json` is a count manifest, not an importable bibliography.
 
 ## Canonical JSON

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE">
+      <PMID Version="1">999999804</PMID>
+      <Article>
+        <Journal><JournalIssue><PubDate><Year>2022</Year></PubDate></JournalIssue><Title>Synthetic Metadata Journal</Title></Journal>
+        <ArticleTitle>Synthetic capture record D: final-batch exercise</ArticleTitle>
+        <Abstract><AbstractText>Single-record final software fixture batch; no clinical findings.</AbstractText></Abstract>
+        <AuthorList><Author><LastName>Example</LastName><ForeName>Dana</ForeName></Author></AuthorList>
+      </Article>
+      <GeneralNote>Invented software fixture; do not resolve or cite the PMID.</GeneralNote>
+    </MedlineCitation>
+    <PubmedData><ArticleIdList><ArticleId IdType="pubmed">999999804</ArticleId></ArticleIdList></PubmedData>
+  </PubmedArticle>
+</PubmedArticleSet>

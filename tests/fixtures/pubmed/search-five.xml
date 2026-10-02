@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE eSearchResult SYSTEM "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20230330/esearch.dtd">
+<eSearchResult>
+  <Count>5</Count>
+  <RetMax>5</RetMax>
+  <RetStart>0</RetStart>
+  <QueryKey>1</QueryKey>
+  <WebEnv>SYNTHETIC_OFFLINE_HISTORY_TOKEN_NOT_A_REAL_SESSION</WebEnv>
+  <IdList>
+    <Id>999999803</Id>
+    <Id>999999801</Id>
+    <Id>999999805</Id>
+    <Id>999999802</Id>
+    <Id>999999804</Id>
+  </IdList>
+  <TranslationSet>
+    <Translation><From>invented audit phrase</From><To>"invented"[All Fields] AND "audit"[All Fields] AND "phrase"[All Fields]</To></Translation>
+  </TranslationSet>
+  <QueryTranslation>"synthetic capture fixture"[Title] AND ("invented"[All Fields] AND "audit"[All Fields] AND "phrase"[All Fields]) AND ("2020/01/01"[Date - Publication] : "2025/12/31"[Date - Publication])</QueryTranslation>
+  <WarningList>
+    <QuotedPhraseNotFound>invented audit phrase</QuotedPhraseNotFound>
+    <OutputMessage>Synthetic offline fixture: no real search or clinical findings.</OutputMessage>
+  </WarningList>
+</eSearchResult>

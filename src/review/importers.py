@@ -36,13 +36,27 @@ def load_records(path, format=None) -> list[BibliographicRecord]:
     """
     source = Path(path)
     requested = source.suffix.lstrip(".") if format is None else format
-    if not isinstance(requested, str) or requested.lower() not in _FORMATS:
-        raise ValueError(f"{source}: unsupported import format {requested!r}; use json, ris, or xml")
-    selected = _FORMATS[requested.lower()]
+    selected = _select_format(requested, source)
     try:
-        text = source.read_text(encoding="utf-8-sig")
-    except (OSError, UnicodeError) as error:
+        content = source.read_bytes()
+    except OSError as error:
         raise ValueError(f"{source}: cannot read UTF-8 citation export: {error}") from error
+    return load_records_bytes(content, selected, source_name=str(source))
+
+
+def load_records_bytes(content: bytes, format, source_name="<memory>") -> list[BibliographicRecord]:
+    """Parse captured bytes without reopening a file or making external calls.
+
+    An explicit supported format is required. ``source_name`` labels contextual
+    errors; parsing, validation, and original-field provenance match path imports.
+    """
+    if not isinstance(content, bytes):
+        raise ValueError(f"{source_name}: citation export content must be bytes")
+    selected = _select_format(format, source_name)
+    try:
+        text = content.decode("utf-8-sig")
+    except UnicodeError as error:
+        raise ValueError(f"{source_name}: cannot read UTF-8 citation export: {error}") from error
     try:
         if selected == "json":
             return _load_json(text)
@@ -50,7 +64,13 @@ def load_records(path, format=None) -> list[BibliographicRecord]:
             return _load_ris(text)
         return _load_xml(text)
     except ValueError as error:
-        raise ValueError(f"{source}: {error}") from error
+        raise ValueError(f"{source_name}: {error}") from error
+
+
+def _select_format(requested, source_name):
+    if not isinstance(requested, str) or requested.lower() not in _FORMATS:
+        raise ValueError(f"{source_name}: unsupported import format {requested!r}; use json, ris, or xml")
+    return _FORMATS[requested.lower()]
 
 
 class _JSONPairs(list):

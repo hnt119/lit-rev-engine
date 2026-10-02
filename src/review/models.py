@@ -28,3 +28,4 @@ class SearchRunSpec:
     source_file: str = ""
     source_sha256: str = ""
     reported_count: Optional[int] = None
+    execution: Optional[dict[str, Any]] = None

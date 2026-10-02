@@ -82,6 +82,12 @@ class ReviewStore:
                     FOREIGN KEY(project_id, record_id) REFERENCES records(project_id, id)
                 );
                 CREATE INDEX IF NOT EXISTS retrieval_events_record ON retrieval_events(project_id, record_id, sequence);
+                CREATE TABLE IF NOT EXISTS search_artifacts (
+                    project_id TEXT NOT NULL, search_run_id TEXT NOT NULL,
+                    name TEXT NOT NULL, content BLOB NOT NULL, sha256 TEXT NOT NULL,
+                    PRIMARY KEY(project_id, search_run_id, name),
+                    FOREIGN KEY(project_id, search_run_id) REFERENCES search_runs(project_id, id)
+                );
                 """
             )
         except Exception:
@@ -177,7 +183,13 @@ class ReviewStore:
             or spec.reported_count < 0
         ):
             raise ValueError("Reported count must be a nonnegative integer or None")
-        return asdict(spec)
+        if spec.execution is not None and not isinstance(spec.execution, dict):
+            raise ValueError("Search execution must be a dictionary or None")
+        payload = asdict(spec)
+        # This omission preserves fingerprints already persisted before execution existed.
+        if not spec.execution:
+            payload.pop("execution")
+        return payload
 
     @staticmethod
     def _import_result(row):
@@ -215,7 +227,7 @@ class ReviewStore:
                     return row
         return None
 
-    def import_records(self, project_id, spec, records, idempotency_key=None):
+    def import_records(self, project_id, spec, records, idempotency_key=None, *, artifacts=None):
         self._project(project_id)
         spec_payload = self._validate_spec(spec)
         if not isinstance(records, list):
@@ -233,7 +245,38 @@ class ReviewStore:
                 originals.append(asdict(record))
             except ValueError as error:
                 raise ValueError(f"Record {ordinal}: {error}") from error
-        fingerprint = hashlib.sha256(_json({"spec": spec_payload, "records": originals}).encode("utf-8")).hexdigest()
+        if artifacts is not None and not isinstance(artifacts, dict):
+            raise ValueError("Search artifacts must be a filename/bytes dictionary")
+        artifacts = dict(artifacts or {})
+        if bool(artifacts) != bool(spec.execution):
+            raise ValueError("PubMed execution receipts and complete artifact bytes must be supplied together")
+        artifact_hashes = {}
+        if artifacts:
+            from src.search.pubmed_search import validate_pubmed_artifacts
+
+            validated = validate_pubmed_artifacts(artifacts)
+            receipt = validated["receipt"]
+            required_spec = {
+                "source": "PubMed", "query": receipt["query"], "searched_at": receipt["searched_at"],
+                "filters": receipt["filters"], "import_format": "pubmed_xml",
+                "source_sha256": receipt["records_sha256"], "reported_count": receipt["reported_count"],
+                "execution": receipt,
+            }
+            if any(_json(spec_payload.get(field)) != _json(value) for field, value in required_spec.items()):
+                raise ValueError("PubMed search specification contradicts validated execution receipt")
+            if not Path(spec.source_file).is_absolute() or Path(spec.source_file).name != receipt["records_file"]:
+                raise ValueError("PubMed source_file must be an absolute records.xml path")
+            if originals != [asdict(record) for record in validated["records"]]:
+                raise ValueError("Imported PubMed records differ from validated source bytes")
+            artifact_hashes = {name: hashlib.sha256(content).hexdigest() for name, content in artifacts.items()}
+        fingerprint_spec = dict(spec_payload)
+        if artifact_hashes:
+            # Capture identity survives relocation; the original saved path remains immutable.
+            fingerprint_spec.pop("source_file")
+        fingerprint_payload = {"spec": fingerprint_spec, "records": originals}
+        if artifact_hashes:
+            fingerprint_payload["artifacts"] = artifact_hashes
+        fingerprint = hashlib.sha256(_json(fingerprint_payload).encode("utf-8")).hexdigest()
         with self._connection:
             # Serialize identity/idempotency reads with subsequent writes across clients.
             self._connection.execute("BEGIN IMMEDIATE")
@@ -283,6 +326,11 @@ class ReviewStore:
                 "UPDATE search_runs SET new_records = ?, duplicates = ? WHERE id = ?",
                 (new_records, duplicates, run_id),
             )
+            for name, content in artifacts.items():
+                self._connection.execute(
+                    "INSERT INTO search_artifacts (project_id, search_run_id, name, content, sha256) VALUES (?, ?, ?, ?, ?)",
+                    (project_id, run_id, name, content, artifact_hashes[name]),
+                )
         return {"search_run_id": run_id, "identified": len(records), "new_records": new_records, "duplicates": duplicates}
 
     def list_search_runs(self, project_id):
@@ -291,10 +339,23 @@ class ReviewStore:
         for row in self._connection.execute(
             "SELECT * FROM search_runs WHERE project_id = ? ORDER BY rowid", (project_id,)
         ).fetchall():
-            result = {"id": row["id"], "search_run_id": row["id"], "project_id": project_id, **json.loads(row["spec"])}
+            result = {"id": row["id"], "search_run_id": row["id"], "project_id": project_id, "execution": None, **json.loads(row["spec"])}
             result.update({key: row[key] for key in ("identified", "new_records", "duplicates", "created_at")})
             results.append(result)
         return results
+
+    def get_search_artifacts(self, project_id, search_run_id):
+        with self._snapshot():
+            self._project(project_id)
+            run = self._connection.execute(
+                "SELECT id FROM search_runs WHERE project_id = ? AND id = ?", (project_id, search_run_id)
+            ).fetchone()
+            if run is None:
+                raise ValueError(f"Unknown search run in project: {search_run_id}")
+            return {row["name"]: row["content"] for row in self._connection.execute(
+                "SELECT name, content FROM search_artifacts WHERE project_id = ? AND search_run_id = ? ORDER BY name",
+                (project_id, search_run_id),
+            ).fetchall()}
 
     def list_records(self, project_id):
         with self._snapshot():
@@ -543,6 +604,30 @@ class ReviewStore:
                 "retrieval_events": self.list_retrieval_events(project_id),
                 "counts": counts,
             }
+            export_artifacts, manifest = {}, []
+            for run in bundle["search_runs"]:
+                artifacts = self.get_search_artifacts(project_id, run["id"])
+                stored_hashes = {row["name"]: row["sha256"] for row in self._connection.execute(
+                    "SELECT name, sha256 FROM search_artifacts WHERE project_id = ? AND search_run_id = ?",
+                    (project_id, run["id"]),
+                ).fetchall()}
+                if bool(artifacts) != bool(run["execution"]):
+                    raise ValueError("Stored search execution/artifact relationship is incomplete")
+                if not artifacts:
+                    continue
+                from src.search.pubmed_search import validate_pubmed_artifacts
+
+                if any(not isinstance(content, bytes) or hashlib.sha256(content).hexdigest() != stored_hashes[name] for name, content in artifacts.items()):
+                    raise ValueError("Stored PubMed artifact hash mismatch")
+                validated = validate_pubmed_artifacts(artifacts)
+                if _json(validated["receipt"]) != _json(run["execution"]):
+                    raise ValueError("Stored PubMed artifacts contradict search execution")
+                for name, content in artifacts.items():
+                    export_file = f"search_captures/{run['id']}/{name}"
+                    export_artifacts[export_file] = content
+                    manifest.append({"search_run_id": run["id"], "name": name, "sha256": stored_hashes[name], "size_bytes": len(content), "export_file": export_file})
+            if manifest:
+                bundle["search_artifacts"] = manifest
             exclusions = []
             events_by_record = {}
             for event in self._screening_rows(project_id):
@@ -557,4 +642,4 @@ class ReviewStore:
                             "reviewers": [event["reviewer"] for event in active],
                             "kind": active[0]["kind"],
                         })
-        return write_export(bundle, exclusions, destination)
+        return write_export(bundle, exclusions, destination, artifacts=export_artifacts)

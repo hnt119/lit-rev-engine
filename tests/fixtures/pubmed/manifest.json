@@ -1,0 +1,57 @@
+{
+  "synthetic": true,
+  "description": "Independent software fixtures only. All identifiers, authors, titles, translation, warning, and history token are invented. No live search or clinical findings.",
+  "query": "  \"synthetic capture fixture\"[Title] AND \"invented audit phrase\"  ",
+  "sort": "pub_date",
+  "filters": {"datetype": "pdat", "mindate": "2020/01/01", "maxdate": "2025/12/31"},
+  "batch_size": 2,
+  "search_file": "search-five.xml",
+  "reported_count": 5,
+  "ordered_pmids": ["999999803", "999999801", "999999805", "999999802", "999999804"],
+  "query_translation": "\"synthetic capture fixture\"[Title] AND (\"invented\"[All Fields] AND \"audit\"[All Fields] AND \"phrase\"[All Fields]) AND (\"2020/01/01\"[Date - Publication] : \"2025/12/31\"[Date - Publication])",
+  "history": {"webenv": "SYNTHETIC_OFFLINE_HISTORY_TOKEN_NOT_A_REAL_SESSION", "query_key": "1"},
+  "warnings": [
+    {"code": "QuotedPhraseNotFound", "message": "invented audit phrase"},
+    {"code": "OutputMessage", "message": "Synthetic offline fixture: no real search or clinical findings."}
+  ],
+  "batches": [
+    {"response_file": "fetch-0001.xml", "requested_pmids": ["999999803", "999999801"], "returned_pmids": ["999999801", "999999803"]},
+    {"response_file": "fetch-0002.xml", "requested_pmids": ["999999805", "999999802"], "returned_pmids": ["999999802", "999999805"]},
+    {"response_file": "fetch-0003.xml", "requested_pmids": ["999999804"], "returned_pmids": ["999999804"]}
+  ],
+  "expected": {
+    "successful_requests": 4,
+    "fetched_count": 5,
+    "unique_pmids": 5,
+    "article_records": 4,
+    "book_records": 1,
+    "record_order": ["999999803", "999999801", "999999805", "999999802", "999999804"],
+    "publication_years_in_search_order": [2025, 2024, 2024, 2023, 2022],
+    "reference_only_pmid_not_in_membership": "999999899"
+  },
+  "zero": {
+    "query": "\"synthetic zero-result fixture\"[Title]",
+    "search_file": "search-zero.xml",
+    "reported_count": 0,
+    "ordered_pmids": [],
+    "successful_requests": 1,
+    "fetched_count": 0,
+    "history": {"webenv": null, "query_key": null},
+    "query_translation": "\"synthetic zero-result fixture\"[Title]",
+    "warnings": [{"code": "OutputMessage", "message": "Synthetic zero-result response; not a real search."}]
+  },
+  "adversarial_cases": [
+    {"name": "HTTP-200 search ErrorList", "response_file": "error-search.xml", "expected": "Reject before fetching; zero Count does not make an error a valid empty search."},
+    {"name": "HTTP-200 fetch ERROR", "response_file": "error-fetch.xml", "expected": "Reject and publish no destination."},
+    {"name": "Count exceeds API limit", "base": "search-five.xml", "transform": "Replace <Count>5</Count> with <Count>10001</Count>.", "expected": "Reject before any fetch."},
+    {"name": "Short search membership", "base": "search-five.xml", "transform": "Remove <Id>999999804</Id>; set RetMax to 4 but keep Count 5.", "expected": "Reject instead of recording a partial complete search."},
+    {"name": "Duplicate search membership", "base": "search-five.xml", "transform": "Replace search Id 999999804 with 999999803.", "expected": "Reject duplicate ID even when Count and list length are 5."},
+    {"name": "Same-count wrong fetch membership", "base": "fetch-0001.xml", "transform": "Replace all instances of own PMID 999999801 with 999999899.", "expected": "Reject missing 801/unexpected 899 although two records remain."},
+    {"name": "Short fetch", "base": "fetch-0001.xml", "transform": "Remove the entire first PubmedArticle (PMID 999999801).", "expected": "Reject missing 801."},
+    {"name": "Duplicate fetch", "base": "fetch-0001.xml", "transform": "Replace all instances of own PMID 999999801 with 999999803.", "expected": "Reject duplicate 803 rather than counting two records as complete."},
+    {"name": "Absent own PMID", "base": "fetch-0001.xml", "transform": "Remove both citation PMID and own PubmedData pubmed ArticleId for 801; referenced IDs remain irrelevant.", "expected": "Reject record lacking its own PMID."},
+    {"name": "Conflicting own PMID fields", "base": "fetch-0001.xml", "transform": "Change only citation PMID 999999801 to 999999899, leaving own pubmed ArticleId 999999801.", "expected": "Reject conflicting identifiers."},
+    {"name": "Malformed XML", "base": "fetch-0003.xml", "transform": "Remove closing PubmedArticleSet tag.", "expected": "Reject parse failure and clean staging."},
+    {"name": "Entity declaration", "base": "fetch-0003.xml", "transform": "Insert a DOCTYPE with an ENTITY declaration after the XML declaration.", "expected": "Reject before entity processing."}
+  ]
+}

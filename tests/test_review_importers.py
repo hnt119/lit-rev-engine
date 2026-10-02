@@ -1,12 +1,13 @@
 """Focused format/provenance tests for the offline bibliography adapters."""
 
 import json
+from pathlib import Path
 import socket
 import urllib.request
 
 import pytest
 
-from src.review.importers import load_records
+from src.review.importers import load_records, load_records_bytes
 
 
 def _write(tmp_path, filename, text):
@@ -204,3 +205,63 @@ def test_format_override_bom_and_unknown_formats(tmp_path):
         load_records(path, format="bibtex")
     with pytest.raises(ValueError, match="cannot read UTF-8"):
         load_records(tmp_path / "missing.json")
+
+
+@pytest.mark.parametrize("format, text", [
+    ("json", '[{"title": "García, synthetic metadata", "authors": ["Example, Áda"], "year": 2024, "original": {"tag": "value"}}]'),
+    ("ris", "TY  - JOUR\r\nTI  - García synthetic metadata\r\nAU  - Example, Áda\r\nAN  - original-accession\r\nER  -\r\n"),
+    ("pubmed_xml", f"<PubmedArticleSet>{_article_xml()}</PubmedArticleSet>"),
+])
+@pytest.mark.parametrize("bom", [False, True])
+def test_bytes_and_path_imports_have_identical_records_and_raw(tmp_path, format, text, bom):
+    content = (b"\xef\xbb\xbf" if bom else b"") + text.encode("utf-8")
+    path = tmp_path / "original-export.txt"
+    path.write_bytes(content)
+    assert load_records_bytes(content, format, source_name=str(path)) == load_records(path, format=format)
+
+
+@pytest.mark.parametrize("format, content", [("json", b"[]"), ("ris", b""), ("pubmed_xml", b"<PubmedArticleSet />")])
+def test_bytes_zero_result_imports(format, content):
+    assert load_records_bytes(content, format) == []
+
+
+@pytest.mark.parametrize("alias", ["xml", "pubmed", "pubmed_xml", "pubmed-xml", "PUBMED_XML"])
+def test_bytes_parser_accepts_existing_xml_aliases(alias):
+    assert load_records_bytes(b"<PubmedArticleSet />", alias) == []
+
+
+@pytest.mark.parametrize("content", ["[]", bytearray(b"[]"), memoryview(b"[]"), None, [], 3])
+def test_bytes_parser_rejects_non_bytes_with_source_context(content):
+    with pytest.raises(ValueError, match="captured-response:.*must be bytes"):
+        load_records_bytes(content, "json", source_name="captured-response")
+
+
+@pytest.mark.parametrize("format", [None, "", "bibtex", 3])
+def test_bytes_parser_requires_explicit_supported_format(format):
+    with pytest.raises(ValueError, match="<memory>: unsupported import format"):
+        load_records_bytes(b"[]", format)
+
+
+@pytest.mark.parametrize("format, content, context", [
+    ("json", b'[{"title":"First"},{"title":""}]', "JSON record 2"),
+    ("ris", b"TY  - JOUR\nTI  - A\n", "RIS record 1.*missing ER"),
+    ("pubmed_xml", b"<PubmedArticleSet>", "XML line 1"),
+    ("json", b"\xff[]", "cannot read UTF-8"),
+])
+def test_bytes_errors_match_path_errors_and_include_source(tmp_path, format, content, context):
+    path = tmp_path / "captured-response.txt"
+    path.write_bytes(content)
+    with pytest.raises(ValueError, match=context) as memory_error:
+        load_records_bytes(content, format, source_name=str(path))
+    with pytest.raises(ValueError) as path_error:
+        load_records(path, format=format)
+    assert str(memory_error.value) == str(path_error.value)
+
+
+def test_bytes_parser_does_not_open_files(tmp_path, monkeypatch):
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Captured-byte parsing must not reopen files")
+    monkeypatch.setattr(Path, "open", forbidden)
+    records = load_records_bytes(b'[{"title":"Captured record", "doi":"10.1234/record", "original":"untouched"}]', "json", source_name=str(tmp_path / "absent.json"))
+    assert records[0].doi == "10.1234/record"
+    assert records[0].raw["original"] == "untouched"

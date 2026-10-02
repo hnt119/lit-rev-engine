@@ -2,12 +2,14 @@
 
 A Python engine for managing a reproducible review ledger and exploring locally indexed academic papers with an Agnes-powered assistant.
 
-The review ledger stores systematic or scoping review projects, saved bibliography imports, search history, conservative deduplication, reviewer decisions, and reconciled record/report counts. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages. Live biomedical searches, report-to-study linkage, and verified evidence tables remain future work.
+The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, and reconciled record/report counts. PubMed receipts and original response bytes survive ledger export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages. Report-to-study linkage and verified evidence tables remain future work.
 
 ## Current workflow
 
 ```mermaid
 flowchart LR
+    PubMed[PubMed search] --> Capture[Verify membership and preserve receipt / response bytes]
+    Capture --> Import
     Export[Saved JSON / RIS / PubMed XML] --> Import[Import and preserve every occurrence]
     Import --> Ledger[(SQLite review project)]
     Ledger --> Dedup[Conservative record deduplication]
@@ -16,7 +18,7 @@ flowchart LR
     Fulltext --> Counts[Reconciled counts and JSON / CSV exports]
 ```
 
-`review.py` manages this ledger offline using Python's standard library. Full-text retrieval status is recorded by a reviewer; the ledger does not download the report or make eligibility decisions.
+`review.py` uses Python's standard library. Imports, screening, counts, export, and saved-capture verification run offline; `search-pubmed` explicitly executes an NCBI search. Full-text retrieval status is recorded by a reviewer; the ledger does not download the report or make eligibility decisions.
 
 The passage exploration pipeline remains separate:
 
@@ -42,7 +44,7 @@ Embeddings run locally using `BAAI/bge-small-en-v1.5`. Ingestion and retrieval r
 
 ## Requirements and installation
 
-Python 3.12 is recommended. The review ledger requires no third-party packages or API key. An internet connection is needed for arXiv searches, PDF downloads, the first embedding-model download, and Agnes generation. Install the runtime dependencies below to use the passage pipeline.
+Python 3.12 is recommended. The review ledger and PubMed adapter require no third-party packages or paid API key. Live PubMed requests require a contact email; an NCBI API key is optional. An internet connection is needed for PubMed/arXiv searches, PDF downloads, the first embedding-model download, and Agnes generation. Install the runtime dependencies below to use the passage pipeline.
 
 ```bash
 git clone https://github.com/hnt119/lit-rev-engine.git
@@ -115,6 +117,23 @@ Exports include a versioned `project.json` bundle, records, search runs, origina
 CSV uses standard quoting and prefixes a single quote to user text beginning with spreadsheet formula characters (`=`, `+`, `-`, `@`, tab, carriage return). JSON retains the exact original text. Repeated exports of an unchanged ledger are deterministic. Without `--import-key`, each import adds a new historical run; an identical keyed retry returns the original result, while changed input under that key fails.
 
 The default database is repository `data/reviews.sqlite3`. To use a separate database, put `--db PATH` before the command. Run `python review.py --help` for all commands. Preserve the SQLite file to retain your review; the passage index is a separate artifact.
+
+### Capture and replay a PubMed search
+
+Set `NCBI_EMAIL` to your contact email and optionally `NCBI_API_KEY` in your shell. The review CLI reads these environment variables directly and does not load `.env`. Use your actual protocol query and a new output directory:
+
+```bash
+PUBMED_QUERY="REPLACE_WITH_YOUR_EXACT_PUBMED_QUERY"
+python review.py search-pubmed "$REVIEW_PROJECT_ID" --query "$PUBMED_QUERY" \
+  --output data/pubmed-captures/my-first-search --import-key pubmed-001
+python review.py verify-pubmed data/pubmed-captures/my-first-search
+python review.py import-pubmed "$REVIEW_PROJECT_ID" data/pubmed-captures/my-first-search \
+  --import-key pubmed-001
+```
+
+The first command searches, captures complete PMID membership and citation XML, then imports it. The other commands run offline; verification opens no ledger. Inspect the saved translated query and warnings. Identical keyed replay returns the original run, including from a moved or exported capture. SQLite retains the receipt and exact ESearch/EFetch/combined XML bytes, so deleting the original folder does not lose them. Export adds a hash/size manifest and `search_captures/<run_id>/` assets to the normal ledger files.
+
+This version accepts at most 10,000 PubMed matches and fails on truncation or wrong membership. A larger search needs a separately validated segmentation/EDirect workflow. If capture succeeds but import fails, the complete folder is retained and the error gives an offline recovery command. Supported date/sort options, rate limits, failure behavior, and a fully offline synthetic example are in [PubMed capture and replay](docs/pubmed-search.md). Capture completeness describes saved membership; it does not establish comprehensive biomedical coverage or clinical evidence quality.
 
 ### 1. Search and index papers
 
@@ -210,6 +229,7 @@ data/
 ├── chunks/all_chunks.json            # Latest chunks with provenance
 ├── embeddings/chunks_embedded.json   # Latest chunks with vectors
 ├── chroma/                           # Persistent aggregate vector index
+├── pubmed-captures/                  # Saved search receipts and citation XML
 └── reviews.sqlite3                   # Persistent review ledger
 ```
 
@@ -224,7 +244,7 @@ Each new indexed chunk retains title, authors, publication date, arXiv entry URL
 ```text
 src/
 ├── settings.py
-├── search/arxiv_search.py
+├── search/                           # arXiv search and PubMed capture/replay
 ├── download/pdf_downloader.py
 ├── parser/pdf_parser.py
 ├── chunking/chunker.py
@@ -257,20 +277,22 @@ For an explicitly offline run on macOS/Linux:
 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python -m pytest -q
 ```
 
-The suite uses temporary PDFs, SQLite/Chroma databases, fake embeddings, and mocked network/generation responses. It covers token bounds and text coverage, page provenance, section detection, interrupted downloads, repeated indexing, stale-chunk removal, empty indexes, model mismatch, citation validation, and CLI behavior. Independent review fixtures verify import provenance, deduplication, rollback, reviewer conflicts/revisions, stage prerequisites, export escaping, and hand-computed count reconciliation. It does not call arXiv or Agnes or download a model. See the [milestone contract](docs/review-milestone.md) and [evaluation evidence](docs/review-evaluation.md).
+The suite uses temporary PDFs, SQLite/Chroma databases, fake embeddings, and mocked network/generation responses. It covers token bounds and text coverage, page provenance, section detection, interrupted downloads, repeated indexing, stale-chunk removal, empty indexes, model mismatch, citation validation, and CLI behavior. Independent review fixtures verify import provenance, deduplication, rollback, reviewer conflicts/revisions, stage prerequisites, export escaping, and hand-computed count reconciliation. PubMed cases verify exact membership, throttling/retries, tamper rejection, transactional artifact retention, source deletion, offline replay, and snapshot exports. It does not call PubMed, arXiv, or Agnes or download a model. See the [ledger contract](docs/review-milestone.md), [ledger evaluation](docs/review-evaluation.md), [PubMed contract](docs/pubmed-milestone.md), and [PubMed evaluation](docs/pubmed-evaluation.md).
 
 ## Medical systematic and scoping reviews
 
-The ledger supports an auditable record-screening workflow for saved database exports. Comprehensive biomedical discovery and evidence synthesis still depend on the reviewer's search strategy, eligibility protocol, and verification of original reports. The arXiv passage search is relevance-limited and cannot serve as the complete biomedical search.
+The ledger supports an auditable record-screening workflow for saved database exports and captured PubMed searches. Comprehensive biomedical discovery and evidence synthesis still depend on the reviewer's search strategy, eligibility protocol, and verification of original reports. The arXiv passage search is relevance-limited and cannot serve as the complete biomedical search.
 
 The six development priorities are:
 
-1. Persistent review projects, protocols, eligibility criteria, and exact search histories: implemented for saved imports.
-2. Biomedical discovery: JSON, RIS, and PubMed XML imports implemented; live PubMed search and additional formats remain next steps.
+1. Persistent review projects, protocols, eligibility criteria, and exact search histories: implemented for saved imports and captured PubMed execution receipts.
+2. Biomedical discovery: JSON, RIS, PubMed XML imports, and complete PubMed capture/offline replay implemented; additional databases and validated searches beyond 10,000 matches remain future work.
 3. Citation-record deduplication implemented conservatively; manual duplicate resolution and report-to-study linkage remain future work.
 4. Title/abstract and full-text screening, reviewer identity, exclusion reasons, and reconciled flow counts implemented; reviewer requirements and reopening stages remain future work.
 5. Structured extraction with source quotations, page/table locations, verification status, and design-appropriate appraisal.
 6. Synthesis and exports based on verified evidence, with a medical-paper evaluation set.
+
+The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The next gate is auditable report/study linkage, followed by source-anchored verified extraction and real medical-paper retrieval evaluation.
 
 PRISMA is a reporting guideline; implementing a flow diagram alone does not establish review quality. Systematic and scoping workflows should retain their distinct methodological requirements. [PRISMA 2020](https://www.prisma-statement.org/prisma-2020), [PRISMA-ScR](https://www.prisma-statement.org/scoping).
 

@@ -14,8 +14,9 @@ data/embeddings/
 data/pdfs/
 data/chunks/
 data/chroma/
-data/*reviews.sqlite3
-data/*reviews.sqlite3-*
+data/*.sqlite3
+data/*.sqlite3-*
+data/pubmed-captures/
 
 .pytest_cache/
 .ruff_cache/

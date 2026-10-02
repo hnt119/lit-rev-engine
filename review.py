@@ -1,4 +1,4 @@
-"""Command-line entry point for the offline review-project ledger."""
+"""Review-project ledger CLI with offline replay and explicit PubMed capture."""
 
 from src.review.cli import main
 

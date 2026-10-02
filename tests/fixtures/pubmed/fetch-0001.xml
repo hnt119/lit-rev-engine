@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE">
+      <PMID Version="1">999999801</PMID>
+      <Article>
+        <Journal><JournalIssue><PubDate><Year>2024</Year></PubDate></JournalIssue><Title>Synthetic Metadata Journal</Title></Journal>
+        <ArticleTitle>Synthetic capture record <i>A</i>: nested-text exercise</ArticleTitle>
+        <Abstract>
+          <AbstractText Label="PURPOSE">Preserve synthetic <b>bibliography</b> metadata.</AbstractText>
+          <AbstractText Label="NOTE">No clinical results or actual research participants are described.</AbstractText>
+        </Abstract>
+        <AuthorList>
+          <Author><LastName>Example</LastName><ForeName>Ada</ForeName></Author>
+          <Author><CollectiveName>Synthetic Fixture Consortium</CollectiveName></Author>
+        </AuthorList>
+      </Article>
+      <GeneralNote>Invented software fixture; do not resolve or cite the PMID.</GeneralNote>
+    </MedlineCitation>
+    <PubmedData><ArticleIdList><ArticleId IdType="pubmed">999999801</ArticleId></ArticleIdList></PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE">
+      <PMID Version="1">999999803</PMID>
+      <Article>
+        <Journal><JournalIssue><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Synthetic Metadata Journal</Title></Journal>
+        <ArticleTitle>Synthetic capture record C: identifier exercise</ArticleTitle>
+        <Abstract><AbstractText>Software fixture only; no clinical findings.</AbstractText></Abstract>
+        <AuthorList><Author><LastName>Example</LastName><ForeName>Cora</ForeName></Author></AuthorList>
+        <ELocationID EIdType="doi">10.99999/pubmed-fixture-803</ELocationID>
+      </Article>
+      <GeneralNote>Invented software fixture; do not resolve or cite the identifiers.</GeneralNote>
+    </MedlineCitation>
+    <PubmedData>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">999999803</ArticleId>
+        <ArticleId IdType="doi">10.99999/pubmed-fixture-803</ArticleId>
+      </ArticleIdList>
+      <ReferenceList><Reference><Citation>Synthetic referenced record, not a search result.</Citation><ArticleIdList><ArticleId IdType="pubmed">999999899</ArticleId></ArticleIdList></Reference></ReferenceList>
+    </PubmedData>
+  </PubmedArticle>
+</PubmedArticleSet>

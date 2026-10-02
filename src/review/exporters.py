@@ -30,10 +30,10 @@ def _csv(rows, fields):
     return output.getvalue()
 
 
-def write_export(bundle, exclusions, destination):
+def write_export(bundle, exclusions, destination, *, artifacts=None):
     """Build every file before replacing known output paths; preserve other files."""
     record_fields = ["id", "project_id", "title", "authors", "year", "doi", "pmid", "abstract", "url", "source_id", "raw", "title_abstract_state", "full_text_status", "full_text_state"]
-    search_fields = ["id", "project_id", "source", "query", "searched_at", "filters", "notes", "import_format", "source_file", "source_sha256", "reported_count", "identified", "new_records", "duplicates", "created_at"]
+    search_fields = ["id", "project_id", "source", "query", "searched_at", "filters", "notes", "import_format", "source_file", "source_sha256", "reported_count", "execution", "identified", "new_records", "duplicates", "created_at"]
     count_rows = []
     for metric, value in bundle["counts"].items():
         if metric == "reconciliation":
@@ -51,12 +51,19 @@ def write_export(bundle, exclusions, destination):
         "counts.csv": _csv(count_rows, ["metric", "value"]),
         "exclusions.csv": _csv(exclusions, ["record_id", "stage", "title", "reason", "reviewers", "kind"]),
     }
+    contents.update(artifacts or {})
     destination = Path(destination)
     destination.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".review-export-", dir=destination) as staged:
         staged = Path(staged)
         for name, content in contents.items():
-            (staged / name).write_text(content, encoding="utf-8", newline="")
+            path = staged / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            if isinstance(content, bytes):
+                path.write_bytes(content)
+            else:
+                path.write_text(content, encoding="utf-8", newline="")
         for name in contents:
+            (destination / name).parent.mkdir(parents=True, exist_ok=True)
             os.replace(staged / name, destination / name)
     return {"directory": str(destination.resolve()), "files": list(contents), "counts": bundle["counts"]}

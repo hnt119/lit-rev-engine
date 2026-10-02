@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eSearchResult>
+  <Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList />
+  <QueryTranslation>synthetic invalid-field request</QueryTranslation>
+  <ErrorList><FieldNotFound>synthetic-invalid-field</FieldNotFound></ErrorList>
+</eSearchResult>

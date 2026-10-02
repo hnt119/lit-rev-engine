@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE">
+      <PMID Version="1">999999802</PMID>
+      <Article>
+        <Journal><JournalIssue><PubDate><MedlineDate>2023 Nov-Dec</MedlineDate></PubDate></JournalIssue><Title>Synthetic Metadata Journal</Title></Journal>
+        <ArticleTitle>Synthetic capture record B: MedlineDate exercise</ArticleTitle>
+        <AuthorList><Author><LastName>Example</LastName><Initials>BB</Initials></Author></AuthorList>
+      </Article>
+      <GeneralNote>Invented software fixture with no abstract; not a real publication.</GeneralNote>
+    </MedlineCitation>
+    <PubmedData><ArticleIdList><ArticleId IdType="pubmed">999999802</ArticleId></ArticleIdList></PubmedData>
+  </PubmedArticle>
+  <PubmedBookArticle>
+    <BookDocument>
+      <PMID Version="1">999999805</PMID>
+      <ArticleIdList><ArticleId IdType="bookaccession">NBK_SYNTHETIC_FIXTURE_E</ArticleId></ArticleIdList>
+      <Book>
+        <Publisher><PublisherName>Synthetic Software Fixture Publisher</PublisherName></Publisher>
+        <BookTitle>Synthetic Bibliography Fixtures</BookTitle>
+        <PubDate><Year>2024</Year></PubDate>
+      </Book>
+      <ArticleTitle>Synthetic capture record E: book-document exercise</ArticleTitle>
+      <AuthorList><Author><CollectiveName>Synthetic Book Fixture Committee</CollectiveName></Author></AuthorList>
+      <Abstract><AbstractText>Invented chapter metadata for testing; no clinical findings.</AbstractText></Abstract>
+    </BookDocument>
+    <PubmedBookData><ArticleIdList><ArticleId IdType="pubmed">999999805</ArticleId></ArticleIdList></PubmedBookData>
+  </PubmedBookArticle>
+</PubmedArticleSet>
