@@ -4,3 +4,16 @@
 /tests/fixtures/evidence/*.pdf -text
 /tests/fixtures/medical_sources/*.xml -text
 /tests/fixtures/medical_retrieval/*.json -text
+/tests/fixtures/medical_sources_v2/*.xml -text
+/tests/fixtures/medical_retrieval_v2/*.json -text
+# Prospective evaluations also pin metadata, checker and implementation bytes.
+/tests/fixtures/medical_sources/*.json -text
+/tests/fixtures/medical_sources_v2/*.json -text
+/tests/fixtures/medical_sources_v2/verify.py -text
+/tests/fixtures/medical_retrieval/verify.py -text
+/tests/fixtures/medical_retrieval_v2/verify.py -text
+/tests/fixtures/medical_retrieval_v2/README.md -text
+/src/review/retrieval.py -text
+/src/review/store.py -text
+/src/review/cli.py -text
+/src/review/documents.py -text

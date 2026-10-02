@@ -523,6 +523,11 @@ class ReviewStore:
     def list_evidence_reviews(self, project_id, evidence_id=None):
         return self._evidence.list_evidence_reviews(project_id, evidence_id)
 
+    def search_sources(self, project_id, query, *, top_k=5, method="bm25", scope="included"):
+        from .retrieval import search_sources
+
+        return search_sources(self, project_id, query, top_k=top_k, method=method, scope=scope)
+
     def _screening_rows(self, project_id, record_id=None):
         query = "SELECT * FROM screening_events WHERE project_id = ?"
         parameters = [project_id]

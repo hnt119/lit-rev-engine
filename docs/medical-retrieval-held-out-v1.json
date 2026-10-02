@@ -1,0 +1,3731 @@
+{
+  "schema_version": 1,
+  "evaluation_version": "independent-medical-retrieval.v1",
+  "split": "held-out",
+  "held_out_ranked": true,
+  "source_gold_checker": "PASS: 3 pinned sources; 23 exact main-article passages; 18 questions (9/9 split, 4 no-answer); 43 exact Unicode quote spans. Coordinator freeze verified. No ranking/model/index/network.\nRuntime provenance: historical Python 3.12.7; effective current Python 3.12.7; version differs=false. Historical anchors unchanged.",
+  "freeze_sha256": "e0b8b7581c16ad2e96df19ba93e7d77a4252001ba774b96eec3c4dd842b2b0b7",
+  "frozen_parameters": {
+    "bm25_b": 0.75,
+    "bm25_k1": 1.2,
+    "distinct_query_tokens": true,
+    "overlap_words": 40,
+    "tokenizer_id": "unicode-casefold-word-v1",
+    "top_k": 5,
+    "window_words": 200
+  },
+  "method_results": [
+    {
+      "method": "bm25",
+      "metrics": {
+        "questions": 9,
+        "answerable_questions": 7,
+        "no_answer_questions": 2,
+        "hit_rate_at_5": 0.7142857142857143,
+        "mean_reciprocal_rank_at_5": 0.7142857142857143,
+        "mean_support_coverage_at_5": 0.6428571428571429,
+        "complete_questions_at_5": 4,
+        "complete_question_rate_at_5": 0.5714285714285714,
+        "no_answer_nonempty_candidate_rate_at_5": 1.0,
+        "no_answer_context_quotes_covered_at_5": 2,
+        "no_answer_context_quotes_declared": 4
+      },
+      "valid_exact_anchors": 45,
+      "total_returned_anchors": 45,
+      "same_ledger_deterministic": true,
+      "ledger_rows_unchanged": true,
+      "per_question": [
+        {
+          "question_id": "held-coach-01",
+          "article_alias": "coach",
+          "question": "What was the actual randomization unit in COACH, what unit had originally been planned, and how many townships were allocated to each arm?",
+          "answerable": true,
+          "expected_answer_as_reported": {
+            "actual_randomization_unit": "township",
+            "originally_planned_unit": "village",
+            "townships_per_arm": 5,
+            "outcome_unit": "individual participant"
+          },
+          "sufficient_support_sets": [
+            [
+              "C_randomization"
+            ]
+          ],
+          "gold_quotes": [
+            {
+              "passage_id": "C_randomization",
+              "start": 0,
+              "end": 71,
+              "quote": "The original design planned for village to be the unit of randomization",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "C_randomization",
+              "start": 280,
+              "end": 406,
+              "quote": "randomization was based on the township where the villages were located, while outcomes pertain to the individual participant.",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "C_randomization",
+              "start": 691,
+              "end": 745,
+              "quote": "Five townships were selected for each arm of the study",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": 1,
+          "any_required_support_hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "alternative_support_coverages_at_5": [
+            1.0
+          ],
+          "best_alternative_support_coverage_at_5": 1.0,
+          "complete_support_at_5": true,
+          "passage_quote_coverage_at_5": {
+            "C_randomization": {
+              "required_quotes": 3,
+              "quote_first_ranks": [
+                1,
+                1,
+                1
+              ],
+              "covered_quotes": 3,
+              "covered": true
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {},
+          "hard_negative_candidates_at_5": [],
+          "failure_modes": [],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 25.65135360911405,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+              "start": 0,
+              "end": 1208
+            },
+            {
+              "rank": 2,
+              "score": 11.916374995467313,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/body[1]/sec[4]/p[8]",
+              "start": 0,
+              "end": 1077
+            },
+            {
+              "rank": 3,
+              "score": 8.610285247343477,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+              "start": 0,
+              "end": 1242
+            },
+            {
+              "rank": 4,
+              "score": 8.55111756661902,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+              "start": 0,
+              "end": 523
+            },
+            {
+              "rank": 5,
+              "score": 7.6795503371636675,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+              "start": 0,
+              "end": 540
+            }
+          ]
+        },
+        {
+          "question_id": "held-coach-02",
+          "article_alias": "coach",
+          "question": "What percentages achieved hypertension control after 12 months in COACH versus eCAU, and what uncontrolled-BP thresholds did the methods use for participants with diabetes, coronary heart disease, or renal disease versus other participants?",
+          "answerable": true,
+          "expected_answer_as_reported": {
+            "month_12_control_percent": {
+              "COACH": 71.6,
+              "eCAU": 40.9
+            },
+            "uncontrolled_HTN_as_defined": {
+              "specified_comorbidities": "systolic BP ≥130 mm Hg or diastolic BP ≥80",
+              "others": "systolic BP ≥140 or diastolic BP ≥90"
+            },
+            "scope": "Reported trial endpoint definition, not a clinical treatment recommendation."
+          },
+          "sufficient_support_sets": [
+            [
+              "C_HTN_results",
+              "C_HTN_definition"
+            ]
+          ],
+          "gold_quotes": [
+            {
+              "passage_id": "C_HTN_results",
+              "start": 78,
+              "end": 150,
+              "quote": "increasing from 25.1% to 71.6% over the 12 months of study participation",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "C_HTN_results",
+              "start": 176,
+              "end": 202,
+              "quote": "eCAU (from 20.2% to 40.9%)",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "C_HTN_definition",
+              "start": 193,
+              "end": 388,
+              "quote": "systolic blood pressure (BP) ≥130 mm Hg or diastolic BP ≥80 for patients with diabetes mellitus, coronary heart disease, or renal disease, and systolic BP ≥140 or diastolic BP ≥90 for all others.",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": 1,
+          "any_required_support_hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "alternative_support_coverages_at_5": [
+            0.5
+          ],
+          "best_alternative_support_coverage_at_5": 0.5,
+          "complete_support_at_5": false,
+          "passage_quote_coverage_at_5": {
+            "C_HTN_results": {
+              "required_quotes": 2,
+              "quote_first_ranks": [
+                null,
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            },
+            "C_HTN_definition": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                1
+              ],
+              "covered_quotes": 1,
+              "covered": true
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {},
+          "hard_negative_candidates_at_5": [],
+          "failure_modes": [
+            "incomplete_sufficient_support_set"
+          ],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 31.04131782586808,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+              "start": 0,
+              "end": 388
+            },
+            {
+              "rank": 2,
+              "score": 23.001306822942745,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+              "start": 0,
+              "end": 614
+            },
+            {
+              "rank": 3,
+              "score": 20.197845677628447,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/p[7]",
+              "start": 0,
+              "end": 464
+            },
+            {
+              "rank": 4,
+              "score": 19.47162830262323,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/fig[2]/caption[1]/p[1]",
+              "start": 0,
+              "end": 821
+            },
+            {
+              "rank": 5,
+              "score": 18.855685214471517,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/table-wrap[1]",
+              "start": 1901,
+              "end": 2614
+            }
+          ]
+        },
+        {
+          "question_id": "held-coach-03",
+          "article_alias": "coach",
+          "question": "What causal improvement in hypertension control was attributable specifically to the Aging Worker component alone, separate from the other COACH components?",
+          "answerable": false,
+          "expected_answer_as_reported": null,
+          "sufficient_support_sets": [],
+          "gold_quotes": [
+            {
+              "passage_id": "C_component_not_isolated",
+              "start": 0,
+              "end": 124,
+              "quote": "The unique benefits to depression treatment and hypertension control of antidepressant prescription and Aging Worker support",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "C_component_not_isolated",
+              "start": 194,
+              "end": 216,
+              "quote": "require further study.",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": null,
+          "any_required_support_hit_at_5": null,
+          "reciprocal_rank_at_5": null,
+          "alternative_support_coverages_at_5": [],
+          "best_alternative_support_coverage_at_5": null,
+          "complete_support_at_5": null,
+          "passage_quote_coverage_at_5": {
+            "C_component_not_isolated": {
+              "required_quotes": 2,
+              "quote_first_ranks": [
+                1,
+                1
+              ],
+              "covered_quotes": 2,
+              "covered": true
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {
+            "C_component_not_isolated": {
+              "required_quotes": 2,
+              "quote_first_ranks": [
+                1,
+                1
+              ],
+              "covered_quotes": 2,
+              "covered": true
+            }
+          },
+          "hard_negative_candidates_at_5": [],
+          "failure_modes": [],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 18.811913959823922,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+              "start": 0,
+              "end": 216
+            },
+            {
+              "rank": 2,
+              "score": 14.331787253800586,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+              "start": 0,
+              "end": 868
+            },
+            {
+              "rank": 3,
+              "score": 13.252368616090635,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+              "start": 0,
+              "end": 332
+            },
+            {
+              "rank": 4,
+              "score": 10.210506751041738,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+              "start": 0,
+              "end": 222
+            },
+            {
+              "rank": 5,
+              "score": 10.129871365978477,
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+              "start": 0,
+              "end": 240
+            }
+          ]
+        },
+        {
+          "question_id": "held-whitehall-01",
+          "article_alias": "whitehall",
+          "question": "In the sensitivity analysis excluding all 13 chronic diseases at baseline, what happened to the association of ≥9-hour sleep at age 70 with multimorbidity, and what HR/interval/p-value were reported?",
+          "answerable": true,
+          "expected_answer_as_reported": {
+            "age_years": 70,
+            "exposure": "sleep ≥9 hours",
+            "population": "free of all 13 chronic diseases at sleep measurement",
+            "HR": 1.52,
+            "CI95": [
+              0.98,
+              2.35
+            ],
+            "p": 0.063,
+            "as_reported": "did not reach statistical significance although effect size was comparable",
+            "not_implied": "proof of no association"
+          },
+          "sufficient_support_sets": [
+            [
+              "W_long_sleep_sensitivity"
+            ]
+          ],
+          "gold_quotes": [
+            {
+              "passage_id": "W_long_sleep_sensitivity",
+              "start": 247,
+              "end": 411,
+              "quote": "the association with sleep duration ≥9 hours at age 70 that did not reach significance although the effect size was comparable (HR = 1.52, 0.98 to 2.35; p = 0.063).",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": 1,
+          "any_required_support_hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "alternative_support_coverages_at_5": [
+            1.0
+          ],
+          "best_alternative_support_coverage_at_5": 1.0,
+          "complete_support_at_5": true,
+          "passage_quote_coverage_at_5": {
+            "W_long_sleep_sensitivity": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                1
+              ],
+              "covered_quotes": 1,
+              "covered": true
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {},
+          "hard_negative_candidates_at_5": [],
+          "failure_modes": [],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 30.29029244803204,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[4]",
+              "start": 0,
+              "end": 526
+            },
+            {
+              "rank": 2,
+              "score": 27.23982009813247,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[3]",
+              "start": 0,
+              "end": 1142
+            },
+            {
+              "rank": 3,
+              "score": 24.2177824415822,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+              "start": 0,
+              "end": 1125
+            },
+            {
+              "rank": 4,
+              "score": 23.2256144674577,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+              "start": 0,
+              "end": 754
+            },
+            {
+              "rank": 5,
+              "score": 21.195088740580957,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[6]",
+              "start": 0,
+              "end": 1230
+            }
+          ]
+        },
+        {
+          "question_id": "held-whitehall-02",
+          "article_alias": "whitehall",
+          "question": "How did the age-50 short-sleep mortality result differ between the multistate disease-transition analysis and the post hoc mortality analysis that ignored intervening chronic-disease states?",
+          "answerable": true,
+          "expected_answer_as_reported": {
+            "multistate": "Sleep ≤5 hours versus 7 hours was associated with first disease and subsequent multimorbidity but not mortality transitions.",
+            "posthoc_overall_mortality": {
+              "HR": 1.25,
+              "CI95": [
+                1.02,
+                1.53
+              ],
+              "p": 0.034,
+              "as_reported": "higher mortality risk"
+            },
+            "population_context": "Separate baseline disease-free age-50 multistate sample, N=7217, mean follow-up about 25.2 years.",
+            "not_implied": "A blanket statement that short sleep had no association with mortality in every analysis."
+          },
+          "sufficient_support_sets": [
+            [
+              "W_multistate",
+              "W_posthoc_mortality"
+            ]
+          ],
+          "gold_quotes": [
+            {
+              "passage_id": "W_multistate",
+              "start": 0,
+              "end": 29,
+              "quote": "A total of 7,217 participants",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "W_multistate",
+              "start": 738,
+              "end": 766,
+              "quote": "but not mortality (Table 3).",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "W_posthoc_mortality",
+              "start": 224,
+              "end": 279,
+              "quote": "without considering chronic diseases over the follow-up",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "W_posthoc_mortality",
+              "start": 364,
+              "end": 424,
+              "quote": "sleep duration ≤5 hours (HR = 1.25, 1.02 to 1.53; p = 0.034)",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": null,
+          "any_required_support_hit_at_5": false,
+          "reciprocal_rank_at_5": 0,
+          "alternative_support_coverages_at_5": [
+            0.0
+          ],
+          "best_alternative_support_coverage_at_5": 0.0,
+          "complete_support_at_5": false,
+          "passage_quote_coverage_at_5": {
+            "W_multistate": {
+              "required_quotes": 2,
+              "quote_first_ranks": [
+                null,
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            },
+            "W_posthoc_mortality": {
+              "required_quotes": 2,
+              "quote_first_ranks": [
+                null,
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {},
+          "hard_negative_candidates_at_5": [],
+          "failure_modes": [
+            "no_required_gold_quote_at_5",
+            "incomplete_sufficient_support_set"
+          ],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 25.92120393181775,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+              "start": 0,
+              "end": 979
+            },
+            {
+              "rank": 2,
+              "score": 25.023966609893044,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+              "start": 0,
+              "end": 1261
+            },
+            {
+              "rank": 3,
+              "score": 24.75852371560207,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+              "start": 0,
+              "end": 297
+            },
+            {
+              "rank": 4,
+              "score": 22.09708349408187,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+              "start": 0,
+              "end": 1248
+            },
+            {
+              "rank": 5,
+              "score": 21.440536479921203,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+              "start": 0,
+              "end": 1288
+            }
+          ]
+        },
+        {
+          "question_id": "held-whitehall-03",
+          "article_alias": "whitehall",
+          "question": "What causal reduction in multimorbidity would occur if a randomized intervention increased these Whitehall participants’ sleep from ≤5 to 7 hours?",
+          "answerable": false,
+          "expected_answer_as_reported": null,
+          "sufficient_support_sets": [],
+          "gold_quotes": [
+            {
+              "passage_id": "W_cohort_design",
+              "start": 0,
+              "end": 49,
+              "quote": "The Whitehall II study is an ongoing cohort study",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "W_limitations",
+              "start": 1000,
+              "end": 1062,
+              "quote": "residual confounding can be an issue in observational studies.",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": null,
+          "any_required_support_hit_at_5": null,
+          "reciprocal_rank_at_5": null,
+          "alternative_support_coverages_at_5": [],
+          "best_alternative_support_coverage_at_5": null,
+          "complete_support_at_5": null,
+          "passage_quote_coverage_at_5": {
+            "W_cohort_design": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            },
+            "W_limitations": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {
+            "W_cohort_design": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            },
+            "W_limitations": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            }
+          },
+          "hard_negative_candidates_at_5": [],
+          "failure_modes": [],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 14.437107618135908,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+              "start": 0,
+              "end": 1125
+            },
+            {
+              "rank": 2,
+              "score": 14.304795211238844,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+              "start": 0,
+              "end": 846
+            },
+            {
+              "rank": 3,
+              "score": 13.759048225008943,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+              "start": 0,
+              "end": 1145
+            },
+            {
+              "rank": 4,
+              "score": 12.835210230833162,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[3]",
+              "start": 0,
+              "end": 840
+            },
+            {
+              "rank": 5,
+              "score": 12.784565329966824,
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[7]",
+              "start": 0,
+              "end": 770
+            }
+          ]
+        },
+        {
+          "question_id": "held-raptor-01",
+          "article_alias": "raptor",
+          "question": "Were both adults and children eligible for this RAPTOR-C19 arm, and what under-16 proportion and mean time since symptom onset characterized its primary-analysis sample?",
+          "answerable": true,
+          "expected_answer_as_reported": {
+            "eligible_groups": [
+              "adults",
+              "children"
+            ],
+            "under_16": {
+              "count": 175,
+              "denominator": 481,
+              "reported_percent": 36
+            },
+            "mean_time_since_symptom_onset_days": 3.7,
+            "scope": "Primary-analysis baseline characteristics; no follow-up outcomes implied."
+          },
+          "sufficient_support_sets": [
+            [
+              "R_population",
+              "R_characteristics"
+            ]
+          ],
+          "gold_quotes": [
+            {
+              "passage_id": "R_population",
+              "start": 310,
+              "end": 359,
+              "quote": "Adults and children were eligible to participate.",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "R_characteristics",
+              "start": 205,
+              "end": 232,
+              "quote": "36% (175/481) aged under 16",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "R_characteristics",
+              "start": 308,
+              "end": 368,
+              "quote": "Average time since self-reported symptom onset was 3.7 days.",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": 1,
+          "any_required_support_hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "alternative_support_coverages_at_5": [
+            1.0
+          ],
+          "best_alternative_support_coverage_at_5": 1.0,
+          "complete_support_at_5": true,
+          "passage_quote_coverage_at_5": {
+            "R_population": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                2
+              ],
+              "covered_quotes": 1,
+              "covered": true
+            },
+            "R_characteristics": {
+              "required_quotes": 2,
+              "quote_first_ranks": [
+                1,
+                1
+              ],
+              "covered_quotes": 2,
+              "covered": true
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {},
+          "hard_negative_candidates_at_5": [],
+          "failure_modes": [],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 28.531803267015967,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+              "start": 0,
+              "end": 584
+            },
+            {
+              "rank": 2,
+              "score": 23.092762707123427,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+              "start": 0,
+              "end": 517
+            },
+            {
+              "rank": 3,
+              "score": 15.434438425758067,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+              "start": 0,
+              "end": 994
+            },
+            {
+              "rank": 4,
+              "score": 13.903102195365783,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+              "start": 0,
+              "end": 267
+            },
+            {
+              "rank": 5,
+              "score": 13.664469843541642,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+              "start": 0,
+              "end": 502
+            }
+          ]
+        },
+        {
+          "question_id": "held-raptor-02",
+          "article_alias": "raptor",
+          "question": "Which two planned data-collection components were omitted in this RAPTOR-C19 arm following approved protocol amendments?",
+          "answerable": true,
+          "expected_answer_as_reported": {
+            "participant_reported_follow_up": "not collected",
+            "serology_collection": "not performed",
+            "reported_context": "approved protocol amendments",
+            "not_implied": "An unstated reason for the amendments or clinical outcome rate."
+          },
+          "sufficient_support_sets": [
+            [
+              "R_omitted_data"
+            ]
+          ],
+          "gold_quotes": [
+            {
+              "passage_id": "R_omitted_data",
+              "start": 105,
+              "end": 267,
+              "quote": "following approved protocol amendments, participant-reported follow-up data was not collected for this arm of the study and serology collection was not performed.",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": 1,
+          "any_required_support_hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "alternative_support_coverages_at_5": [
+            1.0
+          ],
+          "best_alternative_support_coverage_at_5": 1.0,
+          "complete_support_at_5": true,
+          "passage_quote_coverage_at_5": {
+            "R_omitted_data": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                1
+              ],
+              "covered_quotes": 1,
+              "covered": true
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {},
+          "hard_negative_candidates_at_5": [],
+          "failure_modes": [],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 44.79390485838894,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+              "start": 0,
+              "end": 267
+            },
+            {
+              "rank": 2,
+              "score": 18.366144153555815,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+              "start": 0,
+              "end": 502
+            },
+            {
+              "rank": 3,
+              "score": 13.099454264876783,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[1]/p[3]",
+              "start": 0,
+              "end": 604
+            },
+            {
+              "rank": 4,
+              "score": 12.044717127253675,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+              "start": 0,
+              "end": 517
+            },
+            {
+              "rank": 5,
+              "score": 10.563035030710374,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+              "start": 0,
+              "end": 123
+            }
+          ]
+        },
+        {
+          "question_id": "held-raptor-03",
+          "article_alias": "raptor",
+          "question": "What sensitivity/specificity and 95% intervals were actually measured for influenza B in RAPTOR-C19, and how many PCR-positive cases underlie the sensitivity estimate?",
+          "answerable": true,
+          "expected_answer_as_reported": {
+            "sensitivity_percent": 22.2,
+            "sensitivity_CI95_percent": [
+              2.8,
+              60.0
+            ],
+            "sensitivity_fraction": [
+              2,
+              9
+            ],
+            "PCR_positive_cases": 9,
+            "specificity_percent": 98.1,
+            "specificity_CI95_percent": [
+              96.4,
+              99.1
+            ],
+            "specificity_fraction": [
+              463,
+              472
+            ],
+            "scope": "Measured study results with wide uncertainty; not manufacturer claims or a recommendation."
+          },
+          "sufficient_support_sets": [
+            [
+              "R_accuracy"
+            ],
+            [
+              "R_accuracy_table"
+            ]
+          ],
+          "gold_quotes": [
+            {
+              "passage_id": "R_accuracy",
+              "start": 285,
+              "end": 391,
+              "quote": "For Influenza B, sensitivity was 22.2% (2/9, 2.8 to 60.0%) and specificity 98.1% (463/472, 96.4 to 99.1%).",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            },
+            {
+              "passage_id": "R_accuracy_table",
+              "start": 506,
+              "end": 544,
+              "quote": "22.2%(2.8%, 60.0%)\t98.1%(96.4%, 99.1%)",
+              "unit": "Unicode code points, half-open [start,end)",
+              "status": "provisional"
+            }
+          ],
+          "first_required_quote_rank_at_5": null,
+          "any_required_support_hit_at_5": false,
+          "reciprocal_rank_at_5": 0,
+          "alternative_support_coverages_at_5": [
+            0.0,
+            0.0
+          ],
+          "best_alternative_support_coverage_at_5": 0.0,
+          "complete_support_at_5": false,
+          "passage_quote_coverage_at_5": {
+            "R_accuracy": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            },
+            "R_accuracy_table": {
+              "required_quotes": 1,
+              "quote_first_ranks": [
+                null
+              ],
+              "covered_quotes": 0,
+              "covered": false
+            }
+          },
+          "nonempty_candidates_at_5": true,
+          "context_quote_coverage_at_5": {},
+          "hard_negative_candidates_at_5": [
+            {
+              "passage_id": "R_manufacturer_claims",
+              "rank": 3
+            }
+          ],
+          "failure_modes": [
+            "no_required_gold_quote_at_5",
+            "incomplete_sufficient_support_set"
+          ],
+          "returned_ranks_scores": [
+            {
+              "rank": 1,
+              "score": 26.076910135757586,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+              "start": 0,
+              "end": 994
+            },
+            {
+              "rank": 2,
+              "score": 22.407575055866022,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[6]/p[1]",
+              "start": 0,
+              "end": 561
+            },
+            {
+              "rank": 3,
+              "score": 18.443463557728755,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[4]/sec[3]/p[1]",
+              "start": 0,
+              "end": 654
+            },
+            {
+              "rank": 4,
+              "score": 17.98052702607611,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+              "start": 0,
+              "end": 391
+            },
+            {
+              "rank": 5,
+              "score": 17.33702304463396,
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+              "start": 0,
+              "end": 671
+            }
+          ]
+        }
+      ],
+      "operational_traces": [
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "What was the actual randomization unit in COACH, what unit had originally been planned, and how many townships were allocated to each arm?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 60,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 25.65135360911405,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+                "start": 0,
+                "end": 1208,
+                "quote": "The original design planned for village to be the unit of randomization [23]. However, it became clear prior to initiation of the study that the chance of contamination bias between study conditions was substantial due to interactions between neighboring village PCPs. Therefore, randomization was based on the township where the villages were located, while outcomes pertain to the individual participant. Ten townships located in Tonglu and Jiande Counties were randomly selected by a computer algorithm administered by the study statistician to assure that no two shared a common boundary. Each township contained from 18 to 25 villages, and each village contained 1 primary care clinic. Five townships were selected for each arm of the study, with all villages and their associated clinics in each township being assigned either to deliver the COACH intervention or eCAU to eligible patients. The PCP and aging workers (AWs) for COACH intervention clinics (see “Intervention-COACH” below) were approached by the research team for agreement to participate. One village assigned to the COACH arm refused. The final numbers of villages in the COACH and eCAU intervention arms were 102 and 116, respectively."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+                "section_title": "Randomization and masking",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 11.916374995467313,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[4]/p[8]",
+                "start": 0,
+                "end": 1077,
+                "quote": "Limitations of the study include generalizability of the model to other regions of China or other LMICs [47]. As well, there were methodological weaknesses to which RCTs in rural, underresourced areas are vulnerable. We were unable to mask research assessors to which condition a village was assigned. Although they were kept unaware of the study’s hypotheses, there is the risk of assessment bias. Because the study randomized 5 townships to each intervention group while power calculations were made using village as the unit of randomization, the trial could have been underpowered depending on the magnitude of between cluster differences. As anticipated based on the study data, the ICC for the HDRS at the village level (0.064) was greater than at the township level ICC (0.027), well inside our assumed range for the power calculation. Also, there was no meaningful difference between the ICCs for HTN control at the township and village levels (0.025 and 0.021, respectively), and the observed effect sizes were large, indicating that the study is sufficiently powered."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[4]/p[8]",
+                "section_title": "Discussion",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 8.610285247343477,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+                "start": 0,
+                "end": 1242,
+                "quote": "The study, registered with ClinicalTrials.gov as Identifier NCT01938963, was a cluster randomized controlled trial with 12-month follow-up conducted from January 1, 2014 through September 30, 2018, with analyses conducted in 2020 to 2021. Participants were residents of 218 rural villages located in 10 randomly selected townships of Zhejiang Province, China. Each village hosts 1 primary care clinic that serves all residents. Ten townships, each containing approximately 20 villages, were randomly selected to deliver either the Chinese Older Adult Collaborations in Health (COACH) intervention or enhanced care-as-usual (eCAU) to eligible village clinic patients. The COACH intervention consisted of algorithm-driven treatment of depression and HTN by village primary care doctors supported by village lay workers with telephone consultation from centrally located psychiatrists. Participants included clinic patients aged ≥60 years with a diagnosis of HTN and clinically significant depressive symptoms (Patient Health Questionnaire-9 [PHQ-9] score ≥10). Of 2,899 eligible village residents, 2,365 (82%) agreed to participate. They had a mean age of 74.5 years, 67% were women, 55% had no schooling, 59% were married, and 20% lived alone."
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+                "section_title": "Methods and findings",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 8.55111756661902,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+                "start": 0,
+                "end": 523,
+                "quote": "The COACH Study is a cluster RCT with 12-month follow-up conducted in Tonglu and Jiande counties of Zhejiang Province, China. Together, these 2 counties have a total of 920,000 residents distributed across 30 townships with a total of 602 villages. The health needs of each village are provided by a clinic staffed by 1 PCP without other nursing support. Mental healthcare is provided by 1 county-level mental hospital, and residents’ social needs are provided by the village’s Aging Association staffed by local residents."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+                "section_title": "Study design",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 7.6795503371636675,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+                "start": 0,
+                "end": 540,
+                "quote": "Sleep duration was measured at 6 data collection waves, 1985 to 1988, 1997 to 1999, 2002 to 2004, 2007 to 2009, 2012 to 2013, and 2015 to 2016 using the question “How many hours of sleep do you have on an average week-night?” Response categories were: ≤5 hours, 6 hours, 7 hours, 8 hours, and ≥9 hours. For each participant, sleep duration at age 50, 60, and 70 was extracted across the data waves using data from the wave at which the participant’s age was the closest to the target age, allowing a ±5 year margin for each age of interest."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+                "section_title": "Sleep duration",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "What percentages achieved hypertension control after 12 months in COACH versus eCAU, and what uncontrolled-BP thresholds did the methods use for participants with diabetes, coronary heart disease, or renal disease versus other participants?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 155,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 31.04131782586808,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+                "start": 0,
+                "end": 388,
+                "quote": "The primary outcome of HTN control was based on BP measured at baseline and each follow-up point according to China CDC standards [33]. The primary HTN outcome was uncontrolled HTN, defined as systolic blood pressure (BP) ≥130 mm Hg or diastolic BP ≥80 for patients with diabetes mellitus, coronary heart disease, or renal disease, and systolic BP ≥140 or diastolic BP ≥90 for all others."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+                "section_title": "Assessment",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 23.001306822942745,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+                "start": 0,
+                "end": 614,
+                "quote": "Observers, older adult participants, and their primary care providers (PCPs) were blinded to study hypotheses but not to group assignment. Primary outcomes were change in depression symptom severity as measured by the Hamilton Depression Rating Scale (HDRS) total score and the proportion with controlled HTN, defined as systolic blood pressure (BP) <130 mm Hg or diastolic BP <80 for participants with diabetes mellitus, coronary heart disease, or renal disease, and systolic BP <140 or diastolic BP <90 for all others. Analyses were conducted using generalized linear mixed effect models with intention to treat."
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+                "section_title": "Methods and findings",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 20.197845677628447,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/p[7]",
+                "start": 0,
+                "end": 464,
+                "quote": "With regard to HTN control, a different pattern emerged. There was no meaningful difference between the COACH subgroups in the proportions that achieved HTN control (Antidep[+] = 27% versus Antidep[−] = 23%; p = 0.11), but improvements in HTN control were clearly greater for both COACH subgroups than for eCAU participants as depicted in Fig 3. The strong impact of the intervention appears equivalent with regard to HTN for both COACH subgroups relative to eCAU."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/p[7]",
+                "section_title": "Results",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 19.47162830262323,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/fig[2]/caption[1]/p[1]",
+                "start": 0,
+                "end": 821,
+                "quote": "Multimorbidity defined as 2 or more of the following chronic diseases: diabetes, cancer, coronary heart disease, stroke, heart failure, chronic obstructive pulmonary disease, chronic kidney disease, liver disease, depression, dementia, other mental disorder, Parkinson’s disease, and arthritis/rheumatoid arthritis. (A) Model unadjusted (age as timescale). (B) Model adjusted for age (timescale), sex, ethnicity, education, occupational position, and marital status. (C) Model additionally adjusted for alcohol consumption, physical activity, smoking status, fruit and vegetable consumption, BMI, hypertension, use of sleep medication, and prevalence of 1 of the 13 chronic diseases. (D) Sleep duration distribution among participants with no incident multimorbidity (blue) and those with incident multimorbidity (brown)."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[1]/fig[2]/caption[1]/p[1]",
+                "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 18.855685214471517,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/table-wrap[1]",
+                "start": 1901,
+                "end": 2614,
+                "quote": "0.294\na Adjusted for age (timescale), sex, ethnicity, education, occupational position, and marital status. b Additionally adjusted for alcohol consumption, physical activity, smoking status, fruit and vegetable consumption, BMI, hypertension, and use of sleep medication. c Chronic disease among diabetes, cancer, coronary heart disease, stroke, heart failure, chronic obstructive pulmonary disease, chronic kidney disease, liver disease, depression, dementia, other mental disorder, Parkinson’s disease, and arthritis/rheumatoid arthritis; multimorbidity defined as 2 or more of these diseases. CI, confidence intervals; HR, hazard ratio; na, not applicable (N cases ≤5); ref, reference; SD, standard deviation."
+              },
+              "locator": {
+                "element_id": "pmed.1004109.t004",
+                "path": "/article[1]/body[1]/sec[3]/sec[3]/table-wrap[1]",
+                "section_title": "Sleep duration after a first chronic disease and subsequent risk of multimorbidity and death",
+                "table_label": "Table 4",
+                "tag": "table-wrap",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "What causal improvement in hypertension control was attributable specifically to the Aging Worker component alone, separate from the other COACH components?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 78,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 18.811913959823922,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+                "start": 0,
+                "end": 216,
+                "quote": "The unique benefits to depression treatment and hypertension control of antidepressant prescription and Aging Worker support, and the addition of easily administered psychotherapy to the model, require further study."
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+                "section_title": "What do these findings mean?",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 14.331787253800586,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+                "start": 0,
+                "end": 868,
+                "quote": "We are aware of 3 other studies to date that examined collaborative care management approaches for comorbid medical and mental disorders in LMICs in RCTs. Ali and colleagues compared a 12-month, multicomponent collaborative care intervention for depression among adults with type 2 diabetes in urban primary care clinics in India with care as usual [44]. The experimental intervention consisted of components similar to COACH—self-management support and behavioral activation provided by care managers, physicians’ decision support tools, and specialist case reviews. They found significantly greater reduction in depressive symptoms and diabetes control than usual care. Post hoc analyses showed greater improvement in systolic BP readings of depressed patients who received the intervention at 12 months, but the improvement was not sustained at 24 months follow-up."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[4]/p[2]",
+                "section_title": "Discussion",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 13.252368616090635,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+                "start": 0,
+                "end": 332,
+                "quote": "The intervention, called Chinese Older Adult Collaborations in Health (COACH), was administered by a team consisting of the village clinic’s primary care doctor, a village resident called an “Aging Worker” to help reinforce treatment and address social factors affecting health, and telephone-based consultation with a psychiatrist."
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+                "section_title": "What did the researchers do and find?",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 10.210506751041738,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+                "start": 0,
+                "end": 222,
+                "quote": "The COACH model of integrated care management resulted in greater improvement in both depression symptom severity and HTN control among older adult residents of rural Chinese villages who had both conditions than did eCAU."
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+                "section_title": "Conclusions",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 10.129871365978477,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "document_version": 1,
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+                "start": 0,
+                "end": 240,
+                "quote": "Over 12 months of participation, the 1,232 participants who received the COACH intervention had a significantly greater improvement in both depressive symptoms and the rate of HTN control than the 1,133 participants who received usual care."
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+                "section_title": "What did the researchers do and find?",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "In the sensitivity analysis excluding all 13 chronic diseases at baseline, what happened to the association of ≥9-hour sleep at age 70 with multimorbidity, and what HR/interval/p-value were reported?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 141,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 30.29029244803204,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[4]",
+                "start": 0,
+                "end": 526,
+                "quote": "In sensitivity analyses excluding participants with any of the 13 chronic diseases at the measure of sleep duration (S4 Table), the pattern of associations was similar to the main analyses for sleep duration at age 50, 60, and 70 years apart from the association with sleep duration ≥9 hours at age 70 that did not reach significance although the effect size was comparable (HR = 1.52, 0.98 to 2.35; p = 0.063). Analyses excluding participants on sleep medication were similar, irrespective of age at sleep measure (S5 Table)."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[1]/p[4]",
+                "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 27.23982009813247,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[3]",
+                "start": 0,
+                "end": 1142,
+                "quote": "Table 2 shows the association of sleep duration at age 50, 60, and 70 with subsequent risk of multimorbidity. In the absence of sex differences (p for interaction between sex and sleep duration >0.05), men and women were combined in the analyses. In analyses adjusted for sociodemographic variables, the risk of multimorbidity was higher in participants with a sleep duration ≤5 hours, 6 hours, and ≥9 hours compared to sleep duration of 7 hours, irrespective of the age at measurement of sleep duration. Further adjustment for health behaviors, BMI, hypertension, use of sleep medication, and prevalence of 1 of the 13 chronic diseases showed sleep duration ≤5 hours at age 50 (hazard ratio (HR) = 1.30, 95% confidence interval, 1.12 to 1.50; p < 0.001), age 60 (HR = 1.32, 1.13 to 1.55; p < 0.001), and at age 70 (HR = 1.40, 1.16 to 1.68; p < 0.001) to be associated with higher risk of multimorbidity. In these analyses, the association of sleep duration ≥9 hours at age 50 with incident multimorbidity did not reach statistical significance (HR = 1.39, 0.98 to 1.96; p = 0.067), while sleep duration ≥9 hours at age 60 (HR = 1.54, 1.15 to"
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[1]/p[3]",
+                "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 24.2177824415822,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+                "start": 0,
+                "end": 1125,
+                "quote": "A total of 7,864 (32.5% women) participants free of multimorbidity had data on sleep duration at age 50; 544 (6.9%) reported sleeping ≤5 hours, 2,562 (32.6%) 6 hours, 3,589 (45.6%) 7 hours, 1,092 (13.9%) 8 hours, and 77 (1.0%) ≥9 hours. Compared to 7-hour sleep, sleep duration ≤5 hours was associated with higher multimorbidity risk (hazard ratio: 1.30, 95% confidence interval = 1.12 to 1.50; p < 0.001). This was also the case for short sleep duration at age 60 (1.32, 1.13 to 1.55; p < 0.001) and 70 (1.40, 1.16 to 1.68; p < 0.001). Sleep duration ≥9 hours at age 60 (1.54, 1.15 to 2.06; p = 0.003) and 70 (1.51, 1.10 to 2.08; p = 0.01) but not 50 (1.39, 0.98 to 1.96; p = 0.07) was associated with incident multimorbidity. Among 7,217 participants free of chronic disease at age 50 (mean follow-up = 25.2 years), 4,446 developed a first chronic disease, 2,297 progressed to multimorbidity, and 787 subsequently died. Compared to 7-hour sleep, sleeping ≤5 hours at age 50 was associated with an increased risk of a first chronic disease (1.20, 1.06 to 1.35; p = 0.003) and, among those who developed a first disease, with"
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+                "section_title": "Methods and findings",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 23.2256144674577,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+                "start": 0,
+                "end": 754,
+                "quote": "To examine the robustness of our findings, we repeated the main analysis (1) in participants free from any of the 13 chronic diseases used to define multimorbidity, (2) excluding users of sleep medication and (3) examined the association between accelerometer-assessed sleep duration at mean age 69 (range = 60 to 83) years and incident multimorbidity. The covariates were drawn from the 2012 wave of data collection, concurrent to the accelerometer measure. Given the detailed data on sleep duration extracted from the accelerometer, we used restricted cubic spline regressions with Harrell knots [38], Stata command partpred [39], with 7-hour sleep as the reference to assess the shape of the association between sleep duration and multimorbidity risk."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+                "section_title": "Association between sleep duration at different ages and incident multimorbidity",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 21.195088740580957,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[6]",
+                "start": 0,
+                "end": 1230,
+                "quote": "In post hoc analysis, first we showed results from analyses using inverse probability weighting to account for missing data to be consistent with those in the main analysis (S6 Table). Second, analysis excluding 1 disease at a time from the definition of multimorbidity showed results to be robust to the list of chronic diseases used to define multimorbidity (S7 Table). Third, we examined trajectories of sleep duration. The Pearson correlation of sleep duration at age 50 with sleep duration at age 60 was 0.49 and with sleep duration at age 70 was 0.42 (p < 0.001). A moderate correlation was also found between sleep duration at age 60 and age 70 (correlation 0.57, p < 0.001). Six trajectories of sleep duration using data on 5,510 participants were used and labeled as persistent short sleep, persistent normal sleep, persistent long sleep, change from short to normal sleep, change from normal to long sleep, and change from normal to short sleep (S8 Table). Compared to persistent normal sleep, persistent short sleep duration between age 50 and 70 was associated with increased risk of incident multimorbidity (HR = 1.17, 1.01 to 1.35; p = 0.040) in analyses adjusted for sociodemographic, behavioral, and health-related"
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[1]/p[6]",
+                "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "How did the age-50 short-sleep mortality result differ between the multistate disease-transition analysis and the post hoc mortality analysis that ignored intervening chronic-disease states?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 125,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 25.92120393181775,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+                "start": 0,
+                "end": 979,
+                "quote": "Among participants at age 50, free from the 13 chronic diseases considered here, multistate models were used (Fig 1) to determine the association of sleep duration at age 50 with transitions from: (1) a healthy state to a first chronic disease (any from the list of 13 diseases considered); (2) a healthy state to death (in those who remained free from any of the 13 diseases during follow-up); (3) a first chronic disease to multimorbidity; (4) a first chronic disease to death; and (5) multimorbidity to death, with follow-up starting at age 50. The advantage of multistate models is that they take into account the time spent within each health state to estimate probabilities of transitions between each state. For comparison, we also examined (post hoc analysis) the association between sleep duration at age 50 and risk of mortality in the same study sample (participants free from chronic disease at age 50) irrespective of incidence of chronic disease over the follow-up."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+                "section_title": "Association of sleep duration with transitions to multimorbidity and death",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 25.023966609893044,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+                "start": 0,
+                "end": 1261,
+                "quote": "The first objective of the present study was to examine the association between sleep duration at 50, 60, and 70 years of age and incident multimorbidity, using repeat data on sleep duration and continuous assessment of chronic diseases spanning over 25 years. A second objective was to determine whether sleep duration at age 50 shapes the natural course of chronic disease, from a healthy state, to a first chronic disease, multimorbidity, and death using multistate models to examine the association of sleep duration at age 50 with transitions between each of these health states. In these analyses, the focus is on sleep duration at age 50 as chronic conditions are less prevalent and reverse causation bias that could arise from underlying conditions affecting sleep duration is less likely. In additional analyses, we examined the association of sleep duration with the onset of multimorbidity and death in the subgroup of participants with 1 chronic condition to examine whether sleep pattern after onset of chronic conditions is associated with adverse health outcomes [15]. Finally, in post hoc analysis, the association between sleep disturbance at age 60 and 70, where we had data on these measures, and risk of incident multimorbidity was examined."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[1]/p[2]",
+                "section_title": "Introduction",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 24.75852371560207,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+                "start": 0,
+                "end": 297,
+                "quote": "Analysis of transitions in health states showed short sleep duration at age 50 to be associated with 20% increased risk of a first chronic disease, and with a similar increased risk of subsequent multimorbidity, but within this framework there was no clear evidence of associations with mortality."
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+                "section_title": "What did the researchers do and find?",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 22.09708349408187,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+                "start": 0,
+                "end": 1248,
+                "quote": "This prospective study spanning over 20 years presents 3 key findings. One, short sleep duration was consistently associated with increased risk of multimorbidity, irrespective of sleep being measured in mid or late life. The analysis of transitions in health states showed short sleep to be associated with the onset of a first disease and subsequent multimorbidity but not disease prognosis, measured using mortality. Two, the results for long sleep duration were less robust as associations with multimorbidity were observed when sleep was measured at age 60 and 70 but not at 50 years. In the analyses of transitions in health states, we also found long sleep at age 50 not to be associated with disease progression although some of the transitions could not be examined due to a small number of cases. Three, the accelerometer-based measure of sleep duration, undertaken when the mean age of participants was 69 years (range 60 to 83), confirmed the shape of the association between sleep duration and multimorbidity in the main analysis with results matching those observed for self-reported sleep duration at ages 60 or 70. Taken together, these findings suggest an association between short sleep duration and development of multimorbidity."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[4]/p[1]",
+                "section_title": "Discussion",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 21.440536479921203,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+                "start": 0,
+                "end": 1288,
+                "quote": "Using a prospective design, our results show robust evidence of an association of short sleep duration with incident multimorbidity; this was the case for sleep duration measured either in mid or late life or trajectories of sleep duration between age 50 and 70. These findings were supported by results of the multistate models where short sleep duration at age 50 was associated with higher risk of onset of a first chronic disease and subsequent multimorbidity. Short sleep duration was also associated with greater sleep disturbances—itself associated with increased risk of multimorbidity in the present study as well as in a previous study [31]—suggesting that short sleep duration might be a marker of poor sleep quality. Sleep duration and quality might impact health via their role in regulation of endocrine and metabolic processes, inflammation, and circadian rhythm [15,16]. There was no evidence in the present data that short sleep duration was associated with progression to death among those with existing chronic disease(s). This suggests that the previously reported association between short sleep duration and mortality [2–4] is likely to be driven by the association of short sleep with onset of chronic diseases that are themselves associated with risk of mortality."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[4]/p[3]",
+                "section_title": "Discussion",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "What causal reduction in multimorbidity would occur if a randomized intervention increased these Whitehall participants’ sleep from ≤5 to 7 hours?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 147,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 14.437107618135908,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+                "start": 0,
+                "end": 1125,
+                "quote": "A total of 7,864 (32.5% women) participants free of multimorbidity had data on sleep duration at age 50; 544 (6.9%) reported sleeping ≤5 hours, 2,562 (32.6%) 6 hours, 3,589 (45.6%) 7 hours, 1,092 (13.9%) 8 hours, and 77 (1.0%) ≥9 hours. Compared to 7-hour sleep, sleep duration ≤5 hours was associated with higher multimorbidity risk (hazard ratio: 1.30, 95% confidence interval = 1.12 to 1.50; p < 0.001). This was also the case for short sleep duration at age 60 (1.32, 1.13 to 1.55; p < 0.001) and 70 (1.40, 1.16 to 1.68; p < 0.001). Sleep duration ≥9 hours at age 60 (1.54, 1.15 to 2.06; p = 0.003) and 70 (1.51, 1.10 to 2.08; p = 0.01) but not 50 (1.39, 0.98 to 1.96; p = 0.07) was associated with incident multimorbidity. Among 7,217 participants free of chronic disease at age 50 (mean follow-up = 25.2 years), 4,446 developed a first chronic disease, 2,297 progressed to multimorbidity, and 787 subsequently died. Compared to 7-hour sleep, sleeping ≤5 hours at age 50 was associated with an increased risk of a first chronic disease (1.20, 1.06 to 1.35; p = 0.003) and, among those who developed a first disease, with"
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+                "section_title": "Methods and findings",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 14.304795211238844,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+                "start": 0,
+                "end": 846,
+                "quote": "A total of 7,217 participants with data on sleep duration at age 50 were free from the 13 chronic diseases considered in this study. Among them, over a mean follow-up of 25.2 years, 213 participants died without having developed any of the 13 diseases, 4,446 participants developed 1 chronic disease and of them 2,297 subsequently developed a second disease (multimorbidity), and of them 787 died. In analysis adjusted for sociodemographic, behavioral, and health-related factors, compared to sleep duration of 7 hours, sleep duration ≤5 hours was associated with increased risk of transition to a first chronic disease (HR = 1.20, 1.06 to 1.35; p = 0.003) and subsequent transition to multimorbidity (HR = 1.21, 1.03 to 1.42; p = 0.021) but not mortality (Table 3). Sleep durations longer than 7 hours were not associated with these transitions."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+                "section_title": "Sleep duration at age 50 and subsequent transitions to a first chronic disease, multimorbidity, and death",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 13.759048225008943,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+                "start": 0,
+                "end": 1145,
+                "quote": "Among the 10,308 participants of the Whitehall cohort, 7,864 (32.5% women) participants free of multimorbidity had data on sleep duration and covariates at age 50 (mean (standard deviation (SD)) = 50.6 (2.6) years). Among them, 2,659 (33.8%) developed multimorbidity at mean age 70.9 (SD = 7.7) years over a mean follow-up of 22.6 (SD = 7.5) years. Among the 6,848 participants with data on sleep duration and covariates at age 60 (mean (SD) = 60.3 (2.2) years) and free of multimorbidity, 2,029 (29.6%) developed multimorbidity at mean age of 72.0 (SD = 6.3) years over a mean follow-up of 13.4 (SD = 6.0) years. Among 5,546 participants free of multimorbidity and with data on sleep duration and covariates at age 70 (mean (SD) = 69.2 (1.9) years), 1,402 (25.3%) subsequently developed multimorbidity at a mean age of 76.0 (SD = 4.8) years over a mean follow-up of 6.8 (SD = 4.5) years. Flowchart of sample selection is shown in Fig 2. Characteristics of participants at age 50 are presented in Table 1 and at age 60 and 70 in S1 and S2 Tables, respectively. At age 50, 544 (6.9% of the study population, N = 7,864) reported sleeping ≤5 hours,"
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+                "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 12.835210230833162,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[3]",
+                "start": 0,
+                "end": 840,
+                "quote": "At the 2012 wave, when participants were 60 to 83 years, an accelerometer sub-study—a one-off addition to the main data collection—was undertaken on participants who attended the central London research clinic or were assessed at home if they resided in the South-Eastern regions of England. Wrist-worn accelerometers, the GENEActiv (Activinsights, Kimbolton, UK), were worn 24 hours over 9 consecutive days [25]. Sleep duration was estimated using a validated algorithm guided by a sleep log [26]; data from the first and last nights were removed leading to data over 7 nights. Usual daily sleep duration was estimated as the mean of sleep duration over 7 nights and for those with less than 7 nights of measurement, weighted average of sleep duration was calculated as: 5 × week night sleep duration + 2 × weekend night sleep duration)/7."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[2]/p[3]",
+                "section_title": "Sleep duration",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 12.784565329966824,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "document_version": 1,
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[7]",
+                "start": 0,
+                "end": 770,
+                "quote": "In a fourth post hoc analysis, sleep disturbances at age 60 and 70, measured using the Jenkins sleep problems scale, were examined and found to be greater in those with sleep duration ≤5 hours at age 60 as compared to with 7 hours of sleep (mean (SD) Jenkins sleep problems score = 10.1 (SD = 5.7) versus 4.4 (SD = 3.5); p < 0.001; S10 Table) but not in those with sleep duration ≥9 hours (4.4 (SD = 4.1) versus 4.4 (3.5); p = 0.925). A similar pattern was observed at age 70 (S10 Table). Greater sleep disturbance at age 60 and at age 70 (HR = 1.03, 1.02 to 1.04 per 1-point increase in the score at both ages; p < 0.001) was associated with increased risk of multimorbidity in analyses adjusted for sociodemographic, behavioral, and health-related factors (S11 Table)."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[1]/p[7]",
+                "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "Were both adults and children eligible for this RAPTOR-C19 arm, and what under-16 proportion and mean time since symptom onset characterized its primary-analysis sample?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 138,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 28.531803267015967,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+                "start": 0,
+                "end": 584,
+                "quote": "Table 1 shows participant characteristics, split by whether positive/negative for SARS-CoV-2 in their PCR result. In the primary analysis sample, 41% (198/481) were male and average age was 28 years, with 36% (175/481) aged under 16 and the majority of the children having been recruited from a single site. Average time since self-reported symptom onset was 3.7 days. Most participants reported onset of first symptoms between two and five days before recruitment (Fig 2) and the most prevalent symptoms were cough (81%, 388/481), fever (49%, 234/481) and sore throat (42%, 200/481)."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+                "section_title": "Participant characteristics",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 23.092762707123427,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+                "start": 0,
+                "end": 517,
+                "quote": "RAPTOR-C19 is a prospective observational parallel diagnostic accuracy platform. In the fourth arm of the study, individuals were recruited on presentation to participating community health care settings in England with symptoms of viral respiratory illness consistent with potential SARS-CoV-2 infection [7]. Adults and children were eligible to participate. Exclusion criteria were inability to consent (adult only), requiring immediate hospitalisation, and having previously participated in the current evaluation."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+                "section_title": "Design",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 15.434438425758067,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+                "start": 0,
+                "end": 994,
+                "quote": "We calculated the proportion of RT-PCR results that were positive for SARS-CoV-2, and the sensitivity, specificity, and predictive values of the POCT, with exact 95% confidence intervals (95% CIs). The number of individuals with missing index test and/or reference standard results were reported but these individuals were excluded from the analysis. We also calculated diagnostic performance in relation to the RT-PCR cycle threshold (Ct). Numbers of true positive, true negative, false positive and false negative results are also presented via pre-specified subgroups split by age, sex, ethnicity, baseline symptoms and time since symptom onset. A subgroup analysis was additionally performed by CRN region. For the secondary outcomes (influenza A and B) we used similar methods to summarise diagnostic accuracy performance, additionally subdividing influenza A cases by Haemagglutinin (HA) subtype. Statistical analysis was performed using RStudio 2022.02.3 including the epiR package [15]."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+                "section_title": "Statistical analysis",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 13.903102195365783,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+                "start": 0,
+                "end": 267,
+                "quote": "Further details of the overall design of RAPTOR-C19 can be found in the published protocol [8]. However, following approved protocol amendments, participant-reported follow-up data was not collected for this arm of the study and serology collection was not performed."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+                "section_title": "Design",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 13.664469843541642,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+                "start": 0,
+                "end": 502,
+                "quote": "RAPTOR-C19 was approved by the North-West Liverpool Central Research Ethics Committee, reference 20/NW/0282. Participants, or a parent/legal guardian if the participant was aged 15 or under, provided verbal informed consent before any study procedures or data collection commenced, which was subsequently recorded in an electronic case report form (eCRF). An electronic participant information leaflet, with age-appropriate versions available for those aged 15 and under, was provided prior to consent."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+                "section_title": "Ethical approval",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "Which two planned data-collection components were omitted in this RAPTOR-C19 arm following approved protocol amendments?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 59,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 44.79390485838894,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+                "start": 0,
+                "end": 267,
+                "quote": "Further details of the overall design of RAPTOR-C19 can be found in the published protocol [8]. However, following approved protocol amendments, participant-reported follow-up data was not collected for this arm of the study and serology collection was not performed."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+                "section_title": "Design",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 18.366144153555815,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+                "start": 0,
+                "end": 502,
+                "quote": "RAPTOR-C19 was approved by the North-West Liverpool Central Research Ethics Committee, reference 20/NW/0282. Participants, or a parent/legal guardian if the participant was aged 15 or under, provided verbal informed consent before any study procedures or data collection commenced, which was subsequently recorded in an electronic case report form (eCRF). An electronic participant information leaflet, with age-appropriate versions available for those aged 15 and under, was provided prior to consent."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+                "section_title": "Ethical approval",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 13.099454264876783,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[1]/p[3]",
+                "start": 0,
+                "end": 604,
+                "quote": "The RAPid community Test evaluations fOR COVID-19 (RAPTOR-C19) study was established in 2020 to evaluate the performance of POCTs for SARS-CoV-2 in community healthcare settings in the UK [4,5]. From 2022, RAPTOR-C19 expanded to include evaluations of multiplex rapid antigen tests as the phasing out of social distancing regulations saw the re-emergence of seasonal influenza. COVID-19 and influenza can be difficult to distinguish from each other based on clinical symptoms alone [6]. In this fourth arm of the study, we evaluated the Roche-branded SD Biosensor SARS-CoV-2 & Flu A/B Rapid Antigen Test."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[1]/p[3]",
+                "section_title": "Introduction",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 12.044717127253675,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+                "start": 0,
+                "end": 517,
+                "quote": "RAPTOR-C19 is a prospective observational parallel diagnostic accuracy platform. In the fourth arm of the study, individuals were recruited on presentation to participating community health care settings in England with symptoms of viral respiratory illness consistent with potential SARS-CoV-2 infection [7]. Adults and children were eligible to participate. Exclusion criteria were inability to consent (adult only), requiring immediate hospitalisation, and having previously participated in the current evaluation."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+                "section_title": "Design",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 10.563035030710374,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+                "start": 0,
+                "end": 123,
+                "quote": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)"
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+                "tag": "article-title",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        },
+        {
+          "schema_version": 1,
+          "status": "candidate_passages",
+          "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+          "query": "What sensitivity/specificity and 95% intervals were actually measured for influenza B in RAPTOR-C19, and how many PCR-positive cases underlie the sensitivity estimate?",
+          "method": "bm25",
+          "method_version": "lit-rev-engine.project-retrieval.v1.bm25",
+          "parameters": {
+            "tokenizer_id": "unicode-casefold-word-v1",
+            "stop_words": [
+              "a",
+              "an",
+              "and",
+              "are",
+              "as",
+              "at",
+              "be",
+              "been",
+              "by",
+              "did",
+              "do",
+              "does",
+              "for",
+              "from",
+              "had",
+              "has",
+              "have",
+              "how",
+              "in",
+              "is",
+              "it",
+              "its",
+              "of",
+              "on",
+              "or",
+              "that",
+              "the",
+              "their",
+              "there",
+              "these",
+              "this",
+              "to",
+              "was",
+              "were",
+              "what",
+              "when",
+              "where",
+              "which",
+              "who",
+              "with",
+              "would"
+            ],
+            "window_words": 200,
+            "overlap_words": 40,
+            "k1": 1.2,
+            "b": 0.75
+          },
+          "scope": "included",
+          "top_k": 5,
+          "source_manifest": [
+            {
+              "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+              "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+              "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004019"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+              "version_label": "",
+              "record_title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+              "doi": "10.1371/journal.pmed.1004019",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+              "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+              "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pmed.1004109"
+              },
+              "source_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+              "version_label": "",
+              "record_title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+              "doi": "10.1371/journal.pmed.1004109",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "version": 1,
+              "format": "jats_xml",
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "parser_metadata": {
+                "entities": "rejected",
+                "external_dtd": "ignored",
+                "normalization": "xml-whitespace-v1",
+                "python_version": "3.12.7",
+                "tables": "rows-tab-separated-v1"
+              },
+              "source_identifiers": {
+                "doi": "10.1371/journal.pone.0329611"
+              },
+              "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+              "version_label": "",
+              "record_title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+              "doi": "10.1371/journal.pone.0329611",
+              "pmid": null,
+              "title_abstract_state": "include",
+              "full_text_status": "retrieved",
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ],
+          "source_snapshot_sha256": "8f4186100ae91a467ab47614cb346e31271da008860defe30649d73d5c50d587",
+          "indexed_passages": 241,
+          "matched_passages": 74,
+          "passages": [
+            {
+              "rank": 1,
+              "score": 26.076910135757586,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+                "start": 0,
+                "end": 994,
+                "quote": "We calculated the proportion of RT-PCR results that were positive for SARS-CoV-2, and the sensitivity, specificity, and predictive values of the POCT, with exact 95% confidence intervals (95% CIs). The number of individuals with missing index test and/or reference standard results were reported but these individuals were excluded from the analysis. We also calculated diagnostic performance in relation to the RT-PCR cycle threshold (Ct). Numbers of true positive, true negative, false positive and false negative results are also presented via pre-specified subgroups split by age, sex, ethnicity, baseline symptoms and time since symptom onset. A subgroup analysis was additionally performed by CRN region. For the secondary outcomes (influenza A and B) we used similar methods to summarise diagnostic accuracy performance, additionally subdividing influenza A cases by Haemagglutinin (HA) subtype. Statistical analysis was performed using RStudio 2022.02.3 including the epiR package [15]."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+                "section_title": "Statistical analysis",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 2,
+              "score": 22.407575055866022,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[6]/p[1]",
+                "start": 0,
+                "end": 561,
+                "quote": "Of 481 participants with available index and reference test results, 5.6% (27/481) were reference standard-positive for SARS-CoV-2, 11.4% (55/481) for Influenza A and 1.9% (9/481) for Influenza B. The sensitivity of the antigen test to detect SARS-CoV-2 was 70.4% (19/27, 95% CI 49.6–86.2%) and specificity was 99.3% (451/454, 95%CI 98.1–99.9%). For Influenza A, sensitivity was 29.1% (16/55, 95% CI 17.6–42.9%) and specificity 98.6% (420/426, 97.0–99.5%), and for Influenza B, sensitivity was 22.2% (2/9, 2.8–60.0%) and specificity 98.1% (463/472, 96.4–99.1%)."
+              },
+              "locator": {
+                "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[6]/p[1]",
+                "section_title": "Results",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 3,
+              "score": 18.443463557728755,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[4]/sec[3]/p[1]",
+                "start": 0,
+                "end": 654,
+                "quote": "There are few previous evaluations in primary care settings of the POCT considered in this study. The manufacturer-reported performance of this assay in symptomatic patients is 95.25% sensitivity (Ct<=30) and 99.35% specificity for SARS-CoV-2; 100% sensitivity (Ct<=30) and 99.75% specificity for Influenza A; and “using retrospective specimens”, 100% sensitivity and 100% specificity for Influenza B [13]. A laboratory evaluation of a Roche-branded SARS-CoV-2/Flu A and Flu B combination Rapid Antigen Test in Australia in 2022 reported similarly good performance for lower Ct values (<=26) but failed to detect SARS-CoV-2 variant BA.2 at Ct>=29.5 [23]."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[4]/sec[3]/p[1]",
+                "section_title": "Comparison with other studies",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 4,
+              "score": 17.98052702607611,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+                "start": 0,
+                "end": 391,
+                "quote": "In the primary analysis sample, 5.6% of participants had a positive SARS-CoV-2 PCR result (27/481, 95% CI 3.7 to 8.1%), 11.4% were positive for Influenza A (55/481, 8.7 to 14.6%) and 1.9% were positive for Influenza B (9/481, 0.9 to 3.5%). Of the 55 samples that were positive for Influenza A, 29 were subtype H1N1, 22 were subtype H3N2 and subtyping was not recorded for the remaining four."
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+                "section_title": "Diagnostic accuracy",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            },
+            {
+              "rank": 5,
+              "score": 17.33702304463396,
+              "project_id": "dc62b353-a929-4ab8-843c-b4fd083e2824",
+              "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+              "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+              "document_version": 1,
+              "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+              "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+              "parser_id": "lit-rev-engine.source.v1.jats_xml",
+              "anchor": {
+                "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+                "start": 0,
+                "end": 671,
+                "quote": "Overall, RAPTOR-C19 site staff found the testing kits usable in the settings where they were collecting and processing samples, fitting into their workflow. They felt comfortable using a lateral flow device, which had become very familiar during the pandemic. The staff were enthusiastic about the test being able to process samples, not just for SARS-CoV-2 but also for Influenza A & B from the same swab. They felt it was useful at times when a number of respiratory viruses were in circulation and particularly when many of the patients attending the GP practices had suspected influenza due to the presence of muscle aches, which was perceived as a common flu symptom"
+              },
+              "locator": {
+                "path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+                "section_title": "Qualitative findings",
+                "tag": "p",
+                "type": "xml_element"
+              },
+              "full_text_state": "include",
+              "study_link_state": "pending",
+              "study_ids": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bindings": {
+    "coach": {
+      "document_id": "f73df8dc-bc71-4117-8002-1f4a2d32e5d0",
+      "record_id": "48357764-a5af-4300-a026-f7fc4d7c6bfb",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb"
+    },
+    "whitehall": {
+      "document_id": "43965971-d071-48e2-b7cd-027e53d38cac",
+      "record_id": "62b6c226-d65e-4fe9-9dde-ecc787615cf3",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7"
+    },
+    "raptor": {
+      "document_id": "8246fe23-f25f-4b44-b648-01fa1eb24fac",
+      "record_id": "9f066417-2a3f-4574-a0f0-6a940ab2b284",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b"
+    }
+  },
+  "operational_trace_identity_note": "Real IDs are retained and repeat exactly in the same reopened ledger. Fresh ledgers generate different UUIDs; those IDs are not cross-ledger reproducibility claims.",
+  "limits": [
+    "Small three-article agent-authored software pilot; not clinical validation.",
+    "Question-level split shares documents and some passages; no document-level generalization claim.",
+    "Non-exhaustive support labels may omit alternative valid passages.",
+    "No established multiple-report study; multi-passage questions do not validate cross-report retrieval."
+  ],
+  "coordinator_selection": {
+    "schema_version": 1,
+    "status": "coordinator_selected_before_held_out_ranking",
+    "selected_at_utc": "2026-10-02T19:31:58.639048+00:00",
+    "selected_method": "bm25",
+    "development_result_file": "docs/medical-retrieval-development-v1.json",
+    "development_result_sha256": "f1275c258e8b1cfce756788fe41b3c089729978a304fcd781758a390a7fb7075",
+    "freeze_file": "tests/fixtures/medical_retrieval/freeze.json",
+    "freeze_sha256": "e0b8b7581c16ad2e96df19ba93e7d77a4252001ba774b96eec3c4dd842b2b0b7",
+    "held_out_ranked_at_selection": false,
+    "selection_rule": {
+      "answerable_questions": 7,
+      "eligible_min_complete_questions": 4,
+      "eligible_min_mean_support_coverage_at_5": 0.75,
+      "final_tie_preference": "bm25",
+      "order": [
+        "mean_support_coverage_at_5",
+        "complete_questions_at_5",
+        "mean_reciprocal_rank_at_5"
+      ]
+    },
+    "reviewed_method_metrics": [
+      {
+        "method": "token_overlap",
+        "metrics": {
+          "questions": 9,
+          "answerable_questions": 7,
+          "no_answer_questions": 2,
+          "hit_rate_at_5": 0.8571428571428571,
+          "mean_reciprocal_rank_at_5": 0.6476190476190476,
+          "mean_support_coverage_at_5": 0.8571428571428571,
+          "complete_questions_at_5": 6,
+          "complete_question_rate_at_5": 0.8571428571428571,
+          "no_answer_nonempty_candidate_rate_at_5": 1.0,
+          "no_answer_context_quotes_covered_at_5": 1,
+          "no_answer_context_quotes_declared": 2
+        }
+      },
+      {
+        "method": "bm25",
+        "metrics": {
+          "questions": 9,
+          "answerable_questions": 7,
+          "no_answer_questions": 2,
+          "hit_rate_at_5": 0.8571428571428571,
+          "mean_reciprocal_rank_at_5": 0.7857142857142857,
+          "mean_support_coverage_at_5": 0.8571428571428571,
+          "complete_questions_at_5": 6,
+          "complete_question_rate_at_5": 0.8571428571428571,
+          "no_answer_nonempty_candidate_rate_at_5": 1.0,
+          "no_answer_context_quotes_covered_at_5": 1,
+          "no_answer_context_quotes_declared": 2
+        }
+      }
+    ],
+    "decision_reason": "Both methods meet the prospective development gate and tie on support coverage and complete questions. BM25 has the higher MRR@5 under the frozen ordering.",
+    "retained_development_failures": [
+      "Both methods miss required measured SARS-CoV-2 accuracy support for dev-raptor-02 while retrieving manufacturer claims.",
+      "Both return candidates for both no-answer questions. The COACH unmeasured-adherence limitation is not retrieved at five; one of two declared no-answer context quotes is covered."
+    ],
+    "held_out_authorization": "Evaluate only BM25 with unchanged frozen parameters, gold, metrics and thresholds. Do not tune on held-out failures.",
+    "limits": [
+      "Small three-article agent-authored software pilot; not clinical validation.",
+      "Question-level split shares documents and some passages; no document-level generalization claim.",
+      "Non-exhaustive support labels may omit alternative valid passages.",
+      "No established multiple-report study; multi-passage questions do not validate cross-report retrieval."
+    ]
+  },
+  "selection_receipt_sha256": "cce0865586feac8402f219dbf1a0fa8474bab6f4a74e8e25a527369b48c73d36",
+  "held_out_acceptance": {
+    "mean_support_coverage_at_5": false,
+    "complete_questions_at_5": true,
+    "answerable_denominator": true,
+    "exact_anchor_validity": true,
+    "project_active_document_scope_isolation": true
+  },
+  "all_held_out_checks_passed": false
+}

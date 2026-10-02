@@ -1,0 +1,732 @@
+{
+  "schema_version": 1,
+  "split": "held-out",
+  "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending",
+  "questions": [
+    {
+      "id": "v2-hold-s1",
+      "article_alias": "singhypertension",
+      "question": "For the primary 24-month systolic blood pressure analysis in Table 2 of SingHypertension, what were the analyzed participant counts and adjusted mean SBP in each arm, the intervention-minus-usual-care mean difference with its 95% confidence interval and p-value, and the analysis principle?",
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "timepoint",
+        "analysis_distinction",
+        "table"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "timepoint": "24 months",
+        "intervention": {
+          "analyzed_n": 384,
+          "mean_sbp_mmhg": 135.4,
+          "95_ci": [
+            133.1,
+            137.7
+          ]
+        },
+        "usual_care": {
+          "analyzed_n": 382,
+          "mean_sbp_mmhg": 138.7,
+          "95_ci": [
+            136.4,
+            141.1
+          ]
+        },
+        "adjusted_difference_mmhg": -3.33,
+        "95_ci_difference": [
+          -6.34,
+          -0.32
+        ],
+        "p_value": 0.03,
+        "principle": "intention-to-treat",
+        "interpretation_limit": "Primary final SBP comparison; not the Table 3 sensitivity change-from-baseline estimate."
+      },
+      "sufficient_support_sets": [
+        [
+          "s-table2"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "s-table2",
+          "start": 8,
+          "end": 74,
+          "quote": "Primary and BP-related key secondary outcomes by treatment groupa.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "s-table2",
+          "start": 262,
+          "end": 383,
+          "quote": "SBP, mean (95% CI), mmHg\n24 months\t384\t135.4 (0.98)(133.1, 137.7)\t382\t138.7 (1.01)(136.4, 141.1)\t−3.33(−6.34, −0.32)\t0.03",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "s-table2",
+          "start": 1074,
+          "end": 1115,
+          "quote": "aAll analyses based on the ITT principle.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [
+        "s-primary-result"
+      ],
+      "hard_negative_passage_ids": [
+        "s-change-table3"
+      ],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-s2",
+      "article_alias": "singhypertension",
+      "question": "Who qualified for SingHypertension in terms of age, blood-pressure measurement rule, prior clinic attendance and residency, and how were clinics allocated and masking handled?",
+      "challenge_tags": [
+        "population",
+        "measurement_definition",
+        "multiple_necessary_passages",
+        "allocation",
+        "negation"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "age_min_years": 40,
+        "blood_pressure": "Previously diagnosed hypertension: mean of last 2 of 3 measurements with SBP >=140 mmHg or DBP >=90 mmHg.",
+        "attendance": "At least two visits to an enrolled clinic in the prior 12 months.",
+        "residency": "Singaporean citizen or permanent resident",
+        "allocation": "Computer-generated clinic codes; 4 multicomponent-intervention clinics and 4 usual-care clinics; recruitment followed randomization.",
+        "masking": "There was no masking."
+      },
+      "sufficient_support_sets": [
+        [
+          "s-eligibility",
+          "s-randomization"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "s-eligibility",
+          "start": 0,
+          "end": 294,
+          "quote": "We enrolled patients aged ≥40 years with previously diagnosed hypertension (SBP ≥140 mmHg or diastolic BP (DBP) ≥90 mmHg) based on mean of last 2 of 3 measurements who had visited an enrolled clinic at least twice during the prior 12 months and were Singaporean citizens or permanent residents.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "s-randomization",
+          "start": 0,
+          "end": 224,
+          "quote": "We used computer-generated codes to randomly assign 4 clinics to the multicomponent intervention and 4 to usual care. Following randomization, 916 individuals with uncontrolled hypertension were recruited from these clinics.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "s-randomization",
+          "start": 357,
+          "end": 391,
+          "quote": "There was no masking in the trial.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-s3",
+      "article_alias": "singhypertension",
+      "question": "At 24 months in SingHypertension, what were the blood-pressure-control proportions and odds ratio with its confidence interval and p-value, and what did the trial report about total mortality and serious adverse events between arms?",
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "timepoint",
+        "multiple_necessary_passages",
+        "negation",
+        "outcome_distinction"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "bp_control": {
+          "intervention_percent": 61.3,
+          "usual_care_percent": 51.2,
+          "odds_ratio": 1.51,
+          "95_ci": [
+            1.1,
+            2.09
+          ],
+          "p_value": 0.01
+        },
+        "total_mortality": {
+          "intervention_percent": 0.5,
+          "usual_care_percent": 1.3,
+          "p_value": 0.29,
+          "difference": "Not statistically different as reported."
+        },
+        "serious_adverse_events": "Incident SAEs did not differ significantly; improved BP control is not a demonstrated mortality effect."
+      },
+      "sufficient_support_sets": [
+        [
+          "s-bp-secondary",
+          "s-mortality-safety"
+        ],
+        [
+          "s-table2",
+          "s-mortality-safety"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "s-bp-secondary",
+          "start": 168,
+          "end": 360,
+          "quote": "A greater percentage of participants achieved BP control at 24 months in the intervention (61.3%) arm versus usual care (51.2%) with associated odds ratio (95% CI) 1.51 (1.10, 2.09) (p = 0.01)",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "s-table2",
+          "start": 517,
+          "end": 685,
+          "quote": "BP controlled to conventional goal (SBP <140 mmHg and DBP <90 mmHg), % (95% CI)\n24 months\t384\t61.3 (11.0)(55.2, 67.1)\t382\t51.2 (10.6)(45.9, 56.5)\t1.51(1.10, 2.09)c\t0.01",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "s-mortality-safety",
+          "start": 0,
+          "end": 202,
+          "quote": "The proportion of participants with incident SAEs did not differ significantly between study arms. Total mortality was not different between intervention (0.5%) compared to usual care (1.3%) (p = 0.29).",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-s4",
+      "article_alias": "singhypertension",
+      "question": "What separate 24-month SBP treatment-effect estimate and confidence interval does SingHypertension report for nurse telephone follow-up alone, independent of its other intervention components?",
+      "challenge_tags": [
+        "no_answer",
+        "component_attribution",
+        "negation",
+        "analysis_distinction"
+      ],
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "provisional_spans": [
+        {
+          "passage_id": "s-individual-components-limit",
+          "start": 160,
+          "end": 303,
+          "quote": "Our trial was not designed to unravel how much of the benefit of the multicomponent intervention was attributable to each individual component.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "s-telephone-procedure",
+          "start": 0,
+          "end": 243,
+          "quote": "Telephone-based follow-up by trained nurses: The nurses trained in motivational conversations also followed all hypertensive patients by telephone for adherence reinforcement to healthy lifestyles and treatment, using a standardized checklist.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [
+        "s-individual-components-limit",
+        "s-telephone-procedure"
+      ],
+      "hard_negative_passage_ids": [
+        "s-primary-result"
+      ],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending",
+      "no_answer_rationale": "The source explicitly states that the trial did not isolate each component contribution. It describes telephone follow-up as part of a bundle; the bundle SBP effect is not a separate telephone-only causal estimate.",
+      "expected_behavior": "Return inspection candidates only; do not assert the requested unavailable estimate or substitute a different population, analysis, timepoint, or study."
+    },
+    {
+      "id": "v2-hold-c1",
+      "article_alias": "czechia",
+      "question": "In the Czech national cohort abstract, what range of adjusted hazard ratios with the corresponding 95% confidence intervals was reported for death with COVID-19 among people diagnosed with, or diagnosed and treated for, psychotic disorders in epochs 2–5, which postinfection follow-up durations were assessed, and what was reported for epoch 1?",
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "followup",
+        "population",
+        "analysis_distinction",
+        "negation"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "outcome": "Death with COVID-19, not all-cause mortality",
+        "exposure": "Diagnosed psychotic disorder or diagnosed and treated psychotic disorder",
+        "epochs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ahr_range": [
+          1.46,
+          1.93
+        ],
+        "95_ci_for_range_endpoints": [
+          [
+            1.18,
+            1.79
+          ],
+          [
+            1.12,
+            3.32
+          ]
+        ],
+        "followup_days": [
+          28,
+          60
+        ],
+        "epoch_1": "Models could not be reliably fit.",
+        "interpretation_limit": "These are the abstract-reported range endpoints across the listed models; do not assign endpoints to individual epochs or infer causal effects."
+      },
+      "sufficient_support_sets": [
+        [
+          "c-abstract-methods-results"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "c-abstract-methods-results",
+          "start": 1074,
+          "end": 1325,
+          "quote": "We assessed deaths with Coronavirus Disease 2019 (COVID-19) and from all-causes in the time period of 28 and 60 days following the infection using stratified Cox proportional hazards models, adjusting for matching variables and additional confounders.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "c-abstract-methods-results",
+          "start": 1843,
+          "end": 2124,
+          "quote": "People diagnosed with or diagnosed and treated for psychotic disorders had a consistently elevated risk of dying with COVID-19 in epochs 2, 3, 4, and 5, with adjusted hazard ratios (aHRs) ranging from 1.46 [95% confidence intervals (CIs), 1.18, 1.79] to 1.93 [95% CIs, 1.12, 3.32].",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "c-abstract-methods-results",
+          "start": 2308,
+          "end": 2380,
+          "quote": "The models could not be reliably fit for psychotic disorders in epoch 1.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-c2",
+      "article_alias": "czechia",
+      "question": "In the Czech register study, what age and infection-history criteria defined the eligible population, how were vaccinations within 14 days of infection treated for matching, and how many unexposed counterparts could be matched to one exposed individual?",
+      "challenge_tags": [
+        "population",
+        "followup",
+        "multiple_necessary_passages",
+        "matching",
+        "timepoint"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "age_min_years": 10,
+        "infection_history": "First-ever laboratory-confirmed SARS-CoV-2 infection.",
+        "vaccination_rule": "Vaccinations administered 14 or fewer days before infection were not considered; a first dose >14 days before with a second dose <=14 days before was counted as first-dose status.",
+        "counterparts_per_exposed_max": 5,
+        "counterparts": "Unique unexposed individuals."
+      },
+      "sufficient_support_sets": [
+        [
+          "c-first-infection-population",
+          "c-matching-vaccination"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "c-first-infection-population",
+          "start": 0,
+          "end": 196,
+          "quote": "We retrieved all individuals aged 10 or above—the earliest plausible onset age of the studied mental disorders [33]—with first-ever laboratory-confirmed SARS-CoV-2 infection occurring in 5 epochs:",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "c-matching-vaccination",
+          "start": 243,
+          "end": 395,
+          "quote": "Since vaccination does not confer an immediate protection, we did not consider vaccinations that were administered 14 or less days before the infection.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "c-matching-vaccination",
+          "start": 396,
+          "end": 654,
+          "quote": "For example, when an individual received the first dose of a two-dose regimen more than 14 days before the infection, and the second dose 14 or less days before the infection, we considered them as having received the first dose at the time of the infection.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "c-matching-vaccination",
+          "start": 799,
+          "end": 878,
+          "quote": "Each exposed individual was matched with up to 5 unique unexposed counterparts.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-c3",
+      "article_alias": "czechia",
+      "question": "For diagnosed anxiety disorders in the Czech study, how did the epochs with decreased risk differ between death with COVID-19 and all-cause mortality, and which all-cause epochs showed decreased risk when anxiety cases additionally required psychopharmaceutical treatment?",
+      "challenge_tags": [
+        "multiple_necessary_passages",
+        "outcome_distinction",
+        "exposure_definition",
+        "followup",
+        "negation"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "followup_days": [
+          28,
+          60
+        ],
+        "diagnosed_anxiety_death_with_covid_epochs": [
+          2,
+          3,
+          5
+        ],
+        "diagnosed_anxiety_allcause_epochs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "diagnosed_and_treated_anxiety_allcause_epochs": [
+          2,
+          3,
+          5
+        ],
+        "other_models": "Remaining anxiety models were consistent with a null effect; observational associations, not a protective treatment recommendation."
+      },
+      "sufficient_support_sets": [
+        [
+          "c-anxiety-covid-result",
+          "c-anxiety-allcause-result"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "c-anxiety-covid-result",
+          "start": 0,
+          "end": 261,
+          "quote": "In contrast, people diagnosed with or diagnosed and treated for anxiety disorders had a decreased risk of death with COVID-19 in epoch 2, 3, and 5, both 28 and 60 days postinfection. The remaining models for anxiety disorders were consistent with a null effect.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "c-anxiety-allcause-result",
+          "start": 0,
+          "end": 473,
+          "quote": "Conversely, people diagnosed with anxiety disorders had a decreased risk of all-cause mortality in epoch 2, 3, 4, and 5, both 28 and 60 days postinfection. Cases ascertained based on diagnosis of anxiety disorders and treatment by psychopharmaceuticals demonstrated broadly consistent results, with decreased risks of all-cause mortality in epoch 2, 3, and 5, both 28 and 60 days postinfection. The remaining models for anxiety disorders were consistent with a null effect.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-c4",
+      "article_alias": "czechia",
+      "question": "What adjusted mortality hazard ratio with a 95% confidence interval after SARS-CoV-2 reinfection does the Czech national cohort report for people with preexisting psychotic disorders?",
+      "challenge_tags": [
+        "no_answer",
+        "population",
+        "reinfection",
+        "negation",
+        "timepoint"
+      ],
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "provisional_spans": [
+        {
+          "passage_id": "c-limitations",
+          "start": 2662,
+          "end": 2775,
+          "quote": "Seventh, we did not investigate survival following SARS-CoV-2 re-infections in people with preexisting disorders.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "c-first-infection-population",
+          "start": 116,
+          "end": 196,
+          "quote": "with first-ever laboratory-confirmed SARS-CoV-2 infection occurring in 5 epochs:",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [
+        "c-limitations",
+        "c-first-infection-population"
+      ],
+      "hard_negative_passage_ids": [
+        "c-abstract-methods-results"
+      ],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending",
+      "no_answer_rationale": "The enrolled infection episode was first-ever, and the discussion explicitly states that survival following reinfections was not investigated. First-infection hazard ratios do not answer a reinfection request.",
+      "expected_behavior": "Return inspection candidates only; do not assert the requested unavailable estimate or substitute a different population, analysis, timepoint, or study."
+    },
+    {
+      "id": "v2-hold-e1",
+      "article_alias": "enose",
+      "question": "For the eNose recurrence model test set, what were the patient and recurrence counts, confusion-matrix counts, and reported sensitivity, specificity, accuracy and AUC with their 95% confidence intervals?",
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "diagnostic_accuracy",
+        "analysis_distinction",
+        "population"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "test_n": 99,
+        "recurrence_n": 25,
+        "recurrence_percent_as_reported": 25,
+        "confusion_matrix": {
+          "true_positive": 13,
+          "false_positive": 37,
+          "false_negative": 12,
+          "true_negative": 37
+        },
+        "sensitivity": {
+          "estimate": 0.52,
+          "95_ci": [
+            0.32,
+            0.71
+          ]
+        },
+        "specificity": {
+          "estimate": 0.5,
+          "95_ci": [
+            0.39,
+            0.61
+          ]
+        },
+        "accuracy": {
+          "estimate": 0.51,
+          "95_ci": [
+            0.41,
+            0.6
+          ]
+        },
+        "auc": {
+          "estimate": 0.51,
+          "95_ci": [
+            0.38,
+            0.64
+          ]
+        },
+        "interpretation_limit": "Internal test data for the recurrence model; training performance is a different analysis."
+      },
+      "sufficient_support_sets": [
+        [
+          "e-test-model-result"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "e-test-model-result",
+          "start": 0,
+          "end": 198,
+          "quote": "The test set included 99 patients, 25 (25%) of whom experienced recurrence. There were 13 true positives, 37 false positives, 12 false negatives and 37 true negatives in the classified breath tests.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "e-test-model-result",
+          "start": 199,
+          "end": 428,
+          "quote": "The model demonstrated a sensitivity of 0.52 (95%CI; 0.32–0.71) and a specificity of 0.50 (95% CI; 0.39–0.61) in detecting recurrences. The accuracy was 0.51 (95%CI; 0.41–0.60) and the AUC of the ROC curve 0.51 (95% CI;0.38–0.64)",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [
+        "e-training-model-result"
+      ],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-e2",
+      "article_alias": "enose",
+      "question": "Which CRC stages and surgery period were eligible for the prospective eNose recurrence study, and how did 498 enrolled participants become 406 patients suitable for analysis, including the reported counts for each exclusion reason?",
+      "challenge_tags": [
+        "population",
+        "quantitative_estimate_interval_denominator",
+        "multiple_necessary_passages",
+        "attrition",
+        "timepoint"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "stages": "Stage I–III, or stage IV with synchronous or metachronous metastases treated with curative intent.",
+        "surgery_period": "January 2018 to June 2023",
+        "enrolled_n": 498,
+        "excluded_n": 92,
+        "analysis_n": 406,
+        "exclusions": {
+          "failed_breath_test": 38,
+          "health_status_changes": 30,
+          "technical_issues": 19,
+          "wrong_inclusion": 3,
+          "loss_to_followup": 2
+        }
+      },
+      "sufficient_support_sets": [
+        [
+          "e-selection",
+          "e-analysis-population"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "e-selection",
+          "start": 88,
+          "end": 326,
+          "quote": "Between January 1, 2020, and April 14, 2024, patients with stage I-III, or stage IV with synchronous or metachronous metastases treated with curative intent, who underwent surgery from January 2018 to June 2023, were asked to participate.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "e-analysis-population",
+          "start": 0,
+          "end": 428,
+          "quote": "Between January 2020 and April 2024, 498 out of 748 eligible patients provided informed consent and were included in the study, during which breath tests were performed. Ninety-two patients were excluded due to a failed breath test (n = 38), changes in health status (n = 30), technical issues (n = 19), wrong inclusion (n = 3), or loss to follow up (n = 2). A total of 406 patients completed breath tests suitable for analysis.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-e3",
+      "article_alias": "enose",
+      "question": "What reference standard established CRC recurrence in the eNose study, was tissue confirmation obligatory, and why were the seven patients who developed recurrence during later follow-up still classified as false positives for their initial breath tests?",
+      "challenge_tags": [
+        "multiple_necessary_passages",
+        "reference_standard",
+        "followup",
+        "negation",
+        "classification_timepoint"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "reference_standard": "Multidisciplinary team determination based on at least one CT scan.",
+        "histology_cytology_required": false,
+        "later_recurrence_n": 7,
+        "initial_classification": "False positives.",
+        "reason": "No breath test was available at later recurrence; the initial breath test was positive while contemporaneous routine clinical follow-up showed no signs of recurrence.",
+        "interpretation_limit": "The paper reports how cases were classified; this does not assert that the breath test established occult recurrence or justify clinical use."
+      },
+      "sufficient_support_sets": [
+        [
+          "e-reference-followup",
+          "e-later-recurrence"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "e-reference-followup",
+          "start": 347,
+          "end": 584,
+          "quote": "Histological or cytological confirmation was not obligatory, as this was not always possible or desirable. The gold standard for recurrent CRC was the determination during the multidisciplinary team meeting based on at least one CT scan.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "e-later-recurrence",
+          "start": 0,
+          "end": 178,
+          "quote": "Patients without recurrence (n = 343) were followed up at least six months after the breath to verify their clinical status. Seven patients developed recurrence during follow-up.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "e-later-recurrence",
+          "start": 179,
+          "end": 615,
+          "quote": "At the time of recurrence, no breath test was available for these patients, either because they declined performing a breath test at that moment, or because recurrence was not detected in scheduled follow-up and therefore no breath test was planned. Their initial breath test result had been positive, while routine clinical follow-up at that time showed no signs of recurrence. These cases were therefore classified as false positives.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending"
+    },
+    {
+      "id": "v2-hold-e4",
+      "article_alias": "enose",
+      "question": "What sensitivity and specificity with confidence intervals does this prospective recurrence study report for independent external multicentre validation of its own trained eNose recurrence model?",
+      "challenge_tags": [
+        "no_answer",
+        "validation_scope",
+        "study_attribution",
+        "negation"
+      ],
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "provisional_spans": [
+        {
+          "passage_id": "e-internal-validation",
+          "start": 193,
+          "end": 264,
+          "quote": "The test set was used for internal validation of the trained algorithm.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        },
+        {
+          "passage_id": "e-single-centre-limit",
+          "start": 347,
+          "end": 462,
+          "quote": "While our sample size met the target prevalence, the single-centre design limited recruitment and generalizability.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "exact independent XML text; accepted-parser anchor reconciled"
+        }
+      ],
+      "context_only_passage_ids": [
+        "e-internal-validation",
+        "e-single-centre-limit"
+      ],
+      "hard_negative_passage_ids": [
+        "e-previous-external-study",
+        "e-test-model-result"
+      ],
+      "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending",
+      "no_answer_rationale": "The model test set is described as internal validation and the study as single-centre. Discussion of participation in an external validation study concerns prior CRC-detection work, not independent multicentre validation of this recurrence model.",
+      "expected_behavior": "Return inspection candidates only; do not assert the requested unavailable estimate or substitute a different population, analysis, timepoint, or study."
+    }
+  ]
+}

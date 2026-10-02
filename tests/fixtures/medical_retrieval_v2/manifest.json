@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending",
+  "purpose": "Fresh document-disjoint source-anchored held-out software pilot authored before any v2 medical ranking; not clinical validation.",
+  "authoring_protocol": "Source XML, accepted parser and previous schema only; no candidate code, ranking, model, live service, or v1 held-out question inspection.",
+  "split_rationale": "All twelve are fresh held-out items on three coordinator-selected sources whose own DOIs are disjoint from v1. Four per source: three answerable and one explicitly source-grounded no-answer. No development items or parameter tuning use this set.",
+  "sources": [
+    {
+      "alias": "singhypertension",
+      "file": "../medical_sources_v2/singhypertension.xml",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "size_bytes": 216394,
+      "doi": "10.1371/journal.pmed.1004026",
+      "title": "Integration of a multicomponent intervention for hypertension into primary healthcare services in Singapore—A cluster randomized controlled trial",
+      "publisher_article_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004026",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "attribution_authors": [
+        {
+          "surname": "Jafar",
+          "given_names": "Tazeen Hasan"
+        },
+        {
+          "surname": "Tan",
+          "given_names": "Ngiap Chuan"
+        },
+        {
+          "surname": "Shirore",
+          "given_names": "Rupesh Madhukar"
+        },
+        {
+          "surname": "Allen",
+          "given_names": "John Carson"
+        },
+        {
+          "surname": "Finkelstein",
+          "given_names": "Eric Andrew"
+        },
+        {
+          "surname": "Hwang",
+          "given_names": "Siew Wai"
+        },
+        {
+          "surname": "Koong",
+          "given_names": "Agnes Ying Leng"
+        },
+        {
+          "surname": "Moey",
+          "given_names": "Peter Kirm Seng"
+        },
+        {
+          "surname": "Kang",
+          "given_names": "Gary Chun-Yun"
+        },
+        {
+          "surname": "Goh",
+          "given_names": "Chris Wan Teng"
+        },
+        {
+          "surname": "Subramanian",
+          "given_names": "Reena Chandhini"
+        },
+        {
+          "surname": "Thiagarajah",
+          "given_names": "Anandan Gerard"
+        },
+        {
+          "surname": "Ramakrishnan",
+          "given_names": "Chandrika"
+        },
+        {
+          "surname": "Lim",
+          "given_names": "Ching Wee"
+        },
+        {
+          "surname": "Liu",
+          "given_names": "Jianying"
+        },
+        {
+          "collective_name": "for SingHypertension Study Group"
+        }
+      ],
+      "copyright": {
+        "year": "2022",
+        "holder": "Jafar et al"
+      },
+      "acquired_at": "2026-10-02T19:48:07Z",
+      "version_statement": "Publisher-delivered full-article XML for the peer-reviewed research article published 2022-06-13; exact acquired snapshot pinned by acquisition UTC, byte length, and SHA-256. XML has no explicit article-version element. No claim of latest or uncorrected status; storage path components are not formal publication-version assertions.",
+      "observed_publisher_notices": []
+    },
+    {
+      "alias": "czechia",
+      "file": "../medical_sources_v2/czechia.xml",
+      "source_sha256": "5e0516454a0e8435d83783712f3ebcecb0c2317d044f66241269dcb67d3fb27c",
+      "size_bytes": 322839,
+      "doi": "10.1371/journal.pmed.1004422",
+      "title": "Deaths with COVID-19 and from all-causes following first-ever SARS-CoV-2 infection in individuals with preexisting mental disorders: A national cohort study from Czechia",
+      "publisher_article_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004422",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "attribution_authors": [
+        {
+          "surname": "Formánek",
+          "given_names": "Tomáš"
+        },
+        {
+          "surname": "Potočár",
+          "given_names": "Libor"
+        },
+        {
+          "surname": "Wolfova",
+          "given_names": "Katrin"
+        },
+        {
+          "surname": "Melicharová",
+          "given_names": "Hana"
+        },
+        {
+          "surname": "Mladá",
+          "given_names": "Karolína"
+        },
+        {
+          "surname": "Wiedemann",
+          "given_names": "Anna"
+        },
+        {
+          "surname": "Chen",
+          "given_names": "Danni"
+        },
+        {
+          "surname": "Mohr",
+          "given_names": "Pavel"
+        },
+        {
+          "surname": "Winkler",
+          "given_names": "Petr"
+        },
+        {
+          "surname": "Jones",
+          "given_names": "Peter B."
+        },
+        {
+          "surname": "Jarkovský",
+          "given_names": "Jiří"
+        }
+      ],
+      "copyright": {
+        "year": "2024",
+        "holder": "Formánek et al"
+      },
+      "acquired_at": "2026-10-02T19:48:07Z",
+      "version_statement": "Publisher-delivered full-article XML for the peer-reviewed research article published 2024-07-15; exact acquired snapshot pinned by acquisition UTC, byte length, and SHA-256. XML has no explicit article-version element. No claim of latest or uncorrected status; storage path components are not formal publication-version assertions.",
+      "observed_publisher_notices": []
+    },
+    {
+      "alias": "enose",
+      "file": "../medical_sources_v2/enose.xml",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "size_bytes": 105998,
+      "doi": "10.1371/journal.pone.0340276",
+      "title": "Diagnostic performance of eNose technology in detecting colorectal cancer recurrence: A prospective evaluation",
+      "publisher_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0340276",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "attribution_authors": [
+        {
+          "surname": "Schoenaker",
+          "given_names": "Ivonne J. H."
+        },
+        {
+          "surname": "van Westreenen",
+          "given_names": "Henderik L."
+        },
+        {
+          "surname": "Finnema",
+          "given_names": "Evelyn J."
+        },
+        {
+          "surname": "Schrauwen",
+          "given_names": "Ruud"
+        },
+        {
+          "surname": "Brohet",
+          "given_names": "Richard M."
+        },
+        {
+          "surname": "Nederveen Cappel",
+          "given_names": "Wouter H. de Vos Tot"
+        }
+      ],
+      "copyright": {
+        "year": "2026",
+        "holder": "Schoenaker et al"
+      },
+      "acquired_at": "2026-10-02T19:48:07Z",
+      "version_statement": "Publisher-delivered full-article XML for the peer-reviewed research article published 2026-01-07; exact acquired snapshot pinned by acquisition UTC, byte length, and SHA-256. XML has no explicit article-version element. No claim of latest or uncorrected status; storage path components are not formal publication-version assertions. A known publisher correction dated 2026-02-02 addresses citation author initials; its notice is retained in metadata and corpus handling is pending coordinator review.",
+      "observed_publisher_notices": [
+        {
+          "kind": "correction",
+          "doi": "10.1371/journal.pone.0342238",
+          "published_at": "2026-02-02",
+          "publisher_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0342238",
+          "observed_on": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0340276",
+          "scope_as_stated": "Correction to the sixth author initials in the article citation; a corrected citation is supplied. The notice does not state a clinical-result correction.",
+          "audit_scope": "Observed original publisher correction link and read primary notice only; not a comprehensive Crossmark/correction/retraction audit.",
+          "corpus_handling": "Base article bytes remain unchanged; no correction XML/assets downloaded or merged. Coordinator decides version handling before any gold authoring.",
+          "corrected_citation": {
+            "authors_as_cited": [
+              "Schoenaker IJH",
+              "van Westreenen HL",
+              "Finnema EJ",
+              "Schrauwen R",
+              "Brohet RM",
+              "de Vos tot Nederveen Cappel, WH"
+            ],
+            "corrected_author_ordinal": 6,
+            "corrected_author_as_cited": "de Vos tot Nederveen Cappel, WH",
+            "year": 2026,
+            "title": "Diagnostic performance of eNose technology in detecting colorectal cancer recurrence: A prospective evaluation",
+            "journal": "PLOS One",
+            "volume": "21",
+            "issue": "1",
+            "article_number": "e0340276",
+            "doi": "10.1371/journal.pone.0340276",
+            "attribution": "Author citation forms are as supplied by the primary correction; other bibliography fields agree with the base article metadata. Original XML author fields remain unchanged."
+          }
+        }
+      ]
+    }
+  ],
+  "source_manifest_pin": {
+    "file": "../medical_sources_v2/manifest.json",
+    "sha256": "587b067dcde48a0c62939f4aa795402811fd883837af63a2925a7b9dce942c00",
+    "size_bytes": 15518
+  },
+  "corpus_handling_decision": "Coordinator accepted the original eNose bytes with the known citation-initials correction and corrected-citation metadata retained, before authoring; no XML rewrite or clinical-result audit claim.",
+  "splits": {
+    "held-out": {
+      "file": "held-out.json",
+      "questions": 12,
+      "answerable_questions": 9,
+      "no_answer_questions": 3,
+      "ids": [
+        "v2-hold-s1",
+        "v2-hold-s2",
+        "v2-hold-s3",
+        "v2-hold-s4",
+        "v2-hold-c1",
+        "v2-hold-c2",
+        "v2-hold-c3",
+        "v2-hold-c4",
+        "v2-hold-e1",
+        "v2-hold-e2",
+        "v2-hold-e3",
+        "v2-hold-e4"
+      ]
+    }
+  },
+  "required_coverage": {
+    "quantitative_estimate_interval_denominator_questions_min": 3,
+    "multi_passage_AND_questions_min": 3,
+    "passages_per_AND_min": 2
+  },
+  "support_semantics": "Outer support list is OR; each inner list is AND. A passage is covered only when every question-specific positive quote for it is fully present in returned own-block anchor windows. Scoring context never counts as support. Context-only and hard-negative quotes are not answers.",
+  "source_scope": "Main-article XML title/abstract/body text and canonical tables, excluding reference/back/sub-article branches; no figure-image data or unacquired supplements. No-answer is scoped to this archived source and requested analysis.",
+  "known_source_discrepancies": [
+    {
+      "article_alias": "singhypertension",
+      "description": "The abstract rounds the primary adjusted SBP difference to -3.3 while the body/Table 2 reports -3.33. Table 3 reports a different change-from-baseline sensitivity estimand (-2.65), not a contradiction. Gold s1 explicitly requests Table 2."
+    },
+    {
+      "article_alias": "czechia",
+      "description": "Abstract and several table/figure-caption epoch descriptions say 29 February 2022, while the methods epoch list says 28 February 2022. The setting paragraph prints a second-wave endpoint of 31th March 2020 after October 2020. These strings remain unchanged; questions do not silently resolve these date discrepancies."
+    },
+    {
+      "article_alias": "czechia",
+      "description": "Abstract describes serologically confirmed infections whereas the body methods says laboratory-confirmed. Table 1 contains irregular printed grouping such as 26,6089 and 5,5758. The qualifying-method question uses the exact body formulation; no reformatting or derived table totals."
+    },
+    {
+      "article_alias": "enose",
+      "description": "Training paragraph reports 38 recurrences among 307 patients as 11%; the count and percentage are retained as printed, without recomputing or using them as test-set gold. Original author fields and correction citation forms are separately retained."
+    }
+  ],
+  "alternative_support_review": "Every identified sufficient alternative in archived canonical text is enumerated. Full body/abstract/table reading informed authoring; images and supplemental files were not read. Enumeration is agent-authored and may be incomplete; independent semantic review is required before freeze. No alternatives are removed based on ranks.",
+  "limits": [
+    "Small agent-authored software pilot, not a clinical benchmark, evidence synthesis, treatment recommendation, or validated cross-report study retrieval.",
+    "No causal interpretation of observational associations or diagnostic utility inferred from a substring anchor.",
+    "Known correction notice concerns author citation initials only according to the notice; no latest/uncorrected or exhaustive correction/retraction audit claim."
+  ]
+}

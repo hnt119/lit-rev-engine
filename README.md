@@ -2,7 +2,7 @@
 
 A Python engine for managing a reproducible review ledger and exploring locally indexed academic papers with an Agnes-powered assistant.
 
-The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
+The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Project passage retrieval searches those retained sources and returns exact anchors for reviewer inspection. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
 
 ## Current workflow
 
@@ -19,12 +19,14 @@ flowchart LR
     Fulltext --> Link[Audited report / study associations]
     Link --> Counts
     Link --> Sources[Retain original source versions]
+    Sources --> Candidates[Retrieve exact passage candidates]
+    Candidates --> Findings
     Sources --> Findings[Manual findings and appraisal judgments]
     Findings --> Verify[Independent revision verification]
     Verify --> Evidence[Verified evidence plus complete audit exports]
 ```
 
-`review.py` runs offline for imports, screening, source/evidence review, counts, export and saved-capture verification; `search-pubmed` explicitly executes an NCBI search. Ledger operations and TXT/JATS parsing use Python's standard library; PDF attachment lazily uses PyMuPDF. Full-text retrieval status, eligibility and extracted findings are recorded by reviewers.
+`review.py` runs offline for imports, screening, project passage retrieval, source/evidence review, counts, export and saved-capture verification; `search-pubmed` explicitly executes an NCBI search. Ledger operations, lexical retrieval and TXT/JATS parsing use Python's standard library; PDF attachment lazily uses PyMuPDF. Full-text retrieval status, eligibility and extracted findings are recorded by reviewers.
 
 The passage exploration pipeline remains separate:
 
@@ -175,6 +177,18 @@ python review.py documents "$REVIEW_PROJECT_ID" --record-id "$REVIEW_RECORD_ID"
 
 See [source documents](docs/source-documents.md) for API usage, transformations and limitations.
 
+### Find passages in retained project sources
+
+```bash
+python review.py retrieve-sources "$REVIEW_PROJECT_ID" \
+  --query "Enter the population, outcome and timepoint" \
+  --method bm25 --scope included --top-k 5 > retrieval-trace.json
+```
+
+`included` searches active sources of currently full-text-included reports. Use `--scope all_attached` explicitly to inspect pending or excluded reports during screening. Superseded sources remain in the audit history but do not supply candidates. `bm25` (the default), `token_overlap` and optional `bm25_context` return exact Unicode quotation bounds, original locators, source/block hashes, screening/linkage state and a hashed source manifest from one SQLite snapshot. The context method adds separate exact anchors for a preceding XML paragraph used in scoring; those context quotes do not become the candidate finding anchor. Save the entire JSON trace to retain its query, method/version/parameters and provenance.
+
+These commands initialize no embeddings, Chroma collection or generation service and create no ledger search or evidence events. Scores rank lexical matches; they do not establish answerability or clinical support. Inspect candidates, enter values/context manually and verify the resulting extraction independently. See the [executed synthetic guide](docs/project-retrieval.md) for scope, active-version and direct-anchor reuse examples.
+
 ### Enter and verify evidence
 
 Prepare a JSON payload containing `study_id`, `document_id`, `field`, finite `value`, `context`, and an exact `anchor` (`block_id`, half-open character `start`/`end`, and `quote`). Use an included report, its active document and a resolved association with the selected study. The [executable offline guide](docs/verified-evidence.md) creates complete finding/appraisal payloads and exercises revisions, disagreement, source replacement and export.
@@ -310,7 +324,7 @@ src/
 ├── embeddings/embedder.py
 ├── vectorstore/chroma_store.py
 ├── retrieval/semantic_search.py
-├── review/                           # Ledger, identities, importers, CLI
+├── review/                           # Ledger, source/evidence history, lexical retrieval, CLI
 ├── llm/agnes_generator.py
 └── rag/rag_assistant.py
 main.py
@@ -336,6 +350,8 @@ For an explicitly offline run on macOS/Linux:
 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python -m pytest -q
 ```
 
+The reviewed milestone passed **1,121 tests** in a clean checkout of the staged release files with API credentials removed and model downloads disabled. Both licensed-source checkers and both frozen medical-question checkers also passed; the five warnings were existing PyMuPDF SWIG deprecations. This software gate does not accept the failed medical retrieval quality benchmarks.
+
 The suite uses temporary PDFs, SQLite/Chroma databases, fake embeddings, and mocked network/generation responses. It covers token bounds and text coverage, page provenance, section detection, interrupted downloads, repeated indexing, stale-chunk removal, empty indexes, model mismatch, citation validation, and CLI behavior. Independent review fixtures verify import provenance, deduplication, rollback, reviewer conflicts/revisions, stage prerequisites, export escaping, and hand-computed count reconciliation. PubMed cases verify exact membership, throttling/retries, tamper rejection, transactional artifact retention, source deletion, offline replay, and snapshot exports. It does not call PubMed, arXiv, or Agnes or download a model. See the [ledger contract](docs/review-milestone.md), [ledger evaluation](docs/review-evaluation.md), [PubMed contract](docs/pubmed-milestone.md), and [PubMed evaluation](docs/pubmed-evaluation.md).
 
 ## Medical systematic and scoping reviews
@@ -349,9 +365,9 @@ The six development priorities are:
 3. Citation-record deduplication and auditable manual many-to-many report/study linkage implemented; manual citation merging remains future work.
 4. Title/abstract and full-text screening, reviewer identity, exclusion reasons, reconciled report counts and conditional distinct-study totals implemented; reviewer requirements and reopening stages remain future work.
 5. Durable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, append-only revisions and independent reviewer verification implemented through API/CLI.
-6. Synthesis and exports based on verified evidence, with a medical-paper evaluation set.
+6. Verified evidence exports and experimental project passage retrieval, independently evaluated on medical papers. Both the initial BM25 and fresh context-candidate held-out runs failed their frozen quality thresholds; exact anchors and provenance checks pass. Medical retrieval quality remains open.
 
-The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The next gate is project source retrieval evaluated against the frozen real medical-paper pilot, followed by a complete integrated review acceptance run.
+The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The [integrated review gate](docs/integrated-review-evaluation.md) passed exact record/report/study counts, source/evidence history, 29-file exports and offline replay after input deletion. [Initial medical retrieval evidence](docs/medical-retrieval-evaluation.md) retains the failed 64.29% support result and source-reporting discrepancies. The [fresh context-candidate evaluation](docs/medical-retrieval-v2-evaluation.md) improved development completeness to 7/7, but failed on new articles with 50% support coverage and 3/9 complete questions. Valid anchors do not imply adequate support coverage. Both failures, original gold and prospective selections remain preserved; the optional method stays experimental and BM25 remains the existing default.
 
 PRISMA is a reporting guideline; implementing a flow diagram alone does not establish review quality. Systematic and scoping workflows should retain their distinct methodological requirements. [PRISMA 2020](https://www.prisma-statement.org/prisma-2020), [PRISMA-ScR](https://www.prisma-statement.org/scoping).
 
@@ -368,4 +384,4 @@ PRISMA is a reporting guideline; implementing a flow diagram alone does not esta
 
 ## License
 
-No license has been added for the project code. The three publisher articles in `tests/fixtures/medical_sources/` carry their own CC BY 4.0 license and attribution in the [source manifest](tests/fixtures/medical_sources/README.md); that license does not apply to the engine code.
+No license has been added for the project code. Publisher articles in the [original source corpus](tests/fixtures/medical_sources/README.md) and [fresh source corpus](tests/fixtures/medical_sources_v2/README.md) carry their own CC BY 4.0 license and attribution; that license does not apply to the engine code.

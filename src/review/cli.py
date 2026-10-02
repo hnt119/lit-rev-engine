@@ -164,6 +164,12 @@ def _parser():
     evidence_history = commands.add_parser("evidence-history", help="Show immutable revisions and verification reviews in one snapshot")
     evidence_history.add_argument("project_id")
     evidence_history.add_argument("--evidence-id")
+    retrieved = commands.add_parser("retrieve-sources", help="Retrieve exact source passage candidates without creating verified findings")
+    retrieved.add_argument("project_id")
+    retrieved.add_argument("--query", required=True)
+    retrieved.add_argument("--top-k", type=int, default=5)
+    retrieved.add_argument("--method", choices=("token_overlap", "bm25", "bm25_context"), default="bm25")
+    retrieved.add_argument("--scope", choices=("included", "all_attached"), default="included")
     for name, help_text in (
         ("records", "List canonical records and current screening/retrieval states"),
         ("history", "List immutable search/import runs"),
@@ -237,6 +243,8 @@ def _execute(store, args):
     if command == "evidence-history":
         with store._snapshot():
             return {"revisions": store.list_evidence_revisions(args.project_id, args.evidence_id), "reviews": store.list_evidence_reviews(args.project_id, args.evidence_id)}
+    if command == "retrieve-sources":
+        return store.search_sources(args.project_id, args.query, top_k=args.top_k, method=args.method, scope=args.scope)
     if command == "import":
         store.get_project(args.project_id)
         filters = _json_argument(args.filters_json, "filters JSON", dictionary=True)

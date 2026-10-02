@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "status": "anchor-reconciled; fresh held-out pilot unfrozen; independent semantic review and coordinator freeze pending",
+  "offset_unit": "Unicode code points, half-open [start,end)",
+  "block_text_hash_rule": "SHA-256 of exact canonical block text encoded UTF-8; no additional normalization",
+  "full_blocks_hash_rule": "SHA-256 of sorted-key compact finite UTF-8 JSON with ensure_ascii=False over the complete parser blocks array",
+  "draft_file_pins": [
+    {
+      "file": "manifest.json",
+      "sha256": "fabddc904f9e979a792c8106bcb846cc42d7fd18e93c7a273165ba3873e4ab1d",
+      "size_bytes": 13697
+    },
+    {
+      "file": "passages.json",
+      "sha256": "b15df2ba31d550dfd316e482293d0024b36a63e57ecd4a578359ae8a5d8a7f50",
+      "size_bytes": 67412
+    },
+    {
+      "file": "held-out.json",
+      "sha256": "90a043e5b67f8425e6a6c51fc7c337ad5019dead2d443ce003f252704593d7c6",
+      "size_bytes": 33550
+    }
+  ],
+  "counts": {
+    "sources": 3,
+    "passages": 24,
+    "questions": 12,
+    "quotes": 31,
+    "development_questions": 0,
+    "held_out_questions": 12,
+    "answerable_questions": 9,
+    "no_answer_questions": 3,
+    "quantitative_questions": 5,
+    "AND_questions": 6
+  },
+  "sources": [
+    {
+      "article_alias": "singhypertension",
+      "source_file": "../medical_sources_v2/singhypertension.xml",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "size_bytes": 216394,
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "block_count": 86,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pmed.1004026"
+      }
+    },
+    {
+      "article_alias": "czechia",
+      "source_file": "../medical_sources_v2/czechia.xml",
+      "source_sha256": "5e0516454a0e8435d83783712f3ebcecb0c2317d044f66241269dcb67d3fb27c",
+      "size_bytes": 322839,
+      "blocks_sha256": "4894b464a15c5b2097759c91ec7c7897842ad9accbb54da38e0f10b15309f307",
+      "block_count": 82,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pmed.1004422"
+      }
+    },
+    {
+      "article_alias": "enose",
+      "source_file": "../medical_sources_v2/enose.xml",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "size_bytes": 105998,
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "block_count": 44,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pone.0340276"
+      }
+    }
+  ],
+  "passages": [
+    {
+      "passage_id": "s-table2",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "block_ordinal": 63,
+      "block_text_sha256": "043d3cd1fce8039afdbb4faa9fbf954cec7993c0595a8df55dafb09df0ebd22f",
+      "block_text_code_points": 1557,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pmed.1004026.t002",
+        "section_title": "Primary outcome",
+        "table_label": "Table 2"
+      }
+    },
+    {
+      "passage_id": "s-change-table3",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+      "block_ordinal": 65,
+      "block_text_sha256": "ddc38bb7af52fbad3b16e21c4f496e3ab6babdd3eeca06e3b3e1dc4d86e0ce16",
+      "block_text_code_points": 3477,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+        "tag": "table-wrap",
+        "element_id": "pmed.1004026.t003",
+        "section_title": "Primary outcome",
+        "table_label": "Table 3"
+      }
+    },
+    {
+      "passage_id": "s-primary-result",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "block_ordinal": 61,
+      "block_text_sha256": "00740a325300ad07c083e9e810509e6358f41e66854e8f324fc3d8411769cb4a",
+      "block_text_code_points": 336,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Primary outcome"
+      }
+    },
+    {
+      "passage_id": "s-eligibility",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "block_ordinal": 30,
+      "block_text_sha256": "c955f6e6ab7a1518233ee41a06bcc58d9cbf365ee4adfc704b5d856530941071",
+      "block_text_code_points": 294,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "Study participants"
+      }
+    },
+    {
+      "passage_id": "s-randomization",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "block_ordinal": 27,
+      "block_text_sha256": "ac9f36895da12fbbc4bede2da2575588405aa01daf778a798efb9da43a8ffaf9",
+      "block_text_code_points": 556,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Randomization and masking"
+      }
+    },
+    {
+      "passage_id": "s-bp-secondary",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "block_ordinal": 66,
+      "block_text_sha256": "5737ba1a6845b00ee3588df19c2d158e9e16f40feb794dbdcd92ee2bb6b40afb",
+      "block_text_code_points": 997,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Key secondary outcomes"
+      }
+    },
+    {
+      "passage_id": "s-mortality-safety",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[2]",
+      "block_ordinal": 69,
+      "block_text_sha256": "c6426b0def42dfb0f4a8d5f963654df273a266b5df16184afce9ec7748ae316e",
+      "block_text_code_points": 372,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "Other secondary outcomes"
+      }
+    },
+    {
+      "passage_id": "s-individual-components-limit",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[4]",
+      "block_ordinal": 77,
+      "block_text_sha256": "02e4cd00372fe9c3700ad55f3c71037805211d0a8399b978a9436efc0f82fcc8",
+      "block_text_code_points": 1175,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[4]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "passage_id": "s-telephone-procedure",
+      "article_alias": "singhypertension",
+      "source_sha256": "6e7d1b46497f943ee5b10441ec5cc40d9dc859bea2cda588cf0e77f383466e7e",
+      "blocks_sha256": "1b8280a378c3f54fbdb032e2570ab7127004c9e0376d65bbaeb31d812689f798",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/list[1]/list-item[3]/p[1]",
+      "block_ordinal": 34,
+      "block_text_sha256": "9f8aaab10eda355d6751b5b764477bd5269a0959b908261739fa4584286559be",
+      "block_text_code_points": 566,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/list[1]/list-item[3]/p[1]",
+        "tag": "p",
+        "section_title": "Procedures"
+      }
+    },
+    {
+      "passage_id": "c-abstract-methods-results",
+      "article_alias": "czechia",
+      "source_sha256": "5e0516454a0e8435d83783712f3ebcecb0c2317d044f66241269dcb67d3fb27c",
+      "blocks_sha256": "4894b464a15c5b2097759c91ec7c7897842ad9accbb54da38e0f10b15309f307",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "block_ordinal": 3,
+      "block_text_sha256": "7186ae1cd3d692c00dac728e2b58b7abc36047de60a0a7605faf14332244a5d5",
+      "block_text_code_points": 3797,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Methods and findings"
+      }
+    },
+    {
+      "passage_id": "c-first-infection-population",
+      "article_alias": "czechia",
+      "source_sha256": "5e0516454a0e8435d83783712f3ebcecb0c2317d044f66241269dcb67d3fb27c",
+      "blocks_sha256": "4894b464a15c5b2097759c91ec7c7897842ad9accbb54da38e0f10b15309f307",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "block_ordinal": 24,
+      "block_text_sha256": "7c3042b06ff01228e8e1b318ecbbca170af76f8f37f93a27861c10eac02be01c",
+      "block_text_code_points": 196,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "Data"
+      }
+    },
+    {
+      "passage_id": "c-matching-vaccination",
+      "article_alias": "czechia",
+      "source_sha256": "5e0516454a0e8435d83783712f3ebcecb0c2317d044f66241269dcb67d3fb27c",
+      "blocks_sha256": "4894b464a15c5b2097759c91ec7c7897842ad9accbb54da38e0f10b15309f307",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "block_ordinal": 34,
+      "block_text_sha256": "c2de8d129097df69b35ac9835621abea42576c8087377045d56e280bcd2c3277",
+      "block_text_code_points": 1075,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "tag": "p",
+        "section_title": "Matching"
+      }
+    },
+    {
+      "passage_id": "c-anxiety-covid-result",
+      "article_alias": "czechia",
+      "source_sha256": "5e0516454a0e8435d83783712f3ebcecb0c2317d044f66241269dcb67d3fb27c",
+      "blocks_sha256": "4894b464a15c5b2097759c91ec7c7897842ad9accbb54da38e0f10b15309f307",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+      "block_ordinal": 44,
+      "block_text_sha256": "ecbc3870069031e8f1c05ad822456eb1ba514b07bb887686870be9537d759ab5",
+      "block_text_code_points": 726,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+        "tag": "p",
+        "section_title": "Risk of death with COVID-19 in people with preexisting mental disorders"
+      }
+    },
+    {
+      "passage_id": "c-anxiety-allcause-result",
+      "article_alias": "czechia",
+      "source_sha256": "5e0516454a0e8435d83783712f3ebcecb0c2317d044f66241269dcb67d3fb27c",
+      "blocks_sha256": "4894b464a15c5b2097759c91ec7c7897842ad9accbb54da38e0f10b15309f307",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "block_ordinal": 47,
+      "block_text_sha256": "66adfb7685c0880d8f76024beb9a98590cc0a2f4884c636d736f06799dee619a",
+      "block_text_code_points": 948,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "tag": "p",
+        "section_title": "Risk of all-cause mortality in people with preexisting mental disorders"
+      }
+    },
+    {
+      "passage_id": "c-limitations",
+      "article_alias": "czechia",
+      "source_sha256": "5e0516454a0e8435d83783712f3ebcecb0c2317d044f66241269dcb67d3fb27c",
+      "blocks_sha256": "4894b464a15c5b2097759c91ec7c7897842ad9accbb54da38e0f10b15309f307",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[11]",
+      "block_ordinal": 61,
+      "block_text_sha256": "a63914ea6693d99e4b6e63f5d8baa7df513b0c6b9e2ed2ffabdbac8378910101",
+      "block_text_code_points": 3213,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[11]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "passage_id": "e-test-model-result",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[2]",
+      "block_ordinal": 27,
+      "block_text_sha256": "709440f4033693a8af185f2d3e73339f91c7bc8bf46c247ddaf5ab5b99e45edd",
+      "block_text_code_points": 593,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/p[2]",
+        "tag": "p",
+        "section_title": "Model performance"
+      }
+    },
+    {
+      "passage_id": "e-training-model-result",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+      "block_ordinal": 26,
+      "block_text_sha256": "f57f6b82a433edfde730ad782cb2b58fd8214e01944444b3138db64ff36d06d5",
+      "block_text_code_points": 566,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Model performance"
+      }
+    },
+    {
+      "passage_id": "e-selection",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "block_ordinal": 13,
+      "block_text_sha256": "b51b7453c3b5cf6f7d3812a00033348b29da7b991f0de24140cd2fb08a7de05b",
+      "block_text_code_points": 1013,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Study design and patient selection"
+      }
+    },
+    {
+      "passage_id": "e-analysis-population",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "block_ordinal": 21,
+      "block_text_sha256": "732dfcde2d272562bc0109c882e273f8ffe5d31ad99333bbf379f9d8982281ee",
+      "block_text_code_points": 682,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Study population"
+      }
+    },
+    {
+      "passage_id": "e-reference-followup",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "block_ordinal": 14,
+      "block_text_sha256": "c7734ea9ac81ac407d7f3da362649c799edfdb4c87cd10894a31b217cb3f1409",
+      "block_text_code_points": 975,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Follow-up data collection"
+      }
+    },
+    {
+      "passage_id": "e-later-recurrence",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[4]",
+      "block_ordinal": 30,
+      "block_text_sha256": "4f5349a8367a8eb58c95feed5037ce08c2d14a540d33a8b8ea9ce3d2798f7669",
+      "block_text_code_points": 615,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/p[4]",
+        "tag": "p",
+        "section_title": "Model performance"
+      }
+    },
+    {
+      "passage_id": "e-internal-validation",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "block_ordinal": 18,
+      "block_text_sha256": "46a347b16e83457bd473cd15b220e1b00f2e8e0fc05ad7391fe6358e10bde5bd",
+      "block_text_code_points": 394,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "Aeonose™ technology and model development"
+      }
+    },
+    {
+      "passage_id": "e-single-centre-limit",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[8]",
+      "block_ordinal": 38,
+      "block_text_sha256": "a2e7d7d8bbadef43653c84b206a3bb16b1a2388b53ac228e1b41747d5967be09",
+      "block_text_code_points": 462,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[8]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "passage_id": "e-previous-external-study",
+      "article_alias": "enose",
+      "source_sha256": "19f97daca58580464dde9922bdc5ef52085c7b028d7b516f2284ed688603e9c8",
+      "blocks_sha256": "ea72e05ae0c3a115131ec80a5893c11ef6897c8894f8d8869bf01af512ee0f5c",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+      "block_ordinal": 32,
+      "block_text_sha256": "b2a8ff40a0ad0c470f53c1e612dc15d179b11f63e650561e4bae0853975fa307",
+      "block_text_code_points": 798,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[2]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    }
+  ],
+  "question_quotes": [
+    {
+      "question_id": "v2-hold-s1",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "s-table2",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "start": 8,
+        "end": 74,
+        "quote": "Primary and BP-related key secondary outcomes by treatment groupa."
+      }
+    },
+    {
+      "question_id": "v2-hold-s1",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "s-table2",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "start": 262,
+        "end": 383,
+        "quote": "SBP, mean (95% CI), mmHg\n24 months\t384\t135.4 (0.98)(133.1, 137.7)\t382\t138.7 (1.01)(136.4, 141.1)\t−3.33(−6.34, −0.32)\t0.03"
+      }
+    },
+    {
+      "question_id": "v2-hold-s1",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "s-table2",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "start": 1074,
+        "end": 1115,
+        "quote": "aAll analyses based on the ITT principle."
+      }
+    },
+    {
+      "question_id": "v2-hold-s2",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "s-eligibility",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "start": 0,
+        "end": 294,
+        "quote": "We enrolled patients aged ≥40 years with previously diagnosed hypertension (SBP ≥140 mmHg or diastolic BP (DBP) ≥90 mmHg) based on mean of last 2 of 3 measurements who had visited an enrolled clinic at least twice during the prior 12 months and were Singaporean citizens or permanent residents."
+      }
+    },
+    {
+      "question_id": "v2-hold-s2",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "s-randomization",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "start": 0,
+        "end": 224,
+        "quote": "We used computer-generated codes to randomly assign 4 clinics to the multicomponent intervention and 4 to usual care. Following randomization, 916 individuals with uncontrolled hypertension were recruited from these clinics."
+      }
+    },
+    {
+      "question_id": "v2-hold-s2",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "s-randomization",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "start": 357,
+        "end": 391,
+        "quote": "There was no masking in the trial."
+      }
+    },
+    {
+      "question_id": "v2-hold-s3",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "s-bp-secondary",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "start": 168,
+        "end": 360,
+        "quote": "A greater percentage of participants achieved BP control at 24 months in the intervention (61.3%) arm versus usual care (51.2%) with associated odds ratio (95% CI) 1.51 (1.10, 2.09) (p = 0.01)"
+      }
+    },
+    {
+      "question_id": "v2-hold-s3",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "s-table2",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "start": 517,
+        "end": 685,
+        "quote": "BP controlled to conventional goal (SBP <140 mmHg and DBP <90 mmHg), % (95% CI)\n24 months\t384\t61.3 (11.0)(55.2, 67.1)\t382\t51.2 (10.6)(45.9, 56.5)\t1.51(1.10, 2.09)c\t0.01"
+      }
+    },
+    {
+      "question_id": "v2-hold-s3",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "s-mortality-safety",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[2]",
+        "start": 0,
+        "end": 202,
+        "quote": "The proportion of participants with incident SAEs did not differ significantly between study arms. Total mortality was not different between intervention (0.5%) compared to usual care (1.3%) (p = 0.29)."
+      }
+    },
+    {
+      "question_id": "v2-hold-s4",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "s-individual-components-limit",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[4]",
+        "start": 160,
+        "end": 303,
+        "quote": "Our trial was not designed to unravel how much of the benefit of the multicomponent intervention was attributable to each individual component."
+      }
+    },
+    {
+      "question_id": "v2-hold-s4",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "s-telephone-procedure",
+      "article_alias": "singhypertension",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/list[1]/list-item[3]/p[1]",
+        "start": 0,
+        "end": 243,
+        "quote": "Telephone-based follow-up by trained nurses: The nurses trained in motivational conversations also followed all hypertensive patients by telephone for adherence reinforcement to healthy lifestyles and treatment, using a standardized checklist."
+      }
+    },
+    {
+      "question_id": "v2-hold-c1",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "c-abstract-methods-results",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "start": 1074,
+        "end": 1325,
+        "quote": "We assessed deaths with Coronavirus Disease 2019 (COVID-19) and from all-causes in the time period of 28 and 60 days following the infection using stratified Cox proportional hazards models, adjusting for matching variables and additional confounders."
+      }
+    },
+    {
+      "question_id": "v2-hold-c1",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "c-abstract-methods-results",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "start": 1843,
+        "end": 2124,
+        "quote": "People diagnosed with or diagnosed and treated for psychotic disorders had a consistently elevated risk of dying with COVID-19 in epochs 2, 3, 4, and 5, with adjusted hazard ratios (aHRs) ranging from 1.46 [95% confidence intervals (CIs), 1.18, 1.79] to 1.93 [95% CIs, 1.12, 3.32]."
+      }
+    },
+    {
+      "question_id": "v2-hold-c1",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "c-abstract-methods-results",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "start": 2308,
+        "end": 2380,
+        "quote": "The models could not be reliably fit for psychotic disorders in epoch 1."
+      }
+    },
+    {
+      "question_id": "v2-hold-c2",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "c-first-infection-population",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "start": 0,
+        "end": 196,
+        "quote": "We retrieved all individuals aged 10 or above—the earliest plausible onset age of the studied mental disorders [33]—with first-ever laboratory-confirmed SARS-CoV-2 infection occurring in 5 epochs:"
+      }
+    },
+    {
+      "question_id": "v2-hold-c2",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "c-matching-vaccination",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "start": 243,
+        "end": 395,
+        "quote": "Since vaccination does not confer an immediate protection, we did not consider vaccinations that were administered 14 or less days before the infection."
+      }
+    },
+    {
+      "question_id": "v2-hold-c2",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "c-matching-vaccination",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "start": 396,
+        "end": 654,
+        "quote": "For example, when an individual received the first dose of a two-dose regimen more than 14 days before the infection, and the second dose 14 or less days before the infection, we considered them as having received the first dose at the time of the infection."
+      }
+    },
+    {
+      "question_id": "v2-hold-c2",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "c-matching-vaccination",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "start": 799,
+        "end": 878,
+        "quote": "Each exposed individual was matched with up to 5 unique unexposed counterparts."
+      }
+    },
+    {
+      "question_id": "v2-hold-c3",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "c-anxiety-covid-result",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+        "start": 0,
+        "end": 261,
+        "quote": "In contrast, people diagnosed with or diagnosed and treated for anxiety disorders had a decreased risk of death with COVID-19 in epoch 2, 3, and 5, both 28 and 60 days postinfection. The remaining models for anxiety disorders were consistent with a null effect."
+      }
+    },
+    {
+      "question_id": "v2-hold-c3",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "c-anxiety-allcause-result",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "start": 0,
+        "end": 473,
+        "quote": "Conversely, people diagnosed with anxiety disorders had a decreased risk of all-cause mortality in epoch 2, 3, 4, and 5, both 28 and 60 days postinfection. Cases ascertained based on diagnosis of anxiety disorders and treatment by psychopharmaceuticals demonstrated broadly consistent results, with decreased risks of all-cause mortality in epoch 2, 3, and 5, both 28 and 60 days postinfection. The remaining models for anxiety disorders were consistent with a null effect."
+      }
+    },
+    {
+      "question_id": "v2-hold-c4",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "c-limitations",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[11]",
+        "start": 2662,
+        "end": 2775,
+        "quote": "Seventh, we did not investigate survival following SARS-CoV-2 re-infections in people with preexisting disorders."
+      }
+    },
+    {
+      "question_id": "v2-hold-c4",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "c-first-infection-population",
+      "article_alias": "czechia",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "start": 116,
+        "end": 196,
+        "quote": "with first-ever laboratory-confirmed SARS-CoV-2 infection occurring in 5 epochs:"
+      }
+    },
+    {
+      "question_id": "v2-hold-e1",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "e-test-model-result",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[2]",
+        "start": 0,
+        "end": 198,
+        "quote": "The test set included 99 patients, 25 (25%) of whom experienced recurrence. There were 13 true positives, 37 false positives, 12 false negatives and 37 true negatives in the classified breath tests."
+      }
+    },
+    {
+      "question_id": "v2-hold-e1",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "e-test-model-result",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[2]",
+        "start": 199,
+        "end": 428,
+        "quote": "The model demonstrated a sensitivity of 0.52 (95%CI; 0.32–0.71) and a specificity of 0.50 (95% CI; 0.39–0.61) in detecting recurrences. The accuracy was 0.51 (95%CI; 0.41–0.60) and the AUC of the ROC curve 0.51 (95% CI;0.38–0.64)"
+      }
+    },
+    {
+      "question_id": "v2-hold-e2",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "e-selection",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "start": 88,
+        "end": 326,
+        "quote": "Between January 1, 2020, and April 14, 2024, patients with stage I-III, or stage IV with synchronous or metachronous metastases treated with curative intent, who underwent surgery from January 2018 to June 2023, were asked to participate."
+      }
+    },
+    {
+      "question_id": "v2-hold-e2",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "e-analysis-population",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 0,
+        "end": 428,
+        "quote": "Between January 2020 and April 2024, 498 out of 748 eligible patients provided informed consent and were included in the study, during which breath tests were performed. Ninety-two patients were excluded due to a failed breath test (n = 38), changes in health status (n = 30), technical issues (n = 19), wrong inclusion (n = 3), or loss to follow up (n = 2). A total of 406 patients completed breath tests suitable for analysis."
+      }
+    },
+    {
+      "question_id": "v2-hold-e3",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "e-reference-followup",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "start": 347,
+        "end": 584,
+        "quote": "Histological or cytological confirmation was not obligatory, as this was not always possible or desirable. The gold standard for recurrent CRC was the determination during the multidisciplinary team meeting based on at least one CT scan."
+      }
+    },
+    {
+      "question_id": "v2-hold-e3",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "e-later-recurrence",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[4]",
+        "start": 0,
+        "end": 178,
+        "quote": "Patients without recurrence (n = 343) were followed up at least six months after the breath to verify their clinical status. Seven patients developed recurrence during follow-up."
+      }
+    },
+    {
+      "question_id": "v2-hold-e3",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "e-later-recurrence",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[4]",
+        "start": 179,
+        "end": 615,
+        "quote": "At the time of recurrence, no breath test was available for these patients, either because they declined performing a breath test at that moment, or because recurrence was not detected in scheduled follow-up and therefore no breath test was planned. Their initial breath test result had been positive, while routine clinical follow-up at that time showed no signs of recurrence. These cases were therefore classified as false positives."
+      }
+    },
+    {
+      "question_id": "v2-hold-e4",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "e-internal-validation",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "start": 193,
+        "end": 264,
+        "quote": "The test set was used for internal validation of the trained algorithm."
+      }
+    },
+    {
+      "question_id": "v2-hold-e4",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "e-single-centre-limit",
+      "article_alias": "enose",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[8]",
+        "start": 347,
+        "end": 462,
+        "quote": "While our sample size met the target prevalence, the single-centre design limited recruitment and generalizability."
+      }
+    }
+  ]
+}

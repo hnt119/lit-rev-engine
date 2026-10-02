@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "coordinator_selected_before_held_out_ranking",
+  "selected_at_utc": "2026-10-02T19:31:58.639048+00:00",
+  "selected_method": "bm25",
+  "development_result_file": "docs/medical-retrieval-development-v1.json",
+  "development_result_sha256": "f1275c258e8b1cfce756788fe41b3c089729978a304fcd781758a390a7fb7075",
+  "freeze_file": "tests/fixtures/medical_retrieval/freeze.json",
+  "freeze_sha256": "e0b8b7581c16ad2e96df19ba93e7d77a4252001ba774b96eec3c4dd842b2b0b7",
+  "held_out_ranked_at_selection": false,
+  "selection_rule": {
+    "answerable_questions": 7,
+    "eligible_min_complete_questions": 4,
+    "eligible_min_mean_support_coverage_at_5": 0.75,
+    "final_tie_preference": "bm25",
+    "order": [
+      "mean_support_coverage_at_5",
+      "complete_questions_at_5",
+      "mean_reciprocal_rank_at_5"
+    ]
+  },
+  "reviewed_method_metrics": [
+    {
+      "method": "token_overlap",
+      "metrics": {
+        "questions": 9,
+        "answerable_questions": 7,
+        "no_answer_questions": 2,
+        "hit_rate_at_5": 0.8571428571428571,
+        "mean_reciprocal_rank_at_5": 0.6476190476190476,
+        "mean_support_coverage_at_5": 0.8571428571428571,
+        "complete_questions_at_5": 6,
+        "complete_question_rate_at_5": 0.8571428571428571,
+        "no_answer_nonempty_candidate_rate_at_5": 1.0,
+        "no_answer_context_quotes_covered_at_5": 1,
+        "no_answer_context_quotes_declared": 2
+      }
+    },
+    {
+      "method": "bm25",
+      "metrics": {
+        "questions": 9,
+        "answerable_questions": 7,
+        "no_answer_questions": 2,
+        "hit_rate_at_5": 0.8571428571428571,
+        "mean_reciprocal_rank_at_5": 0.7857142857142857,
+        "mean_support_coverage_at_5": 0.8571428571428571,
+        "complete_questions_at_5": 6,
+        "complete_question_rate_at_5": 0.8571428571428571,
+        "no_answer_nonempty_candidate_rate_at_5": 1.0,
+        "no_answer_context_quotes_covered_at_5": 1,
+        "no_answer_context_quotes_declared": 2
+      }
+    }
+  ],
+  "decision_reason": "Both methods meet the prospective development gate and tie on support coverage and complete questions. BM25 has the higher MRR@5 under the frozen ordering.",
+  "retained_development_failures": [
+    "Both methods miss required measured SARS-CoV-2 accuracy support for dev-raptor-02 while retrieving manufacturer claims.",
+    "Both return candidates for both no-answer questions. The COACH unmeasured-adherence limitation is not retrieved at five; one of two declared no-answer context quotes is covered."
+  ],
+  "held_out_authorization": "Evaluate only BM25 with unchanged frozen parameters, gold, metrics and thresholds. Do not tune on held-out failures.",
+  "limits": [
+    "Small three-article agent-authored software pilot; not clinical validation.",
+    "Question-level split shares documents and some passages; no document-level generalization claim.",
+    "Non-exhaustive support labels may omit alternative valid passages.",
+    "No established multiple-report study; multi-passage questions do not validate cross-report retrieval."
+  ]
+}

@@ -1,6 +1,6 @@
 # Integrated review acceptance: coordinator preparation
 
-Status: preparation only; release E8 after source/evidence CLI and project retrieval gates. Evaluation owns `tests/test_integrated_review_acceptance.py` and `docs/integrated-review-evaluation.md`. Implementation receives only defects exposed by the gate. Use temporary files/ledger and existing independently authored software fixtures, without live searches, models, clinical gold assertions or user data.
+Status: E8 accepted after coordinator code/report review: two bounded integration cases pass, covering the exact totals, all 29 export files, deletion/reopen/portable capture replay, and an actual concurrent SQLite snapshot across search/screen/link/source/evidence changes. The final clean staged release check passes 1,121 tests and both source/gold checker pairs, with five existing SWIG warnings. The coordinator revised the order to verify core ledger integration while a separate development-only retrieval investigation proceeds. The v1 medical retrieval quality gate failed; E8 neither relaxes nor substitutes for it. Evaluation owns `tests/test_integrated_review_acceptance.py` and `docs/integrated-review-evaluation.md`. No operational defect required an Implementation ticket. Use temporary files/ledger and existing independently authored software fixtures, without live searches, models, clinical gold assertions or user data.
 
 ## One review, complete provenance chain
 

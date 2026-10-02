@@ -1,0 +1,108 @@
+{
+  "coordinator_review": {
+    "answerable_questions": 7,
+    "complete_questions": 7,
+    "fresh_question_content_inspected_before_selection": false,
+    "independent_metric_recomputation": true,
+    "mean_reciprocal_rank_at_5": 0.7380952380952381,
+    "mean_support_coverage_at_5": 1.0,
+    "no_answer_context_quotes_recovered": 1,
+    "own_anchors_valid": 45,
+    "rank_regressions_retained": [
+      "dev-coach-02: 1 to 3",
+      "dev-whitehall-03: 2 to 3"
+    ],
+    "rationale": "The prospectively frozen gate prioritizes complete own-anchor support. The single context candidate meets all criteria and restores the measured-result support at rank two; lower MRR and unrecovered no-answer context remain disclosed.",
+    "scoring_context_anchors_valid": 24,
+    "strict_development_gate_passed": true
+  },
+  "default_policy": "Keep the stable BM25 default; the selected context candidate is an explicit optional method for this new held-out evaluation.",
+  "development_result_file": "docs/medical-retrieval-development-v2.json",
+  "development_result_sha256": "2cb7bcfa1768b440768ed1fc6a0f7998fad810bdf9f0295e0ccc9c458c0c6b11",
+  "freeze_file": "tests/fixtures/medical_retrieval_v2/freeze.json",
+  "freeze_sha256": "5cb33360cc358350453e58bffe1ace790b21f9824ecd8b461c522dd6a1c4cd8a",
+  "held_out_ranked_at_selection": false,
+  "implementation_files": {
+    "src/review/cli.py": {
+      "sha256": "8171038e9b6d67043a923d5d8161a766a188a9f39d88a08fe57593a158bfd9ec",
+      "size_bytes": 18988
+    },
+    "src/review/documents.py": {
+      "sha256": "c27ec563267bc6d9182a5bae38d48878c9b67a42ecbe1fc185ec7fc4965edb90",
+      "size_bytes": 13615
+    },
+    "src/review/retrieval.py": {
+      "sha256": "cb2ddeccd21790552dc00205cbe38a7a03cd6ee0f95e14e3e64d447414455f34",
+      "size_bytes": 8732
+    },
+    "src/review/store.py": {
+      "sha256": "d1622ea5089ffdfedb196803732dc74c35686e647f758a0e57e0e9d93d1b13a4",
+      "size_bytes": 40104
+    }
+  },
+  "interface_default": "bm25",
+  "method_parameters": {
+    "b": 0.75,
+    "context_max_words": 80,
+    "context_rule": "preceding-paragraph-same-xml-parent-v1",
+    "k1": 1.2,
+    "overlap_words": 40,
+    "stop_words": [
+      "a",
+      "an",
+      "and",
+      "are",
+      "as",
+      "at",
+      "be",
+      "been",
+      "by",
+      "did",
+      "do",
+      "does",
+      "for",
+      "from",
+      "had",
+      "has",
+      "have",
+      "how",
+      "in",
+      "is",
+      "it",
+      "its",
+      "of",
+      "on",
+      "or",
+      "that",
+      "the",
+      "their",
+      "there",
+      "these",
+      "this",
+      "to",
+      "was",
+      "were",
+      "what",
+      "when",
+      "where",
+      "which",
+      "who",
+      "with",
+      "would"
+    ],
+    "tokenizer_id": "unicode-casefold-word-v1",
+    "window_words": 200
+  },
+  "schema_version": 1,
+  "selected_at_utc": "2026-10-02T20:15:52.759320+00:00",
+  "selected_method": "bm25_context",
+  "selection_rule": {
+    "candidate": "bm25_context",
+    "exact_anchor_validity": 1.0,
+    "min_complete_questions": 7,
+    "min_mean_support_coverage_at_5": 1.0,
+    "min_no_answer_context_quotes_at_5": 1,
+    "reference": "bm25"
+  },
+  "status": "coordinator_selected_before_held_out_ranking"
+}
