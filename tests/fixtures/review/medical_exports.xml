@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation>
+      <PMID Version="1">39003001</PMID>
+      <Article>
+        <Journal><JournalIssue><PubDate><Year>2021</Year><Month>May</Month></PubDate></JournalIssue></Journal>
+        <ArticleTitle>Oxygen targets in <i>acute</i> care</ArticleTitle>
+        <Abstract>
+          <AbstractText Label="Objective">Compare <b>oxygen</b> targets.</AbstractText>
+          <AbstractText Label="Results">Mortality was assessed at 30 days.</AbstractText>
+        </Abstract>
+        <AuthorList>
+          <Author><LastName>Ng</LastName><ForeName>Ada</ForeName><Initials>A</Initials></Author>
+          <Author><CollectiveName>Oxygen Collaboration</CollectiveName></Author>
+        </AuthorList>
+      </Article>
+    </MedlineCitation>
+    <PubmedData><ArticleIdList><ArticleId IdType="pubmed">39003001</ArticleId><ArticleId IdType="doi">10.5555/oxygen-x</ArticleId></ArticleIdList></PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation>
+      <PMID Version="1">39003002</PMID>
+      <Article>
+        <Journal><JournalIssue><PubDate><MedlineDate>2020 Jan-Feb</MedlineDate></PubDate></JournalIssue></Journal>
+        <ArticleTitle>Safety of discharge counselling</ArticleTitle>
+        <Abstract><AbstractText>Participants received counselling before discharge.</AbstractText></Abstract>
+        <AuthorList><Author><LastName>Malik</LastName><ForeName>Ben</ForeName></Author></AuthorList>
+      </Article>
+    </MedlineCitation>
+  </PubmedArticle>
+</PubmedArticleSet>

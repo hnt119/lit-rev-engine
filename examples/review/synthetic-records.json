@@ -1,0 +1,49 @@
+[
+  {
+    "title": "Synthetic record A: DOI import exercise",
+    "authors": ["Example, Ada"],
+    "year": 2024,
+    "doi": "10.99999/lre-demo-a",
+    "abstract": "Synthetic bibliography metadata for software testing; contains no clinical findings.",
+    "source_id": "synthetic-a",
+    "fixture_note": "Fabricated software fixture, not a real publication or clinical citation."
+  },
+  {
+    "title": "Synthetic record A: DOI import exercise",
+    "authors": ["Example, Ada"],
+    "year": 2024,
+    "doi": "https://doi.org/10.99999/LRE-DEMO-A",
+    "source_id": "synthetic-a-duplicate",
+    "fixture_note": "Duplicate DOI in URL form; not a real publication."
+  },
+  {
+    "title": "Synthetic record B: PubMed adapter exercise",
+    "authors": ["Example, Ben", "Example Consortium"],
+    "year": 2024,
+    "pmid": "999999991",
+    "abstract": "PURPOSE: Synthetic metadata for software testing; contains no clinical findings.",
+    "source_id": "synthetic-b",
+    "fixture_note": "Fabricated identifier for software testing; do not resolve or cite as a real PMID."
+  },
+  {
+    "title": "Synthetic record C: no-identifier exercise",
+    "authors": ["Example, Cora"],
+    "year": 2024,
+    "source_id": "synthetic-c",
+    "fixture_note": "No strong identifier; complete title/year/first-author fallback."
+  },
+  {
+    "title": "  SYNTHETIC record C:   no-identifier exercise  ",
+    "authors": ["example, cora"],
+    "year": 2024,
+    "source_id": "synthetic-c-duplicate",
+    "fixture_note": "Duplicate fallback identity after case and whitespace normalization."
+  },
+  {
+    "title": "Synthetic record C: no-identifier exercise",
+    "authors": ["Different, Dana"],
+    "year": 2024,
+    "source_id": "synthetic-d",
+    "fixture_note": "Same title/year but a different first author; remains a distinct record."
+  }
+]

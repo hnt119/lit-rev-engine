@@ -1,0 +1,10 @@
+TY  - JOUR
+TI  - Synthetic record B: PubMed adapter exercise
+AU  - Example, Ben
+A1  - Example Consortium
+PY  - 2024
+DB  - PubMed
+AN  - PMID:999999991
+AB  - PURPOSE: Synthetic metadata for software testing; contains no clinical findings.
+N1  - Fabricated software fixture, not a real publication or clinical citation. Do not resolve or cite this identifier.
+ER  -

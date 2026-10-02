@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Third indexing title for the renal trial",
+    "authors": ["Third Author"],
+    "year": 2026,
+    "pmid": "39001001",
+    "abstract": "A later incompatible abstract must remain in provenance.",
+    "source_id": "renal-third-occurrence"
+  },
+  {
+    "title": "Remote review after abdominal surgery",
+    "authors": ["Dev Singh"],
+    "year": 2024,
+    "pmid": "39001002",
+    "abstract": "A cohort examining remote follow-up.",
+    "source_id": "remote-original"
+  }
+]

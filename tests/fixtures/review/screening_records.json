@@ -1,0 +1,15 @@
+[
+  {"title": "Monitoring: waiting for initial screening", "doi": "10.5555/screen-01", "source_id": "r01"},
+  {"title": "Monitoring: excluded for population", "doi": "10.5555/screen-02", "source_id": "r02"},
+  {"title": "Monitoring: unclear design", "doi": "10.5555/screen-03", "source_id": "r03"},
+  {"title": "Monitoring: reviewers disagree", "doi": "10.5555/screen-04", "source_id": "r04"},
+  {"title": "Monitoring: ready for full-text request", "doi": "10.5555/screen-05", "source_id": "r05"},
+  {"title": "Monitoring: requested report", "doi": "10.5555/screen-06", "source_id": "r06"},
+  {"title": "Monitoring: unavailable report", "doi": "10.5555/screen-07", "source_id": "r07"},
+  {"title": "Monitoring: retrieved and awaiting assessment", "doi": "10.5555/screen-08", "source_id": "r08"},
+  {"title": "Monitoring: included report", "doi": "10.5555/screen-09", "source_id": "r09"},
+  {"title": "Monitoring: excluded after full text", "doi": "10.5555/screen-10", "source_id": "r10"},
+  {"title": "Monitoring: unresolved full-text methods", "doi": "10.5555/screen-11", "source_id": "r11"},
+  {"title": "Monitoring: full-text reviewer disagreement", "doi": "10.5555/screen-12", "source_id": "r12"},
+  {"title": "Monitoring: agreed exclusion with revised reasons", "doi": "10.5555/screen-13", "source_id": "r13"}
+]

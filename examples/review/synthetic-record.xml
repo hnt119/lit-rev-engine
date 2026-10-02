@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE">
+      <PMID Version="1">999999991</PMID>
+      <Article>
+        <Journal>
+          <JournalIssue>
+            <PubDate><MedlineDate>2024 Jan-Feb</MedlineDate></PubDate>
+          </JournalIssue>
+          <Title>Synthetic Software Fixture Journal</Title>
+        </Journal>
+        <ArticleTitle>Synthetic record <i>B</i>: PubMed adapter exercise</ArticleTitle>
+        <Abstract>
+          <AbstractText Label="PURPOSE">Synthetic <b>metadata</b> for software testing; contains no clinical findings.</AbstractText>
+        </Abstract>
+        <AuthorList>
+          <Author><LastName>Example</LastName><ForeName>Ben</ForeName></Author>
+          <Author><CollectiveName>Example Consortium</CollectiveName></Author>
+        </AuthorList>
+      </Article>
+      <GeneralNote>Fabricated software fixture, not a real publication or clinical citation. Do not resolve or cite this identifier.</GeneralNote>
+    </MedlineCitation>
+    <PubmedData>
+      <ArticleIdList><ArticleId IdType="pubmed">999999991</ArticleId></ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+</PubmedArticleSet>

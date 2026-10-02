@@ -1,0 +1,43 @@
+{
+  "description": "Synthetic software fixtures only. This manifest documents expected counts and is not a bibliographic import file.",
+  "sequence": [
+    {
+      "step": "Import synthetic-records.json into a fresh project with import-key demo-json-v1",
+      "import_result": {"identified": 6, "new_records": 4, "duplicates": 2},
+      "project_counts": {"records_identified": 6, "duplicate_records_removed": 2, "unique_records": 4}
+    },
+    {
+      "step": "Repeat exactly the same command and import-key demo-json-v1",
+      "same_search_run_id": true,
+      "import_result": {"identified": 6, "new_records": 4, "duplicates": 2},
+      "project_counts": {"records_identified": 6, "duplicate_records_removed": 2, "unique_records": 4}
+    },
+    {
+      "step": "Import synthetic-record.ris as a new run",
+      "import_result": {"identified": 1, "new_records": 0, "duplicates": 1},
+      "project_counts": {"records_identified": 7, "duplicate_records_removed": 3, "unique_records": 4}
+    },
+    {
+      "step": "Import synthetic-record.xml as a new run",
+      "import_result": {"identified": 1, "new_records": 0, "duplicates": 1},
+      "project_counts": {"records_identified": 8, "duplicate_records_removed": 4, "unique_records": 4}
+    },
+    {
+      "step": "Import zero-results.json as a new zero-result run",
+      "import_result": {"identified": 0, "new_records": 0, "duplicates": 0},
+      "project_counts": {"records_identified": 8, "duplicate_records_removed": 4, "unique_records": 4}
+    }
+  ],
+  "after_optional_unkeyed_json_rerun": {
+    "import_result": {"identified": 6, "new_records": 0, "duplicates": 6},
+    "project_counts": {"records_identified": 14, "duplicate_records_removed": 10, "unique_records": 4}
+  },
+  "final_without_optional_rerun": {
+    "search_runs": 4,
+    "raw_occurrences": 8,
+    "records_awaiting_screening": 4,
+    "records_screened": 0,
+    "included_studies": null,
+    "study_linkage_available": false
+  }
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Intensive monitoring after renal surgery",
+    "authors": ["Ada Ng", "Ben Malik"],
+    "year": 2024,
+    "doi": "https://doi.org/10.5555/RENAL-A",
+    "pmid": "https://pubmed.ncbi.nlm.nih.gov/39001001/",
+    "source_id": "renal-original",
+    "database_note": "First indexed title; synthetic evaluation data"
+  },
+  {
+    "title": "Alternate indexing title for the renal trial",
+    "authors": ["Conflicting Author"],
+    "year": 2025,
+    "doi": "doi:10.5555/renal-a",
+    "pmid": "39001001",
+    "abstract": "A trial comparing two monitoring schedules.",
+    "url": "https://example.invalid/renal-a",
+    "source_id": "renal-second-occurrence",
+    "database_note": "Conflicting title, authors, and year must stay in provenance"
+  },
+  {
+    "title": "Early mobilisation after hip surgery",
+    "authors": ["Bo Lin"],
+    "year": 2023,
+    "doi": "10.5555/rehab-one",
+    "source_id": "rehab-first-report"
+  },
+  {
+    "title": "Early mobilisation after hip surgery",
+    "authors": ["Bo Lin"],
+    "year": 2023,
+    "doi": "10.5555/rehab-two",
+    "source_id": "rehab-second-report"
+  },
+  {
+    "title": "Nurse-led oxygen assessment",
+    "authors": ["Cara Das"],
+    "year": 2022,
+    "source_id": "oxygen-original"
+  },
+  {
+    "title": "  NURSE-LED   oxygen assessment  ",
+    "authors": ["  CARA DAS  "],
+    "year": 2022,
+    "source_id": "oxygen-duplicate"
+  },
+  {
+    "title": "Nurse-led oxygen assessment",
+    "authors": [],
+    "year": 2022,
+    "source_id": "oxygen-no-author"
+  },
+  {
+    "title": "Nurse-led oxygen assessment",
+    "authors": ["Cara Das"],
+    "year": 2022,
+    "pmid": "39001003",
+    "source_id": "oxygen-identified-report"
+  }
+]

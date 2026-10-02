@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PubmedArticleSet><PubmedArticle><MedlineCitation><PMID>123456</PMID><Article>
+<ArticleTitle>Drug A for <i>adult</i> sepsis</ArticleTitle>
+<Abstract><AbstractText Label="RESULTS">Mortality was <b>20%</b>.</AbstractText><AbstractText Label="LIMITATIONS">Small sample.</AbstractText></Abstract>
+<AuthorList><Author><LastName>Chen</LastName><ForeName>Ada</ForeName></Author><Author><CollectiveName>Sepsis Trial Group</CollectiveName></Author></AuthorList>
+<Journal><JournalIssue><PubDate><MedlineDate>2024 Jan-Feb</MedlineDate></PubDate></JournalIssue></Journal>
+</Article></MedlineCitation><PubmedData><ArticleIdList><ArticleId IdType="doi">10.1234/trial.a</ArticleId><ArticleId IdType="pubmed">123456</ArticleId></ArticleIdList></PubmedData></PubmedArticle></PubmedArticleSet>

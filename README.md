@@ -1,10 +1,24 @@
 # Literature Review Engine
 
-A Python prototype for discovering academic papers, indexing their text locally, finding relevant passages, and asking an Agnes-powered assistant questions about those passages.
+A Python engine for managing a reproducible review ledger and exploring locally indexed academic papers with an Agnes-powered assistant.
 
-The intended direction is a reproducible workflow for medical systematic and scoping reviews. The current version implements ingestion, retrieval, and retrieval-augmented generation (RAG). Review projects, historical search logs, screening decisions, and verified evidence tables are planned next.
+The review ledger stores systematic or scoping review projects, saved bibliography imports, search history, conservative deduplication, reviewer decisions, and reconciled record/report counts. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages. Live biomedical searches, report-to-study linkage, and verified evidence tables remain future work.
 
 ## Current workflow
+
+```mermaid
+flowchart LR
+    Export[Saved JSON / RIS / PubMed XML] --> Import[Import and preserve every occurrence]
+    Import --> Ledger[(SQLite review project)]
+    Ledger --> Dedup[Conservative record deduplication]
+    Dedup --> Screening[Reviewer decisions and adjudication]
+    Screening --> Fulltext[Full-text retrieval and assessment]
+    Fulltext --> Counts[Reconciled counts and JSON / CSV exports]
+```
+
+`review.py` manages this ledger offline using Python's standard library. Full-text retrieval status is recorded by a reviewer; the ledger does not download the report or make eligibility decisions.
+
+The passage exploration pipeline remains separate:
 
 ```mermaid
 flowchart LR
@@ -28,7 +42,7 @@ Embeddings run locally using `BAAI/bge-small-en-v1.5`. Ingestion and retrieval r
 
 ## Requirements and installation
 
-Python 3.12 is recommended. An internet connection is needed for arXiv searches, PDF downloads, the first embedding-model download, and Agnes generation.
+Python 3.12 is recommended. The review ledger requires no third-party packages or API key. An internet connection is needed for arXiv searches, PDF downloads, the first embedding-model download, and Agnes generation. Install the runtime dependencies below to use the passage pipeline.
 
 ```bash
 git clone https://github.com/hnt119/lit-rev-engine.git
@@ -57,6 +71,50 @@ python -m pip install -r requirements-dev.txt -c requirements.lock.txt
 ```
 
 ## Usage
+
+### Manage a review project
+
+Create a project, then copy its returned `id` into the variable below:
+
+```bash
+python review.py create --title "My scoping review" --type scoping \
+  --question "Enter the review question" --protocol "Enter the protocol reference"
+
+REVIEW_PROJECT_ID="COPY_PROJECT_ID_FROM_CREATE_OUTPUT"
+python review.py import "$REVIEW_PROJECT_ID" examples/review/synthetic-records.json \
+  --source "Synthetic demonstration" --import-key demo-v1
+python review.py history "$REVIEW_PROJECT_ID"
+python review.py records "$REVIEW_PROJECT_ID"
+```
+
+The synthetic example has six imported occurrences, two duplicates, and four unique records. It describes no real publications. For a real database export, supply the exact executed `--query`, actual `--searched-at` ISO date/time, and any `--filters-json`, `--reported-count`, and `--notes`. Unknown query/date fields stay null. The import stores the source-file SHA-256 and raw record provenance; a checksum does not establish that an export was complete. Supported formats and a reproducible multi-format example are documented in [Import formats](docs/import-formats.md).
+
+Use an actual record `id` from `records` to record decisions:
+
+```bash
+REVIEW_RECORD_ID="COPY_RECORD_ID_FROM_RECORDS_OUTPUT"
+python review.py screen "$REVIEW_PROJECT_ID" "$REVIEW_RECORD_ID" \
+  --stage title_abstract --decision include --reviewer reviewer-1
+python review.py fulltext "$REVIEW_PROJECT_ID" "$REVIEW_RECORD_ID" \
+  --status requested --reviewer reviewer-1
+python review.py fulltext "$REVIEW_PROJECT_ID" "$REVIEW_RECORD_ID" \
+  --status retrieved --reviewer reviewer-1
+python review.py screen "$REVIEW_PROJECT_ID" "$REVIEW_RECORD_ID" \
+  --stage full_text --decision exclude --reviewer reviewer-1 \
+  --reason "Enter the actual eligibility reason"
+python review.py counts "$REVIEW_PROJECT_ID"
+python review.py export "$REVIEW_PROJECT_ID" /tmp/review-export
+```
+
+Every screening revision is retained with reviewer identity and reason. The latest vote per reviewer determines the current state; disagreements become `conflict`, and `uncertain` remains unresolved. `adjudicate` takes the same screening arguments with a required `--reason`; later reviewer votes invalidate an earlier adjudication. This version does not enforce a required number of independent reviewers. Exclusions and unsuccessful full-text retrieval require reasons.
+
+Only title/abstract inclusions can enter full-text retrieval, and full-text assessment requires `retrieved`. Once retrieval starts, title/abstract changes must preserve inclusion. Retrieved status is terminal in this version; reopening prior stages requires a future explicit operation.
+
+Exports include a versioned `project.json` bundle, records, search runs, original occurrences, all decision/retrieval events, active exclusion reasons, and counts in JSON/CSV. Seven reconciliation checks account for pending screening, retrieval, assessment, and unresolved decisions. Export fails if a check fails. Counts refer to records/reports: `included_studies` is null until study linkage exists. Each export reads one consistent SQLite snapshot; replacing the separate output files is not a single atomic directory operation.
+
+CSV uses standard quoting and prefixes a single quote to user text beginning with spreadsheet formula characters (`=`, `+`, `-`, `@`, tab, carriage return). JSON retains the exact original text. Repeated exports of an unchanged ledger are deterministic. Without `--import-key`, each import adds a new historical run; an identical keyed retry returns the original result, while changed input under that key fails.
+
+The default database is repository `data/reviews.sqlite3`. To use a separate database, put `--db PATH` before the command. Run `python review.py --help` for all commands. Preserve the SQLite file to retain your review; the passage index is a separate artifact.
 
 ### 1. Search and index papers
 
@@ -151,14 +209,15 @@ data/
 ├── processed/all_parsed.json         # Latest parsed papers and pages
 ├── chunks/all_chunks.json            # Latest chunks with provenance
 ├── embeddings/chunks_embedded.json   # Latest chunks with vectors
-└── chroma/                           # Persistent aggregate vector index
+├── chroma/                           # Persistent aggregate vector index
+└── reviews.sqlite3                   # Persistent review ledger
 ```
 
 JSON snapshots are UTF-8 and replaced atomically. Downloads are written to temporary files and moved into place after their PDF signature and document readability are checked; interrupted downloads do not become cached final files. Corrupt cached files are downloaded again.
 
-**JSON outputs describe the latest run and are overwritten. They are not a historical search log.** The vector index accumulates papers across runs. Separate review projects and a persistent search ledger are not implemented yet.
+**The passage pipeline's JSON outputs describe the latest run and are overwritten.** Its vector index accumulates papers across runs. `review.py` keeps a separate persistent search/import ledger; running `main.py` does not automatically add a ledger search run.
 
-Each new indexed chunk retains title, authors, publication date, arXiv entry URL, PDF URL, PDF path, PDF page number, and word offsets within that page. arXiv report versions remain distinct identifiers; record deduplication and linking multiple reports to one study are future work.
+Each new indexed chunk retains title, authors, publication date, arXiv entry URL, PDF URL, PDF path, PDF page number, and word offsets within that page. arXiv report versions remain distinct identifiers. The review ledger deduplicates citation records within a project using normalized DOI/PMID, or exact title/year/first author when both records lack those identifiers. It preserves ambiguous records and rejects conflicting identifier imports transactionally. Linking multiple reports to one study remains future work.
 
 ## Project structure
 
@@ -172,11 +231,13 @@ src/
 ├── embeddings/embedder.py
 ├── vectorstore/chroma_store.py
 ├── retrieval/semantic_search.py
+├── review/                           # Ledger, identities, importers, CLI
 ├── llm/agnes_generator.py
 └── rag/rag_assistant.py
 main.py
 query.py
 ask.py
+review.py
 test_agnes.py
 tests/
 ```
@@ -196,18 +257,18 @@ For an explicitly offline run on macOS/Linux:
 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python -m pytest -q
 ```
 
-The suite uses temporary PDFs and Chroma databases, fake embeddings, and mocked network/generation responses. It covers token bounds and text coverage, page provenance, section detection, interrupted downloads, clean-directory ingestion, repeated indexing, stale-chunk removal, empty indexes, model mismatch, citation validation, truncated generation, configuration, and CLI import behavior. It does not call arXiv or Agnes or download a model.
+The suite uses temporary PDFs, SQLite/Chroma databases, fake embeddings, and mocked network/generation responses. It covers token bounds and text coverage, page provenance, section detection, interrupted downloads, repeated indexing, stale-chunk removal, empty indexes, model mismatch, citation validation, and CLI behavior. Independent review fixtures verify import provenance, deduplication, rollback, reviewer conflicts/revisions, stage prerequisites, export escaping, and hand-computed count reconciliation. It does not call arXiv or Agnes or download a model. See the [milestone contract](docs/review-milestone.md) and [evaluation evidence](docs/review-evaluation.md).
 
 ## Medical systematic and scoping reviews
 
-This prototype supports locating and reading evidence. Its arXiv-only, relevance-limited search does not provide comprehensive biomedical discovery or a reproducible review process.
+The ledger supports an auditable record-screening workflow for saved database exports. Comprehensive biomedical discovery and evidence synthesis still depend on the reviewer's search strategy, eligibility protocol, and verification of original reports. The arXiv passage search is relevance-limited and cannot serve as the complete biomedical search.
 
-The next development milestone is:
+The six development priorities are:
 
-1. Persistent review projects, protocols, eligibility criteria, and exact search histories.
-2. PubMed integration and imports of database exports such as RIS/BibTeX.
-3. Citation-record deduplication and linkage of reports to underlying studies.
-4. Title/abstract and full-text screening decisions, reviewer identity, exclusion reasons, and reconciled flow counts.
+1. Persistent review projects, protocols, eligibility criteria, and exact search histories: implemented for saved imports.
+2. Biomedical discovery: JSON, RIS, and PubMed XML imports implemented; live PubMed search and additional formats remain next steps.
+3. Citation-record deduplication implemented conservatively; manual duplicate resolution and report-to-study linkage remain future work.
+4. Title/abstract and full-text screening, reviewer identity, exclusion reasons, and reconciled flow counts implemented; reviewer requirements and reopening stages remain future work.
 5. Structured extraction with source quotations, page/table locations, verification status, and design-appropriate appraisal.
 6. Synthesis and exports based on verified evidence, with a medical-paper evaluation set.
 

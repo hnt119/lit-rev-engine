@@ -1,0 +1,10 @@
+[
+  {"title":"Drug A for adult sepsis","authors":["Chen, Ada"],"year":2024,"doi":"10.1234/TRIAL.A","pmid":"123456","raw":{"database":"A","ordinal":1,"note":"Original occurrence"}},
+  {"title":"Conflicting supplied title retained in raw","authors":["Chen, Ada"],"year":2024,"doi":"https://doi.org/10.1234/trial.a","pmid":"https://pubmed.ncbi.nlm.nih.gov/123456/","raw":{"database":"B","ordinal":2,"note":"Duplicate occurrence"}},
+  {"title":"IL-6 observational cohort","authors":["Wu, Mei"],"year":2023,"raw":{"ordinal":3}},
+  {"title":"  il-6   observational cohort  ","authors":["wu, mei"],"year":2023,"raw":{"ordinal":4}},
+  {"title":"IL-6 observational cohort","authors":["Wu, Mei"],"year":2023,"doi":"10.1234/distinct.a","raw":{"ordinal":5}},
+  {"title":"IL-6 observational cohort","authors":["Wu, Mei"],"year":2023,"doi":"10.1234/distinct.b","raw":{"ordinal":6}},
+  {"title":"Versioned report","authors":["Tan, Sam"],"year":2024,"source_id":"https://arxiv.org/abs/2401.12345v1","raw":{"ordinal":7}},
+  {"title":"Versioned report","authors":["Tan, Sam"],"year":2024,"source_id":"https://arxiv.org/abs/2401.12345v2","raw":{"ordinal":8}}
+]
