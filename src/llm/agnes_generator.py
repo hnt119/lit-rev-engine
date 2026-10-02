@@ -1,4 +1,3 @@
-import logging
 from typing import Dict, List, Optional
 
 from openai import (
@@ -12,9 +11,6 @@ from openai import (
 from src.settings import settings
 
 
-logger = logging.getLogger(__name__)
-
-
 class AgnesGenerator:
     """
     Text-generation client for the OpenAI-compatible Agnes AI API.
@@ -26,7 +22,7 @@ class AgnesGenerator:
         base_url: str = settings.agnes_base_url,
         model: str = settings.agnes_model,
     ):
-        resolved_api_key = api_key or settings.agnes_api_key
+        resolved_api_key = settings.agnes_api_key if api_key is None else api_key
 
         if not resolved_api_key:
             raise ValueError(
@@ -84,35 +80,13 @@ class AgnesGenerator:
         if not response.choices:
             raise RuntimeError("Agnes returned no completion choices.")
 
-        content = response.choices[0].message.content
-
-        message = response.choices[0].message
-
-        # print("\n--- RAW AGNES RESPONSE ---")
-        # print(response.model_dump_json(indent=2))
-        # print("--- END RAW RESPONSE ---\n")
-
-        content = message.content   
-
-        if not content:
-            finish_reason = response.choices[0].finish_reason
-
-            reasoning_tokens = None
-
-            if response.usage and response.usage.completion_tokens_details:
-                reasoning_tokens = (
-                    response.usage.completion_tokens_details.reasoning_tokens
-                )
-
-            if finish_reason == "length":
-                raise RuntimeError(
-                    "Agnes exhausted the completion token budget before "
-                    "producing an answer. Increase max_tokens or reduce "
-                    f"retrieved context. reasoning_tokens={reasoning_tokens}"
-                )
-
+        choice = response.choices[0]
+        if choice.finish_reason == "length":
             raise RuntimeError(
-                "Agnes returned an empty response."
+                "Agnes exhausted the completion token budget; the partial answer "
+                "was not accepted. Increase max_tokens or reduce retrieved context."
             )
-
+        content = choice.message.content
+        if not content or not content.strip():
+            raise RuntimeError("Agnes returned an empty response.")
         return content.strip()

@@ -3,6 +3,8 @@ __pycache__/
 *.pyc
 
 .env
+.env.*
+!.env.example
 
 .ipynb_checkpoints/
 
@@ -10,6 +12,13 @@ data/raw/
 data/processed/
 data/embeddings/
 data/pdfs/
+data/chunks/
+data/chroma/
+
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
 .vscode/
 

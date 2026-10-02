@@ -1,101 +1,75 @@
-import fitz  # PyMuPDF
 import re
-from typing import Dict
+from typing import Dict, List
+
+import fitz  # PyMuPDF
+
+
+HEADING_PATTERN = re.compile(
+    r"^[ \t]*(?:(?:\d+(?:\.\d+)*|[IVX]+)[.)]?[ \t]+)?"
+    r"(?P<heading>abstract|introduction|materials and methods|patients and methods|"
+    r"methods|methodology|results(?: and discussion)?|experiments|discussion|"
+    r"conclusions?|concluding remarks|references|bibliography)[ \t]*[:.]?[ \t]*$",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def extract_pages_from_pdf(pdf_path: str) -> List[Dict]:
+    """Extract text with one-based PDF page numbers and close the document."""
+    with fitz.open(pdf_path) as doc:
+        return [
+            {"page_number": index + 1, "text": page.get_text(sort=True)}
+            for index, page in enumerate(doc)
+        ]
 
 
 def extract_text_from_pdf(pdf_path: str) -> str:
-    """
-    Extract raw text from PDF using PyMuPDF.
-    """
-    doc = fitz.open(pdf_path)
-
-    text = []
-    for page in doc:
-        text.append(page.get_text())
-
-    return "\n".join(text)
+    return "\n".join(page["text"] for page in extract_pages_from_pdf(pdf_path))
 
 
 def clean_text(text: str) -> str:
-    """
-    Basic cleanup for academic PDFs.
-    """
-
-    # fix hyphenated line breaks
-    text = re.sub(r"-\n", "", text)
-
-    # merge broken lines
+    """Normalize whitespace while retaining headings and meaningful hyphens."""
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    # Keep the hyphen: deleting it can turn IL-6 or double-blind into other terms.
+    text = re.sub(r"(?<=\w)-[ \t]*\n[ \t]*(?=\w)", "-", text)
     text = re.sub(r"\n+", "\n", text)
-
-    # remove excessive spaces
     text = re.sub(r"[ \t]+", " ", text)
-
     return text.strip()
 
 
 def split_sections(text: str) -> Dict[str, str]:
-    """
-    Very simple heuristic section splitter.
-    Works surprisingly well for arXiv papers.
-    """
-
+    """Recognize standalone headings, rather than words in ordinary sentences."""
     sections = {
-        "introduction": "",
-        "methods": "",
-        "results": "",
-        "conclusion": ""
+        name: ""
+        for name in (
+            "abstract", "introduction", "methods", "results",
+            "discussion", "conclusion", "references",
+        )
     }
-
-    # normalize
-    lower_text = text.lower()
-
-    # find section boundaries
-    intro_match = re.search(r"introduction", lower_text)
-    method_match = re.search(r"(methodology|methods)", lower_text)
-    result_match = re.search(r"(results|experiments)", lower_text)
-    concl_match = re.search(r"(conclusion|concluding)", lower_text)
-
-    indices = {
-        "intro": intro_match.start() if intro_match else -1,
-        "methods": method_match.start() if method_match else -1,
-        "results": result_match.start() if result_match else -1,
-        "conclusion": concl_match.start() if concl_match else -1,
-    }
-
-    # sort valid indices
-    sorted_sections = sorted(
-        [(k, v) for k, v in indices.items() if v != -1],
-        key=lambda x: x[1]
-    )
-
-    # split text by positions
-    for i, (name, start_idx) in enumerate(sorted_sections):
-        end_idx = sorted_sections[i + 1][1] if i + 1 < len(sorted_sections) else len(text)
-        content = text[start_idx:end_idx]
-
-        if name == "intro":
-            sections["introduction"] = content
-        elif name == "methods":
-            sections["methods"] = content
-        elif name == "results":
-            sections["results"] = content
-        elif name == "conclusion":
-            sections["conclusion"] = content
-
+    matches = list(HEADING_PATTERN.finditer(text))
+    for index, match in enumerate(matches):
+        heading = match.group("heading").lower()
+        if heading in {"materials and methods", "patients and methods", "methodology"}:
+            heading = "methods"
+        elif heading in {"experiments", "results and discussion"}:
+            heading = "results"
+        elif heading in {"conclusions", "concluding remarks"}:
+            heading = "conclusion"
+        elif heading == "bibliography":
+            heading = "references"
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+        content = text[match.start():end].strip()
+        sections[heading] = "\n\n".join(filter(None, [sections[heading], content]))
     return sections
 
 
 def parse_pdf(pdf_path: str) -> Dict:
-    """
-    Full pipeline: PDF → structured representation.
-    """
-
-    raw_text = extract_text_from_pdf(pdf_path)
-    cleaned = clean_text(raw_text)
-    sections = split_sections(cleaned)
-
+    pages = extract_pages_from_pdf(pdf_path)
+    for page in pages:
+        page["text"] = clean_text(page["text"])
+    text = "\n".join(page["text"] for page in pages).strip()
     return {
-        "pdf_path": pdf_path,
-        "text": cleaned,
-        "sections": sections
+        "pdf_path": str(pdf_path),
+        "text": text,
+        "pages": pages,
+        "sections": split_sections(text),
     }

@@ -1,12 +1,19 @@
 import arxiv
 from typing import List, Dict
 
+from src.settings import settings
 
-def search_arxiv(query: str, max_results: int = 10) -> List[Dict]:
+
+def search_arxiv(query: str, max_results: int = settings.max_search_results) -> List[Dict]:
     """
     Keyword-based search for academic papers on arXiv.
     """
 
+    query = query.strip()
+    if not query:
+        raise ValueError("Search query cannot be empty.")
+    if not isinstance(max_results, int) or isinstance(max_results, bool) or max_results <= 0:
+        raise ValueError("max_results must be a positive integer.")
     client = arxiv.Client()
 
     search = arxiv.Search(

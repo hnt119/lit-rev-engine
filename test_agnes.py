@@ -17,12 +17,11 @@ def main() -> None:
         },
     ]
 
-    # answer = generator.generate(messages)
     answer = generator.generate(
-    messages,
-    max_tokens=1000,
-    temperature=0.2,
-)
+        messages,
+        max_tokens=1000,
+        temperature=0.2,
+    )
 
     print("\nAgnes response:\n")
     print(answer)

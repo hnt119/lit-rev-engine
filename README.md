@@ -1,949 +1,229 @@
 # Literature Review Engine
 
-A local literature-search and semantic-retrieval pipeline for discovering academic papers, extracting their contents, and finding passages relevant to a research question.
+A Python prototype for discovering academic papers, indexing their text locally, finding relevant passages, and asking an Agnes-powered assistant questions about those passages.
 
-The project currently supports:
+The intended direction is a reproducible workflow for medical systematic and scoping reviews. The current version implements ingestion, retrieval, and retrieval-augmented generation (RAG). Review projects, historical search logs, screening decisions, and verified evidence tables are planned next.
 
-- searching arXiv by keyword;
-- downloading paper PDFs;
-- extracting and cleaning PDF text;
-- splitting papers into overlapping text chunks;
-- generating sentence embeddings locally;
-- storing embeddings in a persistent ChromaDB collection; and
-- retrieving the most semantically relevant passages for a user query.
-
-> **Project status:** early prototype. The current system performs document ingestion and semantic retrieval. It does not yet generate a final literature-review answer with an LLM.
-
----
-
-## Architecture
+## Current workflow
 
 ```mermaid
 flowchart LR
-    U1[Keyword query] --> A[arXiv Search]
-    A --> M[Paper metadata]
-    M --> D[PDF Downloader]
-    D --> P[PDF Parser]
-    P --> C[Text Chunker]
-    C --> E[Sentence Transformer Embedder]
-    E --> V[(ChromaDB)]
-
-    U2[Research question] --> QE[Query Embedder]
-    QE --> V
-    V --> R[Top-k relevant chunks]
-    R --> O[Terminal output]
+    Search[arXiv search] --> Download[PDF download]
+    Download --> Parse[Page-aware text extraction]
+    Parse --> Chunk[Token-bounded chunks]
+    Chunk --> Embed[Local BGE embeddings]
+    Embed --> Store[(ChromaDB)]
+    Question[Research question] --> Retrieve[Semantic retrieval]
+    Store --> Retrieve
+    Retrieve --> Passages[query.py: source passages]
+    Retrieve --> Agnes[ask.py: Agnes generation]
+    Agnes --> Answer[Answer and source passages]
 ```
 
-The application is divided into two workflows.
+- `main.py` searches arXiv and indexes available PDFs.
+- `query.py` retrieves passages with paper metadata and PDF page numbers.
+- `ask.py` generates a short answer with source labels and prints the supporting passages.
 
-### 1. Indexing workflow
+Embeddings run locally using `BAAI/bge-small-en-v1.5`. Ingestion and retrieval require no LLM API key. Answer generation sends the question and retrieved passages to the configured Agnes API.
 
-Run `main.py` to create or extend the local research index:
+## Requirements and installation
 
-```text
-Keyword query
-    ↓
-Search arXiv
-    ↓
-Save paper metadata
-    ↓
-Download PDFs
-    ↓
-Extract and clean text
-    ↓
-Create overlapping chunks
-    ↓
-Generate embeddings
-    ↓
-Store chunks and embeddings in ChromaDB
-```
-
-### 2. Retrieval workflow
-
-Run `query.py` after indexing papers:
-
-```text
-Research question
-    ↓
-Generate query embedding
-    ↓
-Search ChromaDB
-    ↓
-Return the top matching paper chunks
-```
-
----
-
-## Technology Stack
-
-| Component | Technology |
-|---|---|
-| Paper search | `arxiv` |
-| PDF download | `requests` |
-| PDF parsing | PyMuPDF (`fitz`) |
-| Text embeddings | Sentence Transformers |
-| Default embedding model | `BAAI/bge-small-en-v1.5` |
-| Vector database | ChromaDB |
-| Tests | pytest |
-| Language | Python |
-
-All embeddings are generated locally. No API key is required for the current version.
-
----
-
-## Project Structure
-
-```text
-lit-rev-engine/
-├── data/
-│   ├── raw/                 # arXiv search metadata
-│   ├── pdfs/                # downloaded papers
-│   ├── processed/           # parsed paper text
-│   ├── chunks/              # text chunks
-│   ├── embeddings/          # serialized embedded chunks
-│   └── chroma/              # persistent ChromaDB data
-│
-├── src/
-│   ├── search/
-│   │   └── arxiv_search.py  # searches arXiv
-│   ├── download/
-│   │   └── pdf_downloader.py
-│   ├── parser/
-│   │   └── pdf_parser.py    # extracts, cleans, and sections PDF text
-│   ├── chunking/
-│   │   └── chunker.py       # creates overlapping word-based chunks
-│   ├── embeddings/
-│   │   └── embedder.py      # creates document and query embeddings
-│   ├── vectorstore/
-│   │   └── chroma_store.py  # persists and searches embeddings
-│   └── retrieval/
-│       └── semantic_search.py
-│
-├── tests/
-│   └── chunker_test.py
-├── main.py                  # indexing entry point
-├── query.py                 # semantic-search entry point
-├── requirements.txt
-└── README.md
-```
-
----
-
-## Prerequisites
-
-- Python 3.12 is recommended.
-- Git is recommended for cloning the repository.
-- An internet connection is required to search arXiv, download PDFs, and download the embedding model on first use.
-- Several gigabytes of free disk space may be required, depending on the number of papers and Python packages installed.
-
----
-
-## Installation
-
-### Windows 10 — Command Prompt
-
-```bat
-git clone https://github.com/hnt119/lit-rev-engine.git
-cd lit-rev-engine
-
-py -3.12 -m venv .venv
-.venv\Scripts\activate
-
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-### Windows 10 — PowerShell
-
-```powershell
-git clone https://github.com/hnt119/lit-rev-engine.git
-cd lit-rev-engine
-
-py -3.12 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-If PowerShell prevents virtual-environment activation, run:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
-```
-
-### macOS or Linux
+Python 3.12 is recommended. An internet connection is needed for arXiv searches, PDF downloads, the first embedding-model download, and Agnes generation.
 
 ```bash
 git clone https://github.com/hnt119/lit-rev-engine.git
 cd lit-rev-engine
-
 python3 -m venv .venv
 source .venv/bin/activate
-
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
----
+On Windows, create and activate the environment with:
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+For Command Prompt, use `.venv\Scripts\activate.bat` instead of the PowerShell activation command.
+
+`requirements.txt` lists the direct runtime dependencies. `requirements-dev.txt` adds pytest. The previous complete environment freeze is retained as `requirements.lock.txt`; it is an optional constraints file, rather than a second list of packages to install:
+
+```bash
+python -m pip install -r requirements-dev.txt -c requirements.lock.txt
+```
 
 ## Usage
 
-### Step 1: Build the local paper index
+### 1. Search and index papers
 
 ```bash
 python main.py
 ```
 
-Enter a keyword query when prompted:
+Enter a keyword query when prompted. The default search limit is five papers. The pipeline downloads available PDFs, extracts text page by page, and creates chunks that fit the embedding model's token limit.
 
-```text
-Enter keyword query: gut microbiome reproductive health
-```
+A failed download or unreadable PDF is reported and skipped. PDFs with no extractable text are skipped; scanned documents may require OCR. Empty searches and batches do not load the embedding model or clear the existing vector index.
 
-The script currently retrieves up to five arXiv papers, downloads them, parses their text, creates embeddings, and stores the results in ChromaDB.
-
-Generated files are stored under `data/`.
-
-### Step 2: Search the indexed papers
+### 2. Retrieve source passages
 
 ```bash
 python query.py
 ```
 
-Enter a research question:
+Enter a focused research question. Results include the paper title, paper ID, chunk ID, vector distance, paper URL, PDF page number, local PDF path, and full retrieved passage when those fields are available.
 
-```text
-Research question: How does the gut microbiome affect female reproductive health?
+Page numbers are one-based positions in the PDF file; they may differ from the page numbers printed in a journal article.
+
+### 3. Generate an answer with Agnes
+
+Copy `.env.example` to `.env` and set your key:
+
+```dotenv
+AGNES_API_KEY=your_key_here
+AGNES_BASE_URL=https://apihub.agnes-ai.com/v1
+AGNES_MODEL=agnes-2.0-flash
 ```
 
-The program returns the five closest text chunks by default, including:
-
-- paper ID;
-- chunk ID;
-- vector distance; and
-- a preview of the retrieved text.
-
-A lower distance generally indicates a closer semantic match.
-
----
-
-## Using the Engine for a Literature Review
-
-This project can support the **paper discovery and evidence-retrieval stages** of a literature review. It is best used as a local research assistant that helps you collect papers and quickly locate relevant passages within them.
-
-It does not yet replace formal database searching, study screening, critical appraisal, citation management, or manual verification.
-
-### Recommended Literature-Review Workflow
-
-```mermaid
-flowchart TD
-    Q[Define review question] --> K[Create search keywords]
-    K --> S[Search and index papers]
-    S --> V[Verify downloaded papers]
-    V --> R[Run focused semantic queries]
-    R --> E[Extract relevant evidence]
-    E --> T[Organise findings by theme]
-    T --> C[Check original papers and citations]
-    C --> W[Write the literature review]
-```
-
-### Step 1: Define the Review Question
-
-Start with a clear and specific review question.
-
-For clinical or health-science topics, you may structure the question using frameworks such as:
-
-- **PICO:** Population, Intervention, Comparison, Outcome
-- **PEO:** Population, Exposure, Outcome
-- **SPIDER:** Sample, Phenomenon of Interest, Design, Evaluation, Research type
-
-Example:
-
-```text
-How is the gut microbiome associated with reproductive health outcomes in Asian women?
-```
-
-Break the question into key concepts:
-
-```text
-Population: Asian women
-Exposure: gut microbiome
-Outcome: reproductive health
-```
-
-### Step 2: Prepare Search Keywords
-
-Create groups of synonyms for each concept.
-
-Example:
-
-```text
-("Asian women" OR "women in Asia" OR Chinese OR Japanese OR Korean)
-AND
-("gut microbiome" OR "gut microbiota" OR intestinal microbiome)
-AND
-("reproductive health" OR fertility OR infertility OR PCOS OR endometriosis)
-```
-
-The current arXiv search is simpler than a full Boolean academic-database search. For the present version, run several focused keyword searches rather than relying on one very long search string.
-
-Examples:
-
-```text
-Asian women gut microbiome reproductive health
-```
-
-```text
-gut microbiome PCOS Asia
-```
-
-```text
-intestinal microbiota endometriosis Asian women
-```
-
-```text
-microbiome infertility China
-```
-
-For a formal review, save the exact search terms, databases, dates searched, filters, and numbers of records retrieved.
-
-### Step 3: Index Papers
-
-Activate the virtual environment, then run:
+Then run:
 
 ```bash
-python main.py
+python ask.py
 ```
 
-Enter a focused search query when prompted:
+The assistant uses up to `top_k` retrieved passages, asks Agnes to cite factual claims using `[Source 1]` labels, and shows the passages alongside the answer. Short passages are retained by default. If retrieval produces no usable passages, no generation request is made and no API key is needed.
 
-```text
-Enter keyword query: gut microbiome PCOS Asia
-```
+The application rejects answers with missing or malformed source labels, labels referring to nonexistent sources, empty responses, and completions truncated by the token budget. Agnes can also return an explicit insufficient-evidence response.
 
-The indexing pipeline will:
+**Citation validation checks labels, not whether each claim is supported.** Every generated claim and numerical result still needs verification in the original report. Nearest-neighbor retrieval returns the closest available passages even when the collection does not contain an answer.
 
-1. search arXiv;
-2. save paper metadata;
-3. download available PDFs;
-4. extract and clean the text;
-5. divide the papers into overlapping chunks;
-6. generate embeddings; and
-7. save the chunks in ChromaDB.
-
-The current implementation retrieves up to five papers per run.
-
-To build a broader literature collection, run `main.py` several times with different keyword combinations.
-
-Example:
+`test_agnes.py` is a separate, optional live API smoke test:
 
 ```bash
-python main.py
+python test_agnes.py
 ```
+
+It sends an actual generation request and is excluded from the automated test suite.
+
+## Configuration
+
+`src/settings.py` is the shared configuration for ingestion, chunking, embeddings, retrieval, storage, and generation. `.env` is loaded from the repository root. Default data paths also resolve from the repository root, so changing the shell's working directory does not create a different index.
+
+| Setting | Default | Purpose |
+|---|---|---|
+| `data_directory` | repository `data/` | Generated artifacts |
+| `max_search_results` | `5` | Maximum arXiv results per ingestion |
+| `chunk_size` | `300` | Word ceiling per chunk |
+| `chunk_overlap` | `50` | Requested overlap in words |
+| `embedding_model` | `BAAI/bge-small-en-v1.5` | Local embedding model |
+| `top_k` | `5` | Retrieval and answer source limit |
+| `chroma_directory` | `None` | Override index path; otherwise `data_directory/chroma` |
+| `chroma_collection` | `research_chunks` | Chroma collection name |
+| `max_source_distance` | `None` | Optional distance cutoff for answer sources |
+| `max_tokens` | `5000` | Agnes completion token budget |
+| `temperature` | `0.2` | Agnes generation temperature |
+
+The tokenizer, including special tokens, determines the actual chunk length. A chunk may contain fewer than 300 words to fit the model. Overlap is reduced when necessary to ensure progress. Oversized embedding inputs are rejected instead of silently truncated; shorten unusually long research questions.
+
+The default BGE model has a 512-token input limit. [BGE model documentation](https://huggingface.co/BAAI/bge-small-en-v1.5).
+
+The index uses Chroma's L2 distance with normalized vectors. Lower distances indicate closer embeddings; distance is not a probability or evidence-quality score. Leave `max_source_distance=None` until a cutoff has been evaluated against your own corpus. A cutoff filters retrieved passages; it does not establish factual support.
+
+## Repeated ingestion and existing indexes
+
+Chunk IDs are deterministic within each arXiv report version. Re-ingesting a successfully parsed paper upserts its full chunk set and deletes obsolete chunk IDs after successful writes. Other indexed papers are retained. Do not pass partial paper chunk sets to `VectorStore.add_chunks()`; the method treats each supplied paper's chunks as its complete replacement set.
+
+New collections record the embedding model. A different model cannot be used with that collection, even if its vector dimensions match. Set a new `chroma_collection` name and re-ingest when changing models.
+
+Existing prototype indexes remain readable with the original BGE model. Legacy results may lack titles and page numbers, and their original embeddings may have been truncated. Re-ingest those papers to regenerate token-bounded chunks and provenance. Only papers returned by that ingestion are refreshed; other legacy papers remain in the collection. For a wholly refreshed corpus, choose a new collection and repeat the required searches.
+
+Generated PDFs, chunks, and Chroma files are excluded from Git. Previously tracked generated files have been removed from Git tracking without deleting the local files. Cloning the repository creates a clean checkout; run ingestion to build your own index.
+
+## Generated data
 
 ```text
-Enter keyword query: Asian women gut microbiome
+data/
+├── raw/arxiv_results.json             # Latest search metadata
+├── pdfs/                             # Downloaded PDFs
+├── processed/all_parsed.json         # Latest parsed papers and pages
+├── chunks/all_chunks.json            # Latest chunks with provenance
+├── embeddings/chunks_embedded.json   # Latest chunks with vectors
+└── chroma/                           # Persistent aggregate vector index
 ```
 
-Then run it again:
+JSON snapshots are UTF-8 and replaced atomically. Downloads are written to temporary files and moved into place after their PDF signature and document readability are checked; interrupted downloads do not become cached final files. Corrupt cached files are downloaded again.
+
+**JSON outputs describe the latest run and are overwritten. They are not a historical search log.** The vector index accumulates papers across runs. Separate review projects and a persistent search ledger are not implemented yet.
+
+Each new indexed chunk retains title, authors, publication date, arXiv entry URL, PDF URL, PDF path, PDF page number, and word offsets within that page. arXiv report versions remain distinct identifiers; record deduplication and linking multiple reports to one study are future work.
+
+## Project structure
+
+```text
+src/
+├── settings.py
+├── search/arxiv_search.py
+├── download/pdf_downloader.py
+├── parser/pdf_parser.py
+├── chunking/chunker.py
+├── embeddings/embedder.py
+├── vectorstore/chroma_store.py
+├── retrieval/semantic_search.py
+├── llm/agnes_generator.py
+└── rag/rag_assistant.py
+main.py
+query.py
+ask.py
+test_agnes.py
+tests/
+```
+
+PDF parsing uses PyMuPDF with sorted text extraction and standalone-heading detection. Recognized headings include abstract, introduction, methods, results, discussion, conclusion, and references. Section extraction remains heuristic; ingestion chunks page text and does not treat detected sections as verified evidence categories. Multi-column layouts, tables, figures, and scanned PDFs need further work.
+
+## Automated tests
 
 ```bash
-python main.py
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
 ```
 
-```text
-Enter keyword query: microbiome PCOS Asia
-```
-
-Before indexing repeatedly, note that the current version may encounter duplicate ChromaDB IDs. If this occurs, rebuild the local vector database or add duplicate-handling logic before conducting a larger review.
-
-### Step 4: Check the Collected Papers
-
-Review the generated search metadata:
-
-```text
-data/raw/arxiv_results.json
-```
-
-Check:
-
-- whether each paper is relevant to the review question;
-- whether it is a primary study, review, conference paper, or preprint;
-- whether it meets your date, population, language, and study-design criteria;
-- whether the full PDF was downloaded successfully; and
-- whether the same paper has already been collected.
-
-Downloaded PDFs are stored in:
-
-```text
-data/pdfs/
-```
-
-Do not assume every retrieved paper should be included in the review. Search retrieval and study eligibility are separate stages.
-
-### Step 5: Define Inclusion and Exclusion Criteria
-
-Before screening, write clear eligibility criteria.
-
-Example:
-
-#### Inclusion criteria
-
-```text
-- Human studies involving women from Asian populations
-- Studies examining gut or reproductive-tract microbiomes
-- Studies reporting reproductive, fertility, gynaecological, or healthy-ageing outcomes
-- Full-text papers available in English
-- Original research published within the selected date range
-```
-
-#### Exclusion criteria
-
-```text
-- Animal-only or in-vitro studies
-- Studies without an Asian population or subgroup
-- Studies unrelated to women's reproductive health
-- Editorials, commentaries, or conference abstracts without sufficient data
-- Duplicate reports of the same study
-```
-
-Record the reason for excluding every full-text paper if you intend to produce a PRISMA flow diagram.
-
-### Step 6: Search the Indexed Evidence
-
-After papers have been indexed, run:
+For an explicitly offline run on macOS/Linux:
 
 ```bash
-python query.py
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python -m pytest -q
 ```
 
-Enter a focused research question:
+The suite uses temporary PDFs and Chroma databases, fake embeddings, and mocked network/generation responses. It covers token bounds and text coverage, page provenance, section detection, interrupted downloads, clean-directory ingestion, repeated indexing, stale-chunk removal, empty indexes, model mismatch, citation validation, truncated generation, configuration, and CLI import behavior. It does not call arXiv or Agnes or download a model.
 
-```text
-Research question: What microbiome changes are associated with PCOS in Asian women?
-```
+## Medical systematic and scoping reviews
 
-The engine returns the most semantically similar chunks from the indexed papers.
+This prototype supports locating and reading evidence. Its arXiv-only, relevance-limited search does not provide comprehensive biomedical discovery or a reproducible review process.
 
-Useful query types include:
+The next development milestone is:
 
-#### Background questions
+1. Persistent review projects, protocols, eligibility criteria, and exact search histories.
+2. PubMed integration and imports of database exports such as RIS/BibTeX.
+3. Citation-record deduplication and linkage of reports to underlying studies.
+4. Title/abstract and full-text screening decisions, reviewer identity, exclusion reasons, and reconciled flow counts.
+5. Structured extraction with source quotations, page/table locations, verification status, and design-appropriate appraisal.
+6. Synthesis and exports based on verified evidence, with a medical-paper evaluation set.
 
-```text
-What is a healthy gut microbiome profile in Asian women?
-```
-
-#### Association questions
-
-```text
-Which bacterial taxa are associated with PCOS?
-```
-
-#### Mechanism questions
-
-```text
-How might gut dysbiosis contribute to insulin resistance in PCOS?
-```
-
-#### Comparison questions
-
-```text
-How do microbiome profiles differ between women with endometriosis and healthy controls?
-```
-
-#### Methods questions
-
-```text
-Which sequencing methods were used to characterise the microbiome?
-```
-
-#### Evidence-gap questions
-
-```text
-What limitations are commonly reported in studies of Asian women's microbiomes?
-```
-
-Use several narrow questions instead of one broad request such as:
-
-```text
-Tell me everything about the microbiome.
-```
-
-Focused questions usually produce more useful retrieval results.
-
-### Step 7: Review the Retrieved Chunks
-
-For each result, record:
-
-- paper ID;
-- chunk ID;
-- relevance to the review question;
-- main finding;
-- population;
-- sample size;
-- study design;
-- exposure or intervention;
-- outcome;
-- limitations; and
-- the location of the evidence in the original paper.
-
-A simple evidence-extraction table may look like this:
-
-| Paper | Population | Study design | Microbiome site | Main finding | Limitations | Include? |
-|---|---|---|---|---|---|---|
-| Paper A | Chinese women with PCOS | Cross-sectional | Gut | Reduced microbial diversity | Small sample | Yes |
-| Paper B | Japanese healthy adults | Cohort | Gut | Diet associated with enterotype | Not specific to reproductive disease | Background only |
-
-The semantic-search output should be treated as a **lead to relevant evidence**, not as the final evidence record.
-
-### Step 8: Verify Every Finding in the Original PDF
-
-Always open the source PDF before using a retrieved passage in your review.
-
-Check:
-
-- whether the chunk preserves the original meaning;
-- whether the finding applies to the correct population;
-- whether the result was statistically significant;
-- whether it came from the results section rather than the discussion;
-- whether the authors are reporting their own data or citing another study;
-- whether important qualifications were omitted during chunking; and
-- whether the paper is a preprint or peer-reviewed publication.
-
-Do not cite the generated JSON files or ChromaDB output as academic sources. Cite the original paper.
-
-### Step 9: Organise Findings by Theme
-
-After evidence extraction, group studies into review sections.
-
-For example:
-
-```text
-1. Healthy microbiome profiles in Asian women
-2. Determinants of the microbiome
-   - diet
-   - geography
-   - medication
-   - age
-   - hormones
-3. Microbiome and reproductive health
-4. Microbiome in gynaecological disease
-   - PCOS
-   - endometriosis
-   - infertility
-   - premature ovarian insufficiency
-5. Microbiome and healthy ageing
-6. Methodological limitations
-7. Research gaps and future directions
-```
-
-Run separate semantic queries for each section.
-
-Examples:
-
-```text
-What dietary factors shape the gut microbiome in Asian women?
-```
-
-```text
-What microbiome features are reported in women with endometriosis?
-```
-
-```text
-What are the major methodological limitations across these studies?
-```
-
-### Step 10: Maintain a Search Log
-
-For a reproducible review, maintain a search log outside the application.
-
-| Date | Source | Search query | Filters | Results retrieved | Notes |
-|---|---|---|---|---:|---|
-| 23 Jul 2026 | arXiv | Asian women gut microbiome | None | 5 | Indexed locally |
-| 23 Jul 2026 | arXiv | microbiome PCOS Asia | None | 5 | Two possible duplicates |
-
-The current application overwrites `data/raw/arxiv_results.json` on each run. Therefore, copy or rename the file after each search if you need a complete historical search record.
-
-Example:
-
-#### Windows
-
-```bat
-copy data\raw\arxiv_results.json data\raw\arxiv_results_pcos_2026-07-23.json
-```
-
-#### macOS or Linux
-
-```bash
-cp data/raw/arxiv_results.json data/raw/arxiv_results_pcos_2026-07-23.json
-```
-
-### Step 11: Use the Results with PRISMA
-
-The engine can assist with identifying and reviewing papers, but PRISMA counts must still be tracked deliberately.
-
-Record:
-
-```text
-Records identified
-Records removed as duplicates
-Records screened by title and abstract
-Records excluded
-Full-text reports assessed
-Full-text reports excluded, with reasons
-Studies included in the final review
-```
-
-A suggested workflow is:
-
-```text
-Search databases
-    ↓
-Export all records
-    ↓
-Deduplicate records
-    ↓
-Screen titles and abstracts
-    ↓
-Retrieve full texts
-    ↓
-Index eligible or potentially eligible PDFs
-    ↓
-Use semantic search for evidence extraction
-    ↓
-Complete full-text eligibility assessment
-    ↓
-Include final studies
-```
-
-For a formal systematic review, do not use arXiv alone. Search appropriate databases such as PubMed/MEDLINE, Embase, Scopus, Web of Science, PsycINFO, or discipline-specific databases where relevant.
-
-### Step 12: Write the Review
-
-Use the retrieved and verified evidence to compare studies rather than summarising each paper separately.
-
-Weak synthesis:
-
-```text
-Study A found X. Study B found Y. Study C found Z.
-```
-
-Stronger synthesis:
-
-```text
-Across small cross-sectional studies, PCOS was generally associated with altered gut microbial diversity, although the specific taxa differed between populations and sequencing methods. These inconsistencies may reflect dietary, geographical, and methodological heterogeneity.
-```
-
-Every factual statement should be checked against the original paper and cited using your required citation style.
-
----
-
-## Example End-to-End Session
-
-### 1. Build the index
-
-```bash
-python main.py
-```
-
-```text
-Enter keyword query: gut microbiome PCOS Asian women
-```
-
-### 2. Ask a focused question
-
-```bash
-python query.py
-```
-
-```text
-Research question: Which gut microbial changes are associated with PCOS in Asian women?
-```
-
-### 3. Record useful results
-
-For each relevant result:
-
-```text
-Paper ID:
-Chunk ID:
-Claim:
-Population:
-Study design:
-Key result:
-Limitation:
-Needs verification:
-```
-
-### 4. Open the original paper
-
-Confirm the result in the PDF stored under:
-
-```text
-data/pdfs/
-```
-
-### 5. Add the verified finding to an evidence table
-
-Only after checking the source should the finding be used in the written review.
-
----
-
-## What the Engine Can and Cannot Do
-
-### It can help with
-
-- discovering a small set of arXiv papers;
-- downloading and organising PDFs;
-- locating passages relevant to a research question;
-- finding recurring concepts across papers;
-- identifying possible themes and evidence gaps;
-- accelerating evidence extraction; and
-- supporting narrative or scoping-review preparation.
-
-### It cannot yet reliably do
-
-- comprehensive systematic database searching;
-- automatic Boolean search translation;
-- robust deduplication;
-- title and abstract screening;
-- risk-of-bias assessment;
-- study-quality appraisal;
-- automatic PRISMA accounting;
-- accurate page-level citation generation;
-- final claim verification;
-- reference-manager synchronisation; or
-- fully grounded literature-review writing.
-
-Human review remains essential.
-
-## Running Tests
-
-```bash
-pytest -v
-```
-
-The current test suite focuses on the chunking logic, including chunk size, overlap, empty input, and invalid parameter handling.
-
----
-
-## Data Flow
-
-### Search metadata
-
-arXiv results are saved to:
-
-```text
-data/raw/arxiv_results.json
-```
-
-Each result includes fields such as title, authors, abstract, publication date, PDF URL, and arXiv entry ID.
-
-### Parsed papers
-
-Cleaned text and basic section detection are saved to:
-
-```text
-data/processed/all_parsed.json
-```
-
-The parser currently attempts to identify:
-
-- introduction;
-- methods or methodology;
-- results or experiments; and
-- conclusion.
-
-Section detection is heuristic and may not work reliably for every PDF layout.
-
-### Chunks
-
-Text is split into overlapping word-based chunks and saved to:
-
-```text
-data/chunks/all_chunks.json
-```
-
-Default chunking parameters:
-
-```text
-chunk size: 300 words
-overlap:     50 words
-```
-
-### Embeddings and vector storage
-
-Serialized embedded chunks are saved to:
-
-```text
-data/embeddings/chunks_embedded.json
-```
-
-The searchable vector index is persisted in:
-
-```text
-data/chroma/
-```
-
-The ChromaDB collection is named:
-
-```text
-research_chunks
-```
-
----
-
-## Module Responsibilities
-
-| Module | Responsibility |
-|---|---|
-| `search_arxiv()` | Finds papers using arXiv relevance search |
-| `download_many()` | Downloads available paper PDFs |
-| `parse_pdf()` | Extracts, cleans, and roughly structures PDF text |
-| `chunk_text()` | Splits text into overlapping chunks |
-| `Embedder` | Embeds chunks and research questions |
-| `VectorStore` | Adds embeddings to and queries ChromaDB |
-| `SemanticSearcher` | Coordinates query embedding and vector retrieval |
-| `main.py` | Runs the complete indexing pipeline |
-| `query.py` | Runs interactive semantic retrieval |
-
----
-
-## Current Limitations
-
-- Only arXiv is searched; PubMed, Crossref, Semantic Scholar, and other databases are not yet integrated.
-- The system indexes only the first five search results unless the code is changed.
-- PDF parsing is text-based and may struggle with multi-column layouts, tables, figures, equations, or scanned PDFs.
-- Section detection relies on simple heading matching.
-- Chunking is based on word count rather than document structure or tokens.
-- Re-running ingestion may attempt to add records with IDs already present in the Chroma collection.
-- Retrieval returns passages but does not synthesize an answer, cite claims, screen papers, remove duplicates, or assess study quality.
-- Metadata stored with each vector is currently limited to `paper_id` and `chunk_id`.
-- The current requirements file is a full environment freeze and is larger than a minimal production dependency list.
-
----
-
-## Recommended Next Steps
-
-1. **Add retrieval-augmented generation**  
-   Pass retrieved chunks to an LLM and generate an answer grounded in the source passages.
-
-2. **Improve citation metadata**  
-   Store paper title, authors, year, URL, page number, and section with every chunk.
-
-3. **Separate commands cleanly**  
-   Introduce a CLI such as:
-
-   ```bash
-   python -m litrev ingest "query"
-   python -m litrev search "research question"
-   ```
-
-4. **Prevent duplicate indexing**  
-   Use deterministic document IDs and upsert existing Chroma records.
-
-5. **Improve academic search coverage**  
-   Add PubMed and Crossref connectors, especially for biomedical literature reviews.
-
-6. **Improve PDF parsing**  
-   Preserve page numbers, headings, references, and layout-aware text.
-
-7. **Add filtering and screening**  
-   Support date ranges, inclusion criteria, deduplication, and PRISMA-compatible exports.
-
-8. **Expand tests**  
-   Add unit and integration tests for search, parsing, embeddings, storage, and retrieval.
-
-9. **Add a user interface**  
-   Build a lightweight Streamlit, FastAPI, or web interface for non-technical users.
-
----
+PRISMA is a reporting guideline; implementing a flow diagram alone does not establish review quality. Systematic and scoping workflows should retain their distinct methodological requirements. [PRISMA 2020](https://www.prisma-statement.org/prisma-2020), [PRISMA-ScR](https://www.prisma-statement.org/scoping).
 
 ## Troubleshooting
 
-### `ModuleNotFoundError`
-
-Make sure you are inside the repository root and the virtual environment is active:
-
-```bash
-python main.py
-```
-
-Do not run the file from inside one of the `src/` subdirectories.
-
-### The first run is slow
-
-Sentence Transformers downloads the embedding model during its first use. Later runs should use the local model cache.
-
-### No query results are returned
-
-Run `python main.py` first so that the ChromaDB collection contains indexed chunks.
-
-### ChromaDB reports duplicate IDs
-
-Delete the existing local index and rebuild it:
-
-#### Windows
-
-```bat
-rmdir /s /q data\chroma
-python main.py
-```
-
-#### macOS or Linux
-
-```bash
-rm -rf data/chroma
-python main.py
-```
-
-This removes the vector index but not the downloaded PDFs or JSON outputs.
-
-### A PDF fails to download
-
-The downloader skips failed papers and continues processing the remaining results. Check the terminal output and your internet connection.
-
----
-
-## Development Notes
-
-The repository currently uses two top-level scripts:
-
-- `main.py` for ingestion and indexing;
-- `query.py` for retrieval.
-
-Keeping these workflows separate is useful because paper processing is relatively expensive, while query retrieval is fast once the ChromaDB index has been built.
-
-For development, run the tests before committing changes:
-
-```bash
-pytest -v
-```
-
----
-
-## Roadmap
-
-The intended evolution of the project is:
-
-```text
-Semantic retrieval
-    ↓
-Grounded answer generation
-    ↓
-Structured evidence extraction
-    ↓
-Paper screening and deduplication
-    ↓
-Citation management
-    ↓
-PRISMA-compatible literature-review workflow
-```
-
----
+- **No passages:** run ingestion first and check the configured collection/path. An empty index returns a useful message without loading a model.
+- **Missing Agnes key:** create the root `.env` file. A key is needed only when a generation request is made.
+- **Invalid citations:** the generated answer was rejected. Inspect retrieval results with `query.py` and retry with a more focused question.
+- **Completion budget exhausted:** the partial answer was rejected. Reduce `top_k` or increase the configured token budget within your provider's limits.
+- **Embedding input too long:** ingestion uses token-bounded chunks automatically; shorten an oversized query or use `Embedder.chunk_text()` when supplying documents programmatically.
+- **Model mismatch:** choose a new collection and reindex with the selected model.
+- **Legacy source locations missing:** re-ingest the original papers, or build a fresh collection.
+- **Scanned or malformed PDF:** inspect the reported file; OCR and automatic repair are not implemented.
 
 ## License
 
-No license has been added yet. Until a license is provided, standard copyright restrictions apply.
+No license has been added. Standard copyright restrictions apply until a license is supplied.
