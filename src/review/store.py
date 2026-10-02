@@ -12,6 +12,7 @@ from uuid import uuid4
 from .identity import fallback_compatible, fallback_identity, validate_record
 from .models import SearchRunSpec
 from .studies import StudyLedger
+from .documents import DocumentLedger
 
 
 def _now():
@@ -92,6 +93,7 @@ class ReviewStore:
                 """
             )
             self._studies = StudyLedger(self)
+            self._documents = DocumentLedger(self)
         except Exception:
             self.close()
             raise
@@ -486,6 +488,18 @@ class ReviewStore:
     def list_study_links(self, project_id, record_id=None):
         return self._studies.list_study_links(project_id, record_id)
 
+    def attach_document(self, project_id, record_id, content, format, reviewer, reason, *, filename=None, source_url="", version_label=""):
+        return self._documents.attach_document(project_id, record_id, content, format, reviewer, reason, filename=filename, source_url=source_url, version_label=version_label)
+
+    def list_documents(self, project_id, record_id=None):
+        return self._documents.list_documents(project_id, record_id)
+
+    def get_document_bytes(self, project_id, document_id):
+        return self._documents.get_document_bytes(project_id, document_id)
+
+    def get_source_blocks(self, project_id, document_id):
+        return self._documents.get_source_blocks(project_id, document_id)
+
     def _screening_rows(self, project_id, record_id=None):
         query = "SELECT * FROM screening_events WHERE project_id = ?"
         parameters = [project_id]
@@ -656,6 +670,18 @@ class ReviewStore:
                     manifest.append({"search_run_id": run["id"], "name": name, "sha256": stored_hashes[name], "size_bytes": len(content), "export_file": export_file})
             if manifest:
                 bundle["search_artifacts"] = manifest
+            documents = self.list_documents(project_id)
+            if documents:
+                source_blocks, document_manifest = [], []
+                for document in documents:
+                    # Hash verification occurs on these reads, before any output replacement.
+                    content = self.get_document_bytes(project_id, document["id"])
+                    blocks = self.get_source_blocks(project_id, document["id"])
+                    export_file = f"documents/{document['id']}/{document['filename']}"
+                    export_artifacts[export_file] = content
+                    source_blocks.extend({"document_id": document["id"], **block} for block in blocks)
+                    document_manifest.append({"document_id": document["id"], "sha256": document["source_sha256"], "size_bytes": len(content), "export_file": export_file})
+                bundle.update(documents=documents, source_blocks=source_blocks, document_artifacts=document_manifest)
             exclusions = []
             events_by_record = {}
             for event in self._screening_rows(project_id):

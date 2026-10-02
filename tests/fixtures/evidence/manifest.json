@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "description": "Independent invented source/locator/quote truth. No real medical papers, clinical findings, operational source parser, or clinical gold labels.",
+  "quote_offset_unit": "Unicode code points in the exact canonical block string; half-open [start,end), never source-byte offsets.",
+  "canonical_block_hash_rule": "SHA-256 of sorted-key compact finite UTF-8 JSON with ensure_ascii=False over the complete expected_blocks array.",
+  "parser_metadata_requirements": {
+    "all_formats": [
+      "Record effective Python version and decoding/normalization/extraction options."
+    ],
+    "txt": [
+      "UTF-8/BOM decoding strips the BOM only; exact CRLF and composed/decomposed Unicode remain unchanged."
+    ],
+    "jats_xml": [
+      "No entity declarations, external DTD fetching, or reference-list finding blocks.",
+      "Inline text concatenation precedes whitespace collapse.",
+      "Table lines are label, caption, tab-separated rows, then foot; descendants are not extra paragraph blocks."
+    ],
+    "pdf": [
+      "Record effective PyMuPDF version and sorted page-text extraction options.",
+      "Actual one-based page positions include blank pages; no OCR or additional whitespace rewriting."
+    ]
+  },
+  "pdf_generation": {
+    "recipe": "generate_pdf.py",
+    "python_version": "3.12.7",
+    "pymupdf_version": "1.27.2.3",
+    "determinism_scope": "Same recipe/runtime reproduces bytes; other library versions may serialize/extract differently. Frozen file/hash are source truth.",
+    "pages": 3,
+    "blank_pages": [
+      2
+    ],
+    "printed_labels": {
+      "1": "10",
+      "3": "12"
+    }
+  },
+  "versions": [
+    {
+      "original": "text_v1",
+      "replacement": "text_v2",
+      "changed_fact": "Invented follow-up changes 6→8 weeks; text:1 stays stable, source/block hashes differ."
+    },
+    {
+      "original": "jats_v1",
+      "replacement": "jats_v2",
+      "changed_fact": "Only the follow-up paragraph changes 6→8 weeks; structural paths remain stable, source/block hashes differ."
+    }
+  ],
+  "excluded_jats_text": [
+    "REFERENCE-ONLY TITLE MUST NOT BE A FINDING BLOCK",
+    "Reference-only value: 999 weeks."
+  ],
+  "fixtures": [
+    {
+      "alias": "text_v1",
+      "file": "source-v1.txt",
+      "format": "txt",
+      "synthetic": true,
+      "source_sha256": "f6375a2aad9f2ff1914e2e0e3092c89ce2bbb3ccb6a21ac83968377fb30997b6",
+      "size_bytes": 198,
+      "expected_parser_id": "lit-rev-engine.source.v1.txt",
+      "expected_block_count": 1,
+      "expected_blocks": [
+        {
+          "id": "text:1",
+          "ordinal": 1,
+          "text": "Software fixture only — no medical findings.\r\nSource α contains café and decomposed café; marker 🧪.\r\nFixture follow-up: 6 weeks, not 12 months.\r\nNo diagnostic sensitivity was measured.\r\n",
+          "locator": {
+            "type": "text_block",
+            "ordinal": 1
+          }
+        }
+      ],
+      "expected_blocks_sha256": "a149c1ca22cecfe26903c91c76d426179f8bf6b9b650d53c9b211b14de8c4e70",
+      "quotes": [
+        {
+          "name": "follow_up",
+          "block_id": "text:1",
+          "start": 121,
+          "end": 144,
+          "quote": "6 weeks, not 12 months."
+        },
+        {
+          "name": "unicode_marker",
+          "block_id": "text:1",
+          "start": 53,
+          "end": 100,
+          "quote": "α contains café and decomposed café; marker 🧪."
+        },
+        {
+          "name": "negative_scope",
+          "block_id": "text:1",
+          "start": 146,
+          "end": 185,
+          "quote": "No diagnostic sensitivity was measured."
+        }
+      ]
+    },
+    {
+      "alias": "text_v2",
+      "file": "source-v2.txt",
+      "format": "txt",
+      "synthetic": true,
+      "source_sha256": "444296eade98467debbd83bca25bd0761d8b76e97646b7da8a228cc7fb8013e8",
+      "size_bytes": 198,
+      "expected_parser_id": "lit-rev-engine.source.v1.txt",
+      "expected_block_count": 1,
+      "expected_blocks": [
+        {
+          "id": "text:1",
+          "ordinal": 1,
+          "text": "Software fixture only — no medical findings.\r\nSource α contains café and decomposed café; marker 🧪.\r\nFixture follow-up: 8 weeks, not 12 months.\r\nNo diagnostic sensitivity was measured.\r\n",
+          "locator": {
+            "type": "text_block",
+            "ordinal": 1
+          }
+        }
+      ],
+      "expected_blocks_sha256": "9854191c523c431fc83a45fc0168cac7580c131b441734af676a5be52d1d79ad",
+      "quotes": [
+        {
+          "name": "follow_up",
+          "block_id": "text:1",
+          "start": 121,
+          "end": 144,
+          "quote": "8 weeks, not 12 months."
+        }
+      ]
+    },
+    {
+      "alias": "jats_v1",
+      "file": "article-v1.xml",
+      "format": "jats_xml",
+      "synthetic": true,
+      "source_sha256": "ccaf8466b33d4fe1ba454cb16c01771b5bbc8300583809c03405c1e7d47ea816",
+      "size_bytes": 2423,
+      "expected_parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "expected_block_count": 7,
+      "expected_blocks": [
+        {
+          "id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+          "ordinal": 1,
+          "text": "Synthetic source α: café and nested text",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+            "tag": "article-title",
+            "element_id": "source-title"
+          }
+        },
+        {
+          "id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+          "ordinal": 2,
+          "text": "Software fixture only. The sample uses Unicode α and β; no medical outcomes are reported.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+            "tag": "p",
+            "element_id": "abstract-one",
+            "section_title": "Fixture overview"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+          "ordinal": 3,
+          "text": "Synthetic population: 24 invented entries (not patients). A nested phrase preserves punctuation — and café. Marker X2 is literal.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[1]/p[1]",
+            "tag": "p",
+            "element_id": "population",
+            "section_title": "Synthetic methods"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[1]/table-wrap[1]",
+          "ordinal": 4,
+          "text": "Table S1\nInvented software counts.\nGroup\tCount\nα\t12\nβ\t12\nTotal: 24 fixture rows\nSoftware counts only; no participant data.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[1]/table-wrap[1]",
+            "tag": "table-wrap",
+            "element_id": "table-one",
+            "section_title": "Synthetic methods",
+            "table_label": "Table S1"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "ordinal": 5,
+          "text": "Fixture follow-up is 6 weeks, not 12 months. The table contains no clinical efficacy estimate.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[1]/p[2]",
+            "tag": "p",
+            "element_id": "follow-up",
+            "section_title": "Synthetic methods"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[2]/p[1]",
+          "ordinal": 6,
+          "text": "The invented primary value is 7.5 units (95% CI 6.0–9.0). No adverse-event analysis was performed.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[2]/p[1]",
+            "tag": "p",
+            "element_id": "result-one",
+            "section_title": "Synthetic results"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+          "ordinal": 7,
+          "text": "The result is not a diagnostic sensitivity. See the deliberately excluded reference list.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "tag": "p",
+            "element_id": "negation",
+            "section_title": "Scope limits"
+          }
+        }
+      ],
+      "expected_blocks_sha256": "54ff3c1f8abd038a403d4199e00151fbab5e4aff932fb4f10bac72204b2be863",
+      "quotes": [
+        {
+          "name": "nested_unicode_title",
+          "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+          "start": 20,
+          "end": 40,
+          "quote": "café and nested text"
+        },
+        {
+          "name": "population",
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+          "start": 22,
+          "end": 56,
+          "quote": "24 invented entries (not patients)"
+        },
+        {
+          "name": "table_cell_row",
+          "block_id": "xml:/article[1]/body[1]/sec[1]/table-wrap[1]",
+          "start": 47,
+          "end": 51,
+          "quote": "α\t12"
+        },
+        {
+          "name": "table_foot",
+          "block_id": "xml:/article[1]/body[1]/sec[1]/table-wrap[1]",
+          "start": 80,
+          "end": 122,
+          "quote": "Software counts only; no participant data."
+        },
+        {
+          "name": "follow_up",
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "start": 21,
+          "end": 44,
+          "quote": "6 weeks, not 12 months."
+        },
+        {
+          "name": "quantitative",
+          "block_id": "xml:/article[1]/body[1]/sec[2]/p[1]",
+          "start": 30,
+          "end": 56,
+          "quote": "7.5 units (95% CI 6.0–9.0)"
+        },
+        {
+          "name": "negation",
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+          "start": 14,
+          "end": 42,
+          "quote": "not a diagnostic sensitivity"
+        },
+        {
+          "name": "inline_concatenation",
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+          "start": 115,
+          "end": 117,
+          "quote": "X2"
+        }
+      ]
+    },
+    {
+      "alias": "jats_v2",
+      "file": "article-v2.xml",
+      "format": "jats_xml",
+      "synthetic": true,
+      "source_sha256": "45e2cac21c22511a92393ba1911c4c7f79f83862147e7fef986311ca05a6c757",
+      "size_bytes": 2423,
+      "expected_parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "expected_block_count": 7,
+      "expected_blocks": [
+        {
+          "id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+          "ordinal": 1,
+          "text": "Synthetic source α: café and nested text",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+            "tag": "article-title",
+            "element_id": "source-title"
+          }
+        },
+        {
+          "id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+          "ordinal": 2,
+          "text": "Software fixture only. The sample uses Unicode α and β; no medical outcomes are reported.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+            "tag": "p",
+            "element_id": "abstract-one",
+            "section_title": "Fixture overview"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+          "ordinal": 3,
+          "text": "Synthetic population: 24 invented entries (not patients). A nested phrase preserves punctuation — and café. Marker X2 is literal.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[1]/p[1]",
+            "tag": "p",
+            "element_id": "population",
+            "section_title": "Synthetic methods"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[1]/table-wrap[1]",
+          "ordinal": 4,
+          "text": "Table S1\nInvented software counts.\nGroup\tCount\nα\t12\nβ\t12\nTotal: 24 fixture rows\nSoftware counts only; no participant data.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[1]/table-wrap[1]",
+            "tag": "table-wrap",
+            "element_id": "table-one",
+            "section_title": "Synthetic methods",
+            "table_label": "Table S1"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "ordinal": 5,
+          "text": "Fixture follow-up is 8 weeks, not 12 months. The table contains no clinical efficacy estimate.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[1]/p[2]",
+            "tag": "p",
+            "element_id": "follow-up",
+            "section_title": "Synthetic methods"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[2]/p[1]",
+          "ordinal": 6,
+          "text": "The invented primary value is 7.5 units (95% CI 6.0–9.0). No adverse-event analysis was performed.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[2]/p[1]",
+            "tag": "p",
+            "element_id": "result-one",
+            "section_title": "Synthetic results"
+          }
+        },
+        {
+          "id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+          "ordinal": 7,
+          "text": "The result is not a diagnostic sensitivity. See the deliberately excluded reference list.",
+          "locator": {
+            "type": "xml_element",
+            "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "tag": "p",
+            "element_id": "negation",
+            "section_title": "Scope limits"
+          }
+        }
+      ],
+      "expected_blocks_sha256": "25bdb77ab0329454b8f04e863f73a5452584969f41555b6a10fd43f63bf96d06",
+      "quotes": [
+        {
+          "name": "follow_up_revised",
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "start": 21,
+          "end": 44,
+          "quote": "8 weeks, not 12 months."
+        },
+        {
+          "name": "inline_concatenation",
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+          "start": 115,
+          "end": 117,
+          "quote": "X2"
+        }
+      ]
+    },
+    {
+      "alias": "pdf_three_pages",
+      "file": "three-pages.pdf",
+      "format": "pdf",
+      "synthetic": true,
+      "source_sha256": "f0fbe5e440a3145ebcd404a2d08167cee22580956c870352ef2f7665f3a1b56b",
+      "size_bytes": 1614,
+      "expected_parser_id": "lit-rev-engine.source.v1.pdf",
+      "expected_block_count": 3,
+      "expected_blocks": [
+        {
+          "id": "pdf:page:1",
+          "ordinal": 1,
+          "text": "Software fixture PDF; no medical findings.\nPDF physical page 1, printed label 10.\nFollow-up: 6 weeks.",
+          "locator": {
+            "type": "pdf_page",
+            "page": 1
+          }
+        },
+        {
+          "id": "pdf:page:2",
+          "ordinal": 2,
+          "text": "",
+          "locator": {
+            "type": "pdf_page",
+            "page": 2
+          }
+        },
+        {
+          "id": "pdf:page:3",
+          "ordinal": 3,
+          "text": "PDF physical page 3, printed label 12.\nNo diagnostic estimate was reported.",
+          "locator": {
+            "type": "pdf_page",
+            "page": 3
+          }
+        }
+      ],
+      "expected_blocks_sha256": "2ac7f13523174b5d687fff10ad0d91c8a6364a95f639fa7ba4e4dd64c7093a04",
+      "quotes": [
+        {
+          "name": "physical_page_one_follow_up",
+          "block_id": "pdf:page:1",
+          "start": 82,
+          "end": 101,
+          "quote": "Follow-up: 6 weeks."
+        },
+        {
+          "name": "physical_page_three_negation",
+          "block_id": "pdf:page:3",
+          "start": 39,
+          "end": 75,
+          "quote": "No diagnostic estimate was reported."
+        }
+      ]
+    }
+  ]
+}

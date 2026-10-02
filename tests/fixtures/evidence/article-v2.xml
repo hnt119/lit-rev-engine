@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article SYSTEM "https://invalid.example/never-fetch.dtd">
+<article article-type="research-article" dtd-version="1.3" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+      <article-id pub-id-type="publisher-id">SYNTHETIC-EVIDENCE-ONLY</article-id>
+      <title-group>
+        <article-title id="source-title">Synthetic source α: café and <italic>nested</italic> text</article-title>
+      </title-group>
+      <abstract>
+        <sec id="abstract-overview">
+          <title>Fixture overview</title>
+          <p id="abstract-one">Software  fixture only.
+          The sample uses <italic>Unicode</italic> α and β; no medical outcomes are reported.</p>
+        </sec>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="methods">
+      <title>Synthetic methods</title>
+      <p id="population">Synthetic population: 24 invented entries (not patients). A <italic>nested <bold>phrase</bold></italic> preserves punctuation — and café. Marker X<sub>2</sub> is literal.</p>
+      <table-wrap id="table-one">
+        <label>Table S1</label>
+        <caption><p>Invented software counts.</p></caption>
+        <table>
+          <thead><tr><th>Group</th><th>Count</th></tr></thead>
+          <tbody>
+            <tr><td>α</td><td>12</td></tr>
+            <tr><td>β</td><td>12</td></tr>
+            <tr><td colspan="2">Total: 24 fixture rows</td></tr>
+          </tbody>
+        </table>
+        <table-wrap-foot><p>Software counts only; no participant data.</p></table-wrap-foot>
+      </table-wrap>
+      <p id="follow-up">Fixture follow-up is 8 weeks, not 12 months. The table contains no clinical efficacy estimate.</p>
+    </sec>
+    <sec id="results">
+      <title>Synthetic results</title>
+      <p id="result-one">The invented primary value is 7.5 units (95% CI 6.0–9.0). No adverse-event analysis was performed.</p>
+      <sec id="scope">
+        <title>Scope limits</title>
+        <p id="negation">The result is not a diagnostic sensitivity. See the deliberately excluded reference list.</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="reference-only">
+        <mixed-citation><article-title>REFERENCE-ONLY TITLE MUST NOT BE A FINDING BLOCK</article-title> Reference-only value: 999 weeks.</mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>

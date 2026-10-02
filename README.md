@@ -2,7 +2,7 @@
 
 A Python engine for managing a reproducible review ledger and exploring locally indexed academic papers with an Agnes-powered assistant.
 
-The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. PubMed receipts and original response bytes survive ledger export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages. Source-anchored verified evidence tables remain future work.
+The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. PubMed receipts and original response bytes survive ledger export and offline replay. Its source-document API retains immutable TXT/JATS/PDF versions with exact quotation blocks and typed locators. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages. Structured extraction and independent verification remain the next gate.
 
 ## Current workflow
 
@@ -156,6 +156,10 @@ python review.py counts "$REVIEW_PROJECT_ID"
 Several reports can share a study ID, and one report can link to several studies using repeated `--study-id` flags. Each event replaces that reviewer's complete set; `--clear` explicitly records an empty set. Disagreements remain conflicts, `adjudicate-links` requires existing reviews and a reason, and later reviews invalidate an adjudication. Labels and supplied `--identifiers-json` metadata never auto-merge study identities.
 
 Linking does not change eligibility. Only current full-text-included reports contribute to study totals. Missing, empty, or conflicting links leave `included_studies=null` while `linked_included_studies` exposes a partial observed total. Complete linkage counts distinct study IDs, preserving every report and association revision. Projects using linkage export `studies.csv`, `study_links.csv`, and `study_link_events.csv` plus corresponding bundle arrays. See [study linkage](docs/study-linkage.md) for the independent six-report/three-study example and [evaluation evidence](docs/study-linkage-evaluation.md).
+
+### Retain original report sources
+
+The Python API supports immutable source attachments, version history, source hashes and exact quotation blocks for UTF-8 text, publisher JATS XML, and text-bearing PDFs. JATS own DOI/PMID checks can reject a wrong report association; XML reference lists and peer-review sub-articles are excluded from finding passages. PDF locators use actual page positions. Every source version survives export and original-file deletion. See [source documents](docs/source-documents.md) for API usage, transformations and limitations. Source attachment does not change screening status.
 
 ### 1. Search and index papers
 
@@ -311,10 +315,10 @@ The six development priorities are:
 2. Biomedical discovery: JSON, RIS, PubMed XML imports, and complete PubMed capture/offline replay implemented; additional databases and validated searches beyond 10,000 matches remain future work.
 3. Citation-record deduplication and auditable manual many-to-many report/study linkage implemented; manual citation merging remains future work.
 4. Title/abstract and full-text screening, reviewer identity, exclusion reasons, reconciled report counts and conditional distinct-study totals implemented; reviewer requirements and reopening stages remain future work.
-5. Structured extraction with source quotations, page/table locations, verification status, and design-appropriate appraisal.
+5. Durable TXT/JATS/PDF source versions and exact quotation locators implemented through the Python API; structured extraction, reviewer verification and design-appropriate appraisal are next.
 6. Synthesis and exports based on verified evidence, with a medical-paper evaluation set.
 
-The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The next gate is durable source documents and source-anchored verified extraction, followed by real medical-paper retrieval evaluation.
+The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The next gate is structured extraction and independent verification against retained source versions, followed by real medical-paper retrieval evaluation.
 
 PRISMA is a reporting guideline; implementing a flow diagram alone does not establish review quality. Systematic and scoping workflows should retain their distinct methodological requirements. [PRISMA 2020](https://www.prisma-statement.org/prisma-2020), [PRISMA-ScR](https://www.prisma-statement.org/scoping).
 

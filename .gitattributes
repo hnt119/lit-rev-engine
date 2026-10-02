@@ -1,0 +1,5 @@
+# Byte-pinned sources must retain their exact bytes across Git checkouts.
+/tests/fixtures/evidence/*.txt -text whitespace=cr-at-eol
+/tests/fixtures/evidence/*.xml -text
+/tests/fixtures/evidence/*.pdf -text
+/tests/fixtures/medical_sources/*.xml -text

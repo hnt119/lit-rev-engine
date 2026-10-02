@@ -57,6 +57,11 @@ def write_export(bundle, exclusions, destination, *, artifacts=None):
             "study_links.csv": _csv(bundle["study_links"], ["project_id", "record_id", "state", "study_ids", "active_event_ids"]),
             "study_link_events.csv": _csv(bundle["study_link_events"], ["id", "project_id", "record_id", "study_ids", "reviewer", "reason", "kind", "created_at"]),
         })
+    if "documents" in bundle:
+        contents.update({
+            "documents.csv": _csv(bundle["documents"], ["id", "project_id", "record_id", "version", "format", "filename", "source_url", "version_label", "source_sha256", "size_bytes", "parser_id", "parser_metadata", "source_identifiers", "blocks_sha256", "block_count", "reviewer", "reason", "created_at", "active"]),
+            "source_blocks.json": _json(bundle["source_blocks"]),
+        })
     contents.update(artifacts or {})
     destination = Path(destination)
     destination.mkdir(parents=True, exist_ok=True)

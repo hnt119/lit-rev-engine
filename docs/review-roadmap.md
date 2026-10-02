@@ -10,8 +10,8 @@ The goal remains a reproducible systematic/scoping review workflow across all si
 | Biomedical discovery and database imports | JSON/RIS/PubMed XML importers; PubMed adapter; 76 capture, 69 integration, 28 CLI independent cases | Capture, verified ledger integration, and offline replay accepted against synthetic responses; live compatibility and comprehensive search coverage are not claimed. |
 | Record deduplication and report/study linkage | DOI/PMID and conservative fallback tests; raw occurrences; 40 API and 63 CLI independent linkage cases | Record identity and explicit manual many-to-many study linkage accepted; revisions/conflicts preserve history. |
 | Screening and reconciled counts | Append-only screening/retrieval events; 13-report fixture; six-included-report/three-study fixture | Report counts and conditional distinct-study totals accepted; incomplete links keep final study count null. |
-| Verified structured extraction | Existing passage labels/pages only | Missing structured values, anchored quotations, revisions, reviewer verification, and evidence-only export. |
-| Evaluated medical retrieval/synthesis exports | Three hash-pinned CC BY 4.0 publisher JATS articles acquired and verified; unrelated neural-network work remains separate | Source acquisition accepted; independently checked medical questions, retrieval evaluation, and verified evidence exports still missing. |
+| Verified structured extraction | Durable source versions; 47 implementation and 68 independent source acceptance cases | Source bytes/hashes, exact TXT/JATS/PDF blocks, typed locators and identity checks accepted. Structured values, revision verification and evidence-only export remain next. |
+| Evaluated medical retrieval/synthesis exports | Three hash-pinned CC BY 4.0 publisher JATS articles acquired and verified; all main-article blocks resolve to source XML elements | Source acquisition/locator interface accepted; split medical questions, retrieval evaluation, and verified evidence exports still missing. |
 
 ## Order after PubMed integration
 
