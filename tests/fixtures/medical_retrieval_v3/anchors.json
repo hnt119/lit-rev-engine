@@ -1,0 +1,1303 @@
+{
+  "schema_version": 1,
+  "status": "anchor-reconciled; fresh source-first held-out pilot unfrozen; independent semantic review and coordinator freeze pending",
+  "offset_unit": "Unicode code points, half-open [start,end)",
+  "block_text_hash_rule": "SHA-256 of exact canonical block text encoded UTF-8; no additional normalization",
+  "full_blocks_hash_rule": "SHA-256 of sorted-key compact finite UTF-8 JSON with ensure_ascii=False over the complete parser blocks array",
+  "draft_file_pins": [
+    {
+      "file": "manifest.json",
+      "sha256": "75e4671eba59b28a22d40798445d41f52b426c34f3e1964b9f884f707d9b7a3b",
+      "size_bytes": 37329
+    },
+    {
+      "file": "passages.json",
+      "sha256": "e350b85539d835fe06aac9d660ad3fbcb50665191bf465138a0e31d8656a7296",
+      "size_bytes": 92063
+    },
+    {
+      "file": "held-out.json",
+      "sha256": "ec80bcba02b8148321e43922181c2544eb981cbab5628c25cb2f8e546bfe280d",
+      "size_bytes": 38654
+    }
+  ],
+  "counts": {
+    "sources": 3,
+    "passages": 26,
+    "questions": 12,
+    "quotes": 58,
+    "development_questions": 0,
+    "held_out_questions": 12,
+    "answerable_questions": 9,
+    "no_answer_questions": 3,
+    "quantitative_questions": 9,
+    "AND_questions": 8
+  },
+  "sources": [
+    {
+      "article_alias": "cbti",
+      "source_file": "../medical_sources_v3/cbti.xml",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "size_bytes": 175927,
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "block_count": 59,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pmed.1004510"
+      }
+    },
+    {
+      "article_alias": "ckm",
+      "source_file": "../medical_sources_v3/ckm.xml",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "size_bytes": 259642,
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "block_count": 69,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pmed.1004629"
+      }
+    },
+    {
+      "article_alias": "mri",
+      "source_file": "../medical_sources_v3_imaging/mri.xml",
+      "source_sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+      "size_bytes": 76039,
+      "blocks_sha256": "b18962d56b78f9bb92cbf529ab7704e195f80213d0c73a78f982f9c8b70fb9e6",
+      "block_count": 28,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pone.0188679"
+      }
+    }
+  ],
+  "passages": [
+    {
+      "passage_id": "cbti_analysis",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "block_ordinal": 33,
+      "block_text_sha256": "a37d016f3063b2b431d23835839c175f6f0c65502c57ac72bca270cb4b075b06",
+      "block_text_code_points": 1979,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "tag": "p",
+        "section_title": "2.6. Statistical analysis"
+      }
+    },
+    {
+      "passage_id": "cbti_primary",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "block_ordinal": 37,
+      "block_text_sha256": "d27b65dd91636f9388077d2e0fb36437bc832079e788628c3a55189d36c3ca85",
+      "block_text_code_points": 675,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "3.2. Preventive effect of app-based CBT-I on major depression"
+      }
+    },
+    {
+      "passage_id": "cbti_exploratory",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "block_ordinal": 39,
+      "block_text_sha256": "714e50d9369938d6e4c559f23893506e2004252b31f4dfaa08cf9ef3516e4bfb",
+      "block_text_code_points": 915,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "tag": "p",
+        "section_title": "3.2. Preventive effect of app-based CBT-I on major depression"
+      }
+    },
+    {
+      "passage_id": "cbti_abstract",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "block_ordinal": 3,
+      "block_text_sha256": "e43f5df7b6d9f22022315b9c5520d4a4d030ffb032819c86975f12e2c721ce34",
+      "block_text_code_points": 1721,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Methods and findings"
+      }
+    },
+    {
+      "passage_id": "cbti_remission_definition",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+      "block_ordinal": 28,
+      "block_text_sha256": "83189d10e9548688973d2b4fb425192d69ff36dcdc1e5ee92d415437511bf4dd",
+      "block_text_code_points": 702,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+        "tag": "p",
+        "section_title": "2.4. Outcome measures"
+      }
+    },
+    {
+      "passage_id": "cbti_remission_results",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[1]/p[1]",
+      "block_ordinal": 40,
+      "block_text_sha256": "be36867ee4571b67827e35ce7e94908919e1ff067d9c012cb0a2eba9c439d8dd",
+      "block_text_code_points": 801,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "3.3.1. Remission rates of insomnia disorder."
+      }
+    },
+    {
+      "passage_id": "cbti_secondary_table",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[2]/table-wrap[1]",
+      "block_ordinal": 43,
+      "block_text_sha256": "463de65c0eb6d0df02a566c5084d2ca24f51e7747e365f45a942da224371b534",
+      "block_text_code_points": 1907,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/sec[2]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pmed.1004510.t002",
+        "section_title": "3.3.2. Depressive and insomnia severity.",
+        "table_label": "Table 2"
+      }
+    },
+    {
+      "passage_id": "cbti_symptom_followup",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[2]/p[2]",
+      "block_ordinal": 44,
+      "block_text_sha256": "1dbee47845eb142176437e9e4e2644986f2367e9ee55be818a438178b4d49b59",
+      "block_text_code_points": 663,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/sec[2]/p[2]",
+        "tag": "p",
+        "section_title": "3.3.2. Depressive and insomnia severity."
+      }
+    },
+    {
+      "passage_id": "cbti_depression_discussion",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+      "block_ordinal": 49,
+      "block_text_sha256": "e974dc1bd1690258c091323c0f09549ed537e33cc7e474d8b16ed8e1d57f27f9",
+      "block_text_code_points": 1124,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[3]",
+        "tag": "p",
+        "section_title": "4. Discussion"
+      }
+    },
+    {
+      "passage_id": "cbti_limitations",
+      "article_alias": "cbti",
+      "source_sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "blocks_sha256": "054e9aeecf101c8b51bdcb8522cc57f893be8a48e99a1e98d93b0c088033bb83",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[7]",
+      "block_ordinal": 53,
+      "block_text_sha256": "a21606f622613f779518ee333f45f3dd9632df9c07a1a4f21b60d44694685920",
+      "block_text_code_points": 2447,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[7]",
+        "tag": "p",
+        "section_title": "4. Discussion"
+      }
+    },
+    {
+      "passage_id": "ckm_outcomes",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "block_ordinal": 21,
+      "block_text_sha256": "a79f8b977a08f1be095bdafa5e8236c62f8c8d318011c0f630ec3736cad4f787",
+      "block_text_code_points": 750,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Dependent variables"
+      }
+    },
+    {
+      "passage_id": "ckm_adjustment_analysis",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "block_ordinal": 23,
+      "block_text_sha256": "533300320d422e30cf7ad1066b4c74e903c2fd9ae43d164c2d1bd1ed8d8931c7",
+      "block_text_code_points": 2172,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Statistical analysis"
+      }
+    },
+    {
+      "passage_id": "ckm_primary",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[2]",
+      "block_ordinal": 28,
+      "block_text_sha256": "bf5b41d3171e598f330b332ef88b62f77127f2d9218f89674935cd29068de121",
+      "block_text_code_points": 1536,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "passage_id": "ckm_abstract",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "block_ordinal": 3,
+      "block_text_sha256": "b465664a6473f9d0349ba1c8ca7d826f1e4776c1e2f10d596469ce8d7042dc5c",
+      "block_text_code_points": 2037,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Methods and findings"
+      }
+    },
+    {
+      "passage_id": "ckm_stage_definition",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/p[3]",
+      "block_ordinal": 18,
+      "block_text_sha256": "6645a3ec4e3534c7fe0aa004546202243332ff212afabd4c69873def01175b6e",
+      "block_text_code_points": 1172,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/p[3]",
+        "tag": "p",
+        "section_title": "Methods"
+      }
+    },
+    {
+      "passage_id": "ckm_definition_table",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/table-wrap[1]",
+      "block_ordinal": 19,
+      "block_text_sha256": "5f4167bb4f41ab5cbcf5facf13f475418ecc52dd145bb93e08423a8c1d6424d1",
+      "block_text_code_points": 3556,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pmed.1004629.t001",
+        "section_title": "Methods",
+        "table_label": "Table 1"
+      }
+    },
+    {
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+      "block_ordinal": 29,
+      "block_text_sha256": "7af6468a44f4a9f8a1b52065e6570d58d369af182e5be78fe959bdeccfd7a908",
+      "block_text_code_points": 2198,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "tag": "table-wrap",
+        "element_id": "pmed.1004629.t003",
+        "section_title": "Results",
+        "table_label": "Table 3"
+      }
+    },
+    {
+      "passage_id": "ckm_repeated_exams",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[11]",
+      "block_ordinal": 41,
+      "block_text_sha256": "2090cf70913d825788c6407b54a74af2311465eef763ed5e20b714ddf174f324",
+      "block_text_code_points": 678,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[11]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "passage_id": "ckm_limitations",
+      "article_alias": "ckm",
+      "source_sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "blocks_sha256": "10c904f32475dffe4a99383bf6629cacd971364a09da03a7ad431c209f1ee650",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+      "block_ordinal": 46,
+      "block_text_sha256": "1d8ee047cf1df5cdf428aacf2ec13275484e65dba5df386180e95f0b49e41ee4",
+      "block_text_code_points": 2857,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[5]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "passage_id": "mri_reading_analysis",
+      "article_alias": "mri",
+      "source_sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+      "blocks_sha256": "b18962d56b78f9bb92cbf529ab7704e195f80213d0c73a78f982f9c8b70fb9e6",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "block_ordinal": 10,
+      "block_text_sha256": "7aeb8a7d09720f2f5ba5eab27da03f9409c900dd156de8b8f507fce7b86828ef",
+      "block_text_code_points": 808,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Data analysis"
+      }
+    },
+    {
+      "passage_id": "mri_primary",
+      "article_alias": "mri",
+      "source_sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+      "blocks_sha256": "b18962d56b78f9bb92cbf529ab7704e195f80213d0c73a78f982f9c8b70fb9e6",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "block_ordinal": 16,
+      "block_text_sha256": "9cf312da5e74b06100ffb1b8eb016eb834740cc8195cf91d1c546df336428fac",
+      "block_text_code_points": 796,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Performance of MRI in BI-RADS 4 mammographic microcalcifications"
+      }
+    },
+    {
+      "passage_id": "mri_abstract_results",
+      "article_alias": "mri",
+      "source_sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+      "blocks_sha256": "b18962d56b78f9bb92cbf529ab7704e195f80213d0c73a78f982f9c8b70fb9e6",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "block_ordinal": 4,
+      "block_text_sha256": "3c71ec1f9f02784e79e5f9e2c8f0d10bec3341377757c3cae5aa575479492a19",
+      "block_text_code_points": 528,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "passage_id": "mri_subgroup_4a",
+      "article_alias": "mri",
+      "source_sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+      "blocks_sha256": "b18962d56b78f9bb92cbf529ab7704e195f80213d0c73a78f982f9c8b70fb9e6",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+      "block_ordinal": 19,
+      "block_text_sha256": "137d8fe6e3b96929a5280d6978af468045a4e997eaddf877e3449c058dfc62a8",
+      "block_text_code_points": 368,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Performance of MRI stratified according to mammographic BI-RADS rating (4a-4c)"
+      }
+    },
+    {
+      "passage_id": "mri_subgroup_4b",
+      "article_alias": "mri",
+      "source_sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+      "blocks_sha256": "b18962d56b78f9bb92cbf529ab7704e195f80213d0c73a78f982f9c8b70fb9e6",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[2]",
+      "block_ordinal": 20,
+      "block_text_sha256": "d4a4130705f83a31db807c852d5cdb01810af267350ae0ad68dbc0d0df4ac7a2",
+      "block_text_code_points": 331,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "Performance of MRI stratified according to mammographic BI-RADS rating (4a-4c)"
+      }
+    },
+    {
+      "passage_id": "mri_comparison_table",
+      "article_alias": "mri",
+      "source_sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+      "blocks_sha256": "b18962d56b78f9bb92cbf529ab7704e195f80213d0c73a78f982f9c8b70fb9e6",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/table-wrap[1]",
+      "block_ordinal": 26,
+      "block_text_sha256": "6ca642a725b683b964cfbe423dfcd81be450a1135e0d72496665dfe48b1b6ae7",
+      "block_text_code_points": 685,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0188679.t003",
+        "section_title": "Discussion",
+        "table_label": "Table 3"
+      }
+    },
+    {
+      "passage_id": "mri_discussion_limits",
+      "article_alias": "mri",
+      "source_sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+      "blocks_sha256": "b18962d56b78f9bb92cbf529ab7704e195f80213d0c73a78f982f9c8b70fb9e6",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+      "block_ordinal": 25,
+      "block_text_sha256": "20f3b6ea46e086121c12058d82e3f97f56c47dcb7cc60500a789482b4574b838",
+      "block_text_code_points": 5000,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[3]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    }
+  ],
+  "question_quotes": [
+    {
+      "question_id": "v3-cbti-01",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "cbti_analysis",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "start": 424,
+        "end": 486,
+        "quote": "Analyses were conducted based on the intent-to-treat approach."
+      }
+    },
+    {
+      "question_id": "v3-cbti-01",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "cbti_primary",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "start": 0,
+        "end": 219,
+        "quote": "Thirty-seven participants (incidence proportion, 10%; 37/354) in the intervention group and 62 participants (incidence proportion, 18%; 62/354) in the control group developed new-onset MDD during the 12-month follow-up."
+      }
+    },
+    {
+      "question_id": "v3-cbti-01",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "cbti_primary",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "start": 568,
+        "end": 675,
+        "quote": "Cox regression revealed an HR of 0.58 (0.38–0.87; p = 0.008) for MDD favoring app-based CBT-I intervention."
+      }
+    },
+    {
+      "question_id": "v3-cbti-01",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "cbti_abstract",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "start": 634,
+        "end": 1035,
+        "quote": "708 participants (407 females [57%]; mean age, 22.1 years [SD = 1.9]) were randomly allocated to app-based CBT-I group (n = 354) or app-based HE group (n = 354). Thirty-seven participants (10%) in the intervention group and 62 participants (18%) in the control group developed new-onset MDD throughout the 12-month follow-up, with a hazard ratio of 0.58 (95% confidence interval 0.38–0.87; p = 0.008)."
+      }
+    },
+    {
+      "question_id": "v3-cbti-01",
+      "split": "held-out",
+      "span_ordinal": 5,
+      "passage_id": "cbti_exploratory",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "start": 0,
+        "end": 347,
+        "quote": "After additionally adjusting for prior history of MDD, educational level, family income, comorbid medical illnesses, and use of sleep-promoting medications in exploratory analysis, the risk of developing MDD remained significantly lower for the app-based CBT-I intervention group compared with the controls (adjusted HR 0.60 [0.40–0.90]; p = 0.01)"
+      }
+    },
+    {
+      "question_id": "v3-cbti-02",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "cbti_remission_definition",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+        "start": 118,
+        "end": 406,
+        "quote": "Remission of insomnia disorder was determined by the following criteria [21]: (1) no functional impairments or distress with sleep, (2) insomnia symptoms less than three times per week for at least 1 month, and (3) sleep-promoting medication use less than once per week in the past month."
+      }
+    },
+    {
+      "question_id": "v3-cbti-02",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "cbti_remission_results",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[1]/p[1]",
+        "start": 113,
+        "end": 429,
+        "quote": "At post-intervention, the weighted percentage of remitters based on clinical interviews in app-based CBT-I group was higher than that of the app-based HE group (52% versus 28%; relative risk [RR] 1.83 [95% CI 1.49–2.24]; p < 0.001) after controlling for strata variables and accounting for the missing data patterns."
+      }
+    },
+    {
+      "question_id": "v3-cbti-02",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "cbti_analysis",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "start": 695,
+        "end": 952,
+        "quote": "Remission rates of insomnia were analyzed using a weighted generalized estimating equations model. Weights were computed as the product of a missing model weight to attenuate the effect of attrition conditional on strata variables and group allocation [32]."
+      }
+    },
+    {
+      "question_id": "v3-cbti-02",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "cbti_analysis",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "start": 1799,
+        "end": 1872,
+        "quote": "Strata variables at baseline were included as covariates in all analyses."
+      }
+    },
+    {
+      "question_id": "v3-cbti-02",
+      "split": "held-out",
+      "span_ordinal": 5,
+      "passage_id": "cbti_abstract",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "start": 1109,
+        "end": 1281,
+        "quote": "The app-based CBT-I group has higher remission rates of insomnia disorder than the controls at post-intervention (52% versus 28%; relative risk 1.83 [1.49–2.24]; p < 0.001)"
+      }
+    },
+    {
+      "question_id": "v3-cbti-03",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "cbti_secondary_table",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[2]/table-wrap[1]",
+        "start": 136,
+        "end": 141,
+        "quote": "PHQ-9"
+      }
+    },
+    {
+      "question_id": "v3-cbti-03",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "cbti_secondary_table",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[2]/table-wrap[1]",
+        "start": 518,
+        "end": 592,
+        "quote": "12 months\t5.5 (0.2); n = 249\t6.0 (0.2); n = 227\t−0.5 (−1.1, 0.2)\t0.14\t0.24"
+      }
+    },
+    {
+      "question_id": "v3-cbti-03",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "cbti_secondary_table",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[2]/table-wrap[1]",
+        "start": 1658,
+        "end": 1725,
+        "quote": "aAll values are adjusted for sex and insomnia severity at baseline."
+      }
+    },
+    {
+      "question_id": "v3-cbti-03",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "cbti_symptom_followup",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[2]/p[2]",
+        "start": 179,
+        "end": 405,
+        "quote": "While significant group differences in depressive symptoms were only sustained at 6-month follow-up (d = 0.42; p = 0.009), albeit depressive symptoms remained in the mild range for the intervention group at 12-month follow-up."
+      }
+    },
+    {
+      "question_id": "v3-cbti-03",
+      "split": "held-out",
+      "span_ordinal": 5,
+      "passage_id": "cbti_symptom_followup",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/sec[2]/p[2]",
+        "start": 406,
+        "end": 637,
+        "quote": "In the sensitivity analyses with LOCF, greater improvements in both depressive and insomnia symptoms in the app-based CBT-I group compared to the control group were consistently observed throughout post-session 4–12-month follow-up"
+      }
+    },
+    {
+      "question_id": "v3-cbti-03",
+      "split": "held-out",
+      "span_ordinal": 6,
+      "passage_id": "cbti_depression_discussion",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+        "start": 289,
+        "end": 503,
+        "quote": "Although depressive symptoms of the intervention group remained in the mild range at 12-month follow-up, we did not detect significant between-group effects due to the large within-group changes in the control arm."
+      }
+    },
+    {
+      "question_id": "v3-cbti-03",
+      "split": "held-out",
+      "span_ordinal": 7,
+      "passage_id": "cbti_depression_discussion",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+        "start": 977,
+        "end": 1124,
+        "quote": "Further sensitivity analyses with LOCF demonstrated greater improvements in depressive symptoms in the app-based CBT-I group at 12-month follow-up."
+      }
+    },
+    {
+      "question_id": "v3-cbti-04",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "cbti_limitations",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[7]",
+        "start": 2321,
+        "end": 2447,
+        "quote": "Last, the modest sample size of adolescents (<18 years, n = 10) limits the generalizability of the findings to this age group."
+      }
+    },
+    {
+      "question_id": "v3-cbti-04",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "cbti_exploratory",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "start": 374,
+        "end": 553,
+        "quote": "Further analyses demonstrated that the preventive effect of app-based CBT-I on MDD across various subgroups was generally consistent with the effect observed in the overall sample"
+      }
+    },
+    {
+      "question_id": "v3-cbti-04",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "cbti_primary",
+      "article_alias": "cbti",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "start": 568,
+        "end": 675,
+        "quote": "Cox regression revealed an HR of 0.58 (0.38–0.87; p = 0.008) for MDD favoring app-based CBT-I intervention."
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "ckm_outcomes",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "start": 298,
+        "end": 456,
+        "quote": "Causes of death were classified according to ICD-9 and ICD-10 codes and included all-cause mortality (ICD-9: 001–998; ICD-10: A00–Y98), CVD (390–459; I00–I99)"
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "ckm_primary",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/p[2]",
+        "start": 438,
+        "end": 585,
+        "quote": "the risks of CVD mortality and ESKD were higher among participants with CKM than those with CKM stage 0 (CVD mortality HR: 2.81; 95% CI: 2.45, 3.22"
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "ckm_abstract",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "start": 1170,
+        "end": 1214,
+        "quote": "CVD mortality (HR: 2.81; 95% CI: 2.45, 3.22)"
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "ckm_abstract",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "start": 508,
+        "end": 710,
+        "quote": "Multivariate Cox proportional hazards models, adjusted for age, sex, educational level, smoking status, alcohol drinking status, and physical activity groups, were used to calculate hazard ratios (HRs)."
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 5,
+      "passage_id": "ckm_adjustment_analysis",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "start": 630,
+        "end": 775,
+        "quote": "All Cox proportional hazards models were adjusted for age, sex, educational level, smoking status, drinking status, and physical activity groups."
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 6,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 227,
+        "end": 282,
+        "quote": "CKM\tN\tN of deaths\tHR*\t(95% CI)\tN of deaths\tHR*\t(95% CI)"
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 7,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 172,
+        "end": 185,
+        "quote": "CVD mortality"
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 8,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 821,
+        "end": 886,
+        "quote": "All CKM†\t368,578\t38,587\t1.33\t(1.28, 1.39)\t8,543\t2.81\t(2.45, 3.22)"
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 9,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 1841,
+        "end": 1875,
+        "quote": "†All CKM does not include stage 0."
+      }
+    },
+    {
+      "question_id": "v3-ckm-01",
+      "split": "held-out",
+      "span_ordinal": 10,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 1723,
+        "end": 1840,
+        "quote": "*Hazard ratios were adjusted for age, sex, educational level, smoking status, drinking status, and physical activity."
+      }
+    },
+    {
+      "question_id": "v3-ckm-02",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "ckm_stage_definition",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/p[3]",
+        "start": 527,
+        "end": 762,
+        "quote": "Stage 3: with a Predicting Risk of cardiovascular disease EVENTs (PREVENT) score indicating a 10-year risk of CVD exceeding 20% [23,24] or has a kidney function with an estimated glomerular filtration rate (eGFR) of ≤30 mL/min/1.73 m2."
+      }
+    },
+    {
+      "question_id": "v3-ckm-02",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "ckm_definition_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/table-wrap[1]",
+        "start": 754,
+        "end": 965,
+        "quote": "Stage 3: Subclinical CVD in CKM\tWith a Predicting Risk of cardiovascular disease EVENTs (PREVENT) score indicating a 10-year risk of CVD exceeding 20% or has a kidney function with an eGFR of ≤30 mL/min/1.73 m2."
+      }
+    },
+    {
+      "question_id": "v3-ckm-02",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 172,
+        "end": 185,
+        "quote": "CVD mortality"
+      }
+    },
+    {
+      "question_id": "v3-ckm-02",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 227,
+        "end": 282,
+        "quote": "CKM\tN\tN of deaths\tHR*\t(95% CI)\tN of deaths\tHR*\t(95% CI)"
+      }
+    },
+    {
+      "question_id": "v3-ckm-02",
+      "split": "held-out",
+      "span_ordinal": 5,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 607,
+        "end": 668,
+        "quote": "Stage 3\t9,925\t6,415\t2.13\t(2.02, 2.25)\t1,594\t5.27\t(4.51, 6.16)"
+      }
+    },
+    {
+      "question_id": "v3-ckm-02",
+      "split": "held-out",
+      "span_ordinal": 6,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 1723,
+        "end": 1840,
+        "quote": "*Hazard ratios were adjusted for age, sex, educational level, smoking status, drinking status, and physical activity."
+      }
+    },
+    {
+      "question_id": "v3-ckm-03",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "ckm_repeated_exams",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/p[11]",
+        "start": 144,
+        "end": 243,
+        "quote": "The average follow-up duration between these two examinations was 2.5 years (mean (SD): 2.5 (2.4))."
+      }
+    },
+    {
+      "question_id": "v3-ckm-03",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "ckm_repeated_exams",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/p[11]",
+        "start": 344,
+        "end": 396,
+        "quote": "18.3% (N = 40,320) progressed to a more severe stage"
+      }
+    },
+    {
+      "question_id": "v3-ckm-03",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "ckm_repeated_exams",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/p[11]",
+        "start": 593,
+        "end": 678,
+        "quote": "We incorporated a time-dependent analysis, which yielded similar results (S12 Table)."
+      }
+    },
+    {
+      "question_id": "v3-ckm-03",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "ckm_limitations",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+        "start": 1827,
+        "end": 1959,
+        "quote": "Third, our analysis was based only on baseline measurements, which do not account for changes in individual circumstances over time."
+      }
+    },
+    {
+      "question_id": "v3-ckm-03",
+      "split": "held-out",
+      "span_ordinal": 5,
+      "passage_id": "ckm_limitations",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+        "start": 2101,
+        "end": 2196,
+        "quote": "However, we conducted an analysis among participants who had undergone two health examinations."
+      }
+    },
+    {
+      "question_id": "v3-ckm-03",
+      "split": "held-out",
+      "span_ordinal": 6,
+      "passage_id": "ckm_limitations",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+        "start": 2524,
+        "end": 2700,
+        "quote": "However, given the relatively small subset of patients with repeated measurements, this additional longitudinal data point may lack sufficient power to detect true differences."
+      }
+    },
+    {
+      "question_id": "v3-ckm-04",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "ckm_definition_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/table-wrap[1]",
+        "start": 1508,
+        "end": 1640,
+        "quote": "However, since HbA1c measurements are not available in this cohort, we did not include the criterion of HbA1c between 5.7% and 6.4%."
+      }
+    },
+    {
+      "question_id": "v3-ckm-04",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 172,
+        "end": 185,
+        "quote": "CVD mortality"
+      }
+    },
+    {
+      "question_id": "v3-ckm-04",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "ckm_stage_outcomes_table",
+      "article_alias": "ckm",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "start": 389,
+        "end": 450,
+        "quote": "Stage 1\t100,585\t3,280\t0.96\t(0.91, 1.02)\t368\t1.13\t(0.95, 1.35)"
+      }
+    },
+    {
+      "question_id": "v3-mri-01",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "mri_reading_analysis",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "start": 429,
+        "end": 530,
+        "quote": "MRI BI-RADS findings were dichotomized into positive (BI-RADS 4–5) and negative (BI-RADS 1–3) results"
+      }
+    },
+    {
+      "question_id": "v3-mri-01",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "mri_reading_analysis",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "start": 731,
+        "end": 808,
+        "quote": "The main lesion (one per patient) was analyzed for the purpose of this study."
+      }
+    },
+    {
+      "question_id": "v3-mri-01",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "mri_primary",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "start": 120,
+        "end": 216,
+        "quote": "a sensitivity, specificity, PPV, and NPV of 96.3% (95%-CI 90.7–99.0%), 82.3% (95%-CI 75.0–88.2%)"
+      }
+    },
+    {
+      "question_id": "v3-mri-01",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "mri_abstract_results",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+        "start": 360,
+        "end": 456,
+        "quote": "a sensitivity, specificity, PPV, and NPV of 96.3% (95%-CI 90.7–99.0%), 82.3% (95%-CI 75.0–88.2%)"
+      }
+    },
+    {
+      "question_id": "v3-mri-02",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "mri_subgroup_4a",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+        "start": 0,
+        "end": 121,
+        "quote": "126 microcalcified lesions were rated BI-RADS 4a at mammography. 103 of which were benign, and 23 of which were malignant"
+      }
+    },
+    {
+      "question_id": "v3-mri-02",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "mri_subgroup_4a",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+        "start": 187,
+        "end": 266,
+        "quote": "Calculated sensitivity, specificity, PPV, and NPV were 95.7% (95%-CI 78.1–100%)"
+      }
+    },
+    {
+      "question_id": "v3-mri-02",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "mri_subgroup_4b",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[2]",
+        "start": 0,
+        "end": 151,
+        "quote": "60 lesions were classified BI-RADS 4b at mammography and harboured a disease prevalence of 41,7% (95%-CI 29.1–55.1%; 25 malignant, 35 benign findings)."
+      }
+    },
+    {
+      "question_id": "v3-mri-02",
+      "split": "held-out",
+      "span_ordinal": 4,
+      "passage_id": "mri_subgroup_4b",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[2]",
+        "start": 152,
+        "end": 232,
+        "quote": "Resulting sensitivity, specificity, PPV, and NPV were 96.0% (95%-CI 79.7%-99.9%)"
+      }
+    },
+    {
+      "question_id": "v3-mri-03",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "mri_comparison_table",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/table-wrap[1]",
+        "start": 59,
+        "end": 127,
+        "quote": "First author\tyear\tlesions\tprevalence\tsensitivity\tspecificity\tPPV\tNPV"
+      }
+    },
+    {
+      "question_id": "v3-mri-03",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "mri_comparison_table",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/table-wrap[1]",
+        "start": 128,
+        "end": 195,
+        "quote": "Uematsu T [19]\t2007\t27\t0.48(0.29–0.68)\t0.92(0.64–1)\t0.79(0.49–0.95)"
+      }
+    },
+    {
+      "question_id": "v3-mri-03",
+      "split": "held-out",
+      "span_ordinal": 3,
+      "passage_id": "mri_comparison_table",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/table-wrap[1]",
+        "start": 523,
+        "end": 590,
+        "quote": "this study\t2016\t248\t0.43(0.37–0.50)\t0.96(0.91–0.99)\t0.82(0.75–0.88)"
+      }
+    },
+    {
+      "question_id": "v3-mri-04",
+      "split": "held-out",
+      "span_ordinal": 1,
+      "passage_id": "mri_discussion_limits",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+        "start": 3296,
+        "end": 3480,
+        "quote": "Whether the use of MRI can improve preoperative planning of malignant lesions by more accurate mapping of lesion extent remains a matter of debate and was not tested for in this study."
+      }
+    },
+    {
+      "question_id": "v3-mri-04",
+      "split": "held-out",
+      "span_ordinal": 2,
+      "passage_id": "mri_primary",
+      "article_alias": "mri",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "start": 120,
+        "end": 216,
+        "quote": "a sensitivity, specificity, PPV, and NPV of 96.3% (95%-CI 90.7–99.0%), 82.3% (95%-CI 75.0–88.2%)"
+      }
+    }
+  ]
+}

@@ -32,6 +32,14 @@ def _windows(text):
         previous_end = end
 
 
+def _bounds(text, method):
+    if method == "bm25_context_blocks":
+        if text.strip():
+            yield 0, len(text)
+        return
+    yield from _windows(text)
+
+
 def _snapshot_hash(manifest):
     try:
         serialized = json.dumps(manifest, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False)
@@ -92,9 +100,9 @@ def _candidates(store, project_id, scope, method):
         # This public read checks both retained source bytes and canonical block hashes.
         blocks = store.get_source_blocks(project_id, document["id"])
         manifest.append(metadata)
-        contexts = _contexts(blocks, document["format"]) if method == "bm25_context" else {}
+        contexts = _contexts(blocks, document["format"]) if method in {"bm25_context", "bm25_context_blocks"} else {}
         for block in blocks:
-            for start, end in _windows(block["text"]):
+            for start, end in _bounds(block["text"], method):
                 quote = block["text"][start:end]
                 frequencies = Counter(_tokens(quote))
                 context = contexts.get(block["id"])
@@ -107,7 +115,7 @@ def _candidates(store, project_id, scope, method):
                     "locator": block["locator"], "full_text_state": record["full_text_state"],
                     "study_link_state": metadata["study_link_state"], "study_ids": metadata["study_ids"],
                 }
-                if method == "bm25_context":
+                if method in {"bm25_context", "bm25_context_blocks"}:
                     passage["scoring_context"] = [] if context is None else [context]
                 candidates.append({"passage": passage, "frequencies": frequencies, "length": sum(frequencies.values()), "tie": (record_order, block["ordinal"], start, end)})
     return manifest, candidates
@@ -142,14 +150,18 @@ def search_sources(store, project_id, query, *, top_k=5, method="bm25", scope="i
         raise ValueError("Source retrieval query must be a nonempty string")
     if isinstance(top_k, bool) or not isinstance(top_k, int) or top_k < 1:
         raise ValueError("Source retrieval top_k must be a positive integer")
-    if not isinstance(method, str) or method not in {"token_overlap", "bm25", "bm25_context"}:
-        raise ValueError("Source retrieval method must be token_overlap, bm25, or bm25_context")
+    if not isinstance(method, str) or method not in {"token_overlap", "bm25", "bm25_context", "bm25_context_blocks"}:
+        raise ValueError("Source retrieval method must be token_overlap, bm25, bm25_context, or bm25_context_blocks")
     if not isinstance(scope, str) or scope not in {"included", "all_attached"}:
         raise ValueError("Source retrieval scope must be included or all_attached")
-    parameters = {"tokenizer_id": _TOKENIZER, "stop_words": sorted(_STOP_WORDS), "window_words": _WINDOW_WORDS, "overlap_words": _OVERLAP_WORDS}
-    if method in {"bm25", "bm25_context"}:
+    parameters = {"tokenizer_id": _TOKENIZER, "stop_words": sorted(_STOP_WORDS)}
+    if method == "bm25_context_blocks":
+        parameters["passage_unit"] = "block"
+    else:
+        parameters.update(window_words=_WINDOW_WORDS, overlap_words=_OVERLAP_WORDS)
+    if method in {"bm25", "bm25_context", "bm25_context_blocks"}:
         parameters.update(k1=_K1, b=_B)
-    if method == "bm25_context":
+    if method in {"bm25_context", "bm25_context_blocks"}:
         parameters.update(context_rule=_CONTEXT_RULE, context_max_words=_CONTEXT_WORDS)
     with store._snapshot():
         store._project(project_id)
@@ -157,7 +169,7 @@ def search_sources(store, project_id, query, *, top_k=5, method="bm25", scope="i
         ranked = _score(candidates, sorted(set(_tokens(query))), method)
         return {
             "schema_version": 1, "status": "candidate_passages", "project_id": project_id, "query": query,
-            "method": method, "method_version": "lit-rev-engine.project-retrieval." + ("v2." if method == "bm25_context" else "v1.") + method,
+            "method": method, "method_version": "lit-rev-engine.project-retrieval." + {"bm25_context": "v2.", "bm25_context_blocks": "v3."}.get(method, "v1.") + method,
             "parameters": parameters, "scope": scope, "top_k": top_k,
             "source_manifest": manifest, "source_snapshot_sha256": _snapshot_hash(manifest),
             "indexed_passages": len(candidates), "matched_passages": len(ranked),

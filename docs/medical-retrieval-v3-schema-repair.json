@@ -1,0 +1,66 @@
+{
+  "authorization": {
+    "entry_point": "tools/evaluate_medical_retrieval_v3_schema.py",
+    "first_fresh_grade_only": true,
+    "no_development_or_old_held_out_ranking": true,
+    "output_file": "docs/medical-retrieval-held-out-v3.json",
+    "preserve_pass_or_fail": true,
+    "selected_method": "bm25_context_blocks",
+    "split": "held-out",
+    "ticket": "E13b"
+  },
+  "authorized_at": "2026-10-02T22:03:34.993294+00:00",
+  "base_freeze_file": "tests/fixtures/medical_retrieval_v3/freeze.json",
+  "base_freeze_sha256": "90147e3d3e28035a1d3ca1f41a48be36bb2ad6cbc30c08d8df8c0c90945d2070",
+  "coordinator_review": {
+    "accepted_independent_ticket": "E14",
+    "all_frozen_inputs_unchanged": true,
+    "manifest_file_unchanged": true,
+    "parameters_metrics_gold_and_selection_unchanged": true,
+    "scope": "Add only missing publisher_article_url fields in an in-memory copy of exactly the selected v3 manifest",
+    "source_gold_checkers": {
+      "development": "PASS: 3 pinned sources; 23 exact main-article passages; 18 questions (9/9 split, 4 no-answer); 43 exact Unicode quote spans. Coordinator freeze verified. No ranking/model/index/network.\nRuntime provenance: historical Python 3.12.7; effective current Python 3.12.7; version differs=false. Historical anchors unchanged.",
+      "held_out": "PASS: 3 pinned sources; 26 exact main-article passages; 12 fresh held-out questions (9 answerable, 3 no-answer; 9 quantitative, 8 necessary distinct-block AND); 58 exact Unicode quote spans. Coordinator freeze verified. No ranking/model/index/network.\nRuntime provenance: historical Python 3.12.7; effective current Python 3.12.7; version differs=false. Historical anchors unchanged."
+    },
+    "source_urls": {
+      "cbti": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004510",
+      "ckm": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004629",
+      "mri": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0188679"
+    },
+    "synthetic_adapter_cases_passed": 69,
+    "synthetic_adapter_subtests_passed": 31,
+    "unchanged_independent_retrieval_cases_passed": 162
+  },
+  "development_result_file": "docs/medical-retrieval-development-v3.json",
+  "development_result_sha256": "ad29db4febf8189838cab14c02abaa834a324dacf9ccd77e6443fdb7695c5f46",
+  "failed_attempt": {
+    "entry_point": "tools/evaluate_medical_retrieval_v3.py",
+    "error": "KeyError: 'publisher_article_url' before first source attachment and retrieval loop",
+    "fresh_query_ranking_calls": 0,
+    "held_out_result_written": false,
+    "quality_outcome": null,
+    "ticket": "E13"
+  },
+  "held_out_ranked_during_failed_attempt": false,
+  "independent_acceptance_files": {
+    "tests/test_medical_retrieval_schema_adapter_acceptance.py": {
+      "sha256": "fbb233ca28024c571f34e57c397531b86debf0f8c513424f4e1dfa68eef1f738",
+      "size_bytes": 10555
+    }
+  },
+  "phase": "before_held_out_retry",
+  "repair_files": {
+    "tests/test_medical_retrieval_schema_adapter.py": {
+      "sha256": "3fe47d7d8419ca3a216d8b94408df9fc9d971c4dae8a0b62cbaa303f2d50a113",
+      "size_bytes": 16678
+    },
+    "tools/evaluate_medical_retrieval_v3_schema.py": {
+      "sha256": "192ea7ff4803d20dca2b389c3042f17ad2b8439d6caa8e5875836111801c882e",
+      "size_bytes": 9627
+    }
+  },
+  "schema_version": 1,
+  "selection_receipt_file": "docs/medical-retrieval-selection-v3.json",
+  "selection_receipt_sha256": "57f4de47eeca2ca339ef5faaad7d3572bba541c935f24085074a44c03a846e52",
+  "status": "coordinator_authorized_schema_repair_before_held_out_retry"
+}

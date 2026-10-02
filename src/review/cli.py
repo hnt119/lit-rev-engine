@@ -168,7 +168,7 @@ def _parser():
     retrieved.add_argument("project_id")
     retrieved.add_argument("--query", required=True)
     retrieved.add_argument("--top-k", type=int, default=5)
-    retrieved.add_argument("--method", choices=("token_overlap", "bm25", "bm25_context"), default="bm25")
+    retrieved.add_argument("--method", choices=("token_overlap", "bm25", "bm25_context", "bm25_context_blocks"), default="bm25")
     retrieved.add_argument("--scope", choices=("included", "all_attached"), default="included")
     for name, help_text in (
         ("records", "List canonical records and current screening/retrieval states"),

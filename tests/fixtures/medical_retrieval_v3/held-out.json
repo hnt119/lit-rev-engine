@@ -1,0 +1,744 @@
+{
+  "schema_version": 1,
+  "split": "held-out",
+  "status": "fresh source-first questions; independent semantic review and coordinator freeze pending",
+  "questions": [
+    {
+      "id": "v3-cbti-01",
+      "article_alias": "cbti",
+      "question": "Which analysis population was used in the trial of app-based CBT-I versus app-based health education, and what were the new-onset MDD event counts and randomized denominators over 12 months, the primary Cox HR with its reported interval, and the additionally adjusted exploratory HR with its interval and added covariates?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "Intent-to-treat: CBT-I 37/354 (10%) and HE 62/354 (18%) developed new-onset MDD during 12 months. Primary HR 0.58 (0.38–0.87). The exploratory additionally adjusted HR was 0.60 (0.40–0.90), after adding prior history of MDD, educational level, family income, comorbid medical illnesses, and use of sleep-promoting medications. The exploratory estimate is separate from the primary estimate.",
+      "sufficient_support_sets": [
+        [
+          "cbti_analysis",
+          "cbti_primary",
+          "cbti_exploratory"
+        ],
+        [
+          "cbti_analysis",
+          "cbti_abstract",
+          "cbti_exploratory"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "cbti_analysis",
+          "start": 424,
+          "end": 486,
+          "quote": "Analyses were conducted based on the intent-to-treat approach.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_primary",
+          "start": 0,
+          "end": 219,
+          "quote": "Thirty-seven participants (incidence proportion, 10%; 37/354) in the intervention group and 62 participants (incidence proportion, 18%; 62/354) in the control group developed new-onset MDD during the 12-month follow-up.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_primary",
+          "start": 568,
+          "end": 675,
+          "quote": "Cox regression revealed an HR of 0.58 (0.38–0.87; p = 0.008) for MDD favoring app-based CBT-I intervention.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_abstract",
+          "start": 634,
+          "end": 1035,
+          "quote": "708 participants (407 females [57%]; mean age, 22.1 years [SD = 1.9]) were randomly allocated to app-based CBT-I group (n = 354) or app-based HE group (n = 354). Thirty-seven participants (10%) in the intervention group and 62 participants (18%) in the control group developed new-onset MDD throughout the 12-month follow-up, with a hazard ratio of 0.58 (95% confidence interval 0.38–0.87; p = 0.008).",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_exploratory",
+          "start": 0,
+          "end": 347,
+          "quote": "After additionally adjusting for prior history of MDD, educational level, family income, comorbid medical illnesses, and use of sleep-promoting medications in exploratory analysis, the risk of developing MDD remained significantly lower for the app-based CBT-I intervention group compared with the controls (adjusted HR 0.60 [0.40–0.90]; p = 0.01)",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "primary_vs_exploratory_analysis",
+        "intent_to_treat",
+        "necessary_distinct_block_AND"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-cbti-02",
+      "article_alias": "cbti",
+      "question": "For the post-intervention insomnia-disorder outcome, which three criteria defined remission, and what weighted remission percentages and RR with 95% CI were reported for CBT-I versus health education after accounting for strata and missing-data patterns?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "Remission required no functional impairments or distress with sleep; insomnia symptoms less than three times per week for at least 1 month; and sleep-promoting medication use less than once per week in the past month. The weighted post-intervention percentages were CBT-I 52% versus HE 28%, RR 1.83 (95% CI 1.49–2.24), after controlling for strata variables and accounting for missing-data patterns.",
+      "sufficient_support_sets": [
+        [
+          "cbti_remission_definition",
+          "cbti_remission_results"
+        ],
+        [
+          "cbti_remission_definition",
+          "cbti_analysis",
+          "cbti_abstract"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "cbti_remission_definition",
+          "start": 118,
+          "end": 406,
+          "quote": "Remission of insomnia disorder was determined by the following criteria [21]: (1) no functional impairments or distress with sleep, (2) insomnia symptoms less than three times per week for at least 1 month, and (3) sleep-promoting medication use less than once per week in the past month.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_remission_results",
+          "start": 113,
+          "end": 429,
+          "quote": "At post-intervention, the weighted percentage of remitters based on clinical interviews in app-based CBT-I group was higher than that of the app-based HE group (52% versus 28%; relative risk [RR] 1.83 [95% CI 1.49–2.24]; p < 0.001) after controlling for strata variables and accounting for the missing data patterns.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_analysis",
+          "start": 695,
+          "end": 952,
+          "quote": "Remission rates of insomnia were analyzed using a weighted generalized estimating equations model. Weights were computed as the product of a missing model weight to attenuate the effect of attrition conditional on strata variables and group allocation [32].",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_analysis",
+          "start": 1799,
+          "end": 1872,
+          "quote": "Strata variables at baseline were included as covariates in all analyses.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_abstract",
+          "start": 1109,
+          "end": 1281,
+          "quote": "The app-based CBT-I group has higher remission rates of insomnia disorder than the controls at post-intervention (52% versus 28%; relative risk 1.83 [1.49–2.24]; p < 0.001)",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "endpoint_definition",
+        "missing_data_weighting",
+        "necessary_distinct_block_AND"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-cbti-03",
+      "article_alias": "cbti",
+      "question": "For PHQ-9 depressive symptoms at 12 months, what adjusted CBT-I-minus-health-education difference, 95% CI and p value appear in the main mixed-effects results in Table 2, and how does that main-analysis significance compare with the authors’ LOCF sensitivity-analysis summary?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "Table 2 reports PHQ-9 at 12 months: adjusted difference −0.5 (95% CI −1.1, 0.2), p = 0.14; the main analysis did not retain a significant between-group depressive-symptom difference at 12 months (only at 6 months). Separately, the LOCF sensitivity analysis reported greater depressive-symptom improvements with CBT-I at 12 months. Do not substitute that sensitivity-analysis conclusion for the main Table 2 estimate.",
+      "sufficient_support_sets": [
+        [
+          "cbti_secondary_table",
+          "cbti_symptom_followup"
+        ],
+        [
+          "cbti_secondary_table",
+          "cbti_depression_discussion"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "cbti_secondary_table",
+          "start": 136,
+          "end": 141,
+          "quote": "PHQ-9",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_secondary_table",
+          "start": 518,
+          "end": 592,
+          "quote": "12 months\t5.5 (0.2); n = 249\t6.0 (0.2); n = 227\t−0.5 (−1.1, 0.2)\t0.14\t0.24",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_secondary_table",
+          "start": 1658,
+          "end": 1725,
+          "quote": "aAll values are adjusted for sex and insomnia severity at baseline.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_symptom_followup",
+          "start": 179,
+          "end": 405,
+          "quote": "While significant group differences in depressive symptoms were only sustained at 6-month follow-up (d = 0.42; p = 0.009), albeit depressive symptoms remained in the mild range for the intervention group at 12-month follow-up.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_symptom_followup",
+          "start": 406,
+          "end": 637,
+          "quote": "In the sensitivity analyses with LOCF, greater improvements in both depressive and insomnia symptoms in the app-based CBT-I group compared to the control group were consistently observed throughout post-session 4–12-month follow-up",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_depression_discussion",
+          "start": 289,
+          "end": 503,
+          "quote": "Although depressive symptoms of the intervention group remained in the mild range at 12-month follow-up, we did not detect significant between-group effects due to the large within-group changes in the control arm.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_depression_discussion",
+          "start": 977,
+          "end": 1124,
+          "quote": "Further sensitivity analyses with LOCF demonstrated greater improvements in depressive symptoms in the app-based CBT-I group at 12-month follow-up.",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "main_vs_sensitivity_analysis",
+        "negation",
+        "timepoint",
+        "necessary_distinct_block_AND"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-cbti-04",
+      "article_alias": "cbti",
+      "question": "In this trial’s included main article, what CBT-I-versus-health-education HR and 95% CI for new-onset MDD over 12 months were reported separately for participants younger than 18 years?",
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "context_only_passage_ids": [
+        "cbti_limitations",
+        "cbti_exploratory"
+      ],
+      "hard_negative_passage_ids": [
+        "cbti_primary"
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "cbti_limitations",
+          "start": 2321,
+          "end": 2447,
+          "quote": "Last, the modest sample size of adolescents (<18 years, n = 10) limits the generalizability of the findings to this age group.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_exploratory",
+          "start": 374,
+          "end": 553,
+          "quote": "Further analyses demonstrated that the preventive effect of app-based CBT-I on MDD across various subgroups was generally consistent with the effect observed in the overall sample",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "cbti_primary",
+          "start": 568,
+          "end": 675,
+          "quote": "Cox regression revealed an HR of 0.58 (0.38–0.87; p = 0.008) for MDD favoring app-based CBT-I intervention.",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "no_answer",
+        "unreported_subgroup_estimate",
+        "population_scope"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark.",
+      "no_answer_reason": "The main article reports only n = 10 and a generalizability limitation for adolescents younger than 18, plus general subgroup consistency; it does not state that subgroup’s HR and CI. Overall 12-month HR 0.58 is a hard negative and cannot be relabelled an adolescent estimate. Referenced supplementary figure contents were not acquired or used."
+    },
+    {
+      "id": "v3-ckm-01",
+      "article_alias": "ckm",
+      "question": "For CVD mortality in this Taiwan health-screening cohort, which ICD-9 and ICD-10 ranges defined the outcome, and what adjusted HR with 95% CI compared all CKM stages 1–4 combined with CKM stage 0?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "CVD mortality was defined by ICD-9 390–459 and ICD-10 I00–I99. For all CKM (excluding stage 0) versus stage 0, the adjusted CVD-mortality HR was 2.81 (95% CI 2.45, 3.22). These are this cohort’s outcome definition and association, not an external NHANES estimate.",
+      "sufficient_support_sets": [
+        [
+          "ckm_outcomes",
+          "ckm_primary",
+          "ckm_adjustment_analysis"
+        ],
+        [
+          "ckm_outcomes",
+          "ckm_abstract"
+        ],
+        [
+          "ckm_outcomes",
+          "ckm_stage_outcomes_table"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "ckm_outcomes",
+          "start": 298,
+          "end": 456,
+          "quote": "Causes of death were classified according to ICD-9 and ICD-10 codes and included all-cause mortality (ICD-9: 001–998; ICD-10: A00–Y98), CVD (390–459; I00–I99)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_primary",
+          "start": 438,
+          "end": 585,
+          "quote": "the risks of CVD mortality and ESKD were higher among participants with CKM than those with CKM stage 0 (CVD mortality HR: 2.81; 95% CI: 2.45, 3.22",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_abstract",
+          "start": 1170,
+          "end": 1214,
+          "quote": "CVD mortality (HR: 2.81; 95% CI: 2.45, 3.22)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_abstract",
+          "start": 508,
+          "end": 710,
+          "quote": "Multivariate Cox proportional hazards models, adjusted for age, sex, educational level, smoking status, alcohol drinking status, and physical activity groups, were used to calculate hazard ratios (HRs).",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_adjustment_analysis",
+          "start": 630,
+          "end": 775,
+          "quote": "All Cox proportional hazards models were adjusted for age, sex, educational level, smoking status, drinking status, and physical activity groups.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 227,
+          "end": 282,
+          "quote": "CKM\tN\tN of deaths\tHR*\t(95% CI)\tN of deaths\tHR*\t(95% CI)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 172,
+          "end": 185,
+          "quote": "CVD mortality",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 821,
+          "end": 886,
+          "quote": "All CKM†\t368,578\t38,587\t1.33\t(1.28, 1.39)\t8,543\t2.81\t(2.45, 3.22)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 1841,
+          "end": 1875,
+          "quote": "†All CKM does not include stage 0.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 1723,
+          "end": 1840,
+          "quote": "*Hazard ratios were adjusted for age, sex, educational level, smoking status, drinking status, and physical activity.",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "outcome_definition",
+        "observational_association",
+        "necessary_distinct_block_AND"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-ckm-02",
+      "article_alias": "ckm",
+      "question": "As operationally defined in this study, what PREVENT-risk or eGFR rule assigned CKM stage 3, and for that stage how many participants and CVD deaths and what adjusted CVD-mortality HR (95% CI) versus stage 0 are reported in Table 3?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "Stage 3: a PREVENT score indicating a 10-year CVD risk exceeding 20%, or eGFR ≤30 mL/min/1.73 m2, as stated in this source. Table 3 reports 9,925 stage-3 participants, 1,594 CVD deaths, adjusted CVD-mortality HR 5.27 (95% CI 4.51, 6.16) versus stage 0. This preserves the study’s reported stage definition; it is not a correction or replacement with an outside guideline.",
+      "sufficient_support_sets": [
+        [
+          "ckm_stage_definition",
+          "ckm_stage_outcomes_table"
+        ],
+        [
+          "ckm_definition_table",
+          "ckm_stage_outcomes_table"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "ckm_stage_definition",
+          "start": 527,
+          "end": 762,
+          "quote": "Stage 3: with a Predicting Risk of cardiovascular disease EVENTs (PREVENT) score indicating a 10-year risk of CVD exceeding 20% [23,24] or has a kidney function with an estimated glomerular filtration rate (eGFR) of ≤30 mL/min/1.73 m2.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_definition_table",
+          "start": 754,
+          "end": 965,
+          "quote": "Stage 3: Subclinical CVD in CKM\tWith a Predicting Risk of cardiovascular disease EVENTs (PREVENT) score indicating a 10-year risk of CVD exceeding 20% or has a kidney function with an eGFR of ≤30 mL/min/1.73 m2.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 172,
+          "end": 185,
+          "quote": "CVD mortality",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 227,
+          "end": 282,
+          "quote": "CKM\tN\tN of deaths\tHR*\t(95% CI)\tN of deaths\tHR*\t(95% CI)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 607,
+          "end": 668,
+          "quote": "Stage 3\t9,925\t6,415\t2.13\t(2.02, 2.25)\t1,594\t5.27\t(4.51, 6.16)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 1723,
+          "end": 1840,
+          "quote": "*Hazard ratios were adjusted for age, sex, educational level, smoking status, drinking status, and physical activity.",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "operational_stage_definition",
+        "table_denominators",
+        "necessary_distinct_block_AND"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-ckm-03",
+      "article_alias": "ckm",
+      "question": "In the subset with two health examinations, what mean interval (SD) between examinations and count and percentage progressing to a more severe CKM stage were reported, and why did the authors still caution about power despite similar time-dependent sensitivity-analysis results?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "The mean interval was 2.5 years (SD 2.4); 40,320 participants (18.3%) progressed to a more severe CKM stage. The authors did perform a time-dependent analysis in the repeated-examination subset and reported similar results, while cautioning that the relatively small repeated-measurement subset and extra longitudinal point may lack power to detect true differences. The main baseline-measurement limitation must not be turned into a claim that no longitudinal sensitivity analysis occurred.",
+      "sufficient_support_sets": [
+        [
+          "ckm_repeated_exams",
+          "ckm_limitations"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "ckm_repeated_exams",
+          "start": 144,
+          "end": 243,
+          "quote": "The average follow-up duration between these two examinations was 2.5 years (mean (SD): 2.5 (2.4)).",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_repeated_exams",
+          "start": 344,
+          "end": 396,
+          "quote": "18.3% (N = 40,320) progressed to a more severe stage",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_repeated_exams",
+          "start": 593,
+          "end": 678,
+          "quote": "We incorporated a time-dependent analysis, which yielded similar results (S12 Table).",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_limitations",
+          "start": 1827,
+          "end": 1959,
+          "quote": "Third, our analysis was based only on baseline measurements, which do not account for changes in individual circumstances over time.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_limitations",
+          "start": 2101,
+          "end": 2196,
+          "quote": "However, we conducted an analysis among participants who had undergone two health examinations.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_limitations",
+          "start": 2524,
+          "end": 2700,
+          "quote": "However, given the relatively small subset of patients with repeated measurements, this additional longitudinal data point may lack sufficient power to detect true differences.",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "main_vs_sensitivity_analysis",
+        "longitudinal_subset",
+        "necessary_distinct_block_AND"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-ckm-04",
+      "article_alias": "ckm",
+      "question": "In this cohort’s included main article, what adjusted CVD-mortality HR and 95% CI were reported for stage 1 defined specifically by HbA1c between 5.7% and 6.4%?",
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "context_only_passage_ids": [
+        "ckm_definition_table"
+      ],
+      "hard_negative_passage_ids": [
+        "ckm_stage_outcomes_table"
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "ckm_definition_table",
+          "start": 1508,
+          "end": 1640,
+          "quote": "However, since HbA1c measurements are not available in this cohort, we did not include the criterion of HbA1c between 5.7% and 6.4%.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 172,
+          "end": 185,
+          "quote": "CVD mortality",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "ckm_stage_outcomes_table",
+          "start": 389,
+          "end": 450,
+          "quote": "Stage 1\t100,585\t3,280\t0.96\t(0.91, 1.02)\t368\t1.13\t(0.95, 1.35)",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "no_answer",
+        "unavailable_measurement",
+        "excluded_definition"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark.",
+      "no_answer_reason": "HbA1c measurements were unavailable and the HbA1c 5.7%–6.4% criterion was explicitly not included. The stage-1 CVD HR 1.13 (0.95, 1.35) pertains to the study’s actual definition, not a missing HbA1c-defined subgroup. No such subgroup estimate is reported in the included main article."
+    },
+    {
+      "id": "v3-mri-01",
+      "article_alias": "mri",
+      "question": "For the study’s one-main-lesion-per-patient MRI analysis, which MRI BI-RADS categories defined positive and negative results, and what overall sensitivity and specificity with reported 95% CIs are given as percentages in the main Results or abstract for all BI-RADS 4 mammographic microcalcifications combined?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "MRI positive meant BI-RADS 4–5 and negative meant BI-RADS 1–3; the main lesion, one per patient, was analyzed. The overall percentage reports are sensitivity 96.3% (95% CI 90.7–99.0%) and specificity 82.3% (95% CI 75.0–88.2%). These are the combined cohort’s main Results/abstract reports, not the invasive-only estimates or Table 3’s rounded proportions.",
+      "sufficient_support_sets": [
+        [
+          "mri_reading_analysis",
+          "mri_primary"
+        ],
+        [
+          "mri_reading_analysis",
+          "mri_abstract_results"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "mri_reading_analysis",
+          "start": 429,
+          "end": 530,
+          "quote": "MRI BI-RADS findings were dichotomized into positive (BI-RADS 4–5) and negative (BI-RADS 1–3) results",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_reading_analysis",
+          "start": 731,
+          "end": 808,
+          "quote": "The main lesion (one per patient) was analyzed for the purpose of this study.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_primary",
+          "start": 120,
+          "end": 216,
+          "quote": "a sensitivity, specificity, PPV, and NPV of 96.3% (95%-CI 90.7–99.0%), 82.3% (95%-CI 75.0–88.2%)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_abstract_results",
+          "start": 360,
+          "end": 456,
+          "quote": "a sensitivity, specificity, PPV, and NPV of 96.3% (95%-CI 90.7–99.0%), 82.3% (95%-CI 75.0–88.2%)",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "analysis_unit",
+        "diagnostic_threshold",
+        "region_precision",
+        "necessary_distinct_block_AND"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-mri-02",
+      "article_alias": "mri",
+      "question": "For microcalcified lesions rated BI-RADS 4a versus 4b at mammography, what malignant counts and total lesion denominators and MRI sensitivity with 95% CI were reported separately for each subgroup?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "Mammographic BI-RADS 4a: 23 malignant of 126 lesions; MRI sensitivity 95.7% (95% CI 78.1–100%). BI-RADS 4b: 25 malignant of 60 lesions; MRI sensitivity 96.0% (95% CI 79.7%–99.9%). These are two distinct mammographic subgroups, not the combined-cohort estimate or the BI-RADS 4c subgroup.",
+      "sufficient_support_sets": [
+        [
+          "mri_subgroup_4a",
+          "mri_subgroup_4b"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "mri_subgroup_4a",
+          "start": 0,
+          "end": 121,
+          "quote": "126 microcalcified lesions were rated BI-RADS 4a at mammography. 103 of which were benign, and 23 of which were malignant",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_subgroup_4a",
+          "start": 187,
+          "end": 266,
+          "quote": "Calculated sensitivity, specificity, PPV, and NPV were 95.7% (95%-CI 78.1–100%)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_subgroup_4b",
+          "start": 0,
+          "end": 151,
+          "quote": "60 lesions were classified BI-RADS 4b at mammography and harboured a disease prevalence of 41,7% (95%-CI 29.1–55.1%; 25 malignant, 35 benign findings).",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_subgroup_4b",
+          "start": 152,
+          "end": 232,
+          "quote": "Resulting sensitivity, specificity, PPV, and NPV were 96.0% (95%-CI 79.7%-99.9%)",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "population_subgroups",
+        "diagnostic_accuracy",
+        "necessary_distinct_block_AND"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-mri-03",
+      "article_alias": "mri",
+      "question": "In Table 3, compare the row labelled “this study” (year 2016 in that table) with the Uematsu T comparison-study row (2007): what lesion count and sensitivity and specificity proportions with intervals does each row report?",
+      "answerability": "answerable",
+      "expected_answer_as_reported": "Table 3 this study, labelled 2016: 248 lesions; sensitivity 0.96 (0.91–0.99), specificity 0.82 (0.75–0.88). Uematsu T [19], 2007: 27 lesions; sensitivity 0.92 (0.64–1), specificity 0.79 (0.49–0.95). The Uematsu row is comparison-study data, not the source article’s own cohort. The table’s own 2016 label and two-decimal proportions are preserved as published.",
+      "sufficient_support_sets": [
+        [
+          "mri_comparison_table"
+        ]
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "provisional_spans": [
+        {
+          "passage_id": "mri_comparison_table",
+          "start": 59,
+          "end": 127,
+          "quote": "First author\tyear\tlesions\tprevalence\tsensitivity\tspecificity\tPPV\tNPV",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_comparison_table",
+          "start": 128,
+          "end": 195,
+          "quote": "Uematsu T [19]\t2007\t27\t0.48(0.29–0.68)\t0.92(0.64–1)\t0.79(0.49–0.95)",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_comparison_table",
+          "start": 523,
+          "end": 590,
+          "quote": "this study\t2016\t248\t0.43(0.37–0.50)\t0.96(0.91–0.99)\t0.82(0.75–0.88)",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "quantitative_estimate_interval_denominator",
+        "own_cohort_vs_comparison_study",
+        "region_precision",
+        "valid_singleton_support"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark."
+    },
+    {
+      "id": "v3-mri-04",
+      "article_alias": "mri",
+      "question": "In this study’s included main article, what numerical improvement in preoperative planning of malignant lesions was measured from MRI mapping lesion extent?",
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "context_only_passage_ids": [
+        "mri_discussion_limits"
+      ],
+      "hard_negative_passage_ids": [
+        "mri_primary"
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "mri_discussion_limits",
+          "start": 3296,
+          "end": 3480,
+          "quote": "Whether the use of MRI can improve preoperative planning of malignant lesions by more accurate mapping of lesion extent remains a matter of debate and was not tested for in this study.",
+          "unit": "Unicode code points, half-open [start,end)"
+        },
+        {
+          "passage_id": "mri_primary",
+          "start": 120,
+          "end": 216,
+          "quote": "a sensitivity, specificity, PPV, and NPV of 96.3% (95%-CI 90.7–99.0%), 82.3% (95%-CI 75.0–88.2%)",
+          "unit": "Unicode code points, half-open [start,end)"
+        }
+      ],
+      "challenge_tags": [
+        "no_answer",
+        "explicitly_untested_outcome",
+        "outcome_scope"
+      ],
+      "support_logic": "Alternatives are OR; every passage within an alternative is necessary AND. Count distinct canonical blocks, not passage names.",
+      "alternative_review_scope": "All canonical blocks in this included original main-article XML snapshot were reviewed for sufficient alternatives. This agent-authored pilot is not an exhaustive semantic benchmark.",
+      "no_answer_reason": "The Discussion explicitly says this use of MRI was not tested in the study. Its reported diagnostic sensitivity/specificity do not measure a numerical improvement in preoperative planning. No numerical improvement for that outcome is reported in the included main article."
+    }
+  ]
+}

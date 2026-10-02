@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.3 20210610//EN" "http://jats.nlm.nih.gov/publishing/1.3/JATS-journalpublishing1-3.dtd">
+<article article-type="research-article" dtd-version="1.3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<processing-meta>
+<custom-meta-group content-type="composition">
+<custom-meta specific-use="newgen" xlink:href="https://www.newgen.co/">
+<meta-name>Composition Vendor</meta-name>
+<meta-value>Newgen KnowledgeWorks (P) Ltd.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</processing-meta>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLOS One</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pone.0327936</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-25-33235</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Medical conditions</subject><subj-group><subject>Infectious diseases</subject><subj-group><subject>Bacterial diseases</subject><subj-group><subject>Tuberculosis</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Medical conditions</subject><subj-group><subject>Tropical diseases</subject><subj-group><subject>Tuberculosis</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Organisms</subject><subj-group><subject>Bacteria</subject><subj-group><subject>Actinobacteria</subject><subj-group><subject>Mycobacterium tuberculosis</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Tuberculosis diagnosis and management</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Anatomy</subject><subj-group><subject>Body fluids</subject><subj-group><subject>Mucus</subject><subj-group><subject>Sputum</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Anatomy</subject><subj-group><subject>Body fluids</subject><subj-group><subject>Mucus</subject><subj-group><subject>Sputum</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Physiology</subject><subj-group><subject>Body fluids</subject><subj-group><subject>Mucus</subject><subj-group><subject>Sputum</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>People and places</subject><subj-group><subject>Geographical locations</subject><subj-group><subject>Africa</subject><subj-group><subject>Tanzania</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Virus testing</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Health care</subject><subj-group><subject>Health care facilities</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Physiology</subject><subj-group><subject>Physiological parameters</subject><subj-group><subject>Body weight</subject><subj-group><subject>Body mass index</subject></subj-group></subj-group></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Diagnostic accuracy of the TrueNat™ MTB plus assay for detecting pulmonary tuberculosis in adults</article-title>
+<alt-title alt-title-type="running-head">TrueNat™ MTB Plus Assay: Diagnostic accuracy for tuberculosis</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-9436-1098</contrib-id>
+<name name-style="western">
+<surname>Mallya</surname>
+<given-names>Sarapia P.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" equal-contrib="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-2693-187X</contrib-id>
+<name name-style="western">
+<surname>Mbelele</surname>
+<given-names>Peter M.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/resources/">Resources</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/visualization/">Visualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Kisonga</surname>
+<given-names>Riziki M.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Mtunga</surname>
+<given-names>Daphine D.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Banzi</surname>
+<given-names>Haroun H.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff005"><sup>5</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Mpiima</surname>
+<given-names>Stephen S.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/visualization/">Visualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Twinomujuni</surname>
+<given-names>Muzafaru</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/visualization/">Visualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Bazira</surname>
+<given-names>Joel</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Kassaza</surname>
+<given-names>Kennedy</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/visualization/">Visualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Public Health Laboratory and Disease Surveillance Directorate, Kibong’oto Infectious Diseases Hospital, Siha, Kilimanjaro, Tanzania</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>Department of Microbiology and Parasitology, Mbarara University of Science and Technology (MUST), Mbarara, Uganda</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>Department of Microbiology and Immunology, Muhimbili University of Health and Allied Science (MUHAS), Dar es Salaam, Tanzania</addr-line></aff>
+<aff id="aff004"><label>4</label> <addr-line>National Tuberculosis and Leprosy program, Ministry of Health, Dodoma, Tanzania</addr-line></aff>
+<aff id="aff005"><label>5</label> <addr-line>Karume Health Centre, Rombo District, Kilimanjaro, Tanzania</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Bongomin</surname>
+<given-names>Felix</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"/></contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>Gulu University, UGANDA</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>The authors have declared that no competing interests exist.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">mbelelepeter@yahoo.com</email></corresp>
+</author-notes>
+<pub-date pub-type="epub"><day>22</day><month>12</month><year>2025</year></pub-date>
+<pub-date pub-type="collection"><year>2025</year></pub-date>
+<volume>20</volume>
+<issue>12</issue>
+<elocation-id>e0327936</elocation-id>
+<history>
+<date date-type="received"><day>23</day><month>6</month><year>2025</year></date>
+<date date-type="accepted"><day>12</day><month>10</month><year>2025</year></date>
+</history>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Mallya et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pone.0327936">
+</self-uri>
+<abstract>
+<p>Tuberculosis (TB), caused by <italic>Mycobacterium tuberculosis</italic> remains a global threat, affecting 10.8 million people and causes 1.3 million deaths annually. Over 2.5 million cases go undiagnosed partly due to current diagnostic limitations. In particular, smear microscopy is less sensitive, culture is slow and prone to contamination, and the rapid Xpert® MTB/RIF Ultra (Ultra) needs advanced infrastructure. This study assessed the diagnostic accuracy of TrueNat™ MTB Plus assay (TrueNat), a portable, WHO-endorsed point-of-care tool, compared to Ultra, smear microscopy, and Löwenstein–Jensen (LJ) culture. This cross-sectional study enrolled 260 consenting adult participants (≥18 years) with presumptive TB in northern Tanzania. Participants’ sputum samples were tested for <italic>M. tuberculosis</italic> using smear microscopy, LJ culture, Ultra and TrueNat. TrueNat performance was assessed using sensitivity, specificity, predictive values and area under the curve (AUC) against the standard-of-care and a composite reference standard. Age and body-mass-index were summarised using median and interquatile range (IQR). Categorical variables were reported as proportions. Multivariate logistic regression identified TB predictors (p &lt; 0.05). Data analysis and visualization were conducted using R. Among 260 participants, 165 (63.5%) were male, with a median age of 46.0 years (IQR: 35.5–57.3); 15 (5.8%) were HIV-positive, and 52 (20%) had undernutrition. TB was detected in 109 (41.9%) participants by at least one test. TrueNat showed sensitivity/specificity of 34.4%/94.7% vs. smear microscopy, 98.9%/95.3% vs. culture, and 86.2%/95.2% vs. Ultra. The AUC values were 0.75, 0.92, 0.96, and 0.91 compared to smear microscopy, LJ culture, Ultra, and a composite reference method, respectively. Participants reporting weight loss were 2.84 times more likely (95% CI: 1.68–4.84, p &lt; 0.001) to test positive for TB by TrueNat. The TrueNat compared favorably to both Ultra and culture in terms of diagnostic accuracy, offering the added benefits of faster results and greater suitability for resource-limited settings. These findings suggest that TrueNat is a promising test for rapid TB detection in low-resource settings, warranting further studies to evaluate its implementation and impact on patient management.</p>
+</abstract>
+<funding-group>
+<funding-statement>The author(s) received no specific funding for this work.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="2"/>
+<table-count count="4"/>
+<page-count count="14"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>All data supporting these results were analyzed and reported in this manuscript. The datasets used and/or analyzed have been submitted as <xref ref-type="sec" rid="sec024">supporting information</xref>; S1 Table in <xref ref-type="supplementary-material" rid="pone.0327936.s001">S1 File</xref> Participants metadata.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec001" sec-type="intro">
+<title>Introduction</title>
+<p>Tuberculosis (TB), caused by <italic>Mycobacterium tuberculosis</italic> remains a significant public health challenge globally. Over the past decade, annual TB incidence has persistently exceeded 10 million cases worldwide [<xref ref-type="bibr" rid="pone.0327936.ref001">1</xref>]. From 2015 to 2023, the global TB incidence rate declined by only 8.3%, falling far short of the WHO End TB Strategy milestone of a 50% reduction by 2025. In 2023, TB reclaimed its position as the leading cause of death from a single infectious disease, with 1.25 million fatalities, surpassing COVID-19 and causing nearly twice as many deaths as HIV/AIDS [<xref ref-type="bibr" rid="pone.0327936.ref001">1</xref>]. Sub-Saharan Africa accounted for 24% of the 10.8 million global TB cases, underlining the region’s disproportionate burden. Despite the WHO’s ambitious goal to end TB by 2030, progress remains off track. Concerningly, 2.7 million people were undetected and untreated in 2023, amplifying community transmission and increasing mortality by an estimated 50%. In Tanzania, 100,747 cases were notified, leaving a significant diagnostic gap with mortality reduction rate falling below 23%, far short of the 75% target set for 2025 [<xref ref-type="bibr" rid="pone.0327936.ref002">2</xref>].</p>
+<p>A critical barrier to meeting these targets is the limited capacity for early diagnosis and the underutilization of diagnostic technologies at the community level. In resource-limited settings, TB diagnosis predominantly relies on sputum smear microscopy, which has a sensitivity of less than 50% in patients with paucibacillary disease, including those with HIV/AIDS. Culture-based methods such as solid Lowenstein-Jensen (LJ) and liquid Mycobacterium Growth Indicator Tube (MGIT) systems are more sensitive and specific than smear microscopy, but they are susceptible to contamination rate of up to 6% and require 42–56 days for results, delaying critical clinical decisions [<xref ref-type="bibr" rid="pone.0327936.ref003">3</xref>].</p>
+<p>To overcome these diagnostic challenges, the WHO has endorsed rapid molecular tests. Since 2010, DNA-based assays like the Xpert® MTB/RIF and Xpert® MTB/RIF Ultra (ultra) have become central to TB diagnosis due to their high sensitivity and specificity, delivering results within 24 hours from various sample types. However, these systems require stable electricity and specialized laboratory infrastructure [<xref ref-type="bibr" rid="pone.0327936.ref004">4</xref>]. Similarly, Line Probe Assays (LPAs) such as Genotype® MTBDRplus and MTBDRsl detect <italic>M. tuberculosis</italic> and provide drug-resistance profiles of <italic>M. tuberculosis</italic> against rifampicin, isoniazid, fluoroquinolones within 48 hours but necessitate skilled personnel, multiple workspaces, and uninterrupted power, limiting their use in decentralized settings such as secondary and primary healthcare facilities. As a result, global utilization of rapid molecular testing remains low at 48%, and only 62% of TB cases are bacteriologically confirmed [<xref ref-type="bibr" rid="pone.0327936.ref005">5</xref>]. In Tanzania, only 33% of TB cases notified in 2022 were bacteriologically confirmed, partly reflecting significant limitations in sample referral systems from primary health care facility and community level, and underutilization of rapid nearly point of care rapid molecular diagnostic test such as TrueNat™ MTB plus assay [<xref ref-type="bibr" rid="pone.0327936.ref006">6</xref>].</p>
+<p>In 2020, the WHO endorsed TrueNat™, a chip-based, portable, battery-operated molecular diagnostic system designed for use in primary healthcare settings. TrueNat™ MTB Plus (TrueNat) and TrueNat™ MTB-RIF Dx assays offer a decentralized alternative to Xpert®, capable of dual detection of <italic>M. tuberculosis</italic> and rifampicin resistance. This makes TrueNat particularly suitable for resource-constrained settings lacking reliable power supply and laboratory infrastructure [<xref ref-type="bibr" rid="pone.0327936.ref007">7</xref>]. However, sensitivity and specificity vary depending on the location and diagnostic methods used. For example, a systematic and meta-analyses review show TrueNat has a pooled sensitivity of 86% compared to LJ culture and 88% compared to MGIT culture. Its sensitivity and specificity compared to ultra are 92% and 86%, respectively [<xref ref-type="bibr" rid="pone.0327936.ref008">8</xref>]. Regional studies further illustrate these variations. A study in Uganda involving 250 participants at a tertiary hospital, TrueNat demonstrated a sensitivity of 80.5% and specificity of 98.1% compared to Ultra, and 80.8% and 94.1% against LJ/MGIT [<xref ref-type="bibr" rid="pone.0327936.ref009">9</xref>]. In India, a study involving 364 participants found TrueNat had a sensitivity of 90% and specificity of 98.2% for pulmonary TB [<xref ref-type="bibr" rid="pone.0327936.ref010">10</xref>]. Despite the WHO endorsement of TrueNat, evidence supporting its integration into routine clinical care, particularly in decentralized, resource-limited settings, remains scarce. The variability in its diagnostic performance across different contexts and patient characteristics highlights a critical gap. The lack of locally validated data on TrueNat’s accuracy and reliability limits its widespread adoption in countries like Tanzania, where no evidence currently exists on its performance in TB detection. This study aimed to evaluate the diagnostic performance of TrueNat in detecting <italic>M. tuberculosis</italic> from raw sputum samples in Tanzania. Specifically, it assessed the sensitivity, specificity, positive and negative predictive values, and overall accuracy of TrueNat compared to the WHO-endorsed Xpert® MTB/RIF Ultra, smear microscopy, Loweinstein-Jensen culture, and a composite microbiological reference standard.</p>
+</sec>
+<sec id="sec002" sec-type="materials|methods">
+<title>Materials and methods</title>
+<sec id="sec003">
+<title>Study design</title>
+<p>This was a prospective cross-sectional diagnostic accuracy study. Data collection was planned and conducted before the TrueNat index test, ultra, smear microscopy and isolation of <italic>M. tuberculosis</italic> in LJ culture media. This design ensured that data were collected in real time, reducing the risk of selection and recall bias and strengthening the validity of the diagnostic performance estimates.</p>
+</sec>
+<sec id="sec004">
+<title>Participants</title>
+<sec id="sec005">
+<title>Eligibility.</title>
+<p>This study included male and female adults (≥18 years) presenting with presumptive pulmonary TB. Presumptive TB was defined by the presence of clinical symptoms and signs consistent with TB, typically including cough lasting at least 2 weeks (with or without blood-streaked sputum), chest pain, difficulty breathing, weight loss of at least 3 kg within 3 months, fever, excessive night sweats and/or loss of appetite. Additional risk factors supporting presumptive TB included prior TB diagnosis or treatment, HIV infection, diabetes, undernutrition, smoking, and occupational exposure to mining. Participants were eligible if they were able to provide sputum samples for laboratory testing. Individuals who were already receiving anti-TB treatment or had received treatment within the preceding 7 days were excluded to avoid interference with the performance of the index and reference tests. Participants were consecutively recruited between 20 March 2024 and 30 September 2024 during routine clinic hours, based on predefined eligibility criteria and willingness to participate. The study period spanned both high- and low-TB burden seasons to minimize seasonal variation in case detection.</p>
+</sec>
+<sec id="sec006">
+<title>Study Settings.</title>
+<p>The study was conducted at the Kibong’oto Infectious Diseases Hospital (KIDH) in Siha District and Karume Health Centre in Rombo District, both in the Kilimanjaro Region of Tanzania. The KIDH is a national superspecialized hospital for the prevention and control of infectious diseases, with a long-standing role in TB care since 1926. In 2009, it was designated as the national center of excellence for the management of drug-resistant TB. Annually, it manages approximately 150 patients with drug-resistant TB and 700 with drug-susceptible TB. The hospital hosts the Biosafety level 3 Public Health Laboratory (KPHL), a zonal referral laboratory serving northern Tanzania (Arusha, Kilimanjaro, Manyara, and Tanga regions) for TB culture testing. The KPHL is equipped with a full range of TB diagnostic platforms, including smear microscopy, solid Löwenstein–Jensen (LJ) culture, liquid MGIT culture, Xpert® MTB/RIF Ultra, line probe assays (Genotype MTBDRplus and MTBDRsl), and next-generation sequencing (Illumina NextSeq 550, Oxford Nanopore). On the other hand, Karume Health Centre is a peripheral health facility in which sputum samples were collected from both outpatients and inpatients for testing using the TrueNat and Xpert® MTB/RIF Ultra. A subset of samples (&gt;2 mL) from Karume Health Centre was transported under cold chain conditions (2–8°C) to KPHL for LJ culture and additional testing [<xref ref-type="bibr" rid="pone.0327936.ref011">11</xref>].</p>
+</sec>
+<sec id="sec007">
+<title>Sample Size.</title>
+<p>The minimum sample size required was calculated using Cochrane’s formula [<xref ref-type="bibr" rid="pone.0327936.ref012">12</xref>]. A pulmonary TB prevalence of 49% among presumptive TB cases, reported by Mbelele et al. [<xref ref-type="bibr" rid="pone.0327936.ref013">13</xref>], was used as the basis for calculation. Assuming an anticipated average sensitivity of TrueNat, with 95% confidence intervals and 5% significance level, the required sample size was 236. To compensate for an estimated 10% culture contamination rate on LJ media and non-response rate, an additional 14 participants were included, giving a final target of 260 participants, all of whom were enrolled.</p>
+</sec>
+<sec id="sec008">
+<title>Ethics.</title>
+<p>Written informed consent was obtained from all participants prior to enrolment and any study procedures. Participants diagnosed with TB were started on anti-tuberculosis treatment according to the National TB Treatment Guidelines of Tanzania. Ethical approval was obtained from the Research Ethics Committee of the Mbarara University of Science and Technology (MUST), Uganda (Ref. No. MUST-2023–1255) and the National Institute for Medical Research (NIMR), Tanzania (Ref. No. NIMR/HQ/R.8a/Vol.IX/4568). Administrative permission was also granted by Kibong’oto Infectious Diseases Hospital and Karume Health Centre.</p>
+</sec>
+</sec>
+<sec id="sec009">
+<title>Test methods</title>
+<sec id="sec010">
+<title>Samples collection and processing.</title>
+<p>Each study participant provided at least 5mL of one spot sputum sample. The sputum was homogenized and distributed into three portions, one portion for detecting <italic>M. tuberculosis</italic> in Xpert® MTB/RIF ultra, second portion for TrueNat, and the third portion for isolating <italic>M. tuberculosis</italic> in Loweinstein-Jensen culture Media and detection of acid fast bacilli (AFB) in smear microscopy reference standard tests. The portion of sputum sample for culture was processed using the modified Petroff’s method. Briefly, 3mls of sputum was added to 3mls of sodium hydroxide/N-acetyl cysteine (NaOH/NALC)-Na citrate. The mixture was vortexed and left to stand at room temperature for 15 minutes. Thereafter, phosphate buffer was added to a 50 ml mark of falcon tube then mixed by inversion and concentrated by centrifugation at 3000g for 15 minutes. Supernatants were discarded into a container with 5% phenol. Sediments were suspended in Phosphate buffer solution (PBS) before inoculated in the LJ culture media as recommended by the Clinical and Laboratory Standard Institute (CLSI) and GLI guideline for TB culture and smear microscopy [<xref ref-type="bibr" rid="pone.0327936.ref014">14</xref>].</p>
+</sec>
+<sec id="sec011">
+<title>Index test: TrueNat™ MTB Plus assay.</title>
+<p>The TrueNat™ MTB Plus assay (Molbio Diagnostics, Goa, India) is a chip-based real-time PCR targeting the <italic>IS6110</italic> and <italic>nrdZ</italic> genes of the <italic>M. tuberculosis</italic> complex. For this test, 1.5 mL of sputum was first treated with two drops of liquefaction buffer and incubated at room temperature for five minutes. From the liquefied sample, 0.5 mL was transferred into a lysis buffer bottle, followed by the addition of two more drops of liquefaction buffer. The mixture was securely capped, thoroughly mixed, and incubated at room temperature for three minutes. The entire content was then transferred into the cartridge sample chamber and processed using the Trueprep® Auto device for DNA extraction. The extracted DNA was subsequently loaded onto the TrueNat MTB Plus chip and analyzed on the Truelab® real-time micro-PCR analyzer, which automatically detected the presence or absence of <italic>M. tuberculosis</italic> DNA. Results were reported as <italic>M. tuberculosis</italic> detected, <italic>M. tuberculosis</italic> not detected, or indeterminate. For positive results, bacterial load was semi-quantitatively categorized as high (Ct &lt; 20), medium (20 ≤ Ct &lt; 25), low (25 ≤ Ct &lt; 30), or very low (Ct ≥ 30). Runs were validated by the instrument and reported as either valid or invalid [<xref ref-type="bibr" rid="pone.0327936.ref015">15</xref>]. All index test results were interpreted blinded to the reference standard results.</p>
+</sec>
+</sec>
+<sec id="sec012">
+<title>Reference standard tests</title>
+<sec id="sec013">
+<title>Xpert® MTB/RIF ultra assay.</title>
+<p>The Xpert® MTB/RIF Ultra was used as the reference test to provide a comparison with the index test, as both assays target the DNA of the <italic>M. tuberculosis</italic> complex. It was selected because it is a WHO-endorsed, widely used molecular diagnostic with high sensitivity and specificity, making it a reliable standard for evaluating new TB diagnostic assays. The sputum was tested as recommended by the manufacturer of Xpert® MTB/RIF Ultra and previous reports [<xref ref-type="bibr" rid="pone.0327936.ref016">16</xref>,<xref ref-type="bibr" rid="pone.0327936.ref017">17</xref>]. Briefly, raw sputum was diluted with sample reagent (SR) at a ratio of 1:2, vigorously shaken 20 times, and incubated at room temperature for 15 minutes to reduce <italic>M. tuberculosis</italic> viability by 10<sup>6</sup> fold as recommended by the manufacturer. At least 2 ml of liquefied sputum was loaded into the Xpert® MTB/RIF ultra cartridge and the Xpert® MTB/RIF module to continue with automatic DNA extraction, amplification and detection of <italic>M. tuberculosis</italic>. The <italic>M. tuberculosis</italic> detection is done by amplifying specific sequence of the <italic>rpoB</italic> gene probed with five molecular beacons A, B, C, D and E, each labelled with a unique fluorophore. During detection, the valid maximum quantification cycle (Cq) was 39.0 for Probes A, B and C and 36.0 for Probes D and E. The <italic>M. tuberculosis</italic> is detected when at least two probes result in CT values within the valid range and a delta Cq min of less than 2.0. Depending on the Cq value, the <italic>M. tuberculosis</italic> is semi-quantified into very low, low, medium and high for Cq values of 28.0–40, 20.5–27.9, 18.5–20.4 and 15–18.4, respectively. The trace result was valid if TB positivity was based in IS1081, IS6110 results only. The assay is negative for <italic>M. tuberculosis</italic> when there is only one or no positive probe is detected.</p>
+</sec>
+<sec id="sec014">
+<title>Solid Lowenstein Jensen (LJ) culture medium.</title>
+<p>The Solid Lowenstein-Jensen (LJ) culture medium was used as a reference method because it is the traditional gold standard for <italic>M. tuberculosis</italic> complex detection, allowing for direct isolation and confirmation of viable bacilli. It was chosen to compare with the index test since culture can detect live bacteria even when molecular tests may yield false positives due to non-viable DNA, providing a complementary measure of diagnostic accuracy. The LJ culture was processed in accordance with the CLSI guideline and existing standard operating procedures  at the Kibong’oto Public Health Laboratory (KPHL). In summary, 200 μl of sputum sediments were inoculated on two slopes of LJ medium containing either glycerol for detecting <italic>M. tuberculosis</italic> or pyruvate for detecting <italic>M. bovis</italic>. For each batch of the sputum sample cultured, a standard laboratory strain MTB H37Rv strain and un-inoculated LJ medium was used as positive and negative quality control of culture, respectively. Inoculated LJ media were incubated at 37°C and observed weekly for up to 8 weeks before declared negative. <italic>M. tuberculosis</italic> colonies were identified and reported according to locally existing and CLSI standard operating procedures.</p>
+</sec>
+<sec id="sec015">
+<title>Smear Microscopy.</title>
+<p>Smear microscopy was used as a reference method because it is the most widely available and routinely used diagnostic test for TB in many resource-limited settings. Comparing the TrueNat™ MTB Plus assay (index test) with smear microscopy allows assessment of its performance against a rapid, low-cost, and field-applicable method that detects AFB directly from sputum samples in remote areas where Xpert® MTB/RIF ultra and culture are not available or feasible. A slide smear was prepared from 10 µL of sputum sediment and isolates, stained using Auramine stain (Auramine O-Phenol, 1% acid alcohol, 0.1% Methylene blue), and examined for AFB under LED fluorescent microscopy, following manufacturer instructions. Smear results were reported as negative if no AFB was observed in one length; as the exact number if 3–24 AFB were seen; AFB 1+ if 20–199 AFB were seen; AFB 2+ if 5–50 AFB per field; and AFB 3+ if &gt;50 AFB were observed per field.</p>
+</sec>
+<sec id="sec016">
+<title>Data management and Statistical Analysis.</title>
+<p>Socio-demographic and clinical information (age, sex, occupation, and presenting symptoms) were collected from participants and medical charts using a standardized semi-structured questionnaire. Data were verified for accuracy, entered into Microsoft Excel, and cleaned prior to statistical analysis and visualization in R software (version 4.3.1) (<ext-link ext-link-type="uri" xlink:href="http://www.R-project.org" xlink:type="simple">http://www.R-project.org)</ext-link>. Specifically, the Microsoft Excel CSV file dataset was imported using the base R function read.csv(),and data tidying, cleaning, and transformation were performed using the dplyr and tidyr packages. The receiver operating characteristic curves (ROC) and the area under the curve (AUC) values were generated using the pROC package, and plots were visualized with ggplot2. Continuous variables such as age, weight, and body mass index (BMI) were reported as median and interquartile range (IQR). Categorical variables were reported as proportions. The diagnostic accuracy of the TrueNat was assessed by calculating sensitivity, specificity, and positive and negative predictive values, and was compared to Xpert® MTB/RIF Ultra, smear microscopy, LJ culture, and a composite microbiological reference standard (cMRS), defined as positive by either culture or Xpert® MTB/RIF Ultra [<xref ref-type="bibr" rid="pone.0327936.ref016">16</xref>]. The cMRS was used to reduce misclassification and improve the accuracy of diagnostic evaluation, as no single reference test is perfect. Culture can miss paucibacillary or treated TB cases, while Xpert® MTB/RIF Ultra may detect non-viable bacilli or fail to identify some infections [<xref ref-type="bibr" rid="pone.0327936.ref018">18</xref>]. Cohen’s Kappa statistics were used to calculate the agreement between the TrueNat and the reference standard tests. The ROC was used to assess the overall diagnostic accuracy of the TrueNat. The ROC provides a comprehensive measure of test performance by plotting sensitivity against 1 – specificity and calculating the AUC compared to standard diagnostic tests. Univariate and multivariable logistic regression models were used to determine factors associated with TrueNat positivity, expressed as odds ratios with 95% confidence intervals. TB culture contamination or non-<italic>Mycobacterium tuberculosis</italic> cases were excluded from the analysis. All analyses considered a p-value of less than 0.05 as statistically significant.</p>
+</sec>
+</sec>
+</sec>
+<sec id="sec017" sec-type="results">
+<title>Results</title>
+<sec id="sec018">
+<title>Characteristics of study participants</title>
+<p>Among 276 participants with features of TB, 260 were recruited. The reasons for exclusion in 16 patients are shown in <xref ref-type="fig" rid="pone.0327936.g001">Fig 1</xref>. Among the 260 participants, 165 (63.5%) were male, with a median age (IQR) of 46.0 years (35.5–57.3). The socio-demographic and clinical characteristics of the participants are presented in <xref ref-type="table" rid="pone.0327936.t001">Table 1</xref>.</p>
+<table-wrap id="pone.0327936.t001" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0327936.t001</object-id><label>Table 1</label><caption><title>Socio-demographic and clinical characteristics of study participants.</title></caption>
+<alternatives><graphic id="pone.0327936.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0327936.t001" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">variable</th>
+<th align="left">Category</th>
+<th align="left">Frequency</th>
+<th align="left">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" rowspan="2">Gender<break/></td>
+<td align="left">Male</td>
+<td align="left">165</td>
+<td align="left">63.5</td>
+</tr>
+<tr>
+<td align="left">Female</td>
+<td align="left">95</td>
+<td align="left">36.5</td>
+</tr>
+<tr>
+<td align="left" rowspan="4">Age groups</td>
+<td align="left">18-30</td>
+<td align="left">35</td>
+<td align="left">13.5</td>
+</tr>
+<tr>
+<td align="left">31-45</td>
+<td align="left">80</td>
+<td align="left">30.7</td>
+</tr>
+<tr>
+<td align="left">46-60</td>
+<td align="left">93</td>
+<td align="left">35.4</td>
+</tr>
+<tr>
+<td align="left">60+</td>
+<td align="left">51</td>
+<td align="left">20.4</td>
+</tr>
+<tr>
+<td align="left"><bold>Median age (IQR), years</bold></td>
+<td align="left" colspan="3">46.0 (35.5–57.3)</td>
+</tr>
+<tr>
+<td align="left" rowspan="4">Education Level</td>
+<td align="left">Primary</td>
+<td align="left">141</td>
+<td align="left">54.2</td>
+</tr>
+<tr>
+<td align="left">Secondary</td>
+<td align="left">48</td>
+<td align="left">18.5</td>
+</tr>
+<tr>
+<td align="left">University</td>
+<td align="left">24</td>
+<td align="left">9.2</td>
+</tr>
+<tr>
+<td align="left">No formal education</td>
+<td align="left">47</td>
+<td align="left">17.3</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">Marital status<break/><break/></td>
+<td align="left">Single</td>
+<td align="left">68</td>
+<td align="left">26.2</td>
+</tr>
+<tr>
+<td align="left">Married/co-habiting</td>
+<td align="left">169</td>
+<td align="left">65</td>
+</tr>
+<tr>
+<td align="left">Divorced/widow</td>
+<td align="left">23</td>
+<td align="left">8.8</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">HIV status<break/></td>
+<td align="left">Yes</td>
+<td align="left">15</td>
+<td align="left">5.8</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td align="left">245</td>
+<td align="left">94.2</td>
+</tr>
+<tr>
+<td align="left" rowspan="4">Nutrition status measured by body mass index (BMI) in Kg/m<sup>2</sup></td>
+<td align="left">Normal (18.5–24.5)</td>
+<td align="left">110</td>
+<td align="left">42.3</td>
+</tr>
+<tr>
+<td align="left">Mild/moderate (16.5–18.4)</td>
+<td align="left">32</td>
+<td align="left">12.3</td>
+</tr>
+<tr>
+<td align="left">Severe (&lt;16.5)</td>
+<td align="left">20</td>
+<td align="left">7.7</td>
+</tr>
+<tr>
+<td align="left">Obese/overweight (≥25)</td>
+<td align="left">98</td>
+<td align="left">37.7</td>
+</tr>
+<tr>
+<td align="left">Median BMI (IQR) Kg/m<sup>2</sup>)</td>
+<td align="left" colspan="3">22.9 (19.2-27.0)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">History of TB<break/></td>
+<td align="left">Retreatment</td>
+<td align="left">17</td>
+<td align="left">6.5</td>
+</tr>
+<tr>
+<td align="left">New</td>
+<td align="left">243</td>
+<td align="left">93.5</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">History of Smoking status<break/></td>
+<td align="left">smokers</td>
+<td align="left">57</td>
+<td align="left">21.9</td>
+</tr>
+<tr>
+<td align="left">Non-smokers</td>
+<td align="left">203</td>
+<td align="left">78.1</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Alcohol use<break/></td>
+<td align="left">Yes</td>
+<td align="left">122</td>
+<td align="left">46.9</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td align="left">138</td>
+<td align="left">53.1</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">History of working in mining</td>
+<td align="left">Yes</td>
+<td align="left">24</td>
+<td align="left">9.2</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td align="left">236</td>
+<td align="left">90.8</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Cough</td>
+<td align="left">Yes</td>
+<td align="left">247</td>
+<td align="left">95.0</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td align="left">13</td>
+<td align="left">5.0</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Chest Pain</td>
+<td align="left">Yes</td>
+<td align="left">171</td>
+<td align="left">65.8</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td align="left">89</td>
+<td align="left">34.2</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Fever</td>
+<td align="left">Yes</td>
+<td align="left">206</td>
+<td align="left">79.2</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td align="left">54</td>
+<td align="left">20.8</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Night sweat</td>
+<td align="left">Yes</td>
+<td align="left">208</td>
+<td align="left">80.0</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td align="left">52</td>
+<td align="left">20.0</td>
+</tr>
+</tbody>
+</table>
+</alternatives></table-wrap>
+<fig id="pone.0327936.g001" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0327936.g001</object-id><label>Fig 1</label><caption><title>Recruitment and testing procedure.</title><p>Presumptive tuberculosis (TB) was defined as the presence of symptoms, signs, or risk factors for acquiring TB without bacteriological confirmation. All participants underwent testing with the TrueNat™ MTB Plus assay (index test) and reference standard tests, including Xpert® MTB/RIF Ultra, smear microscopy, and solid Löwenstein-Jensen culture. Test results for all methods were categorized as positive (+), negative (−), or contaminated (cont). Percentages represent the proportion of participants in each category out of the total 260 tested.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0327936.g001" xlink:type="simple"/></fig>
+<p>A total of 243 (93.5%) participants had a prior history of TB treatment, and only 15 (5.8%) had HIV co-infection. In total, 57 (21.9%) participants were cigarette smokers. Overall, 52 (20%) participants had undernutrition, defined by a median body mass index (BMI) of less than 18.5 kg//m², while 98 (37.7%) were classified as having overnutrition (overweight), defined by a BMI of more than 25 kg/m².</p>
+</sec>
+<sec id="sec019">
+<title>Proportion of <italic>M. tuberculosis</italic> complex cases detected</title>
+<p>A total of 109 (41.9%) participants had TB detected by at least one of the following tests: culture, Xpert® MTB/RIF Ultra, TrueNat, or smear microscopy. The proportions detected by each test are shown in <xref ref-type="fig" rid="pone.0327936.g001">Fig 1</xref>. Xpert® MTB/RIF Ultra identified 97 (37.3%) cases, followed by TrueNat with 90 (34.6%), culture with 83 (31.9%), and smear microscopy with the lowest detection rate at 40 (15.4%). Of 97 TB patients confirmed by Xpert® MTB/RIF Ultra, 5 (5.2%) had trace results. All five patients with trace results tested negative by both TrueNat and smear microscopy, while LJ culture showed two negatives, two positives, and one contamination. Six (2.3%) of 260 participants had contaminated culture results and were excluded from the final analysis comparing TrueNat with LJ culture. Furthermore, of 15 HIV infected individuals, only 4 (26.7%) had TB by either TrueNat or Xpert® MTB/RIF Ultra Assays. LJ culture detected TB in 5 out of 15 HIV-infected individuals and all tested negative by smear microscopy.</p>
+</sec>
+<sec id="sec020">
+<title>Diagnostic accuracy of TrueNat™ MTB Plus assay</title>
+<p>Using smear microscopy, culture, and Xpert® MTB/RIF Ultra as standard reference methods, the sensitivity and specificity of TrueNat in detecting TB were 34.4% and 94.7% compared to smear microscopy; 98.9% and 95.3% compared to Xpert® MTB/RIF Ultra; 86.2% and 95.2% compared to culture (<xref ref-type="table" rid="pone.0327936.t002">Table 2</xref>). The receiver operating characteristic (ROC) curve illustrating the accuracy of TrueNat in detecting <italic>M. tuberculosis</italic>, as defined by the Area Under the Curve (AUC), is shown in <xref ref-type="fig" rid="pone.0327936.g002">Fig 2</xref>. The AUC values for TrueNat were 0.75, 0.92, 0.96, and 0.91 when compared to smear microscopy, LJ culture, Xpert® MTB/RIF Ultra, and the composite reference method, respectively (<xref ref-type="fig" rid="pone.0327936.g002">Fig 2</xref>). In 220 participants with smear negative results, 59 (26.8%) tested positive by TrueNat. Using Xpert® MTB/RIF ultra and culture as reference standards, TrueNat’s accuracy was similar (<xref ref-type="table" rid="pone.0327936.t002">Table 2</xref>).</p>
+<table-wrap id="pone.0327936.t002" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0327936.t002</object-id><label>Table 2</label><caption><title>Performance Characteristics of TrueNat™ MTB plus Assay compared to standard of care TB diagnostic tests.</title></caption>
+<alternatives><graphic id="pone.0327936.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0327936.t002" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" colspan="2" rowspan="2">Reference methods</th>
+<th align="left" colspan="7">TrueNat™ Assay, n% (95% Confidence interval)</th>
+<th align="left">Cohen’s kappa</th>
+</tr>
+<tr>
+<th align="left">Positive</th>
+<th align="left">Negative</th>
+<th align="left">Total</th>
+<th align="left">Sensitivity</th>
+<th align="left">Specificity</th>
+<th align="left">PPV</th>
+<th align="left">NPV</th>
+<th align="left"/>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="10"><bold>Overall accuracy (N = 260)</bold></td>
+</tr>
+<tr>
+<td align="left" rowspan="3">Xpert® MTB/RIF ultra</td>
+<td align="left">Positive</td>
+<td align="left">89</td>
+<td align="left">8</td>
+<td align="left">97</td>
+<td align="left" rowspan="3">98.9<break/>(93.1-99.9)</td>
+<td align="left" rowspan="3">95.3<break/>(90.6-97.8)</td>
+<td align="left" rowspan="3">91.8<break/>(83.9-96.1)</td>
+<td align="left" rowspan="3">99.4<break/>(96.1-100.0)</td>
+<td align="left" rowspan="3">0.92<break/>(0.88-0.97)</td>
+</tr>
+<tr>
+<td align="left">negative</td>
+<td align="left">1</td>
+<td align="left">162</td>
+<td align="left">163</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">90</td>
+<td align="left">170</td>
+<td align="left">260</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">TB Smear Microscopy</td>
+<td align="left">Positive</td>
+<td align="left">31</td>
+<td align="left">9</td>
+<td align="left">40</td>
+<td align="left" rowspan="3">34.4<break/>(24.9-45.3)</td>
+<td align="left" rowspan="3">94.7<break/>(89.9-97.4)</td>
+<td align="left" rowspan="3">77.5<break/>(61.1-88.6)</td>
+<td align="left" rowspan="3">73.2<break/>(66.7-78.8)</td>
+<td align="left" rowspan="3">0.34<break/>(0.22-0.45)</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">59</td>
+<td align="left">161</td>
+<td align="left">220</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">90</td>
+<td align="left">170</td>
+<td align="left">260</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">LJ culture<break/>(n = 254)</td>
+<td align="left">positive</td>
+<td align="left">75</td>
+<td align="left">8</td>
+<td align="left">83</td>
+<td align="left" rowspan="3">86.2<break/>(76.7-92.4)</td>
+<td align="left" rowspan="3">95.2<break/>(90.4-97.8)</td>
+<td align="left" rowspan="3">90.4<break/>(81.4 - 95.4)</td>
+<td align="left" rowspan="3">92.9<break/>(87.7 - 96.2)</td>
+<td align="left" rowspan="3">0.82<break/>(0.75-0.9)</td>
+</tr>
+<tr>
+<td align="left">negative</td>
+<td align="left">12</td>
+<td align="left">159</td>
+<td align="left">171</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">87</td>
+<td align="left">167</td>
+<td align="left">254</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">Composite</td>
+<td align="left">Positive</td>
+<td align="left">89</td>
+<td align="left">19</td>
+<td align="left">108</td>
+<td align="left" rowspan="3">98.9<break/>(93.1- 99.9)</td>
+<td align="left" rowspan="3">88.8<break/>(82.9 - 93.0)</td>
+<td align="left" rowspan="3">82.4<break/>(73.6-88.8)</td>
+<td align="left" rowspan="3">99.3<break/>(95.8-100.0)</td>
+<td align="left" rowspan="3">0.84<break/>(0.77-0.91)</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">1</td>
+<td align="left">151</td>
+<td align="left">152</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">90</td>
+<td align="left">170</td>
+<td align="left">260</td>
+</tr>
+<tr>
+<td align="left" colspan="10"><bold>Accuracy in smear negative (n = 220)</bold></td>
+</tr>
+<tr>
+<td align="left" rowspan="3">Xpert® MTB/RIF ultra</td>
+<td align="left">Positive</td>
+<td align="left">58</td>
+<td align="left">7</td>
+<td align="left">65</td>
+<td align="left" rowspan="3">98.3<break/>(89.7-100.0)</td>
+<td align="left" rowspan="3">95.7<break/>(90.9-98.1)</td>
+<td align="left" rowspan="3">89.2<break/>(78.5-95.2)</td>
+<td align="left" rowspan="3">99.4<break/>(95.9-100.0)</td>
+<td align="left" rowspan="3">0.91<break/>(0.85-0.97)</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">1</td>
+<td align="left">154</td>
+<td align="left">155</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">59</td>
+<td align="left">161</td>
+<td align="left">220</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">LJ culture<break/>(n = 214)</td>
+<td align="left">Positive</td>
+<td align="left">45</td>
+<td align="left">6</td>
+<td align="left">51</td>
+<td align="left" rowspan="3">80.4<break/>(67.2-89.3)</td>
+<td align="left" rowspan="3">96.2<break/>(91.5-98.4)</td>
+<td align="left" rowspan="3">88.2<break/>(75.4-95.1)</td>
+<td align="left" rowspan="3">93.3<break/>(87.9-96.4)</td>
+<td align="left" rowspan="3">0.79<break/>(0.69-0.88)</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">11</td>
+<td align="left">152</td>
+<td align="left">163</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">56</td>
+<td align="left">158</td>
+<td align="left">214</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t002fn001"><p>Composite means composite microbiological reference Standard (cMRS) defined as a combination of positive and negative results tested with any of Lowenstein-Jensen (LJ) culture, Smear, and Xpert® MTB/RIF Ultra; PPV is positive predictive value and NPV is negative predictive value</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<fig id="pone.0327936.g002" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0327936.g002</object-id><label>Fig 2</label><caption><title>Receiver operating characteristic curves for the TrueNat™ MTB Plus assay.</title><p>The diagnostic performance of the TrueNat™ MTB Plus assay (index test) was compared with standard reference tests, including Xpert® MTB/RIF Ultra, smear microscopy, and solid Löwenstein–Jensen (LJ) culture, as well as with a composite microbiological reference standard (cMRS), defined as positive by either culture or Xpert® MTB/RIF Ultra. The receiver operator characteristics (ROC) curve plots sensitivity (true positive rate) against 1 − specificity (false positive rate) across different thresholds, providing a visual assessment of index test’s accuracy. The area under the curve (AUC) summarizes overall performance, reflecting the ability of the index test to discriminate between the presence and absence of TB disease. AUC values were interpreted on a scale of 0–1. An AUC of 0.5 indicates no discriminative ability; 0.6–0.7 indicates poor; 0.7–0.8 indicates acceptable/fair; 0.8–0.9 indicates good; 0.9–1.0 indicates excellent; and 1.0 represents perfect discrimination of TB-positive from TB-negative cases by the index test compared with reference standards.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0327936.g002" xlink:type="simple"/></fig>
+</sec>
+<sec id="sec021">
+<title>Factors predicting TB detection by TrueNat™ MTB Plus</title>
+<p>In a univariate logistic regression model (<xref ref-type="table" rid="pone.0327936.t003">Table 3</xref>), a decrease in participant age (OR: 0.97, 95% CI: 0.95–0.99, p = 0.001) and BMI (OR: 0.92, 95% CI: 0.88–0.97, p = 0.001) was significantly associated with TB detection by TrueNat compared to those with higher age and normal BMI, respectively. Additionally, participants who reported weight loss were 2.84 times more likely (95% CI: 1.68–4.84, p &lt; 0.001) to have TB detected by TrueNat compared to those without weight loss. Cigarette smokers had a 1.66 times higher likelihood (95% CI: 0.09–3.02) of testing positive with TrueNat, though this was only moderately significant compared to non-smokers (<xref ref-type="table" rid="pone.0327936.t003">Table 3</xref>). After adjusting for factors such as sex, HIV status, alcohol consumption, previous TB treatment, presence of symptoms like cough, and education level in a multivariate regression model, age, BMI, and cigarette smoking remained significant predictors of TB detection by the TrueNat (<xref ref-type="table" rid="pone.0327936.t004">Table 4</xref>).</p>
+<table-wrap id="pone.0327936.t003" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0327936.t003</object-id><label>Table 3</label><caption><title>Univariate logistic regression model for factors predicting TB detection by TrueNat™ MTB Plus Assay.</title></caption>
+<alternatives><graphic id="pone.0327936.t003g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0327936.t003" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">Predictor variables</th>
+<th align="left">Variable category</th>
+<th align="left">cOR (95%CI)</th>
+<th align="left">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" rowspan="2">Sex<break/></td>
+<td align="left">Female</td>
+<td align="left">1 (ref)</td>
+<td align="left" rowspan="2">0.399</td>
+</tr>
+<tr>
+<td align="left">Male</td>
+<td align="left">0.80 (0.47-1.35)</td>
+</tr>
+<tr>
+<td align="left">Age</td>
+<td align="left"/>
+<td align="left">0.97 (0.95-0.99)</td>
+<td align="left">0.001</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">Marital status</td>
+<td align="left">Single</td>
+<td align="left">1</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">Married/co-habiting</td>
+<td align="left">0.34 (0.64-2.86)</td>
+<td align="left">0.439</td>
+</tr>
+<tr>
+<td align="left">Divorced/widow</td>
+<td align="left">0.15 (0.30-3.51)</td>
+<td align="left">0.932</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Weight loss</td>
+<td align="left">No</td>
+<td align="left">1 (ref)</td>
+<td align="left" rowspan="2">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td align="left">2.84 (1.68-4.84)</td>
+</tr>
+<tr>
+<td align="left">BMI <bold>in Kg/M</bold><sup><bold>2</bold></sup></td>
+<td align="left"/>
+<td align="left">0.92 (0.88-0.97)</td>
+<td align="left">0.001</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">HIV status</td>
+<td align="left">Negative</td>
+<td align="left">1 (ref)</td>
+<td align="left" rowspan="2">0.507</td>
+</tr>
+<tr>
+<td align="left">Positive</td>
+<td align="left">0.67 (0.18-2.03)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Cigarette smoking</td>
+<td align="left">Non-smokers</td>
+<td align="left">1 (ref)</td>
+<td align="left" rowspan="2">0.099</td>
+</tr>
+<tr>
+<td align="left">Smokers</td>
+<td align="left">1.66 (0.091-3.02)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Alcohol drinking</td>
+<td align="left">No</td>
+<td align="left">1 (ref)</td>
+<td align="left" rowspan="2">0.399</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td align="left">0.80 (0.47-1.34)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">History of TB</td>
+<td align="left">New</td>
+<td align="left">1 (ref)</td>
+<td align="left" rowspan="2">0.558</td>
+</tr>
+<tr>
+<td align="left">Retreatment</td>
+<td align="left">1.35 (0.47-3.64)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Mining</td>
+<td align="left">No</td>
+<td align="left">1 (ref)</td>
+<td align="left" rowspan="2">0.448</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td align="left">1.39 (0.58-3.25)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Cough</td>
+<td align="left">No</td>
+<td align="left">1 (ref)</td>
+<td align="left" rowspan="2">0.765</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td align="left">1.20 (0.38-4.54)</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t003fn001"><p>BMI is the Body Mass Index, calculated as the ratio of a participant’s weight in kilograms (Kg) to the square of their height in meters (m); cOR is the crude Odds Ratio,</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="pone.0327936.t004" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0327936.t004</object-id><label>Table 4</label><caption><title>Multivariate logistic regression for TB detection by TrueNat™ MTB Plus Assay.</title></caption>
+<alternatives><graphic id="pone.0327936.t004g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0327936.t004" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">Predictor Variables</th>
+<th align="left">Variable category</th>
+<th align="left">aOR (95%CI)</th>
+<th align="left"><italic>P-Value</italic></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" rowspan="2">Sex</td>
+<td align="left">Female</td>
+<td align="left">1</td>
+<td align="left" rowspan="2">0.447</td>
+</tr>
+<tr>
+<td align="left">Male</td>
+<td align="left">0.80 (0.45-1.42)</td>
+</tr>
+<tr>
+<td align="left"><bold>Age</bold></td>
+<td align="left"/>
+<td align="left"><bold>0.97 (0.94-0.99)</bold></td>
+<td align="left"><bold>0.003</bold></td>
+</tr>
+<tr>
+<td align="left" rowspan="4"><break/>Education Level<break/></td>
+<td align="left">No formal education</td>
+<td align="left">1</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">Primary</td>
+<td align="left">0.60 (0.28-1.29)</td>
+<td align="left">0.185</td>
+</tr>
+<tr>
+<td align="left">Secondary</td>
+<td align="left">0.77 (0.30-2.01)</td>
+<td align="left">0.599</td>
+</tr>
+<tr>
+<td align="left">University</td>
+<td align="left">0.60 (0.18-1.91)</td>
+<td align="left">0.389</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">Marital status<break/></td>
+<td align="left">Single</td>
+<td align="left">1</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">Married/co-habiting</td>
+<td align="left">0.34 (0.64-2.86)</td>
+<td align="left">0.439</td>
+</tr>
+<tr>
+<td align="left">Divorced/widow</td>
+<td align="left">0.15 (0.30-3.51)</td>
+<td align="left">0.932</td>
+</tr>
+<tr>
+<td align="left"><bold>BMI in Kg/M</bold><sup><bold>2</bold></sup></td>
+<td align="left"/>
+<td align="left"><bold>0.94 (0.89-0.99)</bold></td>
+<td align="left"><bold>0.024</bold></td>
+</tr>
+<tr>
+<td align="left" rowspan="2">HIV status</td>
+<td align="left">Negative</td>
+<td align="left">1</td>
+<td align="left" rowspan="2">0.289</td>
+</tr>
+<tr>
+<td align="left">Positive</td>
+<td align="left">0.51 (0.13-1.68)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Cigarette smoking</td>
+<td align="left">Non-smokers</td>
+<td align="left">1</td>
+<td align="left" rowspan="2">0.079</td>
+</tr>
+<tr>
+<td align="left">Smokers</td>
+<td align="left">2.01 (0.92-4.43)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Alcohol drinking</td>
+<td align="left">No</td>
+<td align="left">1</td>
+<td align="left" rowspan="2">0.388</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td align="left">0.80 (0.47-1.34)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">History of TB treatment</td>
+<td align="left">New</td>
+<td align="left">1</td>
+<td align="left" rowspan="2">0.903</td>
+</tr>
+<tr>
+<td align="left">Retreatment</td>
+<td align="left">1.07 (0.33-3.31)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">Mining</td>
+<td align="left">No</td>
+<td align="left">1</td>
+<td align="left" rowspan="2">0.651</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td align="left">1.25(0.46-3.23)</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t004fn001"><p>aOR is the adjusted odds ratio computed in this multivariate regression model, BMI is the Body Mass Index, calculated as the ratio of a participant’s weight in kilograms (Kg) to the square of their height in meters (m);</p></fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+</sec>
+<sec id="sec022" sec-type="conclusions">
+<title>Discussion</title>
+<p>TrueNat™ MTB Plus, a portable point-of-care molecular diagnostic platform, offers significant advantages in sensitivity and specificity. In this study, TrueNat outperformed smear microscopy, especially in patients with low bacterial loads where microscopy is less reliable. Importantly, TrueNat demonstrated diagnostic performance comparable to the Xpert® MTB/RIF Ultra, similar to recent reports in Uganda and Brazil [<xref ref-type="bibr" rid="pone.0327936.ref019">19</xref>,<xref ref-type="bibr" rid="pone.0327936.ref020">20</xref>]. Although Xpert® Ultra provides excellent sensitivity, its use is often limited by infrastructure, cost, and power requirements constraints that are particularly relevant in low-resource settings [<xref ref-type="bibr" rid="pone.0327936.ref021">21</xref>,<xref ref-type="bibr" rid="pone.0327936.ref022">22</xref>]. TrueNat showed almost perfect agreement with Xpert®, with high sensitivity, specificity, and predictive values. Its strong negative predictive value makes it reliable for ruling out TB, while the slightly lower positive predictive value still supports its capacity for true-positive detection.</p>
+<p>The sensitivity of TrueNat was relatively lower (&lt;90%) against LJ culture compared to Xpert® MTB/RIF Ultra. This is consistent with a Cochrane review that reported a sensitivity of 87.6% for the TrueNat against TB culture [<xref ref-type="bibr" rid="pone.0327936.ref023">23</xref>]. This may be partly explained by its inability to detect two patients with trace <italic>M. tuberculosis</italic> who were identified by LJ culture in the present study. This argument is consistent with previous reports showing reduced sensitivity of TrueNat in patients with low bacillary load, such as trace, or very low results and smear negative [<xref ref-type="bibr" rid="pone.0327936.ref024">24</xref>,<xref ref-type="bibr" rid="pone.0327936.ref025">25</xref>]. However, compared to Löwenstein-Jensen (LJ) culture, a slow and prone to contamination but sensitive reference method, TrueNat offered the added advantage of rapid turnaround, enabling timely diagnosis and treatment initiation, a critical for reducing TB-related morbidity and mortality. Our findings align with previous data from Uganda by Ssengooba et al., [<xref ref-type="bibr" rid="pone.0327936.ref020">20</xref>]. However, high kappa values and predictive metrics support its clinical utility. Unlike previous studies conducted in well-equipped laboratories at national referral hospitals in Uganda or university TB clinics in Brazil, our evaluation was carried out in primary healthcare settings, where diagnostic tools such as Xpert® and culture are often lacking [<xref ref-type="bibr" rid="pone.0327936.ref020">20</xref>,<xref ref-type="bibr" rid="pone.0327936.ref019">19</xref>]. This highlights the feasibility and potential impact of implementing TrueNat in resource-limited, frontline health facilities. The assay’s rapid and decentralized nature could substantially improve TB detection at the community level. Approximately two in five presumptive cases had TB by at least one method, consistent with earlier reports showing 42% prevalence in similar settings [<xref ref-type="bibr" rid="pone.0327936.ref013">13</xref>,<xref ref-type="bibr" rid="pone.0327936.ref016">16</xref>]. Risk factor analysis revealed that age and undernutrition or weight loss was significantly associated with TB detection by TrueNat, reaffirming the known TB-undernutrition link [<xref ref-type="bibr" rid="pone.0327936.ref026">26</xref>,<xref ref-type="bibr" rid="pone.0327936.ref027">27</xref>]. Cigarette smoking was also associated with a higher risk of TB, as reported in Uganda [<xref ref-type="bibr" rid="pone.0327936.ref020">20</xref>]. Smoking impairs macrophage function and host immunity, facilitating TB progression and increasing the risk of poor treatment outcomes, delayed smear/culture conversion, and loss to follow-up factors critical for TB control efforts [<xref ref-type="bibr" rid="pone.0327936.ref028">28</xref>,<xref ref-type="bibr" rid="pone.0327936.ref029">29</xref>].</p>
+<p>Among people living with HIV, detection rates by TrueNat, Xpert® Ultra, and culture were similar, with culture detecting one additional case. Smear microscopy detected none, likely due to the paucibacillary nature of TB in this population. Under ideal conditions, all smear-positive specimens should be detected by TrueNat, given its low limit of detection [<xref ref-type="bibr" rid="pone.0327936.ref030">30</xref>]. In the present study, however, the TrueNat detected more than three-quarters of smear-positive cases and additionally identified 59 smear-negative cases. This resulted in a reduced apparent sensitivity of about one-third when compared with smear microscopy. Similar findings of reduced sensitivity in smear-negative patients have been reported elsewhere [<xref ref-type="bibr" rid="pone.0327936.ref020">20</xref>,<xref ref-type="bibr" rid="pone.0327936.ref024">24</xref>,<xref ref-type="bibr" rid="pone.0327936.ref031">31</xref>], a pattern that our findings confirm given the large smear-negative population tested. Importantly, the TrueNat’s accuracy in patients with smear negative results were higher as in the overall participants. The 9 smear-positive but TrueNat -negative results may partly reflect operational and biological factors, as well as challenges in patient spectrum. For example, some smear-positive specimens may have contained cellular debris or staining artifacts, producing visible acid-fast bacilli on microscopy but insufficient amplifiable DNA for TrueNat. Thus, the observed lower sensitivity is more likely due to the limitations of smear microscopy and operational factors than to an intrinsic weakness of TrueNat.</p>
+<p>Compared to a composite microbiological reference method, TrueNat maintained excellent sensitivity and negative predictive value, indicating few missed cases. The close performance of TrueNat to Xpert® Ultra combined with its portability, ease of use, and low infrastructure demands supports its deployment in rural and district-level healthcare settings. Its ability to detect TB in high-risk groups reinforces its role as a valuable diagnostic tool in resource-limited regions.</p>
+<p>This study has several strengths. It provides a comprehensive comparison of TrueNat against established diagnostics (Xpert® Ultra, LJ culture, and smear microscopy), enhancing the robustness of findings. Inclusion of high-risk groups such as people living with HIV, those with undernutrition, and smokers adds real-world applicability. Moreover, the study was conducted in health centre and district hospitals with limited access to molecular diagnostics, demonstrating TrueNat’s feasibility in areas with unreliable electricity crucial for settings like Tanzania, where nearly half of TB cases are diagnosed clinically [<xref ref-type="bibr" rid="pone.0327936.ref002">2</xref>]. However, limitations exist. The sample size and restriction to selected facilities in northern Tanzania may limit generalizability. However, the sample size in this study is consistent with previous studies from different settings that reported similar results, supporting the reliability of our findings despite the limited sample [<xref ref-type="bibr" rid="pone.0327936.ref020">20</xref>,<xref ref-type="bibr" rid="pone.0327936.ref019">19</xref>]. Radiological data were not collected, preventing stratification by cavitary disease. Additionally, while LJ culture serves as a diagnostic benchmark, its long turnaround and susceptibility to contamination may underestimate TrueNat’s sensitivity.</p>
+</sec>
+<sec id="sec023" sec-type="conclusions">
+<title>Conclusion</title>
+<p>TrueNat demonstrated comparable accuracy to Xpert® MTB/RIF Ultra and Löwenstein–Jensen culture, with the added advantages of faster turnaround time, suitability for resource-limited settings, and the ability to detect 26.8% of participants including those with HIV infection who were missed by smear microscopy. Its superior performance over smear microscopy and its potential for TB detection in participants with low bacterial load such as those with smear negative and HIV infection highlights its value in TB control, especially in peripheral health care facilities like Karume Health Centre in Kilimanjaro region Tanzania and similar settings in sub-Sahara Africa. Future research incorporating liquid culture, diverse geographic settings, large sample size and variables such as cavitary disease and smoking-related outcomes will further clarify its diagnostic role and impact on patient management in real-world conditions</p>
+</sec>
+<sec id="sec024" sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material id="pone.0327936.s001" mimetype="application/zip" position="float" xlink:href="info:doi/10.1371/journal.pone.0327936.s001" xlink:type="simple">
+<label>S1 File</label>
+<caption>
+<title/>
+<p>A supporting information file containing the Participants’ sociodemographic, clinical, and laboratory metadata has been uploaded as S1 Table. Participants’ metadata. In addition, the Inclusivity in Global Research Questionnaire has been uploaded as S1 Text. Inclusivity in Global Research Questionnaire.</p>
+<p>(ZIP)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>The authors would like to thank the hospital administrative authorities, particularly Dr. Leonard M. Subi, Director of Kibong’oto Infectious Diseases Hospital, for granting permission to conduct this study. We sincerely thank all participants for their consent and willingness to take part in the study. We also extend our appreciation to Ms. Rahabu Joseph, Ms. Lilian Ringo, and Ms. Anna Peria for their valuable support with mycobacterial culture at the Kibong’oto Public Health Laboratory.</p>
+</ack>
+<ref-list>
+<title>References</title>
+<ref id="pone.0327936.ref001"><label>1</label><mixed-citation publication-type="other" xlink:type="simple">WHO. Global tuberculosis report, 2023. 2023.</mixed-citation></ref>
+<ref id="pone.0327936.ref002"><label>2</label><mixed-citation publication-type="other" xlink:type="simple">Report of the Tanzania Mid-Term Review of the National Tuberculosis and Leprosy Programme Strategic Plan VI, 1 Table of Contents. 2023.</mixed-citation></ref>
+<ref id="pone.0327936.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Penn-Nicholson A d a</surname> <given-names>m</given-names></name>, <name name-style="western"><surname>Gomathi</surname> <given-names>SN</given-names></name>, <name name-style="western"><surname>Ugarte-Gil C e s a</surname> <given-names>r</given-names></name>. <article-title>Performance of the Truenat tuberculosis and rifampicin-resistance assays in the microscopy centre: a prospective multicentre diagnostic accuracy study</article-title>. <source>Lancet Psych</source>. <year>2022</year>;:<fpage>133</fpage>–<lpage>43</lpage>.</mixed-citation></ref>
+<ref id="pone.0327936.ref004"><label>4</label><mixed-citation publication-type="other" xlink:type="simple">WHO. Consolidated guidelines on tuberculosis. 2021.</mixed-citation></ref>
+<ref id="pone.0327936.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Seifert</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Georghiou</surname> <given-names>SB</given-names></name>, <name name-style="western"><surname>Catanzaro</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Rodrigues</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Crudu</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Victor</surname> <given-names>TC</given-names></name>, <etal>et al</etal>. <article-title>MTBDRplus and MTBDRsl Assays: Absence of Wild-Type Probe Hybridization and Implications for Detection of Drug-Resistant Tuberculosis</article-title>. <source>J Clin Microbiol</source>. <year>2016</year>;<volume>54</volume>(<issue>4</issue>):<fpage>912</fpage>–<lpage>8</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1128/JCM.02505-15" xlink:type="simple">10.1128/JCM.02505-15</ext-link></comment> <object-id pub-id-type="pmid">26763971</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref006"><label>6</label><mixed-citation publication-type="other" xlink:type="simple">NTLP. Tuberculosis Cases Notified in 2022. Report. 2022;2022.</mixed-citation></ref>
+<ref id="pone.0327936.ref007"><label>7</label><mixed-citation publication-type="other" xlink:type="simple">FIND, ICMR. World health organization endorses Truenat tests for initial diagnosis of tuberculosis and detection of rifampicin resistance. 2020.</mixed-citation></ref>
+<ref id="pone.0327936.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Mahmoudi</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Sadegh Moghaddasi</surname> <given-names>AH</given-names></name>. <article-title>Evaluation of truenat assays for the diagnosis of pulmonary and extrapulmonary tuberculosis: a systematic review and meta-analysis</article-title>. <source>Expert Rev Anti Infect Ther</source>. <year>2024</year>;<volume>22</volume>(<issue>8</issue>):<fpage>659</fpage>–<lpage>68</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1080/14787210.2024.2389876" xlink:type="simple">10.1080/14787210.2024.2389876</ext-link></comment> <object-id pub-id-type="pmid">39115877</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref009"><label>9</label><mixed-citation publication-type="other" xlink:type="simple">Ssengooba W, Katamba A, Sserubiri J, Semugenze D, Nyombi A, Byaruhanga R, et al. Performance evaluation of Truenat MTB and Truenat MTB-RIF DX assays in comparison to gene XPERT MTB/ RIF ultra for the diagnosis of pulmonary tuberculosis in Uganda. 2024:1–8.</mixed-citation></ref>
+<ref id="pone.0327936.ref010"><label>10</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jose</surname> <given-names>RA</given-names></name>, <name name-style="western"><surname>Raja Inbaraj</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Catherine Vincent</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Baskar</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Mathew</surname> <given-names>R</given-names></name>. <article-title>Diagnostic accuracy of truenat MTB plus for the detection of pulmonary and extrapulmonary tuberculosis</article-title>. <source>Indian J Med Microbiol</source>. <year>2024</year>;<volume>51</volume>:<fpage>100709</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ijmmb.2024.100709" xlink:type="simple">10.1016/j.ijmmb.2024.100709</ext-link></comment> <object-id pub-id-type="pmid">39178990</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref011"><label>11</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Report</surname> <given-names>M</given-names></name>. <article-title>Epidemiological Review in the United Republic of Tanzania</article-title>. <publisher-name>United Republic of Tanzania Ministry of Health National Tuberculosis and Leprosy Programme</publisher-name>. <year>2023</year>.</mixed-citation></ref>
+<ref id="pone.0327936.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hajian-Tilaki</surname> <given-names>K</given-names></name>. <article-title>Sample size estimation in diagnostic test studies of biomedical informatics</article-title>. <source>J Biomed Inform</source>. <year>2014</year>;<volume>48</volume>:<fpage>193</fpage>–<lpage>204</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jbi.2014.02.013" xlink:type="simple">10.1016/j.jbi.2014.02.013</ext-link></comment> <object-id pub-id-type="pmid">24582925</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Mbelele</surname> <given-names>PM</given-names></name>, <name name-style="western"><surname>Sauli</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Mpolya</surname> <given-names>EA</given-names></name>, <name name-style="western"><surname>Mohamed</surname> <given-names>SY</given-names></name>, <name name-style="western"><surname>Addo</surname> <given-names>KK</given-names></name>, <name name-style="western"><surname>Mfinanga</surname> <given-names>SG</given-names></name>, <etal>et al</etal>. <article-title>TB or not TB? Definitive determination of species within the Mycobacterium tuberculosis complex in unprocessed sputum from adults with presumed multidrug-resistant tuberculosis</article-title>. <source>Trop Med Int Health</source>. <year>2021</year>;<volume>26</volume>(<issue>9</issue>):<fpage>1057</fpage>–<lpage>67</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/tmi.13638" xlink:type="simple">10.1111/tmi.13638</ext-link></comment> <object-id pub-id-type="pmid">34107112</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref014"><label>14</label><mixed-citation publication-type="book" xlink:type="simple"><collab>GLI</collab>. <source>Mycobacteriology laboratory manual</source>. <year>2014</year>.</mixed-citation></ref>
+<ref id="pone.0327936.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Meaza</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Tesfaye</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Mohamed</surname> <given-names>Z</given-names></name>, <name name-style="western"><surname>Zerihun</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Seid</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Eshetu</surname> <given-names>K</given-names></name>, <etal>et al</etal>. <article-title>Diagnostic accuracy of Truenat Tuberculosis and Rifampicin-Resistance assays in Addis Ababa, Ethiopia</article-title>. <source>PLoS ONE</source>. <year>2021</year>;<volume>16</volume>(<issue>12</issue>):e0261084. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0261084" xlink:type="simple">10.1371/journal.pone.0261084</ext-link></comment></mixed-citation></ref>
+<ref id="pone.0327936.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Mbelele</surname> <given-names>PM</given-names></name>, <name name-style="western"><surname>Aboud</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Mpagama</surname> <given-names>SG</given-names></name>, <name name-style="western"><surname>Matee</surname> <given-names>MI</given-names></name>. <article-title>Improved performance of Xpert MTB/RIF assay on sputum sediment samples obtained from presumptive pulmonary tuberculosis cases at Kibong’oto infectious diseases hospital in Tanzania</article-title>. <source>BMC Infect Dis</source>. <year>2017</year>;<volume>17</volume>:<fpage>1</fpage>–<lpage>7</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1186/s12879-017-2931-6" xlink:type="simple">10.1186/s12879-017-2931-6</ext-link></comment></mixed-citation></ref>
+<ref id="pone.0327936.ref017"><label>17</label><mixed-citation publication-type="other" xlink:type="simple">Boehme CC, Nicol MP, Nabeta P, Michael JS, Gotuzzo E, Tahirli R, et al. Feasibility, diagnostic accuracy, and effectiveness of decentralised use of the Xpert MTB/RIF test for diagnosis of tuberculosis and multidrug resistance: a multicentre implementation study. Lancet. 2011;377:1495–505. <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S0140-6736(11)60438-8" xlink:type="simple">https://doi.org/10.1016/S0140-6736(11)60438-8</ext-link></mixed-citation></ref>
+<ref id="pone.0327936.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Diallo</surname> <given-names>AB</given-names></name>, <name name-style="western"><surname>Edem</surname> <given-names>VF</given-names></name>, <name name-style="western"><surname>Fiogbe</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Osman</surname> <given-names>KA</given-names></name>, <name name-style="western"><surname>Tolofoudie</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Somboro</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Diagnostic accuracy of Xpert MTB/RIF Ultra for childhood tuberculosis in West Africa - a multicenter pragmatic study</article-title>. <source>Int J Infect Dis</source>. <year>2024</year>;<volume>140</volume>:<fpage>86</fpage>–<lpage>91</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ijid.2024.01.003" xlink:type="simple">10.1016/j.ijid.2024.01.003</ext-link></comment> <object-id pub-id-type="pmid">38244884</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Melo</surname> <given-names>MCM</given-names></name>, <name name-style="western"><surname>Silveira</surname> <given-names>AK</given-names></name>, <name name-style="western"><surname>Dalvi</surname> <given-names>APR</given-names></name>, <name name-style="western"><surname>Silva</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Printes</surname> <given-names>VS</given-names></name>, <name name-style="western"><surname>Anselmo</surname> <given-names>L</given-names></name>, <etal>et al</etal>. <article-title>Accuracy of Truenat™ MTB Plus for the diagnosis of pulmonary TB</article-title>. <source>IJTLD Open</source>. <year>2025</year>;<volume>2</volume>(<issue>4</issue>):<fpage>199</fpage>–<lpage>207</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.5588/ijtldopen.24.0561" xlink:type="simple">10.5588/ijtldopen.24.0561</ext-link></comment> <object-id pub-id-type="pmid">40226136</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Ssengooba</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Katamba</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Sserubiri</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Semugenze</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Nyombi</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Byaruhanga</surname> <given-names>R</given-names></name>, <etal>et al</etal>. <article-title>Performance evaluation of Truenat MTB and Truenat MTB-RIF DX assays in comparison to gene XPERT MTB/RIF ultra for the diagnosis of pulmonary tuberculosis in Uganda</article-title>. <source>BMC Infect Dis</source>. <year>2024</year>;<volume>24</volume>(<issue>1</issue>):<fpage>190</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1186/s12879-024-09063-z" xlink:type="simple">10.1186/s12879-024-09063-z</ext-link></comment> <object-id pub-id-type="pmid">38350885</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Nalugwa</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Shete</surname> <given-names>PB</given-names></name>, <name name-style="western"><surname>Nantale</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Farr</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Ojok</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Ochom</surname> <given-names>E</given-names></name>, <etal>et al</etal>. <article-title>Challenges with scale-up of GeneXpert MTB/RIF® in Uganda: a health systems perspective</article-title>. <source>BMC Health Serv Res</source>. <year>2020</year>;<volume>20</volume>(<issue>1</issue>):<fpage>162</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1186/s12913-020-4997-x" xlink:type="simple">10.1186/s12913-020-4997-x</ext-link></comment> <object-id pub-id-type="pmid">32131814</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref022"><label>22</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Ntinginya</surname> <given-names>NE</given-names></name>, <name name-style="western"><surname>Kuchaka</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Orina</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Mwebaza</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Liyoyo</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Miheso</surname> <given-names>B</given-names></name>, <etal>et al</etal>. <article-title>Unlocking the health system barriers to maximise the uptake and utilisation of molecular diagnostics in low-income and middle-income country setting</article-title>. <source>BMJ Glob Health</source>. <year>2021</year>;<volume>6</volume>(<issue>8</issue>):e005357. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1136/bmjgh-2021-005357" xlink:type="simple">10.1136/bmjgh-2021-005357</ext-link></comment> <object-id pub-id-type="pmid">34429298</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref023"><label>23</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Inbaraj</surname> <given-names>LR</given-names></name>, <name name-style="western"><surname>Daniel</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Sathya Narayanan</surname> <given-names>MK</given-names></name>, <name name-style="western"><surname>Srinivasalu</surname> <given-names>VA</given-names></name>, <name name-style="western"><surname>Bhaskar</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Scandrett</surname> <given-names>K</given-names></name>, <etal>et al</etal>. <article-title>Truenat MTB assays for pulmonary tuberculosis and rifampicin resistance in adults and adolescents</article-title>. <source>Cochrane Database Syst Rev</source>. <year>2025</year>;<volume>3</volume>(<issue>3</issue>):CD015543. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/14651858.CD015543.pub2" xlink:type="simple">10.1002/14651858.CD015543.pub2</ext-link></comment> <object-id pub-id-type="pmid">40122135</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Penn-Nicholson</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Gomathi</surname> <given-names>SN</given-names></name>, <name name-style="western"><surname>Ugarte-Gil</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Meaza</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Lavu</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Patel</surname> <given-names>P</given-names></name>, <etal>et al</etal>. <article-title>A prospective multicentre diagnostic accuracy study for the Truenat tuberculosis assays</article-title>. <source>Eur Respir J</source>. <year>2021</year>;<volume>58</volume>(<issue>5</issue>):<fpage>2100526</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1183/13993003.00526-2021" xlink:type="simple">10.1183/13993003.00526-2021</ext-link></comment> <object-id pub-id-type="pmid">34049948</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref025"><label>25</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Nikam</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Jagannath</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Narayanan</surname> <given-names>MM</given-names></name>, <name name-style="western"><surname>Ramanabhiraman</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Kazi</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Shetty</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Rapid diagnosis of Mycobacterium tuberculosis with Truenat MTB: a near-care approach</article-title>. <source>PLoS One</source>. <year>2013</year>;<volume>8</volume>(<issue>1</issue>):e51121. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0051121" xlink:type="simple">10.1371/journal.pone.0051121</ext-link></comment> <object-id pub-id-type="pmid">23349670</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Sinha</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Davis</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Saag</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Wanke</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Salgame</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Mesick</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Undernutrition and Tuberculosis: Public Health Implications</article-title>. <source>J Infect Dis</source>. <year>2019</year>;<volume>219</volume>(<issue>9</issue>):<fpage>1356</fpage>–<lpage>63</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/infdis/jiy675" xlink:type="simple">10.1093/infdis/jiy675</ext-link></comment> <object-id pub-id-type="pmid">30476125</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref027"><label>27</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Sinha</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Lönnroth</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Bhargava</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Heysell</surname> <given-names>SK</given-names></name>, <name name-style="western"><surname>Sarkar</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Salgame</surname> <given-names>P</given-names></name>, <etal>et al</etal>. <article-title>Food for thought: addressing undernutrition to end tuberculosis</article-title>. <source>Lancet Infect Dis</source>. <year>2021</year>;<volume>21</volume>(<issue>10</issue>):e318–<lpage>25</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S1473-3099(20)30792-1" xlink:type="simple">10.1016/S1473-3099(20)30792-1</ext-link></comment> <object-id pub-id-type="pmid">33770535</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref028"><label>28</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Wang</surname> <given-names>EY</given-names></name>, <name name-style="western"><surname>Arrazola</surname> <given-names>RA</given-names></name>, <name name-style="western"><surname>Mathema</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Ahluwalia</surname> <given-names>IB</given-names></name>, <name name-style="western"><surname>Mase</surname> <given-names>SR</given-names></name>. <article-title>The impact of smoking on tuberculosis treatment outcomes: a meta-analysis</article-title>. <source>Int J Tuberc Lung Dis</source>. <year>2020</year>;<volume>24</volume>(<issue>2</issue>):<fpage>170</fpage>–<lpage>5</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.5588/ijtld.19.0002" xlink:type="simple">10.5588/ijtld.19.0002</ext-link></comment> <object-id pub-id-type="pmid">32127100</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref029"><label>29</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Feldman</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Theron</surname> <given-names>AJ</given-names></name>, <name name-style="western"><surname>Cholo</surname> <given-names>MC</given-names></name>, <name name-style="western"><surname>Anderson</surname> <given-names>R</given-names></name>. <article-title>Cigarette Smoking as a Risk Factor for Tuberculosis in Adults: Epidemiology and Aspects of Disease Pathogenesis</article-title>. <source>Pathogens</source>. <year>2024</year>;<volume>13</volume>(<issue>2</issue>):<fpage>151</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3390/pathogens13020151" xlink:type="simple">10.3390/pathogens13020151</ext-link></comment> <object-id pub-id-type="pmid">38392889</object-id></mixed-citation></ref>
+<ref id="pone.0327936.ref030"><label>30</label><mixed-citation publication-type="other" xlink:type="simple">Ranjan P, Rukadikar AR, Hada V, Mohanty A, Singh P. Diagnostic evaluation of Tru-Nat MTB/Rif test in comparison with microscopy for diagnosis of pulmonary tuberculosis at tertiary care hospital of eastern Uttar Pradesh. 2024.</mixed-citation></ref>
+<ref id="pone.0327936.ref031"><label>31</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Phyu</surname> <given-names>MH</given-names></name>, <name name-style="western"><surname>Kyaw</surname> <given-names>KWY</given-names></name>, <name name-style="western"><surname>Myint</surname> <given-names>Z</given-names></name>, <name name-style="western"><surname>Thida</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Satyanarayana</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Aung</surname> <given-names>ST</given-names></name>. <article-title>Sputum smear-positive, Xpert® MTB/RIF-negative results: magnitude and treatment outcomes of patients in Myanmar</article-title>. <source>Public Health Action</source>. <year>2018</year>;<volume>8</volume>(<issue>4</issue>):<fpage>181</fpage>–<lpage>6</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.5588/pha.18.0056" xlink:type="simple">10.5588/pha.18.0056</ext-link></comment> <object-id pub-id-type="pmid">30775278</object-id></mixed-citation></ref>
+</ref-list>
+</back>
+</article>

@@ -1,0 +1,1300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.3 20210610//EN" "http://jats.nlm.nih.gov/publishing/1.3/JATS-journalpublishing1-3.dtd">
+<article article-type="research-article" dtd-version="1.3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<processing-meta>
+<custom-meta-group content-type="composition">
+<custom-meta specific-use="newgen" xlink:href="https://www.newgen.co/">
+<meta-name>Composition Vendor</meta-name>
+<meta-value>Newgen KnowledgeWorks (P) Ltd.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</processing-meta>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS Med</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosmed</journal-id>
+<journal-title-group>
+<journal-title>PLOS Medicine</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">1549-1277</issn>
+<issn pub-type="epub">1549-1676</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004510</article-id>
+<article-id pub-id-type="publisher-id">PMEDICINE-D-24-02778</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Medical conditions</subject><subj-group><subject>Sleep disorders</subject><subj-group><subject>Dyssomnias</subject><subj-group><subject>Insomnia</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Neurology</subject><subj-group><subject>Sleep disorders</subject><subj-group><subject>Dyssomnias</subject><subj-group><subject>Insomnia</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Mental health and psychiatry</subject><subj-group><subject>Mood disorders</subject><subj-group><subject>Depression</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Physiology</subject><subj-group><subject>Physiological processes</subject><subj-group><subject>Sleep</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Public and occupational health</subject><subj-group><subject>Preventive medicine</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Mental health and psychiatry</subject><subj-group><subject>Mental health therapies</subject><subj-group><subject>Psychotherapy</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Health care</subject><subj-group><subject>Health education and awareness</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Epidemiology</subject><subj-group><subject>Medical risk factors</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Mental health and psychiatry</subject><subj-group><subject>Suicide</subject></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Effectiveness of app-based cognitive behavioral therapy for insomnia on preventing major depressive disorder in youth with insomnia and subclinical depression: A randomized clinical trial</article-title>
+<alt-title alt-title-type="running-head">Depression prevention in youth via digital insomnia intervention</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" equal-contrib="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-8849-9202</contrib-id>
+<name name-style="western">
+<surname>Chen</surname>
+<given-names>Si-Jing</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Que</surname>
+<given-names>Jian-Yu</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+<xref ref-type="aff" rid="aff005"><sup>5</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-3009-3565</contrib-id>
+<name name-style="western">
+<surname>Chan</surname>
+<given-names>Ngan Yin</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Shi</surname>
+<given-names>Le</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-7085-1850</contrib-id>
+<name name-style="western">
+<surname>Li</surname>
+<given-names>Shirley Xin</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff006"><sup>6</sup></xref>
+<xref ref-type="aff" rid="aff007"><sup>7</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-2692-2666</contrib-id>
+<name name-style="western">
+<surname>Chan</surname>
+<given-names>Joey Wing Yan</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Huang</surname>
+<given-names>Weizhen</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Chen</surname>
+<given-names>Chris Xie</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Tsang</surname>
+<given-names>Chi Ching</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Ho</surname>
+<given-names>Yuen Lam</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Morin</surname>
+<given-names>Charles M.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-4976-3039</contrib-id>
+<name name-style="western">
+<surname>Zhang</surname>
+<given-names>Ji-Hui</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff008"><sup>8</sup></xref>
+<xref ref-type="aff" rid="aff009"><sup>9</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Lu</surname>
+<given-names>Lin</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+<xref ref-type="aff" rid="aff010"><sup>10</sup></xref>
+<xref ref-type="aff" rid="aff011"><sup>11</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-5745-5474</contrib-id>
+<name name-style="western">
+<surname>Wing</surname>
+<given-names>Yun Kwok</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff012"><sup>12</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Li Chiu Kong Family Sleep Assessment Unit, Department of Psychiatry, Faculty of Medicine, The Chinese University of Hong Kong, Shatin, Hong Kong SAR, China</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>École de psychologie, Université Laval, Québec City, Québec, Canada</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>Centre d’étude des troubles du sommeil, Université Laval, Québec City, Québec, Canada</addr-line></aff>
+<aff id="aff004"><label>4</label> <addr-line>Peking University Sixth Hospital, Peking University Institute of Mental Health, NHC Key Laboratory of Mental Health (Peking University), National Clinical Research Center for Mental Disorders (Peking University Sixth Hospital), Peking University, Beijing, China</addr-line></aff>
+<aff id="aff005"><label>5</label> <addr-line>Xiamen Xianyue Hospital, Xianyue Hospital Affiliated with Xiamen Medical College, Fujian Psychiatric Center, Fujian Clinical Research Center for Mental Disorders, Xiamen, Fujian, China</addr-line></aff>
+<aff id="aff006"><label>6</label> <addr-line>Department of Psychology, The University of Hong Kong, Shatin, Hong Kong SAR, China</addr-line></aff>
+<aff id="aff007"><label>7</label> <addr-line>The State Key Laboratory of Brain and Cognitive Sciences, The University of Hong Kong, Shatin, Hong Kong SAR, China</addr-line></aff>
+<aff id="aff008"><label>8</label> <addr-line>Center for Sleep and Circadian Medicine, The Affiliated Brain Hospital of Guangzhou Medical University, Guangzhou, Guangdong, China</addr-line></aff>
+<aff id="aff009"><label>9</label> <addr-line>Key Laboratory of Neurogenetics and Channelopathies of Guangdong Province and The Ministry of Education of China, Guangzhou Medical University, Guangzhou, China</addr-line></aff>
+<aff id="aff010"><label>10</label> <addr-line>National Institute on Drug Dependence and Beijing Key Laboratory of Drug Dependence, Peking University, Beijing, China</addr-line></aff>
+<aff id="aff011"><label>11</label> <addr-line>Peking-Tsinghua Center for Life Sciences and International Data Group/McGovern Institute for Brain Research, Peking University, Beijing, China</addr-line></aff>
+<aff id="aff012"><label>12</label> <addr-line>Faculty of Medicine, Li Ka Shing Institute of Health Sciences, The Chinese University of Hong Kong, Shatin, Hong Kong SAR, China</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Tomlinson</surname>
+<given-names>Mark</given-names>
+</name>
+<role>Academic Editor</role>
+<xref ref-type="aff" rid="edit1"/></contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>Stellenbosch University, SOUTH AFRICA</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>I have read the journal’s policy and the authors of this manuscript have the following competing interests: YKW received personal fees from Eisai Co, Ltd, for delivering a lecture and Consultation, and sponsorship from Lundbeck HK Ltd and Aculys Pharma, Inc outside the submitted work. CMM received research support from Idorsia, Eisai and Lallemand Health Solutions, personal fees from Idorsia, Eisai and Haleon, and received royalties from Mapi Research Trust outside the submitted work. JHZ provided consultancy for BestCare &amp; SuMian BioTech Co, Ltd. JWYC received personal fee from Eisai Co., Ltd and travel support from Lundbeck HK limited for overseas conference outside the submitted work. The other authors have declared that no competing interests exist (SJC, QJY, NYC, LS, SXL, WZH, CXC, CCT, YLH, and LL).</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">jihui.zhang@cuhk.edu.hk</email> (JHZ); <email xlink:type="simple">linlu@bjmu.edu.cn</email> (LL); <email xlink:type="simple">ykwing@cuhk.edu.hk</email> (YKW)</corresp>
+</author-notes>
+<pub-date pub-type="epub"><day>21</day><month>1</month><year>2025</year></pub-date>
+<pub-date pub-type="collection"><month>1</month><year>2025</year></pub-date>
+<volume>22</volume>
+<issue>1</issue>
+<elocation-id>e1004510</elocation-id>
+<history>
+<date date-type="received"><day>22</day><month>8</month><year>2024</year></date>
+<date date-type="accepted"><day>16</day><month>12</month><year>2024</year></date>
+</history>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Chen et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pmed.1004510">
+</self-uri>
+<abstract>
+<sec id="sec021">
+<title>Background</title>
+<p>Increasing evidence suggests that insomnia plays an important role in the development of depression, supporting insomnia intervention as a promising approach to prevent depression in youth. This randomized controlled trial evaluated the effectiveness of app-based cognitive behavioral therapy for insomnia (CBT-I) in preventing future onset of major depressive disorder (MDD) in youth.</p>
+</sec>
+<sec id="sec022">
+<title>Methods and findings</title>
+<p>This was a randomized, assessor-blind, parallel group-controlled trial in Chinese youth (aged 15−25 years) with insomnia disorder and subclinical depressive symptoms. Participants were randomly assigned (1:1) to 6-week app-based CBT-I or 6-week app-based health education (HE) delivered through smartphones. Online assessments and telephone clinical interviews were conducted at baseline, post-intervention, 6- and 12-month follow-ups. The primary outcome was time to onset of MDD. The secondary outcomes included depressive symptoms and insomnia at both symptom and disorder levels. Between September 9, 2019, and November 25, 2022, 708 participants (407 females [57%]; mean age, 22.1 years [SD = 1.9]) were randomly allocated to app-based CBT-I group (<italic>n</italic> = 354) or app-based HE group (<italic>n</italic> = 354). Thirty-seven participants (10%) in the intervention group and 62 participants (18%) in the control group developed new-onset MDD throughout the 12-month follow-up, with a hazard ratio of 0.58 (95% confidence interval 0.38–0.87; <italic>p</italic> = 0.008). The number needed to treat to prevent MDD at 1 year was 10.9 (6.8–26.6). The app-based CBT-I group has higher remission rates of insomnia disorder than the controls at post-intervention (52% versus 28%; relative risk 1.83 [1.49–2.24]; <italic>p</italic> &lt; 0.001) and throughout 12-month follow-up. In addition, the CBT-I group reported a greater decrease in depressive (adjusted difference −1.0 [−1.6 to −0.5]; Cohen’s <italic>d</italic> = 0.53; <italic>p</italic> &lt; 0.001) and insomnia symptoms (−2.0 [−2.7 to −1.3], <italic>d</italic> = 0.78; <italic>p</italic> &lt; 0.001) than the controls at post-intervention and throughout 6-month follow-up. Insomnia was a mediator of intervention effects on depression. No adverse events related to the interventions were reported.</p>
+</sec>
+<sec id="sec023">
+<title>Conclusions</title>
+<p>App-based CBT-I is effective in preventing future onset of major depression and improving insomnia outcomes among youth with insomnia and subclinical depression. These findings highlight the importance of targeting insomnia to prevent the onset of MDD and emphasize the need for wider dissemination of digital CBT-I to promote sleep and mental health in the youth population.</p>
+</sec>
+<sec id="sec024">
+<title>Trial registration</title>
+<p>ClinicalTrials.Gov (<ext-link ext-link-type="uri" xlink:href="https://clinicaltrials.gov/ct2/show/NCT04069247" xlink:type="simple">NCT04069247</ext-link>).</p>
+</sec>
+</abstract>
+<abstract abstract-type="summary">
+<title>Author summary</title>
+<sec id="sec025">
+<title>Why was this study done?</title>
+<list list-type="order">
+<list-item>
+<p>Emerging data on insomnia intervention, especially cognitive behavior therapy for insomnia (CBT-I), has shown promising results in alleviating both insomnia and depressive symptoms among patients with insomnia.</p>
+</list-item>
+<list-item>
+<p>The existing research on insomnia intervention mostly focused on adult or older adult subjects. In addition, there are limited studies with adequate statistical power to demonstrate the preventive effect of CBT-I on depression at both symptom and disorder levels.</p>
+</list-item>
+<list-item>
+<p>Little is known as to whether digital intervention of insomnia could potentially prevent youth depression.</p>
+</list-item>
+</list>
+</sec>
+<sec id="sec026">
+<title>What did the researchers do and find?</title>
+<list list-type="order">
+<list-item>
+<p>This was a randomized controlled trial to evaluate the efficacy of a fully automated app-based CBT-I in preventing future onset of depression in 708 youth with insomnia disorder and subclinical depression.</p>
+</list-item>
+<list-item>
+<p>We found that app-based CBT-I was effective in preventing future depression at both symptom and disorder levels.</p>
+</list-item>
+<list-item>
+<p>Insomnia was a mediator of intervention effects on depression.</p>
+</list-item>
+<list-item>
+<p>App-based CBT-I not only improved nocturnal symptoms of insomnia but also reduced daytime fatigue and led to a greater shift toward morningness.</p>
+</list-item>
+</list>
+</sec>
+<sec id="sec027">
+<title>What do these findings mean?</title>
+<list list-type="order">
+<list-item>
+<p>The app-based CBT-I is a feasible and effective intervention for preventing future depression at both symptom and disorder levels in youth. Further studies should explore the integration of app-based CBT-I into clinical practice to enhance accessibility and prevent depression among the youth population.</p>
+</list-item>
+<list-item>
+<p>Future pragmatic clinical trials are needed to explore the potential benefits of adapting digital sleep interventions in alleviating and preventing depression to advance the field toward personalized and stepped care approaches in community.</p>
+</list-item>
+<list-item>
+<p>The main limitations of the current study include the inclusion of a mixture of individuals with and without prior depression, and a limited sample size of adolescents, albeit that there was an adequate overall sample size.</p>
+</list-item>
+</list>
+</sec>
+</abstract>
+<abstract abstract-type="toc">
+<p>In a randomized clinical trial, Si-Jing Chen and colleagues investigate an app-based CBT for insomnia in youth in China with insomnia and subclinical depression.</p>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100001809</institution-id>
+<institution>National Natural Science Foundation of China</institution>
+</institution-wrap>
+</funding-source><award-id>81761128036</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Lu</surname><given-names>Lin</given-names></name></principal-award-recipient></award-group>
+<award-group id="award002">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100004853</institution-id>
+<institution>Chinese University of Hong Kong</institution>
+</institution-wrap>
+</funding-source><award-id>Postdoctoral Fellowship</award-id>
+<principal-award-recipient><contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-8849-9202</contrib-id><name name-style="western">
+<surname>Chen</surname><given-names>Si-Jing</given-names></name></principal-award-recipient></award-group>
+<funding-statement>This study was funded by the National Natural Science Foundation of China (no. 81761128036 to LL) and The Chinese University of Hong Kong Postdoctoral Fellowship (to SJC). The funders had no role in study design, interpretation of the data or preparation of the manuscript.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="3"/>
+<table-count count="2"/>
+<page-count count="18"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>Data available on request. In order to meet ethical requirements for the use of confidential participant data, requests must be approved by the Li Chiu Kong Family Sleep Assessment Unit. Requests for data should be sent to <email xlink:type="simple">sleepresearch@cuhk.edu.hk</email>.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec001" sec-type="intro">
+<title>1. Introduction</title>
+<p>Youth is a vulnerable transitional stage often linked to the emergence of sleep and mental health problems [<xref ref-type="bibr" rid="pmed.1004510.ref001">1</xref>]. In particular, three-quarters of mental disorders emerge by the age of 24, with major depressive disorder (MDD) being one of the most common mental disorders among youth [<xref ref-type="bibr" rid="pmed.1004510.ref002">2</xref>]. Youth depression tends to be persistent and recurrent, leading to various adverse long-term outcomes, including academic and social impairments, poor self-rated health, and increased suicidal risk [<xref ref-type="bibr" rid="pmed.1004510.ref003">3</xref>,<xref ref-type="bibr" rid="pmed.1004510.ref004">4</xref>]. Given the deleterious impact of youth depression, it is crucial to translate the modifiable risk factors for depression into an effective preventive strategy.</p>
+<p>There is a growing recognition of insomnia as a significant and independent risk factor for depression in both adult and youth populations [<xref ref-type="bibr" rid="pmed.1004510.ref005">5</xref>,<xref ref-type="bibr" rid="pmed.1004510.ref006">6</xref>]. Interventions directly targeting insomnia, such as cognitive behavioral therapy for insomnia (CBT-I), may have the potential to prevent future onset of MDD. However, despite the effectiveness of CBT-I in reducing depressive symptoms in adult and youth populations [<xref ref-type="bibr" rid="pmed.1004510.ref007">7</xref>–<xref ref-type="bibr" rid="pmed.1004510.ref009">9</xref>], only a few studies with adequate statistical power examined the effects of CBT-I on preventing new-onset depression at disorder level, but with mixed findings [<xref ref-type="bibr" rid="pmed.1004510.ref010">10</xref>]. For example, two prevention trials conducted in adults showed promising results of CBT-I in digital format for alleviating depressive symptoms among at-risk adults, whereas neither of these studies demonstrated the preventive effects of digital CBT-I for clinical depressive disorder [<xref ref-type="bibr" rid="pmed.1004510.ref011">11</xref>,<xref ref-type="bibr" rid="pmed.1004510.ref012">12</xref>]. On the other hand, a recent study showed that delivery of face-to-face CBT-I has significant benefits in preventing incident and recurrent MDD among older adults with insomnia [<xref ref-type="bibr" rid="pmed.1004510.ref013">13</xref>]. Nevertheless, it remains unclear whether CBT-I (especially in digital format) can be used as an indicated prevention approach for at-risk individuals with subclinical depression [<xref ref-type="bibr" rid="pmed.1004510.ref014">14</xref>], and whether its preventive effects can be achieved in youth, a vulnerable developmental period for the onset of mood problems.</p>
+<p>In this study, we conducted a randomized controlled trial (RCT) to evaluate the efficacy of an app-based CBT-I on preventing future onset of MDD in youth with insomnia disorder and subclinical depression. In addition, we evaluated the effects of app-based CBT-I on improving insomnia outcomes in secondary analyses. An app-based intervention was adopted in this study to address barriers in the implementation of CBT-I among youth, such as the low level of help-seeking and limited accessibility to healthcare system [<xref ref-type="bibr" rid="pmed.1004510.ref015">15</xref>,<xref ref-type="bibr" rid="pmed.1004510.ref016">16</xref>]. We hypothesized that (1) app-based CBT-I would reduce the incidence of MDD over a 12-month follow-up, (2) app-based CBT-I would reduce depressive and insomnia symptoms, as well as increase remission rates of insomnia disorder at post-intervention and follow-ups, and (3) the improvements in depressive symptoms would be mediated by changes in insomnia symptoms.</p>
+</sec>
+<sec id="sec002" sec-type="materials|methods">
+<title>2. Methods</title>
+<sec id="sec003">
+<title>2.1. Study design and participants</title>
+<p>This was a randomized, assessor-blind, parallel group-controlled trial conducted in Chinese youth (aged 15−25 years) with insomnia disorder and subclinical depression. Potential participants were recruited from universities, high schools, and communities in mainland China and Hong Kong from September 9, 2019 to November 25, 2022. They were invited to complete online screening assessments to confirm the presence of moderate-to-severe insomnia symptoms (Insomnia Severity Index [ISI] [<xref ref-type="bibr" rid="pmed.1004510.ref017">17</xref>] score ≥15) and subclinical depressive symptoms (Patient Health Questionnaire-9 [PHQ-9] [<xref ref-type="bibr" rid="pmed.1004510.ref018">18</xref>] score greater than 4 but less than 20). Participants who met the screening criteria were invited for a telephone diagnostic interview to ascertain the following inclusion criteria: (1) presence of insomnia disorder based on International Classification of Diseases, 10th Revision diagnostic criteria, defined as insomnia symptoms ≥3 times per week, accompanied by significant distress or functional impairments for at least 1 month, which cannot be adequately explained by another sleep–wake disorder, mental disorder, or medical condition [<xref ref-type="bibr" rid="pmed.1004510.ref019">19</xref>] and (2) absence of a current diagnosis of MDD or a prior episode of MDD within past 2 months by the Mini-International Neuropsychiatric Interview (MINI) [<xref ref-type="bibr" rid="pmed.1004510.ref008">8</xref>]. Additional details about inclusion and exclusion criteria can be found in the research protocol (<xref ref-type="supplementary-material" rid="pmed.1004510.s001">S1 Protocol</xref>).</p>
+<p>All eligible participants were randomly assigned to 6-week app-based CBT-I or 6-week app-based health education (HE) at 1:1 ratio, irrespective of any pharmacological treatments for insomnia that the participant has been receiving (<xref ref-type="fig" rid="pmed.1004510.g001">Fig 1</xref>). Assessments, including telephone clinical interviews and online self-administered questionnaires, were conducted at baseline, post-intervention, 6- and 12-month follow-ups after intervention. Two additional assessments were conducted upon the completion of sessions 2 (post-session 2) and 4 (post-session 4) to evaluate sleep and mood symptoms. If participants experienced a depressive episode before the 12-month follow-up, they were considered as completed cases that met the endpoint of the study. The study was reported in accordance with the CONSORT Guidelines (<xref ref-type="supplementary-material" rid="pmed.1004510.s002">S1 Checklist</xref>).</p>
+<fig id="pmed.1004510.g001" position="float"><object-id pub-id-type="doi">10.1371/journal.pmed.1004510.g001</object-id><label>Fig 1</label><caption><title>Participant flowchart.</title><p>CBT-I, cognitive behavioral therapy for insomnia; HE, health education; ISI, Insomnia Severity Index; PHQ-9, Patient Health Questionnaire-9; MINI, Mini-International Neuropsychiatric Interview; ICD-10, International Classification of Diseases, 10th Revision.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004510.g001" xlink:type="simple"/></fig>
+<p>Written informed consent was obtained from participants aged 18 and above. For participants under 18, assent from them and consent from their parent(s)/caregiver(s) were obtained. Ethical approval for the study was granted by Joint Chinese University of Hong Kong-New Territories East Cluster Clinical Research Ethics Committee (CREC Ref. No.: 2019.044) and Medical Ethics Committee of Peking University Sixth Hospital (Issue No. 21 [2019]). The trial is registered with Clinical Trials.Gov (<ext-link ext-link-type="uri" xlink:href="https://clinicaltrials.gov/ct2/show/NCT04069247" xlink:type="simple">NCT04069247</ext-link>).</p>
+</sec>
+<sec id="sec004">
+<title>2.2. Randomization and masking</title>
+<p>Randomization was stratified by sex and insomnia severity (15 ≤ ISI ≤ 21 versus ISI &gt; 21) at baseline. A research assistant who was not involved in the study generated the random number sequence for this trial using RAND and RANK functions in Excel with a block size of four. Study participants were not informed of their group assignment, although it was likely that most of the participants were aware of their allocation based on the content of the program. Trained investigators who conducted telephone clinical interviews were masked to group allocation.</p>
+</sec>
+<sec id="sec005">
+<title>2.3. Intervention</title>
+<sec id="sec006">
+<title>2.3.1. Experimental condition.</title>
+<p>The app-based CBT-I intervention is a digital, self-paced, and interactive insomnia intervention program delivered through smartphones (esleep: Android: <ext-link ext-link-type="uri" xlink:href="https://sd-oss-cdn.sumian.com/apk/eSleep_1.0.3-release.apk" xlink:type="simple">https://sd-oss-cdn.sumian.com/apk/eSleep_1.0.3-release.apk</ext-link>; iOS: Apple App store). It was initially developed by our research team (Li Chiu Kong Family Sleep Assessment Unit, Department of Psychiatry, The Chinese University of Hong Kong, Hong Kong SAR) and was modified and issued by BestCare &amp; SuMian BioTech Co., Ltd. The program was designed to adapt for the language background of the participants in China. Based on a well-established CBT-I treatment protocol, the program consists of six sequential modules, including (1) overview of sleep, (2) sleep restriction, (3) stimulus control, (4) cognitive restructuring (targeting sleep-related dysfunctional cognitions), (5) structured worry time, and (6) relapse prevention (Table A in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>). Each module consisted of 20–30 min of animated videos and was automatically unlocked weekly. During sleep restriction module (session 2), participants would obtain a “sleep prescription” from the application, specifying their sleep window for the next 7 days. The setting of the sleep window was based on each individual’s expected wake-up time and average total sleep time (TST) from the previous week, while adhering to the 5-h minimum rule. The sleep prescription was adjusted weekly based on each individual’s sleep efficiency (<xref ref-type="supplementary-material" rid="pmed.1004510.s001">S1 Protocol</xref>). Participants were allowed to complete the intervention in a 12-week window. Individualized text messages based on participants’ course progress were sent to the participants regularly to remind them of timely completion of the treatment modules (once per week).</p>
+</sec>
+<sec id="sec007">
+<title>2.3.2. Attention-matched control.</title>
+<p>The control (app-based HE) condition is a health promotion program developed to control for the potential dosing effect of attention and non-specific components (e.g., expectation and contact hours). The general sleep knowledge session was purposively added to the program to meet the expectations of the participants, while it did not include any active insomnia and depression therapeutic components (Table A in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>). Similarly, participants in the control group were contacted weekly to remind them to complete the modules.</p>
+</sec>
+</sec>
+<sec id="sec008">
+<title>2.4. Outcome measures</title>
+<p>The primary outcome was time to onset of MDD determined by telephone clinical interviews using the Chinese version of MINI at post-intervention, 6- and 12-month follow-ups. The MINI has been validated in Chinese psychiatric patients with adequate psychometric properties (sensitivity for diagnosing depression = 92.2%; specificity = 86.0%) [<xref ref-type="bibr" rid="pmed.1004510.ref020">20</xref>]. During each interview, the evaluation covered the period from the previous assessment to establish the onset of a depressive episode. In cases at which the participants were unable to recall the exact date, they were asked to indicate the closest week or month, and the midpoint of that week or month was used as the reference point. To assess interrater reliability, interviews were recorded and independently reviewed by a second investigator. The κ coefficient for interrater agreement regarding the diagnosis of MDD was 0.82 based on randomly selected data from 12% (85/708) of the participants, indicating excellent agreement.</p>
+<p>The secondary outcomes included depressive symptoms and the measures of insomnia at both symptom and disorder levels. Remission of insomnia disorder was determined by the following criteria [<xref ref-type="bibr" rid="pmed.1004510.ref021">21</xref>]: (1) no functional impairments or distress with sleep, (2) insomnia symptoms less than three times per week for at least 1 month, and (3) sleep-promoting medication use less than once per week in the past month. Although the use of sleep-promoting medication is not a standard criterion for diagnosing insomnia disorder, it may mask the underlying symptoms and was thus taken into account in the current study [<xref ref-type="bibr" rid="pmed.1004510.ref021">21</xref>]. Changes in depressive and insomnia symptoms were assessed with PHQ-9 and ISI, respectively.</p>
+<p>Other prespecified outcomes included anxiety symptoms (Generalized Anxiety Disorder 7-item [GAD-7]) [<xref ref-type="bibr" rid="pmed.1004510.ref022">22</xref>], suicidal ideation (Scale for Suicide Ideation-Current) [<xref ref-type="bibr" rid="pmed.1004510.ref023">23</xref>], Fatigue (Multi-dimensional Fatigue Inventory) [<xref ref-type="bibr" rid="pmed.1004510.ref024">24</xref>], circadian preference (reduced Morningness-Eveningness Questionnaire) [<xref ref-type="bibr" rid="pmed.1004510.ref025">25</xref>], sleep-related beliefs and attitudes (Brief version of Dysfunctional Beliefs and Attitudes about Sleep) [<xref ref-type="bibr" rid="pmed.1004510.ref026">26</xref>], and sleep parameters including time in bed (TIB), TST, sleep onset latency (SOL), wake after sleep onset (WASO), sleep efficiency (SE) measured by 7-Day Sleep Diary.</p>
+<p>Adverse events related to the interventions that occurred from randomization until the 12-month follow-up were recorded during telephone interviews by asking participants if they experienced any adverse events attributed to the interventions from the previous assessment to the current interview, and to specify if they answered yes.</p>
+<p>In the study protocol, multiple outcomes were designated as primary outcomes based on the study hypothesis, including depression and insomnia at both symptom and disorder levels. The presence of multiple primary outcomes and the lack of a defined hierarchy may pose some concern to the interpretation of the major findings of the study. Therefore, we reorganized the hierarchy of outcomes when reporting the study results to ensure that the trial was chiefly judged by the outcome for which it was fully powered, namely the incidence of depressive disorder.</p>
+</sec>
+<sec id="sec009">
+<title>2.5. Sample size calculation</title>
+<p>The sample size calculation was based on the incidence of depressive disorder. As the study sample included a mixture of individuals with and without prior history of MDD, a 50% increase in the 1-year incidence of depression was expected compared to that (11%) reported in the previous meta-analysis on patients with insomnia [<xref ref-type="bibr" rid="pmed.1004510.ref006">6</xref>]. According to previous research on self-help intervention for prevention of MDD [<xref ref-type="bibr" rid="pmed.1004510.ref027">27</xref>] and data on CBT intervention for depression in youth population [<xref ref-type="bibr" rid="pmed.1004510.ref028">28</xref>–<xref ref-type="bibr" rid="pmed.1004510.ref030">30</xref>], we expected a 50% reduction in the incidence rate for the intervention group. Based on a 1-year incidence rate of 16.5% (11% × 1.5), power analysis indicated that 282 participants per condition were needed to detect a hazard ratio (HR) of 0.5 under 1:1 randomization at <italic>α</italic> &lt; 0.05 (two-tailed) with 80% statistical power. To account for 40% potential attrition rate, a total of 940 participants would be initially needed. In the amendment of study protocol, the recruitment was reduced to a sample size of 708 (354 per condition) based on an estimated attrition rate of approximately 20%, as the attrition rate was much lower than initially expected.</p>
+</sec>
+<sec id="sec010">
+<title>2.6. Statistical analysis</title>
+<p>The statistical analysis plan was finalized before the completion of data collection (<xref ref-type="supplementary-material" rid="pmed.1004510.s001">S1 Protocol</xref>), except for subgroup analyses of the primary outcome and exploratory analysis controlling for potential confounders affecting the primary outcome, including prior history of MDD, educational level, family income, comorbid medical illnesses, and use of sleep-promoting medications [<xref ref-type="bibr" rid="pmed.1004510.ref031">31</xref>], to test the robustness of the results. Analyses were conducted based on the intent-to-treat approach. Kaplan-Meier survival analysis and Cox proportional hazard regression model were employed to determine differences in time to onset of MDD between the intervention and control groups over 12-month follow-up. Remission rates of insomnia were analyzed using a weighted generalized estimating equations model. Weights were computed as the product of a missing model weight to attenuate the effect of attrition conditional on strata variables and group allocation [<xref ref-type="bibr" rid="pmed.1004510.ref032">32</xref>]. The intervention effects on continuous variables were analyzed using linear mixed-effects model analysis with residual maximum likelihood estimation. In the sensitivity analyses, missing scores due to participants reaching the study endpoint (experiencing a depressive episode) before the 12-month follow-up were handled using last observation carried forward (LOCF) method, as LOCF likely to be conservative when the target condition is expected to improve spontaneously over time (e.g., insomnia and depression) [<xref ref-type="bibr" rid="pmed.1004510.ref033">33</xref>]. Mediation analyses using maximum likelihood estimation within a structural equation modeling framework were used to investigate the mediating effects of insomnia on depressive symptoms (the mediating effects were tested when the efficacy analysis showed significant differences between the two groups in depressive symptoms). Strata variables at baseline were included as covariates in all analyses. Data analyses were performed using the Stata 17.0 statistical software with standard two-tailed <italic>α</italic> of 0.05.</p>
+</sec>
+</sec>
+<sec id="sec011" sec-type="results">
+<title>3. Results</title>
+<sec id="sec012">
+<title>3.1. Participants</title>
+<p>A total of 708 youth (407 females [57%]; mean [SD] age, 22.1 [1.9] years) with insomnia disorder (mean duration, 3.0 years) were allocated to either app-based CBT-I (<italic>n</italic> = 354) or app-based HE group (<italic>n</italic> = 354) (<xref ref-type="table" rid="pmed.1004510.t001">Table 1</xref>). Majority of the participants (90%; 639/708) were undergraduate students or university educated. Nearly half of the participants (48%; 339/708) had a history of MDD, and 17% (123/708) of them had suicidal ideation in the past month as confirmed by MINI interview, while only few of them had taken antidepressants before (5%; 38/708). In addition, 140 (20%) participants took sleep-promoting medications at baseline. The percentage of participants using sleep-promoting medications decreased in both groups at post-intervention (app-based CBT-I versus app-based HE, 12% versus 15%) and follow-up assessments (12-month, 10% versus 14%) with no significant group differences (Fig A in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>).</p>
+<table-wrap id="pmed.1004510.t001" position="float"><object-id pub-id-type="doi">10.1371/journal.pmed.1004510.t001</object-id><label>Table 1</label><caption><title>Baseline characteristics.</title></caption>
+<alternatives><graphic id="pmed.1004510.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004510.t001" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left"/>
+<th align="left">Total sample (<italic>n</italic> = 708)</th>
+<th align="left">App-based CBT-I (<italic>n</italic> = 354)</th>
+<th align="left">App-based HE (<italic>n</italic> = 354)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Age, years</td>
+<td align="left">22.1 (1.9)</td>
+<td align="left">21.9 (2.0)</td>
+<td align="left">22.2 (1.9)</td>
+</tr>
+<tr>
+<td align="left"> &lt;18y</td>
+<td align="left">10 (1.4)</td>
+<td align="left">5 (1.4)</td>
+<td align="left">5 (1.4)</td>
+</tr>
+<tr>
+<td align="left"> ≥18y</td>
+<td align="left">698 (98.6)</td>
+<td align="left">349 (98.6)</td>
+<td align="left">349 (98.6)</td>
+</tr>
+<tr>
+<td align="left" colspan="4">Sex</td>
+</tr>
+<tr>
+<td align="left"> Female</td>
+<td align="left">407 (57%)</td>
+<td align="left">202 (57%)</td>
+<td align="left">205 (58%)</td>
+</tr>
+<tr>
+<td align="left"> Male</td>
+<td align="left">301 (42%)</td>
+<td align="left">152 (43%)</td>
+<td align="left">149 (42%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4">Relationship status</td>
+</tr>
+<tr>
+<td align="left"> De facto</td>
+<td align="left">16 (2%)</td>
+<td align="left">11 (3%)</td>
+<td align="left">5 (1%)</td>
+</tr>
+<tr>
+<td align="left"> Married</td>
+<td align="left">2 (&lt;1%)</td>
+<td align="left">2 (&lt;1%)</td>
+<td align="left">0 (0%)</td>
+</tr>
+<tr>
+<td align="left"> Never married</td>
+<td align="left">690 (97%)</td>
+<td align="left">341 (96%)</td>
+<td align="left">349 (99%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4">Site</td>
+</tr>
+<tr>
+<td align="left"> Hong Kong</td>
+<td align="left">41 (6%)</td>
+<td align="left">18 (5%)</td>
+<td align="left">23 (6%)</td>
+</tr>
+<tr>
+<td align="left"> Mainland China</td>
+<td align="left">667 (94%)</td>
+<td align="left">336 (95%)</td>
+<td align="left">331 (94%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4">Education level</td>
+</tr>
+<tr>
+<td align="left"> Undergraduate student and above</td>
+<td align="left">639 (90%)</td>
+<td align="left">318 (90%)</td>
+<td align="left">321 (91%)</td>
+</tr>
+<tr>
+<td align="left"> Other</td>
+<td align="left">69 (10%)</td>
+<td align="left">36 (10%)</td>
+<td align="left">33 (9%)</td>
+</tr>
+<tr>
+<td align="left">Full-time student</td>
+<td align="left">545 (77%)</td>
+<td align="left">273 (77%)</td>
+<td align="left">272 (77%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4">Family monthly income</td>
+</tr>
+<tr>
+<td align="left"> CNY &lt; 8,000</td>
+<td align="left">484 (68%)</td>
+<td align="left">251 (71%)</td>
+<td align="left">233 (66%)</td>
+</tr>
+<tr>
+<td align="left"> CNY ≥ 8,000</td>
+<td align="left">209 (30%)</td>
+<td align="left">100 (28%)</td>
+<td align="left">109 (31%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4">Lifestyle</td>
+</tr>
+<tr>
+<td align="left" colspan="4"> Tea consumption</td>
+</tr>
+<tr>
+<td align="left">  &lt;3/week</td>
+<td align="left">600 (85%)</td>
+<td align="left">312 (88%)</td>
+<td align="left">288 (81%)</td>
+</tr>
+<tr>
+<td align="left">  ≥3/week</td>
+<td align="left">93 (13%)</td>
+<td align="left">39 (11%)</td>
+<td align="left">54 (15%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4"> Coffee consumption</td>
+</tr>
+<tr>
+<td align="left">  &lt;3/week</td>
+<td align="left">608 (86%)</td>
+<td align="left">312 (88%)</td>
+<td align="left">296 (84%)</td>
+</tr>
+<tr>
+<td align="left">  ≥3/week</td>
+<td align="left">85 (12%)</td>
+<td align="left">39 (11%)</td>
+<td align="left">46 (13%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4"> Energy drink consumption</td>
+</tr>
+<tr>
+<td align="left">  &lt;3/week</td>
+<td align="left">687 (97%)</td>
+<td align="left">349 (99%)</td>
+<td align="left">338 (95%)</td>
+</tr>
+<tr>
+<td align="left">  ≥3/week</td>
+<td align="left">6 (&lt;1%)</td>
+<td align="left">2 (&lt;1%)</td>
+<td align="left">4 (1%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4"> Beverage consumption</td>
+</tr>
+<tr>
+<td align="left">  &lt;3/week</td>
+<td align="left">615 (87%)</td>
+<td align="left">310 (88%)</td>
+<td align="left">305 (86%)</td>
+</tr>
+<tr>
+<td align="left">  ≥3/week</td>
+<td align="left">78 (11%)</td>
+<td align="left">41 (12%)</td>
+<td align="left">37 (10%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4"> Alcohol consumption</td>
+</tr>
+<tr>
+<td align="left">  &lt;3/week</td>
+<td align="left">683 (96%)</td>
+<td align="left">346 (98%)</td>
+<td align="left">337 (95%)</td>
+</tr>
+<tr>
+<td align="left">  ≥3/week</td>
+<td align="left">10 (1%)</td>
+<td align="left">5 (1%)</td>
+<td align="left">5 (1%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4"> Smoking</td>
+</tr>
+<tr>
+<td align="left">  &lt;3/week</td>
+<td align="left">653 (92%)</td>
+<td align="left">329 (93%)</td>
+<td align="left">324 (92%)</td>
+</tr>
+<tr>
+<td align="left">  ≥3/week</td>
+<td align="left">40 (6%)</td>
+<td align="left">22 (6%)</td>
+<td align="left">18 (5%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4">Depression</td>
+</tr>
+<tr>
+<td align="left"> History of MDD<xref ref-type="table-fn" rid="t001fn002"><sup>a</sup></xref></td>
+<td align="left">339 (48%)</td>
+<td align="left">163 (46%)</td>
+<td align="left">176 (50%)</td>
+</tr>
+<tr>
+<td align="left"> Prior use of antidepressants<xref ref-type="table-fn" rid="t001fn003"><sup>b</sup></xref></td>
+<td align="left">38 (5%)</td>
+<td align="left">16 (5%)</td>
+<td align="left">22 (6%)</td>
+</tr>
+<tr>
+<td align="left" colspan="4">Insomnia</td>
+</tr>
+<tr>
+<td align="left"> Use of sleep-promoting medications at baseline<xref ref-type="table-fn" rid="t001fn004"><sup>c</sup></xref></td>
+<td align="left">140 (20%)</td>
+<td align="left">76 (21%)</td>
+<td align="left">64 (18%)</td>
+</tr>
+<tr>
+<td align="left"> Duration of insomnia, years</td>
+<td align="left">3.0 (2.7)</td>
+<td align="left">3.0 (2.7)</td>
+<td align="left">3.0 (2.7)</td>
+</tr>
+<tr>
+<td align="left">Suicidal ideation at baseline</td>
+<td align="left">123 (17%)</td>
+<td align="left">58 (16%)</td>
+<td align="left">65 (18%)</td>
+</tr>
+<tr>
+<td align="left">Diagnosed medical illnesses<xref ref-type="table-fn" rid="t001fn005"><sup>d</sup></xref></td>
+<td align="left">152 (21%)</td>
+<td align="left">86 (24%)</td>
+<td align="left">66 (19%)</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t001fn001"><p>Abbreviations: CBT-I, cognitive behavioral therapy for insomnia; HE, health education; MDD, major depressive disorder.</p></fn>
+<fn id="t001fn002"><p><sup>a</sup>History of MDD was ascertained by the Mini-International Neuropsychiatric Interview (MINI).</p></fn>
+<fn id="t001fn003"><p><sup>b</sup>Antidepressants included selective serotonin reuptake inhibitors (SSRIs), serotonin antagonist and reuptake inhibitors (SARIs), serotonin and norepinephrine reuptake inhibitors (SNRIs), noradrenaline and specific serotonergic antidepressants (NaSSAs), tricyclic antidepressants (TCAs), and agomelatine.</p></fn>
+<fn id="t001fn004"><p><sup>c</sup>Sleep-promoting medications included benzodiazepines, non-benzodiazepines, trazodone (25–50 mg), traditional Chinese medicine, sedating antihistamines, and melatonin.</p></fn>
+<fn id="t001fn005"><p><sup>d</sup>Medical illnesses included eye disease, arthritis, heart disease, diabetes, renal disease, gastro-esophageal reflux disease, hypertension, epilepsy, chronic lung disease, and chronic pain.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>Of the included participants (<italic>n</italic> = 708), 634 (90%) contributed data to the post-intervention assessment, 565 (80%) completed the 6-month assessments, and 500 (71%) completed the assessments at 12 months (<xref ref-type="fig" rid="pmed.1004510.g001">Fig 1</xref>). Attrition rates from assessments at post-intervention and follow-ups did not differ significantly between the two groups. In the app-based CBT-I group, 333 participants (94%) logged on at least one session and 296 (84%) completed all six sessions (Table A in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>). As for the app-based HE group, 332 (94%) participants logged on at least one session and 301 (85%) completed six sessions. No adverse events related to the interventions were reported.</p>
+</sec>
+<sec id="sec013">
+<title>3.2. Preventive effect of app-based CBT-I on major depression</title>
+<p>Thirty-seven participants (incidence proportion, 10%; 37/354) in the intervention group and 62 participants (incidence proportion, 18%; 62/354) in the control group developed new-onset MDD during the 12-month follow-up. <xref ref-type="fig" rid="pmed.1004510.g002">Fig 2</xref> shows the survival curves for the app-based CBT-I and control groups. The estimates of the cumulative 1-year incidence rate (person-time rate) of MDD were 12% (95% confidence interval [CI] 9% to 17%) for the app-based CBT-I group and 21% (17% to 27%) for the HE group. The number needed to treat to prevent MDD at 1 year was 10.9 (6.8–26.6). Cox regression revealed an HR of 0.58 (0.38–0.87; <italic>p</italic> = 0.008) for MDD favoring app-based CBT-I intervention.</p>
+<fig id="pmed.1004510.g002" position="float"><object-id pub-id-type="doi">10.1371/journal.pmed.1004510.g002</object-id><label>Fig 2</label><caption><title>Time to onset of major depressive disorder by intervention group.</title><p>CBT-I, cognitive behavioral therapy for insomnia; HE, health education.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004510.g002" xlink:type="simple"/></fig>
+<p>After additionally adjusting for prior history of MDD, educational level, family income, comorbid medical illnesses, and use of sleep-promoting medications in exploratory analysis, the risk of developing MDD remained significantly lower for the app-based CBT-I intervention group compared with the controls (adjusted HR 0.60 [0.40–0.90]; <italic>p</italic> = 0.01) (Table B in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>). Further analyses demonstrated that the preventive effect of app-based CBT-I on MDD across various subgroups was generally consistent with the effect observed in the overall sample (Fig B in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>), and there was no interaction between the intervention effect and any of the variables that defined the subgroups (<italic>p</italic>s &gt; 0.05 for all interactions). In the sensitivity analyses conducted among participants with persistent insomnia (insomnia duration ≥ 3 months, <italic>n</italic> = 616), all results remained consistent (Table C and Fig C in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>).</p>
+</sec>
+<sec id="sec014">
+<title>3.3. Intervention effect of app-based CBT-I on secondary outcomes</title>
+<sec id="sec015">
+<title>3.3.1. Remission rates of insomnia disorder.</title>
+<p><xref ref-type="fig" rid="pmed.1004510.g003">Fig 3</xref> shows remission rates of insomnia disorder (adjusted means and standard errors) by groups and assessments. At post-intervention, the weighted percentage of remitters based on clinical interviews in app-based CBT-I group was higher than that of the app-based HE group (52% versus 28%; relative risk [RR] 1.83 [95% CI 1.49–2.24]; <italic>p</italic> &lt; 0.001) after controlling for strata variables and accounting for the missing data patterns. Improvements achieved in the app-based CBT-I group were well sustained throughout the follow-up period, with higher remission rates than the controls at both 6-month (56% versus 44%; RR 1.27 [1.08–1.48]; <italic>p</italic> = 0.003) and 12-month follow-ups (57% versus 48%; RR 1.17 [1.01–1.35]; <italic>p</italic> = 0.03). The results remained consistent in the sensitivity analysis (Fig D in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>).</p>
+<fig id="pmed.1004510.g003" position="float"><object-id pub-id-type="doi">10.1371/journal.pmed.1004510.g003</object-id><label>Fig 3</label><caption><title>Remission rates of insomnia disorder by intervention group.</title><p>Error bars indicate standard errors. CBT-I, cognitive behavioral therapy for insomnia; HE, health education.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004510.g003" xlink:type="simple"/></fig>
+</sec>
+<sec id="sec016">
+<title>3.3.2. Depressive and insomnia severity.</title>
+<p>Results from the mixed-effects model revealed significant group by time interactions for both ISI and PHQ-9 scores (both <italic>p</italic>s &lt; 0.001; <xref ref-type="table" rid="pmed.1004510.t002">Table 2</xref> and Fig E in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>). Compared with the control condition, the app-based CBT-I intervention led to greater improvements in both depressive and insomnia symptoms at post-session 4 (depressive symptoms, adjusted difference −1.0 [1.6 to −0.4]; Cohen’s <italic>d</italic> = 0.50; <italic>p</italic> = 0.002; insomnia symptoms, −1.7 [95% CI −2.4 to −1.0]; <italic>d</italic> = 0.66; <italic>p</italic> &lt; 0.001) and post-intervention (depressive symptoms, −1.0 [−1.6 to −0.5]; <italic>d</italic> = 0.53; <italic>p</italic> &lt; 0.001; insomnia symptoms, −2.0 [−2.7 to −1.3]; <italic>d</italic> = 0.78; <italic>p</italic> &lt; 0.001). The results for depressive symptoms remained the same after excluding sleep item from the PHQ-9.</p>
+<table-wrap id="pmed.1004510.t002" position="float"><object-id pub-id-type="doi">10.1371/journal.pmed.1004510.t002</object-id><label>Table 2</label><caption><title>Secondary outcome results.</title></caption>
+<alternatives><graphic id="pmed.1004510.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004510.t002" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left"/>
+<th align="left">App-based CBT-I, mean (SE)<xref ref-type="table-fn" rid="t002fn002"><sup>a</sup></xref></th>
+<th align="left">App-based HE, mean (SE)</th>
+<th align="left">Adjusted difference (95% CI)</th>
+<th align="left"><italic>p</italic> value</th>
+<th align="left">Cohen’s <italic>d</italic><xref ref-type="table-fn" rid="t002fn003"><sup>b</sup></xref></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="6"><italic>PHQ-9</italic></td>
+</tr>
+<tr>
+<td align="left"> Baseline</td>
+<td align="left">12.1 (0.2); <italic>n</italic> = 354</td>
+<td align="left">12.1 (0.2); <italic>n</italic> = 354</td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"> Post-session 2</td>
+<td align="left">7.6 (0.2); <italic>n</italic> = 291</td>
+<td align="left">7.7 (0.2); <italic>n</italic> = 285</td>
+<td align="left">−0.1 (−0.7, 0.5)</td>
+<td align="left">0.72</td>
+<td align="left">0.06</td>
+</tr>
+<tr>
+<td align="left"> Post-session 4</td>
+<td align="left">6.1 (0.2); <italic>n</italic> = 256</td>
+<td align="left">7.0 (0.2); <italic>n</italic> = 264</td>
+<td align="left">−1.0 (−1.6, −0.4)</td>
+<td align="left">0.002</td>
+<td align="left">0.50</td>
+</tr>
+<tr>
+<td align="left"> Post-intervention</td>
+<td align="left">5.1 (0.2); <italic>n</italic> = 314</td>
+<td align="left">6.2 (0.2); <italic>n</italic> = 319</td>
+<td align="left">−1.0 (−1.6, −0.5)</td>
+<td align="left">&lt;0.001</td>
+<td align="left">0.53</td>
+</tr>
+<tr>
+<td align="left"> 6 months</td>
+<td align="left">5.4 (0.2); <italic>n</italic> = 273</td>
+<td align="left">6.3 (0.2); <italic>n</italic> = 268</td>
+<td align="left">−0.8 (−1.4, −0.2)</td>
+<td align="left">0.009</td>
+<td align="left">0.42</td>
+</tr>
+<tr>
+<td align="left"> 12 months</td>
+<td align="left">5.5 (0.2); <italic>n</italic> = 249</td>
+<td align="left">6.0 (0.2); <italic>n</italic> = 227</td>
+<td align="left">−0.5 (−1.1, 0.2)</td>
+<td align="left">0.14</td>
+<td align="left">0.24</td>
+</tr>
+<tr>
+<td align="left" colspan="6"><italic>PHQ-8</italic><xref ref-type="table-fn" rid="t002fn004"><sup>c</sup></xref></td>
+</tr>
+<tr>
+<td align="left"> Baseline</td>
+<td align="left">9.6 (0.2); <italic>n</italic> = 354</td>
+<td align="left">9.6 (0.2); <italic>n</italic> = 354</td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"> Post-session 2</td>
+<td align="left">6.1 (0.2); <italic>n</italic> = 291</td>
+<td align="left">6.2 (0.2); <italic>n</italic> = 285</td>
+<td align="left">−0.1 (−0.6, 0.5)</td>
+<td align="left">0.83</td>
+<td align="left">0.03</td>
+</tr>
+<tr>
+<td align="left"> Post-session 4</td>
+<td align="left">4.9 (0.2); <italic>n</italic> = 256</td>
+<td align="left">5.6 (0.2); <italic>n</italic> = 264</td>
+<td align="left">−0.7 (−1.2, −0.1)</td>
+<td align="left">0.02</td>
+<td align="left">0.39</td>
+</tr>
+<tr>
+<td align="left"> Post-intervention</td>
+<td align="left">4.1 (0.2); <italic>n</italic> = 314</td>
+<td align="left">5.0 (0.2); <italic>n</italic> = 319</td>
+<td align="left">−0.9 (−1.4, −0.4)</td>
+<td align="left">0.001</td>
+<td align="left">0.51</td>
+</tr>
+<tr>
+<td align="left"> 6 months</td>
+<td align="left">4.5 (0.2); <italic>n</italic> = 273</td>
+<td align="left">5.1 (0.2); <italic>n</italic> = 268</td>
+<td align="left">−0.7 (−1.2, −0.1)</td>
+<td align="left">0.01</td>
+<td align="left">0.39</td>
+</tr>
+<tr>
+<td align="left"> 12 months</td>
+<td align="left">4.5 (0.2); <italic>n</italic> = 249</td>
+<td align="left">4.9 (0.2); <italic>n</italic> = 227</td>
+<td align="left">−0.4 (−1.0, 0.2)</td>
+<td align="left">0.18</td>
+<td align="left">0.23</td>
+</tr>
+<tr>
+<td align="left" colspan="6"><italic>ISI</italic></td>
+</tr>
+<tr>
+<td align="left"> Baseline</td>
+<td align="left">18.3 (0.2); n = 354</td>
+<td align="left">18.3 (0.2); <italic>n</italic> = 354</td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"> Post-session 2</td>
+<td align="left">11.5 (0.2); n = 291</td>
+<td align="left">12.1 (0.2); <italic>n</italic> = 285</td>
+<td align="left">−0.6 (−1.3, 0.1)</td>
+<td align="left">0.12</td>
+<td align="left">0.22</td>
+</tr>
+<tr>
+<td align="left"> Post-session 4</td>
+<td align="left">9.0 (0.2); n = 256</td>
+<td align="left">10.7 (0.2); <italic>n</italic> = 264</td>
+<td align="left">−1.7 (−2.4, −1.0)</td>
+<td align="left">&lt;0.001</td>
+<td align="left">0.66</td>
+</tr>
+<tr>
+<td align="left"> Post-intervention</td>
+<td align="left">7.3 (0.2); n = 313</td>
+<td align="left">9.3 (0.2); <italic>n</italic> = 319</td>
+<td align="left">−2.0 (−2.7, −1.3)</td>
+<td align="left">&lt;0.001</td>
+<td align="left">0.78</td>
+</tr>
+<tr>
+<td align="left"> 6 months</td>
+<td align="left">7.2 (0.2); n = 272</td>
+<td align="left">8.4 (0.2); <italic>n</italic> = 268</td>
+<td align="left">−1.1 (−1.9, −0.4)</td>
+<td align="left">0.002</td>
+<td align="left">0.45</td>
+</tr>
+<tr>
+<td align="left"> 12 months</td>
+<td align="left">7.3 (0.2); n = 249</td>
+<td align="left">8.2 (0.2); <italic>n</italic> = 227</td>
+<td align="left">−0.8 (−1.6, −0.1)</td>
+<td align="left">0.03</td>
+<td align="left">0.32</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t002fn001"><p>Abbreviations: CBT-I, cognitive behavioral therapy for insomnia; HE, health education; ISI, Insomnia Severity Index; PHQ, Patient Health Questionnaire.</p></fn>
+<fn id="t002fn002"><p><sup>a</sup>All values are adjusted for sex and insomnia severity at baseline.</p></fn>
+<fn id="t002fn003"><p><sup>b</sup>Cohen’s <italic>d</italic> is defined as the adjusted intervention effect divided by the square root of estimated sample variance derived from the linear mixed-effects model.</p></fn>
+<fn id="t002fn004"><p><sup>c</sup>Excluding sleep item.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>The intervention effects of app-based CBT-I on insomnia symptoms were well sustained throughout the follow-up period (6-month, <italic>d</italic> = 0.45; <italic>p</italic> = 0.002; 12-month, <italic>d</italic> = 0.32; <italic>p</italic> = 0.03). While significant group differences in depressive symptoms were only sustained at 6-month follow-up (<italic>d</italic> = 0.42; <italic>p</italic> = 0.009), albeit depressive symptoms remained in the mild range for the intervention group at 12-month follow-up. In the sensitivity analyses with LOCF, greater improvements in both depressive and insomnia symptoms in the app-based CBT-I group compared to the control group were consistently observed throughout post-session 4–12-month follow-up (Table D in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>).</p>
+<p>In the mediation analyses, insomnia symptoms at post-session 4 accounted for 74% of the intervention effect on depressive symptoms measured by PHQ-8 (excluding sleep item) at post-intervention (Table E in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>). Similarly, insomnia symptoms at post-intervention explained 78% of the improvements in depressive symptoms at 6-month. There were no significant residual direct effects observed in both models, indicating that the impacts of the intervention on depressive symptoms depend on its effects on insomnia. While in the reverse mediation analysis at which depressive symptoms at post-session 4 and post-intervention were set as the mediators, direct effects of the intervention on insomnia symptoms were noticed (81% at post-intervention and 57% at 6-month), suggesting that the intervention improved insomnia symptoms independent of its impacts on depressive symptoms.</p>
+</sec>
+</sec>
+<sec id="sec017">
+<title>3.4. Intervention effect of app-based CBT-I on other outcomes</title>
+<p>The app-based CBT-I intervention produced greater improvements than the app-based HE for most of the outcomes at post-intervention (Tables F–G and Fig F in <xref ref-type="supplementary-material" rid="pmed.1004510.s003">S1 Appendix</xref>), including SOL, TIB, SE, anxiety symptoms, fatigue, dysfunctional sleep beliefs, and a greater shift toward morningness, which were maintained at least up to the 6-month follow-up, except for anxiety symptoms. There were no significant differences between the two groups in WASO, TST, or suicidal ideation.</p>
+</sec>
+</sec>
+<sec id="sec018" sec-type="conclusions">
+<title>4. Discussion</title>
+<p>This large-scale RCT study showed that app-based CBT-I is effective in reducing future onset of MDD and increasing the remission rates of insomnia in youth with insomnia disorder and subclinical depression. The observed causal relationship between changes in insomnia symptoms and improvements in depressive symptoms lends additional support that insomnia plays an important role in precipitating the onset of depression. In addition, timely intervention of insomnia disorder in youth not only improved nocturnal symptoms but also reduced daytime fatigue and led to a greater shift toward morningness. Overall, our findings expand upon the results of recent sleep interventions in older adults [<xref ref-type="bibr" rid="pmed.1004510.ref010">10</xref>], supporting the efficacy of app-based CBT-I in preventing depression and improving insomnia in youth population.</p>
+<p>To the best of our knowledge, our finding on the preventive effect of app-based CBT-I on MDD in youth population is novel. In addition, self-help app-based CBT-I showed a similar magnitude of preventive effect in youth (HR 0.58 [95% CI 0.38–0.87]) when compared to previous prevention trials that employed face-to-face CBT-I in elderly (HR 0.51 [0.29–0.88]) [<xref ref-type="bibr" rid="pmed.1004510.ref013">13</xref>] and web-based psychological intervention in middle-aged adults (HR 0.59 [0.42–0.82]) [<xref ref-type="bibr" rid="pmed.1004510.ref027">27</xref>]. Furthermore, the preventive effect of app-based CBT-I on MDD was generally consistent across most subgroups, even in the presence of baseline suicidal ideation and a prior history of MDD. Given that the intervention program did not incorporate any therapeutic components specifically aimed at directly treating depression, the mechanisms underlying the preventive effect of CBT-I on MDD warrant further investigation. This effect may be partially attributed to the ability of CBT-I to indirectly address depression through sleep improvements, as indicated by the mediation analyses, or directly by targeting shared mechanisms between insomnia and depression, such as hyperarousal, ruminations, and worries [<xref ref-type="bibr" rid="pmed.1004510.ref034">34</xref>,<xref ref-type="bibr" rid="pmed.1004510.ref035">35</xref>].</p>
+<p>As for the intervention effects of app-based CBT-I on depressive symptom severity, the between-group effect size at post-intervention (<italic>d</italic> = 0.53) is comparable to that reported in a recent meta-analysis on digital CBT-I (<italic>d</italic> = 0.42 [0.28–0.56]) [<xref ref-type="bibr" rid="pmed.1004510.ref009">9</xref>], which was sustained at 6-month follow-up. Although depressive symptoms of the intervention group remained in the mild range at 12-month follow-up, we did not detect significant between-group effects due to the large within-group changes in the control arm. This could be partly due to the sleep improvements observed in the control group, which may in turn lead to changes in mood. Another reason for the lack of differentiation in symptom improvements at 12 months may be that some participants reached the study endpoint (experiencing a depressive episode) before the final follow-up. These participants were removed from subsequent assessments and provided with information for further treatment due to ethical considerations. Further sensitivity analyses with LOCF demonstrated greater improvements in depressive symptoms in the app-based CBT-I group at 12-month follow-up.</p>
+<p>For insomnia outcomes, the large between-group effect size on insomnia severity at post-treatment in the current youth population (<italic>d</italic> = 0.78) is consistent with the findings of the previous meta-analysis on digital CBT-I in adults (<italic>d</italic> = 0.76) [<xref ref-type="bibr" rid="pmed.1004510.ref009">9</xref>]. The intervention effects on insomnia were sustained throughout the follow-up period, albeit effect size was attenuated (<italic>d</italic> = 0.32 at 12-month follow-up). This decline in intervention effects was also documented by a previous meta-analysis [<xref ref-type="bibr" rid="pmed.1004510.ref036">36</xref>], indicating that additional booster sessions might be needed to maintain long-term effects. Furthermore, the current study did not combine app-based CBT-I with circadian interventions (e.g., light therapy and circadian rhythm support), which have shown potential benefits in managing sleep and depressive symptoms in both adolescent and adult subjects [<xref ref-type="bibr" rid="pmed.1004510.ref037">37</xref>,<xref ref-type="bibr" rid="pmed.1004510.ref038">38</xref>]. Given the overlap between insomnia and circadian problems in youth, future digital sleep intervention may need further adaption by incorporating treatment components typically targeting circadian problems to optimize the treatment effects in youth population.</p>
+<p>In contrast to the long-term effects of app-based CBT-I on insomnia, its anxiolytic effect observed at post-intervention did not sustain at follow-ups, despite the close relationship between insomnia and anxiety [<xref ref-type="bibr" rid="pmed.1004510.ref039">39</xref>]. This finding may be attributed to the fact that our youth subjects had only mild anxiety symptoms at baseline, leaving little room for further improvement. Nevertheless, the mean GAD-7 score for youth receiving the app-based CBT-I intervention declined from mild at baseline to a range of near normal throughout the follow-up period.</p>
+<p>Our findings have significant implications for clinical practice and research. First, our study supports the notion of targeting modifiable risk factors, especially insomnia, to prevent future depression in youth. Second, fully automated digital CBT-I has the potential to address unmet clinical needs, enhance accessibility, and encourage help-seeking behavior among youth. Further studies should consider integrating digital CBT-I into clinical practice, especially among primary care. Third, previous RCT studies that evaluated the efficacy of digital CBT-I in youth with insomnia were all conducted in Western culture, and the majority of them had modest sample sizes [<xref ref-type="bibr" rid="pmed.1004510.ref040">40</xref>–<xref ref-type="bibr" rid="pmed.1004510.ref042">42</xref>]. Our study further confirmed that digital CBT-I is effective for treating insomnia and preventing depressive symptoms and disorders in non-Western youth population, with substantial long-term effects. Last, previous RCTs conducted in adults have reported high attrition rates (about 50% at post-intervention), which remains as a major barrier to the wider implementation of digital CBT-I [<xref ref-type="bibr" rid="pmed.1004510.ref011">11</xref>,<xref ref-type="bibr" rid="pmed.1004510.ref012">12</xref>,<xref ref-type="bibr" rid="pmed.1004510.ref042">42</xref>]. Participants in the current study with weekly individualized text reminder based on their course progress have demonstrated a relatively low attrition rate (10% at post-intervention; 74/708). This finding indicates the effectiveness of timely reminders in reducing attrition and suggests that digital treatment may be preferable to youth population who have been described as digital native. Furthermore, a similarly low attrition rate was also observed in a previous RCT on digital CBT-I conducted in non-Western culture [<xref ref-type="bibr" rid="pmed.1004510.ref043">43</xref>], suggesting possible cross-cultural differences in terms of the completion of intervention activities.</p>
+<p>The current study has several strengths. First, as a large-scale prevention trial, we had sufficient statistical power to demonstrate the preventive effect of CBT-I on depression. Second, the depression and insomnia outcomes in the current study were confirmed by both diagnostic interview and self-report questionnaires, which allow us to capture the multi-faceted nature of individual’s sleep and mood at both symptom and disorder levels. Third, there was a high attendance rate for the intervention program in the current study, with 84% (597/708) of the participants completing all six sessions of the intervention, which was higher than that of most online CBT-I programs. However, several limitations should be noted when interpreting the findings. First, participants in our study included a mix of individuals with and without a prior history of MDD, with 48% (339/708) of participants reporting a history of prior MDD. Nonetheless, only 5% (38/708) of them received treatment with antidepressants, and all of them had discontinued antidepressant use at least 2 months before the intervention, except for low-dose trazodone (25–50 mg) as sleep aids. In addition, the lack of interaction between the intervention effect and prior depression suggests that there is no difference in response to app-based CBT-I between participants with and without prior depression. Nevertheless, future randomization studies stratified by a prior history of depression are needed to replicate this finding and verify whether app-based CBT-I is effective in preventing both first-onset and recurrent depression. Second, clinical interviews using MINI were administered via telephone instead of face-to-face interviews. However, MINI telephone interview has been widely adopted in research contexts as a reliable method for assessing psychiatric disorders [<xref ref-type="bibr" rid="pmed.1004510.ref044">44</xref>]. Third, although the assessors were masked to group allocation when conducting telephone interviews, it was possible that the assessors may still become aware of participants’ allocations based on their responses. Fourth, app-based HE with the inclusion of general sleep knowledge may not be a completely ‘inactive’ control condition [<xref ref-type="bibr" rid="pmed.1004510.ref045">45</xref>], as the controls similarly improved in both insomnia and depression outcomes, albeit to a lesser extent than the intervention group. Last, the modest sample size of adolescents (&lt;18 years, <italic>n</italic> = 10) limits the generalizability of the findings to this age group.</p>
+</sec>
+<sec id="sec019" sec-type="conclusions">
+<title>5. Conclusions</title>
+<p>The current study documented the efficacy of app-based CBT-I for preventing future depression at both symptom and disorder levels, as well as reducing nocturnal and daytime impairments among high-risk youth. These findings support the integration of digital CBT-I into clinical practice for the youth population.</p>
+</sec>
+<sec id="sec020" sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material id="pmed.1004510.s001" mimetype="application/pdf" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004510.s001" xlink:type="simple">
+<label>S1 Protocol</label>
+<caption>
+<title>Effectiveness of e-based cognitive behavioral therapy for insomnia on improving mental health in Chinese youths with insomnia: a large-scale randomized control trial.</title>
+<p>(PDF)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004510.s002" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004510.s002" xlink:type="simple">
+<label>S1 Checklist</label>
+<caption>
+<title>CONSORT 25-item checklist.</title>
+<p>CONSORT, Consolidated Standards of Reporting Trials.</p>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004510.s003" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004510.s003" xlink:type="simple">
+<label>S1 Appendix</label>
+<caption>
+<title>Supplementary appendix.</title>
+<p>Table A. Description and completion rates of app-based CBT-I and app-based health education (HE) sessions during the intervention period. Table B. Hazard ratio (HR) of incident major depression in app-based CBT-I group as compared to app-based HE. Table C. HR of incident major depression in app-based CBT-I group as compared to app-based HE among participants with persistent insomnia. Table D. Secondary outcomes with imputed missing data due to participants reaching study endpoint before final follow-up. Table E. Mediation analysis results. Table F. Other prespecified outcomes. Table G. Other prespecified outcomes with imputed missing data due to participants reaching study endpoint before final follow-up. Fig A. Sleep-promoting medication use by intervention group. Fig B. Risk of developing major depressive disorder by subgroups. Fig C. Risk of developing major depressive disorder by subgroups among participants with persistent insomnia. Fig D. Remission rates of insomnia disorder by intervention group with imputed missing data due to participants reaching study endpoint before final follow-up. Fig E. Comparison of secondary outcomes at each assessment. Fig F. Comparison of other prespecified outcomes at each assessment.</p>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<glossary>
+<title>Abbreviations</title>
+<def-list><def-item><term>CBT-I</term><def><p>cognitive behavioral therapy for insomnia</p></def></def-item><def-item><term>GAD-7</term><def><p>Generalized Anxiety Disorder 7-item</p></def></def-item><def-item><term>HR</term><def><p>hazard ratio</p></def></def-item><def-item><term>HE</term><def><p>health education</p></def></def-item><def-item><term>ISI</term><def><p>Insomnia Severity Index</p></def></def-item><def-item><term>LOCF</term><def><p>last observation carried forward</p></def></def-item><def-item><term>MDD</term><def><p>major depressive disorder</p></def></def-item><def-item><term>MINI</term><def><p>Mini-International Neuropsychiatric Interview</p></def></def-item><def-item><term>PHQ-9</term><def><p>Patient Health Questionnaire-9</p></def></def-item><def-item><term>RCT</term><def><p>randomized controlled trial</p></def></def-item><def-item><term>RR</term><def><p>relative risk</p></def></def-item><def-item><term>SE</term><def><p>sleep efficiency</p></def></def-item><def-item><term>SOL</term><def><p>sleep onset latency</p></def></def-item><def-item><term>TIB</term><def><p>time in bed</p></def></def-item><def-item><term>TST</term><def><p>total sleep time</p></def></def-item><def-item><term>WASO</term><def><p>wake after sleep onset</p></def></def-item></def-list>
+</glossary>
+<ack>
+<p>We thank all the partner schools and participants for their cooperation and participation, BestCare &amp; SuMian BioTech Co, Ltd. for their support of this research, and the content creators in social media for promoting our study. The study was carried out by the Li Chiu Kong Family Sleep Assessment Unit, Department of Psychiatry, The Chinese University of Hong Kong and Peking University Sixth Hospital. The insomnia intervention program was provided to all the trial participants at no cost by our research team (Li Chiu Kong Family Sleep Assessment Unit, Department of Psychiatry, The Chinese University of Hong Kong, Hong Kong SAR) and BestCare &amp; SuMian BioTech Co, Ltd.</p>
+</ack>
+<ref-list>
+<title>References</title>
+<ref id="pmed.1004510.ref001"><label>1</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Paus</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Keshavan</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Giedd</surname> <given-names>JN</given-names></name>. <article-title>Why do many psychiatric disorders emerge during adolescence?</article-title> <source>Nat Rev Neurosci</source>. <year>2008</year>;<volume>9</volume>(<issue>12</issue>):<fpage>947</fpage>–<lpage>57</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/nrn2513" xlink:type="simple">10.1038/nrn2513</ext-link></comment> <object-id pub-id-type="pmid">19002191</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kessler</surname> <given-names>RC</given-names></name>, <name name-style="western"><surname>Berglund</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Demler</surname> <given-names>O</given-names></name>, <name name-style="western"><surname>Jin</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Merikangas</surname> <given-names>KR</given-names></name>, <name name-style="western"><surname>Walters</surname> <given-names>EE</given-names></name>. <article-title>Lifetime prevalence and age-of-onset distributions of DSM-IV disorders in the National Comorbidity Survey Replication</article-title>. <source>Arch Gen Psychiatry</source>. <year>2005</year>;<volume>62</volume>(<issue>6</issue>):<fpage>593</fpage>–<lpage>602</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/archpsyc.62.6.593" xlink:type="simple">10.1001/archpsyc.62.6.593</ext-link></comment> <object-id pub-id-type="pmid">15939837</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Naicker</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Galambos</surname> <given-names>NL</given-names></name>, <name name-style="western"><surname>Zeng</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Senthilselvan</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Colman</surname> <given-names>I</given-names></name>. <article-title>Social, demographic, and health outcomes in the 10 years following adolescent depression</article-title>. <source>J Adolesc Health</source>. <year>2013</year>;<volume>52</volume>(<issue>5</issue>):<fpage>533</fpage>–<lpage>8</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jadohealth.2012.12.016" xlink:type="simple">10.1016/j.jadohealth.2012.12.016</ext-link></comment> <object-id pub-id-type="pmid">23499382</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref004"><label>4</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Fergusson</surname> <given-names>DM</given-names></name>, <name name-style="western"><surname>Boden</surname> <given-names>JM</given-names></name>, <name name-style="western"><surname>Horwood</surname> <given-names>LJ</given-names></name>. <article-title>Recurrence of major depression in adolescence and early adulthood, and later mental health, educational and economic outcomes</article-title>. <source>Br J Psychiatry</source>. <year>2007</year>;<volume>191</volume>:<fpage>335</fpage>–<lpage>42</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1192/bjp.bp.107.036079" xlink:type="simple">10.1192/bjp.bp.107.036079</ext-link></comment> <object-id pub-id-type="pmid">17906244</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chen</surname> <given-names>S-J</given-names></name>, <name name-style="western"><surname>Zhang</surname> <given-names>J-H</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>SX</given-names></name>, <name name-style="western"><surname>Tsang</surname> <given-names>CC</given-names></name>, <name name-style="western"><surname>Chan</surname> <given-names>KCC</given-names></name>, <name name-style="western"><surname>Au</surname> <given-names>CT</given-names></name>, <etal>et al</etal>. <article-title>The trajectories and associations of eveningness and insomnia with daytime sleepiness, depression and suicidal ideation in adolescents: a 3-year longitudinal study</article-title>. <source>J Affect Disord</source>. <year>2021</year>;<volume>294</volume>:<fpage>533</fpage>–<lpage>42</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jad.2021.07.033" xlink:type="simple">10.1016/j.jad.2021.07.033</ext-link></comment> <object-id pub-id-type="pmid">34330050</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref006"><label>6</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Baglioni</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Battagliese</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Feige</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Spiegelhalder</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Nissen</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Voderholzer</surname> <given-names>U</given-names></name>, <etal>et al</etal>. <article-title>Insomnia as a predictor of depression: a meta-analytic evaluation of longitudinal epidemiological studies</article-title>. <source>J Affect Disord</source>. <year>2011</year>;<volume>135</volume>(<issue>1–3</issue>):<fpage>10</fpage>–<lpage>9</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jad.2011.01.011" xlink:type="simple">10.1016/j.jad.2011.01.011</ext-link></comment> <object-id pub-id-type="pmid">21300408</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref007"><label>7</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Blake</surname> <given-names>MJ</given-names></name>, <name name-style="western"><surname>Sheeber</surname> <given-names>LB</given-names></name>, <name name-style="western"><surname>Youssef</surname> <given-names>GJ</given-names></name>, <name name-style="western"><surname>Raniti</surname> <given-names>MB</given-names></name>, <name name-style="western"><surname>Allen</surname> <given-names>NB</given-names></name>. <article-title>Systematic review and meta-analysis of adolescent cognitive-behavioral sleep interventions</article-title>. <source>Clin Child Fam Psychol Rev</source>. <year>2017</year>;<volume>20</volume>(<issue>3</issue>):<fpage>227</fpage>–<lpage>49</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s10567-017-0234-5" xlink:type="simple">10.1007/s10567-017-0234-5</ext-link></comment> <object-id pub-id-type="pmid">28331991</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chan</surname> <given-names>NY</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>SX</given-names></name>, <name name-style="western"><surname>Zhang</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Lam</surname> <given-names>SP</given-names></name>, <name name-style="western"><surname>Kwok</surname> <given-names>APL</given-names></name>, <name name-style="western"><surname>Yu</surname> <given-names>MWM</given-names></name>, <etal>et al</etal>. <article-title>A prevention program for insomnia in at-risk adolescents: a randomized controlled study</article-title>. <source>Pediatrics</source>. <year>2021</year>;<volume>147</volume>(<issue>3</issue>):<fpage>e2020006833</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1542/peds.2020-006833" xlink:type="simple">10.1542/peds.2020-006833</ext-link></comment> <object-id pub-id-type="pmid">33627370</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lee</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Oh</surname> <given-names>JW</given-names></name>, <name name-style="western"><surname>Park</surname> <given-names>KM</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>E</given-names></name>. <article-title>Digital cognitive behavioral therapy for insomnia on depression and anxiety: a systematic review and meta-analysis</article-title>. <source>NPJ Digit Med</source>. <year>2023</year>;<volume>6</volume>(<issue>1</issue>):<fpage>52</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/s41746-023-00800-3" xlink:type="simple">10.1038/s41746-023-00800-3</ext-link></comment> <object-id pub-id-type="pmid">36966184</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref010"><label>10</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Boland</surname> <given-names>EM</given-names></name>, <name name-style="western"><surname>Goldschmied</surname> <given-names>JR</given-names></name>, <name name-style="western"><surname>Gehrman</surname> <given-names>PR</given-names></name>. <article-title>Does insomnia treatment prevent depression?</article-title> <source>Sleep</source>. <year>2023</year>;<volume>46</volume>(<issue>6</issue>):<fpage>zsad104</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/sleep/zsad104" xlink:type="simple">10.1093/sleep/zsad104</ext-link></comment> <object-id pub-id-type="pmid">37029781</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Christensen</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Batterham</surname> <given-names>PJ</given-names></name>, <name name-style="western"><surname>Gosling</surname> <given-names>JA</given-names></name>, <name name-style="western"><surname>Ritterband</surname> <given-names>LM</given-names></name>, <name name-style="western"><surname>Griffiths</surname> <given-names>KM</given-names></name>, <name name-style="western"><surname>Thorndike</surname> <given-names>FP</given-names></name>, <etal>et al</etal>. <article-title>Effectiveness of an online insomnia program (SHUTi) for prevention of depressive episodes (the GoodNight Study): a randomised controlled trial</article-title>. <source>Lancet Psychiatry</source>. <year>2016</year>;<volume>3</volume>(<issue>4</issue>):<fpage>333</fpage>–<lpage>41</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S2215-0366(15)00536-2" xlink:type="simple">10.1016/S2215-0366(15)00536-2</ext-link></comment> <object-id pub-id-type="pmid">26827250</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Cheng</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Kalmbach</surname> <given-names>DA</given-names></name>, <name name-style="western"><surname>Tallent</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Joseph</surname> <given-names>CL</given-names></name>, <name name-style="western"><surname>Espie</surname> <given-names>CA</given-names></name>, <name name-style="western"><surname>Drake</surname> <given-names>CL</given-names></name>. <article-title>Depression prevention via digital cognitive behavioral therapy for insomnia: a randomized controlled trial</article-title>. <source>Sleep</source>. <year>2019</year>;<volume>42</volume>(<issue>10</issue>):<fpage>zsz150</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/sleep/zsz150" xlink:type="simple">10.1093/sleep/zsz150</ext-link></comment> <object-id pub-id-type="pmid">31535688</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Irwin</surname> <given-names>MR</given-names></name>, <name name-style="western"><surname>Carrillo</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Sadeghi</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Bjurstrom</surname> <given-names>MF</given-names></name>, <name name-style="western"><surname>Breen</surname> <given-names>EC</given-names></name>, <name name-style="western"><surname>Olmstead</surname> <given-names>R</given-names></name>. <article-title>Prevention of incident and recurrent major depression in older adults with insomnia: a randomized clinical trial</article-title>. <source>JAMA Psychiatry</source>. <year>2022</year>;<volume>79</volume>(<issue>1</issue>):<fpage>33</fpage>–<lpage>41</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jamapsychiatry.2021.3422" xlink:type="simple">10.1001/jamapsychiatry.2021.3422</ext-link></comment> <object-id pub-id-type="pmid">34817561</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref014"><label>14</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Cuijpers</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Pineda</surname> <given-names>BS</given-names></name>, <name name-style="western"><surname>Quero</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Karyotaki</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Struijs</surname> <given-names>SY</given-names></name>, <name name-style="western"><surname>Figueroa</surname> <given-names>CA</given-names></name>, <etal>et al</etal>. <article-title>Psychological interventions to prevent the onset of depressive disorders: a meta-analysis of randomized controlled trials</article-title>. <source>Clin Psychol Rev</source>. <year>2021</year>;<volume>83</volume>:<fpage>101955</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.cpr.2020.101955" xlink:type="simple">10.1016/j.cpr.2020.101955</ext-link></comment> <object-id pub-id-type="pmid">33333441</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Koffel</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Bramoweth</surname> <given-names>AD</given-names></name>, <name name-style="western"><surname>Ulmer</surname> <given-names>CS</given-names></name>. <article-title>Increasing access to and utilization of cognitive behavioral therapy for insomnia (CBT-I): a narrative review</article-title>. <source>J Gen Intern Med</source>. <year>2018</year>;<volume>33</volume>(<issue>6</issue>):<fpage>955</fpage>–<lpage>62</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s11606-018-4390-1" xlink:type="simple">10.1007/s11606-018-4390-1</ext-link></comment> <object-id pub-id-type="pmid">29619651</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Liu</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Zhang</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Lam</surname> <given-names>SP</given-names></name>, <name name-style="western"><surname>Yu</surname> <given-names>MWM</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>SX</given-names></name>, <name name-style="western"><surname>Zhou</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Help-seeking behaviors for insomnia in Hong Kong Chinese: a community-based study</article-title>. <source>Sleep Med</source>. <year>2016</year>;<volume>21</volume>:<fpage>106</fpage>–<lpage>13</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.sleep.2016.01.006" xlink:type="simple">10.1016/j.sleep.2016.01.006</ext-link></comment> <object-id pub-id-type="pmid">27448480</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bastien</surname> <given-names>CH</given-names></name>, <name name-style="western"><surname>Vallières</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Morin</surname> <given-names>CM</given-names></name>. <article-title>Validation of the Insomnia Severity Index as an outcome measure for insomnia research</article-title>. <source>Sleep Med</source>. <year>2001</year>;<volume>2</volume>(<issue>4</issue>):<fpage>297</fpage>–<lpage>307</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/s1389-9457(00)00065-4" xlink:type="simple">10.1016/s1389-9457(00)00065-4</ext-link></comment> <object-id pub-id-type="pmid">11438246</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kroenke</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Spitzer</surname> <given-names>RL</given-names></name>, <name name-style="western"><surname>Williams</surname> <given-names>JB</given-names></name>. <article-title>The PHQ-9: validity of a brief depression severity measure</article-title>. <source>J Gen Intern Med</source>. <year>2001</year>;<volume>16</volume>(<issue>9</issue>):<fpage>606</fpage>–<lpage>13</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1046/j.1525-1497.2001.016009606.x" xlink:type="simple">10.1046/j.1525-1497.2001.016009606.x</ext-link></comment> <object-id pub-id-type="pmid">11556941</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref019"><label>19</label><mixed-citation publication-type="book" xlink:type="simple"><collab>World Health Organization</collab>. <source>The ICD-10 classification of mental and behavioural disorders: clinical descriptions and diagnostic guidelines</source>. <publisher-name>World Health Organization</publisher-name>; <year>1992</year>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Si</surname> <given-names>TM</given-names></name>, <name name-style="western"><surname>Shu</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Dang</surname> <given-names>WM</given-names></name>, <name name-style="western"><surname>Se</surname> <given-names>YA</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>JX</given-names></name>, <name name-style="western"><surname>Dong</surname> <given-names>WT</given-names></name>, <etal>et al</etal>. <article-title>Evaluation of the reliability and validity of Chinese version of the Mini-International Neuropsychiatric Interview in patients with mental disorders</article-title>. <source>Chin Ment Health J</source>. <year>2009</year>;<volume>23</volume>(<issue>7</issue>):<fpage>493</fpage>–<lpage>503</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Morin</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Bélanger</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>LeBlanc</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Ivers</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Savard</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Espie</surname> <given-names>CA</given-names></name>, <etal>et al</etal>. <article-title>The natural history of insomnia: a population-based 3-year longitudinal study</article-title>. <source>Arch Intern Med</source>. <year>2009</year>;<volume>169</volume>(<issue>5</issue>):<fpage>447</fpage>–<lpage>53</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/archinternmed.2008.610" xlink:type="simple">10.1001/archinternmed.2008.610</ext-link></comment> <object-id pub-id-type="pmid">19273774</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref022"><label>22</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Spitzer</surname> <given-names>RL</given-names></name>, <name name-style="western"><surname>Kroenke</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Williams</surname> <given-names>JBW</given-names></name>, <name name-style="western"><surname>Löwe</surname> <given-names>B</given-names></name>. <article-title>A brief measure for assessing generalized anxiety disorder: the GAD-7</article-title>. <source>Arch Intern Med</source>. <year>2006</year>;<volume>166</volume>(<issue>10</issue>):<fpage>1092</fpage>–<lpage>7</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/archinte.166.10.1092" xlink:type="simple">10.1001/archinte.166.10.1092</ext-link></comment> <object-id pub-id-type="pmid">16717171</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref023"><label>23</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Beck</surname> <given-names>AT</given-names></name>, <name name-style="western"><surname>Kovacs</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Weissman</surname> <given-names>A</given-names></name>. <article-title>Assessment of suicidal intention: the Scale for Suicide Ideation</article-title>. <source>J Consult Clin Psychol</source>. <year>1979</year>;<volume>47</volume>(<issue>2</issue>):<fpage>343</fpage>–<lpage>52</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1037//0022-006x.47.2.343" xlink:type="simple">10.1037//0022-006x.47.2.343</ext-link></comment> <object-id pub-id-type="pmid">469082</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Smets</surname> <given-names>EM</given-names></name>, <name name-style="western"><surname>Garssen</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Bonke</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>De Haes</surname> <given-names>JC</given-names></name>. <article-title>The Multidimensional Fatigue Inventory (MFI) psychometric qualities of an instrument to assess fatigue</article-title>. <source>J Psychosom Res</source>. <year>1995</year>;<volume>39</volume>(<issue>3</issue>):<fpage>315</fpage>–<lpage>25</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/0022-3999(94)00125-o" xlink:type="simple">10.1016/0022-3999(94)00125-o</ext-link></comment> <object-id pub-id-type="pmid">7636775</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref025"><label>25</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Adan</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Almirall</surname> <given-names>H</given-names></name>. <article-title>Horne &amp; Östberg morningness-eveningness questionnaire: a reduced scale</article-title>. <source>Pers Individ Dif</source>. <year>1991</year>;<volume>12</volume>(<issue>3</issue>):<fpage>241</fpage>–<lpage>53</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/0191-8869(91)90110-W" xlink:type="simple">10.1016/0191-8869(91)90110-W</ext-link></comment></mixed-citation></ref>
+<ref id="pmed.1004510.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Morin</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Vallières</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Ivers</surname> <given-names>H</given-names></name>. <article-title>Dysfunctional beliefs and attitudes about sleep (DBAS): validation of a brief version (DBAS-16)</article-title>. <source>Sleep</source>. <year>2007</year>;<volume>30</volume>(<issue>11</issue>):<fpage>1547</fpage>–<lpage>54</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/sleep/30.11.1547" xlink:type="simple">10.1093/sleep/30.11.1547</ext-link></comment> <object-id pub-id-type="pmid">18041487</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref027"><label>27</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Buntrock</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Ebert</surname> <given-names>DD</given-names></name>, <name name-style="western"><surname>Lehr</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Smit</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Riper</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Berking</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Effect of a web-based guided self-help intervention for prevention of major depression in adults with subthreshold depression: a randomized clinical trial</article-title>. <source>JAMA</source>. <year>2016</year>;<volume>315</volume>(<issue>17</issue>):<fpage>1854</fpage>–<lpage>63</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jama.2016.4326" xlink:type="simple">10.1001/jama.2016.4326</ext-link></comment> <object-id pub-id-type="pmid">27139058</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref028"><label>28</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Rohde</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Stice</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Shaw</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Brière</surname> <given-names>FN</given-names></name>. <article-title>Indicated cognitive behavioral group depression prevention compared to bibliotherapy and brochure control: acute effects of an effectiveness trial with adolescents</article-title>. <source>J Consult Clin Psychol</source>. <year>2014</year>;<volume>82</volume>(<issue>1</issue>):<fpage>65</fpage>–<lpage>74</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref029"><label>29</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Rohde</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Stice</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Shaw</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Gau</surname> <given-names>JM</given-names></name>. <article-title>Pilot trial of a dissonance-based cognitive-behavioral group depression prevention with college students</article-title>. <source>Behav Res Ther</source>. <year>2016</year>;<volume>82</volume>:<fpage>21</fpage>–<lpage>7</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref030"><label>30</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Stice</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Shaw</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Bohon</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Marti</surname> <given-names>CN</given-names></name>, <name name-style="western"><surname>Rohde</surname> <given-names>P</given-names></name>. <article-title>A meta-analytic review of depression prevention programs for children and adolescents: factors that predict magnitude of intervention effects</article-title>. <source>J Consult Clin Psychol</source>. <year>2009</year>;<volume>77</volume>(<issue>3</issue>):<fpage>486</fpage>–<lpage>503</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1037/a0015168" xlink:type="simple">10.1037/a0015168</ext-link></comment> <object-id pub-id-type="pmid">19485590</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref031"><label>31</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hammen</surname> <given-names>C</given-names></name>. <article-title>Risk factors for depression: an autobiographical review</article-title>. <source>Annu Rev Clin Psychol</source>. <year>2018</year>;<volume>14</volume>:<fpage>1</fpage>–<lpage>28</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1146/annurev-clinpsy-050817-084811" xlink:type="simple">10.1146/annurev-clinpsy-050817-084811</ext-link></comment> <object-id pub-id-type="pmid">29328780</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref032"><label>32</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Preisser</surname> <given-names>JS</given-names></name>, <name name-style="western"><surname>Lohman</surname> <given-names>KK</given-names></name>, <name name-style="western"><surname>Rathouz</surname> <given-names>PJ</given-names></name>. <article-title>Performance of weighted estimating equations for longitudinal binary data with drop-outs missing at random</article-title>. <source>Stat Med</source>. <year>2002</year>;<volume>21</volume>(<issue>20</issue>):<fpage>3035</fpage>–<lpage>54</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref033"><label>33</label><mixed-citation publication-type="journal" xlink:type="simple"><collab>Committee for Medicinal Products for Human Use</collab>. <article-title>Guideline on missing data in confirmatory clinical trials</article-title>. <source>Eur Med Agency</source>. <year>2010</year>;<volume>44</volume>:<fpage>1</fpage>–<lpage>12</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref034"><label>34</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Harvey</surname> <given-names>AG</given-names></name>. <article-title>Insomnia, psychiatric disorders, and the transdiagnostic perspective</article-title>. <source>Curr Dir Psychol Sci</source>. <year>2008</year>;<volume>17</volume>(<issue>5</issue>):<fpage>299</fpage>–<lpage>303</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref035"><label>35</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Altena</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Ellis</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Camart</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Guichard</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Bastien</surname> <given-names>C</given-names></name>. <article-title>Mechanisms of cognitive behavioural therapy for insomnia</article-title>. <source>J Sleep Res</source>. <year>2023</year>;<volume>32</volume>(<issue>6</issue>):<fpage>e13860</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/jsr.13860" xlink:type="simple">10.1111/jsr.13860</ext-link></comment> <object-id pub-id-type="pmid">36866434</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref036"><label>36</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>van der Zweerde</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Bisdounis</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Kyle</surname> <given-names>SD</given-names></name>, <name name-style="western"><surname>Lancee</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>van Straten</surname> <given-names>A</given-names></name>. <article-title>Cognitive behavioral therapy for insomnia: a meta-analysis of long-term effects in controlled studies</article-title>. <source>Sleep Med Rev</source>. <year>2019</year>;<volume>48</volume>:<fpage>101208</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.smrv.2019.08.002" xlink:type="simple">10.1016/j.smrv.2019.08.002</ext-link></comment> <object-id pub-id-type="pmid">31491656</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref037"><label>37</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Leerssen</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Lakbila-Kamal</surname> <given-names>O</given-names></name>, <name name-style="western"><surname>Dekkers</surname> <given-names>LMS</given-names></name>, <name name-style="western"><surname>Ikelaar</surname> <given-names>SLC</given-names></name>, <name name-style="western"><surname>Albers</surname> <given-names>ACW</given-names></name>, <name name-style="western"><surname>Blanken</surname> <given-names>TF</given-names></name>. <article-title>Treating insomnia with high risk of depression using therapist-guided digital cognitive, behavioral, and circadian rhythm support interventions to prevent worsening of depressive symptoms: a randomized controlled trial.</article-title>. <source>Psychother Psychosom</source>. <year>2022</year>;<volume>91</volume>(<issue>3</issue>):<fpage>168</fpage>–<lpage>79</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref038"><label>38</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kaplan</surname> <given-names>KA</given-names></name>, <name name-style="western"><surname>Mashash</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Williams</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Batchelder</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Starr-Glass</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Zeitzer</surname> <given-names>JM</given-names></name>. <article-title>Effect of light flashes vs sham therapy during sleep with adjunct cognitive behavioral therapy on sleep quality among adolescents: a randomized clinical trial</article-title>. <source>JAMA Netw Open</source>. <year>2019</year>;<volume>2</volume>(<issue>9</issue>):<fpage>e1911944</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jamanetworkopen.2019.11944" xlink:type="simple">10.1001/jamanetworkopen.2019.11944</ext-link></comment> <object-id pub-id-type="pmid">31553469</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref039"><label>39</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chellappa</surname> <given-names>SL</given-names></name>, <name name-style="western"><surname>Aeschbach</surname> <given-names>D</given-names></name>. <article-title>Sleep and anxiety: from mechanisms to interventions</article-title>. <source>Sleep Med Rev</source>. <year>2022</year>;<volume>61</volume>:<fpage>101583</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.smrv.2021.101583" xlink:type="simple">10.1016/j.smrv.2021.101583</ext-link></comment> <object-id pub-id-type="pmid">34979437</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref040"><label>40</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>de Bruin</surname> <given-names>EJ</given-names></name>, <name name-style="western"><surname>Bögels</surname> <given-names>SM</given-names></name>, <name name-style="western"><surname>Oort</surname> <given-names>FJ</given-names></name>, <name name-style="western"><surname>Meijer</surname> <given-names>AM</given-names></name>. <article-title>Improvements of adolescent psychopathology after insomnia treatment: results from a randomized controlled trial over 1 year</article-title>. <source>J Child Psychol Psychiatry</source>. <year>2018</year>;<volume>59</volume>(<issue>5</issue>):<fpage>509</fpage>–<lpage>22</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004510.ref041"><label>41</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>de Bruin</surname> <given-names>EJ</given-names></name>, <name name-style="western"><surname>Dewald-Kaufmann</surname> <given-names>JF</given-names></name>, <name name-style="western"><surname>Oort</surname> <given-names>FJ</given-names></name>, <name name-style="western"><surname>Bögels</surname> <given-names>SM</given-names></name>, <name name-style="western"><surname>Meijer</surname> <given-names>AM</given-names></name>. <article-title>Differential effects of online insomnia treatment on executive functions in adolescents</article-title>. <source>Sleep Med</source>. <year>2015</year>;<volume>16</volume>(<issue>4</issue>):<fpage>510</fpage>–<lpage>20</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.sleep.2014.12.009" xlink:type="simple">10.1016/j.sleep.2014.12.009</ext-link></comment> <object-id pub-id-type="pmid">25796966</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref042"><label>42</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Freeman</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Sheaves</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Goodwin</surname> <given-names>GM</given-names></name>, <name name-style="western"><surname>Yu</surname> <given-names>L-M</given-names></name>, <name name-style="western"><surname>Nickless</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Harrison</surname> <given-names>PJ</given-names></name>, <etal>et al</etal>. <article-title>The effects of improving sleep on mental health (OASIS): a randomised controlled trial with mediation analysis</article-title>. <source>Lancet Psychiatry</source>. <year>2017</year>;<volume>4</volume>(<issue>10</issue>):<fpage>749</fpage>–<lpage>58</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S2215-0366(17)30328-0" xlink:type="simple">10.1016/S2215-0366(17)30328-0</ext-link></comment> <object-id pub-id-type="pmid">28888927</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref043"><label>43</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Zhang</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Guo</surname> <given-names>X</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Shen</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Ma</surname> <given-names>J</given-names></name>. <article-title>Digital cognitive behavioral therapy for insomnia using a smartphone application in China: a pilot randomized clinical trial</article-title>. <source>JAMA Netw Open</source>. <year>2023</year>;<volume>6</volume>(<issue>3</issue>):<fpage>e234866</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jamanetworkopen.2023.4866" xlink:type="simple">10.1001/jamanetworkopen.2023.4866</ext-link></comment> <object-id pub-id-type="pmid">36972049</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref044"><label>44</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Ballester</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Alayo</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Vilagut</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Almenara</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Cebrià</surname> <given-names>AI</given-names></name>, <name name-style="western"><surname>Echeburúa</surname> <given-names>E</given-names></name>, <etal>et al</etal>. <article-title>Accuracy of online survey assessment of mental disorders and suicidal thoughts and behaviors in Spanish university students. Results of the WHO World Mental Health-International College Student initiative</article-title>. <source>PLoS One</source>. <year>2019</year>;<volume>14</volume>(<issue>9</issue>):<fpage>e0221529</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0221529" xlink:type="simple">10.1371/journal.pone.0221529</ext-link></comment> <object-id pub-id-type="pmid">31487306</object-id></mixed-citation></ref>
+<ref id="pmed.1004510.ref045"><label>45</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chung</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Yeung</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Chan</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Chung</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Lin</surname> <given-names>W</given-names></name>. <article-title>Sleep hygiene education as a treatment of insomnia: a systematic review and meta-analysis</article-title>. <source>Fam Pract</source>. <year>2018</year>;<volume>35</volume>(<issue>4</issue>):<fpage>365</fpage>–<lpage>75</lpage>.</mixed-citation></ref>
+</ref-list>
+</back>
+<sub-article article-type="editor-report" id="pmed.1004510.r001" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004510.r001</article-id>
+<title-group>
+<article-title>Decision Letter 0</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Sunny</surname>
+<given-names>Syba</given-names>
+</name>
+<role>Senior Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Syba Sunny</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pmed.1004510" document-id-type="doi" document-type="article" id="rel-obj001" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>0</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="letter-date">23 Aug 2024</named-content></p>
+<p>Dear Dr Wing,</p>
+<p>Thank you for submitting your manuscript entitled "Effectiveness of E-based Cognitive Behavioral Therapy for Insomnia on Preventing Major Depressive Disorder in Youth with Insomnia and Subclinical Depression: A Randomized Clinical Trial" for consideration by PLOS Medicine.</p>
+<p>Your manuscript has now been evaluated by the PLOS Medicine editorial staff and I am writing to let you know that we would like to send your submission out for external peer review.</p>
+<p>However, before we can send your manuscript to reviewers, we need you to complete your submission by providing the metadata that is required for full assessment. To this end, please login to Editorial Manager where you will find the paper in the 'Submissions Needing Revisions' folder on your homepage. Please click 'Revise Submission' from the Action Links and complete all additional questions in the submission questionnaire.</p>
+<p>Please re-submit your manuscript within two working days, i.e. by Aug 27 2024 11:59PM. Please do let us know if you need more time.</p>
+<p>Login to Editorial Manager here: <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pmedicine" xlink:type="simple">https://www.editorialmanager.com/pmedicine</ext-link></p>
+<p>Once your full submission is complete, your paper will undergo a series of checks in preparation for peer review. Once your manuscript has passed all checks it will be sent out for review.</p>
+<p>Feel free to email us at plosmedicine@plos.org if you have any queries relating to your submission.</p>
+<p>Kind regards,</p>
+<p>Syba</p>
+<p>Syba Sunny, MBBS, MRes, FRCPath</p>
+<p>Associate Editor</p>
+<p>PLOS Medicine</p>
+<p>ssunny@plos.org</p>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pmed.1004510.r002" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004510.r002</article-id>
+<title-group>
+<article-title>Decision Letter 1</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Sunny</surname>
+<given-names>Syba</given-names>
+</name>
+<role>Senior Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Syba Sunny</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pmed.1004510" document-id-type="doi" document-type="article" id="rel-obj002" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="letter-date">22 Oct 2024</named-content></p>
+<p>Dear Dr Wing,</p>
+<p>Many thanks for submitting your manuscript "Effectiveness of E-based Cognitive Behavioral Therapy for Insomnia on Preventing Major Depressive Disorder in Youth with Insomnia and Subclinical Depression: A Randomized Clinical Trial" (PMEDICINE-D-24-02778R1) to PLOS Medicine. The paper has been reviewed by subject experts and a statistician; their comments are included below and can also be accessed here: [LINK]</p>
+<p>As you will see, whilst there was an appreciation of the value of the work presented, the reviewers raised a number of concerns, including discrepancies between what was written in the manuscript and the protocol documentation provided. However, after discussing the paper with the editorial team and an academic editor with relevant expertise, I'm pleased to invite you to revise the paper in response to the reviewers' and editors’ comments. We plan to send the revised paper to some or all of the original reviewers, and we cannot provide any guarantees at this stage regarding publication.</p>
+<p>When you upload your revision, please include a point-by-point response that addresses all of the reviewer and editorial points, indicating the changes made in the manuscript and either an excerpt of the revised text or the location (eg: page and line number) where each change can be found. Please also be sure to check the general editorial comments at the end of this letter and include these in your point-by-point response. When you resubmit your paper, please include a clean version of the paper as the main article file and a version with changes tracked as a marked-up manuscript. It may also be helpful to check the guidelines for revised papers at <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/revising-your-manuscript" xlink:type="simple">http://journals.plos.org/plosmedicine/s/revising-your-manuscript</ext-link> for any that apply to your paper.</p>
+<p>We ask that you submit your revision by Nov 12 2024 11:59PM. However, if this deadline is not feasible, please contact me by email, and we can discuss a suitable alternative.</p>
+<p>Don't hesitate to contact me directly with any questions (ssunny@plos.org).</p>
+<p>Best regards,</p>
+<p>Syba</p>
+<p>Syba Sunny, MBBS, MRes, FRCPath</p>
+<p>Associate Editor</p>
+<p>PLOS Medicine</p>
+<p>ssunny@plos.org</p>
+<p>-----------------------------------------------------------</p>
+<p>Comments from the academic editor:</p>
+<p>The academic editor was supportive of inviting you to revise your paper. He agreed with the reviewer comments and asked that you give special attention to the comments of Reviewer 3 and the diagnostic issue.</p>
+<p>-----------------------------------------------------------</p>
+<p>Comments from the reviewers:</p>
+<p>Reviewer #1: The paper reports on a trial of an app-based insomnia intervention to prevent depression in young people with insomnia symptoms. I was not a reviewer of the original version of the manuscript and have not been provided with details of the previous review round, so I apologize for any overlap with previous comments. Overall the trial is clearly reported and the outcomes further establish the importance of reducing insomnia symptoms for the prevention of mental ill health. To my knowledge, no previous study has robustly tested whether treatment of insomnia symptoms can prevent depression in a young adult sample.</p>
+<p>1. The term "e-based" is not commonly used in the literature and not clearly defined. Electronic interventions are broader than digital interventions or internet interventions, which include smartphone applications (apps). A more precise term should be used throughout.</p>
+<p>2. Page 4: "...emergence of sleep and mental health problem[s]" (should be plural)</p>
+<p>3. Page 4: "...translate the modifiable risk factors for depression into [an] effective preventive strategy."</p>
+<p>4. Page 5: It appears that insomnia disorder was only assessed using the ISI, with no clinical confirmation. Perhaps the term "insomnia disorder" should be replaced by "significant insomnia symptoms" or "probable insomnia disorder". This also seems inconsistent with the trial registration, which indicates that ICD-10 criteria were to be used to assess insomnia disorder.</p>
+<p>5. Page 5: "in addition to any pharmacological treatments" - should this be "irrespective of any pharmacological treatments"?</p>
+<p>6. Page 5: "The study was conducted and reported in accordance with the CONSORT Guidelines." - CONSORT guidelines are only for the reporting of trials, not a recipe for conducting trials.</p>
+<p>7. Page 5: "Informed consents were obtained... consents from their parents" - consent should be singular (unless there were multiple consents provided for different aspects of the trial - if so, this should be described).</p>
+<p>8. Page 6: Were the interventions delivered in Chinese? Was any co-design or user testing conducted before the trial?</p>
+<p>9. Page 6 / Table S1: How much sleep hygiene content was included in the control condition? The authors are likely aware that sleep hygiene can be an active intervention (e.g., <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/fampra/cmx122" xlink:type="simple">https://doi.org/10.1093/fampra/cmx122</ext-link>). Perhaps this might explain the (smaller) improvements in insomnia in the control condition.</p>
+<p>10. Page 8: It is not clear why the sensitivity analysis (LOCF) used a less rigorous methodology than the primary analysis, as LOCF assumes MCAR instead of MAR.</p>
+<p>11. Page 9: "attended the 6-month assessments" - the method suggests that assessments were self-completed (was this online?) but the term "attended" suggests they were done in-person at a specified location - please clarify.</p>
+<p>12. No adverse events were reported. This seems surprising - did none of the control condition participants report deterioration of symptoms or any other negative experience that might have been related to the intervention? Perhaps the wording of the question about adverse events set a high threshold - some explanation would be helpful.</p>
+<p>13. The discussion (p15) reports on impacts on functional impairments - it seems this is based on daytime fatigue. It is not clear that this measure can appropriately be described as assessing functional impairments.</p>
+<p>14. The discussion attributes the low attrition to reminders. However, previous similar trials also used automated reminders (e.g., 11). I wonder if the higher adherence might be partly explained by cultural differences in expectations around completion of trial activities, given this trial seems to be the first of its kind conducted outside of Western nations? More could also be made of this outcome - that the effectiveness of addressing insomnia symptoms seems to extend beyond US/Europe/Australia.</p>
+<p>15. It is interesting that the intervention had much more modest effects on anxiety (which is also closely tied to insomnia) than on depression. No interpretation of this finding is provided.</p>
+<p>16. The limitation around use of the MINI might be strengthened. The measure had modest psychometric performance in the single validation study that was conducted against clinical interviews (in 1998) and I am not aware of any cultural adaptation of the inventory for Chinese-speaking populations.</p>
+<p>17. Another limitation of the study that should be noted is that a clear majority of the participants were young adults (18-25) rather than adolescents. There may be development differences in the role of insomnia in adolescents vs young adults, but the adolescent sample in this trial (n=20) was insufficient to examine this possibility and the findings may not generalize to adolescents (under 18 years of age).</p>
+<p>Reviewer #2: This paper reports the main results of a randomised controlled trial of an e-based CBT on preventing MDD in youth with insomnia. Overall, I found the paper very clear and easy to follow. The results were consistent across a range of outcomes which strengthen the likelihood of intervention benefits. Most of my comments are relatively minor and are listed below.</p>
+<p>Major / general comments:</p>
+<p>------------------------------</p>
+<p>1) The outcome hierarchy is not entirely clear to me. According to the protocol, outcomes were classified as follows:</p>
+<p>* Primary outcomes (x4): ⁕ Remission rate of insomnia disorder conformed by ICD-10 Classification of Mental and Behavioral Disorders, ⁕ Change of insomnia symptoms measured by ISI ⁕ Occurrence of MDD conformed by MINI and ⁕ Change of depressive symptoms measured by PHQ-9</p>
+<p>* Secondary outcomes (x2): ⁕ Incidence of suicidality which includes plans and attempts as measured by MINI and ⁕ Change of anxiety symptoms measured by GAD-7</p>
+<p>* Other outcomes (x10): ⁕ Incidence of suicidal ideation measured by BSSI, ⁕ Change of daytime symptoms measured by MFI, ⁕ Change of sleep-related thoughts and behaviours measured by DBAS-16, ⁕ Change of circadian rhythms measured by 7-Day Daily Sleep Diary and MEQ, and ⁕ Change of sleep parameters including time in bed (TIB), total sleep time (TST), sleep onset latency (SOL), wake after sleep onset (WASO), sleep efficiency (SE) measured by 7-Day Daily Sleep Diary</p>
+<p>While all these outcomes appear to be reported in the manuscript, time to MDD onset has been selected as the primary outcome with PHQ9 and ISI as secondary outcomes. Please justify this change/choice.</p>
+<p>2) The primary outcome is time to MDD onset (i.e. a survival outcome); however, assessments only occurred at discrete visits (6 and 12 months). Based on the discrete timing of the assessment, I would expect censoring and the recording of event times to occur only at the time of visits but the Kaplan-Meier plot suggests that event times were recorded continuously which surprises me. Was the actual date of MDD onset recorded (e.g. using a diary)? Please clarify in the response and manuscript.</p>
+<p>3) The attached protocol and SAP are in a Word document which does not contain any contextual information e.g. title page, date or footnote. If available, please share a full version of the protocol (and SAP) e.g. in PDF format.</p>
+<p>Minor / specific comments:</p>
+<p>------------------------------</p>
+<p>4) The sample size calculation assumes a HR of 0.5. This is a fairly large effect, -at least for someone new to this field such as me -; however, there is no justification for the choice of effect size in the manuscript. Please add.</p>
+<p>5) "Remission rates of insomnia were analysed using a weighted generalized estimating equations model". It is not clear to me why a "weighted" version of GEEs was used. Please clarify the purpose and weighting approach.</p>
+<p>6) When reporting the results of new onset MDD, the authors indicate that 10% and 18% of participants developed new onset in the intervention and control groups respectively. In the same paragraph, they report the one-year incidence of MDD estimated from the cumulative incidence curves. These numbers (12% and 21%) are different from the proportions at one year (10% and 18%). The differences are presumably due to censoring when using cumulative incidence curves. Please confirm/clarify.</p>
+<p>7) Adjusted analyses of new onset MDD were conducted after adding multiple covariates (including prior history of MDD, educational level, family income, comorbid medical illnesses and use of sleep-promoting medication). Please clarify whether this adjusted analysis was pre-specified and how the covariates were selected. Were other adjusted analyses performed?</p>
+<p>8) In the results section 3.3.1 (remission rates - bottom of page 12), please clarify what is meant by "weighted" in "the *weighted* percentage of remitters". Please also clarify what is mean by "controlling missing data" in "after controlling for strata variables and *missing data*". Does this mean that missing data was imputed? And if so, how? I would expect the primary analysis of remission rates over time to be based on all available data with no imputation; however, it is not clear to me that this was the approach used (except in sensitivity analyses).</p>
+<p>9) Table 2. Please add the number of participants with available data at each timepoint for each arm and outcome when reporting the mean and SE by visit.</p>
+<p>10) Please consider including plots of PHQ-9 and ISI (and potentially PHQ-8) scores showing the mean and SE by treatment for each visit to supplement Table 2. These plots could be part of the supplementary appendix. The same could be done for other outcomes presented in S5 Table.</p>
+<p>-Laurent Billot</p>
+<p>Reviewer #3: The authors investigated the effects of digital insomnia cognitive behavioral therapy on the occurrence of major depression in adolescents through a randomized, double-blind clinical trial. As a result of the 12-month follow-up, the prevalence of insomnia and the incidence of major depression in the group receiving digital insomnia cognitive behavioral therapy were significantly lower than those in the control group.</p>
+<p>The strength of this study is that it was conducted while controlling various variables well. This study is meaningful in that there is a lack of studies that control variables that affect the results well. Another strength is that the compliance of the study participants was evaluated and presented.</p>
+<p>However, it is a significant problem that the duration of insomnia as a study participant was not applied as the diagnostic criterion for insomnia adopted by DSM-IV and ICSD-3 since 2013, "3 months." In addition, previous studies on insomnia and depression have shown that persistent insomnia affects relapse rather than onset of depression (Persistent Sleep Disturbance: A Risk Factor for Recurrent Depression in Community-Dwelling Older Adults, <ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.5665/sleep.3128" xlink:type="simple">http://dx.doi.org/10.5665/sleep.3128</ext-link>). It is an important issue whether the variables evaluated by the authors measure relapse or first onset of depression. In addition, the authors should have considered the history of depression when randomizing. Third, the authors should mention the mechanism of operation of the digital cognitive behavioral therapy for insomnia. Information should be provided on whether the therapist delivers the prescription through the Internet based on the entered sleep diary or by an artificial intelligence model, what mechanism is used to prescribe the sleep schedule provided to the study participants, and whether cognitive therapy also addresses depression or only insomnia. It is necessary to describe the aforementioned issues as limitations. Finally, the authors have already mentioned the limitations, such as the difficulty in maintaining double-blindness and the fact that the recurrence of depression was assessed over the phone, which are important issues to consider when interpreting the study results.</p>
+<p>Any attachments provided with reviews can be seen via the following link: [LINK]</p>
+<p>--------------------------------------------------------- ---</p>
+<p>Comments and requests from the editorial team:</p>
+<p>(Note: not all will apply to your paper, but please check each item carefully)</p>
+<p>* We note that the reviewers picked up on discrepancies between the study protocol that was submitted and the information provided in the main text of the manuscript. For example, it does not appear that the diagnosis of insomnia was made as planned. Please clarify and explain all discrepancies between the paper and protocol. If the outcomes were not prespecified in the protocol, please define them in the Methods (Outcomes section) as post hoc and explain why they were added. Post hoc comparisons should be presented as hypothesis generating rather than conclusive.</p>
+<p>* It appears that the study protocol and statistical analysis plan provided may not be the original study documentation. Please also provide original versions of these documents with your next submission.</p>
+<p>* Thank you for providing a completed CONSORT checklist. We ask that you kindly revise this and use section and paragraph numbers, rather than page numbers. This is because page numbers tend to change during the production process.</p>
+<p>* Please note PLOS’s requirements for data availability (which can be accessed here: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/data-availability#loc-faqs-for-data-policy" xlink:type="simple">https://journals.plos.org/plosmedicine/s/data-availability#loc-faqs-for-data-policy</ext-link>). We ask that you look through this and kindly revise your Data Availability Statement.</p>
+<p>Also, note that we cannot accept an author’s email address as the point of contact for data requests. When possible, we recommend authors deposit restricted data to a repository that allows for controlled data access. If this is not possible, directing data requests to a non-author institutional point of contact, such as a data access or ethics committee, helps guarantee long term stability and availability of data. Providing interested researchers with a durable point of contact ensures data will be accessible even if an author changes email addresses, institutions, or becomes unavailable to answer requests.</p>
+<p>FORMATTING - GENERAL</p>
+<p>* At this stage, we ask that you include a short, non-technical Author Summary of your research to make findings accessible to a wide audience that includes both scientists and non-scientists. The Author Summary should immediately follow the Abstract in your revised manuscript. This text is subject to editorial change and should be distinct from the scientific abstract. Ideally each sub-heading should contain 2-3 single sentence, concise bullet points containing the most salient points from your study. In the final bullet point of 'What Do These Findings Mean?', please include the main limitations of the study in non-technical language. Please see our author guidelines for more information: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/revising-your-manuscript#loc-author-summary" xlink:type="simple">https://journals.plos.org/plosmedicine/s/revising-your-manuscript#loc-author-summary</ext-link>.</p>
+<p>* Please express the main results with 95% CIs as well as p values. When reporting p values please report as p「0.001 and where higher as the exact p value p=0.002, for example. Throughout, suggest reporting statistical information as follows to improve clarity for the reader "22% (95% CI [13%,28%]; p「/=)". Please be sure to define all numerical values at first use.</p>
+<p>* Please include page numbers and line numbers in the manuscript file. Use continuous line numbers (do not restart the numbering on each page).</p>
+<p>FIGURES AND TABLES</p>
+<p>* Please provide titles and legends for all figures and tables (including those in Supporting Information files).</p>
+<p>* Please define all abbreviations used in each figure/table (including those in Supporting Information files).</p>
+<p>* Please consider avoiding the use of red and green in order to make your figure more accessible to those with color blindness.</p>
+<p>SUPPLEMENTARY MATERIAL</p>
+<p>* Please note that supplementary material will be posted as supplied by the authors. Therefore, please amend it according to the relevant comments outlined here.</p>
+<p>* Please cite your Supporting Information as outlined here: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/supporting-information" xlink:type="simple">https://journals.plos.org/plosmedicine/s/supporting-information</ext-link></p>
+<p>RCTs</p>
+<p>* Please structure the Methods section using the following sub-headings: Study design and participants, Randomization and masking, Procedures, Outcomes, Statistical analysis.</p>
+<p>* Please ensure that all prespecified outcomes (primary, secondary, and exploratory) are listed in the Methods/Outcomes section and indicate whether there are outcomes that are not presented in the current report.</p>
+<p>* Please specify the dates (Month Day, Year) during which study enrollment and follow up occurred.</p>
+<p>* Please include absolute numbers wherever you report percentages; eg, n/N (%)</p>
+<p>* Please present the safety data for the study including numbers of specific events and whether or not adverse events are thought to be related to treatment. AEs should be reported in the abstract, per CONSORT and CONSORT-Harms.</p>
+<p>* If your trial had to undergo important modifications in response to extenuating circumstances, please complete the CONSERVE-CONSORT checklist and provide in your Supporting Information; (<ext-link ext-link-type="uri" xlink:href="https://www.equator-network.org/reporting-guidelines/guidelines-for-reporting-trial-protocols-and-completed-trials-modified-due-to-the-covid-19-pandemic-and-other-extenuating-circumstances-the-conserve-2021-statement/" xlink:type="simple">https://www.equator-network.org/reporting-guidelines/guidelines-for-reporting-trial-protocols-and-completed-trials-modified-due-to-the-covid-19-pandemic-and-other-extenuating-circumstances-the-conserve-2021-statement/</ext-link>). When completing the checklist, please use section and paragraph numbers, rather than page numbers.</p>
+<p>* In keeping with our commitment to Open Science, please include the study protocol document and analysis plan (including any amendments) as Supporting Information to be published with the manuscript if accepted.</p>
+<p>GENERAL REQUESTS</p>
+<p>* We ask every co-author listed on the manuscript to fill in a contributing author statement, making sure to declare all competing interests. If any of the co-authors have not filled in the statement, we will remind them to do so when the paper is revised. If all statements are not completed in a timely fashion this could hold up the re-review process. If new competing interests are declared later in the revision process, this may also hold up the submission. Should there be a problem getting one of your co-authors to fill in a statement we will be in contact. Please do not add or remove authors without first discussing this with the handling editor. You can see our competing interests policy here: <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/competing-interests" xlink:type="simple">http://journals.plos.org/plosmedicine/s/competing-interests</ext-link>.</p>
+<p>* Please upload any figures associated with your paper as individual TIF or EPS files with 300dpi resolution at resubmission; please read our figure guidelines for more information on our requirements: <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/figures" xlink:type="simple">http://journals.plos.org/plosmedicine/s/figures</ext-link>. While revising your submission, please upload your figure files to the PACE digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link>. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email us at PLOSMedicine@plos.org.</p>
+<p>* Please ensure that the paper adheres to the PLOS Data Availability Policy (see <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/data-availability" xlink:type="simple">http://journals.plos.org/plosmedicine/s/data-availability</ext-link>), which requires that all data underlying the study's findings be provided in a repository or as Supporting Information. For data residing with a third party, authors are required to provide instructions with contact information (web or email address) for obtaining the data. Please note that a study author cannot be the contact person for the data. PLOS journals do not allow statements supported by "data not shown" or "unpublished results." For such statements, authors must provide supporting data or cite public sources that include it.</p>
+<p>* We expect all researchers with submissions to PLOS in which author-generated code underpins the findings in the manuscript to make all author-generated code available without restrictions upon publication of the work. In cases where code is central to the manuscript, we may require the code to be made available as a condition of publication. Authors are responsible for ensuring that the code is reusable and well documented. Please make any custom code available, either as part of your data deposition or as a supplementary file. Please add a sentence to your data availability statement regarding any code used in the study, e.g. "The code used in the analysis is available from Github [URL] and archived in Zenodo [DOI link]" Please review our guidelines at <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/materials-software-and-code-sharing" xlink:type="simple">https://journals.plos.org/plosmedicine/s/materials-software-and-code-sharing</ext-link> and ensure that your code is shared in a way that follows best practice and facilitates reproducibility and reuse. Because Github depositions can be readily changed or deleted, we encourage you to make a permanent DOI'd copy (e.g. in Zenodo) and provide the URL.</p>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pmed.1004510.r003" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004510.r003</article-id>
+<title-group>
+<article-title>Decision Letter 2</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Sunny</surname>
+<given-names>Syba</given-names>
+</name>
+<role>Senior Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Syba Sunny</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pmed.1004510" document-id-type="doi" document-type="article" id="rel-obj003" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>2</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="letter-date">13 Dec 2024</named-content></p>
+<p>Dear Dr. Wing,</p>
+<p>Thank you very much for re-submitting your manuscript "Effectiveness of App-based Cognitive Behavioral Therapy for Insomnia on Preventing Major Depressive Disorder in Youth with Insomnia and Subclinical Depression: A Randomized Clinical Trial" (PMEDICINE-D-24-02778R2) for review by PLOS Medicine.</p>
+<p>I have discussed the paper with my colleagues and the academic editor and it was also seen again by the reviewers. I am pleased to say that provided the remaining editorial and production issues are dealt with we are planning to accept the paper for publication in the journal.</p>
+<p>The remaining issues that need to be addressed are listed at the end of this email. Any accompanying reviewer attachments can be seen via the link below. Please take these into account before resubmitting your manuscript:</p>
+<p>[LINK]</p>
+<p>***Please note while forming your response, if your article is accepted, you may have the opportunity to make the peer review history publicly available. The record will include editor decision letters (with reviews) and your responses to reviewer comments. If eligible, we will contact you to opt in or out.***</p>
+<p>In revising the manuscript for further consideration here, please ensure you address the specific points made by each reviewer and the editors. In your rebuttal letter you should indicate your response to the reviewers' and editors' comments and the changes you have made in the manuscript. Please submit a clean version of the paper as the main article file. A version with changes marked must also be uploaded as a marked up manuscript file.</p>
+<p>Please also check the guidelines for revised papers at <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/revising-your-manuscript" xlink:type="simple">http://journals.plos.org/plosmedicine/s/revising-your-manuscript</ext-link> for any that apply to your paper. If you haven't already, we ask that you provide a short, non-technical Author Summary of your research to make findings accessible to a wide audience that includes both scientists and non-scientists. The Author Summary should immediately follow the Abstract in your revised manuscript. This text is subject to editorial change and should be distinct from the scientific abstract.</p>
+<p>We expect to receive your revised manuscript within 1 week. Please email us (plosmedicine@plos.org) if you have any questions or concerns.</p>
+<p>We ask every co-author listed on the manuscript to fill in a contributing author statement. If any of the co-authors have not filled in the statement, we will remind them to do so when the paper is revised. If all statements are not completed in a timely fashion this could hold up the re-review process. Should there be a problem getting one of your co-authors to fill in a statement we will be in contact. YOU MUST NOT ADD OR REMOVE AUTHORS UNLESS YOU HAVE ALERTED THE EDITOR HANDLING THE MANUSCRIPT TO THE CHANGE AND THEY SPECIFICALLY HAVE AGREED TO IT.</p>
+<p>Please ensure that the paper adheres to the PLOS Data Availability Policy (see <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/data-availability" xlink:type="simple">http://journals.plos.org/plosmedicine/s/data-availability</ext-link>), which requires that all data underlying the study's findings be provided in a repository or as Supporting Information. For data residing with a third party, authors are required to provide instructions with contact information for obtaining the data. PLOS journals do not allow statements supported by "data not shown" or "unpublished results." For such statements, authors must provide supporting data or cite public sources that include it.</p>
+<p>To enhance the reproducibility of your results, we recommend that you deposit your laboratory protocols in protocols.io, where a protocol can be assigned its own identifier (DOI) such that it can be cited independently in the future. Additionally, PLOS ONE offers an option to publish peer-reviewed clinical study protocols. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link></p>
+<p>Please review your reference list to ensure that it is complete and correct. If you have cited papers that have been retracted, please include the rationale for doing so in the manuscript text, or remove these references and replace them with relevant current references. Any changes to the reference list should be mentioned in the rebuttal letter that accompanies your revised manuscript.</p>
+<p>Please note, when your manuscript is accepted, an uncorrected proof of your manuscript will be published online ahead of the final version, unless you've already opted out via the online submission form. If, for any reason, you do not want an earlier version of your manuscript published online or are unsure if you have already indicated as such, please let the journal staff know immediately at plosmedicine@plos.org.</p>
+<p>If you have any questions in the meantime, please contact me or the journal staff on plosmedicine@plos.org.  </p>
+<p>We look forward to receiving the revised manuscript by Dec 20 2024 11:59PM.   </p>
+<p>Sincerely,</p>
+<p>Rebecca Kirk</p>
+<p>On behalf of:</p>
+<p>Syba Sunny, MBBS, MRes, FRCPath</p>
+<p>Senior Editor </p>
+<p>PLOS Medicine</p>
+<p>plosmedicine.org</p>
+<p>------------------------------------------------------------</p>
+<p>Requests from Editors:</p>
+<p>GENERAL EDITORIAL REQEUSTS</p>
+<p>* At this stage, we ask that you include a short, non-technical Author Summary of your research to make findings accessible to a wide audience that includes both scientists and non-scientists. The Author Summary should immediately follow the Abstract in your revised manuscript. This text is subject to editorial change and should be distinct from the scientific abstract. Ideally each sub-heading should contain 2-3 single sentence, concise bullet points containing the most salient points from your study. In the final bullet point of ‘What Do These Findings Mean?’ Please include the main limitations of the study in non-technical language.</p>
+<p>Please see our author guidelines for more information: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/revising-your-manuscript#loc-author-summary" xlink:type="simple">https://journals.plos.org/plosmedicine/s/revising-your-manuscript#loc-author-summary</ext-link>. "</p>
+<p>* Please confirm that your title complies with to PLOS Medicine's style. Your title must be nondeclarative and not a question. It should begin with main concept if possible. "Effect of" should be used only if causality can be inferred, i.e., for an RCT. Please place the study design ("A randomized controlled trial," "A retrospective study," "A modelling study," etc.) in the subtitle (ie, after a colon).</p>
+<p>* Please confirm that your abstract to complies with our requirements, including providing all the information relevant to this study type <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/submission-guidelines#loc-abstract" xlink:type="simple">https://journals.plos.org/plosmedicine/s/submission-guidelines#loc-abstract</ext-link></p>
+<p>* Please ensure that the Introduction ends with a clear description of the study question or hypothesis.</p>
+<p>* Please ensure that all abbreviations are defined at first use throughout the text.</p>
+<p>FUNDING STATEMENT</p>
+<p>* The funding statement should include: specific grant numbers, initials of authors who received each award, URLs to sponsors’ websites. Also, please state whether any sponsors or funders (other than the named authors) played any role in study design, data collection and analysis, the decision to publish, or preparation of the manuscript. If they had no role in the research, include this sentence: “The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.”</p>
+<p>COMPETING INTERESTS STATEMENT</p>
+<p>* All authors must declare their relevant competing interests per the PLOS policy, which can be seen here: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/competing-interests" xlink:type="simple">https://journals.plos.org/plosmedicine/s/competing-interests</ext-link> For authors with ties to industry, please indicate whether any of the interests has a financial stake in the results of the current study.</p>
+<p>ETHICS AND CONSENT</p>
+<p>* Please specify whether informed consent was written or oral. Please ensure that the research complies with the PLOS policy in full: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/human-subjects-research#loc-patient-privacy-and-informed-consent-for-publication" xlink:type="simple">https://journals.plos.org/plosmedicine/s/human-subjects-research#loc-patient-privacy-and-informed-consent-for-publication</ext-link></p>
+<p>FIGURES</p>
+<p>* Please provide titles and legends for all figures (including those in Supporting Information files).</p>
+<p>CLINICAL TRIALS</p>
+<p>* The sample size listed in the submitted manuscript and the trial registry differ. Please explain the discrepancy.</p>
+<p>Comments from Reviewers:</p>
+<p>Reviewer #1: I thank the authors for their comprehensive responses to my comments. I have no additional concerns.</p>
+<p>-- Phil Batterham</p>
+<p>Reviewer #2: All my previous comments have been adequately adressed. Thank you.</p>
+<p>-Laurent Billot</p>
+<p>Reviewer #3: The authors have fully explained and revised the manuscript in response to the reviewers' questions and comments.</p>
+<p>Any attachments provided with reviews can be seen via the following link:</p>
+<p>[LINK]</p>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pmed.1004510.r004" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004510.r004</article-id>
+<title-group>
+<article-title>Decision Letter 3</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Sunny</surname>
+<given-names>Syba</given-names>
+</name>
+<role>Senior Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Syba Sunny</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pmed.1004510" document-id-type="doi" document-type="article" id="rel-obj004" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>3</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="letter-date">16 Dec 2024</named-content></p>
+<p>Dear Dr Wing, </p>
+<p>On behalf of my colleagues and the Academic Editor, Mark Tomlinson, I am pleased to inform you that we have agreed to publish your manuscript "Effectiveness of App-based Cognitive Behavioral Therapy for Insomnia on Preventing Major Depressive Disorder in Youth with Insomnia and Subclinical Depression: A Randomized Clinical Trial" (PMEDICINE-D-24-02778R3) in PLOS Medicine.</p>
+<p>Before your manuscript can be formally accepted you will need to complete some formatting changes, which you will receive in a follow up email. Please be aware that it may take several days for you to receive this email; during this time no action is required by you. Once you have received these formatting requests, please note that your manuscript will not be scheduled for publication until you have made the required changes.</p>
+<p>In the meantime, please log into Editorial Manager at <ext-link ext-link-type="uri" xlink:href="http://www.editorialmanager.com/pmedicine/" xlink:type="simple">http://www.editorialmanager.com/pmedicine/</ext-link>, click the "Update My Information" link at the top of the page, and update your user information to ensure an efficient production process. </p>
+<p>PRESS</p>
+<p>We frequently collaborate with press offices. If your institution or institutions have a press office, please notify them about your upcoming paper at this point, to enable them to help maximise its impact. If the press office is planning to promote your findings, we would be grateful if they could coordinate with medicinepress@plos.org. If you have not yet opted out of the early version process, we ask that you notify us immediately of any press plans so that we may do so on your behalf.</p>
+<p>We also ask that you take this opportunity to read our Embargo Policy regarding the discussion, promotion and media coverage of work that is yet to be published by PLOS. As your manuscript is not yet published, it is bound by the conditions of our Embargo Policy. Please be aware that this policy is in place both to ensure that any press coverage of your article is fully substantiated and to provide a direct link between such coverage and the published work. For full details of our Embargo Policy, please visit <ext-link ext-link-type="uri" xlink:href="http://www.plos.org/about/media-inquiries/embargo-policy/" xlink:type="simple">http://www.plos.org/about/media-inquiries/embargo-policy/</ext-link>.</p>
+<p>To enhance the reproducibility of your results, we recommend that you deposit your laboratory protocols in protocols.io, where a protocol can be assigned its own identifier (DOI) such that it can be cited independently in the future. Additionally, PLOS ONE offers an option to publish peer-reviewed clinical study protocols. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link></p>
+<p>Thank you again for submitting to PLOS Medicine. We look forward to publishing your paper. </p>
+<p>Sincerely, </p>
+<p>Rebecca Kirk</p>
+<p>On behalf of:</p>
+<p>Syba Sunny, MBBS, MRes, FRCPath </p>
+<p>Senior Editor </p>
+<p>PLOS Medicine</p>
+</body>
+</sub-article>
+</article>

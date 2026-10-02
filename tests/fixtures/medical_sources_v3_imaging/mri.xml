@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1d3 20150301//EN" "http://jats.nlm.nih.gov/publishing/1.1d3/JATS-journalpublishing1.dtd">
+<article article-type="research-article" dtd-version="1.1d3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS ONE</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLOS ONE</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pone.0188679</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-17-03918</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Magnetic resonance imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Magnetic resonance imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Magnetic resonance imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Signs and symptoms</subject><subj-group><subject>Lesions</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Pathology and laboratory medicine</subject><subj-group><subject>Signs and symptoms</subject><subj-group><subject>Lesions</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Mammography</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Mammography</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Mammography</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Surgical and invasive medical procedures</subject><subj-group><subject>Biopsy</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Cancer detection and diagnosis</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancer detection and diagnosis</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Epidemiology</subject></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Breast tumors</subject><subj-group><subject>Ductal carcinoma in situ</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Carcinomas</subject><subj-group><subject>Ductal carcinoma in situ</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Breast tumors</subject><subj-group><subject>Invasive ductal carcinoma</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3"><subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Carcinomas</subject><subj-group><subject>Invasive ductal carcinoma</subject></subj-group></subj-group></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>MRI for the assessment of malignancy in BI-RADS 4 mammographic microcalcifications</article-title>
+<alt-title alt-title-type="running-head">MRI in mammographic microcalcifications</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes" equal-contrib="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-4086-612X</contrib-id>
+<name name-style="western">
+<surname>Bennani-Baiti</surname>
+<given-names>Barbara</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Formal analysis</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Validation</role>
+<role content-type="http://credit.casrai.org/">Writing – original draft</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Dietzel</surname>
+<given-names>Matthias</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Data curation</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" equal-contrib="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Baltzer</surname>
+<given-names>Pascal A.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Data curation</role>
+<role content-type="http://credit.casrai.org/">Formal analysis</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Project administration</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Validation</role>
+<role content-type="http://credit.casrai.org/">Writing – original draft</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Department of Pharmaceutical Chemistry, University of Vienna, Vienna, Austria</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>Department of Biomedical Imaging and Image-guided Therapy, Vienna General Hospital (AKH), Medical University of Vienna, Vienna, Austria</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>Department of Radiology, University of Erlangen-Nürnberg, Nürnberg, Germany</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Ahmad</surname>
+<given-names>Aamir</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"/>
+</contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>University of South Alabama Mitchell Cancer Institute, UNITED STATES</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>The authors have declared that no competing interests exist.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">barbara.bennani-baiti@univie.ac.at</email> (BBB); <email xlink:type="simple">pascal.baltzer@meduniwien.ac.at</email> (PB)</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>30</day>
+<month>11</month>
+<year>2017</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2017</year>
+</pub-date>
+<volume>12</volume>
+<issue>11</issue>
+<elocation-id>e0188679</elocation-id>
+<history>
+<date date-type="received">
+<day>2</day>
+<month>2</month>
+<year>2017</year>
+</date>
+<date date-type="accepted">
+<day>11</day>
+<month>11</month>
+<year>2017</year>
+</date>
+</history>
+<permissions>
+<copyright-year>2017</copyright-year>
+<copyright-holder>Bennani-Baiti et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pone.0188679"/>
+<abstract>
+<sec id="sec001">
+<title>Purpose</title>
+<p>Assess the performance of breast MRI to diagnose breast cancer in BI-RADS 4 microcalcifications detected by mammography.</p>
+</sec>
+<sec id="sec002">
+<title>Materials and methods</title>
+<p>This retrospective, IRB-approved study included 248 consecutive contrast-enhanced breast MRI (1.5T, protocol in accordance with EUSOBI recommendations) performed to further diagnose BI-RADS 4 microcalcifications detected at mammography during a 3-year period. Standard of reference had to be established by histopathology. Routine consensus reading results by two radiologists were dichotomized as positive or negative and compared with the reference standard (benign vs malignant) to calculate diagnostic parameters.</p>
+</sec>
+<sec id="sec003">
+<title>Results</title>
+<p>There were 107 malignant and 141 benign microcalcifications. Malignancy rates were 18.3% (23/126 BI-RADS 4a), 41.7% (25/60 BI-RADS 4b) and 95% (59/62 BI-RADS 4c). There were 103 true-positive, 116 true-negative, 25 false-positive, and 4 false-negative (one invasive cancer, three DCIS; 2 BI-RADS 4c, 1 BI-RADS 4b on mammography) breast MRI findings, effecting a sensitivity, specificity, PPV, and NPV of 96.3% (95%-CI 90.7–99.0%), 82.3% (95%-CI 75.0–88.2%), 80.5% (95%-CI 72.5–87.0%) and 96.7% (95%-CI 91.7–99.1%), respectively.</p>
+</sec>
+<sec id="sec004">
+<title>Conclusion</title>
+<p>MRI is an accurate tool to further diagnose BI-RADS 4a and 4b microcalcifications and may be helpful to avoid unnecessary biopsies in BI-RADS 4a and 4b lesions. BI-RADS 4c microcalcifications should be biopsied irrespective of MRI findings.</p>
+</sec>
+</abstract>
+<funding-group>
+<funding-statement>This article was supported by the Open Access Publishing Fund of the University of Vienna.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="2"/>
+<table-count count="3"/>
+<page-count count="10"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>All relevant data are within the paper and its Supporting Information files.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec005" sec-type="intro">
+<title>Introduction</title>
+<p>Mammographic microcalcifications are detected in about one third of screening mammograms and are found in up to 40% of breast cancers [<xref ref-type="bibr" rid="pone.0188679.ref001">1</xref>, <xref ref-type="bibr" rid="pone.0188679.ref002">2</xref>]. Since approximately 80% of ductal carcinoma in situ (DCIS) present only as microcalcifications at mammography, mammographic microcalcifications represent an important imaging hallmark that need to be further evaluated [<xref ref-type="bibr" rid="pone.0188679.ref001">1</xref>, <xref ref-type="bibr" rid="pone.0188679.ref003">3</xref>].These lesions are currently further assessed mostly by percutaneous biopsy or by follow-up. Mammographic microcalcifications are rated according to Breast Imaging Reporting and Data System (BI-RADS) criteria. The most recent BI-RADS lexicon has eliminated BI-RADS 3 rating for such lesions. This is due to the wide range of malignancy rates that was found for BI-RADS 3 mammographic microcalcifications (0–9.7%) that do not comply with the BI-RADS definition of BI-RADS 3 lesions, which are characterized with a disease prevalence of less than 2% [<xref ref-type="bibr" rid="pone.0188679.ref004">4</xref>, <xref ref-type="bibr" rid="pone.0188679.ref005">5</xref>]. Reported disease prevalence for BI-RADS 4 mammographic microcalcifications range from 32 to 65.2% and from 91.4 to 100% for BI-RADS 5 rated lesions [<xref ref-type="bibr" rid="pone.0188679.ref005">5</xref>]. Reported Positive Predictive Values (PPVs) for BI-RADS 4 lesions are low, ranging from 20–65.2% as assessed by histopathology [<xref ref-type="bibr" rid="pone.0188679.ref006">6</xref>–<xref ref-type="bibr" rid="pone.0188679.ref009">9</xref>]. They display great heterogeneity, probably owing to data being pooled from different subgroups (BI-RADS 4a-4c). Since, there is no safe established additional screening tool to further differentiate these lesions and since malignancy rates are overall too high to justify follow-up alone, almost all mammographic microcalcifications undergo biopsy to exclude malignancy. Consequently, to ensure the safety of the cohort, about 34.8–62% of patients with BI-RADS 4 rated mammographic microcalcifications undergo biopsy for a benign result [<xref ref-type="bibr" rid="pone.0188679.ref005">5</xref>]. Since Magnetic Resonance Imaging (MRI) has been shown to exhibit the highest sensitivity and specificity for breast cancer detection in general and an Negative Predictive Value (NPV) of nearly 100% in non-calcified lesions referred for problem solving [<xref ref-type="bibr" rid="pone.0188679.ref010">10</xref>], several studies have tried to see whether MRI can further evaluate mammographic microcalcifications. A recent meta-analysis has analysed their findings and concluded that MRI may indeed be helpful in the assessment of BI-RADS 4 microcalcifications pending on the underlying disease prevalence [<xref ref-type="bibr" rid="pone.0188679.ref005">5</xref>]. As indicated above, reported BI-RADS 4 lesion disease prevalence varies and increases from BI-RADS 4a to BI-RADS4c lesions. Therefore, we sought to investigate whether MRI can safely exclude malignancy in BI-RADS 4 lesions according to the respective BI-RADS 4 rating (a-c).</p>
+</sec>
+<sec id="sec006" sec-type="materials|methods">
+<title>Materials and methods</title>
+<sec id="sec007">
+<title>Patient selection</title>
+<p>For this cross-sectional single-center Institutional Review Board approved retrospective study, 2472 patients undergoing breast MRI during a period of 36 months at the university hospital Jena were eligible. To identify patients with mammographic microcalcifications, we queried our institutional database. This database included the date of examination, if present, the lead finding (i.e. mass, microcalcification, asymmetric density, architectural distortion), and the assigned BI-RADS category. All patients that were referred for breast MRI evaluation of mammographic microcalcifications rated BI-RADS 4a-4c at full field digital mammography followed by subsequent histopathological diagnosis were selected. Staging examinations of biopsy-proven cancers were excluded. In case of benign findings, a follow-up of at least 24 months had to be documented. Consequently, 248 consecutive patients met our inclusion criteria.</p>
+</sec>
+<sec id="sec008">
+<title>MR imaging</title>
+<p>MR imaging was performed in prone position on 1.5 Tesla units (Magnetom Avanto and Magnetom Sonata, Siemens Medical Solutions, Erlangen, Germany) with dedicated vendor-supplied four-channel bilateral breast coils (Siemens Medical Solutions, Erlangen, Germany). The MRI-protocol was designed following international recommendations [<xref ref-type="bibr" rid="pone.0188679.ref011">11</xref>, <xref ref-type="bibr" rid="pone.0188679.ref012">12</xref>] and employed a dynamic sequence (T1-weighted FLASH 2D, GRAPPA factor 2, repetition time 113 ms, echo time 5 ms, flip angle 80°, spatial resolution 1.1 x 0.9 x 3 mm, 33 slices) with 1-minute temporal resolution performed once before and seven times after automated intravenous injection (3 ml/s, Spectris, Medrad, Pittsburgh, USA) of 0.1 mmol/kg Gd-DTPA (Magnevist, Bayer Health Care, Leverkusen, Germany). Subtractions were calculated by subtracting precontrast from postcontrast sequences. The protocol was completed by a bilateral axial T2-weighted Turbo-Spin-Echo sequence (T2w-TSE, GRAPPA factor 2, TR 8900 ms, TE 207 ms, flip angle 90°, spatial resolution 0.8 x 0.7 x 3 mm, 33 slices, time of acquisition 2:15 minutes), a bilateral axial Turbo Spin Echo Inversion Recovery sequence with magnitude reconstruction (TIRM, GRAPPA factor 2, TR 8420 ms, TE 70 ms, TI 150 ms, flip angle 180°, spatial resolution 1.7 x 1.4 x 3 mm, 33 slices, time of acquisition 2:33 minutes) acquired in identical slice positions. Additionally, Diffusion Weighted Imaging (DWI) (Echo Planar Imaging, EPI, GRAPPA factor 2, TR 3500, TE 80, echo distance 0.95 ms, 6 averages, 3 b-values: 0, 750, 1000 s/mm2, spectral fat saturation, spatial resolution 1.8 x 1.8 x 6 mm, 22 slices, time of acquisition 2:38 minutes) was carried out.</p>
+</sec>
+<sec id="sec009">
+<title>Reference standard</title>
+<p>Histopathological diagnosis was obtained after percutaneous image-guided biopsy followed by subsequent surgery in case of malignant diagnosis. Malignant lesions were further subcategorized into ductal carcinoma in situ (DCIS), invasive carcinomas with extensive intraductal component (EIC) and invasive carcinomas (IC). Benign lesions as identified by histopathological result were either operated on (upon either patient or surgeon’s request) and/or followed-up by imaging (at least mammography and ultrasound) for a minimum of 24 months. Board-certified breast pathologists with extensive experience in the field determined histopathological results. In accordance with national S3-guidelines, specimen were tested for hormonal receptors (Human epidermal growth factor receptor 2 (HER2/neu), progesterone receptor (PR), and estrogen receptor (ER)).</p>
+</sec>
+<sec id="sec010">
+<title>Data analysis</title>
+<p>All MR-images were chronologically analyzed by a consensus double-reading approach of two experienced radiologists (&gt; 500 Breast MRI examinations/year) with access to mammography results during routine clinical practice. Vacuum-assisted biopsy was always performed after breast MRI to avoid artifacts, thus MRI reading was done before histopathological diagnosis. All examinations were assigned a consensus MRI BI-RADS category. MRI BI-RADS findings were dichotomized into positive (BI-RADS 4–5) and negative (BI-RADS 1–3) results and ensuing true negative (TN), false negative (FN), true positive (TP) and false positive (FP) numbers were taken from cross-tabulations against the final diagnosis for further statistical analysis. The main lesion (one per patient) was analyzed for the purpose of this study.</p>
+</sec>
+<sec id="sec011">
+<title>Statistical analysis</title>
+<p>Diagnostic parameters were calculated using MedCalc<sup>®</sup> and SPSS 22.0 (IBM, USA) [<xref ref-type="bibr" rid="pone.0188679.ref013">13</xref>]. Sensitivity, Specificity, PPV and NPV were determined along with their respective 95%-confidence intervals. Fisher’s exact test was used to probe for differences between BI-RADS 4a-c subgroups. P-values below 0.01 were deemed to characterize significant findings for all calculations.</p>
+</sec>
+</sec>
+<sec id="sec012" sec-type="results">
+<title>Results</title>
+<sec id="sec013">
+<title>Patient and lesion characteristics</title>
+<p>248 patients, accounting for 141 benign and 107 malignant lesions were included in this retrospective IRB approved study. This equaled a disease prevalence of 43.1%. 33.9% of the investigated lesions represented invasive malignant lesions. Mean patient age was 60 years (+/- 11 years; range 31–82 years). Patients were referred to MRI for the assessment of BI-RADS 4a-c mammographic microcalcifications.</p>
+<p>Malignant lesion distribution, grading and receptor status are given in <xref ref-type="table" rid="pone.0188679.t001">Table 1</xref> and <xref ref-type="table" rid="pone.0188679.t002">Table 2</xref>. All underlying data are given in the <xref ref-type="supplementary-material" rid="pone.0188679.s001">S1 File</xref>.</p>
+<table-wrap id="pone.0188679.t001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0188679.t001</object-id>
+<label>Table 1</label> <caption><title>Immunohistochemical profile of malignant lesions.</title></caption>
+<alternatives>
+<graphic id="pone.0188679.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0188679.t001" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left"/>
+<th align="left"/>
+<th align="left">IC</th>
+<th align="left">EIC</th>
+<th align="left">DCIS</th>
+<th align="left">total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>ER</bold></td>
+<td align="left">positive</td>
+<td align="left">10 (33.3%)</td>
+<td align="left">10 (33.3%)</td>
+<td align="left">10 (33.3%)</td>
+<td align="left">30 (100%)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">negative</td>
+<td align="left">39 (50.6%)</td>
+<td align="left">25 (32.5%)</td>
+<td align="left">13 (16.9%)</td>
+<td align="left">77 (100%)</td>
+</tr>
+<tr>
+<td align="left"><bold>PR</bold></td>
+<td align="left">positive</td>
+<td align="left">36 (48.0%)</td>
+<td align="left">28 (37.3%)</td>
+<td align="left">11 (14.7%)</td>
+<td align="left">75 (100%)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">negative</td>
+<td align="left">13 (40.6%)</td>
+<td align="left">7 (21.9%)</td>
+<td align="left">12 (37.5%)</td>
+<td align="left">32 (100%)</td>
+</tr>
+<tr>
+<td align="left"><bold>Her2/neu</bold></td>
+<td align="left">positive</td>
+<td align="left">15 (41.7%)</td>
+<td align="left">10 (27.8%)</td>
+<td align="left">11 (30.6%)</td>
+<td align="left">36 (100%)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">negative</td>
+<td align="left">34 (47.9%)</td>
+<td align="left">25 (35.2%)</td>
+<td align="left">12 (16.9%)</td>
+<td align="left">71 (100%)</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t001fn001"><p>ER: Estrogen Receptor; PR: Progesterone Receptor; Her2/neu: human epidermal growth factor receptor 2; IC: Invasive Cancer; EIC: Extensive Intraductal Component; DCIS: Ductal Carcinoma In Situ</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="pone.0188679.t002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0188679.t002</object-id>
+<label>Table 2</label> <caption><title>Malignant lesion grading distribution.</title></caption>
+<alternatives>
+<graphic id="pone.0188679.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0188679.t002" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left"/>
+<th align="left">IC</th>
+<th align="left">EIC</th>
+<th align="left">DCIS</th>
+<th align="left">total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">G1</td>
+<td align="left">2 (33.0%)</td>
+<td align="left">2 (33.0%)</td>
+<td align="left">2 (33.0%)</td>
+<td align="left">6 (100%)</td>
+</tr>
+<tr>
+<td align="left">G2</td>
+<td align="left">19 (47.5%)</td>
+<td align="left">12 (30.0%)</td>
+<td align="left">9 (22.5%)</td>
+<td align="left">40 (100%)</td>
+</tr>
+<tr>
+<td align="left">G3</td>
+<td align="left">28 (45.9%)</td>
+<td align="left">21 (34.4%)</td>
+<td align="left">12 (19.7%)</td>
+<td align="left">61 (100%)</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+</table-wrap>
+</sec>
+<sec id="sec014">
+<title>Performance of MRI in BI-RADS 4 mammographic microcalcifications</title>
+<p>There were 103 true-positive, 116 true-negative, 25 false-positive, and 4 false-negative breast MRI findings, effecting a sensitivity, specificity, PPV, and NPV of 96.3% (95%-CI 90.7–99.0%), 82.3% (95%-CI 75.0–88.2%), 80.5% (95%-CI 72.5–87.0%) and 96.7% (95%-CI 91.7–99.1%), respectively. Among the 4 false-negative findings were one invasive cancer (G3) and three DCIS (2 G2, 1 G3). The invasive carcinoma was classified BI-RADS 4c and the 3 false negative DCIS were originally rated BI-RADS 4a (n = 1), BI-RADS 4b (n = 1) and BI-RADS 4c (n = 1) at mammography. MRI sensitivity, specificity, PPV, and NPV for invasive carcinomas were 98.8% (95%-CI 93.5–100%), 72.6% (95%-CI 65.1–69.2%), 64.8% (95%-CI 55.9–73.1%) and 99.2% (95%-CI 95.4–100%), respectively. Examples are given in <xref ref-type="fig" rid="pone.0188679.g001">Fig 1</xref> and <xref ref-type="fig" rid="pone.0188679.g002">Fig 2</xref>.</p>
+<fig id="pone.0188679.g001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0188679.g001</object-id>
+<label>Fig 1</label>
+<caption>
+<title/>
+<p>Small cluster of screening detected BI-RADS 4b microcalcifications (A) in the right breast of a 50-year old woman. MRI (B) demonstrates a linear clumped non-mass enhancement rated BI-RADS 4. Vacuum-assisted breast biopsy and subsequent surgery revealed a hormonal receptor positive DCIS G2.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0188679.g001" xlink:type="simple"/>
+</fig>
+<fig id="pone.0188679.g002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0188679.g002</object-id>
+<label>Fig 2</label>
+<caption>
+<title/>
+<p>Screening detected segmental linear and coarse heterogeneous microcalcifications BI-RADS 4a in the right breast of a 59-year old woman (A, B). Contrast enhanced MRI (C) revealed no enhancing lesions, small foci were not associated with the microcalcifications. T2-weighted images did not reveal any architectural distortions (D). Histopathology revealed secretory changes, B2.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0188679.g002" xlink:type="simple"/>
+</fig>
+</sec>
+<sec id="sec015">
+<title>Performance of MRI stratified according to mammographic BI-RADS rating (4a-4c)</title>
+<p>126 microcalcified lesions were rated BI-RADS 4a at mammography. 103 of which were benign, and 23 of which were malignant, resulting in a disease prevalence of 18.3% (95%-CI 11.9–26.1%). Calculated sensitivity, specificity, PPV, and NPV were 95.7% (95%-CI 78.1–100%), 85.4% (95%-CI 77.1–91.6%), 59.5% (95%-CI 42.1–75.3%) and 98.9% (95%-CI 93.9% to 100%), respectively.</p>
+<p>60 lesions were classified BI-RADS 4b at mammography and harboured a disease prevalence of 41,7% (95%-CI 29.1–55.1%; 25 malignant, 35 benign findings). Resulting sensitivity, specificity, PPV, and NPV were 96.0% (95%-CI 79.7%-99.9%), 71.4% (95%-CI 53.7–85.4%), 70.6% (95%-CI 52.5–84.9%) and 96.1% (95%-CI 80.4–99.9%), respectively.</p>
+<p>62 lesions rated BI-RADS 4c at mammography displayed a malignancy rate of 95.2% (95%-CI 86.5–99.0%, 59 malignant and 3 benign lesions). This effected a sensitivity, specificity, PPV, and NPV of 96.6% (95%-CI 88.3–99.6%), 100% (95%-CI 29.2–100%), 100% (93.7%-100%) and 60% (95%-CI 14.7–94,7%), respectively.</p>
+<p>Chi-square test found no significant differences for sensitivity, specificity, PPV and NPV between BI-RADS 4a-4c subgroups (p&gt;0.01).</p>
+</sec>
+</sec>
+<sec id="sec016" sec-type="conclusions">
+<title>Discussion</title>
+<p>Microcalcifications are a common finding at mammography and in the majority of DCIS lesions the only sign of malignancy [<xref ref-type="bibr" rid="pone.0188679.ref001">1</xref>–<xref ref-type="bibr" rid="pone.0188679.ref003">3</xref>]. While MRI features the highest sensitivity and specificity of all imaging modalities with regard to breast cancer, its potential role in the assessment of mammographic microcalcifications is still controversially discussed. One major reason undoubtedly being that calcifications themselves are not visible on MRI. Still, due to its ability to detect neoangiogenesis and the fact that lesions as small as 2-3mm are reportedly visible on MRI, the corresponding area of microcalcifications should technically be assessable by MRI [<xref ref-type="bibr" rid="pone.0188679.ref011">11</xref>, <xref ref-type="bibr" rid="pone.0188679.ref014">14</xref>–<xref ref-type="bibr" rid="pone.0188679.ref018">18</xref>].</p>
+<p>A recent meta-analysis suggested a role for MRI in the evaluation of mammographic microcalcifications rated BI-RADS 4 [<xref ref-type="bibr" rid="pone.0188679.ref005">5</xref>]. However, the number of available studies this finding was based on was limited (n = 4) and the cohort sizes were small, with the numbers of lesions ranging from 27–78 [<xref ref-type="bibr" rid="pone.0188679.ref009">9</xref>, <xref ref-type="bibr" rid="pone.0188679.ref019">19</xref>–<xref ref-type="bibr" rid="pone.0188679.ref021">21</xref>]. The data presented herein is derived from 248 lesions and therefore the largest cohort reported on in this context so far. Previous studies reported disease prevalences ranging from 32.1% to 62.5% for BI-RADS 4 mammographic microcalcifications. Our cohort exhibits a disease prevalence of 43.1% which is well within this range. We also find a clear increase of malignancy rates from BI-RADS 4a to BI-RADS 4c lesions, with the disease prevalence being above 95% in BI-RADS 4c lesions. This finding alone indicates, that it is not useful to perform an MRI for BI-RADS 4c lesions in order to rule out malignancy as mammography is accurate enough to predict malignancy in these lesions and warrant definite management by percutaneous biopsy.</p>
+<p>Diagnostic performance of previous studies is listed in <xref ref-type="table" rid="pone.0188679.t003">Table 3</xref>. Our study shows comparable results regarding sensitivity and specificity. PPV and NPV are dependent on disease prevalence, and therefore always need to be evaluated in its context. Given the fact that NPV is inversely correlated with prevalence and the fact that our cohort already features a relatively high disease prevalence of 43.1%, we believe this value to reflect the true performance of MRI in this setting and if anything, to be a conservative estimate. Consequently, in our cohort MRI could exclude malignancy of BI-RADS 4 microcalcifications with a certainty of 97%. 3 of the lesions that were wrongly classified as benign on MRI were DCIS and one constituted an invasive carcinoma. Given the ongoing controversy around DCIS not always representing clinically relevant disease that will progress into cancer [<xref ref-type="bibr" rid="pone.0188679.ref022">22</xref>] accompanied with growing concern that many of these lesions are being overtreated/-diagnosed [<xref ref-type="bibr" rid="pone.0188679.ref023">23</xref>], MRI test performance for diagnosis of invasive lesions is clinically relevant. Here, MRI provides an edge over other imaging modalities since it indicates neovascularization. Neoangeogenesis has already been postulated more than 20 years ago to mark the difference between biologically active and dormant cancer [<xref ref-type="bibr" rid="pone.0188679.ref024">24</xref>]. Sensitivity and NPV for invasive cancer were 98.8% and 99.2% in our study. These findings confirm the results of the meta-analysis cited above [<xref ref-type="bibr" rid="pone.0188679.ref005">5</xref>]. The one remaining invasive lesion that went undetected by MRI was a BI-RADS 4c lesion, a lesion that given the likelihood of malignancy at mammography, would have not been missed in the diagnostic workup. Although the pooled results from all BI-RADS 4 lesions combined in the meta-analysis referenced above already suggest a role for MRI in the workup of BI-RADS 4 mammographic microcalcifications we further looked at test performance in BI-RADS 4 subgroups. Sensitivity, being independent from cancer prevalence, did not differ significantly between BI-RADS 4 subgroups, which indicates applicability of MRI in all subcategories. Specificity was above 70% in the subgroups of BI-RADS 4a and 4b mammographic microcalcifications where our results indicate the highest usefulness of additional breast MRI. Consequently, the potential value of MRI to downgrade mammographic microcalcifications (e.g. avoid biopsies in benign microcalcifications) can be considered higher than its negative impact as measured by false positive findings. In our study, all patients referred to MRI already underwent stereotactical biopsy according to the current guidelines. Thus, using MRI for further patient management could potentially have avoided 82% unnecessary biopsies in BI-RADS 4a and 58% unnecessary biopsies in BI-RADS 4b lesions. Due to the retrospective character of our study, we cannot estimate to what extent false positive findings by MRI were associated with the mammographic microcalcifications or incidental additional lesions detected by MRI. In addition, our patient-wise analysis does not cover MRI-detected additional e.g. multicentric cancer lesions or whether it caused unnecessary biopsies of additional false positive findings. A deeper analysis of the possible implications of patient-wise vs lesion-wise analysis is given in [<xref ref-type="bibr" rid="pone.0188679.ref025">25</xref>]. Whether the use of MRI can improve preoperative planning of malignant lesions by more accurate mapping of lesion extent remains a matter of debate and was not tested for in this study. Recent data suggest that presence of enhancement as sole diagnostic criterion may constitute the best approach to diagnosing mammographic microcalcifications at MRI [<xref ref-type="bibr" rid="pone.0188679.ref005">5</xref>]. Our work documents routine reading results in clinical practice and thus did not document specific diagnostic criteria that were decisive for the MRI diagnosis. This however, can be seen as a strength of this study as the setting reflects and its results apply to clinical practice while a retrospective reading setup may less do so. Also, and as it is the case for previously published studies on this topic, our results lack additional subgroup data regarding the MRI correlate of mammographic microcalcifications as e.g. mass or non-mass. It is presumable that the “presence of enhancement” criterion is more useful in the diagnostically problematic non-mass enhancements as MRI BI-RADS criteria do quite accurately allow to distinguish benign from malignant mass lesions [<xref ref-type="bibr" rid="pone.0188679.ref026">26</xref>–<xref ref-type="bibr" rid="pone.0188679.ref028">28</xref>]. Whether modified MRI protocols including first pass high temporal resolution [<xref ref-type="bibr" rid="pone.0188679.ref029">29</xref>, <xref ref-type="bibr" rid="pone.0188679.ref030">30</xref>], functional techniques [<xref ref-type="bibr" rid="pone.0188679.ref031">31</xref>–<xref ref-type="bibr" rid="pone.0188679.ref033">33</xref>] and higher field strength [<xref ref-type="bibr" rid="pone.0188679.ref034">34</xref>, <xref ref-type="bibr" rid="pone.0188679.ref035">35</xref>] would impact MRI performance in this setting remains to be seen in further studies. Finally, the cost effectiveness of using MRI as an additional test in mammographic microcalcifications should be critically evaluated. Given the very good diagnostic performance based on our data, this warrants more research into this direction to further refine which patients may benefit from additional MRI and which will not.</p>
+<table-wrap id="pone.0188679.t003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0188679.t003</object-id>
+<label>Table 3</label> <caption><title>Comparison of MRI performance with published data.</title></caption>
+<alternatives>
+<graphic id="pone.0188679.t003g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0188679.t003" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">First author</th>
+<th align="left">year</th>
+<th align="left">lesions</th>
+<th align="left">prevalence</th>
+<th align="left">sensitivity</th>
+<th align="left">specificity</th>
+<th align="left">PPV</th>
+<th align="left">NPV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>Uematsu T [<xref ref-type="bibr" rid="pone.0188679.ref019">19</xref>]</bold></td>
+<td align="left">2007</td>
+<td align="left">27</td>
+<td align="left">0.48<break/>(0.29–0.68)</td>
+<td align="left">0.92<break/>(0.64–1)</td>
+<td align="left">0.79<break/>(0.49–0.95)</td>
+<td align="left">0.80<break/>(0.52–0.96)</td>
+<td align="left">0.92<break/>(0.62–1)</td>
+</tr>
+<tr>
+<td align="left"><bold>Jiang Y [<xref ref-type="bibr" rid="pone.0188679.ref009">9</xref>]</bold></td>
+<td align="left">2014</td>
+<td align="left">69</td>
+<td align="left">0.65<break/>(0.53–0.76)</td>
+<td align="left">0.96<break/>(0.85–1)</td>
+<td align="left">0.79<break/>(0.58–0.93)</td>
+<td align="left">0.90<break/>(0.77–0.97)</td>
+<td align="left">0.91<break/>(0.70–0.99)</td>
+</tr>
+<tr>
+<td align="left"><bold>Li E [<xref ref-type="bibr" rid="pone.0188679.ref021">21</xref>]</bold></td>
+<td align="left">2014</td>
+<td align="left">51</td>
+<td align="left">0.45<break/>(0.31–0.60)</td>
+<td align="left">0.91<break/>(0.72–0.99)</td>
+<td align="left">0.82<break/>(0.63–0.94)</td>
+<td align="left">0.81<break/>(0.61–0.93)</td>
+<td align="left">0.92<break/>(0.74–0.99)</td>
+</tr>
+<tr>
+<td align="left"><bold>Strobel K [<xref ref-type="bibr" rid="pone.0188679.ref020">20</xref>]</bold></td>
+<td align="left">2015</td>
+<td align="left">78</td>
+<td align="left">0.32<break/>(0.22–0.44)</td>
+<td align="left">0.88<break/>(0.69–0.97)</td>
+<td align="left">0.85<break/>(0.72–0.93)</td>
+<td align="left">0.73<break/>(0.54–0.88)</td>
+<td align="left">0.94<break/>(0.83–0.99)</td>
+</tr>
+<tr>
+<td align="left"><bold>this study</bold></td>
+<td align="left">2016</td>
+<td align="left">248</td>
+<td align="left">0.43<break/>(0.37–0.50)</td>
+<td align="left">0.96<break/>(0.91–0.99)</td>
+<td align="left">0.82<break/>(0.75–0.88)</td>
+<td align="left">0.81<break/>(0.73–0.87)</td>
+<td align="left">0.97<break/>(0.92–0.99)</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t003fn001"><p>PPV: Positive Predictive Value; NPV: Negative Predictive Value</p></fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec id="sec017" sec-type="conclusions">
+<title>Conclusion</title>
+<p>MRI is an accurate tool to further diagnose BI-RADS 4a and 4b microcalcifications and may be helpful to avoid unnecessary biopsies in BI-RADS 4a and 4b lesions. BI-RADS 4c lesions should be biopsied irrespective of MRI findings.</p>
+</sec>
+<sec id="sec018">
+<title>Supporting information</title>
+<supplementary-material id="pone.0188679.s001" mimetype="application/x-spss-sav" position="float" xlink:href="info:doi/10.1371/journal.pone.0188679.s001" xlink:type="simple">
+<label>S1 File</label>
+<caption>
+<title>SPSS table of the raw study data.</title>
+<p>(SAV)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>This article was supported by the Open Access Publishing Fund of the University of Vienna.</p>
+<p>Werner A. Kaiser, one of the readers in this study does not qualify as an author due to his demise. The authors acknowledge his continuous stimulation and support regarding this research. The authors further acknowledge the effort of our colleagues at the university hospital of Jena, specifically from the clinic of gynecology and the institute of pathology without whose contribution this project would not have been possible.</p>
+</ack>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item><term>EIC</term>
+<def><p>Invasive Carcinoma with Extensive Intraductal Component</p></def>
+</def-item>
+<def-item><term>DCIS</term>
+<def><p>Ductal Carcinoma in situ</p></def>
+</def-item>
+<def-item><term>IC</term>
+<def><p>invasive carcinoma</p></def>
+</def-item>
+<def-item><term>ER</term>
+<def><p>Estrogen Receptor</p></def>
+</def-item>
+<def-item><term>PR</term>
+<def><p>Progesterone Receptor</p></def>
+</def-item>
+<def-item><term>Her2/neu</term>
+<def><p>Human epidermal growth factor receptor 2</p></def>
+</def-item>
+<def-item><term>PPV</term>
+<def><p>Positive Predictive Value</p></def>
+</def-item>
+<def-item><term>NPV</term>
+<def><p>Negative Predictive Value</p></def>
+</def-item>
+</def-list>
+</glossary>
+<ref-list>
+<title>References</title>
+<ref id="pone.0188679.ref001"><label>1</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bluekens</surname> <given-names>AMJ</given-names></name>, <name name-style="western"><surname>Holland</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Karssemeijer</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Broeders</surname> <given-names>MJM</given-names></name>, <name name-style="western"><surname>den Heeten</surname> <given-names>GJ</given-names></name>. <article-title>Comparison of digital screening mammography and screen-film mammography in the early detection of clinically relevant cancers: a multicenter study</article-title>. <source>Radiology</source>. <year>2012</year>;<volume>265</volume>: <fpage>707</fpage>–<lpage>714</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.12111461" xlink:type="simple">10.1148/radiol.12111461</ext-link></comment> <object-id pub-id-type="pmid">23033499</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Castronovo</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Bellahcene</surname> <given-names>A</given-names></name>. <article-title>Evidence that breast cancer associated microcalcifications are mineralized malignant cells</article-title>. <source>Int J Oncol</source>. <year>1998</year>;<volume>12</volume>: <fpage>305</fpage>–<lpage>308</lpage>. <object-id pub-id-type="pmid">9458353</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Stomper</surname> <given-names>PC</given-names></name>, <name name-style="western"><surname>Connolly</surname> <given-names>JL</given-names></name>, <name name-style="western"><surname>Meyer</surname> <given-names>JE</given-names></name>, <name name-style="western"><surname>Harris</surname> <given-names>JR</given-names></name>. <article-title>Clinically occult ductal carcinoma in situ detected with mammography: analysis of 100 cases with radiologic-pathologic correlation</article-title>. <source>Radiology</source>. <year>1989</year>;<volume>172</volume>: <fpage>235</fpage>–<lpage>241</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiology.172.1.2544922" xlink:type="simple">10.1148/radiology.172.1.2544922</ext-link></comment> <object-id pub-id-type="pmid">2544922</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref004"><label>4</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>D’Orsi</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Sickles</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Mendelson</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Morris</surname> <given-names>E</given-names></name>. <source>ACR BI-RADS® Atlas, Breast Imaging Reporting and Data System</source>. <publisher-name>American College of Radiology</publisher-name>; <year>2013</year>.</mixed-citation></ref>
+<ref id="pone.0188679.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bennani-Baiti</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Baltzer</surname> <given-names>PA</given-names></name>. <article-title>MR Imaging for Diagnosis of Malignancy in Mammographic Microcalcifications: A Systematic Review and Meta-Analysis</article-title>. <source>Radiology</source>. <year>2016</year>; <fpage>161106</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.2016161106" xlink:type="simple">10.1148/radiol.2016161106</ext-link></comment> <object-id pub-id-type="pmid">27788035</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref006"><label>6</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kettritz</surname> <given-names>U</given-names></name>, <name name-style="western"><surname>Rotter</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Schreer</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Murauer</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Schulz-Wendtland</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Peter</surname> <given-names>D</given-names></name>, <etal>et al</etal>. <article-title>Stereotactic vacuum-assisted breast biopsy in 2874 patients: a multicenter study</article-title>. <source>Cancer</source>. <year>2004</year>;<volume>100</volume>: <fpage>245</fpage>–<lpage>251</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/cncr.11887" xlink:type="simple">10.1002/cncr.11887</ext-link></comment> <object-id pub-id-type="pmid">14716757</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref007"><label>7</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Rominger</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Wisgickl</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Timmesfeld</surname> <given-names>N</given-names></name>. <article-title>Breast microcalcifications as type descriptors to stratify risk of malignancy: a systematic review and meta-analysis of 10665 cases with special focus on round/punctate microcalcifications</article-title>. <source>RöFo Fortschritte Auf Dem Geb Röntgenstrahlen Nukl</source>. <year>2012</year>;<volume>184</volume>: <fpage>1144</fpage>–<lpage>1152</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1055/s-0032-1313102" xlink:type="simple">10.1055/s-0032-1313102</ext-link></comment> <object-id pub-id-type="pmid">22923222</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Liberman</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Abramson</surname> <given-names>AF</given-names></name>, <name name-style="western"><surname>Squires</surname> <given-names>FB</given-names></name>, <name name-style="western"><surname>Glassman</surname> <given-names>JR</given-names></name>, <name name-style="western"><surname>Morris</surname> <given-names>EA</given-names></name>, <name name-style="western"><surname>Dershaw</surname> <given-names>DD</given-names></name>. <article-title>The breast imaging reporting and data system: positive predictive value of mammographic features and final assessment categories</article-title>. <source>AJR Am J Roentgenol</source>. <year>1998</year>;<volume>171</volume>: <fpage>35</fpage>–<lpage>40</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2214/ajr.171.1.9648759" xlink:type="simple">10.2214/ajr.171.1.9648759</ext-link></comment> <object-id pub-id-type="pmid">9648759</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jiang</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Lou</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Wang</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Zhao</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Wang</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Wang</surname> <given-names>D</given-names></name>. <article-title>Evaluation of the role of dynamic contrast-enhanced MR imaging for patients with BI-RADS 3–4 microcalcifications</article-title>. <source>PloS One</source>. <year>2014</year>;<volume>9</volume>: <fpage>e99669</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0099669" xlink:type="simple">10.1371/journal.pone.0099669</ext-link></comment> <object-id pub-id-type="pmid">24927476</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref010"><label>10</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bennani-Baiti</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Bennani-Baiti</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Baltzer</surname> <given-names>PA</given-names></name>. <article-title>Diagnostic Performance of Breast Magnetic Resonance Imaging in Non-Calcified Equivocal Breast Findings: Results from a Systematic Review and Meta-Analysis</article-title>. <source>PloS One</source>. <year>2016</year>;<volume>11</volume>: <fpage>e0160346</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0160346" xlink:type="simple">10.1371/journal.pone.0160346</ext-link></comment> <object-id pub-id-type="pmid">27482715</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Sardanelli</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Boetes</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Borisch</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Decker</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Federico</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Gilbert</surname> <given-names>FJ</given-names></name>, <etal>et al</etal>. <article-title>Magnetic resonance imaging of the breast: recommendations from the EUSOMA working group</article-title>. <source>Eur J Cancer Oxf Engl 1990</source>. <year>2010</year>;<volume>46</volume>: <fpage>1296</fpage>–<lpage>1316</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ejca.2010.02.015" xlink:type="simple">10.1016/j.ejca.2010.02.015</ext-link></comment> <object-id pub-id-type="pmid">20304629</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref012"><label>12</label><mixed-citation publication-type="other" xlink:type="simple">Lehman CD, Mahoney MC, Newell M, Bailey L, Barke L. ACR practice parameter for the performance of contrast-enhanced magnetic resonance imaging (MRI) of the breast [Internet]. 2014. Available: <ext-link ext-link-type="uri" xlink:href="http://www.acr.org/~/media/2a0eb28eb59041e2825179afb72ef624.pdf" xlink:type="simple">http://www.acr.org/~/media/2a0eb28eb59041e2825179afb72ef624.pdf</ext-link></mixed-citation></ref>
+<ref id="pone.0188679.ref013"><label>13</label><mixed-citation publication-type="other" xlink:type="simple">MedCalc® [Internet]. Available: <ext-link ext-link-type="uri" xlink:href="https://www.medcalc.org/calc/diagnostic_test.php" xlink:type="simple">https://www.medcalc.org/calc/diagnostic_test.php</ext-link></mixed-citation></ref>
+<ref id="pone.0188679.ref014"><label>14</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kaiser</surname> <given-names>WA</given-names></name>, <name name-style="western"><surname>Zeitler</surname> <given-names>E</given-names></name>. <article-title>MR imaging of the breast: fast imaging sequences with and without Gd-DTPA. Preliminary observations</article-title>. <source>Radiology</source>. <year>1989</year>;<volume>170</volume>: <fpage>681</fpage>–<lpage>686</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiology.170.3.2916021" xlink:type="simple">10.1148/radiology.170.3.2916021</ext-link></comment> <object-id pub-id-type="pmid">2916021</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kuhl</surname> <given-names>CK</given-names></name>, <name name-style="western"><surname>Klaschik</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Mielcarek</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Gieseke</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Wardelmann</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Schild</surname> <given-names>HH</given-names></name>. <article-title>Do T2-weighted pulse sequences help with the differential diagnosis of enhancing lesions in dynamic breast MRI?</article-title> <source>J Magn Reson Imaging JMRI</source>. <year>1999</year>;<volume>9</volume>: <fpage>187</fpage>–<lpage>196</lpage>. <object-id pub-id-type="pmid">10077012</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kuhl</surname> <given-names>CK</given-names></name>. <article-title>MRI of breast tumors</article-title>. <source>Eur Radiol</source>. <year>2000</year>;<volume>10</volume>: <fpage>46</fpage>–<lpage>58</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s003300050006" xlink:type="simple">10.1007/s003300050006</ext-link></comment> <object-id pub-id-type="pmid">10663717</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Warner</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Messersmith</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Causer</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Eisen</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Shumak</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Plewes</surname> <given-names>D</given-names></name>. <article-title>Systematic review: using magnetic resonance imaging to screen women at high risk for breast cancer</article-title>. <source>Ann Intern Med</source>. <year>2008</year>;<volume>148</volume>: <fpage>671</fpage>–<lpage>679</lpage>. <object-id pub-id-type="pmid">18458280</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Houssami</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Ciatto</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Macaskill</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Lord</surname> <given-names>SJ</given-names></name>, <name name-style="western"><surname>Warren</surname> <given-names>RM</given-names></name>, <name name-style="western"><surname>Dixon</surname> <given-names>JM</given-names></name>, <etal>et al</etal>. <article-title>Accuracy and surgical impact of magnetic resonance imaging in breast cancer staging: systematic review and meta-analysis in detection of multifocal and multicentric cancer</article-title>. <source>J Clin Oncol Off J Am Soc Clin Oncol</source>. <year>2008</year>;<volume>26</volume>: <fpage>3248</fpage>–<lpage>3258</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1200/JCO.2007.15.2108" xlink:type="simple">10.1200/JCO.2007.15.2108</ext-link></comment> <object-id pub-id-type="pmid">18474876</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Uematsu</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Yuen</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Kasami</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Uchida</surname> <given-names>Y</given-names></name>. <article-title>Dynamic contrast-enhanced MR imaging in screening detected microcalcification lesions of the breast: is there any value?</article-title> <source>Breast Cancer Res Treat</source>. <year>2007</year>;<volume>103</volume>: <fpage>269</fpage>–<lpage>281</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s10549-006-9373-y" xlink:type="simple">10.1007/s10549-006-9373-y</ext-link></comment> <object-id pub-id-type="pmid">17063274</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Strobel</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Schrading</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Hansen</surname> <given-names>NL</given-names></name>, <name name-style="western"><surname>Barabasch</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Kuhl</surname> <given-names>CK</given-names></name>. <article-title>Assessment of BI-RADS category 4 lesions detected with screening mammography and screening US: utility of MR imaging</article-title>. <source>Radiology</source>. <year>2015</year>;<volume>274</volume>: <fpage>343</fpage>–<lpage>351</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.14140645" xlink:type="simple">10.1148/radiol.14140645</ext-link></comment> <object-id pub-id-type="pmid">25271857</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Li</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Song</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Xue</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Zhou</surname> <given-names>C</given-names></name>. <article-title>A comparative study of the diagnostic value of contrast-enhanced breast MR imaging and mammography on patients with BI-RADS 3–5 microcalcifications</article-title>. <source>PloS One</source>. <year>2014</year>;<volume>9</volume>: <fpage>e111217</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0111217" xlink:type="simple">10.1371/journal.pone.0111217</ext-link></comment> <object-id pub-id-type="pmid">25365327</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref022"><label>22</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Erbas</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Provenzano</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Armes</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Gertig</surname> <given-names>D</given-names></name>. <article-title>The natural history of ductal carcinoma in situ of the breast: a review</article-title>. <source>Breast Cancer Res Treat</source>. <year>2006</year>;<volume>97</volume>: <fpage>135</fpage>–<lpage>144</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s10549-005-9101-z" xlink:type="simple">10.1007/s10549-005-9101-z</ext-link></comment> <object-id pub-id-type="pmid">16319971</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref023"><label>23</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Welch</surname> <given-names>HG</given-names></name>, <name name-style="western"><surname>Black</surname> <given-names>WC</given-names></name>. <article-title>Overdiagnosis in cancer</article-title>. <source>J Natl Cancer Inst</source>. <year>2010</year>;<volume>102</volume>: <fpage>605</fpage>–<lpage>613</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/jnci/djq099" xlink:type="simple">10.1093/jnci/djq099</ext-link></comment> <object-id pub-id-type="pmid">20413742</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Folkman</surname> <given-names>J</given-names></name>. <article-title>The role of angiogenesis in tumor growth</article-title>. <source>Semin Cancer Biol</source>. <year>1992</year>;<volume>3</volume>: <fpage>65</fpage>–<lpage>71</lpage>. <object-id pub-id-type="pmid">1378311</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref025"><label>25</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Obuchowski</surname> <given-names>NA</given-names></name>, <name name-style="western"><surname>Mazzone</surname> <given-names>PJ</given-names></name>, <name name-style="western"><surname>Dachman</surname> <given-names>AH</given-names></name>. <article-title>Bias, underestimation of risk, and loss of statistical power in patient-level analyses of lesion detection</article-title>. <source>Eur Radiol</source>. <year>2010</year>;<volume>20</volume>: <fpage>584</fpage>–<lpage>594</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-009-1590-4" xlink:type="simple">10.1007/s00330-009-1590-4</ext-link></comment> <object-id pub-id-type="pmid">19763582</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Baltzer</surname> <given-names>PAT</given-names></name>, <name name-style="western"><surname>Benndorf</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Dietzel</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Gajda</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Runnebaum</surname> <given-names>IB</given-names></name>, <name name-style="western"><surname>Kaiser</surname> <given-names>WA</given-names></name>. <article-title>False-positive findings at contrast-enhanced breast MRI: a BI-RADS descriptor study</article-title>. <source>AJR Am J Roentgenol</source>. <year>2010</year>;<volume>194</volume>: <fpage>1658</fpage>–<lpage>1663</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2214/AJR.09.3486" xlink:type="simple">10.2214/AJR.09.3486</ext-link></comment> <object-id pub-id-type="pmid">20489110</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref027"><label>27</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gutierrez</surname> <given-names>RL</given-names></name>, <name name-style="western"><surname>DeMartini</surname> <given-names>WB</given-names></name>, <name name-style="western"><surname>Eby</surname> <given-names>PR</given-names></name>, <name name-style="western"><surname>Kurland</surname> <given-names>BF</given-names></name>, <name name-style="western"><surname>Peacock</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Lehman</surname> <given-names>CD</given-names></name>. <article-title>BI-RADS lesion characteristics predict likelihood of malignancy in breast MRI for masses but not for nonmasslike enhancement</article-title>. <source>AJR Am J Roentgenol</source>. <year>2009</year>;<volume>193</volume>: <fpage>994</fpage>–<lpage>1000</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2214/AJR.08.1983" xlink:type="simple">10.2214/AJR.08.1983</ext-link></comment> <object-id pub-id-type="pmid">19770321</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref028"><label>28</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Baltzer</surname> <given-names>PAT</given-names></name>, <name name-style="western"><surname>Kaiser</surname> <given-names>WA</given-names></name>, <name name-style="western"><surname>Dietzel</surname> <given-names>M</given-names></name>. <article-title>Lesion type and reader experience affect the diagnostic accuracy of breast MRI: a multiple reader ROC study</article-title>. <source>Eur J Radiol</source>. <year>2015</year>;<volume>84</volume>: <fpage>86</fpage>–<lpage>91</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ejrad.2014.10.023" xlink:type="simple">10.1016/j.ejrad.2014.10.023</ext-link></comment> <object-id pub-id-type="pmid">25466772</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref029"><label>29</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Mann</surname> <given-names>RM</given-names></name>, <name name-style="western"><surname>Mus</surname> <given-names>RD</given-names></name>, <name name-style="western"><surname>van Zelst</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Geppert</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Karssemeijer</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Platel</surname> <given-names>B</given-names></name>. <article-title>A novel approach to contrast-enhanced breast magnetic resonance imaging for screening: high-resolution ultrafast dynamic imaging</article-title>. <source>Invest Radiol</source>. <year>2014</year>;<volume>49</volume>: <fpage>579</fpage>–<lpage>585</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/RLI.0000000000000057" xlink:type="simple">10.1097/RLI.0000000000000057</ext-link></comment> <object-id pub-id-type="pmid">24691143</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref030"><label>30</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Herrmann</surname> <given-names>K-H</given-names></name>, <name name-style="western"><surname>Baltzer</surname> <given-names>PA</given-names></name>, <name name-style="western"><surname>Dietzel</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Krumbein</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Geppert</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Kaiser</surname> <given-names>WA</given-names></name>, <etal>et al</etal>. <article-title>Resolving arterial phase and temporal enhancement characteristics in DCE MRM at high spatial resolution with TWIST acquisition</article-title>. <source>J Magn Reson Imaging JMRI</source>. <year>2011</year>;<volume>34</volume>: <fpage>973</fpage>–<lpage>982</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/jmri.22689" xlink:type="simple">10.1002/jmri.22689</ext-link></comment> <object-id pub-id-type="pmid">21769981</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref031"><label>31</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Spick</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Pinker-Domenig</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Rudas</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Helbich</surname> <given-names>TH</given-names></name>, <name name-style="western"><surname>Baltzer</surname> <given-names>PA</given-names></name>. <article-title>MRI-only lesions: application of diffusion-weighted imaging obviates unnecessary MR-guided breast biopsies</article-title>. <source>Eur Radiol</source>. <year>2014</year>;<volume>24</volume>: <fpage>1204</fpage>–<lpage>1210</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-014-3153-6" xlink:type="simple">10.1007/s00330-014-3153-6</ext-link></comment> <object-id pub-id-type="pmid">24706105</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref032"><label>32</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Pinker</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Bogner</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Baltzer</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Karanikas</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Magometschnigg</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Brader</surname> <given-names>P</given-names></name>, <etal>et al</etal>. <article-title>Improved Differentiation of Benign and Malignant Breast Tumors with Multiparametric 18Fluorodeoxyglucose Positron Emission Tomography Magnetic Resonance Imaging: A Feasibility Study</article-title>. <source>Clin Cancer Res</source>. <year>2014</year>; <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1158/1078-0432.CCR-13-2810" xlink:type="simple">10.1158/1078-0432.CCR-13-2810</ext-link></comment> <object-id pub-id-type="pmid">24963052</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref033"><label>33</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Clauser</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Marcon</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Dietzel</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Baltzer</surname> <given-names>PAT</given-names></name>. <article-title>A new method to reduce false positive results in breast MRI by evaluation of multiple spectral regions in proton MR-spectroscopy</article-title>. <source>Eur J Radiol</source>. <year>2017</year>; <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ejrad.2017.04.014" xlink:type="simple">10.1016/j.ejrad.2017.04.014</ext-link></comment></mixed-citation></ref>
+<ref id="pone.0188679.ref034"><label>34</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Stehouwer</surname> <given-names>BL</given-names></name>, <name name-style="western"><surname>Merckel</surname> <given-names>LG</given-names></name>, <name name-style="western"><surname>Verkooijen</surname> <given-names>HM</given-names></name>, <name name-style="western"><surname>Peters</surname> <given-names>NHGM</given-names></name>, <name name-style="western"><surname>Mann</surname> <given-names>RM</given-names></name>, <name name-style="western"><surname>Duvivier</surname> <given-names>KM</given-names></name>, <etal>et al</etal>. <article-title>3-T breast magnetic resonance imaging in patients with suspicious microcalcifications on mammography</article-title>. <source>Eur Radiol</source>. <year>2014</year>;<volume>24</volume>: <fpage>603</fpage>–<lpage>609</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-013-3029-1" xlink:type="simple">10.1007/s00330-013-3029-1</ext-link></comment> <object-id pub-id-type="pmid">24078055</object-id></mixed-citation></ref>
+<ref id="pone.0188679.ref035"><label>35</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Pinker</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Grabner</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Bogner</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Gruber</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Szomolanyi</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Trattnig</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>A combined high temporal and high spatial resolution 3 Tesla MR imaging protocol for the assessment of breast lesions: initial results</article-title>. <source>Invest Radiol</source>. <year>2009</year>;<volume>44</volume>: <fpage>553</fpage>–<lpage>558</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/RLI.0b013e3181b4c127" xlink:type="simple">10.1097/RLI.0b013e3181b4c127</ext-link></comment> <object-id pub-id-type="pmid">19652611</object-id></mixed-citation></ref>
+</ref-list>
+</back>
+</article>

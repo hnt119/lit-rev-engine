@@ -1,0 +1,311 @@
+{
+  "development": {
+    "answerable": 7,
+    "file": "development.json",
+    "fixture_dir": "tests/fixtures/medical_retrieval",
+    "frozen_files": {
+      "tests/fixtures/medical_retrieval/anchors.json": {
+        "sha256": "8e3d411a6c0ff230ec8b4e9e9f0f721541e55184d4c89fa02765eff51a7e0955",
+        "size_bytes": 38255
+      },
+      "tests/fixtures/medical_retrieval/development.json": {
+        "sha256": "e73fc0b5c804a454c335f22775496bfbcc119e24162ed21f6531c38972e3acbb",
+        "size_bytes": 15844
+      },
+      "tests/fixtures/medical_retrieval/freeze.json": {
+        "sha256": "e0b8b7581c16ad2e96df19ba93e7d77a4252001ba774b96eec3c4dd842b2b0b7",
+        "size_bytes": 3093
+      },
+      "tests/fixtures/medical_retrieval/held-out.json": {
+        "sha256": "2ec3a96b0836a14347eccd3ce92d3d8ae7be606d1d763f571a2f1cf8881071f5",
+        "size_bytes": 16919
+      },
+      "tests/fixtures/medical_retrieval/manifest.json": {
+        "sha256": "dfd28050e83b3cf01fe4edd531bc8ecf79086b9a3ddabd83519a34811e8c4a9b",
+        "size_bytes": 7922
+      },
+      "tests/fixtures/medical_retrieval/passages.json": {
+        "sha256": "d30678b7ff5d50375d202a56b71e23f76b503c3b88248aa94618a0b5227750b7",
+        "size_bytes": 48696
+      },
+      "tests/fixtures/medical_retrieval/verify.py": {
+        "sha256": "90997c396734efaa9b7e47e3c5e92e5e9418c320c6d1c3e3f5f4283193bd3d8f",
+        "size_bytes": 16463
+      },
+      "tests/fixtures/medical_sources/coach.xml": {
+        "sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+        "size_bytes": 175830
+      },
+      "tests/fixtures/medical_sources/manifest.json": {
+        "sha256": "3a654350be8c6f4df5f10f582c143c456a0d462f89a643ec5bfcc648427a183d",
+        "size_bytes": 12184
+      },
+      "tests/fixtures/medical_sources/raptor.xml": {
+        "sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+        "size_bytes": 117858
+      },
+      "tests/fixtures/medical_sources/whitehall.xml": {
+        "sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+        "size_bytes": 209909
+      }
+    },
+    "no_answer": 2,
+    "questions": 9
+  },
+  "development_selection": {
+    "candidate": "bm25_context_blocks",
+    "exact_anchor_validity": 1.0,
+    "min_complete_questions": 7,
+    "min_mean_support_coverage_at_5": 1.0,
+    "min_no_answer_context_quotes_at_5": 1,
+    "reference": "bm25_context"
+  },
+  "frozen_at_utc": "2026-10-02T21:36:37.342247+00:00",
+  "held_out": {
+    "answerable": 9,
+    "file": "held-out.json",
+    "fixture_dir": "tests/fixtures/medical_retrieval_v3",
+    "frozen_files": {
+      "docs/project-retrieval-v3-milestone.md": {
+        "sha256": "d82a996fd119951db3a6d01e77dacac8858cb97b078bcd208c332ef3a7273600",
+        "size_bytes": 11335
+      },
+      "tests/fixtures/medical_retrieval_v3/README.md": {
+        "sha256": "f285626ae3210a248218c59cbf0817daee937211c2ee020d3ff8b0516c554d92",
+        "size_bytes": 9235
+      },
+      "tests/fixtures/medical_retrieval_v3/anchors.json": {
+        "sha256": "a9b6e9e00cb9b2f6c1d38f34ec6a19f189baae980fa952dc80112b5860a43e1c",
+        "size_bytes": 49643
+      },
+      "tests/fixtures/medical_retrieval_v3/held-out.json": {
+        "sha256": "ec80bcba02b8148321e43922181c2544eb981cbab5628c25cb2f8e546bfe280d",
+        "size_bytes": 38654
+      },
+      "tests/fixtures/medical_retrieval_v3/manifest.json": {
+        "sha256": "75e4671eba59b28a22d40798445d41f52b426c34f3e1964b9f884f707d9b7a3b",
+        "size_bytes": 37329
+      },
+      "tests/fixtures/medical_retrieval_v3/passages.json": {
+        "sha256": "e350b85539d835fe06aac9d660ad3fbcb50665191bf465138a0e31d8656a7296",
+        "size_bytes": 92063
+      },
+      "tests/fixtures/medical_retrieval_v3/verify.py": {
+        "sha256": "59e28b663a00be0675bef43e3f172560018ddfdcf0e3d5ec11151c4951a4f658",
+        "size_bytes": 36039
+      },
+      "tests/fixtures/medical_sources_v3/cbti.xml": {
+        "sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+        "size_bytes": 175927
+      },
+      "tests/fixtures/medical_sources_v3/ckm.xml": {
+        "sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+        "size_bytes": 259642
+      },
+      "tests/fixtures/medical_sources_v3/manifest.json": {
+        "sha256": "926489c7d05f2cb3b5e6d0cdfeb899f728df63299ce54bacea6a79a286d894a2",
+        "size_bytes": 18262
+      },
+      "tests/fixtures/medical_sources_v3/verify.py": {
+        "sha256": "79ad06812bedea9f6f7ad9254698661b7e4b7dbe2e61256bdea1aea15651d156",
+        "size_bytes": 14991
+      },
+      "tests/fixtures/medical_sources_v3_imaging/manifest.json": {
+        "sha256": "05d2a7008f0f9bb36eeaf2bdcd6b47b4074c53b53802890ce8ab2c376913bb8b",
+        "size_bytes": 8091
+      },
+      "tests/fixtures/medical_sources_v3_imaging/mri.xml": {
+        "sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd",
+        "size_bytes": 76039
+      },
+      "tests/fixtures/medical_sources_v3_imaging/verify.py": {
+        "sha256": "acb97538dc3b78c1a23bf095ba9330af901b20f59b0cfeba888cd77f763a3905",
+        "size_bytes": 12783
+      },
+      "tests/test_project_retrieval_v3_acceptance.py": {
+        "sha256": "dfd5ca8eeb91f3bc6b0ff680bd1cd13766e101633c003c3163454bc37ac0f910",
+        "size_bytes": 30075
+      },
+      "tools/evaluate_medical_retrieval.py": {
+        "sha256": "8fc721ff14a38c0d28e1811d329e5e0f0a936e2250840168fbb0a1ace9484993",
+        "size_bytes": 21049
+      },
+      "tools/evaluate_medical_retrieval_v2.py": {
+        "sha256": "5a8d11f784bc48ba3dc836d786530b7b93374398b41bb74011fa4743fc63d93d",
+        "size_bytes": 16584
+      },
+      "tools/evaluate_medical_retrieval_v3.py": {
+        "sha256": "052d2f0389948a984669454303fa2dace5534f8f7b954d99cf6aa4d54f901f1e",
+        "size_bytes": 16178
+      }
+    },
+    "no_answer": 3,
+    "questions": 12
+  },
+  "held_out_acceptance": {
+    "answerable_questions": 9,
+    "exact_anchor_validity": 1.0,
+    "min_complete_questions": 6,
+    "min_mean_support_coverage_at_5": 0.75,
+    "project_active_document_scope_isolation": 1.0
+  },
+  "held_out_policy": "Select and pin the sole eligible candidate after original-development review before any fresh held-out ranking. If development fails, stop before fresh held-out. Preserve any held-out failure; do not tune on it or rewrite gold to improve scores.",
+  "implementation_files": {
+    "src/review/cli.py": {
+      "sha256": "57c80d1c748d66771cae70453b634798538999afea5da770f6c74e7a902f6a32",
+      "size_bytes": 19011
+    },
+    "src/review/documents.py": {
+      "sha256": "c27ec563267bc6d9182a5bae38d48878c9b67a42ecbe1fc185ec7fc4965edb90",
+      "size_bytes": 13615
+    },
+    "src/review/retrieval.py": {
+      "sha256": "accaf81530f7cece7ba5dfa08adebc2062f855ab6e0e3a226ffe35f26ec225cb",
+      "size_bytes": 9192
+    },
+    "src/review/store.py": {
+      "sha256": "d1622ea5089ffdfedb196803732dc74c35686e647f758a0e57e0e9d93d1b13a4",
+      "size_bytes": 40104
+    }
+  },
+  "independent_semantic_review": {
+    "accepted": true,
+    "answerable": 9,
+    "canonical_blocks": 156,
+    "min_distinct_block_AND_questions": 6,
+    "min_quantitative_questions": 5,
+    "negative_tamper_cases": 18,
+    "no_answer": 3,
+    "observed_necessary_AND_questions": 8,
+    "observed_quantitative_questions": 9,
+    "passages": 26,
+    "questions": 12,
+    "quote_spans": 58,
+    "reviewer": "Evaluation agent /root/evaluation_v3",
+    "runtime_preservation_positive_cases": 1,
+    "sources": 3,
+    "sufficient_alternatives": 16
+  },
+  "limits": [
+    "Small agent-authored, non-exhaustive support pilot; not clinical validation.",
+    "Fresh held-out article DOIs are disjoint from development, but no established multiple-report study validates cross-report retrieval.",
+    "Source internal discrepancies are retained rather than silently reconciled; exact region qualifiers remain necessary.",
+    "A routine noninfectious imaging source replaced the originally acquired diagnostic source after an automated agent-turn content-filter interruption, before any persisted v3 QA or ranking. The original acquisition archive is preserved; it is not the ranked corpus.",
+    "Existing BM25 API/CLI default and original v1/v2 results remain unchanged."
+  ],
+  "method_parameters": {
+    "bm25_context": {
+      "b": 0.75,
+      "context_max_words": 80,
+      "context_rule": "preceding-paragraph-same-xml-parent-v1",
+      "k1": 1.2,
+      "overlap_words": 40,
+      "stop_words": [
+        "a",
+        "an",
+        "and",
+        "are",
+        "as",
+        "at",
+        "be",
+        "been",
+        "by",
+        "did",
+        "do",
+        "does",
+        "for",
+        "from",
+        "had",
+        "has",
+        "have",
+        "how",
+        "in",
+        "is",
+        "it",
+        "its",
+        "of",
+        "on",
+        "or",
+        "that",
+        "the",
+        "their",
+        "there",
+        "these",
+        "this",
+        "to",
+        "was",
+        "were",
+        "what",
+        "when",
+        "where",
+        "which",
+        "who",
+        "with",
+        "would"
+      ],
+      "tokenizer_id": "unicode-casefold-word-v1",
+      "window_words": 200
+    },
+    "bm25_context_blocks": {
+      "b": 0.75,
+      "context_max_words": 80,
+      "context_rule": "preceding-paragraph-same-xml-parent-v1",
+      "k1": 1.2,
+      "passage_unit": "block",
+      "stop_words": [
+        "a",
+        "an",
+        "and",
+        "are",
+        "as",
+        "at",
+        "be",
+        "been",
+        "by",
+        "did",
+        "do",
+        "does",
+        "for",
+        "from",
+        "had",
+        "has",
+        "have",
+        "how",
+        "in",
+        "is",
+        "it",
+        "its",
+        "of",
+        "on",
+        "or",
+        "that",
+        "the",
+        "their",
+        "there",
+        "these",
+        "this",
+        "to",
+        "was",
+        "were",
+        "what",
+        "when",
+        "where",
+        "which",
+        "who",
+        "with",
+        "would"
+      ],
+      "tokenizer_id": "unicode-casefold-word-v1"
+    }
+  },
+  "methods": [
+    "bm25_context",
+    "bm25_context_blocks"
+  ],
+  "no_answer_policy": "Report nonempty candidates and declared source-grounded context quote recovery separately; candidates assert no answerability, entailment, abstention or verification.",
+  "ranking_runs_before_freeze": 0,
+  "schema_version": 1,
+  "scoring_contract": "docs/project-retrieval-v3-milestone.md",
+  "status": "frozen_before_v3_ranking",
+  "support_semantics": "OR sufficient-support alternatives; AND passages within a set. A passage is covered only when every question-specific quotation is contained in exact returned own anchors for the same source/block. Scoring context is ranking provenance and cannot count as finding support. Coverage is the per-question best-alternative fraction."
+}

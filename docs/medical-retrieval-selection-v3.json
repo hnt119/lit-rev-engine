@@ -1,0 +1,135 @@
+{
+  "coordinator_development_review": {
+    "candidate_indexed_passages": 215,
+    "candidate_metrics": {
+      "answerable_questions": 7,
+      "complete_question_rate_at_5": 1.0,
+      "complete_questions_at_5": 7,
+      "hit_rate_at_5": 1.0,
+      "mean_reciprocal_rank_at_5": 0.7380952380952381,
+      "mean_support_coverage_at_5": 1.0,
+      "no_answer_context_quotes_covered_at_5": 1,
+      "no_answer_context_quotes_declared": 2,
+      "no_answer_nonempty_candidate_rate_at_5": 1.0,
+      "no_answer_questions": 2,
+      "questions": 9
+    },
+    "candidate_own_anchors": 45,
+    "candidate_scoring_context_anchors": 23,
+    "first_canonical_block_rank_regressions_among_other_candidates": 5,
+    "first_required_quote_rank_regressions": 0,
+    "hard_negative": "Declared manufacturer-claim paragraph remains rank three for both methods.",
+    "independent_literal_own_context_manifest_and_OR_AND_review": "PASS",
+    "nulls": "Both no-answer questions return candidates; one of two declared source-context quotations is recovered by both methods. Candidates do not establish answerability or abstention.",
+    "reference_indexed_passages": 241,
+    "reference_metrics": {
+      "answerable_questions": 7,
+      "complete_question_rate_at_5": 1.0,
+      "complete_questions_at_5": 7,
+      "hit_rate_at_5": 1.0,
+      "mean_reciprocal_rank_at_5": 0.7380952380952381,
+      "mean_support_coverage_at_5": 1.0,
+      "no_answer_context_quotes_covered_at_5": 1,
+      "no_answer_context_quotes_declared": 2,
+      "no_answer_nonempty_candidate_rate_at_5": 1.0,
+      "no_answer_questions": 2,
+      "questions": 9
+    },
+    "reference_own_anchors": 45,
+    "reference_scoring_context_anchors": 24,
+    "regressions_reviewed": "Two non-required reference blocks leave top five; three other blocks move down one rank. All seven required-support first ranks and complete support remain identical. Eight first-block gains/additions are recorded separately; no net medical-quality improvement is inferred from development."
+  },
+  "decision": "The sole prospectively declared candidate meets every strict development criterion. Select it for the fresh source-disjoint pilot without changing code, parameters, gold, thresholds or the existing API/CLI default.",
+  "development_result_file": "docs/medical-retrieval-development-v3.json",
+  "development_result_sha256": "ad29db4febf8189838cab14c02abaa834a324dacf9ccd77e6443fdb7695c5f46",
+  "freeze_file": "tests/fixtures/medical_retrieval_v3/freeze.json",
+  "freeze_sha256": "90147e3d3e28035a1d3ca1f41a48be36bb2ad6cbc30c08d8df8c0c90945d2070",
+  "fresh_gold_QA_inspected_at_selection": false,
+  "held_out_policy": "Run only selected bm25_context_blocks once on the twelve fresh questions. Preserve failure; do not tune, rerank old held-out, rewrite truth or lower thresholds.",
+  "held_out_ranked_at_selection": false,
+  "implementation_files": {
+    "src/review/cli.py": {
+      "sha256": "57c80d1c748d66771cae70453b634798538999afea5da770f6c74e7a902f6a32",
+      "size_bytes": 19011
+    },
+    "src/review/documents.py": {
+      "sha256": "c27ec563267bc6d9182a5bae38d48878c9b67a42ecbe1fc185ec7fc4965edb90",
+      "size_bytes": 13615
+    },
+    "src/review/retrieval.py": {
+      "sha256": "accaf81530f7cece7ba5dfa08adebc2062f855ab6e0e3a226ffe35f26ec225cb",
+      "size_bytes": 9192
+    },
+    "src/review/store.py": {
+      "sha256": "d1622ea5089ffdfedb196803732dc74c35686e647f758a0e57e0e9d93d1b13a4",
+      "size_bytes": 40104
+    }
+  },
+  "limits": [
+    "Small agent-authored source-disjoint software pilot, not clinical validation or exhaustive support truth.",
+    "Whole-block candidates may be long and require human inspection and independent extraction verification."
+  ],
+  "method_parameters": {
+    "b": 0.75,
+    "context_max_words": 80,
+    "context_rule": "preceding-paragraph-same-xml-parent-v1",
+    "k1": 1.2,
+    "passage_unit": "block",
+    "stop_words": [
+      "a",
+      "an",
+      "and",
+      "are",
+      "as",
+      "at",
+      "be",
+      "been",
+      "by",
+      "did",
+      "do",
+      "does",
+      "for",
+      "from",
+      "had",
+      "has",
+      "have",
+      "how",
+      "in",
+      "is",
+      "it",
+      "its",
+      "of",
+      "on",
+      "or",
+      "that",
+      "the",
+      "their",
+      "there",
+      "these",
+      "this",
+      "to",
+      "was",
+      "were",
+      "what",
+      "when",
+      "where",
+      "which",
+      "who",
+      "with",
+      "would"
+    ],
+    "tokenizer_id": "unicode-casefold-word-v1"
+  },
+  "schema_version": 1,
+  "selected_at_utc": "2026-10-02T21:42:20.857482+00:00",
+  "selected_method": "bm25_context_blocks",
+  "selection_rule": {
+    "candidate": "bm25_context_blocks",
+    "exact_anchor_validity": 1.0,
+    "min_complete_questions": 7,
+    "min_mean_support_coverage_at_5": 1.0,
+    "min_no_answer_context_quotes_at_5": 1,
+    "reference": "bm25_context"
+  },
+  "status": "coordinator_selected_before_held_out_ranking"
+}

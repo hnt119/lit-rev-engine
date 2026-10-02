@@ -1,0 +1,440 @@
+{
+  "schema_version": 1,
+  "status": "acquired_sources_pending_coordinator_approval_before_gold",
+  "purpose": "DOI-disjoint publisher snapshots for prospective v3 retrieval pilot; source acquisition only, without gold questions or retrieval runs.",
+  "prior_source_dois": [
+    "10.1371/journal.pmed.1004019",
+    "10.1371/journal.pmed.1004109",
+    "10.1371/journal.pone.0329611",
+    "10.1371/journal.pmed.1004026",
+    "10.1371/journal.pmed.1004422",
+    "10.1371/journal.pone.0340276"
+  ],
+  "acquisition_scope": "Three public CC BY 4.0 primary article XML files only. No participant-level data, supplements, PDFs, images, models, indexes, or ledger writes.",
+  "source_selection": "Trial, observational cohort and diagnostic accuracy sources selected before new questions/ranking, using design, numerical results, inspectable main tables, own CC BY 4.0 licensing and DOI disjointness; no scientific-performance or retrieval-score selection.",
+  "excluded_candidates": [
+    {
+      "doi": "10.1371/journal.pntd.0012310",
+      "publisher_url": "https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0012310",
+      "reason": "Own article copyright states CC0 public domain, which differs from frozen CC BY acquisition criteria; excluded before download, questions or ranking, not for scientific performance."
+    },
+    {
+      "doi": "10.1371/journal.pone.0282150",
+      "publisher_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0282150",
+      "reason": "No inspectable main-article table observed on the primary page; excluded before download, questions or ranking, not for scientific performance."
+    }
+  ],
+  "sources": [
+    {
+      "alias": "cbti",
+      "file": "cbti.xml",
+      "design_category": "randomized_trial",
+      "doi": "10.1371/journal.pmed.1004510",
+      "title": "Effectiveness of app-based cognitive behavioral therapy for insomnia on preventing major depressive disorder in youth with insomnia and subclinical depression: A randomized clinical trial",
+      "authors": [
+        {
+          "surname": "Chen",
+          "given_names": "Si-Jing"
+        },
+        {
+          "surname": "Que",
+          "given_names": "Jian-Yu"
+        },
+        {
+          "surname": "Chan",
+          "given_names": "Ngan Yin"
+        },
+        {
+          "surname": "Shi",
+          "given_names": "Le"
+        },
+        {
+          "surname": "Li",
+          "given_names": "Shirley Xin"
+        },
+        {
+          "surname": "Chan",
+          "given_names": "Joey Wing Yan"
+        },
+        {
+          "surname": "Huang",
+          "given_names": "Weizhen"
+        },
+        {
+          "surname": "Chen",
+          "given_names": "Chris Xie"
+        },
+        {
+          "surname": "Tsang",
+          "given_names": "Chi Ching"
+        },
+        {
+          "surname": "Ho",
+          "given_names": "Yuen Lam"
+        },
+        {
+          "surname": "Morin",
+          "given_names": "Charles M."
+        },
+        {
+          "surname": "Zhang",
+          "given_names": "Ji-Hui"
+        },
+        {
+          "surname": "Lu",
+          "given_names": "Lin"
+        },
+        {
+          "surname": "Wing",
+          "given_names": "Yun Kwok"
+        }
+      ],
+      "journal": "PLOS Medicine",
+      "publisher": "Public Library of Science",
+      "publication_date": "2025-01-21",
+      "xml_publication_dates": [
+        {
+          "attributes": {
+            "pub-type": "epub"
+          },
+          "fields": {
+            "day": "21",
+            "month": "1",
+            "year": "2025"
+          }
+        },
+        {
+          "attributes": {
+            "pub-type": "collection"
+          },
+          "fields": {
+            "month": "1",
+            "year": "2025"
+          }
+        }
+      ],
+      "xml_root_attributes": {
+        "article-type": "research-article",
+        "dtd-version": "1.3",
+        "{http://www.w3.org/XML/1998/namespace}lang": "en"
+      },
+      "license": {
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "publisher_link_resolves_to": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "xml_licenses": [
+        {
+          "attributes": {
+            "{http://www.w3.org/1999/xlink}href": "http://creativecommons.org/licenses/by/4.0/",
+            "{http://www.w3.org/1999/xlink}type": "simple"
+          },
+          "text": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+        }
+      ],
+      "copyright": {
+        "year": "2025",
+        "holder": "Chen et al"
+      },
+      "xml_article_versions": [],
+      "version_statement": "Exact publisher full-article XML response captured at acquired_at. The XML supplies no article-version element. Numeric redirect path segments are storage identifiers; no formal version is inferred. This snapshot is not asserted to be latest or free of later corrections.",
+      "publisher_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004510",
+      "download_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371%2Fjournal.pmed.1004510&type=manuscript",
+      "final_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pmed.1004510/1/pmed.1004510.xml",
+      "final_url_query_omitted": true,
+      "final_url_query_omission_reason": "Ephemeral signed access parameters omitted; permanent publisher download URL and exact byte hash preserve replay provenance.",
+      "response_content_type": "application/xml",
+      "acquired_at": "2026-10-02T20:38:05Z",
+      "size_bytes": 175927,
+      "sha256": "1b253794ca6e24cddfbef5db5ae6cc9081b4fbd8a65456cdf686f8978954908c",
+      "main_article_table_count": 2,
+      "observed_publisher_notices": [],
+      "update_audit": "Limited original-page/known-notice observation: no correction/retraction banner or notice was observed on the primary article page or targeted publisher-domain DOI queries during acquisition. Not a comprehensive update audit; no latest or uncorrected status is claimed.",
+      "source_caveats": [
+        {
+          "description": "Authors state that the protocol designated multiple primary outcomes without a defined hierarchy, and that they reorganized the outcome hierarchy when reporting. Preserve the reporting statement; this is not an independent risk-of-bias judgment.",
+          "source_observations": [
+            {
+              "xml_path": "body//sec[@id='sec008']/p[5]",
+              "literal_fragment": "we reorganized the hierarchy of outcomes when reporting the study results"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "alias": "ckm",
+      "file": "ckm.xml",
+      "design_category": "observational_cohort",
+      "doi": "10.1371/journal.pmed.1004629",
+      "title": "Cardiovascular–kidney–metabolic syndrome and all-cause and cardiovascular mortality: A retrospective cohort study",
+      "authors": [
+        {
+          "surname": "Tsai",
+          "given_names": "Min-Kuang"
+        },
+        {
+          "surname": "Kao",
+          "given_names": "Juliana Tze-Wah"
+        },
+        {
+          "surname": "Wong",
+          "given_names": "Chung-Shun"
+        },
+        {
+          "surname": "Liao",
+          "given_names": "Chia-Te"
+        },
+        {
+          "surname": "Lo",
+          "given_names": "Wei-Cheng"
+        },
+        {
+          "surname": "Chien",
+          "given_names": "Kuo-Liong"
+        },
+        {
+          "surname": "Wen",
+          "given_names": "Chi-Pang"
+        },
+        {
+          "surname": "Wu",
+          "given_names": "Mai-Szu"
+        },
+        {
+          "surname": "Wu",
+          "given_names": "Mei-Yi"
+        }
+      ],
+      "journal": "PLOS Medicine",
+      "publisher": "Public Library of Science",
+      "publication_date": "2025-06-26",
+      "xml_publication_dates": [
+        {
+          "attributes": {
+            "pub-type": "epub"
+          },
+          "fields": {
+            "day": "26",
+            "month": "6",
+            "year": "2025"
+          }
+        },
+        {
+          "attributes": {
+            "pub-type": "collection"
+          },
+          "fields": {
+            "month": "6",
+            "year": "2025"
+          }
+        }
+      ],
+      "xml_root_attributes": {
+        "article-type": "research-article",
+        "dtd-version": "1.3",
+        "{http://www.w3.org/XML/1998/namespace}lang": "en"
+      },
+      "license": {
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "publisher_link_resolves_to": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "xml_licenses": [
+        {
+          "attributes": {
+            "{http://www.w3.org/1999/xlink}href": "http://creativecommons.org/licenses/by/4.0/",
+            "{http://www.w3.org/1999/xlink}type": "simple"
+          },
+          "text": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+        }
+      ],
+      "copyright": {
+        "year": "2025",
+        "holder": "Tsai et al"
+      },
+      "xml_article_versions": [],
+      "version_statement": "Exact publisher full-article XML response captured at acquired_at. The XML supplies no article-version element. Numeric redirect path segments are storage identifiers; no formal version is inferred. This snapshot is not asserted to be latest or free of later corrections.",
+      "publisher_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004629",
+      "download_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371%2Fjournal.pmed.1004629&type=manuscript",
+      "final_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pmed.1004629/1/pmed.1004629.xml",
+      "final_url_query_omitted": true,
+      "final_url_query_omission_reason": "Ephemeral signed access parameters omitted; permanent publisher download URL and exact byte hash preserve replay provenance.",
+      "response_content_type": "application/xml",
+      "acquired_at": "2026-10-02T20:38:07Z",
+      "size_bytes": 259642,
+      "sha256": "0a1fb7aa9cdef92bc143f228b4dd214af83320a653dee89b2b28c1a53682ad46",
+      "main_article_table_count": 4,
+      "observed_publisher_notices": [],
+      "update_audit": "Limited original-page/known-notice observation: no correction/retraction banner or notice was observed on the primary article page or targeted publisher-domain DOI queries during acquisition. Not a comprehensive update audit; no latest or uncorrected status is claimed.",
+      "source_caveats": [
+        {
+          "description": "Authors describe baseline-measurement limitations and a smaller repeated-examination subset with a time-dependent analysis. Both statements are retained; do not turn the baseline limitation into an assertion that no longitudinal sensitivity analysis was performed.",
+          "source_observations": [
+            {
+              "xml_path": "body//sec[@id='sec007']/p[5]",
+              "literal_fragment": "our analysis was based only on baseline measurements"
+            },
+            {
+              "xml_path": "body//sec[@id='sec007']/p[5]",
+              "literal_fragment": "We incorporated a time-dependent analysis, which yielded similar results."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "alias": "truenat",
+      "file": "truenat.xml",
+      "design_category": "diagnostic_accuracy",
+      "doi": "10.1371/journal.pone.0327936",
+      "title": "Diagnostic accuracy of the TrueNat™ MTB plus assay for detecting pulmonary tuberculosis in adults",
+      "authors": [
+        {
+          "surname": "Mallya",
+          "given_names": "Sarapia P."
+        },
+        {
+          "surname": "Mbelele",
+          "given_names": "Peter M."
+        },
+        {
+          "surname": "Kisonga",
+          "given_names": "Riziki M."
+        },
+        {
+          "surname": "Mtunga",
+          "given_names": "Daphine D."
+        },
+        {
+          "surname": "Banzi",
+          "given_names": "Haroun H."
+        },
+        {
+          "surname": "Mpiima",
+          "given_names": "Stephen S."
+        },
+        {
+          "surname": "Twinomujuni",
+          "given_names": "Muzafaru"
+        },
+        {
+          "surname": "Bazira",
+          "given_names": "Joel"
+        },
+        {
+          "surname": "Kassaza",
+          "given_names": "Kennedy"
+        }
+      ],
+      "journal": "PLOS One",
+      "publisher": "Public Library of Science",
+      "publication_date": "2025-12-22",
+      "xml_publication_dates": [
+        {
+          "attributes": {
+            "pub-type": "epub"
+          },
+          "fields": {
+            "day": "22",
+            "month": "12",
+            "year": "2025"
+          }
+        },
+        {
+          "attributes": {
+            "pub-type": "collection"
+          },
+          "fields": {
+            "year": "2025"
+          }
+        }
+      ],
+      "xml_root_attributes": {
+        "article-type": "research-article",
+        "dtd-version": "1.3",
+        "{http://www.w3.org/XML/1998/namespace}lang": "en"
+      },
+      "license": {
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "publisher_link_resolves_to": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "xml_licenses": [
+        {
+          "attributes": {
+            "{http://www.w3.org/1999/xlink}href": "http://creativecommons.org/licenses/by/4.0/",
+            "{http://www.w3.org/1999/xlink}type": "simple"
+          },
+          "text": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+        }
+      ],
+      "copyright": {
+        "year": "2025",
+        "holder": "Mallya et al"
+      },
+      "xml_article_versions": [],
+      "version_statement": "Exact publisher full-article XML response captured at acquired_at. The XML supplies no article-version element. Numeric redirect path segments are storage identifiers; no formal version is inferred. This snapshot is not asserted to be latest or free of later corrections.",
+      "publisher_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0327936",
+      "download_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0327936&type=manuscript",
+      "final_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0327936/1/pone.0327936.xml",
+      "final_url_query_omitted": true,
+      "final_url_query_omission_reason": "Ephemeral signed access parameters omitted; permanent publisher download URL and exact byte hash preserve replay provenance.",
+      "response_content_type": "application/xml",
+      "acquired_at": "2026-10-02T20:38:08Z",
+      "size_bytes": 100489,
+      "sha256": "6e78c539b7c3ec68b57b29f97574b68811f35d04ccb82e350c83a8c3ae652687",
+      "main_article_table_count": 4,
+      "observed_publisher_notices": [],
+      "update_audit": "Limited original-page/known-notice observation: no correction/retraction banner or notice was observed on the primary article page or targeted publisher-domain DOI queries during acquisition. Not a comprehensive update audit; no latest or uncorrected status is claimed.",
+      "source_caveats": [
+        {
+          "description": "Internal reference-test label discrepancy: the abstract assigns sensitivity/specificity 98.9%/95.3% to culture and 86.2%/95.2% to Ultra, whereas body sec020 and Table 2 assign these pairs to Ultra and culture, respectively. Exact source bytes and both assignments are preserved; no silent resolution or clinical truth judgment.",
+          "source_observations": [
+            {
+              "xml_path": "front/article-meta/abstract/p",
+              "literal_fragment": "98.9%/95.3% vs. culture, and 86.2%/95.2% vs. Ultra"
+            },
+            {
+              "xml_path": "body//sec[@id='sec020']/p[1]",
+              "literal_fragment": "98.9% and 95.3% compared to Xpert® MTB/RIF Ultra; 86.2% and 95.2% compared to culture"
+            },
+            {
+              "xml_path": "body//table-wrap[@id='pone.0327936.t002']/alternatives/table/tbody/tr[2]/td[1]",
+              "literal_fragment": "Xpert® MTB/RIF ultra"
+            },
+            {
+              "xml_path": "body//table-wrap[@id='pone.0327936.t002']/alternatives/table/tbody/tr[2]/td[6]",
+              "literal_fragment": "98.9"
+            },
+            {
+              "xml_path": "body//table-wrap[@id='pone.0327936.t002']/alternatives/table/tbody/tr[8]/td[1]",
+              "literal_fragment": "LJ culture"
+            },
+            {
+              "xml_path": "body//table-wrap[@id='pone.0327936.t002']/alternatives/table/tbody/tr[8]/td[6]",
+              "literal_fragment": "86.2"
+            }
+          ]
+        },
+        {
+          "description": "Table 2 contingency counts and printed performance metrics are retained as supplied. The Ultra-positive row reports 89 TrueNat-positive, 8 TrueNat-negative and 97 total, while the table labels sensitivity 98.9. These are source observations, not a recalculated clinical correction or an exhaustive consistency audit.",
+          "source_observations": [
+            {
+              "xml_path": "body//table-wrap[@id='pone.0327936.t002']/alternatives/table/tbody/tr[2]/td[3]",
+              "literal_fragment": "89"
+            },
+            {
+              "xml_path": "body//table-wrap[@id='pone.0327936.t002']/alternatives/table/tbody/tr[2]/td[4]",
+              "literal_fragment": "8"
+            },
+            {
+              "xml_path": "body//table-wrap[@id='pone.0327936.t002']/alternatives/table/tbody/tr[2]/td[5]",
+              "literal_fragment": "97"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

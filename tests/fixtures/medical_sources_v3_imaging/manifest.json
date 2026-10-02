@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "ticket": "R22",
+  "scope": "Source acquisition only; no QA or retrieval ranking.",
+  "sources": [
+    {
+      "alias": "mri",
+      "file": "mri.xml",
+      "publisher_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0188679",
+      "persistent_identifier_url": "https://doi.org/10.1371/journal.pone.0188679",
+      "acquisition": {
+        "download_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0188679&type=manuscript",
+        "resolved_url_sanitized": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0188679/1/pone.0188679.xml",
+        "resolved_url_query_removed": true,
+        "retrieved_at_utc": "2026-10-02T20:58:29Z",
+        "http_status": 200,
+        "content_type": "application/xml",
+        "byte_length": 76039,
+        "sha256": "051c0e8c5e44dd3f7ce85647623d1aed8582fff4dcd2d0a5103b0e9c6cf1a7dd"
+      },
+      "metadata": {
+        "article_type": "research-article",
+        "jats_dtd_version": "1.1d3",
+        "doi": "10.1371/journal.pone.0188679",
+        "publisher_article_id": "PONE-D-17-03918",
+        "title": "MRI for the assessment of malignancy in BI-RADS 4 mammographic microcalcifications",
+        "authors": [
+          {
+            "given_names": "Barbara",
+            "surname": "Bennani-Baiti"
+          },
+          {
+            "given_names": "Matthias",
+            "surname": "Dietzel"
+          },
+          {
+            "given_names": "Pascal A.",
+            "surname": "Baltzer"
+          }
+        ],
+        "journal": "PLOS ONE",
+        "publisher": "Public Library of Science",
+        "publication_date": "2017-11-30",
+        "collection_year": "2017",
+        "volume": "12",
+        "issue": "11",
+        "elocation_id": "e0188679",
+        "copyright_year": "2017",
+        "copyright_holder": "Bennani-Baiti et al",
+        "license_url_as_published": "http://creativecommons.org/licenses/by/4.0/",
+        "license_ext_link_urls_as_published": [
+          "http://creativecommons.org/licenses/by/4.0/"
+        ],
+        "license_notice": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+        "main_tables": [
+          {
+            "id": "pone.0188679.t001",
+            "doi": "10.1371/journal.pone.0188679.t001",
+            "label": "Table 1",
+            "caption": "Immunohistochemical profile of malignant lesions.",
+            "header_columns": 6,
+            "data_rows": 6
+          },
+          {
+            "id": "pone.0188679.t002",
+            "doi": "10.1371/journal.pone.0188679.t002",
+            "label": "Table 2",
+            "caption": "Malignant lesion grading distribution.",
+            "header_columns": 5,
+            "data_rows": 3
+          },
+          {
+            "id": "pone.0188679.t003",
+            "doi": "10.1371/journal.pone.0188679.t003",
+            "label": "Table 3",
+            "caption": "Comparison of MRI performance with published data.",
+            "header_columns": 8,
+            "data_rows": 5
+          }
+        ],
+        "raw_xml_counts": {
+          "body_sections": 14,
+          "body_paragraph_elements": 22,
+          "abstract_paragraph_elements": 4,
+          "main_table_wraps": 3,
+          "figure_references": 2,
+          "supplementary_material_references": 1,
+          "bibliographic_references": 35
+        },
+        "direct_related_article_nodes": [],
+        "front_article_notes_count": 0
+      },
+      "attribution": {
+        "citation": "Bennani-Baiti B, Dietzel M, Baltzer PA (2017) MRI for the assessment of malignancy in BI-RADS 4 mammographic microcalcifications. PLOS ONE 12(11): e0188679. https://doi.org/10.1371/journal.pone.0188679",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "changes_to_publisher_xml": "None. Publisher XML bytes are retained unchanged."
+      },
+      "version_and_notices": {
+        "representation": "Full publisher JATS XML returned by the manuscript download endpoint; UTF-8 XML 1.0, JATS dtd-version 1.1d3.",
+        "artifact_version_path_component_as_returned": "1",
+        "artifact_version_caveat": "The storage path component is recorded literally. It is not asserted to be an editorial revision number or the latest article version.",
+        "notice_scope": "This captured XML has research-article type, no related-article elements and no front/article-meta/article-notes elements. These observations are confined to the pinned snapshot and do not assert an exhaustive or current correction/retraction search.",
+        "linked_assets": "Two figure elements and one supplementary-material element remain as references in the unchanged XML. No figures, supplementary files, participant data, or other linked assets were downloaded.",
+        "source_scope": "One routine noninfectious breast imaging diagnostic-accuracy research article. Acquisition is independent of retrieval rankings and QA."
+      },
+      "source_discrepancies": [
+        {
+          "id": "invasive_specificity_interval",
+          "description": "The reported invasive-carcinoma specificity estimate lies outside its reported interval; both are preserved exactly as published.",
+          "evidence": [
+            {
+              "xml_path": "body//sec[@id='sec014']/p[1]",
+              "literal_fragment": "72.6% (95%-CI 65.1–69.2%)"
+            }
+          ]
+        },
+        {
+          "id": "false_negative_birads_listing",
+          "description": "The abstract lists three mammographic BI-RADS labels for four false negatives; the Results paragraph additionally lists a BI-RADS 4a false-negative DCIS. The archive does not reconcile the lists.",
+          "evidence": [
+            {
+              "xml_path": "front/article-meta/abstract/sec[3]/p[1]",
+              "literal_fragment": "4 false-negative (one invasive cancer, three DCIS; 2 BI-RADS 4c, 1 BI-RADS 4b on mammography)"
+            },
+            {
+              "xml_path": "body//sec[@id='sec014']/p[1]",
+              "literal_fragment": "The invasive carcinoma was classified BI-RADS 4c and the 3 false negative DCIS were originally rated BI-RADS 4a (n = 1), BI-RADS 4b (n = 1) and BI-RADS 4c (n = 1) at mammography."
+            }
+          ]
+        },
+        {
+          "id": "subgroup_statistical_test",
+          "description": "Statistical analysis names Fisher’s exact test, while subgroup Results names Chi-square test. Both descriptions are retained; no test is substituted.",
+          "evidence": [
+            {
+              "xml_path": "body//sec[@id='sec011']/p[1]",
+              "literal_fragment": "Fisher’s exact test was used to probe for differences between BI-RADS 4a-c subgroups."
+            },
+            {
+              "xml_path": "body//sec[@id='sec015']/p[4]",
+              "literal_fragment": "Chi-square test found no significant differences for sensitivity, specificity, PPV and NPV between BI-RADS 4a-4c subgroups (p>0.01)."
+            }
+          ]
+        },
+        {
+          "id": "own_study_table_year",
+          "description": "Table 3 labels the this study row as 2016; the electronic publication metadata is 2017-11-30. These are distinct source fields and the table year is not changed.",
+          "evidence": [
+            {
+              "xml_path": "body//table-wrap[@id='pone.0188679.t003']/alternatives/table/tbody/tr[5]/td[1]",
+              "literal_fragment": "this study"
+            },
+            {
+              "xml_path": "body//table-wrap[@id='pone.0188679.t003']/alternatives/table/tbody/tr[5]/td[2]",
+              "literal_fragment": "2016"
+            },
+            {
+              "xml_path": "front/article-meta/pub-date[@pub-type='epub']/year",
+              "literal_fragment": "2017"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

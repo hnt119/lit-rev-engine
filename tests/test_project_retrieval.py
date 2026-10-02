@@ -101,7 +101,8 @@ def test_unicode_casefold_numeric_negation_and_no_stemming():
         assert_anchors(store, project_id, result)
 
 
-def test_scope_project_active_version_and_linkage_provenance_are_independent():
+@pytest.mark.parametrize("method", ["token_overlap", "bm25_context_blocks"])
+def test_scope_project_active_version_and_linkage_provenance_are_independent(method):
     with ReviewStore(":memory:") as store:
         project_id, reports, documents = project(store, ["alpha included", "alpha pending", "alpha excluded"], included=False)
         include(store, project_id, reports[0])
@@ -111,18 +112,18 @@ def test_scope_project_active_version_and_linkage_provenance_are_independent():
         study = store.create_study(project_id, "Invented study", "linker", "Association")["id"]
         store.record_study_links(project_id, reports[0], [study], "Alice", "Association")
         store.record_study_links(project_id, reports[0], [], "Bob", "Unresolved identity")
-        result = store.search_sources(project_id, "alpha", method="token_overlap")
+        result = store.search_sources(project_id, "alpha", method=method)
         assert result["indexed_passages"] == 1
         assert result["source_manifest"][0]["study_link_state"] == "conflict"
         assert result["passages"][0]["study_ids"] == []
         assert [row["record_id"] for row in result["source_manifest"]] == [reports[0]]
-        all_sources = store.search_sources(project_id, "alpha", method="token_overlap", scope="all_attached")
+        all_sources = store.search_sources(project_id, "alpha", method=method, scope="all_attached")
         assert [row["record_id"] for row in all_sources["source_manifest"]] == reports
         assert [row["record_id"] for row in all_sources["passages"]] == reports
         assert all(row["project_id"] != foreign for row in all_sources["passages"])
         replacement = store.attach_document(project_id, reports[0], b"beta replacement", "txt", "custodian", "New active source")
-        assert store.search_sources(project_id, "alpha")["passages"] == []
-        current = store.search_sources(project_id, "beta")
+        assert store.search_sources(project_id, "alpha", method=method)["passages"] == []
+        current = store.search_sources(project_id, "beta", method=method)
         assert current["source_manifest"][0]["document_id"] == replacement["id"]
         assert current["passages"][0]["document_version"] == 2
         assert current["source_manifest"][0]["source_sha256"] != documents[0]["source_sha256"]
@@ -176,7 +177,7 @@ def test_integrity_checks_only_selected_sources_even_for_stopword_query(column, 
             store.search_sources(project_id, "the and")
 
 
-@pytest.mark.parametrize("method", ["bm25", "bm25_context"])
+@pytest.mark.parametrize("method", ["bm25", "bm25_context", "bm25_context_blocks"])
 def test_later_canonical_identifier_enrichment_rejects_current_source_identity(method):
     with ReviewStore(":memory:") as store:
         project_id, reports, _ = project(store, ["alpha first"], doi="10.1234/synthetic")
@@ -319,14 +320,15 @@ def test_context_uses_exact_last_80_words_once_per_own_window():
         assert_contexts(store, project_id, result)
 
 
-def test_nearest_same_parent_paragraph_tables_titles_nested_branches_and_documents():
+@pytest.mark.parametrize("method", ["bm25_context", "bm25_context_blocks"])
+def test_nearest_same_parent_paragraph_tables_titles_nested_branches_and_documents(method):
     body = '<sec><p id="outer">needle outer</p><sec><p id="inner">needle nested</p><p id="inner-next">inner next</p></sec><table-wrap id="table-one"><table><tr><td>own table</td></tr></table></table-wrap><p id="later">beta later</p><p id="last">gamma last</p><table-wrap id="table-two"><table><tr><td>own final</td></tr></table></table-wrap></sec><sec><p id="other-parent">other branch</p></sec>'
     front = '<article-meta><title-group><article-title id="title">needle title</article-title></title-group><abstract><p id="abstract">needle abstract</p><p id="abstract-next">abstract next</p></abstract></article-meta>'
     with ReviewStore(":memory:") as store:
         project_id, reports, _ = project(store, ["temporary", "second temporary"])
         document = attach_xml(store, project_id, reports[0], body, front=front)
         second = attach_xml(store, project_id, reports[1], '<sec><p id="isolated">isolated own</p></sec>')
-        result = store.search_sources(project_id, "needle own next beta gamma other isolated", method="bm25_context", top_k=100)
+        result = store.search_sources(project_id, "needle own next beta gamma other isolated", method=method, top_k=100)
         rows = {row["locator"]["element_id"]: row for row in result["passages"]}
         expected = {"title": None, "abstract": None, "abstract-next": "abstract", "outer": None, "inner": None, "inner-next": "inner", "table-one": "outer", "later": "outer", "last": "later", "table-two": "last", "other-parent": None, "isolated": None}
         assert set(rows) == set(expected)
@@ -338,28 +340,30 @@ def test_nearest_same_parent_paragraph_tables_titles_nested_branches_and_documen
         assert_contexts(store, project_id, result)
 
 
-def test_txt_pdf_context_exclusion_and_optional_cli_method(tmp_path):
+@pytest.mark.parametrize("method", ["bm25_context", "bm25_context_blocks"])
+def test_txt_pdf_context_exclusion_and_optional_cli_method(tmp_path, method):
     database = tmp_path / "ledger.sqlite3"
     with ReviewStore(database) as store:
         project_id, reports, _ = project(store, ["Software fixture text", "temporary PDF"])
         store.attach_document(project_id, reports[1], (ROOT / "tests/fixtures/evidence/three-pages.pdf").read_bytes(), "pdf", "custodian", "Synthetic PDF")
-        result = store.search_sources(project_id, "software fixture", method="bm25_context", top_k=100)
+        result = store.search_sources(project_id, "software fixture", method=method, top_k=100)
         assert result["passages"] and all(row["scoring_context"] == [] for row in result["passages"])
         assert {row["format"] for row in result["source_manifest"]} == {"txt", "pdf"}
-    command = [sys.executable, str(ROOT / "review.py"), "--db", str(database), "retrieve-sources", project_id, "--query", "software fixture", "--method", "bm25_context", "--top-k", "100"]
+    command = [sys.executable, str(ROOT / "review.py"), "--db", str(database), "retrieve-sources", project_id, "--query", "software fixture", "--method", method, "--top-k", "100"]
     completed = subprocess.run(command, cwd=tmp_path, text=True, capture_output=True)
     assert completed.returncode == 0 and completed.stderr == ""
     assert json.loads(completed.stdout) == result
 
 
-def test_context_integrity_and_current_version_snapshot(tmp_path, monkeypatch):
+@pytest.mark.parametrize("method", ["bm25_context", "bm25_context_blocks"])
+def test_context_integrity_and_current_version_snapshot(tmp_path, monkeypatch, method):
     database = tmp_path / "ledger.sqlite3"
     with sqlite3.connect(database) as connection:
         connection.execute("PRAGMA journal_mode = WAL")
     with ReviewStore(database) as store:
         project_id, reports, _ = project(store, ["temporary"])
         document = attach_xml(store, project_id, reports[0], '<sec><p id="context">alpha context</p><p id="target">own result</p></sec>')
-        baseline = store.search_sources(project_id, "alpha", method="bm25_context")
+        baseline = store.search_sources(project_id, "alpha", method=method)
         original, fired = store.list_records, []
         def concurrent(project):
             records = original(project)
@@ -369,9 +373,9 @@ def test_context_integrity_and_current_version_snapshot(tmp_path, monkeypatch):
                     attach_xml(writer, project, reports[0], '<sec><p id="context">beta replacement</p><p id="target">own result</p></sec>')
             return records
         monkeypatch.setattr(store, "list_records", concurrent)
-        assert store.search_sources(project_id, "alpha", method="bm25_context") == baseline
-        assert store.search_sources(project_id, "alpha", method="bm25_context")["passages"] == []
-        current = store.search_sources(project_id, "beta", method="bm25_context")
+        assert store.search_sources(project_id, "alpha", method=method) == baseline
+        assert store.search_sources(project_id, "alpha", method=method)["passages"] == []
+        current = store.search_sources(project_id, "beta", method=method)
         assert current["source_manifest"][0]["document_id"] != document["id"]
         assert_contexts(store, project_id, current)
         active = current["source_manifest"][0]["document_id"]
@@ -380,4 +384,73 @@ def test_context_integrity_and_current_version_snapshot(tmp_path, monkeypatch):
         with store._connection:
             store._connection.execute("UPDATE source_documents SET blocks_json = ? WHERE id = ?", (json.dumps(blocks), active))
         with pytest.raises(ValueError, match="corrupt"):
-            store.search_sources(project_id, "the and", method="bm25_context")
+            store.search_sources(project_id, "the and", method=method)
+
+
+def test_whole_block_literal_bm25_long_table_context_once_and_legacy_traces():
+    context_words = ["prefix"] * 15 + ["alpha"] * 40 + ["beta"] * 40
+    context = " ".join(context_words)
+    rows = "".join(f"<tr><td>row{index}</td><td>gamma</td></tr>" for index in range(251))
+    table = f'<table-wrap id="table"><label>Table synthetic</label><caption><p>Own rows</p></caption><table><tbody>{rows}</tbody></table><table-wrap-foot><p>End marker</p></table-wrap-foot></table-wrap>'
+    body = f'<sec><p id="context">{context}</p>{table}<p id="after">gamma gamma</p></sec>'
+    expected_table = "Table synthetic\nOwn rows\n" + "\n".join(f"row{index}\tgamma" for index in range(251)) + "\nEnd marker"
+    with ReviewStore(":memory:") as store:
+        project_id, reports, _ = project(store, ["temporary"])
+        document = attach_xml(store, project_id, reports[0], body)
+        query = "alpha ALPHA gamma"
+        previous = {method: store.search_sources(project_id, query, method=method, top_k=100) for method in ("token_overlap", "bm25", "bm25_context")}
+        changes = store._connection.total_changes
+        result = store.search_sources(project_id, query, method="bm25_context_blocks", top_k=100)
+        assert result["method_version"] == "lit-rev-engine.project-retrieval.v3.bm25_context_blocks"
+        expected_parameters = {key: value for key, value in previous["bm25_context"]["parameters"].items() if key not in {"window_words", "overlap_words"}}
+        assert result["parameters"] == {**expected_parameters, "passage_unit": "block"}
+        assert result["indexed_passages"] == result["matched_passages"] == 3
+        actual = {row["locator"]["element_id"]: row for row in result["passages"]}
+        # Own lengths are 95, 508, 2; table and following paragraph each receive
+        # the same 80-word suffix once. N=3 and alpha/gamma DF are 3 and 2.
+        average = (95 + 588 + 82) / 3
+        def term(tf, length, df):
+            return math.log(1 + (3 - df + 0.5) / (df + 0.5)) * tf * 2.2 / (tf + 1.2 * (0.25 + 0.75 * length / average))
+        scores = {"context": term(40, 95, 3), "table": term(40, 588, 3) + term(251, 588, 2), "after": term(40, 82, 3) + term(2, 82, 2)}
+        for key, expected in scores.items():
+            assert actual[key]["score"] == pytest.approx(expected, abs=1e-15)
+        assert actual["table"]["anchor"] == {"block_id": "xml:/article[1]/body[1]/sec[1]/table-wrap[1]", "start": 0, "end": len(expected_table), "quote": expected_table}
+        suffix = {"block_id": "xml:/article[1]/body[1]/sec[1]/p[1]", "start": context.index("alpha"), "end": len(context), "quote": " ".join(context_words[15:])}
+        assert actual["table"]["scoring_context"][0]["anchor"] == suffix
+        assert actual["after"]["scoring_context"][0]["anchor"] == suffix
+        assert actual["context"]["scoring_context"] == []
+        assert store._connection.total_changes == changes
+        blocks = {block["id"]: block for block in store.get_source_blocks(project_id, document["id"])}
+        for row in result["passages"]:
+            block = blocks[row["anchor"]["block_id"]]
+            assert row["anchor"] == {"block_id": block["id"], "start": 0, "end": len(block["text"]), "quote": block["text"]}
+        assert_contexts(store, project_id, result)
+        for method, baseline in previous.items():
+            assert store.search_sources(project_id, query, method=method, top_k=100) == baseline
+        assert store.search_sources(project_id, query)["method"] == "bm25"
+
+
+def test_whole_block_long_paragraph_exact_padded_txt_pdf_page_and_blank_skip():
+    padded = " \tα café café 🧪 alpha\r\n" + "\t".join(f"word{index}" for index in range(501)) + " \r\n"
+    paragraph = " ".join(f"item{index}" for index in range(501))
+    with ReviewStore(":memory:") as store:
+        project_id, reports, documents = project(store, [padded, "temporary XML", "temporary PDF"])
+        xml_document = attach_xml(store, project_id, reports[1], f'<sec><p id="long">{paragraph}</p></sec>')
+        pdf_document = store.attach_document(project_id, reports[2], (ROOT / "tests/fixtures/evidence/three-pages.pdf").read_bytes(), "pdf", "custodian", "Synthetic PDF pages")
+        result = store.search_sources(project_id, "alpha item500 software fixture no", method="bm25_context_blocks", top_k=100)
+        # One TXT block, one XML paragraph, and two nonblank physical PDF pages.
+        assert result["indexed_passages"] == result["matched_passages"] == 4
+        rows = {row["document_id"]: row for row in result["passages"] if row["document_id"] != pdf_document["id"]}
+        assert rows[documents[0]["id"]]["anchor"] == {"block_id": "text:1", "start": 0, "end": len(padded), "quote": padded}
+        assert rows[xml_document["id"]]["anchor"]["quote"] == paragraph
+        assert rows[xml_document["id"]]["anchor"]["start"] == 0
+        assert rows[xml_document["id"]]["anchor"]["end"] == len(paragraph)
+        pdf_rows = [row for row in result["passages"] if row["document_id"] == pdf_document["id"]]
+        assert {row["locator"]["page"] for row in pdf_rows} == {1, 3}
+        pages = {block["id"]: block for block in store.get_source_blocks(project_id, pdf_document["id"])}
+        assert pages["pdf:page:2"]["text"] == ""
+        for row in pdf_rows:
+            page = pages[row["anchor"]["block_id"]]
+            assert row["anchor"] == {"block_id": page["id"], "start": 0, "end": len(page["text"]), "quote": page["text"]}
+        assert all(row["scoring_context"] == [] for row in result["passages"])
+        assert_contexts(store, project_id, result)

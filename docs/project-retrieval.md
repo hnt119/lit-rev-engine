@@ -1,6 +1,6 @@
 # Finding passages in a review project's sources
 
-Status: **synthetic walkthrough verified; experimental context interface verified; BM25 remains the software default; v1 and v2 medical-quality gates failed**. The API, CLI, candidate methods, and prospective evaluation rules are frozen in the [v1 milestone](project-retrieval-milestone.md) and [v2 contract](project-retrieval-v2-milestone.md). All six original executable synthetic shell blocks passed in a temporary ledger with network/settings/model imports blocked; the additional guarded context block also passed. BM25 was selected on the frozen v1 development criteria before its held-out run. The experimental context method was selected for v2 evaluation before fresh question inspection or ranking. Both held-out quality gates failed; valid anchors and software behavior do not establish medical retrieval quality.
+Status: **synthetic walkthrough verified; optional whole-block method passes its bounded v3 medical pilot; BM25 remains the software default; v1 and v2 failures preserved**. The API, CLI, candidate methods, and prospective evaluation rules are frozen in the [v1 milestone](project-retrieval-milestone.md), [v2 contract](project-retrieval-v2-milestone.md) and [v3 contract](project-retrieval-v3-milestone.md). All six original executable synthetic shell blocks passed in a temporary ledger with network/settings/model imports blocked; the additional guarded context block also passed. Each medical candidate was selected prospectively before its fresh held-out ranking. Exact anchors and a small pilot do not establish clinical validity or automatic answerability.
 
 Project retrieval searches the source blocks retained in a review ledger and returns exact passage candidates with source provenance. It uses the project's active document versions in one SQLite read snapshot. The existing arXiv/Chroma/Agnes pipeline has its own index and runtime; these commands use the ledger's retained source representations and initialize no model, network request, or live vector collection.
 
@@ -27,9 +27,9 @@ Older document versions remain auditable but do not supply retrieval candidates.
 
 The result identifies `status="candidate_passages"`, `source_manifest`, `source_snapshot_sha256`, `indexed_passages`, `matched_passages`, and `passages`. Each source manifest entry identifies the source document/report/version, source/block hashes, parser identity/options, explicit source identifiers, descriptive source URL/version label, and current screening/linkage state. Each candidate retains rank, score, report/document IDs, source/block hashes, parser ID, typed locator, and an exact `anchor` containing `block_id`, `start`, `end`, and `quote`. Offsets are half-open Unicode code-point bounds in its canonical source block.
 
-Candidate methods are `token_overlap`, `bm25`, and the optional experimental `bm25_context`, using the same frozen Unicode casefolded word tokens and stop words. Windows contain at most 200 whitespace-delimited words with 40 words of overlap. Windows preserve original substrings and remain within one block/document; XML locators remain element paths and PDF locators remain actual page positions. BM25 is the API/CLI default selected on the frozen development criteria. Use `--method` explicitly to preserve your intended comparison. Parameters, method IDs, and full source manifests are included in each trace.
+Candidate methods are `token_overlap`, `bm25`, `bm25_context` and `bm25_context_blocks`, using the same frozen Unicode casefolded word tokens and stop words. The first three methods use windows of at most 200 whitespace-delimited words with 40 words of overlap. The whole-block method returns complete canonical blocks. Every anchor preserves its original substring and stays within one block/document; XML locators remain element paths and PDF locators remain actual page positions. BM25 is the API/CLI default selected on the frozen development criteria. Use `--method` explicitly to preserve your intended comparison. Parameters, method IDs, and full source manifests are included in each trace.
 
-Only positive-score windows are returned, up to the positive integer `top_k`. A query reduced to no effective tokens can return an empty candidate list while retaining its source manifest and indexed count. Selected source integrity/identity is still checked. Corrupt selected sources, an explicit source/report DOI/PMID contradiction, unknown projects, blank queries, and invalid options fail without ledger mutations.
+Only positive-score candidates are returned, up to the positive integer `top_k`. A query reduced to no effective tokens can return an empty candidate list while retaining its source manifest and indexed count. Selected source integrity/identity is still checked. Corrupt selected sources, an explicit source/report DOI/PMID contradiction, unknown projects, blank queries, and invalid options fail without ledger mutations.
 
 Rank and score order lexical matches. They do not certify support, answerability, effect direction, clinical significance, or extraction verification. A high-ranking negation or limitation can be useful context while leaving the requested estimate unreported. An empty result also does not prove absence from the literature.
 
@@ -53,6 +53,18 @@ context_trace = store.search_sources(
 Its method ID is `lit-rev-engine.project-retrieval.v2.bm25_context`, with `context_rule="preceding-paragraph-same-xml-parent-v1"` and `context_max_words=80` recorded alongside the BM25 parameters. Each returned passage retains its exact own-block `anchor` and adds `scoring_context`: an empty list or one separately anchored context object with its own exact `locator`. Both refer to blocks of the same retained source representation. A match can be driven solely by context tokens even when the returned own quote does not contain the query term.
 
 Reuse `candidate["anchor"]` as the quote location of a manually entered evidence proposal. Inspect `candidate["scoring_context"]` separately to understand the rank; do not replace the finding anchor with that context or join the two strings into a quotation. If a finding requires both passages, they must be inspected and anchored separately. Scoring context contributes neither an answerability claim nor positive support coverage, and ranking never creates or verifies an extraction. The [independent v2 evaluation](medical-retrieval-v2-evaluation.md) failed the fresh held-out quality gate. This method remains experimental; its synthetic proof below establishes software behavior, not medical retrieval quality.
+
+## Complete canonical blocks
+
+The [prospective v3 contract](project-retrieval-v3-milestone.md) adds optional `bm25_context_blocks`. It uses the same BM25 constants and preceding-XML-paragraph scoring context, but supplies one candidate per nonblank canonical block. A long paragraph or table keeps its entire text, including every canonical row and table foot. TXT blocks and physical PDF page blocks also retain their complete text. Whitespace-only blocks are skipped; nonblank punctuation-only and stopword-only blocks remain indexed even if they cannot score positively.
+
+```text
+.venv/bin/python review.py --db /path/to/review.sqlite3 retrieve-sources PROJECT_UUID \
+  --query "population outcome timepoint" --top-k 5 --method bm25_context_blocks \
+  --scope included > block-retrieval-trace.json
+```
+
+The method ID is `lit-rev-engine.project-retrieval.v3.bm25_context_blocks`. Its parameters record `passage_unit="block"` and omit window/overlap sizes. Each own anchor has `start=0`, `end=len(canonical_block_text)` and the full canonical text as `quote`, preserving padding and Unicode. Context is separately anchored and enters each scoring representation once. It supplies no own-quotation support. Whole blocks can be long; inspect the relevant exact quotations before manually proposing evidence. Retrieval creates no finding, verification or automatic model input. The [independent v3 evaluation](medical-retrieval-v3-evaluation.md) accepts the bounded source-disjoint quality gate; this method remains an explicitly selected reviewer-facing candidate interface.
 
 ## Synthetic offline walkthrough
 
@@ -405,3 +417,30 @@ The [selected-method-only fresh results](medical-retrieval-held-out-v2.json) ret
 The answerable denominator is nine; three no-answer requests are reported separately. Finding one required quote can yield a Hit without recovering every required quote or passage. High Hit/MRR and valid source locations therefore coexist with incomplete support. Scoring-context quotations receive no support credit. Project/current-source/scope isolation and unchanged-ledger checks passed, while the quality conditions failed.
 
 BM25 remains the API/CLI default. No tuning, reranking, code/default/source/gold changes or alternate-method fresh comparison followed this failure. The original v1 failure and artifacts remain unchanged. These small agent-authored pilots expose software limits; different source sets and denominators do not support a direct comparative medical-quality claim. Neither the experimental interface nor exact anchors validate clinical entailment, appraisal, answerability, evidence synthesis or cross-report study retrieval.
+
+## Whole-block source-disjoint pilot
+
+The [v3 prospective contract](project-retrieval-v3-milestone.md) froze one granularity change, exact algorithm/provenance behavior, original development data and newly authored medical truth before ranking. Original development retained 7/7 complete answers and identical required-quote ranks for the reference and candidate. The coordinator [selection receipt](medical-retrieval-selection-v3.json) fixed `bm25_context_blocks` before inspecting fresh QA or fresh ranking.
+
+The first held-out setup attempt failed before any query because the gold stores publisher URLs inside acquisition records while the original harness expects a top-level field. A separately [authorized schema repair](medical-retrieval-v3-schema-repair.json) pins a new held-only wrapper and both synthetic test suites. It adds only the three missing URL fields to an in-memory copy of the exact selected manifest. Original source/gold/freeze/code/metric/development/selection bytes remain unchanged; all original evaluation guards execute. The failure has no quality score.
+
+The [first actual fresh result](medical-retrieval-held-out-v3.json), independently reviewed in the [v3 report](medical-retrieval-v3-evaluation.md), passes all six predeclared conditions:
+
+| Measure at five candidates | Observed | Frozen requirement |
+| --- | ---: | ---: |
+| Answerable questions | 9 | 9 |
+| Mean support coverage | 0.8518518518518519 | >=0.75 |
+| Complete answers | 6/9 | >=6/9 |
+| Valid own anchors | 60/60 | 100% |
+| Valid scoring-context anchors | 36/36 | 100% |
+| Project / active-source / scope isolation | 100% | 100% |
+
+The trial, cohort and routine imaging sources contain 156 canonical blocks and nine tables. Eight of the nine answerable requests require distinct blocks in every identified sufficient alternative. All nine queries recover at least one required quotation, but three remain incomplete: one has 2/3 required passages and two have 1/2. Mean reciprocal rank is 0.8888888888888888. Every no-answer query returns five candidates, only 1/4 declared context quotations is recovered, and two queries return declared misleading alternatives. This is evidence for a bounded reviewer-facing retrieval gate, with explicit remaining failures; it provides no automatic abstention, clinical validation or cross-pilot superiority claim.
+
+The recorded evaluation used:
+
+```text
+python tools/evaluate_medical_retrieval_v3_schema.py --split held-out --selection docs/medical-retrieval-selection-v3.json --output docs/medical-retrieval-held-out-v3.json
+```
+
+The checked-in output is immutable and that command refuses to overwrite it. A deliberately separate reproduction needs a new output path; it creates an independent temporary ledger whose UUIDs differ. Compare normalized source/anchor/score/parameter content while retaining each run's actual UUID-bearing hashes. No further ranking or tuning followed the accepted first grade. For project use, select `--method bm25_context_blocks` explicitly and preserve the entire trace. BM25 remains the existing default.
