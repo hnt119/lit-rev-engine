@@ -2,7 +2,7 @@
 
 A Python engine for managing a reproducible review ledger and exploring locally indexed academic papers with an Agnes-powered assistant.
 
-The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, and reconciled record/report counts. PubMed receipts and original response bytes survive ledger export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages. Report-to-study linkage and verified evidence tables remain future work.
+The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. PubMed receipts and original response bytes survive ledger export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages. Source-anchored verified evidence tables remain future work.
 
 ## Current workflow
 
@@ -16,6 +16,8 @@ flowchart LR
     Dedup --> Screening[Reviewer decisions and adjudication]
     Screening --> Fulltext[Full-text retrieval and assessment]
     Fulltext --> Counts[Reconciled counts and JSON / CSV exports]
+    Fulltext --> Link[Audited report / study associations]
+    Link --> Counts
 ```
 
 `review.py` uses Python's standard library. Imports, screening, counts, export, and saved-capture verification run offline; `search-pubmed` explicitly executes an NCBI search. Full-text retrieval status is recorded by a reviewer; the ledger does not download the report or make eligibility decisions.
@@ -112,7 +114,7 @@ Every screening revision is retained with reviewer identity and reason. The late
 
 Only title/abstract inclusions can enter full-text retrieval, and full-text assessment requires `retrieved`. Once retrieval starts, title/abstract changes must preserve inclusion. Retrieved status is terminal in this version; reopening prior stages requires a future explicit operation.
 
-Exports include a versioned `project.json` bundle, records, search runs, original occurrences, all decision/retrieval events, active exclusion reasons, and counts in JSON/CSV. Seven reconciliation checks account for pending screening, retrieval, assessment, and unresolved decisions. Export fails if a check fails. Counts refer to records/reports: `included_studies` is null until study linkage exists. Each export reads one consistent SQLite snapshot; replacing the separate output files is not a single atomic directory operation.
+Exports include a versioned `project.json` bundle, records, search runs, original occurrences, all decision/retrieval events, active exclusion reasons, and counts in JSON/CSV. Seven reconciliation checks account for pending screening, retrieval, assessment, and unresolved decisions; projects using manual study linkage add an eighth report-linkage partition. Export fails if an arithmetic check fails. `included_studies` stays null until linkage is available and complete for all current full-text inclusions. Each export reads one consistent SQLite snapshot; replacing the separate output files is not a single atomic directory operation.
 
 CSV uses standard quoting and prefixes a single quote to user text beginning with spreadsheet formula characters (`=`, `+`, `-`, `@`, tab, carriage return). JSON retains the exact original text. Repeated exports of an unchanged ledger are deterministic. Without `--import-key`, each import adds a new historical run; an identical keyed retry returns the original result, while changed input under that key fails.
 
@@ -134,6 +136,26 @@ python review.py import-pubmed "$REVIEW_PROJECT_ID" data/pubmed-captures/my-firs
 The first command searches, captures complete PMID membership and citation XML, then imports it. The other commands run offline; verification opens no ledger. Inspect the saved translated query and warnings. Identical keyed replay returns the original run, including from a moved or exported capture. SQLite retains the receipt and exact ESearch/EFetch/combined XML bytes, so deleting the original folder does not lose them. Export adds a hash/size manifest and `search_captures/<run_id>/` assets to the normal ledger files.
 
 This version accepts at most 10,000 PubMed matches and fails on truncation or wrong membership. A larger search needs a separately validated segmentation/EDirect workflow. If capture succeeds but import fails, the complete folder is retained and the error gives an offline recovery command. Supported date/sort options, rate limits, failure behavior, and a fully offline synthetic example are in [PubMed capture and replay](docs/pubmed-search.md). Capture completeness describes saved membership; it does not establish comprehensive biomedical coverage or clinical evidence quality.
+
+### Link reports to studies
+
+Create a manual study identity after checking source/registry information, then copy its returned ID:
+
+```bash
+python review.py study-create "$REVIEW_PROJECT_ID" --label "Enter the study label" \
+  --reviewer reviewer-1 --reason "Enter the source evidence establishing this identity"
+REVIEW_STUDY_ID="COPY_STUDY_ID_FROM_CREATE_OUTPUT"
+python review.py link-studies "$REVIEW_PROJECT_ID" "$REVIEW_RECORD_ID" \
+  --study-id "$REVIEW_STUDY_ID" --reviewer reviewer-1 \
+  --reason "Enter the evidence associating this report with this study"
+python review.py links "$REVIEW_PROJECT_ID" --record-id "$REVIEW_RECORD_ID"
+python review.py studies "$REVIEW_PROJECT_ID"
+python review.py counts "$REVIEW_PROJECT_ID"
+```
+
+Several reports can share a study ID, and one report can link to several studies using repeated `--study-id` flags. Each event replaces that reviewer's complete set; `--clear` explicitly records an empty set. Disagreements remain conflicts, `adjudicate-links` requires existing reviews and a reason, and later reviews invalidate an adjudication. Labels and supplied `--identifiers-json` metadata never auto-merge study identities.
+
+Linking does not change eligibility. Only current full-text-included reports contribute to study totals. Missing, empty, or conflicting links leave `included_studies=null` while `linked_included_studies` exposes a partial observed total. Complete linkage counts distinct study IDs, preserving every report and association revision. Projects using linkage export `studies.csv`, `study_links.csv`, and `study_link_events.csv` plus corresponding bundle arrays. See [study linkage](docs/study-linkage.md) for the independent six-report/three-study example and [evaluation evidence](docs/study-linkage-evaluation.md).
 
 ### 1. Search and index papers
 
@@ -237,7 +259,7 @@ JSON snapshots are UTF-8 and replaced atomically. Downloads are written to tempo
 
 **The passage pipeline's JSON outputs describe the latest run and are overwritten.** Its vector index accumulates papers across runs. `review.py` keeps a separate persistent search/import ledger; running `main.py` does not automatically add a ledger search run.
 
-Each new indexed chunk retains title, authors, publication date, arXiv entry URL, PDF URL, PDF path, PDF page number, and word offsets within that page. arXiv report versions remain distinct identifiers. The review ledger deduplicates citation records within a project using normalized DOI/PMID, or exact title/year/first author when both records lack those identifiers. It preserves ambiguous records and rejects conflicting identifier imports transactionally. Linking multiple reports to one study remains future work.
+Each new indexed chunk retains title, authors, publication date, arXiv entry URL, PDF URL, PDF path, PDF page number, and word offsets within that page. arXiv report versions remain distinct identifiers. The review ledger deduplicates citation records within a project using normalized DOI/PMID, or exact title/year/first author when both records lack those identifiers. It preserves ambiguous records and rejects conflicting identifier imports transactionally. Manual study associations preserve secondary reports and keep citation identity separate from study identity.
 
 ## Project structure
 
@@ -287,12 +309,12 @@ The six development priorities are:
 
 1. Persistent review projects, protocols, eligibility criteria, and exact search histories: implemented for saved imports and captured PubMed execution receipts.
 2. Biomedical discovery: JSON, RIS, PubMed XML imports, and complete PubMed capture/offline replay implemented; additional databases and validated searches beyond 10,000 matches remain future work.
-3. Citation-record deduplication implemented conservatively; manual duplicate resolution and report-to-study linkage remain future work.
-4. Title/abstract and full-text screening, reviewer identity, exclusion reasons, and reconciled flow counts implemented; reviewer requirements and reopening stages remain future work.
+3. Citation-record deduplication and auditable manual many-to-many report/study linkage implemented; manual citation merging remains future work.
+4. Title/abstract and full-text screening, reviewer identity, exclusion reasons, reconciled report counts and conditional distinct-study totals implemented; reviewer requirements and reopening stages remain future work.
 5. Structured extraction with source quotations, page/table locations, verification status, and design-appropriate appraisal.
 6. Synthesis and exports based on verified evidence, with a medical-paper evaluation set.
 
-The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The next gate is auditable report/study linkage, followed by source-anchored verified extraction and real medical-paper retrieval evaluation.
+The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The next gate is durable source documents and source-anchored verified extraction, followed by real medical-paper retrieval evaluation.
 
 PRISMA is a reporting guideline; implementing a flow diagram alone does not establish review quality. Systematic and scoping workflows should retain their distinct methodological requirements. [PRISMA 2020](https://www.prisma-statement.org/prisma-2020), [PRISMA-ScR](https://www.prisma-statement.org/scoping).
 
@@ -309,4 +331,4 @@ PRISMA is a reporting guideline; implementing a flow diagram alone does not esta
 
 ## License
 
-No license has been added. Standard copyright restrictions apply until a license is supplied.
+No license has been added for the project code. The three publisher articles in `tests/fixtures/medical_sources/` carry their own CC BY 4.0 license and attribution in the [source manifest](tests/fixtures/medical_sources/README.md); that license does not apply to the engine code.

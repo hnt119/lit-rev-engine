@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "description": "Exact openly licensed publisher full-article XML for a three-paper medical retrieval software pilot. No extraction gold or clinical conclusions.",
+  "transformations": "None. Source files retain exact HTTP response body bytes.",
+  "sources": [
+    {
+      "alias": "coach",
+      "file": "coach.xml",
+      "doi": "10.1371/journal.pmed.1004019",
+      "title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+      "publisher_article_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+      "download_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371%2Fjournal.pmed.1004019&type=manuscript",
+      "final_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pmed.1004019/2/pmed.1004019.xml",
+      "acquired_at": "2026-10-02T17:54:51Z",
+      "sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "size_bytes": 175830,
+      "http_response_content_type": "application/xml",
+      "source_format": "publisher full-article XML",
+      "xml_root_attributes": {
+        "article-type": "research-article",
+        "dtd-version": "1.1d3",
+        "{http://www.w3.org/XML/1998/namespace}lang": "en"
+      },
+      "xml_publication_dates": [
+        {
+          "attributes": {
+            "pub-type": "epub"
+          },
+          "fields": {
+            "day": "24",
+            "month": "10",
+            "year": "2022"
+          }
+        },
+        {
+          "attributes": {
+            "pub-type": "collection"
+          },
+          "fields": {
+            "month": "10",
+            "year": "2022"
+          }
+        }
+      ],
+      "xml_licenses": [
+        {
+          "attributes": {
+            "{http://www.w3.org/1999/xlink}href": "http://creativecommons.org/licenses/by/4.0/",
+            "{http://www.w3.org/1999/xlink}type": "simple"
+          },
+          "text": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+        }
+      ],
+      "xml_copyright_statements": [],
+      "xml_article_versions": [],
+      "journal": "PLOS Medicine",
+      "publisher": "Public Library of Science",
+      "authors": [
+        {
+          "surname": "Chen",
+          "given_names": "Shulin"
+        },
+        {
+          "surname": "Conwell",
+          "given_names": "Yeates"
+        },
+        {
+          "surname": "Xue",
+          "given_names": "Jiang"
+        },
+        {
+          "surname": "Li",
+          "given_names": "Lydia"
+        },
+        {
+          "surname": "Zhao",
+          "given_names": "Tingjie"
+        },
+        {
+          "surname": "Tang",
+          "given_names": "Wan"
+        },
+        {
+          "surname": "Bogner",
+          "given_names": "Hillary"
+        },
+        {
+          "surname": "Dong",
+          "given_names": "Hengjin"
+        }
+      ],
+      "publication_date": "2022-10-24",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "copyright": {
+        "year": "2022",
+        "holder": "Chen et al"
+      },
+      "version_statement": "Publisher-delivered full-article XML for the peer-reviewed research article published 2022-10-24; acquired snapshot pinned by acquired_at, byte length, and SHA-256. XML has no explicit article-version element. No claim of latest or uncorrected status; storage path components are not formal publication-version assertions.",
+      "final_url_query_omitted": true,
+      "final_url_query_omission_reason": "Ephemeral publisher storage access signatures are omitted; retain redirect scheme/host/path and replay acquisition using the permanent publisher download_url."
+    },
+    {
+      "alias": "whitehall",
+      "file": "whitehall.xml",
+      "doi": "10.1371/journal.pmed.1004109",
+      "title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+      "publisher_article_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+      "download_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371%2Fjournal.pmed.1004109&type=manuscript",
+      "final_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pmed.1004109/1/pmed.1004109.xml",
+      "acquired_at": "2026-10-02T17:54:51Z",
+      "sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "size_bytes": 209909,
+      "http_response_content_type": "application/xml",
+      "source_format": "publisher full-article XML",
+      "xml_root_attributes": {
+        "article-type": "research-article",
+        "dtd-version": "1.1d3",
+        "{http://www.w3.org/XML/1998/namespace}lang": "en"
+      },
+      "xml_publication_dates": [
+        {
+          "attributes": {
+            "pub-type": "epub"
+          },
+          "fields": {
+            "day": "18",
+            "month": "10",
+            "year": "2022"
+          }
+        },
+        {
+          "attributes": {
+            "pub-type": "collection"
+          },
+          "fields": {
+            "month": "10",
+            "year": "2022"
+          }
+        }
+      ],
+      "xml_licenses": [
+        {
+          "attributes": {
+            "{http://www.w3.org/1999/xlink}href": "http://creativecommons.org/licenses/by/4.0/",
+            "{http://www.w3.org/1999/xlink}type": "simple"
+          },
+          "text": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+        }
+      ],
+      "xml_copyright_statements": [],
+      "xml_article_versions": [],
+      "journal": "PLOS Medicine",
+      "publisher": "Public Library of Science",
+      "authors": [
+        {
+          "surname": "Sabia",
+          "given_names": "Séverine"
+        },
+        {
+          "surname": "Dugravot",
+          "given_names": "Aline"
+        },
+        {
+          "surname": "Léger",
+          "given_names": "Damien"
+        },
+        {
+          "surname": "Ben Hassen",
+          "given_names": "Céline"
+        },
+        {
+          "surname": "Kivimaki",
+          "given_names": "Mika"
+        },
+        {
+          "surname": "Singh-Manoux",
+          "given_names": "Archana"
+        }
+      ],
+      "publication_date": "2022-10-18",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "copyright": {
+        "year": "2022",
+        "holder": "Sabia et al"
+      },
+      "version_statement": "Publisher-delivered full-article XML for the peer-reviewed research article published 2022-10-18; acquired snapshot pinned by acquired_at, byte length, and SHA-256. XML has no explicit article-version element. No claim of latest or uncorrected status; storage path components are not formal publication-version assertions.",
+      "final_url_query_omitted": true,
+      "final_url_query_omission_reason": "Ephemeral publisher storage access signatures are omitted; retain redirect scheme/host/path and replay acquisition using the permanent publisher download_url."
+    },
+    {
+      "alias": "raptor",
+      "file": "raptor.xml",
+      "doi": "10.1371/journal.pone.0329611",
+      "title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+      "publisher_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+      "download_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0329611&type=manuscript",
+      "final_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0329611/1/pone.0329611.xml",
+      "acquired_at": "2026-10-02T17:54:51Z",
+      "sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "size_bytes": 117858,
+      "http_response_content_type": "application/xml",
+      "source_format": "publisher full-article XML",
+      "xml_root_attributes": {
+        "article-type": "research-article",
+        "dtd-version": "1.3",
+        "{http://www.w3.org/XML/1998/namespace}lang": "en"
+      },
+      "xml_publication_dates": [
+        {
+          "attributes": {
+            "pub-type": "epub"
+          },
+          "fields": {
+            "day": "7",
+            "month": "8",
+            "year": "2025"
+          }
+        },
+        {
+          "attributes": {
+            "pub-type": "collection"
+          },
+          "fields": {
+            "year": "2025"
+          }
+        }
+      ],
+      "xml_licenses": [
+        {
+          "attributes": {
+            "{http://www.w3.org/1999/xlink}href": "http://creativecommons.org/licenses/by/4.0/",
+            "{http://www.w3.org/1999/xlink}type": "simple"
+          },
+          "text": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+        }
+      ],
+      "xml_copyright_statements": [],
+      "xml_article_versions": [],
+      "journal": "PLOS One",
+      "publisher": "Public Library of Science",
+      "authors": [
+        {
+          "surname": "Fanshawe",
+          "given_names": "Thomas R."
+        },
+        {
+          "surname": "Tonner",
+          "given_names": "Sharon"
+        },
+        {
+          "surname": "Turner",
+          "given_names": "Philip J."
+        },
+        {
+          "surname": "Głogowska",
+          "given_names": "Margaret"
+        },
+        {
+          "surname": "Ukwatte",
+          "given_names": "Umasha"
+        },
+        {
+          "surname": "Okusi",
+          "given_names": "Cecilia"
+        },
+        {
+          "surname": "Cogdale",
+          "given_names": "Jade"
+        },
+        {
+          "surname": "Zambon",
+          "given_names": "Maria"
+        },
+        {
+          "surname": "Nicholson",
+          "given_names": "Brian D."
+        },
+        {
+          "surname": "Hobbs",
+          "given_names": "F. D. Richard"
+        },
+        {
+          "surname": "Hayward",
+          "given_names": "Gail N."
+        },
+        {
+          "collective_name": "on behalf of the RAPTOR-C19 Study Group"
+        }
+      ],
+      "publication_date": "2025-08-07",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "copyright": {
+        "year": "2025",
+        "holder": "Fanshawe et al"
+      },
+      "version_statement": "Publisher-delivered full-article XML for the peer-reviewed research article published 2025-08-07; acquired snapshot pinned by acquired_at, byte length, and SHA-256. XML has no explicit article-version element. No claim of latest or uncorrected status; storage path components are not formal publication-version assertions.",
+      "final_url_query_omitted": true,
+      "final_url_query_omission_reason": "Ephemeral publisher storage access signatures are omitted; retain redirect scheme/host/path and replay acquisition using the permanent publisher download_url."
+    }
+  ],
+  "version_policy": "Acquisition timestamp and exact-byte hashes identify these publisher snapshots; no latest/uncorrected claim or interpretation of storage generation paths."
+}

@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import math
 import os
 import shlex
 import sqlite3
@@ -28,9 +29,26 @@ class _ArgumentParser(argparse.ArgumentParser):
 
 
 def _json_argument(value, name, dictionary=False):
+    def pairs(entries):
+        result = {}
+        for key, item in entries:
+            if key in result:
+                raise ValueError(f"duplicate object key {key!r}")
+            result[key] = item
+        return result
+
+    def constant(token):
+        raise ValueError("nonfinite JSON value")
+
+    def number(token):
+        parsed = float(token)
+        if not math.isfinite(parsed):
+            raise ValueError("nonfinite JSON number")
+        return parsed
+
     try:
-        parsed = json.loads(value, parse_constant=lambda token: (_ for _ in ()).throw(ValueError(f"Invalid JSON constant {token}")))
-    except ValueError as error:
+        parsed = json.loads(value, object_pairs_hook=pairs, parse_constant=constant, parse_float=number)
+    except (ValueError, RecursionError) as error:
         raise ValueError(f"Invalid {name}: {error}") from error
     if dictionary and not isinstance(parsed, dict):
         raise ValueError(f"{name} must be a JSON object")
@@ -78,6 +96,26 @@ def _parser():
     replay.add_argument("project_id")
     replay.add_argument("directory")
     replay.add_argument("--import-key")
+    study = commands.add_parser("study-create", help="Create a manual study identity; identifiers are descriptive metadata")
+    study.add_argument("project_id")
+    study.add_argument("--label", required=True)
+    study.add_argument("--reviewer", required=True)
+    study.add_argument("--reason", required=True)
+    study.add_argument("--identifiers-json", default="{}")
+    studies = commands.add_parser("studies", help="List the manual study inventory, including unused entries")
+    studies.add_argument("project_id")
+    for name in ("link-studies", "adjudicate-links"):
+        linked = commands.add_parser(name, help="Propose a complete report-study association set" if name == "link-studies" else "Resolve existing report-study proposals")
+        linked.add_argument("project_id")
+        linked.add_argument("record_id")
+        association = linked.add_mutually_exclusive_group(required=True)
+        association.add_argument("--study-id", dest="study_ids", action="append", help="Repeat for each associated study; replaces the reviewer's complete set")
+        association.add_argument("--clear", action="store_true", help="Explicitly record no established association")
+        linked.add_argument("--reviewer", required=True)
+        linked.add_argument("--reason", required=True)
+    links = commands.add_parser("links", help="Show current associations and their append-only history in one snapshot")
+    links.add_argument("project_id")
+    links.add_argument("--record-id")
     for name, help_text in (
         ("records", "List canonical records and current screening/retrieval states"),
         ("history", "List immutable search/import runs"),
@@ -112,6 +150,18 @@ def _execute(store, args):
         return store.create_project(args.title, args.type, args.question, args.protocol, _json_argument(args.eligibility_json, "eligibility JSON"))
     if command == "projects":
         return store.list_projects()
+    if command == "study-create":
+        store.get_project(args.project_id)
+        identifiers = _json_argument(args.identifiers_json, "study identifiers JSON", dictionary=True)
+        return store.create_study(args.project_id, args.label, args.reviewer, args.reason, identifiers)
+    if command == "studies":
+        return store.list_studies(args.project_id)
+    if command in {"link-studies", "adjudicate-links"}:
+        method = store.record_study_links if command == "link-studies" else store.adjudicate_study_links
+        return method(args.project_id, args.record_id, [] if args.clear else args.study_ids, args.reviewer, args.reason)
+    if command == "links":
+        with store._snapshot():
+            return {"links": store.list_study_links(args.project_id, args.record_id), "events": store.list_study_link_events(args.project_id, args.record_id)}
     if command == "import":
         store.get_project(args.project_id)
         filters = _json_argument(args.filters_json, "filters JSON", dictionary=True)

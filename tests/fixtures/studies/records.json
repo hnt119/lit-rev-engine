@@ -1,0 +1,114 @@
+[
+  {
+    "title": "Synthetic Study A primary report",
+    "authors": ["Synthetic Study A Collaboration"],
+    "year": 2023,
+    "doi": "10.99999/study-link-r1",
+    "abstract": "Software fixture only. This invented primary report describes Study A; no clinical findings are asserted.",
+    "source_id": "r1",
+    "fixture": {
+      "report_alias": "r1",
+      "source_asserted_studies": ["A"],
+      "registry_descriptions": ["SOFTWARE_FIXTURE_ONLY:SYNTHETIC-A"],
+      "source_description": "Primary report of the invented Study A cohort; the companion and follow-up reports explicitly describe the same cohort."
+    }
+  },
+  {
+    "title": "Synthetic Study A follow-up report",
+    "authors": ["Synthetic Study A Collaboration"],
+    "year": 2024,
+    "doi": "10.99999/study-link-r2",
+    "abstract": "Software fixture only. This separate invented follow-up report describes the same Study A as r1; it is not a duplicate citation.",
+    "source_id": "r2",
+    "fixture": {
+      "report_alias": "r2",
+      "source_asserted_studies": ["A"],
+      "registry_descriptions": ["SOFTWARE_FIXTURE_ONLY:SYNTHETIC-A"],
+      "source_description": "The invented methods description explicitly refers to the original Study A participants and source report r1."
+    }
+  },
+  {
+    "title": "Synthetic combined report of Studies B and C",
+    "authors": ["Synthetic Combined Studies Collaboration"],
+    "year": 2024,
+    "doi": "10.99999/study-link-r3",
+    "abstract": "Software fixture only. Two separately described invented cohorts, Studies B and C, appear in one report. No outcome results are supplied.",
+    "source_id": "r3",
+    "fixture": {
+      "report_alias": "r3",
+      "source_asserted_studies": ["B", "C"],
+      "registry_descriptions": ["SOFTWARE_FIXTURE_ONLY:SYNTHETIC-B", "SOFTWARE_FIXTURE_ONLY:SYNTHETIC-C"],
+      "source_description": "Separate invented source descriptions identify two distinct study cohorts; the single report must retain both associations."
+    }
+  },
+  {
+    "title": "Synthetic Study B companion report awaiting linkage review",
+    "authors": ["Synthetic Study B Collaboration"],
+    "year": 2025,
+    "doi": "10.99999/study-link-r4",
+    "abstract": "Software fixture only. This invented companion report explicitly concerns Study B. Its initial missing linkage event represents unfinished review.",
+    "source_id": "r4",
+    "fixture": {
+      "report_alias": "r4",
+      "source_asserted_studies": ["B"],
+      "registry_descriptions": ["SOFTWARE_FIXTURE_ONLY:SYNTHETIC-B"],
+      "source_description": "Companion report of the same invented Study B cohort described in the combined source r3."
+    }
+  },
+  {
+    "title": "Synthetic Study C secondary report with disputed initial proposals",
+    "authors": ["Synthetic Study C Collaboration"],
+    "year": 2025,
+    "doi": "10.99999/study-link-r5",
+    "abstract": "Software fixture only. The invented source describes Study C; deliberately incorrect initial reviewer proposals create a conflict before adjudication.",
+    "source_id": "r5",
+    "fixture": {
+      "report_alias": "r5",
+      "source_asserted_studies": ["C"],
+      "registry_descriptions": ["SOFTWARE_FIXTURE_ONLY:SYNTHETIC-C"],
+      "source_description": "The invented source explicitly identifies Study C. Initial proposals A and B are scripted review mistakes, not competing clinical evidence."
+    }
+  },
+  {
+    "title": "Synthetic Study D report excluded at full-text assessment",
+    "authors": ["Synthetic Study D Collaboration"],
+    "year": 2023,
+    "doi": "10.99999/study-link-r6",
+    "abstract": "Software fixture only. This invented report concerns Study D and is excluded under the synthetic eligibility rule. Its association remains in history.",
+    "source_id": "r6",
+    "fixture": {
+      "report_alias": "r6",
+      "source_asserted_studies": ["D"],
+      "registry_descriptions": ["SOFTWARE_FIXTURE_ONLY:SYNTHETIC-D"],
+      "source_description": "The source concerns only Study D; a synthetic full-text eligibility exclusion must not erase that manually recorded association."
+    }
+  },
+  {
+    "title": "Synthetic unscreened bibliography report",
+    "authors": ["Synthetic Bibliography Collaboration"],
+    "year": 2025,
+    "doi": "10.99999/study-link-r7",
+    "abstract": "Software fixture only. This report remains awaiting title/abstract screening and has no established study association.",
+    "source_id": "r7",
+    "fixture": {
+      "report_alias": "r7",
+      "source_asserted_studies": [],
+      "registry_descriptions": [],
+      "source_description": "An unfinished screening record. It does not establish Study E or any other included study."
+    }
+  },
+  {
+    "title": "Synthetic Study A: \"late\" companion report",
+    "authors": ["Synthetic Study A Collaboration"],
+    "year": 2025,
+    "doi": "10.99999/study-link-r8",
+    "abstract": "Software fixture only. This invented companion report concerns Study A; an initial empty proposal records an unresolved association rather than completed linkage.",
+    "source_id": "r8",
+    "fixture": {
+      "report_alias": "r8",
+      "source_asserted_studies": ["A"],
+      "registry_descriptions": ["SOFTWARE_FIXTURE_ONLY:SYNTHETIC-A"],
+      "source_description": "The invented companion source names Study A.\nQuoted description: \"same cohort\", not a duplicate bibliography record."
+    }
+  }
+]

@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.3 20210610//EN" "http://jats.nlm.nih.gov/publishing/1.3/JATS-journalpublishing1-3.dtd">
+<article article-type="research-article" dtd-version="1.3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<processing-meta>
+<custom-meta-group content-type="composition">
+<custom-meta specific-use="newgen" xlink:href="https://www.newgen.co/">
+<meta-name>Composition Vendor</meta-name>
+<meta-value>Newgen KnowledgeWorks (P) Ltd.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</processing-meta>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLOS One</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pone.0329611</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-24-60482</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Medical conditions</subject><subj-group><subject>Infectious diseases</subject><subj-group><subject>Viral diseases</subject><subj-group><subject>Influenza</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Virus testing</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Organisms</subject><subj-group><subject>Viruses</subject><subj-group><subject>RNA viruses</subject><subj-group><subject>Coronaviruses</subject><subj-group><subject>SARS coronavirus</subject><subj-group><subject>SARS CoV 2</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Microbiology</subject><subj-group><subject>Medical microbiology</subject><subj-group><subject>Microbial pathogens</subject><subj-group><subject>Viral pathogens</subject><subj-group><subject>Coronaviruses</subject><subj-group><subject>SARS coronavirus</subject><subj-group><subject>SARS CoV 2</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Pathology and laboratory medicine</subject><subj-group><subject>Pathogens</subject><subj-group><subject>Microbial pathogens</subject><subj-group><subject>Viral pathogens</subject><subj-group><subject>Coronaviruses</subject><subj-group><subject>SARS coronavirus</subject><subj-group><subject>SARS CoV 2</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Organisms</subject><subj-group><subject>Viruses</subject><subj-group><subject>Viral pathogens</subject><subj-group><subject>Coronaviruses</subject><subj-group><subject>SARS coronavirus</subject><subj-group><subject>SARS CoV 2</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Organisms</subject><subj-group><subject>Viruses</subject><subj-group><subject>RNA viruses</subject><subj-group><subject>Orthomyxoviruses</subject><subj-group><subject>Influenza viruses</subject><subj-group><subject>Influenza A virus</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Microbiology</subject><subj-group><subject>Medical microbiology</subject><subj-group><subject>Microbial pathogens</subject><subj-group><subject>Viral pathogens</subject><subj-group><subject>Orthomyxoviruses</subject><subj-group><subject>Influenza viruses</subject><subj-group><subject>Influenza A virus</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Pathology and laboratory medicine</subject><subj-group><subject>Pathogens</subject><subj-group><subject>Microbial pathogens</subject><subj-group><subject>Viral pathogens</subject><subj-group><subject>Orthomyxoviruses</subject><subj-group><subject>Influenza viruses</subject><subj-group><subject>Influenza A virus</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Organisms</subject><subj-group><subject>Viruses</subject><subj-group><subject>Viral pathogens</subject><subj-group><subject>Orthomyxoviruses</subject><subj-group><subject>Influenza viruses</subject><subj-group><subject>Influenza A virus</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Medical conditions</subject><subj-group><subject>Infectious diseases</subject><subj-group><subject>Respiratory infections</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Medical conditions</subject><subj-group><subject>Respiratory disorders</subject><subj-group><subject>Respiratory infections</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Pulmonology</subject><subj-group><subject>Respiratory disorders</subject><subj-group><subject>Respiratory infections</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Epidemiology</subject><subj-group><subject>Pandemics</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Health care</subject><subj-group><subject>Primary care</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Molecular biology</subject><subj-group><subject>Molecular biology techniques</subject><subj-group><subject>Artificial gene amplification and extension</subject><subj-group><subject>Polymerase chain reaction</subject><subj-group><subject>Reverse transcriptase-polymerase chain reaction</subject></subj-group></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Molecular biology techniques</subject><subj-group><subject>Artificial gene amplification and extension</subject><subj-group><subject>Polymerase chain reaction</subject><subj-group><subject>Reverse transcriptase-polymerase chain reaction</subject></subj-group></subj-group></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)</article-title>
+<alt-title alt-title-type="running-head">Diagnostic accuracy of a point-of-care test for SARS-CoV-2 and influenza (RAPTOR-C19)</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" equal-contrib="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Fanshawe</surname>
+<given-names>Thomas R.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" equal-contrib="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-7775-9926</contrib-id>
+<name name-style="western">
+<surname>Tonner</surname>
+<given-names>Sharon</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" equal-contrib="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Turner</surname>
+<given-names>Philip J.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Głogowska</surname>
+<given-names>Margaret</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Ukwatte</surname>
+<given-names>Umasha</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Okusi</surname>
+<given-names>Cecilia</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Cogdale</surname>
+<given-names>Jade</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-8897-7881</contrib-id>
+<name name-style="western">
+<surname>Zambon</surname>
+<given-names>Maria</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/resources/">Resources</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Nicholson</surname>
+<given-names>Brian D.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="fn" rid="econtrib001"><sup>‡</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Hobbs</surname>
+<given-names>F. D. Richard</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="fn" rid="econtrib001"><sup>‡</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Hayward</surname>
+<given-names>Gail N.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="fn" rid="econtrib001"><sup>‡</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<collab>on behalf of the RAPTOR-C19 Study Group</collab>
+<xref ref-type="aff" rid="aff001"/><xref ref-type="fn" rid="fn003"><sup>¶</sup></xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, United Kingdom</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>Respiratory Virus Unit, Virus Reference Department, UK Health Security Agency, London, United Kingdom</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>Influenza and Respiratory Virology &amp; Polio Reference Service, UK Health Security Agency, London, United Kingdom</addr-line></aff>
+<aff id="aff004"><label>4</label> <addr-line>NIHR Health Protection Research Unit, Imperial College London, London, United Kingdom</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Khudyakov</surname>
+<given-names>Yury E</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"/></contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>Centers for Disease Control and Prevention, UNITED STATES OF AMERICA</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>We have read the journal’s policy and the authors of this manuscript have the following competing interests: The authorship declares funding support for this study from the University of Oxford Medical Sciences Division Benefactors Urgent COVID-19 Fund, the National Institute for Health and Care (NIHR) School of Primary Care Research, and Urgent Public Health funding for the CONDOR Platform from the NIHR and Asthma+Lung UK. Roche International Ltd provided consumables and site training free of charge, together with a grant to the University of Oxford to support the study. TRF declares NIHR support from the NIHR Community Healthcare MIC for diagnostic evaluation research. PJT declares support from the NIHR Community Healthcare MIC for diagnostic evaluation research. PJT has provided expert support to the Longitude Prize AMR competition administration which is unrelated to this project and for which the University of Oxford received an honorarium. MZ declares her unpaid activities as the Chair of the charitable organisation ISIRV and her membership of the UK SAGE, NERVTAG and JCVI groups. This does not alter our adherence to PLOS ONE policies on sharing data and materials.</p>
+</fn>
+<fn fn-type="other" id="econtrib001">
+<p>‡ BDN, FDRH and GNH also contributed equally to this work.</p>
+</fn>
+<fn fn-type="other" id="fn003">
+<label>¶</label>
+<p>Membership of the RAPTOR-C19 study group is provided in the Acknowledgements.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">sharon.tonner@phc.ox.ac.uk</email></corresp>
+</author-notes>
+<pub-date pub-type="epub"><day>7</day><month>8</month><year>2025</year></pub-date>
+<pub-date pub-type="collection"><year>2025</year></pub-date>
+<volume>20</volume>
+<issue>8</issue>
+<elocation-id>e0329611</elocation-id>
+<history>
+<date date-type="received"><day>6</day><month>1</month><year>2025</year></date>
+<date date-type="accepted"><day>19</day><month>7</month><year>2025</year></date>
+</history>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Fanshawe et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pone.0329611"/>
+<abstract>
+<sec id="sec001">
+<title>Objectives</title>
+<p>To evaluate the diagnostic accuracy of the Roche SARS-CoV-2 &amp; Flu A/B Rapid Antigen Test at the point of care.</p>
+</sec>
+<sec id="sec002">
+<title>Design</title>
+<p>Prospective diagnostic accuracy study.</p>
+</sec>
+<sec id="sec003">
+<title>Setting</title>
+<p>17 primary care practices in England.</p>
+</sec>
+<sec id="sec004">
+<title>Participants</title>
+<p>500 individuals with symptoms consistent with possible SARS-CoV-2 or influenza infection identified upon presentation to primary care or via medical note review.</p>
+</sec>
+<sec id="sec005">
+<title>Primary and secondary outcome measures</title>
+<p>Sensitivity, specificity and predictive values, compared to a laboratory reference standard of real-time reverse transcription PCR, using samples collected using a combined nasal and oropharyngeal swab.</p>
+</sec>
+<sec id="sec006">
+<title>Results</title>
+<p>Of 481 participants with available index and reference test results, 5.6% (27/481) were reference standard-positive for SARS-CoV-2, 11.4% (55/481) for Influenza A and 1.9% (9/481) for Influenza B. The sensitivity of the antigen test to detect SARS-CoV-2 was 70.4% (19/27, 95% CI 49.6–86.2%) and specificity was 99.3% (451/454, 95%CI 98.1–99.9%). For Influenza A, sensitivity was 29.1% (16/55, 95% CI 17.6–42.9%) and specificity 98.6% (420/426, 97.0–99.5%), and for Influenza B, sensitivity was 22.2% (2/9, 2.8–60.0%) and specificity 98.1% (463/472, 96.4–99.1%).</p>
+</sec>
+<sec id="sec007">
+<title>Conclusions</title>
+<p>In a primary care population of symptomatic individuals, the assay was highly specific and had moderate sensitivity to detect SARS-CoV-2, but did not detect the majority of influenza infections.</p>
+</sec>
+<sec id="sec008">
+<title>Registration</title>
+<p>ISRCTN14226970.</p>
+</sec>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source><institution>University of Oxford Medical Sciences Division Benefactors Urgent COVID-19 Fund </institution>
+</funding-source><award-id>COVID-19 Research Response Fund Grant 0009325</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Hobbs</surname><given-names>F. D. Richard</given-names></name></principal-award-recipient></award-group>
+<award-group id="award002">
+<funding-source><institution>National Institute for Health and Care Research (NIHR) School for Primary Care Research</institution>
+</funding-source><award-id>SPCR grant 495</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Hobbs</surname><given-names>F. D. Richard</given-names></name></principal-award-recipient></award-group>
+<award-group id="award003">
+<funding-source><institution>Urgent Public Health funding received by the CONDOR platform from the NIHR and Asthma + Lung UK</institution>
+</funding-source><award-id>NIHR UPH grant COV0051</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Hobbs</surname><given-names>F. D. Richard</given-names></name></principal-award-recipient></award-group>
+<award-group id="award004">
+<funding-source><institution>NIHR Community Healthcare MedTech and In Vitro Diagnostics Co-operative </institution>
+</funding-source><award-id>MIC 2016-018</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Hayward</surname><given-names>Gail N.</given-names></name></principal-award-recipient></award-group>
+<award-group id="award005">
+<funding-source><institution>NIHR HealthTech Research Centre (HRC) in Community Healthcare at Oxford Health NHS Foundation Trust</institution>
+</funding-source><award-id>NIHR205287</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Hayward</surname><given-names>Gail N.</given-names></name></principal-award-recipient></award-group>
+<award-group id="award006">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100023233</institution-id>
+<institution>National Institute for Health and Care Research Applied Research Collaboration Oxford and Thames Valley</institution>
+</institution-wrap>
+</funding-source><award-id>NIHR200172</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Hobbs</surname><given-names>F. D. Richard</given-names></name></principal-award-recipient></award-group>
+<award-group id="award007">
+<funding-source><institution>Roche International Ltd </institution>
+</funding-source><award-id>R69261/CN085</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Hobbs</surname><given-names>F. D. Richard</given-names></name></principal-award-recipient></award-group>
+<funding-statement>University of Oxford Medical Sciences Division Benefactors Urgent COVID-19 Fund [COVID-19 Research Response Fund Grant 0009325] to BDN, FDRH, JJL, TRF, PJT, GNH, MZ; National Institute for Health and Care Research (NIHR) School for Primary Care Research [SPCR grant 495] to BDN, FDRH, GNH, PJT, JJL, TRF; Urgent Public Health funding received by the CONDOR platform from the NIHR and Asthma + Lung UK [NIHR UPH grant COV0051] to BDN, PJT, GNH. PT, TRF, MG, UU, FDRH and GNH have received funding from the National Institute for Health and Care Research (NIHR) Community Healthcare MedTech and In Vitro Diagnostics Co-operative (MIC) (MIC 2016-018). PJT, TRF, MG, UU, BN and GNH currently receive funding from the NIHR HealthTech Research Centre (HRC) in Community Healthcare (NIHR205287) at Oxford Health NHS Foundation Trust. TRF and FDRH receive funding from the NIHR Applied Research Collaboration Oxford and Thames Valley at Oxford Health NHS Foundation Trust (NIHR200172). The views expressed are those of the authors and not necessarily those of the NHS, the NIHR or the Department of Health and Social Care. Roche International Ltd (R69261/CN085) provided consumables and site training free of charge, together with a grant to the University of Oxford to support the study. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="2"/>
+<table-count count="3"/>
+<page-count count="12"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>Data cannot be shared publicly because of participant confidentiality considerations and our institutional responsibility to ensure that any data we collect is used ethically by other researchers in order to maintain public confidence and trust in the research we conduct. All requests for data access are reviewed by Nuffield Department of Primary Care's Primary Care Hosted Research Datasets Independent Scientific Committee (PrimDISC). PrimDISC ensures that data collected in the public interest is used responsibly, ethically and not for spurious reasons. Requests for data access will not be unreasonable refused. Researchers wishing to access data should contact <email xlink:type="simple">primdisc@phc.ox.ac.uk</email>.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec009" sec-type="intro">
+<title>Introduction</title>
+<p>The emergence of SARS-CoV-2 in 2019 and subsequent pandemic led to the urgent need to develop not only effective treatments and vaccinations but also diagnostic tests. Diagnostic tests are especially valuable in pandemic settings, as at the outset of any pandemic, diagnostics are among the few tools that public health agencies have at their disposal to control infection before the availability of therapies and vaccines and continue to be used after the initial pandemic phase to monitor public health [<xref ref-type="bibr" rid="pone.0329611.ref001">1</xref>].</p>
+<p>While polymerase chain reaction (PCR) tests became rapidly available at the outset of the COVID-19 pandemic, the turnaround time of these laboratory-based assays meant that rapid point-of-care tests (POCT) were still required for use in the community [<xref ref-type="bibr" rid="pone.0329611.ref002">2</xref>]. This was necessary to promptly identify infected individuals and disrupt community transmission, to shield clinically vulnerable individuals and groups, to guide access to treatments as they became available, and to reduce the burden on laboratory services and hospitals. Multiplex diagnostic technologies have encouraging potential if they can accurately distinguish between infectious disease pathogens in individuals who present with similar clinical signs and symptoms [<xref ref-type="bibr" rid="pone.0329611.ref003">3</xref>].</p>
+<p>The RAPid community Test evaluations fOR COVID-19 (RAPTOR-C19) study was established in 2020 to evaluate the performance of POCTs for SARS-CoV-2 in community healthcare settings in the UK [<xref ref-type="bibr" rid="pone.0329611.ref004">4</xref>,<xref ref-type="bibr" rid="pone.0329611.ref005">5</xref>]. From 2022, RAPTOR-C19 expanded to include evaluations of multiplex rapid antigen tests as the phasing out of social distancing regulations saw the re-emergence of seasonal influenza. COVID-19 and influenza can be difficult to distinguish from each other based on clinical symptoms alone [<xref ref-type="bibr" rid="pone.0329611.ref006">6</xref>]. In this fourth arm of the study, we evaluated the Roche-branded SD Biosensor SARS-CoV-2 &amp; Flu A/B Rapid Antigen Test.</p>
+</sec>
+<sec id="sec010" sec-type="materials|methods">
+<title>Methods</title>
+<sec id="sec011">
+<title>Design</title>
+<p>RAPTOR-C19 is a prospective observational parallel diagnostic accuracy platform. In the fourth arm of the study, individuals were recruited on presentation to participating community health care settings in England with symptoms of viral respiratory illness consistent with potential SARS-CoV-2 infection [<xref ref-type="bibr" rid="pone.0329611.ref007">7</xref>]. Adults and children were eligible to participate. Exclusion criteria were inability to consent (adult only), requiring immediate hospitalisation, and having previously participated in the current evaluation.</p>
+<p>Further details of the overall design of RAPTOR-C19 can be found in the published protocol [<xref ref-type="bibr" rid="pone.0329611.ref008">8</xref>]. However, following approved protocol amendments, participant-reported follow-up data was not collected for this arm of the study and serology collection was not performed.</p>
+</sec>
+<sec id="sec012">
+<title>Ethical approval</title>
+<p>RAPTOR-C19 was approved by the North-West Liverpool Central Research Ethics Committee, reference 20/NW/0282. Participants, or a parent/legal guardian if the participant was aged 15 or under, provided verbal informed consent before any study procedures or data collection commenced, which was subsequently recorded in an electronic case report form (eCRF). An electronic participant information leaflet, with age-appropriate versions available for those aged 15 and under, was provided prior to consent.</p>
+</sec>
+<sec id="sec013">
+<title>Recruitment</title>
+<p>A total of 500 participants were recruited from 17 primary care practices in England across the former Thames Valley &amp; South Midlands, East of England, North West London, South London, West of England, East Midlands, and Yorkshire &amp; Humber Clinical Research Network (CRN) regions. Participants were invited to join the study either opportunistically on presentation or via medical note review of recent presentations with symptoms. Recruitment to the Roche arm commenced on 19th January 2023 but was paused on 29th March 2023 due to low detection rates of SARS-CoV-2 in the recruited cohort. Recruitment restarted on 4th December 2023 and continued until 15th March 2024 in line with the typical viral respiratory ‘winter bug’ season in the Northern Hemisphere. During the January-March 2023 phase of recruitment, Omicron, GRA XBB.1.5 and GRA CH.1.1 variants of SARS-CoV-2 were found to be in circulation, while in the November 2023-March 2024 season GRA JN.1 (“Pirola”) predominantly circulated. In the 2023/24 flu season the majority of circulating virus was H1N1 with around 30–40% H3N2 [<xref ref-type="bibr" rid="pone.0329611.ref009">9</xref>,<xref ref-type="bibr" rid="pone.0329611.ref010">10</xref>].</p>
+</sec>
+<sec id="sec014">
+<title>Baseline measurements</title>
+<p>Participants’ baseline visit data was collected via an eCRF (uMed, Warner Yard, London, UK January-March 2023 and REDCap V14.0.12, Nashville, USA from November 2023 to study close [<xref ref-type="bibr" rid="pone.0329611.ref011">11</xref>,<xref ref-type="bibr" rid="pone.0329611.ref012">12</xref>]) and included information on symptoms and their duration, SARS-CoV-2 vaccination status and demographic information. Results of the index test and any issues experienced were also recorded on the eCRF alongside confirmation that a reference standard test had been obtained.</p>
+</sec>
+<sec id="sec015">
+<title>Index test</title>
+<p>The POCT evaluated in this arm of the study is the Roche-branded and distributed SD Biosensor SARS-CoV-2 &amp; Flu A/B Rapid Antigen Test (REF 9901-CVFL-01C, Roche Diagnostics GmbH). This test is for healthcare professional use only. It is a qualitative, user-interpreted, disposable lateral flow test which multiplexes the identification of viral antigens of both SARS-CoV-2 and influenza A/B from a common patient sample [<xref ref-type="bibr" rid="pone.0329611.ref013">13</xref>]. Each assay incorporates an internal quality control that resolves as a visible line to indicate a valid test. Test kits of 25 assays included both positive and negative external quality control materials for SARS-CoV-2 and influenza A/B. Sites were instructed to confirm the integrity of new kits as they were delivered using these materials before proceeding to participant testing.</p>
+<p>Unilateral nasopharyngeal samples were collected from participants using swabs provided as an element of the test kit, in accordance with the manufacturer’s documentation. The evaluation incorporated a single manufacturer ‘LOT’ (batch) of assays. All staff carrying out study procedures completed training in the use of the test via a training video overseen by Roche representatives who were available to address queries prior to sites commencing recruitment. A quick reference guide and instructions for use (IFU) were also provided and were required to be followed. Recruiting staff who performed testing were asked to report test ease-of-use on a five-point scale (ranging from ‘not very easy’ to ‘very easy’). The index test result was not shared with patients.</p>
+</sec>
+<sec id="sec016">
+<title>Reference standard</title>
+<p>Samples for reference standard testing were collected from nasal and oropharyngeal sites using a combined swab prior to storage and transport in viral transport medium (REF MW012, Dryswab™; REF MW950T50, Sigma Virocult® tube and medium, Medical Wire &amp; Equipment Co. (Bath) Ltd, Corsham, Wiltshire, UK) contemporaneous to the collection of samples for index testing. SARS-CoV-2 and influenza A and B were detected by RT-PCR (real-time reverse transcription PCR), with the following targets: ORF1ab and E gene regions of SARS-CoV-2; matrix (M) and haemagglutinin (HA) genes of influenza A; nucleoprotein (NP) gene of influenza B. Reference standard equipment and methodology were as previously described [<xref ref-type="bibr" rid="pone.0329611.ref005">5</xref>] with primer and probe combinations listed in <xref ref-type="supplementary-material" rid="pone.0329611.s001">S1 Table</xref>.</p>
+<p>Positive or negative results were reported for SARS-CoV-2, influenza A (inclusive of subtype), and influenza B. Results for SARS-CoV-2, influenza A subtypes and influenza B were accompanied by RT-PCR cycle threshold values (Ct) for each molecular target. No information about alternative infections in those testing negative for SARS-CoV-2 and influenza was accessible to the study team.</p>
+<p>Reference samples were processed at the UK Health Security Agency (UKHSA) Respiratory Virus Reference laboratory (UKHSA Virus Reference Department (VRD), Colindale, London, UK). Staff who performed the reference standard were unaware of index test results. Results of the reference standard test were shared with the general practice through standard UK HSA reporting mechanisms and it was permitted to share these results with the patient.</p>
+</sec>
+<sec id="sec017">
+<title>Sample size</title>
+<p>We planned to recruit a sufficient number of participants to obtain 150 reference standard positive cases of SARS-CoV-2, as per the Target Product Profile for point-of-care SARS-CoV-2 detection tests [<xref ref-type="bibr" rid="pone.0329611.ref014">14</xref>]. For a POCT with at least 90% sensitivity, we would expect to have a standard error of the sensitivity estimate of ≤2.5%, provided the prevalence of SARS-CoV-2 were 30% or higher. In the event, the prevalence of SARS-CoV-2 throughout the recruitment period was much lower than anticipated, and lower than had been observed in the previous arms of the study (approximately 5%, compared to 39% in October 2020-October 2021 and 17% in June-December 2022) [<xref ref-type="bibr" rid="pone.0329611.ref005">5</xref>]. As continuation to the original target number of positive cases would have made the total required recruitment prohibitive, the study was terminated without interim analysis after 500 participants had been recruited.</p>
+</sec>
+<sec id="sec018">
+<title>Statistical analysis</title>
+<p>We calculated the proportion of RT-PCR results that were positive for SARS-CoV-2, and the sensitivity, specificity, and predictive values of the POCT, with exact 95% confidence intervals (95% CIs). The number of individuals with missing index test and/or reference standard results were reported but these individuals were excluded from the analysis. We also calculated diagnostic performance in relation to the RT-PCR cycle threshold (Ct). Numbers of true positive, true negative, false positive and false negative results are also presented via pre-specified subgroups split by age, sex, ethnicity, baseline symptoms and time since symptom onset. A subgroup analysis was additionally performed by CRN region. For the secondary outcomes (influenza A and B) we used similar methods to summarise diagnostic accuracy performance, additionally subdividing influenza A cases by Haemagglutinin (HA) subtype. Statistical analysis was performed using RStudio 2022.02.3 including the epiR package [<xref ref-type="bibr" rid="pone.0329611.ref015">15</xref>].</p>
+</sec>
+<sec id="sec019">
+<title>Ethnography methodology</title>
+<p>Ethnographic observation took place in February-March 2024 at two participating primary care practices (one in the Thames Valley &amp; South Midlands CRN region and one in the Yorkshire &amp; Humber CRN region). Observation was carried out by two researchers (MG and UU) who each observed in one practice. Three health care professionals who were responsible for conducting the test in their practices were observed (two General Practitioners (GPs) and one Research Nurse).</p>
+<p>Observations were informed by a list of sensitising topics compiled from a schedule utilised in previous ethnographic studies of POCT [<xref ref-type="bibr" rid="pone.0329611.ref016">16</xref>]. In each clinic, verbal consent from patients for the researcher to be present was obtained prior to observation. Risk assessment was carried out for the researcher visits and appropriate personal protective equipment worn. During the observations the researchers wrote field notes. With the health care professionals permission, audio-recording was used to capture informal conversations with them about the testing process which occurred during the visits. Topics discussed included training received and support available to health care professionals who were using the test, how quality control took place, the management and tracking of equipment and consumables, as well as more general issues about conducting testing in community settings. The notes and supplemental audio recordings formed the basis of the analysis.</p>
+<p>Analysis began with reading and becoming familiar with the field notes of the observations and conversations, noting and recording initial issues and themes and then conducting systematic coding alongside the text of the field notes. The codes were then grouped into categories, which included aspects and characteristics of the Roche test and the testing process. Key considerations during the analysis were the usability of the testing equipment in the context observed, the acceptability of the testing process to health care professionals and patients, and how use of the test fitted into the workflow of the clinician.</p>
+</sec>
+</sec>
+<sec id="sec020" sec-type="results">
+<title>Results</title>
+<sec id="sec021">
+<title>Participant characteristics</title>
+<p>Of 500 participants who consented to recruitment to the study, seven were excluded as no participant information was collected following recruitment, a further five had no available POCT result (one of which was explicitly recorded by the device as ‘no result’, and the other four were unrecorded), and a further seven had the POCT performed but no laboratory PCR result was available (<xref ref-type="fig" rid="pone.0329611.g001">Fig 1</xref>). The primary analysis used data from the 481 participants who had both POCT and PCR results available.</p>
+<fig id="pone.0329611.g001" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0329611.g001</object-id><label>Fig 1</label><caption><title> Study flowchart.</title></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0329611.g001" xlink:type="simple"/></fig>
+<p><xref ref-type="table" rid="pone.0329611.t001">Table 1</xref> shows participant characteristics, split by whether positive/negative for SARS-CoV-2 in their PCR result. In the primary analysis sample, 41% (198/481) were male and average age was 28 years, with 36% (175/481) aged under 16 and the majority of the children having been recruited from a single site. Average time since self-reported symptom onset was 3.7 days. Most participants reported onset of first symptoms between two and five days before recruitment (<xref ref-type="fig" rid="pone.0329611.g002">Fig 2</xref>) and the most prevalent symptoms were cough (81%, 388/481), fever (49%, 234/481) and sore throat (42%, 200/481).</p>
+<table-wrap id="pone.0329611.t001" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0329611.t001</object-id><label>Table 1</label><caption><title>Baseline characteristics (reported as number (%) or mean (standard deviation)).</title></caption>
+<alternatives><graphic id="pone.0329611.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0329611.t001" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left"/>
+<th align="left">All participants (n = 493)</th>
+<th align="left">Participants included in primary analysis (n = 481)</th>
+<th align="left">Participants with positive SARS-CoV-2 PCR result (n = 27)</th>
+<th align="left">Participants with negative SARS-CoV-2 PCR result (n = 454)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Male sex</td>
+<td align="left">204 (41%)</td>
+<td align="left">198 (41%)</td>
+<td align="left">10 (37%)</td>
+<td align="left">188 (41%)</td>
+</tr>
+<tr>
+<td align="left">Age (years)<break/>- &lt; 16<break/>− 16-39<break/>− 40-59<break/>− 60 +</td>
+<td align="left">28 (22)<break/>180 (37%)<break/>164 (33%)<break/>104 (21%)<break/>45 (9%)</td>
+<td align="left">28 (22)<break/>175 (36%)<break/>161 (33%)<break/>101 (21%)<break/>44 (9%)</td>
+<td align="left">36 (22)<break/>6 (22%)<break/>9 (33%)<break/>8 (30%)<break/>4 (15%)</td>
+<td align="left">28 (22)<break/>169 (37%)<break/>152 (33%)<break/>93 (20%)<break/>40 (9%)</td>
+</tr>
+<tr>
+<td align="left">Ethnicity<break/>- White<break/>- Asian<break/>- Black<break/>- Mixed-White and Black African/Caribbean<break/>- Mixed-White and Asian<break/>- Mixed-Other<break/>- Other</td>
+<td align="left"><break/>343 (70%)<break/>91 (18%)<break/>22 (4%)<break/>2 (&lt;1%)<break/>2 (&lt;1%)<break/>11 (2%)<break/>22 (4%)</td>
+<td align="left"><break/>335 (70%)<break/>87 (18%)<break/>22 (5%)<break/>2 (&lt;1%)<break/>2 (&lt;1%)<break/>11 (2%)<break/>22 (5%)</td>
+<td align="left"><break/>20 (74%)<break/>4 (15%)<break/>2 (7%)<break/>–<break/>–<break/>1 (4%)<break/>–</td>
+<td align="left"><break/>315 (69%)<break/>83 (18%)<break/>20 (4%)<break/>2 (&lt;1%)<break/>2 (&lt;1%)<break/>10 (2%)<break/>22 (5%)</td>
+</tr>
+<tr>
+<td align="left">Time since first symptom<break/>- First symptom within previous 14 days<break/>- Number of days since first symptom<xref ref-type="table-fn" rid="t001fn001"><sup>*</sup></xref></td>
+<td align="left"><break/>486 (99%)<break/>3.7 (2.2)</td>
+<td align="left"><break/>475 (99%)<break/>3.7 (2.2)</td>
+<td align="left"><break/>27 (100%)<break/>3.1 (1.5)</td>
+<td align="left"><break/>448 (99%)<break/>3.8 (2.3)</td>
+</tr>
+<tr>
+<td align="left">New symptoms within previous 14 days<sup>†</sup><break/>- Any symptom<break/>- Fever<break/>- Cough<break/>- Fatigue<break/>- Shortness of breath<break/>- Sputum<break/>- Loss of smell or change in taste<break/>- Muscle ache<break/>- Chills<break/>- Dizziness<break/>- Headache<break/>- Sore throat<break/>- Hoarseness<break/>- Nausea or vomiting<break/>- Diarrhoea<break/>- Nasal congestion<break/>- Other</td>
+<td align="left"><break/>491 (&gt;99%)<break/>241 (49%)<break/>397 (81%)<break/>119 (24%)<break/>119 (24%)<break/>114 (23%)<break/>42 (9%)<break/>100 (20%)<break/>73 (15%)<break/>42 (9%)<break/>108 (22%)<break/>202 (41%)<break/>69 (14%)<break/>35 (7%)<break/>16 (3%)<break/>127 (26%)<break/>47 (10%)</td>
+<td align="left"><break/>480 (&gt;99%)<break/>234 (49%)<break/>388 (81%)<break/>118 (25%)<break/>118 (25%)<break/>111 (23%)<break/>42 (9%)<break/>100 (21%)<break/>73 (15%)<break/>42 (9%)<break/>107 (22%)<break/>200 (42%)<break/>68 (14%)<break/>35 (7%)<break/>16 (3%)<break/>126 (26%)<break/>47 (10%)</td>
+<td align="left"><break/>27 (100%)<break/>17 (63%)<break/>22 (81%)<break/>9 (33%)<break/>7 (26%)<break/>6 (22%)<break/>6 (22%)<break/>6 (22%)<break/>6 (22%)<break/>1 (4%)<break/>8 (30%)<break/>15 (56%)<break/>5 (19%)<break/>1 (4%)<break/>1 (4%)<break/>10 (37%)<break/>2 (7%)</td>
+<td align="left"><break/>453 (&gt;99%)<break/>217 (48%)<break/>366 (81%)<break/>109 (24%)<break/>111 (24%)<break/>105 (23%)<break/>36 (8%)<break/>94 (21%)<break/>67 (15%)<break/>41 (9%)<break/>99 (22%)<break/>185 (41%)<break/>63 (14%)<break/>34 (7%)<break/>15 (3%)<break/>116 (26%)<break/>45 (10%)</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t001fn001"><p>* Calculated among participants whose reported date of first symptom fell up to 14 days before the recruitment date.</p></fn>
+<fn id="t001fn002"><p><sup>†</sup>Symptoms that, by participant self-report, began within 14 days before the recruitment date.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<fig id="pone.0329611.g002" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0329611.g002</object-id><label>Fig 2</label><caption><title>Number of days prior to recruitment (day 0) of first onset of any symptom; cough; fever; sore throat; fatigue; headache, of recruited participants.</title></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0329611.g002" xlink:type="simple"/></fig>
+</sec>
+<sec id="sec022">
+<title>Diagnostic accuracy</title>
+<p>In the primary analysis sample, 5.6% of participants had a positive SARS-CoV-2 PCR result (27/481, 95% CI 3.7 to 8.1%), 11.4% were positive for Influenza A (55/481, 8.7 to 14.6%) and 1.9% were positive for Influenza B (9/481, 0.9 to 3.5%). Of the 55 samples that were positive for Influenza A, 29 were subtype H1N1, 22 were subtype H3N2 and subtyping was not recorded for the remaining four.</p>
+<p>Diagnostic performance of the POCT is summarised in <xref ref-type="table" rid="pone.0329611.t002">Table 2</xref>. Sensitivity to detect SARS-CoV-2 was 70.4% (19/27, 49.8 to 86.2%) and specificity 99.3% (451/454, 98.1 to 99.9%). For Influenza A, sensitivity was 29.1% (16/55, 17.6 to 42.9%) and specificity 98.6% (420/426, 97.0 to 99.5%). For Influenza B, sensitivity was 22.2% (2/9, 2.8 to 60.0%) and specificity 98.1% (463/472, 96.4 to 99.1%).</p>
+<table-wrap id="pone.0329611.t002" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0329611.t002</object-id><label>Table 2</label><caption><title>Diagnostic accuracy.</title></caption>
+<alternatives><graphic id="pone.0329611.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0329611.t002" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" colspan="2" rowspan="2"/>
+<th align="left" colspan="4">Reference standard result</th>
+<th align="left"/>
+<th align="left"/>
+<th align="left"/>
+<th align="left"/>
+</tr>
+<tr>
+<th align="left">Positive</th>
+<th align="left">Negative</th>
+<th align="left">Total reported</th>
+<th align="left">Not reported</th>
+<th align="left">Sensitivity</th>
+<th align="left">Specificity</th>
+<th align="left">PPV</th>
+<th align="left">NPV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" rowspan="3">POCT SARS-CoV-2 result</td>
+<td align="left">Positive</td>
+<td align="left">19</td>
+<td align="left">3</td>
+<td align="left">22</td>
+<td align="left">0</td>
+<td align="left" rowspan="3">70.4%<break/>(49.8%, 86.2%)</td>
+<td align="left" rowspan="3">99.3%<break/>(98.1%, 99.9%)</td>
+<td align="left" rowspan="3">86.4%<break/>(65.1%, 97.1%)</td>
+<td align="left" rowspan="3">98.3%<break/>(96.6%, 99.2%)</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">8</td>
+<td align="left">451</td>
+<td align="left">459</td>
+<td align="left">7</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">27</td>
+<td align="left">454</td>
+<td align="left">481</td>
+<td align="left">7</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">POCT Influenza A result</td>
+<td align="left">Positive</td>
+<td align="left">16</td>
+<td align="left">6</td>
+<td align="left">22</td>
+<td align="left">2</td>
+<td align="left" rowspan="3">29.1%<break/>(17.6%, 42.9%)</td>
+<td align="left" rowspan="3">98.6%<break/>(97.0%, 99.5%)</td>
+<td align="left" rowspan="3">72.7%<break/>(49.8%, 89.3%)</td>
+<td align="left" rowspan="3">91.5%<break/>(88.6%, 93.9%)</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">39</td>
+<td align="left">420</td>
+<td align="left">459</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">55</td>
+<td align="left">426</td>
+<td align="left">481</td>
+<td align="left">7</td>
+</tr>
+<tr>
+<td align="left" rowspan="3">POCT Influenza B result</td>
+<td align="left">Positive</td>
+<td align="left">2</td>
+<td align="left">9</td>
+<td align="left">11</td>
+<td align="left">0</td>
+<td align="left" rowspan="3">22.2%<break/>(2.8%, 60.0%)</td>
+<td align="left" rowspan="3">98.1%<break/>(96.4%, 99.1%)</td>
+<td align="left" rowspan="3">18.2%<break/>(2.3%, 51.8%)</td>
+<td align="left" rowspan="3">98.5%<break/>(97.0%, 99.4%)</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">7</td>
+<td align="left">463</td>
+<td align="left">470</td>
+<td align="left">7</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">9</td>
+<td align="left">472</td>
+<td align="left">481</td>
+<td align="left">7</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t002fn001"><p>(Influenza A subtypes: Subtype H1: 12/29 correctly diagnosed (sensitivity 41.4% (23.5%, 61.1%)); Subtype H3: 3/22 correctly diagnosed (13.6% (2.9%, 34.9%)); No subtype reported: 4 Influenza A cases).</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>Information about diagnostic performance by pre-specified subgroups of participant and stratified further by CRN site are shown in <xref ref-type="supplementary-material" rid="pone.0329611.s002">S1 File</xref>. No diagnostic accuracy estimates are shown for these subgroups as the number of positive samples was lower than anticipated. The POCT correctly detected as positive most of the PCR-positive samples that had lower Ct values, but not those at higher Ct values (<xref ref-type="table" rid="pone.0329611.t003">Table 3</xref>).</p>
+<table-wrap id="pone.0329611.t003" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0329611.t003</object-id><label>Table 3</label><caption><title>Diagnostic performance by Ct value.</title></caption>
+<alternatives><graphic id="pone.0329611.t003g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0329611.t003" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" colspan="10">SARS-CoV-2</th>
+</tr>
+<tr>
+<th align="left"/>
+<th align="left"/>
+<th align="left" colspan="4">ORF1ab</th>
+<th align="left" colspan="4">E gene</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"/>
+<td align="left">Ct value</td>
+<td align="left">&lt; 20</td>
+<td align="left">20-25</td>
+<td align="left">25-30</td>
+<td align="left">&gt; 30</td>
+<td align="left">&lt; 20</td>
+<td align="left">20-25</td>
+<td align="left">25-30</td>
+<td align="left">&gt; 30</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">POCT result</td>
+<td align="left">Positive</td>
+<td align="left">5</td>
+<td align="left">12</td>
+<td align="left">2</td>
+<td align="left">0</td>
+<td align="left">5</td>
+<td align="left">11</td>
+<td align="left">3</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">3</td>
+<td align="left">4</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">3</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left" colspan="10"><bold>Influenza</bold></td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"/>
+<td align="left" colspan="4">Influenza A</td>
+<td align="left" colspan="4">Influenza B</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Ct value</td>
+<td align="left">&lt; 20</td>
+<td align="left">20-25</td>
+<td align="left">25-30</td>
+<td align="left">&gt; 30</td>
+<td align="left">&lt; 20</td>
+<td align="left">20-25</td>
+<td align="left">25-30</td>
+<td align="left">&gt; 30</td>
+</tr>
+<tr>
+<td align="left" rowspan="2">POCT result</td>
+<td align="left">Positive</td>
+<td align="left">1</td>
+<td align="left">3</td>
+<td align="left">7</td>
+<td align="left">4</td>
+<td align="left">0</td>
+<td align="left">2</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="left">1</td>
+<td align="left">7</td>
+<td align="left">14</td>
+<td align="left">11</td>
+<td align="left">0</td>
+<td align="left">2</td>
+<td align="left">3</td>
+<td align="left">2</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t003fn001"><p>(Seven Influenza A participants had missing Ct values).</p></fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec id="sec023">
+<title>Ease of use</title>
+<p>In the primary analysis sample, a problem with performance of the POCT was logged for four participants (0.8%) but a POCT result was recorded for all of these, possibly after repeating the test. On a five-point scale, ease-of-use was recorded by the health care professionals performing the test as point 1 (not very easy) on 4 occasions (0.8%), point 2 on 21 occasions (4%), point 3 on 55 occasions (11%), point 4 on 75 occasions (16%) and point 5 (very easy) on 326 occasions (68%).</p>
+<p>No adverse events as a result of performing the POCT were reported.</p>
+</sec>
+<sec id="sec024">
+<title>Qualitative findings</title>
+<p>Overall, RAPTOR-C19 site staff found the testing kits usable in the settings where they were collecting and processing samples, fitting into their workflow. They felt comfortable using a lateral flow device, which had become very familiar during the pandemic. The staff were enthusiastic about the test being able to process samples, not just for SARS-CoV-2 but also for Influenza A &amp; B from the same swab. They felt it was useful at times when a number of respiratory viruses were in circulation and particularly when many of the patients attending the GP practices had suspected influenza due to the presence of muscle aches, which was perceived as a common flu symptom</p>
+<p>The staff reported that the quality control testing was straightforward. They found the processing of the test acceptable and they considered the 15–20 minute timeframe for the result to appear satisfactory. However, the biggest challenge the staff encountered was the nature of the necessary swabbing. Nasopharyngeal swabbing was considered quite difficult to achieve. Staff expressed doubt as to whether they were able to successfully reach the nasopharynx and keep the swab in place for the 10 seconds required by the manufacturer’s IFU. Observations across the sites and different operators also showed that patients did not easily tolerate this form of swabbing. One health care professional commented that the need for nasopharyngeal swabbing as part of this test meant that they would not be comfortable using it with children.</p>
+</sec>
+</sec>
+<sec id="sec025" sec-type="conclusions">
+<title>Discussion</title>
+<sec id="sec026">
+<title>Summary of findings</title>
+<p>This evaluation of the Roche-branded SD Biosensor SARS-CoV-2 &amp; Flu A/B Rapid Antigen Test was conducted as a pragmatic study but was limited by low prevalence of SARS-CoV-2 during the period of recruitment. This highlights that evaluating new diagnostics that are needed in pandemics remains challenging outside such periods due to limited presentations, and that infrastructure to quickly implement diagnostic evaluations should be part of any pandemic preparedness plans.</p>
+<p>For the POCT under evaluation, the 70.4% sensitivity to detect SARS-CoV-2 falls below the UK government’s Target Product Profile threshold for ‘acceptable’ at 80% sensitivity and well below the ‘desirable’ threshold of 97% sensitivity, although there was considerable uncertainty in the estimate [<xref ref-type="bibr" rid="pone.0329611.ref014">14</xref>]. There is no available Target Product Profile for influenza POCT’s, but the RAPP-ID consortium for LRTIs recommends minimum 85% sensitivity [<xref ref-type="bibr" rid="pone.0329611.ref017">17</xref>] and current performance estimate of 29.1% sensitivity for influenza A and 22.2% sensitivity for influenza B lies well below this, even at lower Ct, and despite the target sample size not having been reached. Performance for influenza is towards the lower end of estimates from previous meta-analyses of other rapid devices [<xref ref-type="bibr" rid="pone.0329611.ref018">18</xref>].</p>
+</sec>
+<sec id="sec027">
+<title>Strengths and limitations</title>
+<p>A major strength is that we conducted a large pragmatic study in the setting where these tests should be used, therefore filling an evidence gap for POCT performance at the point of care. A major limitation of the study was the low observed prevalence of SARS-CoV-2, which caused recruitment to be paused at the end of the first winter season. Although this is a consequence of conducting a study in a real-world setting and may reflect fewer symptomatic patients attending primary care, prevalence was much lower than had been observed in similar studies between 2020 and 2022 [<xref ref-type="bibr" rid="pone.0329611.ref004">4</xref>,<xref ref-type="bibr" rid="pone.0329611.ref005">5</xref>] and resulted in wide confidence intervals for some of the diagnostic performance measures.</p>
+<p>There are also other limitations. While the use of a single ‘lot’ of assays aided in the logistics of study delivery, our evaluation lacks the clinical reality of multiple deployed lots. Results relate only to the predominant viral strains during the study period and locations and cannot necessarily be extrapolated to future strains. Our findings of poor sensitivity for influenza may be partly due to the need for nasopharyngeal swabbing when performing the POCT. While nasopharyngeal swabs are more sensitive than anterior nasal swabs [<xref ref-type="bibr" rid="pone.0329611.ref019">19</xref>,<xref ref-type="bibr" rid="pone.0329611.ref020">20</xref>], they are not generally as well tolerated [<xref ref-type="bibr" rid="pone.0329611.ref021">21</xref>], as supported by our ethnographic observations. In this study, it was not possible to tell if a nasopharyngeal swab was successfully obtained for each participant, and the ethnographic findings indicated that some users had low confidence in using nasopharyngeal swabs correctly. The reference standard used a combined nasal and oropharyngeal swab; we think it unlikely that this is a major source of diagnostic error as it has been shown in a systematic review to have similar performance to a nasopharyngeal swab for RT-PCR [<xref ref-type="bibr" rid="pone.0329611.ref022">22</xref>].</p>
+</sec>
+<sec id="sec028">
+<title>Comparison with other studies</title>
+<p>There are few previous evaluations in primary care settings of the POCT considered in this study. The manufacturer-reported performance of this assay in symptomatic patients is 95.25% sensitivity (Ct&lt;=30) and 99.35% specificity for SARS-CoV-2; 100% sensitivity (Ct&lt;=30) and 99.75% specificity for Influenza A; and “using retrospective specimens”, 100% sensitivity and 100% specificity for Influenza B [<xref ref-type="bibr" rid="pone.0329611.ref013">13</xref>]. A laboratory evaluation of a Roche-branded SARS-CoV-2/Flu A and Flu B combination Rapid Antigen Test in Australia in 2022 reported similarly good performance for lower Ct values (&lt;=26) but failed to detect SARS-CoV-2 variant BA.2 at Ct&gt;=29.5 [<xref ref-type="bibr" rid="pone.0329611.ref023">23</xref>].</p>
+<p>Viral loads following influenza infection typically peak within a few days after initial infection and at similar time as the first clinical symptoms [<xref ref-type="bibr" rid="pone.0329611.ref024">24</xref>]. SARS-CoV-2 may have a longer incubation period, with viral load peaking several days after symptom onset and longer duration of viral shedding [<xref ref-type="bibr" rid="pone.0329611.ref025">25</xref>,<xref ref-type="bibr" rid="pone.0329611.ref026">26</xref>]. As patients entered this study on average 3.7 days after first symptom onset, the timelines may have been more closely aligned to detection of SARS-CoV-2 than influenza at the point of care, especially if some nasopharyngeal swabbing was performed suboptimally. Nevertheless, our study represents a scenario in which the POCT might typically be deployed.</p>
+</sec>
+</sec>
+<sec id="sec029" sec-type="conclusions">
+<title>Conclusion</title>
+<p>The assay assessed was highly specific and had moderate sensitivity to detect SARS-CoV-2, but did not detect the majority of influenza infections. Negative POCT results should not be used to rule out the possibility of infection. Further work is needed to ascertain, outside a pandemic setting, the best way to integrate POCTs which offer high specificity and moderate sensitivity into care pathways for acute respiratory infections in the community.</p>
+</sec>
+<sec id="sec030" sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material id="pone.0329611.s001" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0329611.s001" xlink:type="simple">
+<label>S1 Table</label>
+<caption>
+<title>Primers and probes for the detection of Influenza A &amp; B viruses by rtRTPCR.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pone.0329611.s002" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0329611.s002" xlink:type="simple">
+<label>S1 File</label>
+<caption>
+<title>Subgroup analysis tables.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>We are grateful to all study participants, RAPTOR-C19 site staff, and the staff of the NIHR Clinical Research Network, Thames Valley and South Midlands for their support for the study. We would like to thank Micheal McKenna<sup>1</sup> for RedCAP support, patients and practices in the Oxford-Royal College of General Practitioners Research and Surveillance Centre (RSC) who share pseudonymised data to support research and surveillance (UKHSA is the principal sponsor of the RSC); EMIS, TPP, Vision and Wellbeing for assistance with pseudonymised data extraction.</p>
+<p>Membership of the RAPTOR-C19 Study Group is as follows: Katie Arundell<sup>1</sup>, Gail N. Hayward<sup>1</sup>, F. D. Richard Hobbs<sup>1</sup>, Heather Kenyon<sup>2</sup>, Joseph J. Lee<sup>1</sup>, Kathryn Lucas<sup>2</sup>, Brian D. Nicholson<sup>1</sup>, Jessica Smylie<sup>1</sup>, Sharon Tonner<sup>1</sup>* , Philip J. Turner<sup>1</sup>.</p>
+<p>1 Nuffield Department of Primary Care Health Sciences, University of Oxford, UK</p>
+<p>2 NIHR Clinical Research Network, Thames Valley and South Midlands, Oxford, UK</p>
+<p>*lead and corresponding author for the RAPTOR-C19 Study Group – <email xlink:type="simple">sharon.tonner@phc.ox.ac.uk</email></p>
+</ack>
+<ref-list>
+<title>References</title>
+<ref id="pone.0329611.ref001"><label>1</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Peeling</surname> <given-names>RW</given-names></name>, <name name-style="western"><surname>Heymann</surname> <given-names>DL</given-names></name>, <name name-style="western"><surname>Teo</surname> <given-names>Y-Y</given-names></name>, <name name-style="western"><surname>Garcia</surname> <given-names>PJ</given-names></name>. <article-title>Diagnostics for COVID-19: moving from pandemic response to control</article-title>. <source>Lancet</source>. <year>2022</year>;<volume>399</volume>(<issue>10326</issue>):<fpage>757</fpage>–<lpage>68</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S0140-6736(21)02346-1" xlink:type="simple">10.1016/S0140-6736(21)02346-1</ext-link></comment> <object-id pub-id-type="pmid">34942102</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gupta</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Augustine</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Narayan</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>O’Riordan</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Das</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Kumar</surname> <given-names>D</given-names></name>, <etal>et al</etal>. <article-title>Point-of-Care PCR assays for COVID-19 detection</article-title>. <source>Biosensors (Basel)</source>. <year>2021</year>;<volume>11</volume>(<issue>5</issue>):<fpage>141</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3390/bios11050141" xlink:type="simple">10.3390/bios11050141</ext-link></comment> <object-id pub-id-type="pmid">34062874</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Otoo</surname> <given-names>JA</given-names></name>, <name name-style="western"><surname>Schlappi</surname> <given-names>TS</given-names></name>. <article-title>REASSURED multiplex diagnostics: a critical review and forecast</article-title>. <source>Biosensors (Basel)</source>. <year>2022</year>;<volume>12</volume>(<issue>2</issue>):<fpage>124</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3390/bios12020124" xlink:type="simple">10.3390/bios12020124</ext-link></comment> <object-id pub-id-type="pmid">35200384</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref004"><label>4</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Nicholson</surname> <given-names>BD</given-names></name>, <name name-style="western"><surname>Turner</surname> <given-names>PJ</given-names></name>, <name name-style="western"><surname>Fanshawe</surname> <given-names>TR</given-names></name>, <name name-style="western"><surname>Williams</surname> <given-names>AJ</given-names></name>, <name name-style="western"><surname>Amirthalingam</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Tonner</surname> <given-names>S</given-names></name>. <article-title>Evaluation of the diagnostic accuracy of two point-of-care tests for COVID-19 when used in symptomatic patients in community settings in the UK primary care COVID diagnostic accuracy platform trial (RAPTOR-C19)</article-title>. <source>PloS One</source>. <year>2023</year>;<volume>18</volume>(<issue>7</issue>):e0288612.</mixed-citation></ref>
+<ref id="pone.0329611.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Fanshawe</surname> <given-names>TR</given-names></name>, <name name-style="western"><surname>Tonner</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Turner</surname> <given-names>PJ</given-names></name>, <name name-style="western"><surname>Cogdale</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Glogowska</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>de Lusignan</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>Diagnostic accuracy of a point-of-care antigen test for SARS-CoV-2 and influenza in a primary care population (RAPTOR-C19)</article-title>. <source>Clin Microbiol Infect</source>. <year>2024</year>;<volume>30</volume>(<issue>3</issue>):<fpage>380</fpage>–<lpage>6</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.cmi.2023.12.009" xlink:type="simple">10.1016/j.cmi.2023.12.009</ext-link></comment> <object-id pub-id-type="pmid">38103638</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref006"><label>6</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Pormohammad</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Ghorbani</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Khatami</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Razizadeh</surname> <given-names>MH</given-names></name>, <name name-style="western"><surname>Alborzi</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Zarei</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Comparison of influenza type A and B with COVID-19: A global systematic review and meta-analysis on clinical, laboratory and radiographic findings</article-title>. <source>Rev Med Virol</source>. <year>2021</year>;<volume>31</volume>(<issue>3</issue>):e2179. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/rmv.2179" xlink:type="simple">10.1002/rmv.2179</ext-link></comment> <object-id pub-id-type="pmid">33035373</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref007"><label>7</label><mixed-citation publication-type="other" xlink:type="simple">UK Health Security Agency. Guidance: People with symptoms of a respiratory infection including COVID-19. 2022 [Accessed 2024 December 19]. <ext-link ext-link-type="uri" xlink:href="https://www.gov.uk/guidance/people-with-symptoms-of-a-respiratory-infection-including-covid-19" xlink:type="simple">https://www.gov.uk/guidance/people-with-symptoms-of-a-respiratory-infection-including-covid-19</ext-link></mixed-citation></ref>
+<ref id="pone.0329611.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Nicholson</surname> <given-names>BD</given-names></name>, <name name-style="western"><surname>Hayward</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Turner</surname> <given-names>PJ</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>JJ</given-names></name>, <name name-style="western"><surname>Deeks</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Logan</surname> <given-names>M</given-names></name>. <article-title>Rapid community point-of-care testing for COVID-19 (RAPTOR-C19): protocol for a platform diagnostic study</article-title>. <source>Diagn Progn Res</source>. <year>2021</year>;<volume>5</volume>:<fpage>1</fpage>–<lpage>13</lpage>.</mixed-citation></ref>
+<ref id="pone.0329611.ref009"><label>9</label><mixed-citation publication-type="other" xlink:type="simple">GisAid. hCoV-19 variants dashboard. 2024 [Accessed 2024 December 19]. <ext-link ext-link-type="uri" xlink:href="https://gisaid.org/hcov-19-variants-dashboard/" xlink:type="simple">https://gisaid.org/hcov-19-variants-dashboard/</ext-link></mixed-citation></ref>
+<ref id="pone.0329611.ref010"><label>10</label><mixed-citation publication-type="other" xlink:type="simple">FluNet. Global Influenza Programme. 2024 [Accessed 2024 December 19]. <ext-link ext-link-type="uri" xlink:href="https://www.who.int/tools/flunet" xlink:type="simple">https://www.who.int/tools/flunet</ext-link></mixed-citation></ref>
+<ref id="pone.0329611.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Harris</surname> <given-names>PA</given-names></name>, <name name-style="western"><surname>Taylor</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Thielke</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Payne</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Gonzalez</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Conde</surname> <given-names>JG</given-names></name>. <article-title>A metadata-driven methodology and workflow process for providing translational research informatics support</article-title>. <source>J Biomed Inform</source>. <year>2009</year>;<volume>42</volume>(<issue>2</issue>):<fpage>377</fpage>–<lpage>81</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jbi.2008.08.010" xlink:type="simple">10.1016/j.jbi.2008.08.010</ext-link></comment> <object-id pub-id-type="pmid">18929686</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Harris</surname> <given-names>PA</given-names></name>, <name name-style="western"><surname>Taylor</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Minor</surname> <given-names>BL</given-names></name>, <name name-style="western"><surname>Elliott</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Fernandez</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>O’Neal</surname> <given-names>L</given-names></name>, <etal>et al</etal>. <article-title>The REDCap consortium: Building an international community of software platform partners</article-title>. <source>J Biomed Inform</source>. <year>2019</year>;<volume>95</volume>:<fpage>103208</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jbi.2019.103208" xlink:type="simple">10.1016/j.jbi.2019.103208</ext-link></comment> <object-id pub-id-type="pmid">31078660</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref013"><label>13</label><mixed-citation publication-type="other" xlink:type="simple">Roche. SARS-CoV-2 &amp; Flu A/B Rapid Antigen Test. 2024 [Accessed 2024 December 19]. <ext-link ext-link-type="uri" xlink:href="https://diagnostics.roche.com/gb/en/products/params/sars-cov-2-flu-a-b.html" xlink:type="simple">https://diagnostics.roche.com/gb/en/products/params/sars-cov-2-flu-a-b.html</ext-link></mixed-citation></ref>
+<ref id="pone.0329611.ref014"><label>14</label><mixed-citation publication-type="other" xlink:type="simple">Medicines &amp; Healthcare products Regulatory Agency. Target product profile: Point of care SARS-CoV-2 detection tests. 2023. <ext-link ext-link-type="uri" xlink:href="https://www.gov.uk/government/publications/how-tests-and-testing-kits-for-coronavirus-covid-19-work/target-product-profile-point-of-care-sars-cov-2-detection-tests" xlink:type="simple">https://www.gov.uk/government/publications/how-tests-and-testing-kits-for-coronavirus-covid-19-work/target-product-profile-point-of-care-sars-cov-2-detection-tests</ext-link></mixed-citation></ref>
+<ref id="pone.0329611.ref015"><label>15</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Stevenson</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Sergeant</surname> <given-names>E</given-names></name>. <source>epiR: tools for the analysis of epidemiological data</source>. <year>2024</year>. <ext-link ext-link-type="uri" xlink:href="https://CRAN.R-project.org/package=epiR" xlink:type="simple">https://CRAN.R-project.org/package=epiR</ext-link></mixed-citation></ref>
+<ref id="pone.0329611.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Olthuis</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Prins</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Smits</surname> <given-names>M-J</given-names></name>, <name name-style="western"><surname>van de Pas</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Bierens</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Baart</surname> <given-names>A</given-names></name>. <article-title>Matters of concern: a qualitative study of emergency care from the perspective of patients</article-title>. <source>Ann Emerg Med</source>. <year>2014</year>;<volume>63</volume>(<issue>3</issue>):311-<lpage>9.e2</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.annemergmed.2013.08.018" xlink:type="simple">10.1016/j.annemergmed.2013.08.018</ext-link></comment> <object-id pub-id-type="pmid">24054787</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gal</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Francis</surname> <given-names>NA</given-names></name>, <name name-style="western"><surname>Hood</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Villacian</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Goossens</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Watkins</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Matching diagnostics development to clinical need: Target product profile development for a point of care test for community-acquired lower respiratory tract infection</article-title>. <source>PLoS One</source>. <year>2018</year>;<volume>13</volume>(<issue>8</issue>):e0200531. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0200531" xlink:type="simple">10.1371/journal.pone.0200531</ext-link></comment> <object-id pub-id-type="pmid">30067760</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gentilotti</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>De Nardo</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Cremonini</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Górska</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Mazzaferri</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Canziani</surname> <given-names>LM</given-names></name>, <etal>et al</etal>. <article-title>Diagnostic accuracy of point-of-care tests in acute community-acquired lower respiratory tract infections. A systematic review and meta-analysis</article-title>. <source>Clin Microbiol Infect</source>. <year>2022</year>;<volume>28</volume>(<issue>1</issue>):<fpage>13</fpage>–<lpage>22</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.cmi.2021.09.025" xlink:type="simple">10.1016/j.cmi.2021.09.025</ext-link></comment> <object-id pub-id-type="pmid">34601148</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Zhou</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>O’Leary</surname> <given-names>TJ</given-names></name>. <article-title>Relative sensitivity of anterior nares and nasopharyngeal swabs for initial detection of SARS-CoV-2 in ambulatory patients: Rapid review and meta-analysis</article-title>. <source>PLoS One</source>. <year>2021</year>;<volume>16</volume>(<issue>7</issue>):e0254559. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0254559" xlink:type="simple">10.1371/journal.pone.0254559</ext-link></comment> <object-id pub-id-type="pmid">34283845</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hou</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Wang</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Zhang</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Bai</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Song</surname> <given-names>W</given-names></name>, <etal>et al</etal>. <article-title>Comparison of detection rate of 16 sampling methods for respiratory viruses: a Bayesian network meta-analysis of clinical data and systematic review</article-title>. <source>BMJ Glob Health</source>. <year>2020</year>;<volume>5</volume>(<issue>11</issue>):e003053. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1136/bmjgh-2020-003053" xlink:type="simple">10.1136/bmjgh-2020-003053</ext-link></comment> <object-id pub-id-type="pmid">33168521</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Plantamura</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Bousquet</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Otto</surname> <given-names>M-P</given-names></name>, <name name-style="western"><surname>Bigaillon</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Legland</surname> <given-names>A-M</given-names></name>, <name name-style="western"><surname>Delacour</surname> <given-names>H</given-names></name>, <etal>et al</etal>. <article-title>Performances, feasibility and acceptability of nasopharyngeal swab, saliva and oral-self sampling swab for the detection of severe acute respiratory syndrome coronavirus 2</article-title>. <source>Eur J Clin Microbiol Infect Dis</source>. <year>2021</year>;<volume>40</volume>(<issue>10</issue>):<fpage>2191</fpage>–<lpage>8</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s10096-021-04269-4" xlink:type="simple">10.1007/s10096-021-04269-4</ext-link></comment> <object-id pub-id-type="pmid">33987804</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref022"><label>22</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Tsang</surname> <given-names>NNY</given-names></name>, <name name-style="western"><surname>So</surname> <given-names>HC</given-names></name>, <name name-style="western"><surname>Ng</surname> <given-names>KY</given-names></name>, <name name-style="western"><surname>Cowling</surname> <given-names>BJ</given-names></name>, <name name-style="western"><surname>Leung</surname> <given-names>GM</given-names></name>, <name name-style="western"><surname>Ip</surname> <given-names>DKM</given-names></name>. <article-title>Diagnostic performance of different sampling approaches for SARS-CoV-2 RT-PCR testing: a systematic review and meta-analysis</article-title>. <source>Lancet Infect Dis</source>. <year>2021</year>;<volume>21</volume>(<issue>9</issue>):<fpage>1233</fpage>–<lpage>45</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S1473-3099(21)00146-8" xlink:type="simple">10.1016/S1473-3099(21)00146-8</ext-link></comment> <object-id pub-id-type="pmid">33857405</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref023"><label>23</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Batty</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Mackenzie</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Deerain</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Tran</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Yoga</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Druce</surname> <given-names>J</given-names></name>. <article-title>Performance evaluation of Roche and Abbott Panbio multiplex SARS-CoV-2 and influenza A/B rapid antigen tests</article-title>. <source>Pathology</source>. <year>2023</year>.</mixed-citation></ref>
+<ref id="pone.0329611.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Carrat</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Vergu</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Ferguson</surname> <given-names>NM</given-names></name>, <name name-style="western"><surname>Lemaitre</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Cauchemez</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Leach</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>Time lines of infection and disease in human influenza: a review of volunteer challenge studies</article-title>. <source>Am J Epidemiol</source>. <year>2008</year>;<volume>167</volume>(<issue>7</issue>):<fpage>775</fpage>–<lpage>85</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/aje/kwm375" xlink:type="simple">10.1093/aje/kwm375</ext-link></comment> <object-id pub-id-type="pmid">18230677</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref025"><label>25</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bae</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>JY</given-names></name>, <name name-style="western"><surname>Lim</surname> <given-names>SY</given-names></name>, <name name-style="western"><surname>Park</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Cha</surname> <given-names>HH</given-names></name>, <name name-style="western"><surname>Kwon</surname> <given-names>J-S</given-names></name>, <etal>et al</etal>. <article-title>Dynamics of viral shedding and symptoms in patients with asymptomatic or mild COVID-19</article-title>. <source>Viruses</source>. <year>2021</year>;<volume>13</volume>(<issue>11</issue>):<fpage>2133</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3390/v13112133" xlink:type="simple">10.3390/v13112133</ext-link></comment> <object-id pub-id-type="pmid">34834940</object-id></mixed-citation></ref>
+<ref id="pone.0329611.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Flerlage</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Boyd</surname> <given-names>DF</given-names></name>, <name name-style="western"><surname>Meliopoulos</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Thomas</surname> <given-names>PG</given-names></name>, <name name-style="western"><surname>Schultz-Cherry</surname> <given-names>S</given-names></name>. <article-title>Influenza virus and SARS-CoV-2: pathogenesis and host responses in the respiratory tract</article-title>. <source>Nat Rev Microbiol</source>. <year>2021</year>;<volume>19</volume>(<issue>7</issue>):<fpage>425</fpage>–<lpage>41</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/s41579-021-00542-7" xlink:type="simple">10.1038/s41579-021-00542-7</ext-link></comment> <object-id pub-id-type="pmid">33824495</object-id></mixed-citation></ref>
+</ref-list>
+</back>
+<sub-article article-type="aggregated-review-documents" id="pone.0329611.r001" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0329611.r001</article-id>
+<title-group>
+<article-title>Decision Letter 0</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Akhtar</surname>
+<given-names>Bushra</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Bushra Akhtar</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0329611" document-id-type="doi" document-type="article" id="rel-obj001" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>0</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="letter-date">25 Mar 2025</named-content></p>
+<p>PONE-D-24-60482Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)PLOS ONE</p>
+<p>Dear Dr. Tonner,</p>
+<p>Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.</p>
+<p>Please submit your revised manuscript by May 09 2025 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at <email xlink:type="simple">plosone@plos.org</email> . When you're ready to submit your revision, log on to <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">https://www.editorialmanager.com/pone/</ext-link> and select the 'Submissions Needing Revision' folder to locate your manuscript file.</p>
+<p>Please include the following items when submitting your revised manuscript:</p>
+<p><list list-type="bullet"><list-item><p>A rebuttal letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.</p>
+</list-item>
+<list-item>
+<p>A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.</p>
+</list-item>
+<list-item>
+<p>An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.</p>
+</list-item>
+</list>
+</p>
+<p>If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.</p>
+<p>If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols" xlink:type="simple">https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols</ext-link> . Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link> .</p>
+<p>We look forward to receiving your revised manuscript.</p>
+<p>Kind regards,</p>
+<p>Bushra Akhtar, Ph.D</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p><bold>Journal Requirements:</bold></p>
+<p>1. When submitting your revision, we need you to address these additional requirements. Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf" xlink:type="simple">https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf</ext-link> and <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf" xlink:type="simple">https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf</ext-link> 2. We note that the grant information you provided in the ‘Funding Information’ and ‘Financial Disclosure’ sections do not match.  When you resubmit, please ensure that you provide the correct grant numbers for the awards you received for your study in the ‘Funding Information’ section. 3. Thank you for stating the following financial disclosure: University of Oxford Medical Sciences Division Benefactors Urgent COVID-19 Fund [COVID-19 Research Response Fund Grant 0009325] to BDN, FDRH, JJL, TRF, PJT, GNH, MZ; National Institute for Health and Care Research (NIHR) School for Primary Care Research [SPCR grant 495] to BDN, FDRH, GNH, PJT, JJL, TRF; Urgent Public Health funding received by the CONDOR platform from the NIHR and Asthma + Lung UK [NIHR UPH grant COV0051] to BDN, PJT, GNH. PT, TRF, MG, UU, FDRH and GNH have received funding from the National Institute for Health and Care Research (NIHR) Community Healthcare MedTech and In Vitro Diagnostics Co-operative (MIC) (MIC 2016-018). PJT, TRF, MG, UU, BN and GNH currently receive funding from the NIHR HealthTech Research Centre (HRC) in Community Healthcare (NIHR205287) at Oxford Health NHS Foundation Trust. TRF and FDRH receive funding from the NIHR Applied Research Collaboration Oxford and Thames Valley at Oxford Health NHS Foundation Trust (NIHR200172). The views expressed are those of the authors and not necessarily those of the NHS, the NIHR or the Department of Health and Social Care. Roche International Ltd provided consumables and site training free of charge, together with a grant to the University of Oxford to support the study.   Please state what role the funders took in the study.  If the funders had no role, please state: "The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript." If this statement is not correct you must amend it as needed. Please include this amended Role of Funder statement in your cover letter; we will change the online submission form on your behalf. 4. Thank you for stating the following in the Acknowledgments Section of your manuscript: We are grateful to all study participants, RAPTOR-C19 site staff, and the staff of the NIHR Clinical Research Network, Thames Valley and South Midlands for their support for the study. We would like to thank Micheal McKenna for RedCAP support, patients and practices in the Oxford-Royal College of General Practitioners Research and Surveillance Centre (RSC) who share pseudonymised data to support research and surveillance (UKHSA is the principal sponsor of the RSC); EMIS, TPP, Vision and Wellbeing for assistance with pseudonymised data extraction. Membership of the RAPTOR-C19 Study Group is as follows: Katie Arundell1, Gail N. Hayward1, F. D. Richard Hobbs, Heather Kenyon, Joseph J. Lee, Kathryn Lucas, Brian D. Nicholson, Jessica Smylie, Sharon Tonner, Philip J. Turner.Nuffield Department of Primary Care Health Sciences, University of Oxford, UKNIHR Clinical Research Network, Thames Valley and South Midlands, Oxford, UK We note that you have provided funding information that is not currently declared in your Funding Statement. However, funding information should not appear in the Acknowledgments section or other areas of your manuscript. We will only publish funding information present in the Funding Statement section of the online submission form. Please remove any funding-related text from the manuscript and let us know how you would like to update your Funding Statement. Currently, your Funding Statement reads as follows: University of Oxford Medical Sciences Division Benefactors Urgent COVID-19 Fund [COVID-19 Research Response Fund Grant 0009325] to BDN, FDRH, JJL, TRF, PJT, GNH, MZ; National Institute for Health and Care Research (NIHR) School for Primary Care Research [SPCR grant 495] to BDN, FDRH, GNH, PJT, JJL, TRF; Urgent Public Health funding received by the CONDOR platform from the NIHR and Asthma + Lung UK [NIHR UPH grant COV0051] to BDN, PJT, GNH. PT, TRF, MG, UU, FDRH and GNH have received funding from the National Institute for Health and Care Research (NIHR) Community Healthcare MedTech and In Vitro Diagnostics Co-operative (MIC) (MIC 2016-018). PJT, TRF, MG, UU, BN and GNH currently receive funding from the NIHR HealthTech Research Centre (HRC) in Community Healthcare (NIHR205287) at Oxford Health NHS Foundation Trust. TRF and FDRH receive funding from the NIHR Applied Research Collaboration Oxford and Thames Valley at Oxford Health NHS Foundation Trust (NIHR200172). The views expressed are those of the authors and not necessarily those of the NHS, the NIHR or the Department of Health and Social Care. Roche International Ltd provided consumables and site training free of charge, together with a grant to the University of Oxford to support the study. Please include your amended statements within your cover letter; we will change the online submission form on your behalf. 5. One of the noted authors is a group or consortium. In addition to naming the author group, please list the individual authors and affiliations within this group in the acknowledgments section of your manuscript. Please also indicate clearly a lead author for this group along with a contact email address. 6. Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosone/s/supporting-information" xlink:type="simple">http://journals.plos.org/plosone/s/supporting-information</ext-link>.</p>
+<p>[Note: HTML markup is below. Please do not edit.]</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><bold>Comments to the Author</bold></p>
+<p>1. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. </p>
+<p>Reviewer #1: Partly</p>
+<p>**********</p>
+<p>2. Has the statistical analysis been performed appropriately and rigorously? </p>
+<p>Reviewer #1: Yes</p>
+<p>**********</p>
+<p>3. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.</p>
+<p>Reviewer #1: Yes</p>
+<p>**********</p>
+<p>4. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.</p>
+<p>Reviewer #1: Yes</p>
+<p>**********</p>
+<p>5. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)</p>
+<p><bold>Reviewer #1:</bold>  In this manuscript authors have explored the diagnostic accuracy of a point-of-care antigen test for SARS-CoV-2 and influenza in primary care facilities. Overall, the study is well structured and data is nicely presented, however, few areas need improvement and clarification.</p>
+<p>1. The POCT was conducted unilateral nasopharyngeal samples from participants while the reference test was conducted using combined swabs from nasal and oropharyngeal sites. How can these different methods of taking samples affect the test results? or can ensure a consistency in the method to compare these tests sensitivities? Previously, it has been reported in some studies that combined naso-oropharyngeal swab can be more sensitive as compared to nasopharyngeal swab (10.1080/23744235.2018.1546055, 10.1002/rmv.2106). So, it would be interesting to see if the samples for both tests are taken by the same procedure.</p>
+<p>2. Check the values presented in the table 1 particularly for Previous COVID-19 infection (Positive antigen test reported) if the values are represented as number (%) as mentioned in the table heading.</p>
+<p>**********</p>
+<p>6. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link> ). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link> .</p>
+<p>Reviewer #1: No</p>
+<p>**********</p>
+<p>[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]</p>
+<p>While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link> . PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Registration is free. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email PLOS at <email xlink:type="simple">figures@plos.org</email> . Please note that Supporting Information files do not need this step.</p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pone.0329611.r002">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0329611.r002</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 1</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pone.0329611" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj002" link-type="rebutted-decision-letter" object-id="10.1371/journal.pone.0329611.r001" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="author-response-date">9 May 2025</named-content></p>
+<p>We have addressed the editorial and reviewer comments below:</p>
+<p>1. We have revised any formatting errors and apologies that these were missed on initial submission.</p>
+<p>2. We have updated the financial information and the disclosure (see below).</p>
+<p>3. Please include our revised statement - University of Oxford Medical Sciences Division Benefactors Urgent COVID-19 Fund [COVID-19 Research Response Fund Grant 0009325] to BDN, FDRH, JJL, TRF, PJT, GNH, MZ; National Institute for Health and Care Research (NIHR) School for Primary Care Research [SPCR grant 495] to BDN, FDRH, GNH, PJT, JJL, TRF; Urgent Public Health funding received by the CONDOR platform from the NIHR and Asthma + Lung UK [NIHR UPH grant COV0051] to BDN, PJT, GNH. PT, TRF, MG, UU, FDRH and GNH have received funding from the National Institute for Health and Care Research (NIHR) Community Healthcare MedTech and In Vitro Diagnostics Co-operative (MIC) (MIC 2016-018). PJT, TRF, MG, UU, BN and GNH currently receive funding from the NIHR HealthTech Research Centre (HRC) in Community Healthcare (NIHR205287) at Oxford Health NHS Foundation Trust. TRF and FDRH receive funding from the NIHR Applied Research Collaboration Oxford and Thames Valley at Oxford Health NHS Foundation Trust (NIHR200172). The views expressed are those of the authors and not necessarily those of the NHS, the NIHR or the Department of Health and Social Care. Roche International Ltd (R69261/CN085) provided consumables and site training free of charge, together with a grant to the University of Oxford to support the study. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+<p>4. We would like to clarify that no one thanked in the acknowledgements provided direct funding but supported as part of existing national research infrastructure.</p>
+<p>5. The required information is now included in the acknowledgements section of the manuscript.</p>
+<p>6. We have included captions for the supplementary information files.</p>
+<p>Reviewer 1 commented on the use of nasopharyngeal swabs for the POCT and a combined nasal/oropharyngeal swab for the reference test. Selection of upper respiratory tract swabbing sites was guided by manufacturers’ instructions, and while the literature shows some contrasting results in the direct comparison of these sites, evidence from systematic review suggests that they usually perform similarly for RT-PCR, so we think it unlikely that this would have had a major impact on our results. We have added a sentence to the Discussion describing this.</p>
+<p>Reviewer 1 also asked us to check the information presented in Table 1. We have reviewed/corrected this table and apologise that one row pointed out by the reviewer was included in error; this has now been deleted.</p>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0329611.r003" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0329611.r003</article-id>
+<title-group>
+<article-title>Decision Letter 1</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Khudyakov</surname>
+<given-names>Yury</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Yury Khudyakov</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0329611" document-id-type="doi" document-type="article" id="rel-obj003" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="letter-date">21 Jul 2025</named-content></p>
+<p>Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)</p>
+<p>PONE-D-24-60482R1</p>
+<p>Dear Dr. Tonner,</p>
+<p>We’re pleased to inform you that your manuscript has been judged scientifically suitable for publication and will be formally accepted for publication once it meets all outstanding technical requirements.</p>
+<p>Within one week, you’ll receive an e-mail detailing the required amendments. When these have been addressed, you’ll receive a formal acceptance letter and your manuscript will be scheduled for publication.</p>
+<p>An invoice will be generated when your article is formally accepted. Please note, if your institution has a publishing partnership with PLOS and your article meets the relevant criteria, all or part of your publication costs will be covered. Please make sure your user information is up-to-date by logging into Editorial Manager at <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">Editorial Manager®</ext-link>  and clicking the ‘Update My Information' link at the top of the page. If you have any questions relating to publication charges, please contact our Author Billing department directly at authorbilling@plos.org.</p>
+<p>If your institution or institutions have a press office, please notify them about your upcoming paper to help maximize its impact. If they’ll be preparing press materials, please inform our press team as soon as possible -- no later than 48 hours after receiving the formal acceptance. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact onepress@plos.org.</p>
+<p>Kind regards,</p>
+<p>Yury E Khudyakov, PhD</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Additional Editor Comments (optional):</p>
+<p>Reviewers' comments:</p>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0329611.r004" specific-use="acceptance-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0329611.r004</article-id>
+<title-group>
+<article-title>Acceptance letter</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Khudyakov</surname>
+<given-names>Yury</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Yury Khudyakov</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0329611" document-id-type="doi" document-type="article" id="rel-obj004" link-type="peer-reviewed-article"/>
+</front-stub>
+<body>
+<p>PONE-D-24-60482R1</p>
+<p>PLOS ONE</p>
+<p>Dear Dr. Tonner,</p>
+<p>I'm pleased to inform you that your manuscript has been deemed suitable for publication in PLOS ONE. Congratulations! Your manuscript is now being handed over to our production team.</p>
+<p>At this stage, our production department will prepare your paper for publication. This includes ensuring the following:</p>
+<p>* All references, tables, and figures are properly cited</p>
+<p>* All relevant supporting information is included in the manuscript submission,</p>
+<p>* There are no issues that prevent the paper from being properly typeset</p>
+<p>You will receive further instructions from the production team, including instructions on how to review your proof when it is ready. Please keep in mind that we are working through a large volume of accepted articles, so please give us a few days to review your paper and let you know the next and final steps.</p>
+<p>Lastly, if your institution or institutions have a press office, please let them know about your upcoming paper now to help maximize its impact. If they'll be preparing press materials, please inform our press team within the next 48 hours. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact onepress@plos.org.</p>
+<p>You will receive an invoice from PLOS for your publication fee after your manuscript has reached the completed accept phase. If you receive an email requesting payment before acceptance or for any other service, this may be a phishing scheme. Learn how to identify phishing emails and protect your accounts at <ext-link ext-link-type="uri" xlink:href="https://explore.plos.org/phishing" xlink:type="simple">https://explore.plos.org/phishing</ext-link>.</p>
+<p>If we can help with anything else, please email us at customercare@plos.org.</p>
+<p>Thank you for submitting your work to PLOS ONE and supporting open access.</p>
+<p>Kind regards,</p>
+<p>PLOS ONE Editorial Office Staff</p>
+<p>on behalf of</p>
+<p>Dr. Yury E Khudyakov</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+</body>
+</sub-article>
+</article>

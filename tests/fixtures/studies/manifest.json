@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "description": "Independent manual-linkage truth for software evaluation only. All source descriptions, authors, identifiers, and review actions are invented; there are no clinical findings.",
+  "records_file": "records.json",
+  "record_order": ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8"],
+  "report_dois": {
+    "r1": "10.99999/study-link-r1", "r2": "10.99999/study-link-r2",
+    "r3": "10.99999/study-link-r3", "r4": "10.99999/study-link-r4",
+    "r5": "10.99999/study-link-r5", "r6": "10.99999/study-link-r6",
+    "r7": "10.99999/study-link-r7", "r8": "10.99999/study-link-r8"
+  },
+  "studies": [
+    {
+      "alias": "A", "label": "Synthetic Study A", "reviewer": "fixture-curator",
+      "reason": "Invented registry/source descriptions explicitly group primary, follow-up, and companion reports r1, r2, and r8.",
+      "identifiers": {"registry": {"namespace": "SOFTWARE_FIXTURE_ONLY", "accession": "SYNTHETIC-A"}, "source_report_aliases": ["r1", "r2", "r8"], "synthetic": true}
+    },
+    {
+      "alias": "B", "label": "Synthetic Study B", "reviewer": "fixture-curator",
+      "reason": "Invented source descriptions establish the B cohort in combined report r3 and companion report r4.",
+      "identifiers": {"registry": {"namespace": "SOFTWARE_FIXTURE_ONLY", "accession": "SYNTHETIC-B"}, "source_report_aliases": ["r3", "r4"], "synthetic": true}
+    },
+    {
+      "alias": "C", "label": "Synthetic Study C", "reviewer": "fixture-curator",
+      "reason": "Invented source descriptions establish a separate C cohort in r3 and the secondary report r5.",
+      "identifiers": {"registry": {"namespace": "SOFTWARE_FIXTURE_ONLY", "accession": "SYNTHETIC-C"}, "source_report_aliases": ["r3", "r5"], "synthetic": true}
+    },
+    {
+      "alias": "D", "label": "Synthetic Study D", "reviewer": "fixture-curator",
+      "reason": "Preserve the invented source identity of excluded report r6 without treating its study as included.",
+      "identifiers": {"registry": {"namespace": "SOFTWARE_FIXTURE_ONLY", "accession": "SYNTHETIC-D"}, "source_report_aliases": ["r6"], "synthetic": true}
+    },
+    {
+      "alias": "E", "label": "=SYNTHETIC_UNUSED_STUDY_E", "reviewer": "fixture-curator",
+      "reason": "Unused inventory entry, with a formula-shaped label to exercise safe CSV text. No report establishes an association.",
+      "identifiers": {"registry": {"namespace": "SOFTWARE_FIXTURE_ONLY", "accession": "SYNTHETIC-E"}, "source_report_aliases": [], "synthetic": true}
+    }
+  ],
+  "screening": {
+    "reviewer": "fixture-screener",
+    "title_abstract_included": ["r1", "r2", "r3", "r4", "r5", "r6", "r8"],
+    "title_abstract_pending": ["r7"],
+    "full_text_retrieved": ["r1", "r2", "r3", "r4", "r5", "r6", "r8"],
+    "full_text_included": ["r1", "r2", "r3", "r4", "r5", "r8"],
+    "full_text_excluded": [{"report": "r6", "reason": "Synthetic eligibility rule excludes this invented source; no clinical conclusion is asserted."}]
+  },
+  "common_counts": {
+    "records_identified": 8, "duplicate_records_removed": 0, "unique_records": 8,
+    "records_awaiting_screening": 1, "records_screened": 7, "records_excluded": 0,
+    "records_included_for_full_text": 7, "reports_sought_for_retrieval": 7,
+    "reports_retrieved": 7, "reports_assessed": 7, "reports_included": 6,
+    "reports_excluded": 1, "study_linkage_available": true, "all_checks_passed": true
+  },
+  "initial": {
+    "events": [
+      {"kind": "review", "report": "r1", "studies": ["A"], "reviewer": "linker-one", "reason": "Invented primary source names Study A."},
+      {"kind": "review", "report": "r2", "studies": ["A"], "reviewer": "linker-one", "reason": "Invented follow-up source explicitly uses the same Study A cohort as r1."},
+      {"kind": "review", "report": "r3", "studies": ["C", "B"], "reviewer": "linker-one", "reason": "Two distinct invented source descriptions establish Studies B and C in this single report."},
+      {"kind": "review", "report": "r5", "studies": ["A"], "reviewer": "linker-one", "reason": "Scripted incorrect proposal A creates an adjudication case; source truth remains C."},
+      {"kind": "review", "report": "r5", "studies": ["B"], "reviewer": "linker-two", "reason": "Scripted incorrect proposal B disagrees with A; no union or majority is valid."},
+      {"kind": "review", "report": "r6", "studies": ["D"], "reviewer": "linker-one", "reason": "Excluded report retains its invented Study D association."},
+      {"kind": "review", "report": "r8", "studies": [], "reviewer": "linker-one", "reason": "Initial review establishes no association; empty is not complete linkage."}
+    ],
+    "links": {
+      "r1": {"state": "linked", "studies": ["A"]}, "r2": {"state": "linked", "studies": ["A"]},
+      "r3": {"state": "linked", "studies": ["B", "C"]}, "r4": {"state": "pending", "studies": []},
+      "r5": {"state": "conflict", "studies": []}, "r6": {"state": "linked", "studies": ["D"]},
+      "r7": {"state": "pending", "studies": []}, "r8": {"state": "unlinked", "studies": []}
+    },
+    "counts": {"reports_included_linked": 3, "reports_included_awaiting_linkage": 2, "reports_included_linkage_unresolved": 1, "linked_included_studies": 3, "study_linkage_complete": false, "included_studies": null},
+    "observed_included_studies": ["A", "B", "C"],
+    "link_event_count": 7
+  },
+  "final": {
+    "events": [
+      {"kind": "review", "report": "r4", "studies": ["B"], "reviewer": "linker-one", "reason": "Companion source establishes the same invented Study B as r3."},
+      {"kind": "adjudication", "report": "r5", "studies": ["C"], "reviewer": "fixture-adjudicator", "reason": "Resolve the scripted A/B disagreement using the invented source that explicitly names Study C."},
+      {"kind": "review", "report": "r8", "studies": ["A"], "reviewer": "linker-one", "reason": "Revise this reviewer's complete set from empty to A after checking the invented companion description."}
+    ],
+    "links": {
+      "r1": {"state": "linked", "studies": ["A"]}, "r2": {"state": "linked", "studies": ["A"]},
+      "r3": {"state": "linked", "studies": ["B", "C"]}, "r4": {"state": "linked", "studies": ["B"]},
+      "r5": {"state": "linked", "studies": ["C"]}, "r6": {"state": "linked", "studies": ["D"]},
+      "r7": {"state": "pending", "studies": []}, "r8": {"state": "linked", "studies": ["A"]}
+    },
+    "counts": {"reports_included_linked": 6, "reports_included_awaiting_linkage": 0, "reports_included_linkage_unresolved": 0, "linked_included_studies": 3, "study_linkage_complete": true, "included_studies": 3},
+    "observed_included_studies": ["A", "B", "C"],
+    "link_event_count": 10
+  },
+  "revision_sequence_after_final": [
+    {
+      "name": "New review invalidates r5 adjudication",
+      "event": {"kind": "review", "report": "r5", "studies": ["C"], "reviewer": "linker-one", "reason": "A later review reactivates latest reviewer sets C versus B; prior adjudication no longer resolves them."},
+      "changed_link": {"state": "conflict", "studies": []},
+      "counts": {"reports_included_linked": 5, "reports_included_awaiting_linkage": 0, "reports_included_linkage_unresolved": 1, "linked_included_studies": 3, "study_linkage_complete": false, "included_studies": null},
+      "link_event_count": 11
+    },
+    {
+      "name": "New adjudication resolves the revised disagreement",
+      "event": {"kind": "adjudication", "report": "r5", "studies": ["C"], "reviewer": "fixture-adjudicator", "reason": "Confirm the invented C association after the later review."},
+      "changed_link": {"state": "linked", "studies": ["C"]},
+      "counts": {"reports_included_linked": 6, "reports_included_awaiting_linkage": 0, "reports_included_linkage_unresolved": 0, "linked_included_studies": 3, "study_linkage_complete": true, "included_studies": 3},
+      "link_event_count": 12
+    },
+    {
+      "name": "Empty replacement clears both r3 associations",
+      "event": {"kind": "review", "report": "r3", "studies": [], "reviewer": "linker-one", "reason": "Explicitly clear this reviewer's whole association set for a revision probe."},
+      "changed_link": {"state": "unlinked", "studies": []},
+      "counts": {"reports_included_linked": 5, "reports_included_awaiting_linkage": 1, "reports_included_linkage_unresolved": 0, "linked_included_studies": 3, "study_linkage_complete": false, "included_studies": null},
+      "link_event_count": 13
+    },
+    {
+      "name": "Complete-set replacement adds C only rather than restoring B by union",
+      "event": {"kind": "review", "report": "r3", "studies": ["C"], "reviewer": "linker-one", "reason": "Record a C-only revision to test replacement semantics, without erasing the original B/C event."},
+      "changed_link": {"state": "linked", "studies": ["C"]},
+      "counts": {"reports_included_linked": 6, "reports_included_awaiting_linkage": 0, "reports_included_linkage_unresolved": 0, "linked_included_studies": 3, "study_linkage_complete": true, "included_studies": 3},
+      "link_event_count": 14
+    },
+    {
+      "name": "Eligibility revision includes linked Study D",
+      "screening_event": {"report": "r6", "stage": "full_text", "decision": "include", "reviewer": "fixture-screener", "reason": "Synthetic eligibility revision for the counting probe; source identity remains D."},
+      "counts": {"reports_included": 7, "reports_excluded": 0, "reports_included_linked": 7, "reports_included_awaiting_linkage": 0, "reports_included_linkage_unresolved": 0, "linked_included_studies": 4, "study_linkage_complete": true, "included_studies": 4},
+      "observed_included_studies": ["A", "B", "C", "D"],
+      "link_event_count": 14
+    },
+    {
+      "name": "Eligibility revision excludes D again without deleting associations",
+      "screening_event": {"report": "r6", "stage": "full_text", "decision": "exclude", "reviewer": "fixture-screener", "reason": "Restore the invented eligibility exclusion; the D link event remains retained."},
+      "counts": {"reports_included": 6, "reports_excluded": 1, "reports_included_linked": 6, "reports_included_awaiting_linkage": 0, "reports_included_linkage_unresolved": 0, "linked_included_studies": 3, "study_linkage_complete": true, "included_studies": 3},
+      "observed_included_studies": ["A", "B", "C"],
+      "link_event_count": 14
+    }
+  ]
+}

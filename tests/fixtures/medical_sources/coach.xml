@@ -1,0 +1,1560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1d3 20150301//EN" "http://jats.nlm.nih.gov/publishing/1.1d3/JATS-journalpublishing1.dtd">
+<article article-type="research-article" dtd-version="1.1d3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS Med</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosmed</journal-id>
+<journal-title-group>
+<journal-title>PLOS Medicine</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">1549-1277</issn>
+<issn pub-type="epub">1549-1676</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004019</article-id>
+<article-id pub-id-type="publisher-id">PMEDICINE-D-22-01526</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Mental health and psychiatry</subject><subj-group><subject>Mood disorders</subject><subj-group><subject>Depression</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Pharmacology</subject><subj-group><subject>Drugs</subject><subj-group><subject>Antidepressants</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>People and places</subject><subj-group><subject>Population groupings</subject><subj-group><subject>Age groups</subject><subj-group><subject>Adults</subject><subj-group><subject>Elderly</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Health care</subject><subj-group><subject>Primary care</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Pharmaceutics</subject><subj-group><subject>Drug therapy</subject><subj-group><subject>Neurological drug therapy</subject><subj-group><subject>Antidepressant drug therapy</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Mental health and psychiatry</subject></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Social sciences</subject><subj-group><subject>Economics</subject><subj-group><subject>Economic geography</subject><subj-group><subject>Low and middle income countries</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Earth sciences</subject><subj-group><subject>Geography</subject><subj-group><subject>Economic geography</subject><subj-group><subject>Low and middle income countries</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Geriatrics</subject></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial</article-title>
+<alt-title alt-title-type="running-head">Integrated care for older adults with depression and hypertension in rural China</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" equal-contrib="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Chen</surname>
+<given-names>Shulin</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/resources/">Resources</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" equal-contrib="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-8517-2132</contrib-id>
+<name name-style="western">
+<surname>Conwell</surname>
+<given-names>Yeates</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-3237-2330</contrib-id>
+<name name-style="western">
+<surname>Xue</surname>
+<given-names>Jiang</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-5601-7325</contrib-id>
+<name name-style="western">
+<surname>Li</surname>
+<given-names>Lydia</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Zhao</surname>
+<given-names>Tingjie</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Tang</surname>
+<given-names>Wan</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Bogner</surname>
+<given-names>Hillary</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff005"><sup>5</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-5064-7297</contrib-id>
+<name name-style="western">
+<surname>Dong</surname>
+<given-names>Hengjin</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff006"><sup>6</sup></xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Department of Psychology, Zhejiang University, Hangzhou, China</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>Department of Psychiatry, University of Rochester, Rochester, New York, United States of America</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>School of Social Work, University of Michigan, Ann Arbor, Michigan, United States of America</addr-line></aff>
+<aff id="aff004"><label>4</label> <addr-line>Department of Biostatistics and Data Science, Tulane University, New Orleans, Louisiana, United States of America</addr-line></aff>
+<aff id="aff005"><label>5</label> <addr-line>Department of Family Medicine, University of Pennsylvania, Philadelphia, Philadelphia, United States of America</addr-line></aff>
+<aff id="aff006"><label>6</label> <addr-line>Center for Health Policy Studies, School of Public Health, Zhejiang University, Hangzhou, China</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Peiris</surname>
+<given-names>David</given-names>
+</name>
+<role>Academic Editor</role>
+<xref ref-type="aff" rid="edit1"/>
+</contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>The George Institute for Global Health, AUSTRALIA</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>The authors have declared that no competing interests exist.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">Yeates_Conwell@urmc.rochester.edu</email></corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>24</day>
+<month>10</month>
+<year>2022</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>10</month>
+<year>2022</year>
+</pub-date>
+<volume>19</volume>
+<issue>10</issue>
+<elocation-id>e1004019</elocation-id>
+<history>
+<date date-type="received">
+<day>6</day>
+<month>5</month>
+<year>2022</year>
+</date>
+<date date-type="accepted">
+<day>4</day>
+<month>10</month>
+<year>2022</year>
+</date>
+</history>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Chen et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pmed.1004019"/>
+<abstract>
+<sec id="sec001">
+<title>Background</title>
+<p>Effectiveness of integrated care management for common, comorbid physical and mental disorders has been insufficiently examined in low- and middle-income countries (LMICs). We tested hypotheses that older adults treated in rural Chinese primary care clinics with integrated care management of comorbid depression and hypertension (HTN) would show greater improvements in depression symptom severity and HTN control than those who received usual care.</p>
+</sec>
+<sec id="sec002">
+<title>Methods and findings</title>
+<p>The study, registered with <ext-link ext-link-type="uri" xlink:href="http://clinicaltrials.gov/" xlink:type="simple">ClinicalTrials.gov</ext-link> as Identifier NCT01938963, was a cluster randomized controlled trial with 12-month follow-up conducted from January 1, 2014 through September 30, 2018, with analyses conducted in 2020 to 2021. Participants were residents of 218 rural villages located in 10 randomly selected townships of Zhejiang Province, China. Each village hosts 1 primary care clinic that serves all residents. Ten townships, each containing approximately 20 villages, were randomly selected to deliver either the Chinese Older Adult Collaborations in Health (COACH) intervention or enhanced care-as-usual (eCAU) to eligible village clinic patients. The COACH intervention consisted of algorithm-driven treatment of depression and HTN by village primary care doctors supported by village lay workers with telephone consultation from centrally located psychiatrists. Participants included clinic patients aged ≥60 years with a diagnosis of HTN and clinically significant depressive symptoms (Patient Health Questionnaire-9 [PHQ-9] score ≥10). Of 2,899 eligible village residents, 2,365 (82%) agreed to participate. They had a mean age of 74.5 years, 67% were women, 55% had no schooling, 59% were married, and 20% lived alone.</p>
+<p>Observers, older adult participants, and their primary care providers (PCPs) were blinded to study hypotheses but not to group assignment. Primary outcomes were change in depression symptom severity as measured by the Hamilton Depression Rating Scale (HDRS) total score and the proportion with controlled HTN, defined as systolic blood pressure (BP) &lt;130 mm Hg or diastolic BP &lt;80 for participants with diabetes mellitus, coronary heart disease, or renal disease, and systolic BP &lt;140 or diastolic BP &lt;90 for all others. Analyses were conducted using generalized linear mixed effect models with intention to treat.</p>
+<p>Sixty-seven of 1,133 participants assigned to eCAU and 85 of 1,232 COACH participants were lost to follow-up over 12 months. Thirty-six participants died of natural causes, 22 in the COACH arm and 14 receiving eCAU. Forty COACH participants discontinued antidepressant medication due to side effects. Compared with participants who received eCAU, COACH participants showed greater reduction in depressive symptoms (Cohen’s d [±SD] = −1.43 [−1.71, −1.15]; <italic>p</italic> &lt; 0.001) and greater likelihood of achieving HTN control (odds ratio [OR] [95% CI] = 18.24 [8.40, 39.63]; <italic>p</italic> &lt; 0.001).</p>
+<p>Limitations of the study include the inability to mask research assessors and participants to which condition a village was assigned, and lack of information about participants’ adherence to recommendations for lifestyle and medication management of HTN and depression. Generalizability of the model to other regions of China or other LMICs may be limited.</p>
+</sec>
+<sec id="sec003">
+<title>Conclusions</title>
+<p>The COACH model of integrated care management resulted in greater improvement in both depression symptom severity and HTN control among older adult residents of rural Chinese villages who had both conditions than did eCAU.</p>
+</sec>
+<sec id="sec004">
+<title>Trial registration</title>
+<p>ClinicalTrials.gov Identifier <ext-link ext-link-type="uri" xlink:href="https://clinicaltrials.gov/ct2/show/NCT01938963" xlink:type="simple">NCT01938963</ext-link> <ext-link ext-link-type="uri" xlink:href="https://clinicaltrials.gov/ct2/show/NCT01938963" xlink:type="simple">https://clinicaltrials.gov/ct2/show/NCT01938963</ext-link>.</p>
+</sec>
+</abstract>
+<abstract abstract-type="toc">
+<p>In a cluster randomized controlled trial, Shulin Chen and colleagues investigate whether integrated care management of depression and hypertension leads to greater improvements as compared to usual care in older adults attending rural Chinese primary care clinics.</p>
+</abstract>
+<abstract abstract-type="summary">
+<title>Author summary</title>
+<sec id="sec005">
+<title>Why was this study done?</title>
+<list list-type="bullet">
+<list-item><p>The combination of depression and hypertension (HTN) is common in later life and makes both conditions worse.</p></list-item>
+<list-item><p>Studies in high-income countries have found that older adults with both medical illness and clinically significant depression have better outcomes when the care delivered by their primary care doctor is integrated with mental healthcare.</p></list-item>
+<list-item><p>The integrated approach to care for older adults has been insufficiently tested in low- and middle-income countries (LMICs).</p></list-item>
+</list>
+</sec>
+<sec id="sec006">
+<title>What did the researchers do and find?</title>
+<list list-type="bullet">
+<list-item><p>We developed a model of integrated care for combined depression and HTN among older adults in rural village primary care clinics in China and compared it with usual approaches to care.</p></list-item>
+<list-item><p>The intervention, called Chinese Older Adult Collaborations in Health (COACH), was administered by a team consisting of the village clinic’s primary care doctor, a village resident called an “Aging Worker” to help reinforce treatment and address social factors affecting health, and telephone-based consultation with a psychiatrist.</p></list-item>
+<list-item><p>Over 12 months of participation, the 1,232 participants who received the COACH intervention had a significantly greater improvement in both depressive symptoms and the rate of HTN control than the 1,133 participants who received usual care.</p></list-item>
+</list>
+</sec>
+<sec id="sec007">
+<title>What do these findings mean?</title>
+<list list-type="bullet">
+<list-item><p>Integrated care management appears effective for management of comorbid depression and HTN in Chinese older adults in underresourced primary care settings that have limited access to mental healthcare.</p></list-item>
+<list-item><p>The unique benefits to depression treatment and hypertension control of antidepressant prescription and Aging Worker support, and the addition of easily administered psychotherapy to the model, require further study.</p></list-item>
+<list-item><p>Wide dissemination of the model in areas with few mental health resources will likely require use of telehealth technologies to enable better access to care.</p></list-item>
+</list>
+</sec>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/100000025</institution-id>
+<institution>National Institute of Mental Health</institution>
+</institution-wrap>
+</funding-source>
+<award-id>R01 MH100298</award-id>
+<principal-award-recipient>
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-8517-2132</contrib-id>
+<name name-style="western">
+<surname>Conwell</surname>
+<given-names>Yeates</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+<funding-statement>The COACH Study was supported by a grant from the National Institute of Mental Health &lt;<ext-link ext-link-type="uri" xlink:href="https://www.nimh.nih.gov" xlink:type="simple">https://www.nimh.nih.gov</ext-link>&gt; of the U.S. National Institutes of Health under Award Number R01MH100298 to YC and CS as multiple principal investigators. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="3"/>
+<table-count count="2"/>
+<page-count count="18"/>
+</counts>
+<custom-meta-group>
+<custom-meta>
+<meta-name>PLOS Publication Stage</meta-name>
+<meta-value>vor-update-to-uncorrected-proof</meta-value>
+</custom-meta>
+<custom-meta>
+<meta-name>Publication Update</meta-name>
+<meta-value>2022-11-07</meta-value>
+</custom-meta>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>All data files and code book are published and available from the Harvard Dataverse -- <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.7910/DVN/6RWH41" xlink:type="simple">https://doi.org/10.7910/DVN/6RWH41</ext-link>.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec008" sec-type="intro">
+<title>Introduction</title>
+<p>Older adults are the fastest growing segment of the world’s population, a pattern especially pronounced in low- and middle-income countries (LMICs). China has an estimated 254 million people over the age of 60 years [<xref ref-type="bibr" rid="pmed.1004019.ref001">1</xref>]. Depression and hypertension (HTN) are among the most common disorders of later life [<xref ref-type="bibr" rid="pmed.1004019.ref002">2</xref>,<xref ref-type="bibr" rid="pmed.1004019.ref003">3</xref>]. Known as “the silent killer” [<xref ref-type="bibr" rid="pmed.1004019.ref004">4</xref>], HTN is a major cause of strokes and ischemic heart disease, while depressive disorders are the third leading cause of years lived with disability worldwide [<xref ref-type="bibr" rid="pmed.1004019.ref005">5</xref>]. Depression and HTN commonly coexist, making their management more complex and clinical outcomes worse [<xref ref-type="bibr" rid="pmed.1004019.ref006">6</xref>–<xref ref-type="bibr" rid="pmed.1004019.ref011">11</xref>].</p>
+<p>Primary care providers (PCPs) in rural China receive little training in the detection, diagnosis, and management of common mental disorders, and mental health specialty care is difficult to access [<xref ref-type="bibr" rid="pmed.1004019.ref006">6</xref>,<xref ref-type="bibr" rid="pmed.1004019.ref012">12</xref>]. Consequently, late life affective disorders are rarely treated. In a naturalistic longitudinal study of older urban residents in China, Chen and colleagues found that only 1% of those with a major depressive episode received treatment over 12 months [<xref ref-type="bibr" rid="pmed.1004019.ref013">13</xref>].</p>
+<p>In high-income countries, collaborative depression care management models [<xref ref-type="bibr" rid="pmed.1004019.ref014">14</xref>–<xref ref-type="bibr" rid="pmed.1004019.ref016">16</xref>] have proven effective in managing depression and comorbid medical conditions while also reducing costs in primary care settings [<xref ref-type="bibr" rid="pmed.1004019.ref017">17</xref>–<xref ref-type="bibr" rid="pmed.1004019.ref019">19</xref>]. The collaborative care approach brings together PCPs, care managers, and psychiatric consultants to deliver care and monitor patient progress. The team employs systematic screening, evidence-based interventions administered with treatment algorithms, and decision support tools. Although well tested and widely disseminated in high-income regions, few studies of the model have been conducted in LMICs that used a randomized control trial (RCT) design, had a focus on older adults, or examined comorbid depression and medical illness [<xref ref-type="bibr" rid="pmed.1004019.ref020">20</xref>–<xref ref-type="bibr" rid="pmed.1004019.ref022">22</xref>].</p>
+<p>We compared a collaborative depression care management intervention called Chinese Older Adult Collaborations in Health (COACH) to enhanced care-as-usual (eCAU) for the treatment of comorbid depression and HTN in older residents of rural Chinese village clinics. Our primary hypotheses were that older adults with comorbid depression and HTN who received the COACH intervention would show greater improvements in both depressive symptom severity and HTN control than those who received eCAU over 12 months. We also explored post hoc whether acceptance of antidepressant medications by those in the COACH intervention was associated with treatment response.</p>
+</sec>
+<sec id="sec009" sec-type="materials|methods">
+<title>Methods</title>
+<sec id="sec010">
+<title>Study design</title>
+<p>The COACH Study is a cluster RCT with 12-month follow-up conducted in Tonglu and Jiande counties of Zhejiang Province, China. Together, these 2 counties have a total of 920,000 residents distributed across 30 townships with a total of 602 villages. The health needs of each village are provided by a clinic staffed by 1 PCP without other nursing support. Mental healthcare is provided by 1 county-level mental hospital, and residents’ social needs are provided by the village’s Aging Association staffed by local residents.</p>
+</sec>
+<sec id="sec011">
+<title>Randomization and masking</title>
+<p>The original design planned for village to be the unit of randomization [<xref ref-type="bibr" rid="pmed.1004019.ref023">23</xref>]. However, it became clear prior to initiation of the study that the chance of contamination bias between study conditions was substantial due to interactions between neighboring village PCPs. Therefore, randomization was based on the township where the villages were located, while outcomes pertain to the individual participant. Ten townships located in Tonglu and Jiande Counties were randomly selected by a computer algorithm administered by the study statistician to assure that no two shared a common boundary. Each township contained from 18 to 25 villages, and each village contained 1 primary care clinic. Five townships were selected for each arm of the study, with all villages and their associated clinics in each township being assigned either to deliver the COACH intervention or eCAU to eligible patients. The PCP and aging workers (AWs) for COACH intervention clinics (see “Intervention-COACH” below) were approached by the research team for agreement to participate. One village assigned to the COACH arm refused. The final numbers of villages in the COACH and eCAU intervention arms were 102 and 116, respectively.</p>
+<p>Masking was not feasible for research participants or assessors. All were blinded, however, to the study objectives and hypotheses.</p>
+</sec>
+<sec id="sec012">
+<title>Participants</title>
+<p>Potential participants were initially identified by review of village clinic electronic medical records by the PCP. Inclusion criteria were registration in the village’s primary care clinic; age ≥60 years; and a chart diagnosis of HTN. All clinic patients in rural China with a diagnosis of HTN are prescribed antihypertensive medications consistent with the directives of the China Center for Disease Control and Prevention (CDC). PCPs trained in use of the Patient Health Questionnaire-9 (PHQ-9) [<xref ref-type="bibr" rid="pmed.1004019.ref024">24</xref>] administered the measure to each potential participant. Those recording a total score of ≥10, indicative of clinically significant depression, were eligible to meet with the study personnel who further assessed for intact cognitive functioning (Six-Item Screener [SIS] score &lt;3) [<xref ref-type="bibr" rid="pmed.1004019.ref025">25</xref>] and willingness to give written informed consent. Exclusion criteria included mania, psychosis, or alcohol abuse or dependence active in past 6 months based on the Mini-International Neuropsychiatric Interview (MINI) [<xref ref-type="bibr" rid="pmed.1004019.ref026">26</xref>] administered by research assessors at baseline; and acute suicide risk determined by the potential participant’s PCP. Participants in the COACH group could decline antidepressant prescription and remain in the study. Potentially eligible participants were invited to meet in their homes or the clinic with a research assistant (RA) who introduced the study, assessed eligibility, and obtained written informed consent.</p>
+</sec>
+<sec id="sec013">
+<title>Assessment</title>
+<p>Trained research assessors administered study measures in the participant’s home or the clinic at study entry and 3, 6, 9, and 12 months later. Sociodemographic information collected at baseline included participants’ age, sex, marital status and living situation (alone, with spouse and/or children, or with others), years of education, employment status, religion (Buddhist, Christian, Islam, none), and level of economic satisfaction (very sufficient to very poor). Other measures assessed health-related quality of life using the WHOQOL-BREF [<xref ref-type="bibr" rid="pmed.1004019.ref027">27</xref>,<xref ref-type="bibr" rid="pmed.1004019.ref028">28</xref>], the number of medical comorbidities recorded in the participant’s medical record, impairment in basic (ADL) and instrumental activities of daily living (IADLs) [<xref ref-type="bibr" rid="pmed.1004019.ref029">29</xref>], and social support using the Chinese version of the Medical Outcomes Study Social Support Survey (MOS-SSS-C) [<xref ref-type="bibr" rid="pmed.1004019.ref030">30</xref>]. Social network size was assessed with the Lubben Social Network Scale (LSNS), a continuous measure of perceived social support received from family and friends [<xref ref-type="bibr" rid="pmed.1004019.ref031">31</xref>].</p>
+<p>The primary outcome measure of depressive symptoms was total score on a valid and reliable Chinese translation of the Hamilton Depression Rating Scale (HDRS) [<xref ref-type="bibr" rid="pmed.1004019.ref032">32</xref>]. The 17-item HDRS assesses symptoms of depressive illness including mood, anxiety, neurovegetative symptoms of energy, appetite and sleep, anhedonia, psychomotor change, and somatic concerns. Each item is scored on a 3- or 5-point scale with total score representing their sum (range, 0 to 52). Higher scores indicate greater depressive symptom severity.</p>
+<p>The primary outcome of HTN control was based on BP measured at baseline and each follow-up point according to China CDC standards [<xref ref-type="bibr" rid="pmed.1004019.ref033">33</xref>]. The primary HTN outcome was uncontrolled HTN, defined as systolic blood pressure (BP) ≥130 mm Hg or diastolic BP ≥80 for patients with diabetes mellitus, coronary heart disease, or renal disease, and systolic BP ≥140 or diastolic BP ≥90 for all others.</p>
+</sec>
+<sec id="sec014">
+<title>Comparison condition—Enhanced Care-as-Usual (eCAU)</title>
+<p>PCPs in village clinics ordinarily have 3 years of medical education after high school [<xref ref-type="bibr" rid="pmed.1004019.ref034">34</xref>]. They receive periodic in-service education that includes HTN management using CDC practice guidelines that address detection, management by both pharmacologic and nonpharmacologic means, and guidance on when to make referral to specialized care [<xref ref-type="bibr" rid="pmed.1004019.ref035">35</xref>]. No training or guidelines are provided to PCPs in the diagnosis and treatment of affective disorders. Rather, when PCPs suspect mental illness in their patients, they ordinarily recommend the patient go to the County Mental Hospital. PCPs cannot initiate antidepressant treatment but can renew prescriptions initiated by County Mental Hospital psychiatrists.</p>
+<p>We refer to care as CAU as “enhanced” (eCAU) because PCPs were told when their patients screened positive for depression and were provided with copies of antidepressant treatment guidelines adapted from the Duke Somatic Treatment Algorithm for Geriatric Depression (STAGED) [<xref ref-type="bibr" rid="pmed.1004019.ref036">36</xref>].</p>
+</sec>
+<sec id="sec015">
+<title>Intervention—COACH</title>
+<p>The COACH intervention team in each village consisted of the clinic’s PCP, the village AW, and a county hospital psychiatrist. The background and qualifications of the PCP are as described above for eCAU. Each village, in addition to 1 PCP, has 1 AW employed part-time by the village leaders. The great majority are women with a middle-school education who receive in-service training from the Bureau of Civil Affairs in addressing the villagers’ social needs. The COACH intervention linked the PCP and AW of each village remotely by telephone with 1 psychiatrist based at the County Mental Hospital. There was no turnover in PCPs, AWs, or psychiatrists during any village’s 12-month participation in the study and, because the staffing of health and social services does not differ between villages in the counties involved, there was no need for tailoring of the intervention between them.</p>
+<p>Recruitment of villages and participants within them took place over 4 waves. Training for each wave took place over 4 days immediately preceding the start of the intervention for that cohort. It included separate groups for instruction in the roles of the PCP, AW, and psychiatrist and joint training in how to work together in delivering the intervention collaboratively and with fidelity.</p>
+<p>COACH PCPs received training in depression assessment, case management using the toolkit adapted from the MacArthur Initiative on Depression in Primary Care [<xref ref-type="bibr" rid="pmed.1004019.ref037">37</xref>], and use of the STAGED antidepressant treatment guidelines [<xref ref-type="bibr" rid="pmed.1004019.ref036">36</xref>]. There were no restrictions on concomitant care or treatment. The expectation was for PCPs to see participants at baseline and again at regular intervals, at least monthly, for follow-up depression screening (PHQ-9) and BP checks.</p>
+<p>The AWs’ role was to educate participants about their conditions followed by goal setting and collaborative development of behavior change strategies. Their training curriculum included an overview of depression, HTN, and their relationship; principles of disease self-management; psychosocial assessment and care planning; psychoeducation with older adults and their families; and ethical standards including confidentiality. They did not receive training in manualized psychosocial interventions. During monthly home visits, AWs helped the older person to set behavioral goals, review progress, and modify the plan if needed. In addition, the AWs created social opportunities for older persons, for example, by organizing social activities and educational workshops on a monthly basis.</p>
+<p>The psychiatrist provided initial in-person consultation with the PCP in the village clinic and made the initial prescription of antidepressants as indicated. Thereafter, they met with the PCP and AW on a monthly basis by telephone to review cases and make recommendations.</p>
+<p>Training materials are available in Chinese on request from the first author. See Supporting information (<xref ref-type="supplementary-material" rid="pmed.1004019.s001">S1 Table</xref>) for listing of roles and responsibilities of each COACH team member—PCP, AW, and psychiatrist.</p>
+</sec>
+<sec id="sec016">
+<title>Intervention procedures and outcomes</title>
+<p>At baseline, the AW assessed the person’s social supports, lifestyle, and functional, nutritional, and financial status in the participant’s home. The AW, PCP, and psychiatrist reviewed all the assessment data and constructed a care plan.</p>
+<p>The PCP and AW met with each participant monthly in the home or clinic to monitor BP and depressive symptoms, assess antidepressant and antihypertensive use and side effects, and provide support to the patient and family. The PCP and AW met weekly in person to review their shared caseload, and with the psychiatrist monthly by telephone to assess progress and update the treatment plan as indicated.</p>
+</sec>
+<sec id="sec017">
+<title>Primary outcomes</title>
+<p>Primary outcomes of the study were change in depression symptom severity as measured by the HDRS at baseline and follow-up assessments, and the proportions (%) of participants whose HTN was controlled. Initial plans to measure adherence to medications could not be completed for administrative reasons.</p>
+</sec>
+<sec id="sec018">
+<title>Statistical analysis</title>
+<p>The study aimed to recruit 1,200 participants to each study arm. Because the intraclass correlation (ICC) at the town level was likely to be low, the study used a 3-level nested design in which the power was based on the ICC among the patients within the village and serial correlation between repeated assessments within the patient. With this number of participants, setting the serial correlation at 0.5 and varying the ICC over 0.05, 0.1, and 0.2, and assuming a two-sided type I error = 0.05, power = 0.8, and an attrition rate of 20%, the detectable effect size ranged from 0.17 to 0.26 for the continuous outcome of depression symptom change. A 3-point between-group difference, considered the minimal clinically important difference in HDRS score, corresponds to an effect size of 0.5. Therefore, our study was amply powered for that outcome [<xref ref-type="bibr" rid="pmed.1004019.ref038">38</xref>]. For HTN control, we also set the serial correlation at 0.5 and varied the percent of variance between patients within the village clinic over 0.05, 0.1, and 0.2. Based on two-sided type I error = 0.05, power = 0.8, base rate 0.5 (most conservative), and 20% attrition rate, the detectable between-group proportion with 2,400 participants ranged from 11% to 17%, well within the range of clinically meaningful differences in primary care settings.</p>
+<p>We compared baseline characteristics between groups using <italic>t</italic> test and chi-squared test. Given that the randomization was at the township level and the number of clusters created was relatively small, we treated characteristics that significantly differentiated the 2 groups at <italic>p</italic> &lt; 0.05 as covariates when testing between-group differences using longitudinal models.</p>
+<p>To test our hypotheses that COACH participants would show greater improvements in HTN control and depressive symptom severity as measured by the HDRS than eCAU participants over 12 months of involvement in the study, we modeled the repeatedly assessed variables of depressive symptom severity and of HTN control using generalized linear mixed effect models (GLMMs) and weighted generalized estimating equations (WGEEs). Since the GLMM and WGEE were consistent, only the GLMM results were reported [<xref ref-type="bibr" rid="pmed.1004019.ref039">39</xref>]. Analyses were performed as intention-to-treat using all participants recruited from the 10 towns being randomized. Random effects of towns, villages, and participants were used to account for the within-cluster associations within the towns and villages, as well as repeated measurements within the participants. For each outcome, time and intervention were predictors adjusting for covariates. We assessed the potential interaction between time and intervention using linear contrasts to assess COACH versus eCAU differences over the 12-month period as well as any subintervals within this period.</p>
+<p>With regard to model assumptions, the functional forms or scales of the quantitative covariates were examined using the fractional polynomial approach of Royston and Altman [<xref ref-type="bibr" rid="pmed.1004019.ref040">40</xref>], and the final models were selected based on the Akaike information criterion. We further calculated the R squared, both marginal and conditional, as proposed by Vonesh and colleagues [<xref ref-type="bibr" rid="pmed.1004019.ref041">41</xref>] to assess the goodness of fit of these selected GLMMs. The marginal R squared ranged from 0.24 to 0.29 and the conditional R squared ranged from 0.65 to 0.83, all of which fall in the acceptable range for psychosocial studies. In order to check the normality of residuals, we used QQ-plot to demonstrate that all models were normally distributed with constant variance.</p>
+<p>Following completion of analyses planned a priori, we conducted a post hoc exploratory comparison of participants within the COACH group who had accepted prescription of an antidepressant as a component of their treatment (Antidep[+]) with those who had not (Antidep[−]). The purpose was to explore whether antidepressant use may explain observed differences in depression and HTN treatment response between the 2 subgroups.</p>
+<p>Statistical analyses were conducted with Statistical Analysis System software version 9.4 or above. The study protocol was prospectively registered with <ext-link ext-link-type="uri" xlink:href="http://clinicaltrials.gov/" xlink:type="simple">Clinicaltrials.gov</ext-link> as Identifier NCT01938963 [<xref ref-type="bibr" rid="pmed.1004019.ref042">42</xref>].</p>
+</sec>
+<sec id="sec019">
+<title>Ethical procedures</title>
+<p>Written informed consent was obtained from all participants prior to their enrollment and baseline study assessment. No compensation was provided for their participation. The study was reviewed and approved by the institutional review boards of Zhejiang University, the University of Rochester, and the US National Institute of Mental Health (NIMH), and a Data Safety Monitoring Board maintained oversight of its implementation.</p>
+<p>The study is reported as per the Consolidated Standards of Reporting Trials (CONSORT) Extension to Cluster Randomised Trials [<xref ref-type="bibr" rid="pmed.1004019.ref043">43</xref>] (see Supporting information <xref ref-type="supplementary-material" rid="pmed.1004019.s008">S2 Appendix</xref>) and the Template for Intervention Description and Replication (TIDieR) checklist (<xref ref-type="supplementary-material" rid="pmed.1004019.s009">S3 Appendix</xref>).</p>
+</sec>
+</sec>
+<sec id="sec020" sec-type="results">
+<title>Results</title>
+<p>There were 2,365 participants enrolled from 218 villages between January 1, 2014 and September 30, 2017, yielding 1,232 participants in COACH intervention villages and 1,133 in eCAU. All village clinics remained actively engaged in the trial throughout 12 months of participation with 85 and 67 participants lost to follow-up in the COACH and eCAU groups, respectively. Reasons for lost to follow-up, categorized as deceased, unable to contact, and refused further assessment, are depicted for COACH and eCAU groups in <xref ref-type="fig" rid="pmed.1004019.g001">Fig 1</xref>, the study’s CONSORT diagram. <xref ref-type="table" rid="pmed.1004019.t001">Table 1</xref> provides the demographic and baseline characteristics of the samples. Because of baseline differences between groups at the <italic>p</italic> &lt; 0.05 level, religion, employment status, all WHOQOL-BREF scales, MOS-SSS-C, Social Network Size, count of comorbidities, and HTN control were included as covariates in subsequent analyses.</p>
+<fig id="pmed.1004019.g001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1004019.g001</object-id>
+<label>Fig 1</label>
+<caption>
+<title>CONSORT diagram of COACH Study participant flow.</title>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.g001" xlink:type="simple"/>
+</fig>
+<table-wrap id="pmed.1004019.t001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1004019.t001</object-id>
+<label>Table 1</label> <caption><title>Demographic and clinical characteristics of participants at baseline (<italic>N</italic> = 2,365).</title></caption>
+<alternatives>
+<graphic id="pmed.1004019.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.t001" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="center" rowspan="2">Characteristic</th>
+<th align="center" colspan="3">Group</th>
+<th align="center" rowspan="2"><italic>p</italic>-value</th>
+</tr>
+<tr>
+<th align="center">TOTAL</th>
+<th align="center">eCAU</th>
+<th align="center">COACH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Sample size, n (%)</td>
+<td align="center">2,365</td>
+<td align="center">1,133/2,365 (48)</td>
+<td align="center">1,232/2,365 (52)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Age, mean (SD)</td>
+<td align="center">74.46 (8.23)</td>
+<td align="center">74.58 (8.34)</td>
+<td align="center">74.35 (8.13)</td>
+<td align="char" char=".">0.52</td>
+</tr>
+<tr>
+<td align="left"> 60–69 years</td>
+<td align="center">783 (33)</td>
+<td align="center">378 (33)</td>
+<td align="center">405 (33)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 70–79</td>
+<td align="center">849 (36)</td>
+<td align="center">396 (35)</td>
+<td align="center">453 (37)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 80–89</td>
+<td align="center">665 (28)</td>
+<td align="center">318 (28)</td>
+<td align="center">347 (28)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> ≥90</td>
+<td align="center">68 (3)</td>
+<td align="center">41 (4)</td>
+<td align="center">27 (2)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Sex, n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="char" char=".">0.79</td>
+</tr>
+<tr>
+<td align="left"> Male</td>
+<td align="center">789/2,365 (33)</td>
+<td align="center">381/1,133 (34)</td>
+<td align="center">408/1,232 (33)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Female</td>
+<td align="center">1,576 (67)</td>
+<td align="center">752 (66)</td>
+<td align="center">824 (67)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Marriage status, n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="char" char=".">0.62</td>
+</tr>
+<tr>
+<td align="left"> Married</td>
+<td align="center">1,389/2,365 (59)</td>
+<td align="center">675/1,133 (60)</td>
+<td align="center">723/1,232 (59)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Divorce</td>
+<td align="center">15 (1)</td>
+<td align="center">6 (1)</td>
+<td align="center">9 (1)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Never Married</td>
+<td align="center">25 (1)</td>
+<td align="center">15 (1)</td>
+<td align="center">10 (1)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Widowed</td>
+<td align="center">925 (39)</td>
+<td align="center">437 (38)</td>
+<td align="center">488 (39)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Separation</td>
+<td align="center">2 (0)</td>
+<td align="center">0 (0)</td>
+<td align="center">2 (0)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Living situation, n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="char" char=".">0.83</td>
+</tr>
+<tr>
+<td align="left"> Alone</td>
+<td align="center">482/2,365 (20)</td>
+<td align="center">235/1,133 (21)</td>
+<td align="center">247/1,232 (20)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> With Spouse and/or Children</td>
+<td align="center">1,843 (78)</td>
+<td align="center">877 (77)</td>
+<td align="center">966 (78)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> With Others</td>
+<td align="center">40 (2)</td>
+<td align="center">21 (2)</td>
+<td align="center">19 (2)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Education, n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="char" char=".">0.86</td>
+</tr>
+<tr>
+<td align="left"> No Schooling</td>
+<td align="center">1,297/2,365 (55)</td>
+<td align="center">621/1,133 (55)</td>
+<td align="center">676/1,232 (55)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 1–5 Years</td>
+<td align="center">926 (39)</td>
+<td align="center">447 (39)</td>
+<td align="center">479 (39)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> ≥6 Years</td>
+<td align="center">142 (6)</td>
+<td align="center">65 (6)</td>
+<td align="center">77 (6)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Employment status, n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="char" char=".">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left"> Full-time</td>
+<td align="center">381/2,365 (16)</td>
+<td align="center">222/1,133 (20)</td>
+<td align="center">159/1,232 (13)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Part-time</td>
+<td align="center">328 (14)</td>
+<td align="center">170 (15)</td>
+<td align="center">158 (13)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Not Employed</td>
+<td align="center">1,656 (70)</td>
+<td align="center">741 (65)</td>
+<td align="center">915 (74)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Religion, n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="char" char=".">0.003</td>
+</tr>
+<tr>
+<td align="left"> Buddhist</td>
+<td align="center">352/2,365 (15)</td>
+<td align="center">186/1,133 (16)</td>
+<td align="center">166/1,232 (14)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Christian</td>
+<td align="center">106 (4)</td>
+<td align="center">65 (6)</td>
+<td align="center">41 (3)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Islam</td>
+<td align="center">1 (0)</td>
+<td align="center">1 (0)</td>
+<td align="center">0 (0)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> No religion</td>
+<td align="center">1,906 (81)</td>
+<td align="center">881 (78)</td>
+<td align="center">1,025 (83)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Economic satisfaction, n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="char" char=".">0.012</td>
+</tr>
+<tr>
+<td align="left">Very sufficient</td>
+<td align="center">31/2,365 (1)</td>
+<td align="center">14/1,133 (1)</td>
+<td align="center">17/1,232 (1)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Sufficient</td>
+<td align="center">370 (16)</td>
+<td align="center">185 (16)</td>
+<td align="center">185 (15)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Moderate</td>
+<td align="center">1,463 (62)</td>
+<td align="center">669 (59)</td>
+<td align="center">794 (64)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Poor</td>
+<td align="center">451 (19)</td>
+<td align="center">233 (21)</td>
+<td align="center">218 (18)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Very Poor</td>
+<td align="center">50 (2)</td>
+<td align="center">32 (3)</td>
+<td align="center">18 (2)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Count of comorbidities, mean (SD)</td>
+<td align="center">1.65 (1.45)</td>
+<td align="center">1.57 (1.41)</td>
+<td align="center">1.72 (1.48)</td>
+<td align="char" char=".">0.012</td>
+</tr>
+<tr>
+<td align="left">HDRS score, mean (SD)</td>
+<td align="center">21.92 (4.10)</td>
+<td align="center">21.76 (3.58)</td>
+<td align="center">22.07 (4.52)</td>
+<td align="char" char=".">0.068</td>
+</tr>
+<tr>
+<td align="left">WHOQOL-BREF, mean (SD)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Overall quality of life</td>
+<td align="center">2.90 (0.77)</td>
+<td align="center">2.86 (0.77)</td>
+<td align="center">2.91 (0.77)</td>
+<td align="char" char=".">0.52</td>
+</tr>
+<tr>
+<td align="left"> Overall health condition</td>
+<td align="center">2.66 (0.76)</td>
+<td align="center">2.57 (0.76)</td>
+<td align="center">2.75 (0.75)</td>
+<td align="char" char=".">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left"> Physical well-being</td>
+<td align="center">18.96 (2.86)</td>
+<td align="center">18.08 (2.46)</td>
+<td align="center">19.79 (2.95)</td>
+<td align="char" char=".">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left"> Psychological well-being</td>
+<td align="center">16.24 (2.90)</td>
+<td align="center">15.68 (2.66)</td>
+<td align="center">16.76 (3.02)</td>
+<td align="char" char=".">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left"> Social well-being</td>
+<td align="center">8.88 (2.31)</td>
+<td align="center">8.70 (1.74)</td>
+<td align="center">9.04 (2.72)</td>
+<td align="char" char=".">0.003</td>
+</tr>
+<tr>
+<td align="left"> Environment</td>
+<td align="center">24.96 (4.91)</td>
+<td align="center">23.94 (4.04)</td>
+<td align="center">25.90 (5.44)</td>
+<td align="char" char=".">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">ADL, mean (SD)</td>
+<td align="center">21.97 (10.16)</td>
+<td align="center">22.24 (10.20)</td>
+<td align="center">21.72 (10.13)</td>
+<td align="char" char=".">0.22</td>
+</tr>
+<tr>
+<td align="left">IADL, mean (SD)</td>
+<td align="center">5.57 (2.36)</td>
+<td align="center">5.53 (2.27)</td>
+<td align="center">5.61 (2.44)</td>
+<td align="char" char=".">0.41</td>
+</tr>
+<tr>
+<td align="left">MOS-SSS-C, mean (SD)</td>
+<td align="center">2.83 (0.86)</td>
+<td align="center">2.93 (0.78)</td>
+<td align="center">2.73 (0.93)</td>
+<td align="char" char=".">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">Social Network Size, mean (SD)</td>
+<td align="center">24.93 (10.47)</td>
+<td align="center">26.64 (11.28)</td>
+<td align="center">23.48 (9.40)</td>
+<td align="char" char=".">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">HTN control, n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="char" char=".">0.005</td>
+</tr>
+<tr>
+<td align="left"> Controlled</td>
+<td align="center">538/2,365 (23)</td>
+<td align="center">229/1,133 (20)</td>
+<td align="center">309/1,232 (25)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Uncontrolled</td>
+<td align="center">1,827 (77)</td>
+<td align="center">904 (80)</td>
+<td align="center">923 (75)</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">Agreed to take antidepressants</td>
+<td align="center">n/a</td>
+<td align="center">n/a</td>
+<td align="center">714 (58)</td>
+<td align="center"/>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t001fn001"><p>ADL, Ability of Daily Living Scale; COACH, Chinese Older Adults Collaborations in Health; eCAU, enhanced Care-as-Usual; HDRS, Hamilton Depression Rating Scale; HTN, hypertension; IADL, Instrumental Activity of Daily Living Scale; MOS-SSS-C, the Chinese version of the Medical Outcomes Study Social Support Survey; SD, standard deviation; WHOQOL-BREF, the World Health Organization Quality of Life Questionnaire abbreviated version.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>COACH team adherence to the intervention was tracked by activity logs maintained by each team member (see Supporting information <xref ref-type="supplementary-material" rid="pmed.1004019.s003">S3 Table</xref>). PCPs and AWs were expected to meet with COACH participants monthly. On average, they met with the participants under their care an average of 11.6 and 8.3 times, respectively, over the 12 months of study engagement. AWs organized an average of 9.8 community activities that participants were encouraged to attend, of 12 expected over 12 months. The PCP and AW in each COACH clinic met together an average of 56.6 times during the year to coordinate care of their mutual patients, and of 12 anticipated meetings of the team by telephone with the consulting psychiatrist, they met an average of 7.9 times.</p>
+<p>Results of analyses unadjusted for covariates are available in <xref ref-type="supplementary-material" rid="pmed.1004019.s006">S6 Table</xref>. In <xref ref-type="table" rid="pmed.1004019.t002">Table 2</xref>, which depicts results of analyses adjusted for covariates, HDRS total scores [SD] decreased steadily over 12 months of study participation for those receiving COACH, albeit to levels still considered to be moderately symptomatic (HDRS [SD] = 12.7 [4.2]). eCAU participants had a smaller reduction in HDRS score over 12 months from 21.8 [3.6] to 18.8 [4.7]. The group × time interaction was significant with a large effect size, suggesting that the COACH group had a faster reduction in depressive symptom severity than the eCAU group (F = 217.38; <italic>p</italic> &lt; 0.001). The ICCs at the patient (repeated outcomes of the same subject) and village (individuals within the same village) levels were 0.54 and 0.08, respectively.</p>
+<table-wrap id="pmed.1004019.t002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1004019.t002</object-id>
+<label>Table 2</label> <caption><title>Depression and HTN outcomes in eCAU and COACH groups.</title></caption>
+<alternatives>
+<graphic id="pmed.1004019.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.t002" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2"/>
+<th align="center" rowspan="2">eCAU group<break/>(<italic>n</italic> = 1,133)</th>
+<th align="center" rowspan="2">COACH group<break/>(<italic>n</italic> = 1,232)</th>
+<th align="left" rowspan="2">Estimated between-group difference<break/>(95% CI)</th>
+<th align="center" colspan="3">GLMM analysis</th>
+<th align="center" rowspan="2">Effect size</th>
+</tr>
+<tr>
+<th align="center">Group effect</th>
+<th align="center">Time effect</th>
+<th align="center">Group × time interaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Depressive symptoms HDRS score, mean (SD)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Baseline</td>
+<td align="center">21.76 (3.58)</td>
+<td align="center">22.07 (4.52)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 3 months</td>
+<td align="center">19.51 (4.87)</td>
+<td align="center">17.97 (5.74)</td>
+<td align="center">−2.07<break/>(−3.36, −0.78)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 6 months</td>
+<td align="center">19.58 (4.64)</td>
+<td align="center">15.63 (5.02)</td>
+<td align="center">−4.50<break/>—5.79, −3.20</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 9 months</td>
+<td align="center">18.85 (4.61)</td>
+<td align="center">13.77 (4.73)</td>
+<td align="center">−5.71<break/>—7.1, −4.41)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 12 months</td>
+<td align="center">18.77 (4.67)</td>
+<td align="center">12.69 (4.22)</td>
+<td align="center">−6.67<break/>(−7.97, −5.37)</td>
+<td align="center">F = 52.99, <underline><italic>p</italic></underline> &lt; 0.001</td>
+<td align="center">F = 385.04, <italic>p</italic> &lt; 0.001</td>
+<td align="center">F = 217.38<break/><italic>p</italic> &lt; 0.001</td>
+<td align="center">-1.43<xref ref-type="table-fn" rid="t002fn005"><sup>b</sup></xref><break/>(−1.71, −1.15)</td>
+</tr>
+<tr>
+<td align="left">HTN Controlled<xref ref-type="table-fn" rid="t002fn004"><sup>a</sup></xref> –n (%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> Baseline</td>
+<td align="center">229/1,133 (20.21%)</td>
+<td align="center">309/1,232 (25.08%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 3 months</td>
+<td align="center">408/1,099 (37.12%)</td>
+<td align="center">665/1,174 (56.64%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 6 months</td>
+<td align="center">404/1,078 (37.48%)</td>
+<td align="center">672/1,168 (57.53%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 9 months</td>
+<td align="center">435/1,064 (40.88%)</td>
+<td align="center">711/1,141 (62.31%)</td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"> 12 months</td>
+<td align="center">438/1,071 (40.90%)</td>
+<td align="center">827/1,155 (71.60%)</td>
+<td align="center"/>
+<td align="center">F = 34.69<break/> <italic>p</italic> &lt; 0.001</td>
+<td align="center">F = 32.11<break/> <italic>p</italic> &lt; 0.001</td>
+<td align="center">F = 12.74<break/><italic>p</italic> &lt; 0.001</td>
+<td align="center">18.24<xref ref-type="table-fn" rid="t002fn006"><sup>c</sup></xref><break/>(8.40, 39.63)</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t002fn001"><p>Covariates included in the GLMM analysis: religion, employment status, economic satisfaction, WHOQOL-BREF, MOS-SSS-C, Social Network Size, count of comorbidities, HTN control.</p></fn>
+<fn id="t002fn002"><p>COACH, Chinese Older Adults Collaborations in Health; eCAU, enhanced Care-as-Usual; HDRS, Hamilton Depression Rating Scale; HTN, hypertension; GLMM, generalized linear mixed model.</p></fn>
+<fn id="t002fn003"><p>CAU group is the reference group in the model.</p></fn>
+<fn id="t002fn004"><p><sup>a</sup>HTN Controlled = proportion with controlled HTN per practice guidelines.</p></fn>
+<fn id="t002fn005"><p><sup>b</sup>Cohen’s d (95% confidence interval).</p></fn>
+<fn id="t002fn006"><p><sup>c</sup>Odds ratio (95% confidence interval).</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>HTN control was more likely to be achieved by participants in COACH villages, increasing from 25.1% to 71.6% over the 12 months of study participation, than those who received eCAU (from 20.2% to 40.9%). The group × time interaction was significant with a large effect size for HTN control as well (F = 12.74; <italic>p</italic> &lt; 0.001). The ICCs at the patient and village levels were 0.63 and 0.20, respectively. On completing the study, COACH participants showed greater reduction in depressive symptoms (Cohen’s d [SD] = −1.43 [−1.71, −1.15]) and greater likelihood of achieving HTN control (odds ratio [OR] [95% CI] = 18.24 [8.40, 39.63]).</p>
+<p>There were no unintended or reportable serious adverse events.</p>
+<p>A substantial minority (<italic>n</italic> = 518; 42%) of COACH group participants declined to take antidepressant medications as part of their treatment. Comparing those who did accept antidepressants (Antidep[+]) with those who did not (Antidep[−]), there were no notable differences in demographic and clinical characteristics at baseline. Only HDRS score distinguished the 2 groups (Antidep[+] [SD] = 22.6 (4.8); Antidep[−] [SD] = 21.4 [4.0]; <italic>p</italic> &lt; 0.001), although the absolute difference of 1.2 HDRS points is unlikely to be clinically meaningful. Figs <xref ref-type="fig" rid="pmed.1004019.g002">2</xref> and <xref ref-type="fig" rid="pmed.1004019.g003">3</xref> allow for visual comparison of eCAU with Antidep[+] and Antidep[−] subgroups. The COACH Antidep[−] group had a pattern of response in HDRS total score between that of eCAU and Antidep[+] (<xref ref-type="fig" rid="pmed.1004019.g002">Fig 2</xref>).</p>
+<fig id="pmed.1004019.g002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1004019.g002</object-id>
+<label>Fig 2</label>
+<caption>
+<title>Depressive symptom severity over 12 months of 3 groups of participants.</title>
+<p>eCAU, COACH participants who accepted antidepressant medications (Antidep[+]), and COACH participants who declined antidepressant medications (Antidep[−]). COACH, Chinese Older Adult Collaborations in Health; eCAU, enhanced care-as-usual; HDRS, Hamilton Depression Rating Scale.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.g002" xlink:type="simple"/>
+</fig>
+<fig id="pmed.1004019.g003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1004019.g003</object-id>
+<label>Fig 3</label>
+<caption>
+<title>Proportion of participants in 3 groups who achieved HTN control over 12 months.</title>
+<p>eCAU; COACH participants who accepted antidepressant medications (Antidep[+]); COACH participants who declined antidepressant medications (Antidep[−]). COACH, Chinese Older Adult Collaborations in Health; eCAU, enhanced care-as-usual; HTN, hypertension.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.g003" xlink:type="simple"/>
+</fig>
+<p>With regard to HTN control, a different pattern emerged. There was no meaningful difference between the COACH subgroups in the proportions that achieved HTN control (Antidep[+] = 27% versus Antidep[−] = 23%; <italic>p</italic> = 0.11), but improvements in HTN control were clearly greater for both COACH subgroups than for eCAU participants as depicted in <xref ref-type="fig" rid="pmed.1004019.g003">Fig 3</xref>. The strong impact of the intervention appears equivalent with regard to HTN for both COACH subgroups relative to eCAU.</p>
+<p>The data for Figs <xref ref-type="fig" rid="pmed.1004019.g002">2</xref> and <xref ref-type="fig" rid="pmed.1004019.g003">3</xref> are provided as Supporting information (<xref ref-type="supplementary-material" rid="pmed.1004019.s004">S4</xref> and <xref ref-type="supplementary-material" rid="pmed.1004019.s005">S5</xref> Tables, respectively).</p>
+</sec>
+<sec id="sec021" sec-type="conclusions">
+<title>Discussion</title>
+<p>Consistent with our hypotheses, the study found that older rural village clinic patients in China who received the COACH intervention had significantly greater improvement in both depressive symptoms and HTN control than did those in village clinics that provided eCAU.</p>
+<p>We are aware of 3 other studies to date that examined collaborative care management approaches for comorbid medical and mental disorders in LMICs in RCTs. Ali and colleagues compared a 12-month, multicomponent collaborative care intervention for depression among adults with type 2 diabetes in urban primary care clinics in India with care as usual [<xref ref-type="bibr" rid="pmed.1004019.ref044">44</xref>]. The experimental intervention consisted of components similar to COACH—self-management support and behavioral activation provided by care managers, physicians’ decision support tools, and specialist case reviews. They found significantly greater reduction in depressive symptoms and diabetes control than usual care. Post hoc analyses showed greater improvement in systolic BP readings of depressed patients who received the intervention at 12 months, but the improvement was not sustained at 24 months follow-up.</p>
+<p>In the second study, Petersen and colleagues employed a collaborative care model for management of comorbid depression and HTN in South African primary care clinics that, in addition to care as usual, included enhanced mental health training for clinic staff and physicians, and clinic-based lay counseling [<xref ref-type="bibr" rid="pmed.1004019.ref045">45</xref>]. Care as usual also included decision support for depression care, access to antidepressant prescriptions, and the option of referral to psychologists for treatment. The study found no difference in depression symptom severity or BP readings between groups at 6 months, potentially because so few participants in the experimental intervention received either antidepressant treatment (2.6%) or counselling by lay health workers (7%).</p>
+<p>In the third study, Araya and colleagues compared eCAU with a 6-week smartphone-based digital intervention delivering behavioral activation with nurse assistant support to Peruvian and Brazilian adults who had both depression and comorbid HTN or diabetes [<xref ref-type="bibr" rid="pmed.1004019.ref046">46</xref>]. Participants who received the digital intervention had significantly greater improvement in depressive symptoms at 3 months. However, the impact of the 6-week intervention was not sustained at 6 months. BP readings were not reported.</p>
+<p>Although the 3 studies targeted depression in adults with comorbid medical illness in primary care LMIC treatment settings, their collaborative care approaches differed, as did the populations they served and the cultural context in which they were tested. Results were mixed with regard to depression control and largely negative for improvements in BP indices. All 3 included general adult samples, but none focused specifically on older adults, the population with greatest morbidity and mortality associated with comorbid depression and HTN. Additional research is needed to establish the promise of collaborative care management approaches for older adults with these conditions in underresourced primary care settings.</p>
+<p>The large effect sizes for both primary outcomes observed with the COACH intervention warrant comment. Depression symptom severity responded robustly to the COACH intervention, significantly greater than in participants who received eCAU. Access to antidepressants and psychiatric consultation may help account for the effect, along with the support of AWs with adherence to care and engagement with social supports. Interestingly, the level of improvement in depression outcomes was lower among COACH participants than had been observed in our earlier study in urban primary care clinics [<xref ref-type="bibr" rid="pmed.1004019.ref022">22</xref>]. That prior study, which did not examine the impact of the collaborative care intervention on comorbid medical illnesses, included no rural residents and no AW or other lay team member were involved. It did, however, use the same antidepressant medication algorithm as in COACH. In rural clinics delivering the COACH intervention, participants had on average a 43% reduction in HDRS score, whereas older adults who received depression care management using the same antidepressant medication regimen in urban clinics achieved a mean 66% reduction of HDRS total scores over 12 months. Post hoc reasoning suggested that the difference could be accounted for by more uniform antidepressant use in the urban clinic participants (100% received antidepressant treatment versus 58% in COACH). Because the study design did not randomize antidepressant exposure, we could not directly test this hypothesis in the COACH study. However, comparison of the eCAU, Antidep[−], and Antidep[+] groups is suggestive (<xref ref-type="fig" rid="pmed.1004019.g002">Fig 2</xref>), showing proportional reductions in average HDRS score over 12 months of 14%, 28%, and 53% in the 3 groups, respectively. Further study is needed to establish the priority that should be placed on provision of antidepressants to older adults with clinically significant depressive symptoms in underresourced areas, the great majority of whom will have had no prior exposure to medication treatment. For the substantial minority of COACH participants who are not willing to accept an antidepressant, future research is warranted on incorporation of easily adopted, evidence-based psychosocial interventions like behavioral activation that can be provided by nonspecialists.</p>
+<p>The almost 3-fold increase in HTN control rates in COACH intervention recipients could be accounted for by several factors. First, HTN control may have increased with improvement in depressive symptoms due to increases in the hypertensive participant’s health behaviors, including activity, diet, and social interactions. The post hoc comparison of those COACH participants who did and did not agree to take an antidepressant showed no difference in the proportions that achieved HTN control, suggesting that the medication was not the driver of improvement. More likely is that the AW, who was charged with supporting participants’ adherence to medication and behavioral treatments for HTN, may have positively influenced the outcome as planned. It is also possible, however, that more frequent and more systematic follow-up by AWs and PCPs in the COACH group than in eCAU created more opportunities to detect uncontrolled BP, resulting in more active HTN management. Finally, the older patients and their PCPs were aware that HTN control was a subject of study and may have increased adherence to treatment for that reason. The same explanation may explain the 2-fold increase in HTN control found in the eCAU group as well. Unfortunately, we do not have access to information on rates of adherence to HTN treatment guidelines by participants in either COACH or eCAU groups with which to examine these possibilities further.</p>
+<p>Limitations of the study include generalizability of the model to other regions of China or other LMICs [<xref ref-type="bibr" rid="pmed.1004019.ref047">47</xref>]. As well, there were methodological weaknesses to which RCTs in rural, underresourced areas are vulnerable. We were unable to mask research assessors to which condition a village was assigned. Although they were kept unaware of the study’s hypotheses, there is the risk of assessment bias. Because the study randomized 5 townships to each intervention group while power calculations were made using village as the unit of randomization, the trial could have been underpowered depending on the magnitude of between cluster differences. As anticipated based on the study data, the ICC for the HDRS at the village level (0.064) was greater than at the township level ICC (0.027), well inside our assumed range for the power calculation. Also, there was no meaningful difference between the ICCs for HTN control at the township and village levels (0.025 and 0.021, respectively), and the observed effect sizes were large, indicating that the study is sufficiently powered.</p>
+<p>We do not know the extent to which participants followed lifestyle recommendations for management of depression and HTN such as diet, exercise, and socialization. We were unable to assess adherence to medications as planned in the original proposal, precluding examination of the temporal relationships between intervention exposure and changes in depression and HTN control in COACH and eCAU groups.</p>
+<p>The integrated care model shown to be effective in primary care settings of high-income countries appears to have promise in rural China for depressed older adults with comorbid medical illness. While the COACH intervention appears effective as administered, however, access to mental healthcare in rural areas remains limited. Further study is needed of modifications to COACH to increase its scalability, such as employment of telehealth technology to link rural village-based COACH teams to psychiatric supports remotely [<xref ref-type="bibr" rid="pmed.1004019.ref048">48</xref>], and training of AWs in evidence-based psychotherapies and behavior change techniques to promote a healthy lifestyle [<xref ref-type="bibr" rid="pmed.1004019.ref049">49</xref>].</p>
+</sec>
+<sec id="sec022" sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material id="pmed.1004019.s001" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s001" xlink:type="simple">
+<label>S1 Table</label>
+<caption>
+<title>Roles and responsibilities of COACH team members.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004019.s002" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s002" xlink:type="simple">
+<label>S2 Table</label>
+<caption>
+<title>Systolic and diastolic blood pressure for COACH and eCAU participants at each assessment point.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004019.s003" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s003" xlink:type="simple">
+<label>S3 Table</label>
+<caption>
+<title>Expected/observed care management activities by COACH team members.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004019.s004" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s004" xlink:type="simple">
+<label>S4 Table</label>
+<caption>
+<title>Depressive symptom severity of study participants over 12 months.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004019.s005" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s005" xlink:type="simple">
+<label>S5 Table</label>
+<caption>
+<title>Proportion of study participants with controlled hypertension over 12 months.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004019.s006" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s006" xlink:type="simple">
+<label>S6 Table</label>
+<caption>
+<title>Estimated effect size for depression and HTN outcomes in unadjusted analyses.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004019.s007" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s007" xlink:type="simple">
+<label>S1 Appendix</label>
+<caption>
+<title>IRB approved protocol, 5-61-13, with annotations of changes made.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004019.s008" mimetype="application/msword" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s008" xlink:type="simple">
+<label>S2 Appendix</label>
+<caption>
+<title>CONSORT 2010 checklist.</title>
+<p>(DOC)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1004019.s009" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s009" xlink:type="simple">
+<label>S3 Appendix</label>
+<caption>
+<title>TIDieR checklist.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>We thank the rural village residents of Tonglu and Jiande Counties who participated in the study, their primary care doctors, and aging workers for their contributions.</p>
+<p>The content is solely the responsibility of the authors and does not necessarily represent the official views of the NIH.</p>
+</ack>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item><term>ADL</term>
+<def><p>activity of daily living</p></def>
+</def-item>
+<def-item><term>AW</term>
+<def><p>aging worker</p></def>
+</def-item>
+<def-item><term>BP</term>
+<def><p>blood pressure</p></def>
+</def-item>
+<def-item><term>CDC</term>
+<def><p>China Center for Disease Control and Prevention</p></def>
+</def-item>
+<def-item><term>COACH</term>
+<def><p>Chinese Older Adult Collaborations in Health</p></def>
+</def-item>
+<def-item><term>eCAU</term>
+<def><p>enhanced care-as-usual</p></def>
+</def-item>
+<def-item><term>GLMM</term>
+<def><p>generalized linear mixed effect model</p></def>
+</def-item>
+<def-item><term>HDRS</term>
+<def><p>Hamilton Depression Rating Scale</p></def>
+</def-item>
+<def-item><term>HTN</term>
+<def><p>hypertension</p></def>
+</def-item>
+<def-item><term>IADL</term>
+<def><p>instrumental activity of daily living</p></def>
+</def-item>
+<def-item><term>ICC</term>
+<def><p>intraclass correlation</p></def>
+</def-item>
+<def-item><term>LMIC</term>
+<def><p>low- and middle-income country</p></def>
+</def-item>
+<def-item><term>LSNS</term>
+<def><p>Lubben Social Network Scale</p></def>
+</def-item>
+<def-item><term>MINI</term>
+<def><p>Mini-International Neuropsychiatric Interview</p></def>
+</def-item>
+<def-item><term>MOS-SSS-C</term>
+<def><p>Chinese version of the Medical Outcomes Study Social Support Survey</p></def>
+</def-item>
+<def-item><term>OR</term>
+<def><p>odds ratio</p></def>
+</def-item>
+<def-item><term>PCP</term>
+<def><p>primary care provider</p></def>
+</def-item>
+<def-item><term>PHQ-9</term>
+<def><p>Patient Health Questionnaire-9</p></def>
+</def-item>
+<def-item><term>RA</term>
+<def><p>research assistant</p></def>
+</def-item>
+<def-item><term>RCT</term>
+<def><p>randomized control trial</p></def>
+</def-item>
+<def-item><term>SIS</term>
+<def><p>Six-Item Screener</p></def>
+</def-item>
+<def-item><term>STAGED</term>
+<def><p>Duke Somatic Treatment Algorithm for Geriatric Depression</p></def>
+</def-item>
+<def-item><term>WGEE</term>
+<def><p>weighted generalized estimating equation</p></def>
+</def-item>
+</def-list>
+</glossary>
+<ref-list>
+<title>References</title>
+<ref id="pmed.1004019.ref001"><label>1</label><mixed-citation publication-type="other" xlink:type="simple">Wu Y, Dang J. 2014 Blue Book of Aging: China Report of the Development of Silver Industry (Chinese). Social Sciences Academy Press; 2014.</mixed-citation></ref>
+<ref id="pmed.1004019.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Zhong</surname> <given-names>B-L</given-names></name>, <name name-style="western"><surname>Ruan</surname> <given-names>Y-F</given-names></name>, <name name-style="western"><surname>Xu</surname> <given-names>Y-M</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>W-C</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>L-F</given-names></name>. <article-title>Prevalence and recognition of depressive disorders among Chinese older adults receiving primary care: A multi-center cross-sectional study</article-title>. <source>J Affect Disord</source>. <year>2020</year>;<volume>260</volume>:<fpage>26</fpage>–<lpage>31</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jad.2019.09.011" xlink:type="simple">10.1016/j.jad.2019.09.011</ext-link></comment> <object-id pub-id-type="pmid">31493635</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Wang</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Zhang</surname> <given-names>QE</given-names></name>, <name name-style="western"><surname>Zhang</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Ng</surname> <given-names>CH</given-names></name>, <name name-style="western"><surname>Ungvari</surname> <given-names>GS</given-names></name>, <name name-style="western"><surname>Yuan</surname> <given-names>Z</given-names></name>, <etal>et al</etal>. <article-title>Prevalence of major depressive disorder in older adults in China: A systematic review and meta-analysis</article-title>. <source>J Affect Disord</source>. <year>2018</year>;<volume>241</volume>:<fpage>297</fpage>–<lpage>304</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jad.2018.07.061" xlink:type="simple">10.1016/j.jad.2018.07.061</ext-link></comment> <object-id pub-id-type="pmid">30142588</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref004"><label>4</label><mixed-citation publication-type="other" xlink:type="simple">American Heart Association [Internet]. Why High Blood Pressure is a "Silent Killer" [cited 2022 Mar 15]. <ext-link ext-link-type="uri" xlink:href="https://www.heart.org/en/health-topics/high-blood-pressure/why-high-blood-pressure-is-a-silent-killer" xlink:type="simple">https://www.heart.org/en/health-topics/high-blood-pressure/why-high-blood-pressure-is-a-silent-killer</ext-link>.</mixed-citation></ref>
+<ref id="pmed.1004019.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Murray</surname> <given-names>CJ</given-names></name>, <name name-style="western"><surname>Aravkin</surname> <given-names>AY</given-names></name>, <name name-style="western"><surname>Zheng</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Abbafati</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Abbas</surname> <given-names>KM</given-names></name>, <name name-style="western"><surname>Abbasi-Kangevari</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Global burden of 87 risk factors in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019</article-title>. <source>Lancet</source>. <year>2020</year>;<volume>396</volume>(<issue>10258</issue>):<fpage>1223</fpage>–<lpage>1249</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S0140-6736%2820%2930752-2" xlink:type="simple">10.1016/S0140-6736(20)30752-2</ext-link></comment> <object-id pub-id-type="pmid">33069327</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref006"><label>6</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Zhang</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Ye</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Huang</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Yang</surname> <given-names>A</given-names></name>. <article-title>Depression of chronic medical inpatients in China</article-title>. <source>Arch Psychiatr Nurs</source> <month>Feb</month> <year>2008</year>;<volume>22</volume>(<issue>1</issue>):<fpage>39</fpage>–<lpage>49</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.apnu.2007.04.007" xlink:type="simple">10.1016/j.apnu.2007.04.007</ext-link></comment> <object-id pub-id-type="pmid">18207055</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref007"><label>7</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Harshfield</surname> <given-names>EL</given-names></name>, <name name-style="western"><surname>Pennells</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Schwartz</surname> <given-names>JE</given-names></name>, <name name-style="western"><surname>Willeit</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Kaptoge</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Bell</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>Association between depressive symptoms and incident cardiovascular diseases</article-title>. <source>JAMA</source>. <year>2020</year>;<volume>324</volume> (<issue>23</issue>):<fpage>2396</fpage>–<lpage>2405</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jama.2020.23068" xlink:type="simple">10.1001/jama.2020.23068</ext-link></comment> <object-id pub-id-type="pmid">33320224</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Xue</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>SL</given-names></name>, <name name-style="western"><surname>Bogner</surname> <given-names>HR</given-names></name>, <name name-style="western"><surname>Tang</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Conwell</surname> <given-names>Y</given-names></name>. <article-title>The prevalence of depressive symptoms among older patients with hypertension in rural China</article-title>. <source>Int Journal Geriatr Psychiatry</source>. <year>2017</year>;<volume>32</volume>(<issue>12</issue>):<fpage>1411</fpage>–<lpage>1417</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/gps.4628" xlink:type="simple">10.1002/gps.4628</ext-link></comment> <object-id pub-id-type="pmid">27892612</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Meng</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Yang</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Zheng</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Hui</surname> <given-names>R</given-names></name>. <article-title>Depression increases the risk of hypertension incidence: a meta-analysis of prospective cohort studies. Research Support, Non-U.S. Gov’t</article-title>. <source>J Hypertens</source>. <year>2012</year>;<volume>30</volume>(<issue>5</issue>):<fpage>842</fpage>–<lpage>851</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004019.ref010"><label>10</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Fugger</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Dold</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Bartova</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Kautzky</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Souery</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Mendlewicz</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Comorbid hypertension in patients with major depressive disorder—Results from a European multicenter study</article-title>. <source>Eur Neuropsychopharmacol</source>. <year>2019</year>;<volume>29</volume>(<issue>6</issue>):<fpage>777</fpage>–<lpage>785</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.euroneuro.2019.03.005" xlink:type="simple">10.1016/j.euroneuro.2019.03.005</ext-link></comment> <object-id pub-id-type="pmid">31006562</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Rubio-Guerra</surname> <given-names>AF</given-names></name>, <name name-style="western"><surname>Rodriguez-Lopez</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Vargas-Ayala</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Huerta-Ramirez</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Serna</surname> <given-names>DC</given-names></name>, <name name-style="western"><surname>Lozano-Nuevo</surname> <given-names>JJ</given-names></name>. <article-title>Depression increases the risk for uncontrolled hypertension</article-title>. <source>Exp Clin Cardiol</source>. <year>2013</year>;<volume>18</volume>(<issue>1</issue>):<fpage>10</fpage>–<lpage>12</lpage>. <object-id pub-id-type="pmid">24294029</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bhattacharyya</surname> <given-names>O</given-names></name>, <name name-style="western"><surname>Delu</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Wong</surname> <given-names>ST</given-names></name>, <name name-style="western"><surname>Bowen</surname> <given-names>C</given-names></name>. <article-title>Evolution of primary care in China 1997–2009</article-title>. <source>Health Policy</source>. <year>2011</year>;<volume>100</volume>(<issue>2–3</issue>):<fpage>174</fpage>–<lpage>180</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.healthpol.2010.11.005" xlink:type="simple">10.1016/j.healthpol.2010.11.005</ext-link></comment> <object-id pub-id-type="pmid">21145123</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chen</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Conwell</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Van Orden</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Lu</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Fang</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Ma</surname> <given-names>Y</given-names></name>, <etal>et al</etal>. <article-title>Prevalence and natural course of late-life depression in China primary care: a population based study from an urban community</article-title>. <source>J Affect Disord</source>. <year>2012</year>;<volume>141</volume>(<issue>1</issue>):<fpage>86</fpage>–<lpage>93</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jad.2012.02.027" xlink:type="simple">10.1016/j.jad.2012.02.027</ext-link></comment> <object-id pub-id-type="pmid">22464006</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref014"><label>14</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Katon</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Von Korff</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Lin</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Walker</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Simon</surname> <given-names>GE</given-names></name>, <name name-style="western"><surname>Bush</surname> <given-names>T</given-names></name>, <etal>et al</etal>. <article-title>Collaborative management to achieve treatment guidelines. Impact on depression in primary care</article-title>. <source>JAMA</source>. <year>1995</year>;<volume>273</volume>(<issue>13</issue>):<fpage>1026</fpage>–<lpage>1031</lpage>. <object-id pub-id-type="pmid">7897786</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gilbody</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Whitty</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Grimshaw</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Thomas</surname> <given-names>R</given-names></name>. <article-title>Educational and organizational interventions to improve the management of depression in primary care: a systematic review</article-title>. <source>JAMA</source>. <year>2003</year>;<volume>289</volume>(<issue>23</issue>):<fpage>3145</fpage>–<lpage>3151</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jama.289.23.3145" xlink:type="simple">10.1001/jama.289.23.3145</ext-link></comment> <object-id pub-id-type="pmid">12813120</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Unutzer</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Katon</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Callahan</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Williams</surname> <given-names>JW</given-names> <suffix>Jr</suffix></name>, <name name-style="western"><surname>Hunkeler</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Harpole</surname> <given-names>L</given-names></name>, <etal>et al</etal>. <article-title>Collaborative care management of late-life depression in the primary care setting: a randomized controlled trial</article-title>. <source>JAMA</source>. <year>2002</year>;<volume>288</volume>(<issue>22</issue>):<fpage>2836</fpage>–<lpage>2845</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jama.288.22.2836" xlink:type="simple">10.1001/jama.288.22.2836</ext-link></comment> <object-id pub-id-type="pmid">12472325</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Katon</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Unützer</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Fan</surname> <given-names>M-Y</given-names></name>, <name name-style="western"><surname>Williams</surname> <given-names>JW</given-names> <suffix>Jr</suffix></name>, <name name-style="western"><surname>Schoenbaum</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Lin</surname> <given-names>EHB</given-names></name>, <etal>et al</etal>. <article-title>Cost-Effectiveness and net benefit of enhanced treatment of depression for older adults with diabetes and depression</article-title>. <source>Diabetes Care</source>. <year>2006</year>;<volume>29</volume>(<issue>2</issue>):<fpage>265</fpage>–<lpage>270</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2337/diacare.29.02.06.dc05-1572" xlink:type="simple">10.2337/diacare.29.02.06.dc05-1572</ext-link></comment> <object-id pub-id-type="pmid">16443871</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gum</surname> <given-names>AM</given-names></name>, <name name-style="western"><surname>Arean</surname> <given-names>PA</given-names></name>, <name name-style="western"><surname>Hunkeler</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Tang</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Katon</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Hitchcock</surname> <given-names>P</given-names></name>, <etal>et al</etal>. <article-title>Depression treatment preferences in older primary care patients</article-title>. <source>Gerontologist</source>. <year>2006</year>;<volume>46</volume>(<issue>1</issue>):<fpage>14</fpage>–<lpage>22</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/geront/46.1.14" xlink:type="simple">10.1093/geront/46.1.14</ext-link></comment> <object-id pub-id-type="pmid">16452280</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hirschfeld</surname> <given-names>RM</given-names></name>. <article-title>The comorbidity of major depression and anxiety disorders: recognition and management in primary care</article-title>. <source>Prim Care Companion J Clin Psychiatry</source>. <year>2001</year>;<volume>3</volume>(<issue>6</issue>):<fpage>244</fpage>–<lpage>254</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.4088/pcc.v03n0609" xlink:type="simple">10.4088/pcc.v03n0609</ext-link></comment> <object-id pub-id-type="pmid">15014592</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Patel</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Weiss</surname> <given-names>HA</given-names></name>, <name name-style="western"><surname>Chowdhary</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Naik</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Pednekar</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Chatterjee</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>Lay health worker led intervention for depressive and anxiety disorders in India: impact on clinical and disability outcomes over 12 months</article-title>. <source>Brit J Psychiat</source>. <year>2011</year>;<volume>199</volume>(<issue>6</issue>):<fpage>459</fpage>–<lpage>466</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1192/bjp.bp.111.092155" xlink:type="simple">10.1192/bjp.bp.111.092155</ext-link></comment> <object-id pub-id-type="pmid">22130747</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Collins</surname> <given-names>PY</given-names></name>, <name name-style="western"><surname>Patel</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Joestl</surname> <given-names>SS</given-names></name>, <name name-style="western"><surname>March</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Insel</surname> <given-names>TR</given-names></name>, <name name-style="western"><surname>Daar</surname> <given-names>AS</given-names></name>, <etal>et al</etal>. <article-title>Grand challenges in global mental health</article-title>. <source>Nature</source>. <year>2011</year>;<volume>475</volume>(<issue>7354</issue>):<fpage>27</fpage>–<lpage>30</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/475027a" xlink:type="simple">10.1038/475027a</ext-link></comment> <object-id pub-id-type="pmid">21734685</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref022"><label>22</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chen</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Conwell</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>He</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Lu</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Wu</surname> <given-names>J</given-names></name>. <article-title>Depression care management for adults older than 60 years in primary care clinics in urban China: a cluster-randomised trial</article-title>. <source>Lancet Psychiatry</source>. <year>2015</year>;<volume>2</volume>(<issue>4</issue>):<fpage>332</fpage>–<lpage>339</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S2215-0366%2815%2900002-4" xlink:type="simple">10.1016/S2215-0366(15)00002-4</ext-link></comment> <object-id pub-id-type="pmid">26360086</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref023"><label>23</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chen</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Conwell</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Xue</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>LW</given-names></name>, <name name-style="western"><surname>Tang</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Bogne</surname> <given-names>HR</given-names></name>, <etal>et al</etal>. <article-title>Protocol of an ongoing randomized controlled trial of care management for comorbid depression and hypertension: the Chinese Older Adult Collaborations in Health (COACH) study</article-title>. <source>BMC Geriatr</source>. <year>2018</year>;<volume>18</volume>(<issue>1</issue>):<fpage>124</fpage>–<lpage>132</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1186/s12877-018-0808-1" xlink:type="simple">10.1186/s12877-018-0808-1</ext-link></comment> <object-id pub-id-type="pmid">29843644</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chen</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Chiu</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Xu</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Ma</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Jin</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Wu</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Reliability and validity of the PHQ-9 for screening late-life depression in Chinese primary care</article-title>. <source>Int J Geriatr Psychiatry</source>. <year>2010</year>;<volume>25</volume>(<issue>11</issue>):<fpage>1127</fpage>–<lpage>1133</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/gps.2442" xlink:type="simple">10.1002/gps.2442</ext-link></comment> <object-id pub-id-type="pmid">20029795</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref025"><label>25</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chen</surname> <given-names>MR</given-names></name>, <name name-style="western"><surname>Guo</surname> <given-names>QH</given-names></name>, <name name-style="western"><surname>Cao</surname> <given-names>XY</given-names></name>, <name name-style="western"><surname>Hong</surname> <given-names>Z</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>XH</given-names></name>. <article-title>A preliminary study of the Six-Item Screener in detecting cognitive impairment</article-title>. <source>Neurosci Bull</source>. <year>2010</year>;<volume>26</volume>(<issue>4</issue>):<fpage>317</fpage>–<lpage>321</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s12264-010-0106-1" xlink:type="simple">10.1007/s12264-010-0106-1</ext-link></comment> <object-id pub-id-type="pmid">20651813</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Sheehan</surname> <given-names>DV</given-names></name>, <name name-style="western"><surname>Lecrubier</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Sheehan</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Amorim</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Janavs</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Weiller</surname> <given-names>E</given-names></name>, <etal>et al</etal>. <article-title>The Mini-International Neuropsychiatric Interview (M.I.N.I.): the development and validation of a structured diagnostic psychiatric interview for DSM-IV and ICD-10</article-title>. <source>J Clin Psychiatry</source>. <year>1998</year>;<volume>59</volume>(<issue>Suppl 20</issue>):<fpage>22</fpage>–<lpage>33</lpage>. <object-id pub-id-type="pmid">9881538</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref027"><label>27</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Leung</surname> <given-names>KF</given-names></name>, <name name-style="western"><surname>Wong</surname> <given-names>WW</given-names></name>, <name name-style="western"><surname>Tay</surname> <given-names>MSM</given-names></name>, <name name-style="western"><surname>Chu</surname> <given-names>MML</given-names></name>, <name name-style="western"><surname>Ng</surname> <given-names>SSW</given-names></name>. <article-title>Development and validation of the interview version of the Hong Kong Chinese WHOQOL-BREF</article-title>. <source>Qual Life Res</source>. <year>2005</year>;<volume>14</volume>(<issue>5</issue>):<fpage>1413</fpage>–<lpage>1419</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s11136-004-4772-1" xlink:type="simple">10.1007/s11136-004-4772-1</ext-link></comment> <object-id pub-id-type="pmid">16047516</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref028"><label>28</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Callahan</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Unverzagt</surname> <given-names>FW</given-names></name>, <name name-style="western"><surname>Hui</surname> <given-names>SL</given-names></name>, <name name-style="western"><surname>Perkins</surname> <given-names>AJ</given-names></name>, <name name-style="western"><surname>Hendrie</surname> <given-names>HC</given-names></name>. <article-title>Six-item screener to identify cognitive impairment among potential subjects for clinical research</article-title>. <source>Med Care</source>. <year>2002</year>;<volume>40</volume>(<issue>9</issue>):<fpage>771</fpage>–<lpage>781</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/00005650-200209000-00007" xlink:type="simple">10.1097/00005650-200209000-00007</ext-link></comment> <object-id pub-id-type="pmid">12218768</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref029"><label>29</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Tong</surname> <given-names>AY</given-names></name>, <name name-style="western"><surname>Man</surname> <given-names>DW</given-names></name>. <article-title>The validation of the Hong Kong Chinese version of the Lawton instrumental activities of daily living scale for institutionalized elderly persons</article-title>. <source>OTJR</source>. <year>2002</year>;<volume>22</volume>:<fpage>132</fpage>–<lpage>142</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004019.ref030"><label>30</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Yu</surname> <given-names>DS</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>DT</given-names></name>, <name name-style="western"><surname>Woo</surname> <given-names>J</given-names></name>. <article-title>Psychometric testing of the Chinese version of the medical outcomes study social support survey (MOS-SSS-C)</article-title>. <source>Res Nurs Health</source>. <year>2004</year>;<volume>27</volume>(<issue>2</issue>):<fpage>135</fpage>–<lpage>143</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/nur.20008" xlink:type="simple">10.1002/nur.20008</ext-link></comment> <object-id pub-id-type="pmid">15042639</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref031"><label>31</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lubben</surname> <given-names>JE</given-names></name>. <article-title>Assessing social networks among elderly populations</article-title>. <source>Fam Commun Health</source>. <year>1988</year>;<volume>11</volume>(<issue>3</issue>):<fpage>42</fpage>–<lpage>52</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004019.ref032"><label>32</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Zheng</surname> <given-names>YP</given-names></name>, <name name-style="western"><surname>Zhao</surname> <given-names>JP</given-names></name>, <name name-style="western"><surname>Phillips</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>JB</given-names></name>, <name name-style="western"><surname>Cai</surname> <given-names>MF</given-names></name>, <name name-style="western"><surname>Sun</surname> <given-names>SQ</given-names></name>, <etal>et al</etal>. <article-title>Validity and reliability of the Chinese Hamilton Depression Rating Scale</article-title>. <source>Brit J Psychiat</source>. <year>1988</year>;<volume>152</volume>:<fpage>660</fpage>–<lpage>664</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1192/bjp.152.5.660" xlink:type="simple">10.1192/bjp.152.5.660</ext-link></comment> <object-id pub-id-type="pmid">3167442</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref033"><label>33</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chobanian</surname> <given-names>AV</given-names></name>, <name name-style="western"><surname>Bakris</surname> <given-names>GL</given-names></name>, <name name-style="western"><surname>Black</surname> <given-names>HR</given-names></name>, <name name-style="western"><surname>Cushman</surname> <given-names>WC</given-names></name>, <name name-style="western"><surname>Green</surname> <given-names>LA</given-names></name>, <name name-style="western"><surname>Izzo</surname> <given-names>JL</given-names> <suffix>Jr</suffix></name>, <etal>et al</etal>. <article-title>The Seventh Report of the Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blood Pressure: the JNC 7 report</article-title>. <source>JAMA</source>. <year>2003</year>;<volume>289</volume>(<issue>19</issue>):<fpage>2560</fpage>–<lpage>2572</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jama.289.19.2560" xlink:type="simple">10.1001/jama.289.19.2560</ext-link></comment> <object-id pub-id-type="pmid">12748199</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref034"><label>34</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Morikawa</surname> <given-names>MJ</given-names></name>. <article-title>Family medicine training in China: crisis and opportunity</article-title>. <source>Fam Med Commun Health</source>. <year>2020</year>;<volume>8</volume>:<fpage>e000283</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1136/fmch-2019-000283" xlink:type="simple">10.1136/fmch-2019-000283</ext-link></comment> <object-id pub-id-type="pmid">32148737</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref035"><label>35</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Liu</surname> <given-names>LS</given-names></name>. <collab>Writing Group of Chinese Guidelines for the Management of Hypertension</collab>. [<article-title>2010 Chinese guidelines for the management of hypertension</article-title>]. <source>Zhonghua Xin Xue Guan Bing Za Zhi</source>. <year>2011</year>;<volume>39</volume>(<issue>7</issue>):<fpage>579</fpage>–<lpage>615</lpage>. <object-id pub-id-type="pmid">22088239</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref036"><label>36</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Steffens</surname> <given-names>DC</given-names></name>, <name name-style="western"><surname>McQuoid</surname> <given-names>DR</given-names></name>, <name name-style="western"><surname>Krishnan</surname> <given-names>KR</given-names></name>. <article-title>The Duke Somatic Treatment Algorithm for Geriatric Depression (STAGED) approach</article-title>. <source>Psychopharmacol Bull</source>. <year>2002</year>;<volume>36</volume>(<issue>2</issue>):<fpage>58</fpage>–<lpage>68</lpage>. <object-id pub-id-type="pmid">12397841</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref037"><label>37</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Han</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Voils</surname> <given-names>CI</given-names></name>, <name name-style="western"><surname>Williams</surname> <given-names>JW</given-names> <suffix>Jr</suffix></name>. <article-title>Uptake of web-based clinical resources from the MacArthur Initiative on Depression and Primary Care</article-title>. <source>Community Ment Health J</source>. <year>2013</year>;<volume>49</volume>(<issue>2</issue>):<fpage>166</fpage>–<lpage>171</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s10597-011-9461-2" xlink:type="simple">10.1007/s10597-011-9461-2</ext-link></comment> <object-id pub-id-type="pmid">22038376</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref038"><label>38</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kirsch</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Deacon</surname> <given-names>BJ</given-names></name>, <name name-style="western"><surname>Huedo-Medina</surname> <given-names>TB</given-names></name>, <name name-style="western"><surname>Scoboria</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Moore</surname> <given-names>TJ</given-names></name>, <name name-style="western"><surname>Johnson</surname> <given-names>BT</given-names></name>. <article-title>Initial severity and antidepressant benefits: a meta-analysis of data submitted to the Food and Drug Administration</article-title>. <source>PLoS Med</source>. <year>2008</year>;<volume>5</volume>(<issue>2</issue>):<fpage>e45</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pmed.0050045" xlink:type="simple">10.1371/journal.pmed.0050045</ext-link></comment> <object-id pub-id-type="pmid">18303940</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref039"><label>39</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lu</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Tang</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>He</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Yu</surname> <given-names>Q</given-names></name>, <name name-style="western"><surname>Crits-Christoph</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Zhang</surname> <given-names>H</given-names></name>, <etal>et al</etal>. <article-title>On the impact of parametric assumptions and robust alternatives for longitudinal data analysis</article-title>. <source>Biom J</source>. <year>2009</year>;<volume>51</volume>(<issue>4</issue>):<fpage>627</fpage>–<lpage>643</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/bimj.200800186" xlink:type="simple">10.1002/bimj.200800186</ext-link></comment> <object-id pub-id-type="pmid">19688758</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref040"><label>40</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Royston</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Altman</surname> <given-names>DG</given-names></name>. <article-title>Regression Using fractional polynomials of continuous covariates—Parsimonious Parametric Modeling</article-title>. <source>Appl Stat</source>. <year>1994</year>;<volume>43</volume>(<issue>3</issue>):<fpage>429</fpage>–<lpage>467</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004019.ref041"><label>41</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Vonesh</surname> <given-names>EF</given-names></name>, <name name-style="western"><surname>Chinchilli</surname> <given-names>VP</given-names></name>, <name name-style="western"><surname>Pu</surname> <given-names>KW</given-names></name>. <article-title>Goodness-of-fit in generalized nonlinear mixed-effects models</article-title>. <source>Biometrics</source>. <year>1996</year>;<volume>52</volume>(<issue>2</issue>):<fpage>572</fpage>–<lpage>587</lpage>. <object-id pub-id-type="pmid">10766504</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref042"><label>42</label><mixed-citation publication-type="other" xlink:type="simple">ClinicalTrials.gov. Chinese Older Adults-Collaboration in Health (COACH) Study [cited 2022 Mar 22], 2022. <ext-link ext-link-type="uri" xlink:href="https://clinicaltrials.gov/ct2/show/NCT01938963" xlink:type="simple">https://clinicaltrials.gov/ct2/show/NCT01938963</ext-link></mixed-citation></ref>
+<ref id="pmed.1004019.ref043"><label>43</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Campbell</surname> <given-names>MK</given-names></name>, <name name-style="western"><surname>Piaggio</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Elbourne</surname> <given-names>DR</given-names></name>, <name name-style="western"><surname>Altman</surname> <given-names>DG</given-names></name>, <collab>CONSORT Group</collab>. <article-title>CONSORT. statement: extension to cluser randomised trilas</article-title>. <source>BMJ</source>. <year>2010</year>;<volume>2012</volume>(<issue>345</issue>):<fpage>e5661</fpage>.</mixed-citation></ref>
+<ref id="pmed.1004019.ref044"><label>44</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Ali</surname> <given-names>MK</given-names></name>, <name name-style="western"><surname>Chwastiak</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Poongothai</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Emmert-Fees</surname> <given-names>KMF</given-names></name>, <name name-style="western"><surname>Patel</surname> <given-names>SA</given-names></name>, <name name-style="western"><surname>Anjana</surname> <given-names>RM</given-names></name>, <etal>et al</etal>. <article-title>Effect of a collaborative care model on depressive symptoms and glycated hemoglobin, blood pressure, and serum cholesterol among patients with depression and diabetes in India—The INDEPENDENT Randomized Clinical Trial</article-title>. <source>JAMA</source>. <year>2020</year>;<volume>324</volume>(<issue>7</issue>):<fpage>651</fpage>–<lpage>662</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jama.2020.11747" xlink:type="simple">10.1001/jama.2020.11747</ext-link></comment> <object-id pub-id-type="pmid">32809002</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref045"><label>45</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Petersen</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Fairall</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Zani</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Bhana</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Lombard</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Folb</surname> <given-names>N</given-names></name>, <etal>et al</etal>. <article-title>Effectiveness of a task-sharing collaborative care model for identification and management of depressive symptoms in patients with hypertension attending public sector primary care clinics in South Africa: pragmatic parallel cluster randomised controlled trial</article-title>. <source>J Affect Disord</source>. <year>2021</year>;<fpage>112</fpage>–<lpage>121</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004019.ref046"><label>46</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Araya</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Menezes</surname> <given-names>PR</given-names></name>, <name name-style="western"><surname>Claro</surname> <given-names>HG</given-names></name>, <name name-style="western"><surname>Brandt</surname> <given-names>LR</given-names></name>, <name name-style="western"><surname>Daley</surname> <given-names>KL</given-names></name>, <name name-style="western"><surname>Claro</surname> <given-names>HG</given-names></name>, <etal>et al</etal>. <article-title>Effect of a digital intervention on depressive symptoms in patients with comorbid hypertension or diabetes in Brazil or Peru: two randomized clinical trials</article-title>. <source>JAMA</source>. <year>2021</year>;<volume>325</volume>:<fpage>1852</fpage>–<lpage>1862</lpage>.</mixed-citation></ref>
+<ref id="pmed.1004019.ref047"><label>47</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Li</surname> <given-names>LW</given-names></name>, <name name-style="western"><surname>Xue</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Conwell</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Yang</surname> <given-names>Q</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>S</given-names></name>. <article-title>Implementing collaborative care for older people with comorbid hypertension and depression in rural China</article-title>. <source>Int Psychogeriatr</source>. <year>2020</year>;<volume>32</volume>(<issue>12</issue>):<fpage>1457</fpage>–<lpage>1465</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1017/S1041610219001509" xlink:type="simple">10.1017/S1041610219001509</ext-link></comment> <object-id pub-id-type="pmid">31630703</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref048"><label>48</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Arora</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Kalishman</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Dion</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Som</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Thornton</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Bankhurst</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Partnering urban academic medical centers and rural primary care clinicians to provide complex chronic disease care</article-title>. <source>Health Aff</source>. <year>2011</year>;<volume>30</volume>(<issue>6</issue>):<fpage>1176</fpage>–<lpage>1184</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1377/hlthaff.2011.0278" xlink:type="simple">10.1377/hlthaff.2011.0278</ext-link></comment> <object-id pub-id-type="pmid">21596757</object-id></mixed-citation></ref>
+<ref id="pmed.1004019.ref049"><label>49</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Coventry</surname> <given-names>PA</given-names></name>, <name name-style="western"><surname>Hudson</surname> <given-names>JL</given-names></name>, <name name-style="western"><surname>Kontopantelis</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Archer</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Richards</surname> <given-names>DA</given-names></name>, <name name-style="western"><surname>Gilbody</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>Characteristics of effective collaborative care for treatment of depression: a systematic review and meta-regression of 74 randomised controlled trials</article-title>. <source>PLoS ONE</source>. <year>2014</year>;<volume>9</volume>(<issue>9</issue>):<fpage>e108114</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0108114" xlink:type="simple">10.1371/journal.pone.0108114</ext-link></comment> <object-id pub-id-type="pmid">25264616</object-id></mixed-citation></ref>
+</ref-list>
+</back>
+<sub-article article-type="editor-report" id="pmed.1004019.r001" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004019.r001</article-id>
+<title-group>
+<article-title>Decision Letter 0</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Moyer</surname>
+<given-names>Caitlin</given-names>
+</name>
+<role>Senior Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Caitlin Moyer</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pmed.1004019" document-id-type="doi" document-type="article" id="rel-obj001" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>0</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">11 May 2022</named-content>
+</p>
+<p>Dear Dr CONWELL, </p>
+<p>Thank you for submitting your manuscript entitled "Effectiveness of integrated care for older adults with depression and hypertension in rural China: a cluster randomized controlled trial" for consideration by PLOS Medicine.</p>
+<p>Your manuscript has now been evaluated by the PLOS Medicine editorial staff and I am writing to let you know that we would like to send your submission out for external peer review.</p>
+<p>However, before we can send your manuscript to reviewers, we need you to complete your submission by providing the metadata that is required for full assessment. To this end, please login to Editorial Manager where you will find the paper in the 'Submissions Needing Revisions' folder on your homepage. Please click 'Revise Submission' from the Action Links and complete all additional questions in the submission questionnaire.</p>
+<p>Please re-submit your manuscript within two working days, i.e. by May 13 2022 11:59PM.</p>
+<p>Login to Editorial Manager here: <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pmedicine" xlink:type="simple">https://www.editorialmanager.com/pmedicine</ext-link></p>
+<p>Once your full submission is complete, your paper will undergo a series of checks in preparation for peer review. Once your manuscript has passed all checks it will be sent out for review. </p>
+<p>Feel free to email us at <email xlink:type="simple">plosmedicine@plos.org</email> if you have any queries relating to your submission.</p>
+<p>Kind regards,</p>
+<p>Caitlin Moyer, Ph.D.</p>
+<p>Associate Editor</p>
+<p>PLOS Medicine</p>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pmed.1004019.r002" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004019.r002</article-id>
+<title-group>
+<article-title>Decision Letter 1</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Moyer</surname>
+<given-names>Caitlin</given-names>
+</name>
+<role>Senior Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Caitlin Moyer</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pmed.1004019" document-id-type="doi" document-type="article" id="rel-obj002" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">28 Jul 2022</named-content>
+</p>
+<p>Dear Dr. CONWELL,</p>
+<p>Thank you very much for submitting your manuscript "Effectiveness of integrated care for older adults with depression and hypertension in rural China: a cluster randomized controlled trial" (PMEDICINE-D-22-01526R1) for consideration at PLOS Medicine. </p>
+<p>Your paper was evaluated by a senior editor and discussed among all the editors here. It was also discussed with an academic editor with relevant expertise, and sent to four independent reviewers, including a statistical reviewer. The reviews are appended at the bottom of this email and any accompanying reviewer attachments can be seen via the link below:</p>
+<p>[LINK]</p>
+<p>In light of these reviews, I am afraid that we will not be able to accept the manuscript for publication in the journal in its current form, but we would like to consider a revised version that addresses the reviewers' and editors' comments. Obviously we cannot make any decision about publication until we have seen the revised manuscript and your response, and we plan to seek re-review by one or more of the reviewers.  </p>
+<p>In revising the manuscript for further consideration, your revisions should address the specific points made by each reviewer and the editors. Please also check the guidelines for revised papers at <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/revising-your-manuscript" xlink:type="simple">http://journals.plos.org/plosmedicine/s/revising-your-manuscript</ext-link> for any that apply to your paper. In your rebuttal letter you should indicate your response to the reviewers' and editors' comments, the changes you have made in the manuscript, and include either an excerpt of the revised text or the location (eg: page and line number) where each change can be found. Please submit a clean version of the paper as the main article file; a version with changes marked should be uploaded as a marked up manuscript.</p>
+<p>In addition, we request that you upload any figures associated with your paper as individual TIF or EPS files with 300dpi resolution at resubmission; please read our figure guidelines for more information on our requirements: <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/figures" xlink:type="simple">http://journals.plos.org/plosmedicine/s/figures</ext-link>. While revising your submission, please upload your figure files to the PACE digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link>. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email us at <email xlink:type="simple">PLOSMedicine@plos.org</email>.</p>
+<p>We expect to receive your revised manuscript by Aug 18 2022 11:59PM. Please email us (<email xlink:type="simple">plosmedicine@plos.org</email>) if you have any questions or concerns.</p>
+<p>***Please note while forming your response, if your article is accepted, you may have the opportunity to make the peer review history publicly available. The record will include editor decision letters (with reviews) and your responses to reviewer comments. If eligible, we will contact you to opt in or out.***</p>
+<p>We ask every co-author listed on the manuscript to fill in a contributing author statement, making sure to declare all competing interests. If any of the co-authors have not filled in the statement, we will remind them to do so when the paper is revised. If all statements are not completed in a timely fashion this could hold up the re-review process. If new competing interests are declared later in the revision process, this may also hold up the submission. Should there be a problem getting one of your co-authors to fill in a statement we will be in contact.  YOU MUST NOT ADD OR REMOVE AUTHORS UNLESS YOU HAVE ALERTED THE EDITOR HANDLING THE MANUSCRIPT TO THE CHANGE AND THEY SPECIFICALLY HAVE AGREED TO IT. You can see our competing interests policy here: <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/competing-interests" xlink:type="simple">http://journals.plos.org/plosmedicine/s/competing-interests</ext-link>.</p>
+<p>Please use the following link to submit the revised manuscript: </p>
+<p><ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pmedicine/" xlink:type="simple">https://www.editorialmanager.com/pmedicine/</ext-link></p>
+<p>Your article can be found in the "Submissions Needing Revision" folder. </p>
+<p>To enhance the reproducibility of your results, we recommend that you deposit your laboratory protocols in protocols.io, where a protocol can be assigned its own identifier (DOI) such that it can be cited independently in the future. Additionally, PLOS ONE offers an option to publish peer-reviewed clinical study protocols. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link></p>
+<p>Please ensure that the paper adheres to the PLOS Data Availability Policy (see <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/data-availability" xlink:type="simple">http://journals.plos.org/plosmedicine/s/data-availability</ext-link>), which requires that all data underlying the study's findings be provided in a repository or as Supporting Information. For data residing with a third party, authors are required to provide instructions with contact information for obtaining the data. PLOS journals do not allow statements supported by "data not shown" or "unpublished results." For such statements, authors must provide supporting data or cite public sources that include it. </p>
+<p>We look forward to receiving your revised manuscript. </p>
+<p>Sincerely,</p>
+<p>Caitlin Moyer, Ph.D.</p>
+<p>Associate Editor</p>
+<p>PLOS Medicine</p>
+<p><ext-link ext-link-type="uri" xlink:href="http://plosmedicine.org" xlink:type="simple">plosmedicine.org</ext-link></p>
+<p>-----------------------------------------------------------</p>
+<p>Requests from the editors:</p>
+<p>From the Academic Editor:</p>
+<p>1. Please provide more comment on the exceptionally large effect size from the HTN treatment arm. There was an approximate three fold increase in control rates in the intervention arm. This is really out of keeping with effect sizes seen in most implementation research trials. It would be helpful if the authors could provide an explanation for this in more detail. It w</p>
+<p>2. Please provide a more detailed description of intervention components, using the TIDieR Checklist.</p>
+<p>3. Please report on antihypertensive medication use by randomized group. Please also report reduction in blood pressure as a continuous measure. It would be helpful to comment on whether the large effect size over 12 months is related to use of BP medication, or any interventions that were taken to enhance BP medication use.</p>
+<p>4.Please report the ICC for primary outcomes (please see CONSORT for Cluster Trials item 17a).</p>
+<p>Other editorial points:</p>
+<p>5. Data availability statement: Thank you for your willingness to make your data available in the Harvard Dataverse. Please provide the DOI/accession number. PLOS Medicine requires that the de-identified data underlying the specific results in a published article be made available, without restrictions on access, in a public repository or as Supporting Information at the time of article publication, provided it is legal and ethical to do so. Please see the policy at</p>
+<p><ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/data-availability" xlink:type="simple">http://journals.plos.org/plosmedicine/s/data-availability</ext-link></p>
+<p>and FAQs at</p>
+<p><ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/data-availability#loc-faqs-for-data-policy" xlink:type="simple">http://journals.plos.org/plosmedicine/s/data-availability#loc-faqs-for-data-policy</ext-link></p>
+<p>6. Throughout: Please use “participants” rather than “subjects” when describing the individuals who participated in the trial.</p>
+<p>7. Abstract: Please include the trial registration information in the abstract.</p>
+<p>8. Abstract: Methods and Findings: Please provide the specific start and end dates of the trial.</p>
+<p>9. Abstract: Methods and Findings: Line 41: Please mention how “controlled HTN” was determined.</p>
+<p>10. Abstract: Methods and Findings: Please specify who was blinded to the intervention and control.</p>
+<p>11. Abstract: Please state that analysis was intention to treat. Please provide the number of participants lost to follow up in each group.</p>
+<p>12. Abstract: Methods and Findings: Please quantify the main results with both 95% CIs and p values.</p>
+<p>13. Abstract: Methods and Findings: Please provide some summary baseline data/description of the participants.</p>
+<p>14. Abstract: Methods and Findings: As mentioned by a reviewer, please focus the abstract on the presentation of primary and secondary pre-specified outcomes, rather than exploratory analyses.</p>
+<p>15. Abstract: Methods and Findings: Please include a summary of adverse events if these were assessed in the study.</p>
+<p>16. Abstract: Methods and Findings: In the last sentence of the Abstract Methods and Findings section, please describe the main limitation(s) of the study's methodology.</p>
+<p>17. Abstract: Conclusions: Please address the study implications without overreaching what can be concluded from the data; the phrase "In this study, we observed ..." may be useful.</p>
+<p>18. Author summary: At this stage, we ask that you include a short, non-technical Author Summary of your research to make findings accessible to a wide audience that includes both scientists and non-scientists. The Author Summary should immediately follow the Abstract in your revised manuscript. This text is subject to editorial change and should be distinct from the scientific abstract. Please see our author guidelines for more information: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosmedicine/s/revising-your-manuscript#loc-author-summary" xlink:type="simple">https://journals.plos.org/plosmedicine/s/revising-your-manuscript#loc-author-summary</ext-link></p>
+<p>19. Introduction: Line 69: Here and throughout the manuscript, please refer to high income countries rather than "developed" or "Western" countries.</p>
+<p>20. Methods: Protocol: Please include the study protocol document and analysis plan, with any amendments, as Supporting Information to be published with the manuscript if accepted. Please highlight all changes between what was done and what was prespecified in the protocol.</p>
+<p>21. Methods: Please ensure that the study is reported according to the CONSORT guideline. Please add the following statement, or similar, to the Methods: "This study is reported as per the Consolidated Standards of Reporting Trials (CONSORT) guideline (S1 Checklist)."</p>
+<p>Thank you for including the completed CONSORT checklist as Supporting Information. When completing the checklist, please use section and paragraph numbers (e.g. Methods, paragraph 1), rather than page numbers.</p>
+<p>22. Methods: Line 127: Please describe the sociodemographic information collected at baseline. Please describe how social network size was determined.</p>
+<p>23. Methods: Line 135: Please provide some brief background on the HDRS measure of depressive symptoms, including scoring.</p>
+<p>24. Methods: line 184-185: Please explicitly specify all primary and secondary outcome measures of the study. The following outcomes measures appear to differ between the submitted manuscript and the trial registry: The registered primary outcome is Depressive Symptom Change and HTN control is not mentioned, except as an Other Outcome Measure. Health related quality of life at each timepoint is not described. Costs associated with intervention are not described. Assessment of outcomes at time points prior to the 12 month assessment are also not described. Please clarify and explain the discrepancy. If the outcomes were not prespecified in the protocol, please indicate that they were post hoc and explain why they were added. Post hoc comparisons should be presented as hypothesis generating rather than conclusive.</p>
+<p>25. Methods: Line 243-244: Please define "lost to follow-up" as used in this study. Other reasons for exclusion should be defined.</p>
+<p>26. Results: Please present numerators and denominators for percentages, at least in the Tables [not necessarily each time they're mentioned].</p>
+<p>27. Results: Line 255-263: Please quantify results presented in the text, 95% CIs and p values for depression scores and HTN outcomes, as well as group x time interactions.</p>
+<p>28. Results: Line 266-275: Please quantify the comparison between those who did and did not accept prescribed antidepressants, in terms of differences in HTN control and HDRS scores.</p>
+<p>29. Discussion: Please present and organize the Discussion as follows: a short, clear summary of the article's findings; what the study adds to existing research and where and why the results may differ from previous research; strengths and limitations of the study; implications and next steps for research, clinical practice, and/or public policy; one-paragraph conclusion.</p>
+<p>30. Figure 2 and Figure 3: Please also present these data in Table format.</p>
+<p>31. Figure 2: Please show the axis beginning at zero. If this is not possible, please show a break in the axis.</p>
+<p>Comments from the reviewers:</p>
+<p>Reviewer #1: Statistical review</p>
+<p>This paper reports a cluster randomised trial evaluating an intervention aimed at improving mental health and hypertension in over 60s in Chinese rural settings. The intervention significant improved both outcomes. </p>
+<p>The trial is well reported and used appropriate statistical methods. I only had some minor comments to make.</p>
+<p>1. Abstract, methods and findings "study was a 12-month cluster randomized controlled" - I would move the 12-month part to the end of the sentence and reword as 'with 12 month follow-up'. Currently it reads strangely that the trial was 12 months but took place between 2014 and 2017.</p>
+<p>2. Abstract line 43: I would add p-values to the estimated effect sizes and CIs, as the trial was prospectively powered to test hypotheses. I do not think it is good practice, according to CONSORT, to report non-pre-specified analyses in the abstract (it's fine to report in results), but will leave that to the editor.</p>
+<p>3. Discussion: was there a reason for strong differences in baseline between randomised groups? Presumably this is just due to the small number of clusters? Generally it is not advised to test for difference in baseline variables in RCTs but I would imagine the reasons for this would not apply to CRTs with small number of clusters.</p>
+<p>James Wason</p>
+<p>Reviewer #2: This is a welcome paper in the realm of physical and mental health multimorbidity from an LMIC and shows gratifying improvements in blood pressure control with the multifaceted COACH intervention. </p>
+<p>There are a few points that need clarification</p>
+<p>ABSTRACT</p>
+<p>1: It is not clear how villages can be subjects as it stated</p>
+<p>2 Subjects were rural village clinics of randomly selected towns in Zhejiang Province, China</p>
+<p>Please clarify how villages can be part of towns- this should be added to the methods in order to provide greater context for the reader</p>
+<p>If the study was a 12-month cluster randomized controlled trial conducted from 2014 through 2017, when were the follow up assessments made and why were the analyses only conducted in 2020-2021</p>
+<p>METHODS:</p>
+<p>How were the participants identified - was it on the day of attendance or from registries?</p>
+<p>It is not clear what the frequency of visits in the enhanced usual care was- was it the same as for the intervention group?</p>
+<p>How generalisable would it be for psychiatrists to be available for primary care clinic visits in rural China outside cities?</p>
+<p>What is the explanation for the marked increase in blood pressure  control in the EAU group</p>
+<p>It is unfortunate that there were so many baseline differences between the 2 groups but the appropriate analyses were undertaken to account for these</p>
+<p>DISCUSSION</p>
+<p>In the discussion two other RCTs are referred to that have  examined collaborative care management of comorbid medical and mental disorders in LMIC- the one for depression and diabetes and the other depression and hypertension. The first demonstrated greater improvement in depression and DM control but no benefit was found in the latter. It would be helpful for the authors to tease out the components of the collaborative care in these three trials in an attempt to better understand why there were these differences. For example what role did the psychiatrists play in the current trial- one would assume a major one given the lack of difference in outcome in people who were on antidepressants compared to those who did not accept them. Some more detail of how the AWs supported the intervention group would be helpful.  </p>
+<p>Reviewer #3: The authors should be congratulated for conducting and reporting on a remarkable trial of an integrated intervention for late-life depression and hypertension in rural China. This is the single largest study of its kind and it has multiple strengths including the large sample size (both in terms of the number of clinics and the number of patients enrolled) and also the high rate of enrollment and follow-up among eligible subjects. The intervention and the training efforts seem 'realistic' and should not be too challenging to replicate in other 'real world' settings. I do have a few suggestions for the final version of this manuscript. </p>
+<p>It is unfortunate that it was not possible to blind the assessors to intervention status. This could create rater biases that are hard to control for, especially since one of the main outcome measures (HDRS) is not a patient rating but an assessor-rated scale. </p>
+<p>The relative effectiveness of the intervention seems to be much greater for hypertension control than for depression. Can the authors comment on this in the discussion? The base rate of controlled hypertension was remarkably low and the effectiveness of the intervention on achieving control of hypertension was remarkably high - so from a public health perspective, this seems to be the primary benefit of this intervention. It is not clear from the paper if and how the focus on depression helped with hypertension control or what was done specifically in the intervention to achieve hypertension control. It is also not clear if a similar algorithm driven intervention focusing on blood pressure control could have achieved similar results for hypertension control. It would be helpful to have more information on changes and differences in the use of antihypertensive medications. It may also be possible that more frequent and more systematic follow-up simply created more opportunities for PCPs and their staff to detect the fact that hypertension was not (yet) controlled, resulting in more active hypertension management.</p>
+<p>The effects on depression are significant but moderate. Several things may contribute to this. First, the benefits of antidepressant medications may be relatively greater for more severe forms of depression - and given that subjects were included who had a PHQ-9 screen of 10 or greater, there may be a number of patients with milder forms of depression who did not have much relative benefit from medications. Secondly, as the authors point out, nearly half of participants did not agree to take antidepressants. It might be helpful to augment the intervention with some relatively simple psychosocial intervention such as behavioral activation strategies that can be effective alternatives to medication or augmentation strategies and that can be provided by non-specialists. </p>
+<p>Could the authors comment on baseline differences in depression severity and the WHOQOL-BREF. What might contribute to these differences and how where they addressed? </p>
+<p>One minor comment: Page 10, line 208 - we cannot say for certain that there was a change in 'depressive disorders' but rather what was observed was a change in the severity of depression symptoms as assessed by the HDRS.   </p>
+<p>Reviewer #4: This is a relevant article targeting rural village clinics in Zhejiang Province, China, to deliver the Chinese Older Adult Collaborations in Health (COACH) intervention or enhanced care-as-usual (eCAU). The COACH intervention consisted of algorithm-driven treatment of depression and HTN by village primary care doctors supported by village lay workers with consultation from centrally-located psychiatrists. The primary outcomes of the study were change in depression symptom severity as measured by the HDRS at baseline and follow-up assessments, and the proportions (%) of subjects whose HTN was controlled. </p>
+<p>Major comments</p>
+<p>1. Introduction, lines 71-73, refers to a previous study in China by the same authors (PMID: 26360086). Could you expand what is the difference with the current study and why this study was needed?</p>
+<p>2. Introduction, lines 71-72, the statement "Rarely, however, have studies been conducted in LMICs that used a randomized control trial (RCT) design" misses the most recent evidence arising from Latin America (see PMID: 33974019), which could complement this study. Again, this reference will also be uniquely suited to enhance the discussion provided in lines 290-297.</p>
+<p>3. Statistical analysis, lines 190-201, the authors present a ​​detectable between-group proportion (for HTN control) indicating that calculated values of 11% to 17% are "well within the range of clinically meaningful differences in primary care settings". Yet, we this reviewer would like to see a similar remark for the depression outcomes, since the authors only report that "detectable effect size ranged from 0.17 to 0.26 for the continuous outcome of depression symptom change" and the reader does not know if such calculations imply clinically meaningful differences.</p>
+<p>4. Methods, an ethical procedures section is missing. The information is scattered in other sections.</p>
+<p>5. Table 1 does not require p-values, as p-value is a measure for inferential purposes, not descriptive ones (PMID: 30096356).</p>
+<p>6. Results lacks a description of the delivery of the intervention, how many aging workers (AW), what was the turnover, how many replacements were needed, was re-training needed, was village-level or town-level tailoring required, how often did consultations with psychiatrists occur, etc., etc. This is a complex intervention that requires aligning to the TIDieR checklist (PMID: 24609605)</p>
+<p>Minor comments</p>
+<p>7. Abstract, lines 31-32, please clarify "Subjects were rural village clinics of randomly selected towns in Zhejiang Province, China."</p>
+<p>8. Line 237 reads "The study protocol was prospectively registered with Grants.gov [41]", yet the correct Website is <ext-link ext-link-type="uri" xlink:href="https://clinicaltrials.gov/" xlink:type="simple">https://clinicaltrials.gov/</ext-link> </p>
+<p>Discretionary comments</p>
+<p>9. Abstract, line 53: "geriatric mental health care is lacking", do you mean minimal or absent?</p>
+<p>Any attachments provided with reviews can be seen via the following link:</p>
+<p>[LINK]</p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pmed.1004019.r003">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004019.r003</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 1</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pmed.1004019" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj003" link-type="rebutted-decision-letter" object-id="10.1371/journal.pmed.1004019.r002" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>2</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="author-response-date">23 Aug 2022</named-content>
+</p>
+<supplementary-material id="pmed.1004019.s010" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s010" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">Responses to reviewers 8-22-22.docx</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pmed.1004019.r004" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004019.r004</article-id>
+<title-group>
+<article-title>Decision Letter 2</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Davidson</surname>
+<given-names>Callam</given-names>
+</name>
+<role>Senior Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Callam Davidson</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pmed.1004019" document-id-type="doi" document-type="article" id="rel-obj004" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>2</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">27 Sep 2022</named-content>
+</p>
+<p>Dear Dr. CONWELL,</p>
+<p>Thank you very much for re-submitting your manuscript "Effectiveness of integrated care for older adults with depression and hypertension in rural China: a cluster randomized controlled trial" (PMEDICINE-D-22-01526R2) for review by PLOS Medicine.</p>
+<p>I have discussed the paper with my colleagues and the academic editor and it was also seen again by three reviewers. I am pleased to say that provided the remaining editorial and production issues are dealt with we are planning to accept the paper for publication in the journal.</p>
+<p>The remaining issues that need to be addressed are listed at the end of this email. Any accompanying reviewer attachments can be seen via the link below. Please take these into account before resubmitting your manuscript:</p>
+<p>[LINK]</p>
+<p>***Please note while forming your response, if your article is accepted, you may have the opportunity to make the peer review history publicly available. The record will include editor decision letters (with reviews) and your responses to reviewer comments. If eligible, we will contact you to opt in or out.***</p>
+<p>In revising the manuscript for further consideration here, please ensure you address the specific points made by each reviewer and the editors. In your rebuttal letter you should indicate your response to the reviewers' and editors' comments and the changes you have made in the manuscript. Please submit a clean version of the paper as the main article file. A version with changes marked must also be uploaded as a marked up manuscript file.</p>
+<p>Please also check the guidelines for revised papers at <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/revising-your-manuscript" xlink:type="simple">http://journals.plos.org/plosmedicine/s/revising-your-manuscript</ext-link> for any that apply to your paper. If you haven't already, we ask that you provide a short, non-technical Author Summary of your research to make findings accessible to a wide audience that includes both scientists and non-scientists. The Author Summary should immediately follow the Abstract in your revised manuscript. This text is subject to editorial change and should be distinct from the scientific abstract.</p>
+<p>We hope to receive your revised manuscript within 1 week. Please email us (<email xlink:type="simple">plosmedicine@plos.org</email>) if you have any questions or concerns.</p>
+<p>We ask every co-author listed on the manuscript to fill in a contributing author statement. If any of the co-authors have not filled in the statement, we will remind them to do so when the paper is revised. If all statements are not completed in a timely fashion this could hold up the re-review process. Should there be a problem getting one of your co-authors to fill in a statement we will be in contact. YOU MUST NOT ADD OR REMOVE AUTHORS UNLESS YOU HAVE ALERTED THE EDITOR HANDLING THE MANUSCRIPT TO THE CHANGE AND THEY SPECIFICALLY HAVE AGREED TO IT.</p>
+<p>Please ensure that the paper adheres to the PLOS Data Availability Policy (see <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosmedicine/s/data-availability" xlink:type="simple">http://journals.plos.org/plosmedicine/s/data-availability</ext-link>), which requires that all data underlying the study's findings be provided in a repository or as Supporting Information. For data residing with a third party, authors are required to provide instructions with contact information for obtaining the data. PLOS journals do not allow statements supported by "data not shown" or "unpublished results." For such statements, authors must provide supporting data or cite public sources that include it.</p>
+<p>To enhance the reproducibility of your results, we recommend that you deposit your laboratory protocols in protocols.io, where a protocol can be assigned its own identifier (DOI) such that it can be cited independently in the future. Additionally, PLOS ONE offers an option to publish peer-reviewed clinical study protocols. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link></p>
+<p>Please review your reference list to ensure that it is complete and correct. If you have cited papers that have been retracted, please include the rationale for doing so in the manuscript text, or remove these references and replace them with relevant current references. Any changes to the reference list should be mentioned in the rebuttal letter that accompanies your revised manuscript.</p>
+<p>Please note, when your manuscript is accepted, an uncorrected proof of your manuscript will be published online ahead of the final version, unless you've already opted out via the online submission form. If, for any reason, you do not want an earlier version of your manuscript published online or are unsure if you have already indicated as such, please let the journal staff know immediately at <email xlink:type="simple">plosmedicine@plos.org</email>.</p>
+<p>If you have any questions in the meantime, please contact me or the journal staff on <email xlink:type="simple">plosmedicine@plos.org</email>.  </p>
+<p>We look forward to receiving the revised manuscript by Oct 04 2022 11:59PM.   </p>
+<p>Sincerely,</p>
+<p>Callam Davidson, </p>
+<p>Associate Editor </p>
+<p>PLOS Medicine</p>
+<p><ext-link ext-link-type="uri" xlink:href="http://plosmedicine.org" xlink:type="simple">plosmedicine.org</ext-link></p>
+<p>------------------------------------------------------------</p>
+<p>Requests from Editors:</p>
+<p>Lines 59-60: Please do not report P=0.0001; report as P &lt; 0.001.</p>
+<p>Abstract: Please define the following abbreviations on first use: HTN, PHQ, PCP, OR, LMIC (abbreviations are only necessary if the term is used more than once).</p>
+<p>Author Summary: Please include the headline numbers from the study, such as the sample size and key findings.</p>
+<p>Please update your TIDieR checklist to use section and paragraph numbers rather than page numbers.</p>
+<p>Line 342: Please change text colour to black.</p>
+<p>Table 2: Please consider presenting the crude (unadjusted) analysis as Supporting Information.</p>
+<p>Line 393: S1 Table does not contain information regarding demographic and clinical characteristics at baseline, please check whether this citation is incorrect. </p>
+<p>Line 526: Please remove ‘however’.</p>
+<p>Comments from Reviewers:</p>
+<p>Reviewer #1: Thank you to the authors for addressing my previous comments well. I have no further issues to raise.</p>
+<p>Reviewer #3:  I am satisfied with the response to the initial reviews and suggest publication without additional need for modifications.</p>
+<p>Reviewer #4: The current version is a much more improved version of the manuscript and I am satisfied with the changes made. I am also grateful to the authors for providing a detailed description of the intervention and using TIDieR as a guidance, which will improve towards the reproducibility of the research but also will guide the reader on the extent of activities required to be in place to consider a similar approach.</p>
+<p>I have only one two comments left</p>
+<p>1. Being a trial, I think you need a subheading in the methods describing the main outcomes</p>
+<p>2. Related to that point, I would encourage the authors/editors to maintain uniformity in the entire document, including text, table and figures about the sequence of how the outcomes are presented (e.g. depression goes always first and hypertension second).</p>
+<p>Thank you for the opportunity to see this version.</p>
+<p>Any attachments provided with reviews can be seen via the following link:</p>
+<p>[LINK]</p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pmed.1004019.r005">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004019.r005</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 2</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pmed.1004019" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj005" link-type="rebutted-decision-letter" object-id="10.1371/journal.pmed.1004019.r004" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>3</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="author-response-date">2 Oct 2022</named-content>
+</p>
+<supplementary-material id="pmed.1004019.s011" mimetype="application/pdf" position="float" xlink:href="info:doi/10.1371/journal.pmed.1004019.s011" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">Responses to reviewers 10-2-22.pdf</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pmed.1004019.r006" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1004019.r006</article-id>
+<title-group>
+<article-title>Decision Letter 3</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Davidson</surname>
+<given-names>Callam</given-names>
+</name>
+<role>Senior Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Callam Davidson</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pmed.1004019" document-id-type="doi" document-type="article" id="rel-obj006" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>3</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">4 Oct 2022</named-content>
+</p>
+<p>Dear Dr CONWELL, </p>
+<p>On behalf of my colleagues and the Academic Editor, Professor David Peiris, I am pleased to inform you that we have agreed to publish your manuscript "Effectiveness of integrated care for older adults with depression and hypertension in rural China: a cluster randomized controlled trial" (PMEDICINE-D-22-01526R3) in PLOS Medicine.</p>
+<p>Before your manuscript can be formally accepted you will need to complete some formatting changes, which you will receive in a follow up email. Please be aware that it may take several days for you to receive this email; during this time no action is required by you. Once you have received these formatting requests, please note that your manuscript will not be scheduled for publication until you have made the required changes.</p>
+<p>In the meantime, please log into Editorial Manager at <ext-link ext-link-type="uri" xlink:href="http://www.editorialmanager.com/pmedicine/" xlink:type="simple">http://www.editorialmanager.com/pmedicine/</ext-link>, click the "Update My Information" link at the top of the page, and update your user information to ensure an efficient production process. </p>
+<p>PRESS</p>
+<p>We frequently collaborate with press offices. If your institution or institutions have a press office, please notify them about your upcoming paper at this point, to enable them to help maximise its impact. If the press office is planning to promote your findings, we would be grateful if they could coordinate with <email xlink:type="simple">medicinepress@plos.org</email>. If you have not yet opted out of the early version process, we ask that you notify us immediately of any press plans so that we may do so on your behalf.</p>
+<p>We also ask that you take this opportunity to read our Embargo Policy regarding the discussion, promotion and media coverage of work that is yet to be published by PLOS. As your manuscript is not yet published, it is bound by the conditions of our Embargo Policy. Please be aware that this policy is in place both to ensure that any press coverage of your article is fully substantiated and to provide a direct link between such coverage and the published work. For full details of our Embargo Policy, please visit <ext-link ext-link-type="uri" xlink:href="http://www.plos.org/about/media-inquiries/embargo-policy/" xlink:type="simple">http://www.plos.org/about/media-inquiries/embargo-policy/</ext-link>.</p>
+<p>To enhance the reproducibility of your results, we recommend that you deposit your laboratory protocols in protocols.io, where a protocol can be assigned its own identifier (DOI) such that it can be cited independently in the future. Additionally, PLOS ONE offers an option to publish peer-reviewed clinical study protocols. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link></p>
+<p>Thank you again for submitting to PLOS Medicine. We look forward to publishing your paper. </p>
+<p>Sincerely, </p>
+<p>Callam Davidson </p>
+<p>Associate Editor </p>
+<p>PLOS Medicine</p>
+</body>
+</sub-article>
+</article>

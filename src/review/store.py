@@ -11,6 +11,7 @@ from uuid import uuid4
 
 from .identity import fallback_compatible, fallback_identity, validate_record
 from .models import SearchRunSpec
+from .studies import StudyLedger
 
 
 def _now():
@@ -90,6 +91,7 @@ class ReviewStore:
                 );
                 """
             )
+            self._studies = StudyLedger(self)
         except Exception:
             self.close()
             raise
@@ -461,8 +463,28 @@ class ReviewStore:
                 "assessment_progress": c["reports_retrieved"] == c["reports_awaiting_assessment"] + c["reports_assessed"],
                 "full_text": c["reports_assessed"] == c["reports_included"] + c["reports_excluded"] + c["reports_assessment_unresolved"],
             }
+            if self._studies.available(project_id):
+                self._studies.add_counts(result, records, self.list_study_links(project_id))
             result["all_checks_passed"] = all(result["reconciliation"].values())
             return result
+
+    def create_study(self, project_id, label, reviewer, reason, identifiers=None):
+        return self._studies.create_study(project_id, label, reviewer, reason, identifiers)
+
+    def list_studies(self, project_id):
+        return self._studies.list_studies(project_id)
+
+    def record_study_links(self, project_id, record_id, study_ids, reviewer, reason):
+        return self._studies.record_study_links(project_id, record_id, study_ids, reviewer, reason)
+
+    def adjudicate_study_links(self, project_id, record_id, study_ids, reviewer, reason):
+        return self._studies.adjudicate_study_links(project_id, record_id, study_ids, reviewer, reason)
+
+    def list_study_link_events(self, project_id, record_id=None):
+        return self._studies.list_study_link_events(project_id, record_id)
+
+    def list_study_links(self, project_id, record_id=None):
+        return self._studies.list_study_links(project_id, record_id)
 
     def _screening_rows(self, project_id, record_id=None):
         query = "SELECT * FROM screening_events WHERE project_id = ?"
@@ -604,6 +626,12 @@ class ReviewStore:
                 "retrieval_events": self.list_retrieval_events(project_id),
                 "counts": counts,
             }
+            if counts["study_linkage_available"]:
+                bundle.update({
+                    "studies": self.list_studies(project_id),
+                    "study_links": self.list_study_links(project_id),
+                    "study_link_events": self.list_study_link_events(project_id),
+                })
             export_artifacts, manifest = {}, []
             for run in bundle["search_runs"]:
                 artifacts = self.get_search_artifacts(project_id, run["id"])
