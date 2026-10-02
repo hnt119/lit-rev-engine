@@ -1,0 +1,79 @@
+{
+  "coordinator_acceptance": {
+    "answerable_per_split": 7,
+    "development_questions": 9,
+    "held_out_questions": 9,
+    "independent_source_semantic_review": true,
+    "no_answer_per_split": 2,
+    "passages": 23,
+    "quotes": 43,
+    "ranking_runs_before_freeze": 0,
+    "sources": 3
+  },
+  "development_selection": {
+    "answerable_questions": 7,
+    "eligible_min_complete_questions": 4,
+    "eligible_min_mean_support_coverage_at_5": 0.75,
+    "final_tie_preference": "bm25",
+    "order": [
+      "mean_support_coverage_at_5",
+      "complete_questions_at_5",
+      "mean_reciprocal_rank_at_5"
+    ]
+  },
+  "fixed_parameters": {
+    "bm25_b": 0.75,
+    "bm25_k1": 1.2,
+    "distinct_query_tokens": true,
+    "overlap_words": 40,
+    "tokenizer_id": "unicode-casefold-word-v1",
+    "top_k": 5,
+    "window_words": 200
+  },
+  "frozen_at_utc": "2026-10-02T19:00:06.082018+00:00",
+  "frozen_files": {
+    "anchors.json": {
+      "sha256": "8e3d411a6c0ff230ec8b4e9e9f0f721541e55184d4c89fa02765eff51a7e0955",
+      "size_bytes": 38255
+    },
+    "development.json": {
+      "sha256": "e73fc0b5c804a454c335f22775496bfbcc119e24162ed21f6531c38972e3acbb",
+      "size_bytes": 15844
+    },
+    "held-out.json": {
+      "sha256": "2ec3a96b0836a14347eccd3ce92d3d8ae7be606d1d763f571a2f1cf8881071f5",
+      "size_bytes": 16919
+    },
+    "manifest.json": {
+      "sha256": "dfd28050e83b3cf01fe4edd531bc8ecf79086b9a3ddabd83519a34811e8c4a9b",
+      "size_bytes": 7922
+    },
+    "passages.json": {
+      "sha256": "d30678b7ff5d50375d202a56b71e23f76b503c3b88248aa94618a0b5227750b7",
+      "size_bytes": 48696
+    }
+  },
+  "held_out_acceptance": {
+    "answerable_questions": 7,
+    "exact_anchor_validity": 1.0,
+    "min_complete_questions": 4,
+    "min_mean_support_coverage_at_5": 0.75,
+    "project_active_document_scope_isolation": 1.0
+  },
+  "held_out_policy": "Choose the default on development before any held-out ranking. Do not tune on held-out failures or change frozen gold to hide a failure.",
+  "limits": [
+    "Small three-article agent-authored software pilot; not clinical validation.",
+    "Question-level split shares documents and some passages; no document-level generalization claim.",
+    "Non-exhaustive support labels may omit alternative valid passages.",
+    "No established multiple-report study; multi-passage questions do not validate cross-report retrieval."
+  ],
+  "methods": [
+    "token_overlap",
+    "bm25"
+  ],
+  "no_answer_policy": "Report nonempty-candidate rate, scores and retrieved context/limitation spans separately. Candidate passages do not assert an answer, entailment, absence of evidence, or verification.",
+  "schema_version": 1,
+  "scoring_contract": "docs/project-retrieval-milestone.md: Candidate preparation, fixed before ranking",
+  "status": "frozen_before_ranking",
+  "support_semantics": "OR sufficient-support alternatives; AND passages within a set. A passage is covered when every question-specific required quote is contained in returned exact windows for its same source/block. Best alternative coverage is the per-question maximum."
+}

@@ -1,0 +1,462 @@
+{
+  "status": "draft-unfrozen",
+  "questions": [
+    {
+      "id": "dev-coach-01",
+      "article_alias": "coach",
+      "question": "In COACH, what age minimum, chart diagnosis, and PHQ-9 threshold were used when identifying potentially eligible participants?",
+      "challenge_tags": [
+        "population",
+        "thresholds"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "age_minimum_years": 60,
+        "required_chart_diagnosis": "hypertension (HTN)",
+        "PHQ9_minimum_score": 10,
+        "scope": "Specified identification criteria; not an exhaustive eligibility checklist."
+      },
+      "sufficient_support_sets": [
+        [
+          "C_population"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "C_population",
+          "start": 191,
+          "end": 235,
+          "quote": "age ≥60 years; and a chart diagnosis of HTN.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "C_population",
+          "start": 559,
+          "end": 595,
+          "quote": "Those recording a total score of ≥10",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "dev-coach-02",
+      "article_alias": "coach",
+      "question": "Over the 12-month COACH follow-up, how many participants were lost to follow-up in eCAU and COACH, and how many deaths were reported in each arm?",
+      "challenge_tags": [
+        "quantitative",
+        "follow_up",
+        "arm_denominators"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "follow_up_months": 12,
+        "eCAU": {
+          "enrolled": 1133,
+          "lost_to_follow_up": 67,
+          "deaths": 14
+        },
+        "COACH": {
+          "enrolled": 1232,
+          "lost_to_follow_up": 85,
+          "deaths": 22
+        },
+        "scope": "As reported; do not sum deaths with attrition as if disjoint categories."
+      },
+      "sufficient_support_sets": [
+        [
+          "C_attrition"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "C_attrition",
+          "start": 0,
+          "end": 124,
+          "quote": "Sixty-seven of 1,133 participants assigned to eCAU and 85 of 1,232 COACH participants were lost to follow-up over 12 months.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "C_attrition",
+          "start": 125,
+          "end": 215,
+          "quote": "Thirty-six participants died of natural causes, 22 in the COACH arm and 14 receiving eCAU.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "dev-coach-03",
+      "article_alias": "coach",
+      "question": "What percentage of COACH participants were measured as adhering to their hypertension medication at 12 months?",
+      "challenge_tags": [
+        "no_answer",
+        "unmeasured_outcome",
+        "patient_vs_team_adherence"
+      ],
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "provisional_spans": [
+        {
+          "passage_id": "C_adherence_unmeasured",
+          "start": 202,
+          "end": 302,
+          "quote": "Initial plans to measure adherence to medications could not be completed for administrative reasons.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [
+        "C_adherence_unmeasured"
+      ],
+      "hard_negative_passage_ids": [
+        "C_team_activity"
+      ],
+      "status": "draft; not frozen or evaluated",
+      "no_answer_rationale": "The paper explicitly says medication-adherence measurement could not be completed. Team activity logs do not provide a participant medication-adherence percentage.",
+      "expected_behavior": "State that the requested result is not reported/identified in this corpus; do not fabricate a number, assume zero, substitute generic guidance, or infer a causal effect from an association."
+    },
+    {
+      "id": "dev-whitehall-01",
+      "article_alias": "whitehall",
+      "question": "How did the Whitehall II sleep study define multimorbidity, and were hypertension and obesity counted in that disease list?",
+      "challenge_tags": [
+        "population",
+        "outcome_definition",
+        "negation"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "minimum_chronic_diseases": 2,
+        "prespecified_disease_list_size": 13,
+        "hypertension_in_disease_list": false,
+        "obesity_in_disease_list": false
+      },
+      "sufficient_support_sets": [
+        [
+          "W_definition"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "W_definition",
+          "start": 0,
+          "end": 120,
+          "quote": "Multimorbidity was defined as the presence of 2 or more chronic diseases out of a predefined list of 13 chronic diseases",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_definition",
+          "start": 380,
+          "end": 455,
+          "quote": "risk factors such as hypertension and obesity were not included in the list",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "dev-whitehall-02",
+      "article_alias": "whitehall",
+      "question": "For sleep duration ≤5 hours versus 7 hours at age 50, what fully adjusted hazard ratio and 95% confidence interval did Whitehall II report for subsequent multimorbidity?",
+      "challenge_tags": [
+        "quantitative",
+        "comparator",
+        "adjustment"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "exposure": "sleep ≤5 hours at age 50",
+        "reference": "7 hours",
+        "outcome": "incident multimorbidity",
+        "adjusted_HR": 1.3,
+        "CI95": [
+          1.12,
+          1.5
+        ],
+        "interpretation": "Reported association, not an intervention effect."
+      },
+      "sufficient_support_sets": [
+        [
+          "W_short_sleep"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "W_short_sleep",
+          "start": 420,
+          "end": 445,
+          "quote": "sleep duration of 7 hours",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_short_sleep",
+          "start": 644,
+          "end": 754,
+          "quote": "sleep duration ≤5 hours at age 50 (hazard ratio (HR) = 1.30, 95% confidence interval, 1.12 to 1.50; p < 0.001)",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_short_sleep",
+          "start": 505,
+          "end": 636,
+          "quote": "Further adjustment for health behaviors, BMI, hypertension, use of sleep medication, and prevalence of 1 of the 13 chronic diseases",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "dev-whitehall-03",
+      "article_alias": "whitehall",
+      "question": "What analytic sample sizes and mean follow-up durations were reported for the age-50 and age-70 incident-multimorbidity analyses?",
+      "challenge_tags": [
+        "quantitative",
+        "population",
+        "follow_up",
+        "analysis_scope"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "age_50": {
+          "sample_size": 7864,
+          "mean_follow_up_years": 22.6,
+          "follow_up_SD_years": 7.5
+        },
+        "age_70": {
+          "sample_size": 5546,
+          "mean_follow_up_years": 6.8,
+          "follow_up_SD_years": 4.5
+        },
+        "scope": "Age-specific analyses among participants initially free of multimorbidity; not the separate multistate sample."
+      },
+      "sufficient_support_sets": [
+        [
+          "W_age_cohorts"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "W_age_cohorts",
+          "start": 55,
+          "end": 110,
+          "quote": "7,864 (32.5% women) participants free of multimorbidity",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_age_cohorts",
+          "start": 308,
+          "end": 347,
+          "quote": "mean follow-up of 22.6 (SD = 7.5) years",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_age_cohorts",
+          "start": 620,
+          "end": 661,
+          "quote": "5,546 participants free of multimorbidity",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_age_cohorts",
+          "start": 849,
+          "end": 887,
+          "quote": "mean follow-up of 6.8 (SD = 4.5) years",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "dev-raptor-01",
+      "article_alias": "raptor",
+      "question": "In this RAPTOR-C19 arm, how many participants consented, how many entered the primary POCT/PCR analysis, and what missing-data exclusions explain the difference?",
+      "challenge_tags": [
+        "quantitative",
+        "population",
+        "missing_data"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "consented": 500,
+        "primary_analysis": 481,
+        "exclusions": {
+          "no_participant_information": 7,
+          "no_available_POCT_result": 5,
+          "no_laboratory_PCR_result": 7
+        }
+      },
+      "sufficient_support_sets": [
+        [
+          "R_recruitment"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "R_recruitment",
+          "start": 0,
+          "end": 33,
+          "quote": "Of 500 participants who consented",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "R_recruitment",
+          "start": 63,
+          "end": 126,
+          "quote": "seven were excluded as no participant information was collected",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "R_recruitment",
+          "start": 150,
+          "end": 193,
+          "quote": "a further five had no available POCT result",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "R_recruitment",
+          "start": 303,
+          "end": 384,
+          "quote": "a further seven had the POCT performed but no laboratory PCR result was available",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "R_recruitment",
+          "start": 394,
+          "end": 450,
+          "quote": "The primary analysis used data from the 481 participants",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "dev-raptor-02",
+      "article_alias": "raptor",
+      "question": "What SARS-CoV-2 sensitivity and specificity, with 95% intervals and observed numerators/denominators, were measured against PCR in the RAPTOR-C19 primary analysis?",
+      "challenge_tags": [
+        "quantitative",
+        "diagnostic_accuracy",
+        "table",
+        "measured_vs_manufacturer"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "sensitivity_percent": 70.4,
+        "sensitivity_CI95_percent": [
+          49.8,
+          86.2
+        ],
+        "sensitivity_fraction": [
+          19,
+          27
+        ],
+        "specificity_percent": 99.3,
+        "specificity_CI95_percent": [
+          98.1,
+          99.9
+        ],
+        "specificity_fraction": [
+          451,
+          454
+        ],
+        "scope": "This prospective primary analysis, not manufacturer-reported accuracy."
+      },
+      "sufficient_support_sets": [
+        [
+          "R_accuracy"
+        ],
+        [
+          "R_accuracy_table"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "R_accuracy",
+          "start": 61,
+          "end": 174,
+          "quote": "Sensitivity to detect SARS-CoV-2 was 70.4% (19/27, 49.8 to 86.2%) and specificity 99.3% (451/454, 98.1 to 99.9%).",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "R_accuracy_table",
+          "start": 180,
+          "end": 219,
+          "quote": "70.4%(49.8%, 86.2%)\t99.3%(98.1%, 99.9%)",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [
+        "R_manufacturer_claims"
+      ],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "dev-raptor-03",
+      "article_alias": "raptor",
+      "question": "What proportion of participants in this RAPTOR-C19 arm had resolved respiratory symptoms at day 28 follow-up?",
+      "challenge_tags": [
+        "no_answer",
+        "follow_up",
+        "uncollected_data"
+      ],
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "provisional_spans": [
+        {
+          "passage_id": "R_omitted_data",
+          "start": 145,
+          "end": 224,
+          "quote": "participant-reported follow-up data was not collected for this arm of the study",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [
+        "R_omitted_data"
+      ],
+      "hard_negative_passage_ids": [
+        "R_characteristics"
+      ],
+      "status": "draft; not frozen or evaluated",
+      "no_answer_rationale": "Participant-reported follow-up data were explicitly not collected in this arm. Baseline symptom-duration measurements cannot answer a later resolution rate.",
+      "expected_behavior": "State that the requested result is not reported/identified in this corpus; do not fabricate a number, assume zero, substitute generic guidance, or infer a causal effect from an association."
+    }
+  ]
+}

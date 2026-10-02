@@ -2,7 +2,7 @@
 
 A Python engine for managing a reproducible review ledger and exploring locally indexed academic papers with an Agnes-powered assistant.
 
-The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. PubMed receipts and original response bytes survive ledger export and offline replay. Its source-document API retains immutable TXT/JATS/PDF versions with exact quotation blocks and typed locators. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages. Structured extraction and independent verification remain the next gate.
+The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
 
 ## Current workflow
 
@@ -18,9 +18,13 @@ flowchart LR
     Fulltext --> Counts[Reconciled counts and JSON / CSV exports]
     Fulltext --> Link[Audited report / study associations]
     Link --> Counts
+    Link --> Sources[Retain original source versions]
+    Sources --> Findings[Manual findings and appraisal judgments]
+    Findings --> Verify[Independent revision verification]
+    Verify --> Evidence[Verified evidence plus complete audit exports]
 ```
 
-`review.py` uses Python's standard library. Imports, screening, counts, export, and saved-capture verification run offline; `search-pubmed` explicitly executes an NCBI search. Full-text retrieval status is recorded by a reviewer; the ledger does not download the report or make eligibility decisions.
+`review.py` runs offline for imports, screening, source/evidence review, counts, export and saved-capture verification; `search-pubmed` explicitly executes an NCBI search. Ledger operations and TXT/JATS parsing use Python's standard library; PDF attachment lazily uses PyMuPDF. Full-text retrieval status, eligibility and extracted findings are recorded by reviewers.
 
 The passage exploration pipeline remains separate:
 
@@ -46,7 +50,7 @@ Embeddings run locally using `BAAI/bge-small-en-v1.5`. Ingestion and retrieval r
 
 ## Requirements and installation
 
-Python 3.12 is recommended. The review ledger and PubMed adapter require no third-party packages or paid API key. Live PubMed requests require a contact email; an NCBI API key is optional. An internet connection is needed for PubMed/arXiv searches, PDF downloads, the first embedding-model download, and Agnes generation. Install the runtime dependencies below to use the passage pipeline.
+Python 3.12 is recommended. The ledger, PubMed adapter and TXT/JATS evidence workflow require no third-party packages or paid API key. PDF source attachment uses PyMuPDF, included in the runtime dependencies below. Live PubMed requests require a contact email; an NCBI API key is optional. An internet connection is needed for PubMed/arXiv searches, PDF downloads, the first embedding-model download, and Agnes generation. Install the runtime dependencies below to use PDF parsing or the passage pipeline.
 
 ```bash
 git clone https://github.com/hnt119/lit-rev-engine.git
@@ -159,7 +163,36 @@ Linking does not change eligibility. Only current full-text-included reports con
 
 ### Retain original report sources
 
-The Python API supports immutable source attachments, version history, source hashes and exact quotation blocks for UTF-8 text, publisher JATS XML, and text-bearing PDFs. JATS own DOI/PMID checks can reject a wrong report association; XML reference lists and peer-review sub-articles are excluded from finding passages. PDF locators use actual page positions. Every source version survives export and original-file deletion. See [source documents](docs/source-documents.md) for API usage, transformations and limitations. Source attachment does not change screening status.
+Source attachment retains version history, hashes and exact quotation blocks for UTF-8 text, publisher JATS XML, and text-bearing PDFs. JATS own DOI/PMID checks can reject a wrong report association; XML reference lists and peer-review sub-articles are excluded from finding passages. PDF locators use actual page positions. Every source version survives export and original-file deletion. Source attachment does not change screening status.
+
+```bash
+python review.py attach-source "$REVIEW_PROJECT_ID" "$REVIEW_RECORD_ID" article.xml \
+  --format jats_xml --reviewer reviewer-1 --reason "Checked this source against the report"
+REVIEW_DOCUMENT_ID="COPY_DOCUMENT_ID_FROM_OUTPUT"
+python review.py source-blocks "$REVIEW_PROJECT_ID" "$REVIEW_DOCUMENT_ID"
+python review.py documents "$REVIEW_PROJECT_ID" --record-id "$REVIEW_RECORD_ID"
+```
+
+See [source documents](docs/source-documents.md) for API usage, transformations and limitations.
+
+### Enter and verify evidence
+
+Prepare a JSON payload containing `study_id`, `document_id`, `field`, finite `value`, `context`, and an exact `anchor` (`block_id`, half-open character `start`/`end`, and `quote`). Use an included report, its active document and a resolved association with the selected study. The [executable offline guide](docs/verified-evidence.md) creates complete finding/appraisal payloads and exercises revisions, disagreement, source replacement and export.
+
+```bash
+python review.py propose-evidence "$REVIEW_PROJECT_ID" "$REVIEW_RECORD_ID" \
+  --payload evidence-proposal.json --reviewer reviewer-1 --reason "Entered value and source context"
+REVIEW_REVISION_ID="COPY_REVISION_ID_FROM_OUTPUT"
+python review.py review-evidence "$REVIEW_PROJECT_ID" "$REVIEW_REVISION_ID" \
+  --decision confirm --reviewer reviewer-2 --reason "Checked quotation, value and context independently"
+python review.py evidence "$REVIEW_PROJECT_ID" --verified-only
+python review.py evidence-history "$REVIEW_PROJECT_ID"
+python review.py export "$REVIEW_PROJECT_ID" /tmp/review-export
+```
+
+`revise-evidence` takes the stable `evidence_id` and a complete replacement payload. Verification takes its current revision `id`; a different named reviewer must confirm/reject/adjudicate it. Disagreement remains visible, explicit adjudication requires prior reviews, and any later review invalidates adjudication. Edits inherit no confirmations. Replacing a source makes old revisions stale; changed eligibility, unresolved links or source-identifier contradictions suppress verified output while retaining audit history. Reviewer names are declared identities, without authentication or an enforced quorum.
+
+Appraisal payloads use `kind="appraisal"`, a judgment string, and explicit `appraisal` instrument/instrument_version/domain metadata chosen in the review protocol. The engine computes no overall quality score. Exact quote validation establishes location; reviewers must assess whether the entered finding and context are supported. Exports add complete evidence/revision/review audit arrays and CSVs, plus separate `verified_evidence.json`/CSV. Screening count reconciliation does not imply complete extraction or clinical validity. See [independent evidence checks](docs/evidence-evaluation.md).
 
 ### 1. Search and index papers
 
@@ -315,10 +348,10 @@ The six development priorities are:
 2. Biomedical discovery: JSON, RIS, PubMed XML imports, and complete PubMed capture/offline replay implemented; additional databases and validated searches beyond 10,000 matches remain future work.
 3. Citation-record deduplication and auditable manual many-to-many report/study linkage implemented; manual citation merging remains future work.
 4. Title/abstract and full-text screening, reviewer identity, exclusion reasons, reconciled report counts and conditional distinct-study totals implemented; reviewer requirements and reopening stages remain future work.
-5. Durable TXT/JATS/PDF source versions and exact quotation locators implemented through the Python API; structured extraction, reviewer verification and design-appropriate appraisal are next.
+5. Durable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, append-only revisions and independent reviewer verification implemented through API/CLI.
 6. Synthesis and exports based on verified evidence, with a medical-paper evaluation set.
 
-The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The next gate is structured extraction and independent verification against retained source versions, followed by real medical-paper retrieval evaluation.
+The coordinator's [roadmap](docs/review-roadmap.md) tracks accepted gates and remaining requirements. The next gate is project source retrieval evaluated against the frozen real medical-paper pilot, followed by a complete integrated review acceptance run.
 
 PRISMA is a reporting guideline; implementing a flow diagram alone does not establish review quality. Systematic and scoping workflows should retain their distinct methodological requirements. [PRISMA 2020](https://www.prisma-statement.org/prisma-2020), [PRISMA-ScR](https://www.prisma-statement.org/scoping).
 

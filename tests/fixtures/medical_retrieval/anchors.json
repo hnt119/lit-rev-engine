@@ -1,0 +1,1053 @@
+{
+  "schema_version": 1,
+  "status": "anchor-reconciled; pilot-unfrozen; semantic review and coordinator metric freeze pending",
+  "offset_unit": "Unicode code points, half-open [start,end)",
+  "block_text_hash_rule": "SHA-256 of exact canonical block text encoded UTF-8; no additional normalization",
+  "full_blocks_hash_rule": "SHA-256 of sorted-key compact finite UTF-8 JSON with ensure_ascii=False over the complete parser blocks array",
+  "draft_file_pins": [
+    {
+      "file": "manifest.json",
+      "sha256": "dfd28050e83b3cf01fe4edd531bc8ecf79086b9a3ddabd83519a34811e8c4a9b",
+      "size_bytes": 7922
+    },
+    {
+      "file": "passages.json",
+      "sha256": "d30678b7ff5d50375d202a56b71e23f76b503c3b88248aa94618a0b5227750b7",
+      "size_bytes": 48696
+    },
+    {
+      "file": "development.json",
+      "sha256": "e73fc0b5c804a454c335f22775496bfbcc119e24162ed21f6531c38972e3acbb",
+      "size_bytes": 15844
+    },
+    {
+      "file": "held-out.json",
+      "sha256": "2ec3a96b0836a14347eccd3ce92d3d8ae7be606d1d763f571a2f1cf8881071f5",
+      "size_bytes": 16919
+    }
+  ],
+  "counts": {
+    "sources": 3,
+    "passages": 23,
+    "questions": 18,
+    "quotes": 43,
+    "development_questions": 9,
+    "held_out_questions": 9,
+    "no_answer_questions": 4
+  },
+  "sources": [
+    {
+      "article_alias": "coach",
+      "source_file": "../medical_sources/coach.xml",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "size_bytes": 175830,
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "block_count": 79,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pmed.1004019"
+      }
+    },
+    {
+      "article_alias": "whitehall",
+      "source_file": "../medical_sources/whitehall.xml",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "size_bytes": 209909,
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "block_count": 88,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pmed.1004109"
+      }
+    },
+    {
+      "article_alias": "raptor",
+      "source_file": "../medical_sources/raptor.xml",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "size_bytes": 117858,
+      "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+      "block_count": 48,
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "source_identifiers": {
+        "doi": "10.1371/journal.pone.0329611"
+      }
+    }
+  ],
+  "passages": [
+    {
+      "passage_id": "C_population",
+      "article_alias": "coach",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "block_ordinal": 26,
+      "block_text_sha256": "c0c0bd163a278156103e257b37eed1a56e68ee57e0341206348aabb02aeb821e",
+      "block_text_code_points": 1427,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Participants"
+      }
+    },
+    {
+      "passage_id": "C_attrition",
+      "article_alias": "coach",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[3]",
+      "block_ordinal": 5,
+      "block_text_sha256": "e8c448e3590f4aad22768f9b558fb132806627c99453ae454db5da5ef4868144",
+      "block_text_code_points": 574,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[3]",
+        "tag": "p",
+        "section_title": "Methods and findings"
+      }
+    },
+    {
+      "passage_id": "C_adherence_unmeasured",
+      "article_alias": "coach",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+      "block_ordinal": 40,
+      "block_text_sha256": "77079858b3b178fdc286fe1c795ac3981b77a9b680f5e5995efe9ed3b61eb3bd",
+      "block_text_code_points": 302,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+        "tag": "p",
+        "section_title": "Primary outcomes"
+      }
+    },
+    {
+      "passage_id": "C_randomization",
+      "article_alias": "coach",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "block_ordinal": 24,
+      "block_text_sha256": "630e1795223b53a4df6eb1a537eeb84815c9207cd36b7b4f7e05c478b840a665",
+      "block_text_code_points": 1208,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Randomization and masking"
+      }
+    },
+    {
+      "passage_id": "C_HTN_results",
+      "article_alias": "coach",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[4]",
+      "block_ordinal": 54,
+      "block_text_sha256": "930773caea7fa01d07453342cda3c4696e84b4d472b1e333a49591c4dffc634a",
+      "block_text_code_points": 628,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[4]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "passage_id": "C_HTN_definition",
+      "article_alias": "coach",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+      "block_ordinal": 29,
+      "block_text_sha256": "21f5c731d535b0455be27a24d52e40dbe574f8d3db10d25cff9a8e2b0b769b03",
+      "block_text_code_points": 388,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+        "tag": "p",
+        "section_title": "Assessment"
+      }
+    },
+    {
+      "passage_id": "C_component_not_isolated",
+      "article_alias": "coach",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+      "block_ordinal": 17,
+      "block_text_sha256": "2281dd455179140abd4b9831bd502789a4cf8e5622e235f15b2bd3e547806894",
+      "block_text_code_points": 216,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+        "tag": "p",
+        "section_title": "What do these findings mean?"
+      }
+    },
+    {
+      "passage_id": "C_team_activity",
+      "article_alias": "coach",
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "blocks_sha256": "f57a09ccb91f6b6b5de036f46b674c43f8255b35b6048c8786b9cbd3b8213d76",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[2]",
+      "block_ordinal": 51,
+      "block_text_sha256": "4e1abb8f93d130fb8d98474a549c7ae482e5127ba3cb0278528d87753d4dca27",
+      "block_text_code_points": 743,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "passage_id": "W_definition",
+      "article_alias": "whitehall",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "block_ordinal": 23,
+      "block_text_sha256": "44250af8b7bb6eda3bb887752103624a3453563f607dd6f24dcdbf5912b09d3f",
+      "block_text_code_points": 874,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Multimorbidity"
+      }
+    },
+    {
+      "passage_id": "W_short_sleep",
+      "article_alias": "whitehall",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[3]",
+      "block_ordinal": 52,
+      "block_text_sha256": "b01efcf19ede5b1a95c9618375e374aed8d7c55a6fa52625afbebc5e196722b7",
+      "block_text_code_points": 1254,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[3]",
+        "tag": "p",
+        "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity"
+      }
+    },
+    {
+      "passage_id": "W_age_cohorts",
+      "article_alias": "whitehall",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "block_ordinal": 49,
+      "block_text_sha256": "69060fbda26c70c00359ee074d49a7a7fa36d7e63250bf3ba089205c14cf830f",
+      "block_text_code_points": 1238,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity"
+      }
+    },
+    {
+      "passage_id": "W_long_sleep_sensitivity",
+      "article_alias": "whitehall",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[4]",
+      "block_ordinal": 54,
+      "block_text_sha256": "17ffb035766a1f4e0c2db9a15b63528b0e0848af5591985d788bb78d4ebf9598",
+      "block_text_code_points": 526,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[4]",
+        "tag": "p",
+        "section_title": "Sleep duration at ages 50, 60, and 70 and subsequent risk of multimorbidity"
+      }
+    },
+    {
+      "passage_id": "W_multistate",
+      "article_alias": "whitehall",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "block_ordinal": 59,
+      "block_text_sha256": "67d09c484cb78ac3e3b5e9603a6a9aab1c4508d3f088ec7ab83d4921e11f6ec8",
+      "block_text_code_points": 846,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Sleep duration at age 50 and subsequent transitions to a first chronic disease, multimorbidity, and death"
+      }
+    },
+    {
+      "passage_id": "W_posthoc_mortality",
+      "article_alias": "whitehall",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "block_ordinal": 61,
+      "block_text_sha256": "5b77c4183fc8a7ff5ad67a31daba08aeca5f6c2252a06d85820400fcdf1d4c32",
+      "block_text_code_points": 581,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "tag": "p",
+        "section_title": "Sleep duration at age 50 and subsequent transitions to a first chronic disease, multimorbidity, and death"
+      }
+    },
+    {
+      "passage_id": "W_cohort_design",
+      "article_alias": "whitehall",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "block_ordinal": 18,
+      "block_text_sha256": "6a5a1aa2eeef42038511a579b7f90c32d7c1eba82646a0fdc5ee384f805bf369",
+      "block_text_code_points": 993,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Study population"
+      }
+    },
+    {
+      "passage_id": "W_limitations",
+      "article_alias": "whitehall",
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "blocks_sha256": "1bafb458811e101aab8e698be0f8e81ce534502a76b250e06146902b17058c41",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[6]",
+      "block_ordinal": 69,
+      "block_text_sha256": "8fc97c737e8d72fc2a4a8c4fdf3435fa57268d3e02ebe3c8a9fdb743f456eac2",
+      "block_text_code_points": 1643,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[6]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "passage_id": "R_recruitment",
+      "article_alias": "raptor",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "block_ordinal": 28,
+      "block_text_sha256": "828e28d6c08183b71e4993c501cda46d18200f9268acfa7d3360ab7f855b3bed",
+      "block_text_code_points": 495,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Participant characteristics"
+      }
+    },
+    {
+      "passage_id": "R_population",
+      "article_alias": "raptor",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "block_ordinal": 13,
+      "block_text_sha256": "16f3b4c8819234567babd670fe0299a7d4efdfd9edcacdd2658a814c6b8c6106",
+      "block_text_code_points": 517,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Design"
+      }
+    },
+    {
+      "passage_id": "R_omitted_data",
+      "article_alias": "raptor",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "block_ordinal": 14,
+      "block_text_sha256": "b46ebf6ebb146f51b3039af84f6c5ab48193fc9059dc2c18bd2fd997f04d09e6",
+      "block_text_code_points": 267,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+        "tag": "p",
+        "section_title": "Design"
+      }
+    },
+    {
+      "passage_id": "R_accuracy",
+      "article_alias": "raptor",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "block_ordinal": 32,
+      "block_text_sha256": "accd01d2f92226c948271b9d03318c271f3a52f44a59a93ababcd7bffaab4ab6",
+      "block_text_code_points": 391,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "tag": "p",
+        "section_title": "Diagnostic accuracy"
+      }
+    },
+    {
+      "passage_id": "R_accuracy_table",
+      "article_alias": "raptor",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+      "block_ordinal": 33,
+      "block_text_sha256": "e99d533bc3de4d34cc9b06fbe1f9fe096342e33b6d307555b3d87a2528cfae3c",
+      "block_text_code_points": 822,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0329611.t002",
+        "section_title": "Diagnostic accuracy",
+        "table_label": "Table 2"
+      }
+    },
+    {
+      "passage_id": "R_characteristics",
+      "article_alias": "raptor",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+      "block_ordinal": 29,
+      "block_text_sha256": "0e63fc33d9ac14eb4e5551d08a5e8ea579a170d5068766616b098280673b58fb",
+      "block_text_code_points": 584,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+        "tag": "p",
+        "section_title": "Participant characteristics"
+      }
+    },
+    {
+      "passage_id": "R_manufacturer_claims",
+      "article_alias": "raptor",
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "blocks_sha256": "84c6544ab39574c8ded6c154d4e1983a53673c8a0d13a580eeb831857183a5f2",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/sec[3]/p[1]",
+      "block_ordinal": 44,
+      "block_text_sha256": "abe9cca109814bed38a2d803f26ba4544e14e6b6d8f114d05f81db9bb2bb9472",
+      "block_text_code_points": 654,
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Comparison with other studies"
+      }
+    }
+  ],
+  "question_quotes": [
+    {
+      "question_id": "dev-coach-01",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "C_population",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "start": 191,
+        "end": 235,
+        "quote": "age ≥60 years; and a chart diagnosis of HTN."
+      }
+    },
+    {
+      "question_id": "dev-coach-01",
+      "split": "development",
+      "span_ordinal": 2,
+      "passage_id": "C_population",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "start": 559,
+        "end": 595,
+        "quote": "Those recording a total score of ≥10"
+      }
+    },
+    {
+      "question_id": "dev-coach-02",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "C_attrition",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[3]",
+        "start": 0,
+        "end": 124,
+        "quote": "Sixty-seven of 1,133 participants assigned to eCAU and 85 of 1,232 COACH participants were lost to follow-up over 12 months."
+      }
+    },
+    {
+      "question_id": "dev-coach-02",
+      "split": "development",
+      "span_ordinal": 2,
+      "passage_id": "C_attrition",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[3]",
+        "start": 125,
+        "end": 215,
+        "quote": "Thirty-six participants died of natural causes, 22 in the COACH arm and 14 receiving eCAU."
+      }
+    },
+    {
+      "question_id": "dev-coach-03",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "C_adherence_unmeasured",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+        "start": 202,
+        "end": 302,
+        "quote": "Initial plans to measure adherence to medications could not be completed for administrative reasons."
+      }
+    },
+    {
+      "question_id": "dev-whitehall-01",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "W_definition",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "start": 0,
+        "end": 120,
+        "quote": "Multimorbidity was defined as the presence of 2 or more chronic diseases out of a predefined list of 13 chronic diseases"
+      }
+    },
+    {
+      "question_id": "dev-whitehall-01",
+      "split": "development",
+      "span_ordinal": 2,
+      "passage_id": "W_definition",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "start": 380,
+        "end": 455,
+        "quote": "risk factors such as hypertension and obesity were not included in the list"
+      }
+    },
+    {
+      "question_id": "dev-whitehall-02",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "W_short_sleep",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[3]",
+        "start": 420,
+        "end": 445,
+        "quote": "sleep duration of 7 hours"
+      }
+    },
+    {
+      "question_id": "dev-whitehall-02",
+      "split": "development",
+      "span_ordinal": 2,
+      "passage_id": "W_short_sleep",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[3]",
+        "start": 644,
+        "end": 754,
+        "quote": "sleep duration ≤5 hours at age 50 (hazard ratio (HR) = 1.30, 95% confidence interval, 1.12 to 1.50; p < 0.001)"
+      }
+    },
+    {
+      "question_id": "dev-whitehall-02",
+      "split": "development",
+      "span_ordinal": 3,
+      "passage_id": "W_short_sleep",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[3]",
+        "start": 505,
+        "end": 636,
+        "quote": "Further adjustment for health behaviors, BMI, hypertension, use of sleep medication, and prevalence of 1 of the 13 chronic diseases"
+      }
+    },
+    {
+      "question_id": "dev-whitehall-03",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "W_age_cohorts",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 55,
+        "end": 110,
+        "quote": "7,864 (32.5% women) participants free of multimorbidity"
+      }
+    },
+    {
+      "question_id": "dev-whitehall-03",
+      "split": "development",
+      "span_ordinal": 2,
+      "passage_id": "W_age_cohorts",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 308,
+        "end": 347,
+        "quote": "mean follow-up of 22.6 (SD = 7.5) years"
+      }
+    },
+    {
+      "question_id": "dev-whitehall-03",
+      "split": "development",
+      "span_ordinal": 3,
+      "passage_id": "W_age_cohorts",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 620,
+        "end": 661,
+        "quote": "5,546 participants free of multimorbidity"
+      }
+    },
+    {
+      "question_id": "dev-whitehall-03",
+      "split": "development",
+      "span_ordinal": 4,
+      "passage_id": "W_age_cohorts",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 849,
+        "end": 887,
+        "quote": "mean follow-up of 6.8 (SD = 4.5) years"
+      }
+    },
+    {
+      "question_id": "dev-raptor-01",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "R_recruitment",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 0,
+        "end": 33,
+        "quote": "Of 500 participants who consented"
+      }
+    },
+    {
+      "question_id": "dev-raptor-01",
+      "split": "development",
+      "span_ordinal": 2,
+      "passage_id": "R_recruitment",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 63,
+        "end": 126,
+        "quote": "seven were excluded as no participant information was collected"
+      }
+    },
+    {
+      "question_id": "dev-raptor-01",
+      "split": "development",
+      "span_ordinal": 3,
+      "passage_id": "R_recruitment",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 150,
+        "end": 193,
+        "quote": "a further five had no available POCT result"
+      }
+    },
+    {
+      "question_id": "dev-raptor-01",
+      "split": "development",
+      "span_ordinal": 4,
+      "passage_id": "R_recruitment",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 303,
+        "end": 384,
+        "quote": "a further seven had the POCT performed but no laboratory PCR result was available"
+      }
+    },
+    {
+      "question_id": "dev-raptor-01",
+      "split": "development",
+      "span_ordinal": 5,
+      "passage_id": "R_recruitment",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "start": 394,
+        "end": 450,
+        "quote": "The primary analysis used data from the 481 participants"
+      }
+    },
+    {
+      "question_id": "dev-raptor-02",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "R_accuracy",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "start": 61,
+        "end": 174,
+        "quote": "Sensitivity to detect SARS-CoV-2 was 70.4% (19/27, 49.8 to 86.2%) and specificity 99.3% (451/454, 98.1 to 99.9%)."
+      }
+    },
+    {
+      "question_id": "dev-raptor-02",
+      "split": "development",
+      "span_ordinal": 2,
+      "passage_id": "R_accuracy_table",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+        "start": 180,
+        "end": 219,
+        "quote": "70.4%(49.8%, 86.2%)\t99.3%(98.1%, 99.9%)"
+      }
+    },
+    {
+      "question_id": "dev-raptor-03",
+      "split": "development",
+      "span_ordinal": 1,
+      "passage_id": "R_omitted_data",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+        "start": 145,
+        "end": 224,
+        "quote": "participant-reported follow-up data was not collected for this arm of the study"
+      }
+    },
+    {
+      "question_id": "held-coach-01",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "C_randomization",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "start": 0,
+        "end": 71,
+        "quote": "The original design planned for village to be the unit of randomization"
+      }
+    },
+    {
+      "question_id": "held-coach-01",
+      "split": "held_out",
+      "span_ordinal": 2,
+      "passage_id": "C_randomization",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "start": 280,
+        "end": 406,
+        "quote": "randomization was based on the township where the villages were located, while outcomes pertain to the individual participant."
+      }
+    },
+    {
+      "question_id": "held-coach-01",
+      "split": "held_out",
+      "span_ordinal": 3,
+      "passage_id": "C_randomization",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "start": 691,
+        "end": 745,
+        "quote": "Five townships were selected for each arm of the study"
+      }
+    },
+    {
+      "question_id": "held-coach-02",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "C_HTN_results",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/p[4]",
+        "start": 78,
+        "end": 150,
+        "quote": "increasing from 25.1% to 71.6% over the 12 months of study participation"
+      }
+    },
+    {
+      "question_id": "held-coach-02",
+      "split": "held_out",
+      "span_ordinal": 2,
+      "passage_id": "C_HTN_results",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/p[4]",
+        "start": 176,
+        "end": 202,
+        "quote": "eCAU (from 20.2% to 40.9%)"
+      }
+    },
+    {
+      "question_id": "held-coach-02",
+      "split": "held_out",
+      "span_ordinal": 3,
+      "passage_id": "C_HTN_definition",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+        "start": 193,
+        "end": 388,
+        "quote": "systolic blood pressure (BP) ≥130 mm Hg or diastolic BP ≥80 for patients with diabetes mellitus, coronary heart disease, or renal disease, and systolic BP ≥140 or diastolic BP ≥90 for all others."
+      }
+    },
+    {
+      "question_id": "held-coach-03",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "C_component_not_isolated",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+        "start": 0,
+        "end": 124,
+        "quote": "The unique benefits to depression treatment and hypertension control of antidepressant prescription and Aging Worker support"
+      }
+    },
+    {
+      "question_id": "held-coach-03",
+      "split": "held_out",
+      "span_ordinal": 2,
+      "passage_id": "C_component_not_isolated",
+      "article_alias": "coach",
+      "anchor": {
+        "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+        "start": 194,
+        "end": 216,
+        "quote": "require further study."
+      }
+    },
+    {
+      "question_id": "held-whitehall-01",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "W_long_sleep_sensitivity",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[4]",
+        "start": 247,
+        "end": 411,
+        "quote": "the association with sleep duration ≥9 hours at age 70 that did not reach significance although the effect size was comparable (HR = 1.52, 0.98 to 2.35; p = 0.063)."
+      }
+    },
+    {
+      "question_id": "held-whitehall-02",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "W_multistate",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "start": 0,
+        "end": 29,
+        "quote": "A total of 7,217 participants"
+      }
+    },
+    {
+      "question_id": "held-whitehall-02",
+      "split": "held_out",
+      "span_ordinal": 2,
+      "passage_id": "W_multistate",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "start": 738,
+        "end": 766,
+        "quote": "but not mortality (Table 3)."
+      }
+    },
+    {
+      "question_id": "held-whitehall-02",
+      "split": "held_out",
+      "span_ordinal": 3,
+      "passage_id": "W_posthoc_mortality",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "start": 224,
+        "end": 279,
+        "quote": "without considering chronic diseases over the follow-up"
+      }
+    },
+    {
+      "question_id": "held-whitehall-02",
+      "split": "held_out",
+      "span_ordinal": 4,
+      "passage_id": "W_posthoc_mortality",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "start": 364,
+        "end": 424,
+        "quote": "sleep duration ≤5 hours (HR = 1.25, 1.02 to 1.53; p = 0.034)"
+      }
+    },
+    {
+      "question_id": "held-whitehall-03",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "W_cohort_design",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "start": 0,
+        "end": 49,
+        "quote": "The Whitehall II study is an ongoing cohort study"
+      }
+    },
+    {
+      "question_id": "held-whitehall-03",
+      "split": "held_out",
+      "span_ordinal": 2,
+      "passage_id": "W_limitations",
+      "article_alias": "whitehall",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[4]/p[6]",
+        "start": 1000,
+        "end": 1062,
+        "quote": "residual confounding can be an issue in observational studies."
+      }
+    },
+    {
+      "question_id": "held-raptor-01",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "R_population",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "start": 310,
+        "end": 359,
+        "quote": "Adults and children were eligible to participate."
+      }
+    },
+    {
+      "question_id": "held-raptor-01",
+      "split": "held_out",
+      "span_ordinal": 2,
+      "passage_id": "R_characteristics",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+        "start": 205,
+        "end": 232,
+        "quote": "36% (175/481) aged under 16"
+      }
+    },
+    {
+      "question_id": "held-raptor-01",
+      "split": "held_out",
+      "span_ordinal": 3,
+      "passage_id": "R_characteristics",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+        "start": 308,
+        "end": 368,
+        "quote": "Average time since self-reported symptom onset was 3.7 days."
+      }
+    },
+    {
+      "question_id": "held-raptor-02",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "R_omitted_data",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+        "start": 105,
+        "end": 267,
+        "quote": "following approved protocol amendments, participant-reported follow-up data was not collected for this arm of the study and serology collection was not performed."
+      }
+    },
+    {
+      "question_id": "held-raptor-03",
+      "split": "held_out",
+      "span_ordinal": 1,
+      "passage_id": "R_accuracy",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "start": 285,
+        "end": 391,
+        "quote": "For Influenza B, sensitivity was 22.2% (2/9, 2.8 to 60.0%) and specificity 98.1% (463/472, 96.4 to 99.1%)."
+      }
+    },
+    {
+      "question_id": "held-raptor-03",
+      "split": "held_out",
+      "span_ordinal": 2,
+      "passage_id": "R_accuracy_table",
+      "article_alias": "raptor",
+      "anchor": {
+        "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+        "start": 506,
+        "end": 544,
+        "quote": "22.2%(2.8%, 60.0%)\t98.1%(96.4%, 99.1%)"
+      }
+    }
+  ]
+}

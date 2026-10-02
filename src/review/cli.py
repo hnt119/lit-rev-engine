@@ -55,6 +55,17 @@ def _json_argument(value, name, dictionary=False):
     return parsed
 
 
+def _evidence_payload(path, *, proposal):
+    payload = _json_argument(Path(path).read_text(encoding="utf-8"), "evidence payload JSON", dictionary=True)
+    required = {"study_id", "document_id", "field", "value", "context", "anchor"}
+    allowed = required | ({"kind", "appraisal"} if proposal else {"appraisal"})
+    if set(payload) - allowed:
+        raise ValueError("Evidence payload has unknown keys: " + ", ".join(sorted(set(payload) - allowed)))
+    if required - set(payload):
+        raise ValueError("Evidence payload is missing required keys: " + ", ".join(sorted(required - set(payload))))
+    return payload
+
+
 def _parser():
     parser = _ArgumentParser(
         description="Review ledger: import citation records, explicitly search PubMed, screen reports, and export reconciled counts. Included reports are not linked into studies automatically.",
@@ -116,6 +127,43 @@ def _parser():
     links = commands.add_parser("links", help="Show current associations and their append-only history in one snapshot")
     links.add_argument("project_id")
     links.add_argument("--record-id")
+    attached = commands.add_parser("attach-source", help="Attach one retained source version and exact quotation blocks")
+    attached.add_argument("project_id")
+    attached.add_argument("record_id")
+    attached.add_argument("path")
+    attached.add_argument("--format", choices=("txt", "jats_xml", "pdf"), required=True)
+    attached.add_argument("--reviewer", required=True)
+    attached.add_argument("--reason", required=True)
+    attached.add_argument("--filename")
+    attached.add_argument("--source-url", default="")
+    attached.add_argument("--version-label", default="")
+    documents = commands.add_parser("documents", help="List retained source versions and the active version per report")
+    documents.add_argument("project_id")
+    documents.add_argument("--record-id")
+    blocks = commands.add_parser("source-blocks", help="Show source metadata and exact blocks in one snapshot")
+    blocks.add_argument("project_id")
+    blocks.add_argument("document_id")
+    for name in ("propose-evidence", "revise-evidence"):
+        evidence = commands.add_parser(name, help="Create a manual quotation-backed proposal" if name == "propose-evidence" else "Append a complete replacement evidence revision")
+        evidence.add_argument("project_id")
+        evidence.add_argument("record_id" if name == "propose-evidence" else "evidence_id")
+        evidence.add_argument("--payload", required=True, metavar="FILE")
+        evidence.add_argument("--reviewer", required=True)
+        evidence.add_argument("--reason", required=True)
+    for name in ("review-evidence", "adjudicate-evidence"):
+        reviewed = commands.add_parser(name, help="Independently confirm or reject one current revision" if name == "review-evidence" else "Resolve existing verification reviews with an explicit reason")
+        reviewed.add_argument("project_id")
+        reviewed.add_argument("revision_id")
+        reviewed.add_argument("--decision", choices=("confirm", "reject"), required=True)
+        reviewed.add_argument("--reviewer", required=True)
+        reviewed.add_argument("--reason", required=True)
+    evidence = commands.add_parser("evidence", help="List current manual findings and appraisal states")
+    evidence.add_argument("project_id")
+    evidence.add_argument("--record-id")
+    evidence.add_argument("--verified-only", action="store_true")
+    evidence_history = commands.add_parser("evidence-history", help="Show immutable revisions and verification reviews in one snapshot")
+    evidence_history.add_argument("project_id")
+    evidence_history.add_argument("--evidence-id")
     for name, help_text in (
         ("records", "List canonical records and current screening/retrieval states"),
         ("history", "List immutable search/import runs"),
@@ -162,6 +210,33 @@ def _execute(store, args):
     if command == "links":
         with store._snapshot():
             return {"links": store.list_study_links(args.project_id, args.record_id), "events": store.list_study_link_events(args.project_id, args.record_id)}
+    if command == "attach-source":
+        store.get_project(args.project_id)
+        path = Path(args.path)
+        content = path.read_bytes()
+        return store.attach_document(args.project_id, args.record_id, content, args.format, args.reviewer, args.reason, filename=path.name if args.filename is None else args.filename, source_url=args.source_url, version_label=args.version_label)
+    if command == "documents":
+        return store.list_documents(args.project_id, args.record_id)
+    if command == "source-blocks":
+        with store._snapshot():
+            document = next((row for row in store.list_documents(args.project_id) if row["id"] == args.document_id), None)
+            if document is None:
+                raise ValueError(f"Unknown source document in project: {args.document_id}")
+            return {"document": document, "blocks": store.get_source_blocks(args.project_id, args.document_id)}
+    if command in {"propose-evidence", "revise-evidence"}:
+        store.get_project(args.project_id)
+        proposal = command == "propose-evidence"
+        payload = _evidence_payload(args.payload, proposal=proposal)
+        method = store.propose_evidence if proposal else store.revise_evidence
+        return method(args.project_id, args.record_id if proposal else args.evidence_id, **payload, reviewer=args.reviewer, reason=args.reason)
+    if command in {"review-evidence", "adjudicate-evidence"}:
+        method = store.review_evidence if command == "review-evidence" else store.adjudicate_evidence
+        return method(args.project_id, args.revision_id, args.decision, args.reviewer, args.reason)
+    if command == "evidence":
+        return store.list_evidence(args.project_id, args.record_id, verified_only=args.verified_only)
+    if command == "evidence-history":
+        with store._snapshot():
+            return {"revisions": store.list_evidence_revisions(args.project_id, args.evidence_id), "reviews": store.list_evidence_reviews(args.project_id, args.evidence_id)}
     if command == "import":
         store.get_project(args.project_id)
         filters = _json_argument(args.filters_json, "filters JSON", dictionary=True)

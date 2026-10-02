@@ -1,0 +1,469 @@
+{
+  "status": "draft-unfrozen",
+  "questions": [
+    {
+      "id": "held-coach-01",
+      "article_alias": "coach",
+      "question": "What was the actual randomization unit in COACH, what unit had originally been planned, and how many townships were allocated to each arm?",
+      "challenge_tags": [
+        "design",
+        "population",
+        "unit_of_analysis"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "actual_randomization_unit": "township",
+        "originally_planned_unit": "village",
+        "townships_per_arm": 5,
+        "outcome_unit": "individual participant"
+      },
+      "sufficient_support_sets": [
+        [
+          "C_randomization"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "C_randomization",
+          "start": 0,
+          "end": 71,
+          "quote": "The original design planned for village to be the unit of randomization",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "C_randomization",
+          "start": 280,
+          "end": 406,
+          "quote": "randomization was based on the township where the villages were located, while outcomes pertain to the individual participant.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "C_randomization",
+          "start": 691,
+          "end": 745,
+          "quote": "Five townships were selected for each arm of the study",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "held-coach-02",
+      "article_alias": "coach",
+      "question": "What percentages achieved hypertension control after 12 months in COACH versus eCAU, and what uncontrolled-BP thresholds did the methods use for participants with diabetes, coronary heart disease, or renal disease versus other participants?",
+      "challenge_tags": [
+        "quantitative",
+        "multiple_passages",
+        "outcome_definition",
+        "follow_up"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "month_12_control_percent": {
+          "COACH": 71.6,
+          "eCAU": 40.9
+        },
+        "uncontrolled_HTN_as_defined": {
+          "specified_comorbidities": "systolic BP ≥130 mm Hg or diastolic BP ≥80",
+          "others": "systolic BP ≥140 or diastolic BP ≥90"
+        },
+        "scope": "Reported trial endpoint definition, not a clinical treatment recommendation."
+      },
+      "sufficient_support_sets": [
+        [
+          "C_HTN_results",
+          "C_HTN_definition"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "C_HTN_results",
+          "start": 78,
+          "end": 150,
+          "quote": "increasing from 25.1% to 71.6% over the 12 months of study participation",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "C_HTN_results",
+          "start": 176,
+          "end": 202,
+          "quote": "eCAU (from 20.2% to 40.9%)",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "C_HTN_definition",
+          "start": 193,
+          "end": 388,
+          "quote": "systolic blood pressure (BP) ≥130 mm Hg or diastolic BP ≥80 for patients with diabetes mellitus, coronary heart disease, or renal disease, and systolic BP ≥140 or diastolic BP ≥90 for all others.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "held-coach-03",
+      "article_alias": "coach",
+      "question": "What causal improvement in hypertension control was attributable specifically to the Aging Worker component alone, separate from the other COACH components?",
+      "challenge_tags": [
+        "no_answer",
+        "component_effect",
+        "causal_overreach"
+      ],
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "provisional_spans": [
+        {
+          "passage_id": "C_component_not_isolated",
+          "start": 0,
+          "end": 124,
+          "quote": "The unique benefits to depression treatment and hypertension control of antidepressant prescription and Aging Worker support",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "C_component_not_isolated",
+          "start": 194,
+          "end": 216,
+          "quote": "require further study.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [
+        "C_component_not_isolated",
+        "C_randomization"
+      ],
+      "hard_negative_passage_ids": [
+        "C_HTN_results"
+      ],
+      "status": "draft; not frozen or evaluated",
+      "no_answer_rationale": "The source says the components’ unique benefits require further study. The trial-level comparison does not isolate a causal Aging Worker-only effect.",
+      "expected_behavior": "State that the requested result is not reported/identified in this corpus; do not fabricate a number, assume zero, substitute generic guidance, or infer a causal effect from an association."
+    },
+    {
+      "id": "held-whitehall-01",
+      "article_alias": "whitehall",
+      "question": "In the sensitivity analysis excluding all 13 chronic diseases at baseline, what happened to the association of ≥9-hour sleep at age 70 with multimorbidity, and what HR/interval/p-value were reported?",
+      "challenge_tags": [
+        "quantitative",
+        "negation",
+        "sensitivity_analysis",
+        "population_scope"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "age_years": 70,
+        "exposure": "sleep ≥9 hours",
+        "population": "free of all 13 chronic diseases at sleep measurement",
+        "HR": 1.52,
+        "CI95": [
+          0.98,
+          2.35
+        ],
+        "p": 0.063,
+        "as_reported": "did not reach statistical significance although effect size was comparable",
+        "not_implied": "proof of no association"
+      },
+      "sufficient_support_sets": [
+        [
+          "W_long_sleep_sensitivity"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "W_long_sleep_sensitivity",
+          "start": 247,
+          "end": 411,
+          "quote": "the association with sleep duration ≥9 hours at age 70 that did not reach significance although the effect size was comparable (HR = 1.52, 0.98 to 2.35; p = 0.063).",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "held-whitehall-02",
+      "article_alias": "whitehall",
+      "question": "How did the age-50 short-sleep mortality result differ between the multistate disease-transition analysis and the post hoc mortality analysis that ignored intervening chronic-disease states?",
+      "challenge_tags": [
+        "multiple_passages",
+        "quantitative",
+        "negation",
+        "analysis_scope"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "multistate": "Sleep ≤5 hours versus 7 hours was associated with first disease and subsequent multimorbidity but not mortality transitions.",
+        "posthoc_overall_mortality": {
+          "HR": 1.25,
+          "CI95": [
+            1.02,
+            1.53
+          ],
+          "p": 0.034,
+          "as_reported": "higher mortality risk"
+        },
+        "population_context": "Separate baseline disease-free age-50 multistate sample, N=7217, mean follow-up about 25.2 years.",
+        "not_implied": "A blanket statement that short sleep had no association with mortality in every analysis."
+      },
+      "sufficient_support_sets": [
+        [
+          "W_multistate",
+          "W_posthoc_mortality"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "W_multistate",
+          "start": 0,
+          "end": 29,
+          "quote": "A total of 7,217 participants",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_multistate",
+          "start": 738,
+          "end": 766,
+          "quote": "but not mortality (Table 3).",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_posthoc_mortality",
+          "start": 224,
+          "end": 279,
+          "quote": "without considering chronic diseases over the follow-up",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_posthoc_mortality",
+          "start": 364,
+          "end": 424,
+          "quote": "sleep duration ≤5 hours (HR = 1.25, 1.02 to 1.53; p = 0.034)",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "held-whitehall-03",
+      "article_alias": "whitehall",
+      "question": "What causal reduction in multimorbidity would occur if a randomized intervention increased these Whitehall participants’ sleep from ≤5 to 7 hours?",
+      "challenge_tags": [
+        "no_answer",
+        "observational_design",
+        "causal_overreach"
+      ],
+      "answerability": "no_answer",
+      "expected_answer_as_reported": null,
+      "sufficient_support_sets": [],
+      "provisional_spans": [
+        {
+          "passage_id": "W_cohort_design",
+          "start": 0,
+          "end": 49,
+          "quote": "The Whitehall II study is an ongoing cohort study",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "W_limitations",
+          "start": 1000,
+          "end": 1062,
+          "quote": "residual confounding can be an issue in observational studies.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [
+        "W_cohort_design",
+        "W_limitations"
+      ],
+      "hard_negative_passage_ids": [
+        "W_short_sleep"
+      ],
+      "status": "draft; not frozen or evaluated",
+      "no_answer_rationale": "The corpus reports observational associations, not a randomized sleep-duration intervention. The hazard ratio cannot be transformed into the requested causal treatment effect.",
+      "expected_behavior": "State that the requested result is not reported/identified in this corpus; do not fabricate a number, assume zero, substitute generic guidance, or infer a causal effect from an association."
+    },
+    {
+      "id": "held-raptor-01",
+      "article_alias": "raptor",
+      "question": "Were both adults and children eligible for this RAPTOR-C19 arm, and what under-16 proportion and mean time since symptom onset characterized its primary-analysis sample?",
+      "challenge_tags": [
+        "population",
+        "quantitative",
+        "multiple_passages",
+        "timepoint"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "eligible_groups": [
+          "adults",
+          "children"
+        ],
+        "under_16": {
+          "count": 175,
+          "denominator": 481,
+          "reported_percent": 36
+        },
+        "mean_time_since_symptom_onset_days": 3.7,
+        "scope": "Primary-analysis baseline characteristics; no follow-up outcomes implied."
+      },
+      "sufficient_support_sets": [
+        [
+          "R_population",
+          "R_characteristics"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "R_population",
+          "start": 310,
+          "end": 359,
+          "quote": "Adults and children were eligible to participate.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "R_characteristics",
+          "start": 205,
+          "end": 232,
+          "quote": "36% (175/481) aged under 16",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "R_characteristics",
+          "start": 308,
+          "end": 368,
+          "quote": "Average time since self-reported symptom onset was 3.7 days.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "held-raptor-02",
+      "article_alias": "raptor",
+      "question": "Which two planned data-collection components were omitted in this RAPTOR-C19 arm following approved protocol amendments?",
+      "challenge_tags": [
+        "negation",
+        "limitations",
+        "protocol_vs_completed_methods"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "participant_reported_follow_up": "not collected",
+        "serology_collection": "not performed",
+        "reported_context": "approved protocol amendments",
+        "not_implied": "An unstated reason for the amendments or clinical outcome rate."
+      },
+      "sufficient_support_sets": [
+        [
+          "R_omitted_data"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "R_omitted_data",
+          "start": 105,
+          "end": 267,
+          "quote": "following approved protocol amendments, participant-reported follow-up data was not collected for this arm of the study and serology collection was not performed.",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [],
+      "status": "draft; not frozen or evaluated"
+    },
+    {
+      "id": "held-raptor-03",
+      "article_alias": "raptor",
+      "question": "What sensitivity/specificity and 95% intervals were actually measured for influenza B in RAPTOR-C19, and how many PCR-positive cases underlie the sensitivity estimate?",
+      "challenge_tags": [
+        "quantitative",
+        "diagnostic_accuracy",
+        "table",
+        "small_denominator",
+        "measured_vs_manufacturer"
+      ],
+      "answerability": "answerable",
+      "expected_answer_as_reported": {
+        "sensitivity_percent": 22.2,
+        "sensitivity_CI95_percent": [
+          2.8,
+          60.0
+        ],
+        "sensitivity_fraction": [
+          2,
+          9
+        ],
+        "PCR_positive_cases": 9,
+        "specificity_percent": 98.1,
+        "specificity_CI95_percent": [
+          96.4,
+          99.1
+        ],
+        "specificity_fraction": [
+          463,
+          472
+        ],
+        "scope": "Measured study results with wide uncertainty; not manufacturer claims or a recommendation."
+      },
+      "sufficient_support_sets": [
+        [
+          "R_accuracy"
+        ],
+        [
+          "R_accuracy_table"
+        ]
+      ],
+      "provisional_spans": [
+        {
+          "passage_id": "R_accuracy",
+          "start": 285,
+          "end": 391,
+          "quote": "For Influenza B, sensitivity was 22.2% (2/9, 2.8 to 60.0%) and specificity 98.1% (463/472, 96.4 to 99.1%).",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        },
+        {
+          "passage_id": "R_accuracy_table",
+          "start": 506,
+          "end": 544,
+          "quote": "22.2%(2.8%, 60.0%)\t98.1%(96.4%, 99.1%)",
+          "unit": "Unicode code points, half-open [start,end)",
+          "status": "provisional"
+        }
+      ],
+      "context_only_passage_ids": [],
+      "hard_negative_passage_ids": [
+        "R_manufacturer_claims"
+      ],
+      "status": "draft; not frozen or evaluated"
+    }
+  ]
+}

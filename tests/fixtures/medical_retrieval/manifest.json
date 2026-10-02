@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "status": "draft-unfrozen; coordinator review required before freezing/evaluation",
+  "prepared_at_utc": "2026-10-02T18:33:22Z",
+  "split_before_retrieval_changes": true,
+  "split_policy": "Preassigned 9 development and 9 held-out questions; 3 per article in each split, balanced factual/quantitative/context challenges and 2 explicit no-answer items per split. Same source documents occur in both splits; this is question-level holdout, not document-level generalization.",
+  "splits": {
+    "development": {
+      "file": "development.json",
+      "ids": [
+        "dev-coach-01",
+        "dev-coach-02",
+        "dev-coach-03",
+        "dev-whitehall-01",
+        "dev-whitehall-02",
+        "dev-whitehall-03",
+        "dev-raptor-01",
+        "dev-raptor-02",
+        "dev-raptor-03"
+      ],
+      "questions": 9,
+      "no_answer_questions": 2
+    },
+    "held_out": {
+      "file": "held-out.json",
+      "ids": [
+        "held-coach-01",
+        "held-coach-02",
+        "held-coach-03",
+        "held-whitehall-01",
+        "held-whitehall-02",
+        "held-whitehall-03",
+        "held-raptor-01",
+        "held-raptor-02",
+        "held-raptor-03"
+      ],
+      "questions": 9,
+      "no_answer_questions": 2
+    }
+  },
+  "passage_file": "passages.json",
+  "sources": [
+    {
+      "alias": "coach",
+      "file": "../medical_sources/coach.xml",
+      "doi": "10.1371/journal.pmed.1004019",
+      "title": "Effectiveness of integrated care for older adults with depression and hypertension in rural China: A cluster randomized controlled trial",
+      "publisher_article_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004019",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_sha256": "10ae6c2d3371b149a4b6dfa3724f0be6f3b2c49f3f2881e749602fcf50ffcdfb",
+      "size_bytes": 175830,
+      "acquired_at": "2026-10-02T17:54:51Z",
+      "authors": [
+        {
+          "surname": "Chen",
+          "given_names": "Shulin"
+        },
+        {
+          "surname": "Conwell",
+          "given_names": "Yeates"
+        },
+        {
+          "surname": "Xue",
+          "given_names": "Jiang"
+        },
+        {
+          "surname": "Li",
+          "given_names": "Lydia"
+        },
+        {
+          "surname": "Zhao",
+          "given_names": "Tingjie"
+        },
+        {
+          "surname": "Tang",
+          "given_names": "Wan"
+        },
+        {
+          "surname": "Bogner",
+          "given_names": "Hillary"
+        },
+        {
+          "surname": "Dong",
+          "given_names": "Hengjin"
+        }
+      ],
+      "copyright": {
+        "year": "2022",
+        "holder": "Chen et al"
+      }
+    },
+    {
+      "alias": "whitehall",
+      "file": "../medical_sources/whitehall.xml",
+      "doi": "10.1371/journal.pmed.1004109",
+      "title": "Association of sleep duration at age 50, 60, and 70 years with risk of multimorbidity in the UK: 25-year follow-up of the Whitehall II cohort study",
+      "publisher_article_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004109",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_sha256": "433f2e08e6fb51e9e9d393c3eca21595578741f2fd21d6f4583f918ce99c7ae7",
+      "size_bytes": 209909,
+      "acquired_at": "2026-10-02T17:54:51Z",
+      "authors": [
+        {
+          "surname": "Sabia",
+          "given_names": "Séverine"
+        },
+        {
+          "surname": "Dugravot",
+          "given_names": "Aline"
+        },
+        {
+          "surname": "Léger",
+          "given_names": "Damien"
+        },
+        {
+          "surname": "Ben Hassen",
+          "given_names": "Céline"
+        },
+        {
+          "surname": "Kivimaki",
+          "given_names": "Mika"
+        },
+        {
+          "surname": "Singh-Manoux",
+          "given_names": "Archana"
+        }
+      ],
+      "copyright": {
+        "year": "2022",
+        "holder": "Sabia et al"
+      }
+    },
+    {
+      "alias": "raptor",
+      "file": "../medical_sources/raptor.xml",
+      "doi": "10.1371/journal.pone.0329611",
+      "title": "Diagnostic accuracy evaluation of a point-of-care antigen test for SARS-CoV-2 and influenza in UK primary care (RAPTOR-C19)",
+      "publisher_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329611",
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "spdx_id": "CC-BY-4.0",
+        "xml_url": "http://creativecommons.org/licenses/by/4.0/",
+        "canonical_url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_sha256": "602572ed2dd22844a2a70830b683c8a85f8891506293003c89df431b2588dc1b",
+      "size_bytes": 117858,
+      "acquired_at": "2026-10-02T17:54:51Z",
+      "authors": [
+        {
+          "surname": "Fanshawe",
+          "given_names": "Thomas R."
+        },
+        {
+          "surname": "Tonner",
+          "given_names": "Sharon"
+        },
+        {
+          "surname": "Turner",
+          "given_names": "Philip J."
+        },
+        {
+          "surname": "Głogowska",
+          "given_names": "Margaret"
+        },
+        {
+          "surname": "Ukwatte",
+          "given_names": "Umasha"
+        },
+        {
+          "surname": "Okusi",
+          "given_names": "Cecilia"
+        },
+        {
+          "surname": "Cogdale",
+          "given_names": "Jade"
+        },
+        {
+          "surname": "Zambon",
+          "given_names": "Maria"
+        },
+        {
+          "surname": "Nicholson",
+          "given_names": "Brian D."
+        },
+        {
+          "surname": "Hobbs",
+          "given_names": "F. D. Richard"
+        },
+        {
+          "surname": "Hayward",
+          "given_names": "Gail N."
+        },
+        {
+          "collective_name": "on behalf of the RAPTOR-C19 Study Group"
+        }
+      ],
+      "copyright": {
+        "year": "2025",
+        "holder": "Fanshawe et al"
+      }
+    }
+  ],
+  "support_set_semantics": "Outer list is alternatives (OR); every passage in one inner set is necessary together (AND). Merely retrieving one context passage does not establish every requested claim. For no-answer items, sufficient_support_sets is empty and cited context supports grounded abstention, not an invented requested result.",
+  "relevance_policy": "Source passages must answer the specific study/analysis/population/arm/timepoint. Context-only passages are insufficient alone. Explicit hard negatives are related text that cannot support the requested estimate (manufacturer claims, team activity, baseline symptoms, aggregate effects, observational HRs). References and peer-review sub-articles are never findings support.",
+  "limitations": [
+    "Three selected sources and 18 manually drafted questions are a software pilot, not representative medical retrieval or clinical validation.",
+    "Question-level splits share source documents and sometimes passages; source familiarity/leakage limits held-out interpretation.",
+    "Gold/support and character anchors require independent evaluation and coordinator approval; anchors remain provisional until accepted I6a parsing.",
+    "No established multiple-report study in this corpus; multi-passage questions use different passages within one article.",
+    "No network, model/index initialization, retrieval run, clinical recommendations, or changes to external benchmarks occurred."
+  ],
+  "source_attribution_manifest": "../medical_sources/manifest.json"
+}

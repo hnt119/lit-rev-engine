@@ -13,6 +13,7 @@ from .identity import fallback_compatible, fallback_identity, validate_record
 from .models import SearchRunSpec
 from .studies import StudyLedger
 from .documents import DocumentLedger
+from .evidence import EvidenceLedger
 
 
 def _now():
@@ -94,6 +95,7 @@ class ReviewStore:
             )
             self._studies = StudyLedger(self)
             self._documents = DocumentLedger(self)
+            self._evidence = EvidenceLedger(self)
         except Exception:
             self.close()
             raise
@@ -500,6 +502,27 @@ class ReviewStore:
     def get_source_blocks(self, project_id, document_id):
         return self._documents.get_source_blocks(project_id, document_id)
 
+    def propose_evidence(self, project_id, record_id, study_id, document_id, field, value, context, anchor, reviewer, reason, *, kind="finding", appraisal=None):
+        return self._evidence.propose_evidence(project_id, record_id, study_id, document_id, field, value, context, anchor, reviewer, reason, kind=kind, appraisal=appraisal)
+
+    def revise_evidence(self, project_id, evidence_id, study_id, document_id, field, value, context, anchor, reviewer, reason, *, appraisal=None):
+        return self._evidence.revise_evidence(project_id, evidence_id, study_id, document_id, field, value, context, anchor, reviewer, reason, appraisal=appraisal)
+
+    def review_evidence(self, project_id, revision_id, decision, reviewer, reason):
+        return self._evidence.review_evidence(project_id, revision_id, decision, reviewer, reason)
+
+    def adjudicate_evidence(self, project_id, revision_id, decision, reviewer, reason):
+        return self._evidence.adjudicate_evidence(project_id, revision_id, decision, reviewer, reason)
+
+    def list_evidence(self, project_id, record_id=None, *, verified_only=False):
+        return self._evidence.list_evidence(project_id, record_id, verified_only=verified_only)
+
+    def list_evidence_revisions(self, project_id, evidence_id=None):
+        return self._evidence.list_evidence_revisions(project_id, evidence_id)
+
+    def list_evidence_reviews(self, project_id, evidence_id=None):
+        return self._evidence.list_evidence_reviews(project_id, evidence_id)
+
     def _screening_rows(self, project_id, record_id=None):
         query = "SELECT * FROM screening_events WHERE project_id = ?"
         parameters = [project_id]
@@ -682,6 +705,9 @@ class ReviewStore:
                     source_blocks.extend({"document_id": document["id"], **block} for block in blocks)
                     document_manifest.append({"document_id": document["id"], "sha256": document["source_sha256"], "size_bytes": len(content), "export_file": export_file})
                 bundle.update(documents=documents, source_blocks=source_blocks, document_artifacts=document_manifest)
+            evidence = self.list_evidence(project_id)
+            if evidence:
+                bundle.update(evidence=evidence, evidence_revisions=self.list_evidence_revisions(project_id), evidence_reviews=self.list_evidence_reviews(project_id), verified_evidence=[row for row in evidence if row["verified"]])
             exclusions = []
             events_by_record = {}
             for event in self._screening_rows(project_id):

@@ -1,6 +1,6 @@
 # Durable source documents
 
-The review ledger can retain a report's original source bytes and exact quotation blocks through its Python API. Source attachment does not change screening or retrieval status. Each attachment creates a new immutable version; the most recently attached version is active for that report. Its integer version is a local sequence, not a publisher version number.
+The review ledger can retain a report's original source bytes and exact quotation blocks through its Python API and `attach-source`, `documents`, and `source-blocks` CLI commands. Source attachment does not change screening or retrieval status. Each attachment creates a new immutable version; the most recently attached version is active for that report. Its integer version is a local sequence, not a publisher version number. The [executable evidence guide](verified-evidence.md) demonstrates the complete offline CLI workflow.
 
 ## Attach and inspect a source
 
@@ -23,6 +23,8 @@ with ReviewStore("data/reviews.sqlite3") as store:
 ```
 
 An explicit own-article DOI/PMID in JATS is normalized and retained. A contradiction with the report's known identifier rejects attachment. Cited-reference identifiers never supply report identity. When a source lacks usable identifiers, the reviewer establishes its association with the report; title similarity or PDF text does not automatically prove identity.
+
+If a later bibliography import supplies a previously unknown identifier that contradicts the retained source, structured evidence receives `source_identity_conflict` and leaves verified output. Original imports, source bytes and review history remain available; a correct new source and independently checked evidence revision can restore verification.
 
 ## Source formats and locators
 

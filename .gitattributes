@@ -3,3 +3,4 @@
 /tests/fixtures/evidence/*.xml -text
 /tests/fixtures/evidence/*.pdf -text
 /tests/fixtures/medical_sources/*.xml -text
+/tests/fixtures/medical_retrieval/*.json -text

@@ -62,6 +62,18 @@ def write_export(bundle, exclusions, destination, *, artifacts=None):
             "documents.csv": _csv(bundle["documents"], ["id", "project_id", "record_id", "version", "format", "filename", "source_url", "version_label", "source_sha256", "size_bytes", "parser_id", "parser_metadata", "source_identifiers", "blocks_sha256", "block_count", "reviewer", "reason", "created_at", "active"]),
             "source_blocks.json": _json(bundle["source_blocks"]),
         })
+    if "evidence" in bundle:
+        revision_fields = ["id", "evidence_id", "project_id", "record_id", "revision", "kind", "study_id", "document_id", "field", "value", "context", "anchor", "appraisal", "source_sha256", "blocks_sha256", "reviewer", "reason", "created_at", "revision_sha256"]
+        current_fields = revision_fields + ["verification_state", "dependency_issues", "state", "verified", "active_verification_event_ids"]
+        def flattened(rows):
+            return [{**row["current_revision"], **{field: row[field] for field in current_fields[len(revision_fields):]}} for row in rows]
+        contents.update({
+            "evidence.csv": _csv(flattened(bundle["evidence"]), current_fields),
+            "evidence_revisions.csv": _csv(bundle["evidence_revisions"], revision_fields),
+            "evidence_reviews.csv": _csv(bundle["evidence_reviews"], ["id", "project_id", "evidence_id", "revision_id", "decision", "reviewer", "reason", "kind", "created_at"]),
+            "verified_evidence.csv": _csv(flattened(bundle["verified_evidence"]), current_fields),
+            "verified_evidence.json": _json(bundle["verified_evidence"]),
+        })
     contents.update(artifacts or {})
     destination = Path(destination)
     destination.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,1784 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "status": "Independent source-supported software fixture truth; not medical gold labels.",
+  "description": "Manual extraction, quotation validation, reviewer disagreement, source-version revisions, and conditional eligibility/linkage restoration. All source content, values, contexts, and instrument judgments are invented software fixtures. No clinical inference, patient data, model output or real-paper gold annotation.",
+  "source_manifest": "manifest.json",
+  "anchor_rule": "Unicode code points in the exact pinned canonical block text, half-open [start,end). Values/context support requires human judgment even when an exact quote validates.",
+  "source_bindings": [
+    {
+      "alias": "text_v1",
+      "file": "source-v1.txt",
+      "format": "txt",
+      "source_sha256": "f6375a2aad9f2ff1914e2e0e3092c89ce2bbb3ccb6a21ac83968377fb30997b6",
+      "blocks_sha256": "a149c1ca22cecfe26903c91c76d426179f8bf6b9b650d53c9b211b14de8c4e70",
+      "size_bytes": 198
+    },
+    {
+      "alias": "text_v2",
+      "file": "source-v2.txt",
+      "format": "txt",
+      "source_sha256": "444296eade98467debbd83bca25bd0761d8b76e97646b7da8a228cc7fb8013e8",
+      "blocks_sha256": "9854191c523c431fc83a45fc0168cac7580c131b441734af676a5be52d1d79ad",
+      "size_bytes": 198
+    },
+    {
+      "alias": "jats_v1",
+      "file": "article-v1.xml",
+      "format": "jats_xml",
+      "source_sha256": "ccaf8466b33d4fe1ba454cb16c01771b5bbc8300583809c03405c1e7d47ea816",
+      "blocks_sha256": "54ff3c1f8abd038a403d4199e00151fbab5e4aff932fb4f10bac72204b2be863",
+      "size_bytes": 2423
+    },
+    {
+      "alias": "jats_v2",
+      "file": "article-v2.xml",
+      "format": "jats_xml",
+      "source_sha256": "45e2cac21c22511a92393ba1911c4c7f79f83862147e7fef986311ca05a6c757",
+      "blocks_sha256": "25bdb77ab0329454b8f04e863f73a5452584969f41555b6a10fd43f63bf96d06",
+      "size_bytes": 2423
+    },
+    {
+      "alias": "pdf_three_pages",
+      "file": "three-pages.pdf",
+      "format": "pdf",
+      "source_sha256": "f0fbe5e440a3145ebcd404a2d08167cee22580956c870352ef2f7665f3a1b56b",
+      "blocks_sha256": "2ac7f13523174b5d687fff10ad0d91c8a6364a95f639fa7ba4e4dd64c7093a04",
+      "size_bytes": 1614
+    }
+  ],
+  "setup": {
+    "project_alias": "evidence_fixture_project",
+    "reports": [
+      {
+        "alias": "report_jats",
+        "title": "Invented XML software report",
+        "initial_source_alias": "jats_v1"
+      },
+      {
+        "alias": "report_text",
+        "title": "Invented Unicode text software report",
+        "initial_source_alias": "text_v1"
+      },
+      {
+        "alias": "report_pdf",
+        "title": "Invented PDF software report",
+        "initial_source_alias": "pdf_three_pages"
+      }
+    ],
+    "studies": [
+      {
+        "alias": "study_alpha",
+        "label": "Invented software study α"
+      },
+      {
+        "alias": "study_beta",
+        "label": "Invented software study β"
+      }
+    ],
+    "initial_state": "Every report is full-text included and has a resolved complete study-link set [study_alpha]; only its initial source is attached. Replacement sources attach explicitly within scenarios. The evaluator supplies actual ledger IDs through these aliases. No same-title/clinical identity inference.",
+    "reviewer_identities": [
+      "Fixture Author Ari",
+      "Fixture Reviewer Bo",
+      "Fixture Reviewer Cy",
+      "Fixture Adjudicator Dee"
+    ],
+    "identity_limit": "Declared reviewer strings exercise separation; these fixture identities are not authenticated accounts."
+  },
+  "binding_rules": {
+    "proposal": "Resolve target aliases to project_id, record_id, study_id and the active document_id, then pass the complete input to propose_evidence. Expected locator is added by the API, not caller input.",
+    "revision": "Resolve target/evidence aliases and pass the complete replacement payload to revise_evidence. kind is inherited from the stable evidence; appraisal=None is explicit for finding revisions. document_ref_override denotes the newest separately attached copy.",
+    "scenario": "Each scenario starts from an independent fresh setup with no evidence. event_ref/revision_ref/evidence_ref bind returned IDs. Unsupported test operation labels describe evaluator setup actions, not new operational APIs. Reject operations must raise ValueError with no evidence revision/review history change.",
+    "linkage": "Evaluator creates declared current state using existing complete-set linkage APIs; resolved study_aliases are the complete association, and unresolved can be empty/pending or conflicted.",
+    "counts": "history_counts count only evidence revisions/reviews in this isolated scenario, including superseded events; source attachments and screening/linkage events do not increment them.",
+    "active_events": "Compare listed active event references as a set. Effective adjudication alone applies; any later review invalidates it and reinstates latest votes per reviewer. No vote inheritance between revisions.",
+    "exports": "At each scenario step, verified_evidence must contain its current revision exactly when verified=true. Audit exports retain all superseded revisions/reviews. Source/block/revision hash provenance must agree; no automatic entailment assertion."
+  },
+  "proposals": [
+    {
+      "id": "follow_up_jats_v1",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.follow_up",
+        "value": {
+          "duration": 6,
+          "unit": "weeks"
+        },
+        "context": {
+          "population": "Invented entries; not patients",
+          "outcome": "Fixture follow-up declaration",
+          "timepoint": "6 weeks",
+          "units": "weeks",
+          "notes": "Software fixture only. The source explicitly negates 12 months."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "start": 21,
+          "end": 44,
+          "quote": "6 weeks, not 12 months."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "xml_element",
+          "path": "/article[1]/body[1]/sec[1]/p[2]",
+          "tag": "p",
+          "element_id": "follow-up",
+          "section_title": "Synthetic methods"
+        },
+        "support_requirement": "A distinct reviewer must confirm the literal value and supplied context from this quotation."
+      }
+    },
+    {
+      "id": "population_jats",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.population_count",
+        "value": 24,
+        "context": {
+          "population": "Invented entries; explicitly not patients",
+          "units": "invented entries",
+          "notes": "No participant data or clinical population."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+          "start": 22,
+          "end": 56,
+          "quote": "24 invented entries (not patients)"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "xml_element",
+          "path": "/article[1]/body[1]/sec[1]/p[1]",
+          "tag": "p",
+          "element_id": "population",
+          "section_title": "Synthetic methods"
+        },
+        "support_requirement": "A distinct reviewer must confirm the literal value and supplied context from this quotation."
+      }
+    },
+    {
+      "id": "table_alpha_jats",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.group_count",
+        "value": 12,
+        "context": {
+          "population": "Group α invented entries",
+          "outcome": "Software table count",
+          "analysis": "Literal α row of Table S1",
+          "units": "fixture count",
+          "notes": "No spanning-cell inference and no participant data."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/table-wrap[1]",
+          "start": 47,
+          "end": 51,
+          "quote": "α\t12"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "xml_element",
+          "path": "/article[1]/body[1]/sec[1]/table-wrap[1]",
+          "tag": "table-wrap",
+          "element_id": "table-one",
+          "section_title": "Synthetic methods",
+          "table_label": "Table S1"
+        },
+        "support_requirement": "A distinct reviewer must confirm the literal value and supplied context from this quotation."
+      }
+    },
+    {
+      "id": "primary_value_jats",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.primary_value",
+        "value": {
+          "estimate": 7.5,
+          "interval_lower": 6.0,
+          "interval_upper": 9.0,
+          "interval_level_percent": 95
+        },
+        "context": {
+          "outcome": "Invented primary value",
+          "analysis": "Literal fixture interval; no statistical recomputation",
+          "units": "units",
+          "notes": "Not a diagnostic sensitivity or clinical efficacy estimate."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/p[1]",
+          "start": 30,
+          "end": 56,
+          "quote": "7.5 units (95% CI 6.0–9.0)"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "xml_element",
+          "path": "/article[1]/body[1]/sec[2]/p[1]",
+          "tag": "p",
+          "element_id": "result-one",
+          "section_title": "Synthetic results"
+        },
+        "support_requirement": "A distinct reviewer must confirm the literal value and supplied context from this quotation."
+      }
+    },
+    {
+      "id": "negation_jats",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.is_diagnostic_sensitivity",
+        "value": false,
+        "context": {
+          "outcome": "Scope of the invented primary result",
+          "notes": "Preserve explicit negation; no diagnostic estimate is entered."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+          "start": 14,
+          "end": 42,
+          "quote": "not a diagnostic sensitivity"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "xml_element",
+          "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+          "tag": "p",
+          "element_id": "negation",
+          "section_title": "Scope limits"
+        },
+        "support_requirement": "A distinct reviewer must confirm the literal value and supplied context from this quotation."
+      }
+    },
+    {
+      "id": "unicode_text",
+      "target": {
+        "record_alias": "report_text",
+        "study_alias": "study_alpha",
+        "source_alias": "text_v1"
+      },
+      "input": {
+        "field": "fixture.unicode_marker",
+        "value": "α contains café and decomposed café; marker 🧪.",
+        "context": {
+          "notes": "Exact code-point fidelity is the intended software assertion; preserve composed and decomposed forms and the emoji."
+        },
+        "anchor": {
+          "block_id": "text:1",
+          "start": 53,
+          "end": 100,
+          "quote": "α contains café and decomposed café; marker 🧪."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "text_block",
+          "ordinal": 1
+        },
+        "support_requirement": "A distinct reviewer must confirm the literal value and supplied context from this quotation."
+      }
+    },
+    {
+      "id": "unmeasured_text",
+      "target": {
+        "record_alias": "report_text",
+        "study_alias": "study_alpha",
+        "source_alias": "text_v1"
+      },
+      "input": {
+        "field": "fixture.diagnostic_sensitivity",
+        "value": {
+          "measured": false,
+          "estimate": null
+        },
+        "context": {
+          "outcome": "Diagnostic sensitivity declaration",
+          "notes": "Unmeasured is not a zero-percent estimate. No clinical inference."
+        },
+        "anchor": {
+          "block_id": "text:1",
+          "start": 146,
+          "end": 185,
+          "quote": "No diagnostic sensitivity was measured."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "text_block",
+          "ordinal": 1
+        },
+        "support_requirement": "A distinct reviewer must confirm the literal value and supplied context from this quotation."
+      }
+    },
+    {
+      "id": "follow_up_pdf",
+      "target": {
+        "record_alias": "report_pdf",
+        "study_alias": "study_alpha",
+        "source_alias": "pdf_three_pages"
+      },
+      "input": {
+        "field": "fixture.follow_up",
+        "value": {
+          "duration": 6,
+          "unit": "weeks"
+        },
+        "context": {
+          "timepoint": "6 weeks",
+          "units": "weeks",
+          "notes": "Anchor uses actual PDF position 1. Printed label 10 is not its locator."
+        },
+        "anchor": {
+          "block_id": "pdf:page:1",
+          "start": 82,
+          "end": 101,
+          "quote": "Follow-up: 6 weeks."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "pdf_page",
+          "page": 1
+        },
+        "support_requirement": "A distinct reviewer must confirm the literal value and supplied context from this quotation."
+      }
+    },
+    {
+      "id": "appraisal_jats",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "appraisal.fixture.analysis_coverage",
+        "value": "Not performed in this fixture",
+        "context": {
+          "analysis": "Declared adverse-event analysis coverage",
+          "notes": "Arbitrary software-only instrument, version, domain and judgment. Not a validated appraisal instrument or clinical score."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/p[1]",
+          "start": 58,
+          "end": 98,
+          "quote": "No adverse-event analysis was performed."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "appraisal",
+        "appraisal": {
+          "instrument": "Software Fixture Appraisal",
+          "instrument_version": "0.1-synthetic",
+          "domain": "Declared analysis coverage"
+        }
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "anchor_locator": {
+          "type": "xml_element",
+          "path": "/article[1]/body[1]/sec[2]/p[1]",
+          "tag": "p",
+          "element_id": "result-one",
+          "section_title": "Synthetic results"
+        },
+        "support_requirement": "Preserve the entered instrument/version/domain/judgment verbatim. The quotation supports only the invented declaration that no adverse-event analysis was performed; it does not establish clinical risk of bias."
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "id": "follow_up_context_v1",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.follow_up",
+        "value": {
+          "duration": 6,
+          "unit": "weeks"
+        },
+        "context": {
+          "population": "Invented entries; not patients",
+          "outcome": "Fixture follow-up declaration",
+          "timepoint": "6 weeks",
+          "units": "weeks",
+          "notes": "Clarified software scope: six weeks, explicitly not twelve months; no clinical interpretation."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "start": 21,
+          "end": 44,
+          "quote": "6 weeks, not 12 months."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Complete explicit replacement of the fixture follow-up proposal.",
+        "appraisal": null
+      },
+      "evidence_from": "follow_up_jats_v1"
+    },
+    {
+      "id": "follow_up_8weeks_v2",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v2"
+      },
+      "input": {
+        "field": "fixture.follow_up",
+        "value": {
+          "duration": 8,
+          "unit": "weeks"
+        },
+        "context": {
+          "population": "Invented entries; not patients",
+          "outcome": "Fixture follow-up declaration",
+          "timepoint": "8 weeks",
+          "units": "weeks",
+          "notes": "New immutable source says eight weeks; a former six-week confirmation cannot certify this revision."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "start": 21,
+          "end": 44,
+          "quote": "8 weeks, not 12 months."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Complete explicit replacement of the fixture follow-up proposal.",
+        "appraisal": null
+      },
+      "evidence_from": "follow_up_jats_v1"
+    }
+  ],
+  "invalid_anchor_cases": [
+    {
+      "id": "wrong_character_offset",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.follow_up",
+        "value": {
+          "duration": 6,
+          "unit": "weeks"
+        },
+        "context": {
+          "population": "Invented entries; not patients",
+          "outcome": "Fixture follow-up declaration",
+          "timepoint": "6 weeks",
+          "units": "weeks",
+          "notes": "Software fixture only. The source explicitly negates 12 months."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "start": 22,
+          "end": 45,
+          "quote": "6 weeks, not 12 months."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "derived_from": "follow_up_jats_v1",
+      "expected": {
+        "structural_acceptance": false,
+        "failure": "ValueError",
+        "atomic": true,
+        "reason": "Quote text is unchanged but both half-open character offsets move one position."
+      }
+    },
+    {
+      "id": "changed_source_old_quote",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v2"
+      },
+      "input": {
+        "field": "fixture.follow_up",
+        "value": {
+          "duration": 6,
+          "unit": "weeks"
+        },
+        "context": {
+          "population": "Invented entries; not patients",
+          "outcome": "Fixture follow-up declaration",
+          "timepoint": "6 weeks",
+          "units": "weeks",
+          "notes": "Software fixture only. The source explicitly negates 12 months."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "start": 21,
+          "end": 44,
+          "quote": "6 weeks, not 12 months."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "derived_from": "follow_up_jats_v1",
+      "expected": {
+        "structural_acceptance": false,
+        "failure": "ValueError",
+        "atomic": true,
+        "reason": "The exact v1 quote says six weeks while the active v2 block says eight; attach v2 before attempting this case."
+      }
+    },
+    {
+      "id": "unicode_normalized_quote",
+      "target": {
+        "record_alias": "report_text",
+        "study_alias": "study_alpha",
+        "source_alias": "text_v1"
+      },
+      "input": {
+        "field": "fixture.unicode_marker",
+        "value": "α contains café and decomposed café; marker 🧪.",
+        "context": {
+          "notes": "Exact code-point fidelity is the intended software assertion; preserve composed and decomposed forms and the emoji."
+        },
+        "anchor": {
+          "block_id": "text:1",
+          "start": 53,
+          "end": 100,
+          "quote": "α contains café and decomposed café; marker 🧪."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "derived_from": "unicode_text",
+      "expected": {
+        "structural_acceptance": false,
+        "failure": "ValueError",
+        "atomic": true,
+        "reason": "NFC substitution changes the exact source code points; no implicit Unicode normalization."
+      }
+    },
+    {
+      "id": "utf8_byte_offsets",
+      "target": {
+        "record_alias": "report_text",
+        "study_alias": "study_alpha",
+        "source_alias": "text_v1"
+      },
+      "input": {
+        "field": "fixture.unicode_marker",
+        "value": "α contains café and decomposed café; marker 🧪.",
+        "context": {
+          "notes": "Exact code-point fidelity is the intended software assertion; preserve composed and decomposed forms and the emoji."
+        },
+        "anchor": {
+          "block_id": "text:1",
+          "start": 55,
+          "end": 108,
+          "quote": "α contains café and decomposed café; marker 🧪."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "derived_from": "unicode_text",
+      "expected": {
+        "structural_acceptance": false,
+        "failure": "ValueError",
+        "atomic": true,
+        "reason": "55/108 are UTF-8 byte positions in the BOM-stripped canonical text; correct code-point positions are 53/100."
+      }
+    },
+    {
+      "id": "table_tab_lost",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.group_count",
+        "value": 12,
+        "context": {
+          "population": "Group α invented entries",
+          "outcome": "Software table count",
+          "analysis": "Literal α row of Table S1",
+          "units": "fixture count",
+          "notes": "No spanning-cell inference and no participant data."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/table-wrap[1]",
+          "start": 47,
+          "end": 51,
+          "quote": "α 12"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "derived_from": "table_alpha_jats",
+      "expected": {
+        "structural_acceptance": false,
+        "failure": "ValueError",
+        "atomic": true,
+        "reason": "A space is not the canonical table cell separator tab."
+      }
+    },
+    {
+      "id": "reference_only_anchor",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.follow_up",
+        "value": {
+          "duration": 6,
+          "unit": "weeks"
+        },
+        "context": {
+          "population": "Invented entries; not patients",
+          "outcome": "Fixture follow-up declaration",
+          "timepoint": "6 weeks",
+          "units": "weeks",
+          "notes": "Software fixture only. The source explicitly negates 12 months."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/back[1]/ref-list[1]/ref[1]/mixed-citation[1]",
+          "start": 0,
+          "end": 16,
+          "quote": "Reference-only v"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Enter independently invented software fixture truth; no medical inference.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "derived_from": "follow_up_jats_v1",
+      "expected": {
+        "structural_acceptance": false,
+        "failure": "ValueError",
+        "atomic": true,
+        "reason": "References are retained source bytes but are excluded from finding blocks; this cannot name a valid canonical block."
+      }
+    }
+  ],
+  "semantic_contrasts": [
+    {
+      "id": "negated_twelve_months",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.follow_up",
+        "value": {
+          "duration": 12,
+          "unit": "months"
+        },
+        "context": {
+          "population": "Invented entries; not patients",
+          "outcome": "Fixture follow-up declaration",
+          "timepoint": "12 months",
+          "units": "months",
+          "notes": "Software fixture only. The source explicitly negates 12 months."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+          "start": 21,
+          "end": 44,
+          "quote": "6 weeks, not 12 months."
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Deliberately incorrect interpretation in a synthetic reviewer-judgment contrast.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "support_decision": "reject",
+        "reviewer": "Fixture Reviewer Bo",
+        "review_reason": "Source says six weeks, not twelve months. The proposal treats the explicitly negated duration as a finding.",
+        "state_after_review": "rejected",
+        "verified": false,
+        "distinction": "Automatic substring validation locates a quotation; it does not prove that the supplied value/context is supported."
+      },
+      "derived_from": "follow_up_jats_v1"
+    },
+    {
+      "id": "entries_as_patients",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.population_count",
+        "value": 24,
+        "context": {
+          "population": "24 patients",
+          "units": "patients",
+          "notes": "No participant data or clinical population."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+          "start": 22,
+          "end": 56,
+          "quote": "24 invented entries (not patients)"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Deliberately incorrect interpretation in a synthetic reviewer-judgment contrast.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "support_decision": "reject",
+        "reviewer": "Fixture Reviewer Bo",
+        "review_reason": "Source says invented entries, not patients. The number matches but the population and unit context contradict the quotation.",
+        "state_after_review": "rejected",
+        "verified": false,
+        "distinction": "Automatic substring validation locates a quotation; it does not prove that the supplied value/context is supported."
+      },
+      "derived_from": "population_jats"
+    },
+    {
+      "id": "wrong_table_group",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.group_count",
+        "value": 12,
+        "context": {
+          "population": "Group β invented entries",
+          "outcome": "Software table count",
+          "analysis": "Claimed β row of Table S1",
+          "units": "fixture count",
+          "notes": "No spanning-cell inference and no participant data."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[1]/table-wrap[1]",
+          "start": 47,
+          "end": 51,
+          "quote": "α\t12"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Deliberately incorrect interpretation in a synthetic reviewer-judgment contrast.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "support_decision": "reject",
+        "reviewer": "Fixture Reviewer Bo",
+        "review_reason": "The exact anchor is the α row. A reviewer cannot certify a β-row attribution with this α quote even though β independently happens to have the same count elsewhere in the table.",
+        "state_after_review": "rejected",
+        "verified": false,
+        "distinction": "Automatic substring validation locates a quotation; it does not prove that the supplied value/context is supported."
+      },
+      "derived_from": "table_alpha_jats"
+    },
+    {
+      "id": "primary_value_as_sensitivity",
+      "target": {
+        "record_alias": "report_jats",
+        "study_alias": "study_alpha",
+        "source_alias": "jats_v1"
+      },
+      "input": {
+        "field": "fixture.primary_value",
+        "value": {
+          "estimate": 7.5,
+          "interval_lower": 6.0,
+          "interval_upper": 9.0,
+          "interval_level_percent": 95
+        },
+        "context": {
+          "outcome": "Diagnostic sensitivity",
+          "analysis": "Literal fixture interval; no statistical recomputation",
+          "units": "percent",
+          "notes": "Not a diagnostic sensitivity or clinical efficacy estimate."
+        },
+        "anchor": {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/p[1]",
+          "start": 30,
+          "end": 56,
+          "quote": "7.5 units (95% CI 6.0–9.0)"
+        },
+        "reviewer": "Fixture Author Ari",
+        "reason": "Deliberately incorrect interpretation in a synthetic reviewer-judgment contrast.",
+        "kind": "finding",
+        "appraisal": null
+      },
+      "expected": {
+        "structural_acceptance": true,
+        "support_decision": "reject",
+        "reviewer": "Fixture Reviewer Bo",
+        "review_reason": "The source gives invented units and explicitly says the result is not diagnostic sensitivity; interpreting it as a percentage sensitivity is unsupported.",
+        "state_after_review": "rejected",
+        "verified": false,
+        "distinction": "Automatic substring validation locates a quotation; it does not prove that the supplied value/context is supported."
+      },
+      "derived_from": "primary_value_jats"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "verification_revision_and_source_identity",
+      "steps": [
+        {
+          "id": "m01",
+          "operation": "propose",
+          "arguments": {
+            "proposal_id": "follow_up_jats_v1",
+            "evidence_ref": "e_follow_up",
+            "revision_ref": "r1"
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "proposed",
+            "dependency_issues": [],
+            "state": "proposed",
+            "verified": false,
+            "active_verification_event_refs": [],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 0
+            }
+          }
+        },
+        {
+          "id": "m02",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "r1",
+            "event_ref": "v1",
+            "reviewer": "Fixture Reviewer Bo",
+            "decision": "confirm",
+            "reason": "The exact source says six weeks, not twelve months; context remains synthetic."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "v1"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "m03",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "r1",
+            "event_ref": "v2",
+            "reviewer": "Fixture Reviewer Cy",
+            "decision": "reject",
+            "reason": "Invented disagreement for verification-state testing; no new clinical assertion."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "conflict",
+            "dependency_issues": [],
+            "state": "conflict",
+            "verified": false,
+            "active_verification_event_refs": [
+              "v1",
+              "v2"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 2
+            }
+          }
+        },
+        {
+          "id": "m04",
+          "operation": "adjudicate",
+          "arguments": {
+            "revision_ref": "r1",
+            "event_ref": "v3",
+            "reviewer": "Fixture Adjudicator Dee",
+            "decision": "confirm",
+            "reason": "Resolve this synthetic disagreement by the literal six-week source and context."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "v3"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 3
+            }
+          }
+        },
+        {
+          "id": "m05",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "r1",
+            "event_ref": "v4",
+            "reviewer": "Fixture Reviewer Bo",
+            "decision": "confirm",
+            "reason": "Repeat the latest confirmation; any later review invalidates prior adjudication."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "conflict",
+            "dependency_issues": [],
+            "state": "conflict",
+            "verified": false,
+            "active_verification_event_refs": [
+              "v2",
+              "v4"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 4
+            }
+          }
+        },
+        {
+          "id": "m06",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "r1",
+            "event_ref": "v5",
+            "reviewer": "Fixture Reviewer Cy",
+            "decision": "confirm",
+            "reason": "Revise this reviewer vote to agreement; retain the earlier rejection in history."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "v4",
+              "v5"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 5
+            }
+          }
+        },
+        {
+          "id": "m07",
+          "operation": "revise",
+          "arguments": {
+            "revision_template": "follow_up_context_v1",
+            "evidence_ref": "e_follow_up",
+            "revision_ref": "r2"
+          },
+          "expected_current": {
+            "revision": 2,
+            "verification_state": "proposed",
+            "dependency_issues": [],
+            "state": "proposed",
+            "verified": false,
+            "active_verification_event_refs": [],
+            "history_counts": {
+              "revisions": 2,
+              "reviews": 5
+            }
+          }
+        },
+        {
+          "id": "m08",
+          "operation": "review_rejected",
+          "arguments": {
+            "revision_ref": "r1",
+            "event_ref": "must_not_exist",
+            "reviewer": "Fixture Reviewer Bo",
+            "decision": "confirm",
+            "reason": "Attempt to review an old immutable revision."
+          },
+          "expected_current": {
+            "revision": 2,
+            "verification_state": "proposed",
+            "dependency_issues": [],
+            "state": "proposed",
+            "verified": false,
+            "active_verification_event_refs": [],
+            "history_counts": {
+              "revisions": 2,
+              "reviews": 5
+            }
+          }
+        },
+        {
+          "id": "m09",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "r2",
+            "event_ref": "v6",
+            "reviewer": "Fixture Reviewer Bo",
+            "decision": "confirm",
+            "reason": "Independently check the current complete context revision."
+          },
+          "expected_current": {
+            "revision": 2,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "v6"
+            ],
+            "history_counts": {
+              "revisions": 2,
+              "reviews": 6
+            }
+          }
+        },
+        {
+          "id": "m10",
+          "operation": "attach",
+          "arguments": {
+            "record_alias": "report_jats",
+            "source_alias": "jats_v2",
+            "document_ref": "document_jats_v2",
+            "reviewer": "Fixture Author Ari",
+            "reason": "Explicit invented six-to-eight-week source replacement."
+          },
+          "expected_current": {
+            "revision": 2,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "stale_source"
+            ],
+            "state": "stale_source",
+            "verified": false,
+            "active_verification_event_refs": [
+              "v6"
+            ],
+            "history_counts": {
+              "revisions": 2,
+              "reviews": 6
+            }
+          }
+        },
+        {
+          "id": "m11",
+          "operation": "revise",
+          "arguments": {
+            "revision_template": "follow_up_8weeks_v2",
+            "evidence_ref": "e_follow_up",
+            "revision_ref": "r3"
+          },
+          "expected_current": {
+            "revision": 3,
+            "verification_state": "proposed",
+            "dependency_issues": [],
+            "state": "proposed",
+            "verified": false,
+            "active_verification_event_refs": [],
+            "history_counts": {
+              "revisions": 3,
+              "reviews": 6
+            }
+          }
+        },
+        {
+          "id": "m12",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "r3",
+            "event_ref": "v7",
+            "reviewer": "Fixture Reviewer Cy",
+            "decision": "confirm",
+            "reason": "Independently check eight weeks against the new version; do not inherit old votes."
+          },
+          "expected_current": {
+            "revision": 3,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "v7"
+            ],
+            "history_counts": {
+              "revisions": 3,
+              "reviews": 7
+            }
+          }
+        },
+        {
+          "id": "m13",
+          "operation": "attach",
+          "arguments": {
+            "record_alias": "report_jats",
+            "source_alias": "jats_v2",
+            "document_ref": "document_jats_v2_copy",
+            "reviewer": "Fixture Author Ari",
+            "reason": "Attach identical bytes as a distinct explicit immutable ledger version."
+          },
+          "expected_current": {
+            "revision": 3,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "stale_source"
+            ],
+            "state": "stale_source",
+            "verified": false,
+            "active_verification_event_refs": [
+              "v7"
+            ],
+            "history_counts": {
+              "revisions": 3,
+              "reviews": 7
+            }
+          }
+        },
+        {
+          "id": "m14",
+          "operation": "revise",
+          "arguments": {
+            "revision_template": "follow_up_8weeks_v2",
+            "document_ref_override": "document_jats_v2_copy",
+            "evidence_ref": "e_follow_up",
+            "revision_ref": "r4"
+          },
+          "expected_current": {
+            "revision": 4,
+            "verification_state": "proposed",
+            "dependency_issues": [],
+            "state": "proposed",
+            "verified": false,
+            "active_verification_event_refs": [],
+            "history_counts": {
+              "revisions": 4,
+              "reviews": 7
+            }
+          }
+        },
+        {
+          "id": "m15",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "r4",
+            "event_ref": "v8",
+            "reviewer": "Fixture Reviewer Bo",
+            "decision": "confirm",
+            "reason": "Check the newest document identity even though bytes and numeric value match the prior version."
+          },
+          "expected_current": {
+            "revision": 4,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "v8"
+            ],
+            "history_counts": {
+              "revisions": 4,
+              "reviews": 8
+            }
+          }
+        }
+      ],
+      "final_expected": {
+        "value": {
+          "duration": 8,
+          "unit": "weeks"
+        },
+        "source_alias": "jats_v2",
+        "active_document_ref": "document_jats_v2_copy",
+        "current_revision_ref": "r4",
+        "revisions": 4,
+        "reviews": 8,
+        "verified_rows": 1,
+        "retained_values_in_order": [
+          6,
+          6,
+          8,
+          8
+        ],
+        "retained_revision_refs": [
+          "r1",
+          "r2",
+          "r3",
+          "r4"
+        ],
+        "retained_event_refs": [
+          "v1",
+          "v2",
+          "v3",
+          "v4",
+          "v5",
+          "v6",
+          "v7",
+          "v8"
+        ]
+      }
+    },
+    {
+      "id": "conditional_dependency_restoration",
+      "steps": [
+        {
+          "id": "d01",
+          "operation": "propose",
+          "arguments": {
+            "proposal_id": "population_jats",
+            "evidence_ref": "e_population",
+            "revision_ref": "p1"
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "proposed",
+            "dependency_issues": [],
+            "state": "proposed",
+            "verified": false,
+            "active_verification_event_refs": [],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 0
+            }
+          }
+        },
+        {
+          "id": "d02",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "p1",
+            "event_ref": "p_confirm",
+            "reviewer": "Fixture Reviewer Bo",
+            "decision": "confirm",
+            "reason": "The quotation explicitly says 24 invented entries, not patients."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d03",
+          "operation": "eligibility",
+          "arguments": {
+            "record_alias": "report_jats",
+            "full_text": "exclude",
+            "reviewer": "Fixture Screener",
+            "reason": "Invented exclusion for dependency test."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "ineligible_report"
+            ],
+            "state": "ineligible_report",
+            "verified": false,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d04",
+          "operation": "eligibility",
+          "arguments": {
+            "record_alias": "report_jats",
+            "full_text": "include",
+            "reviewer": "Fixture Screener",
+            "reason": "Restore the same report eligibility."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d05",
+          "operation": "linkage",
+          "arguments": {
+            "record_alias": "report_jats",
+            "status": "unresolved",
+            "study_aliases": [],
+            "reason": "Invented empty/pending or conflicted association."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "unresolved_linkage"
+            ],
+            "state": "unresolved_linkage",
+            "verified": false,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d06",
+          "operation": "linkage",
+          "arguments": {
+            "record_alias": "report_jats",
+            "status": "resolved",
+            "study_aliases": [
+              "study_alpha"
+            ],
+            "reason": "Restore the exact requested study association."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d07",
+          "operation": "linkage",
+          "arguments": {
+            "record_alias": "report_jats",
+            "status": "resolved",
+            "study_aliases": [
+              "study_beta"
+            ],
+            "reason": "Resolved association omits the proposal study."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "study_not_linked"
+            ],
+            "state": "study_not_linked",
+            "verified": false,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d08",
+          "operation": "linkage",
+          "arguments": {
+            "record_alias": "report_jats",
+            "status": "resolved",
+            "study_aliases": [
+              "study_alpha",
+              "study_beta"
+            ],
+            "reason": "Restore requested study among a complete set of two associations."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d09",
+          "operation": "eligibility_and_linkage",
+          "arguments": {
+            "record_alias": "report_jats",
+            "full_text": "exclude",
+            "linkage_status": "unresolved",
+            "study_aliases": [],
+            "reason": "Two simultaneous current dependency issues."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "ineligible_report",
+              "unresolved_linkage"
+            ],
+            "state": "ineligible_report",
+            "verified": false,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d10",
+          "operation": "review_rejected",
+          "arguments": {
+            "revision_ref": "p1",
+            "event_ref": "must_not_exist",
+            "reviewer": "Fixture Reviewer Cy",
+            "decision": "confirm",
+            "reason": "Review while current eligibility/linkage dependencies are invalid."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "ineligible_report",
+              "unresolved_linkage"
+            ],
+            "state": "ineligible_report",
+            "verified": false,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d11",
+          "operation": "attach",
+          "arguments": {
+            "record_alias": "report_jats",
+            "source_alias": "jats_v2",
+            "document_ref": "dependency_new_document",
+            "reviewer": "Fixture Author Ari",
+            "reason": "Source change while excluded and unresolved; ordered dependency truth."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "stale_source",
+              "ineligible_report",
+              "unresolved_linkage"
+            ],
+            "state": "stale_source",
+            "verified": false,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d12",
+          "operation": "eligibility_and_linkage",
+          "arguments": {
+            "record_alias": "report_jats",
+            "full_text": "include",
+            "linkage_status": "resolved",
+            "study_aliases": [
+              "study_beta"
+            ],
+            "reason": "Restore eligibility but resolved links still omit study alpha."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "stale_source",
+              "study_not_linked"
+            ],
+            "state": "stale_source",
+            "verified": false,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "d13",
+          "operation": "linkage",
+          "arguments": {
+            "record_alias": "report_jats",
+            "status": "resolved",
+            "study_aliases": [
+              "study_alpha"
+            ],
+            "reason": "Restore old study association; current document identity remains changed."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [
+              "stale_source"
+            ],
+            "state": "stale_source",
+            "verified": false,
+            "active_verification_event_refs": [
+              "p_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        }
+      ],
+      "final_expected": {
+        "current_revision_ref": "p1",
+        "revisions": 1,
+        "reviews": 1,
+        "verification_state": "confirmed",
+        "state": "stale_source",
+        "verified_rows": 0,
+        "restoration_truth": "Exclusion/link removal can suppress then restore the same confirmation with no new review. A new immutable document cannot restore an old source confirmation even when the population text/value are unchanged."
+      }
+    },
+    {
+      "id": "appraisal_identity_and_verbatim_protocol_inputs",
+      "steps": [
+        {
+          "id": "i01",
+          "operation": "propose",
+          "arguments": {
+            "proposal_id": "appraisal_jats",
+            "evidence_ref": "e_appraisal",
+            "revision_ref": "a1"
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "proposed",
+            "dependency_issues": [],
+            "state": "proposed",
+            "verified": false,
+            "active_verification_event_refs": [],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 0
+            }
+          }
+        },
+        {
+          "id": "i02",
+          "operation": "review_rejected",
+          "arguments": {
+            "revision_ref": "a1",
+            "event_ref": "must_not_exist",
+            "reviewer": "Fixture Author Ari",
+            "decision": "confirm",
+            "reason": "Attempt to certify own appraisal proposal."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "proposed",
+            "dependency_issues": [],
+            "state": "proposed",
+            "verified": false,
+            "active_verification_event_refs": [],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 0
+            }
+          }
+        },
+        {
+          "id": "i03",
+          "operation": "review",
+          "arguments": {
+            "revision_ref": "a1",
+            "event_ref": "a_confirm",
+            "reviewer": "Fixture Reviewer Bo",
+            "decision": "confirm",
+            "reason": "Check the quote and preserve the arbitrary named instrument/version/domain/judgment."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "a_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        },
+        {
+          "id": "i04",
+          "operation": "adjudicate_rejected",
+          "arguments": {
+            "revision_ref": "a1",
+            "event_ref": "must_not_exist",
+            "reviewer": "Fixture Author Ari",
+            "decision": "reject",
+            "reason": "The current author cannot adjudicate own revision even after a review exists."
+          },
+          "expected_current": {
+            "revision": 1,
+            "verification_state": "confirmed",
+            "dependency_issues": [],
+            "state": "confirmed",
+            "verified": true,
+            "active_verification_event_refs": [
+              "a_confirm"
+            ],
+            "history_counts": {
+              "revisions": 1,
+              "reviews": 1
+            }
+          }
+        }
+      ],
+      "final_expected": {
+        "current_revision_ref": "a1",
+        "revisions": 1,
+        "reviews": 1,
+        "verified_rows": 1,
+        "kind": "appraisal",
+        "value": "Not performed in this fixture",
+        "appraisal": {
+          "instrument": "Software Fixture Appraisal",
+          "instrument_version": "0.1-synthetic",
+          "domain": "Declared analysis coverage"
+        },
+        "no_overall_score": true
+      }
+    }
+  ],
+  "limits": [
+    "Synthetic values and source text do not establish clinical efficacy, diagnosis, safety, risk of bias, or medical extraction accuracy.",
+    "The arbitrary appraisal instrument is deliberately invented; no design-appropriate clinical tool is selected or validated.",
+    "Independent evaluation still owns malformed types, cross-project/report IDs, unknown IDs, duplicate slots, corruption and concurrency cases.",
+    "The signed/unsigned ledger threat boundary and current-state verification are operational acceptance concerns; fixture identity strings do not authenticate reviewers."
+  ]
+}
