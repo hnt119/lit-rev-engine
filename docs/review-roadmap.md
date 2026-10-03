@@ -35,7 +35,7 @@ This accepts the bounded v3 pilot and the six technical foundations. It does not
 
 ## Next highest-value step
 
-Run one protocol-defined review pilot with human reviewers. The current fixtures establish reproducible mechanics; a real pilot should test whether protocol-specific searches, duplicate/conflict resolution, report/study links and verified extraction remain usable and complete. Its review question, databases, eligibility rules and extraction fields must come from the review team. Additional algorithm experiments have lower immediate value than that workflow evidence.
+Run one protocol-defined review pilot with human reviewers. The [saved pilot contract](pilot-milestone.md) records its required inputs, interfaces, role-specific tickets and acceptance criteria. The current fixtures establish reproducible mechanics; a real pilot should test whether protocol-specific searches, duplicate/conflict resolution, report/study links and verified extraction remain usable and complete. Its review question, databases, eligibility rules and extraction fields must come from the review team. Additional algorithm experiments have lower immediate value than that workflow evidence. The [cloud model strategy](model-strategy.md) records researched options and later integration gates; no model choice displaces this milestone.
 
 These are proposed next-cycle tickets, beyond the accepted foundation release:
 
@@ -49,4 +49,4 @@ No live search or new pilot topic is implied by these proposals. Frozen benchmar
 
 ## Handoff discipline
 
-Each ticket names owned files, changed facts/interfaces, acceptance criteria and one focused validation command. Evaluation reports independent expected truth, observed results, defects and limits. Root reviews that evidence before selecting the next ticket. Preserve unrelated local files and generated user data; only reviewed files enter commits. The clean staged regression gate has passed; authorized commit/push publishes the reviewed release on `codex/review-ledger`.
+Each ticket names owned files, changed facts/interfaces, acceptance criteria and one focused validation command. Evaluation reports independent expected truth, observed results, defects and limits. Root reviews that evidence before selecting the next ticket. Preserve unrelated local files and generated user data; only reviewed files enter commits. The clean staged regression gate has passed. The user requested publication to `main`; the [documentation release audit](main-release-evaluation.md) records the GitHub comparison and additional guide checks. The reviewed feature branch is retained as `codex/review-ledger`.

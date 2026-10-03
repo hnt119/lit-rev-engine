@@ -4,6 +4,22 @@ A Python engine for managing a reproducible review ledger and exploring locally 
 
 The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Project passage retrieval searches those retained sources and returns exact anchors for reviewer inspection. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
 
+## Start here
+
+Use **`review.py` for a reproducible medical review**. Begin with the [offline getting-started guide](docs/getting-started.md): it creates an isolated synthetic project, imports six occurrences into four records, records decisions and reproduces the exports without an API key or model download.
+
+| What you need | Where to go |
+| --- | --- |
+| Understand the modules, stored data and current boundaries | [Architecture and repository map](docs/architecture.md) |
+| Run the first project and understand its counts | [Getting started](docs/getting-started.md) |
+| Import saved exports or preserve an executed PubMed search | [Import formats](docs/import-formats.md), [PubMed receipts and replay](docs/pubmed-search.md) |
+| Associate reports, retain sources and verify findings | [Study links](docs/study-linkage.md), [Source versions](docs/source-documents.md), [Verified evidence](docs/verified-evidence.md) |
+| Retrieve exact passages from eligible project sources | [Project retrieval](docs/project-retrieval.md) |
+| Choose cloud embedding, reranking and generation candidates | [Model strategy and integration plan](docs/model-strategy.md) |
+| See accepted gates and the next human review pilot | [Pilot contract](docs/pilot-milestone.md), [coordinator roadmap](docs/review-roadmap.md) |
+
+The cloud model strategy is a researched design for the next optional integration. Current defaults remain local BGE embeddings for passage exploration and optional Agnes generation; `review.py` needs neither service. Preserve the SQLite ledger and its source bytes as the review record. A Chroma index can be rebuilt and serves a different purpose.
+
 ## Current workflow
 
 ```mermaid
