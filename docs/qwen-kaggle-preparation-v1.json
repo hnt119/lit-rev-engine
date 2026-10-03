@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_ranked",
+  "prepared_on": "2026-10-04 Asia/Singapore",
+  "freeze": {
+    "file": "docs/qwen-kaggle-freeze-v1.json",
+    "sha256": "62aab065c601f24127d75f476c0d95c459cf4e0180df043f10472f0d89475e87",
+    "size_bytes": 7972
+  },
+  "job_sha256": "c39de1e86b9f16f96547cbc74bc8335b4be2748671c0cb443ea5be099ceafd32",
+  "source_articles": 2,
+  "canonical_blocks": 102,
+  "scoring_representations": 102,
+  "queries": 8,
+  "actual_gpu_runs": 0,
+  "paid_inference_calls": 0,
+  "local_directory": "data/qwen-kaggle-pilot-v1",
+  "uploaded_files": [],
+  "reason_gpu_pending": "No connected Kaggle browser/account or API authentication was available; importable notebook and private-dataset inputs prepared locally.",
+  "notebook": "notebooks/qwen_kaggle.ipynb",
+  "guide": "docs/qwen-cloud.md",
+  "model_quality_status": "unmeasured"
+}

@@ -1,12 +1,12 @@
 # Architecture and repository map
 
-This guide describes the current code. The [cloud model strategy](model-strategy.md) is a proposed integration, with separate acceptance gates. The next product milestone remains a small protocol-defined review with human reviewers; see the [roadmap](review-roadmap.md).
+This guide describes the current code. The [Qwen workflow](qwen-cloud.md) adds optional free Kaggle batch retrieval with [separate acceptance gates](qwen-kaggle-milestone.md). The user placed this integration before the small protocol-defined human review; see the [roadmap](review-roadmap.md).
 
 ## Choose the right entry point
 
 | Entry point | Purpose | Persistent state | Inference |
 | --- | --- | --- | --- |
-| `review.py` | Systematic/scoping project, search/import provenance, screening, study links, source/evidence history, counts and exports | SQLite ledger, including retained source and capture bytes | Exact lexical passage retrieval; no embedding or generation dependency |
+| `review.py` | Systematic/scoping project, search/import provenance, screening, study links, source/evidence history, counts and exports | SQLite ledger, including retained source and capture bytes | Offline lexical retrieval; `qwen-export`/`qwen-import` prepare and validate external Kaggle GPU jobs; historical paid transport requires explicit opt-in |
 | `main.py` | Search arXiv, download and index PDF passages | Downloaded PDFs/chunks and a Chroma index | Local Sentence Transformers embeddings |
 | `query.py` | Explore passages in that Chroma index | Reads the index | Local embeddings; no generation key |
 | `ask.py` | Ask the optional passage assistant | Reads the index; outputs answer/source passages | Local embeddings plus configured Agnes chat API |
@@ -51,6 +51,9 @@ Citation identity uses conservative DOI/PMID matching and a limited exact fallba
 | `src/review/documents.py` | Canonical TXT/JATS/PDF blocks, parser provenance and own-identifier checks |
 | `src/review/evidence.py` | Hashed evidence revisions, quotation validation and verification eligibility |
 | `src/review/retrieval.py` | Current project/source/scope checks, BM25/overlap scoring and exact-anchor traces |
+| `src/review/qwen_batch.py`, `qwen_cli.py` | Offline immutable source jobs, local result validation/replay and CLI delegation to the frozen ledger commands |
+| `tools/qwen_kaggle_runner.py`, `notebooks/qwen_kaggle.ipynb` | Standalone free GPU batch worker: pinned weights, sequential embedding/reranking, token and runtime receipts |
+| `src/review/qwen.py`, `cloud_retrieval.py` | Historical native paid transport and saved-response replay; no default paid invocation |
 | `src/review/exporters.py` | Reconciled counts and current/audit exports from one snapshot |
 | `src/search/pubmed_search.py` | Explicit search capture, membership verification and offline capture import |
 | `src/settings.py` | Exploration pipeline configuration and optional Agnes settings |
@@ -66,6 +69,8 @@ Citation identity uses conservative DOI/PMID matching and a limited exact fallba
 The default review database is `data/reviews.sqlite3`; use an explicit `--db` path to isolate projects or demos. It preserves history and retained bytes. Back up the database through a consistent SQLite backup or with its connection closed; account for active WAL files when copying a live database. Export is a readable audit bundle and is not an implemented database-restoration command.
 
 The passage pipeline's downloaded PDFs, chunks and Chroma files live under `data/` and are ignored by Git. It keeps the embedding model name in collection metadata and rejects mismatched models. Changing the embedding model requires a new collection and complete reindexing. Future cloud profiles must also pin revision, instructions, tokenizer, output dimension, normalization and distance metric; see the [model plan](model-strategy.md).
+
+Qwen batch retrieval exports a hashed project/source/scope snapshot and questions while keeping the ledger local. The Kaggle notebook downloads immutable Hugging Face model revisions, records full token lengths without truncation and loads one FP16 model at a time. Local import reconstructs dense/lexical fusion and ranks, validates every returned identity/value and rechecks current state before publishing an immutable receipt. Changed source/eligibility/linkage/profile invalidates the job. Saved results replay offline with trusted original hashes. GPU runtime metadata documents execution; it is not remote attestation. Ledger export does not include these external artifacts. Historical DeepInfra aliases and setup failures remain documented separately.
 
 Project retrieval reads a consistent SQLite snapshot. Its trace includes query, scope, method/version/parameters, selected source manifests and exact half-open Unicode anchors. Context used to rank a passage remains separately anchored and cannot replace that passage's own evidence quotation. The existing methods and frozen results remain versioned.
 

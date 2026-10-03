@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_ranked",
+  "prepared_on": "2026-10-04 Asia/Singapore",
+  "freeze": {
+    "file": "docs/qwen-kaggle-freeze-v2.json",
+    "sha256": "04f0a961eb0f7d91626a72e93f68c5d4f8cc77f4ff0f78fbb72063219d878b62",
+    "size_bytes": 7973
+  },
+  "job_sha256": "ab6e06ca37d89f95800fc09100f2c8a41c595f3b76c0497fb9f2679850672a8f",
+  "source_articles": 2,
+  "canonical_blocks": 102,
+  "scoring_representations": 102,
+  "queries": 8,
+  "actual_gpu_runs": 0,
+  "paid_inference_calls": 0,
+  "local_directory": "data/qwen-kaggle-pilot-v2",
+  "uploaded_files": [],
+  "reason_gpu_pending": "No connected Kaggle browser/account or API authentication was available; importable notebook and private-dataset inputs prepared locally.",
+  "notebook": "notebooks/qwen_kaggle.ipynb",
+  "guide": "docs/qwen-cloud.md",
+  "model_quality_status": "unmeasured",
+  "supersedes_preparation": "docs/qwen-kaggle-preparation-v1.json",
+  "reproduction": "Run the documented prepare command to make a fresh local bundle; random project/document IDs yield a different job digest with the same frozen source/profile/query inputs."
+}

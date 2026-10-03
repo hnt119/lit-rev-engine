@@ -19,7 +19,7 @@ printf 'Demo directory: %s\n' "$REVIEW_DEMO_DIR"
 
 All demo database and output files stay in that new temporary directory. `-B` avoids writing Python bytecode into the checkout; `-S` skips installed site packages. Every ledger command supplies `--db` **before** its command, so the default repository `data/reviews.sqlite3` is not used. Keep the printed directory path if you want to inspect the result later; temporary storage is not suitable for a real review.
 
-The offline ledger, lexical passage retrieval, and TXT/JATS source parsing use the standard library. PDF source attachment needs PyMuPDF. The separate PDF indexing/RAG tools need the [runtime dependencies and configuration](../README.md#requirements-and-installation); their embedding pipeline loads a model, and answer generation uses Agnes. Those dependencies are unnecessary here. The [model strategy](model-strategy.md) describes a proposed cloud direction, not an implemented cloud integration.
+The offline ledger, lexical passage retrieval, and TXT/JATS source parsing use the standard library. PDF source attachment needs PyMuPDF. The separate PDF indexing/RAG tools need the [runtime dependencies and configuration](../README.md#requirements-and-installation); their embedding pipeline loads a model, and answer generation uses Agnes. Those dependencies are unnecessary here. Optional [Kaggle Qwen retrieval](qwen-cloud.md) uses offline job export/import and a separate free GPU notebook; this walkthrough invokes neither service nor model.
 
 ## 2. Create a project and import the sample
 

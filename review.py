@@ -1,6 +1,6 @@
 """Review-project ledger CLI with offline replay and explicit PubMed capture."""
 
-from src.review.cli import main
+from src.review.qwen_cli import main
 
 
 if __name__ == "__main__":

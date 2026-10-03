@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "ticket": "R-Q2",
+  "purpose": "Prospective fixed fresh truth, before any cloud/lexical pilot quality ranking.",
+  "created_at_utc": "2026-10-03T03:09:59.094275+00:00",
+  "source_manifest": {
+    "file": "../qwen_pilot_sources/manifest.json",
+    "sha256": "3fd57adb6ddac600684528bd53b2bcc7cb366747f077879582f732998b68c21a",
+    "size_bytes": 18801
+  },
+  "sources": [
+    {
+      "id": "mammography",
+      "file": "../qwen_pilot_sources/mammography.xml",
+      "doi": "10.1371/journal.pone.0322925",
+      "title": "Comparative analysis of diagnostic performance in mammography: A reader study on the impact of AI assistance",
+      "sha256": "18537d74837fde29e423aa014274aa877580130eb3eefa284d35255cdda81385",
+      "size_bytes": 127709,
+      "block_count": 55,
+      "canonical_blocks_sha256": "3f0f12e07e52c7110434a44a8ff124f7fe929165bca3cddd42721545ea191b49"
+    },
+    {
+      "id": "breast_us",
+      "file": "../qwen_pilot_sources/breast_us.xml",
+      "doi": "10.1371/journal.pone.0278299",
+      "title": "Ultrasound classification of non-mass breast lesions following BI-RADS presents high positive predictive value",
+      "sha256": "3fa5a7c38a0517fda006c5b32c9f2b51ee09ff1e744453df3e876a21046bd58e",
+      "size_bytes": 108204,
+      "block_count": 47,
+      "canonical_blocks_sha256": "9f4ab56d4ab8e221892b8e30a5efeddb85684030ba08bded0c085ea21e81a65f"
+    }
+  ],
+  "files": {
+    "blocks.json": {
+      "sha256": "1f4ee8c00aa763baf3b755e5f4a1aae96b90439a008e5d3945c7ccbd12c2980c",
+      "size_bytes": 111991
+    },
+    "questions.json": {
+      "sha256": "2e81d216851540071a36f2fd9f27fdbd781999f4ca2c006f4dc01ab27152ea4c",
+      "size_bytes": 27107
+    }
+  },
+  "counts": {
+    "questions": 8,
+    "answerable": 6,
+    "nulls": 2,
+    "quantitative": 6,
+    "necessary_and": 4,
+    "sources": 2,
+    "canonical_blocks": 102,
+    "main_tables": 9,
+    "support_alternatives": 9,
+    "support_spans": 36,
+    "context_spans": 4
+  },
+  "semantics": {
+    "support_sets": "OR across alternatives; all required quote spans inside one alternative are AND. Distinct blocks are deduplicated by (source_id,block_id), never by quote span.",
+    "context_anchors": "Context only, never scored as sufficient support; null queries may return candidates and do not imply automatic model abstention.",
+    "span_offsets": "Half-open Unicode code-point offsets within complete canonical block text.",
+    "expected_answer": "Human-readable requested facts; scoring must use original source support, not answer string match.",
+    "alternatives": "Source-first scan of all 102 canonical blocks; all identified sufficient alternatives retained. Semantic completeness requires independent review before freeze.",
+    "runtime": "Original source parser runtime metadata preserved in acquisition manifest; current verifier runtime may differ without rewriting historical metadata."
+  },
+  "limits": [
+    "Two sources and eight agent-authored questions are a nonexhaustive pilot, not clinical or broad domain validation.",
+    "No ranking/model calls occurred during acquisition or gold authoring. Root owns prospective freeze and all quality execution."
+  ]
+}

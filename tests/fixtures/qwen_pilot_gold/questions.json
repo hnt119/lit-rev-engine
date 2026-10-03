@@ -1,0 +1,495 @@
+{
+  "schema_version": 1,
+  "questions": [
+    {
+      "id": "qwen-mammography-01",
+      "query": "For reader R3 in this article's own dense-breast analysis, what experience and between-reading washout period were specified, and what PPV and NPV were printed without and with AI in Table 5?",
+      "source_id": "mammography",
+      "answerable": true,
+      "category": "reader-timepoint-and-subgroup-quantitative",
+      "quantitative": true,
+      "necessary_and": true,
+      "expected_answer": "R3 was a general radiologist with 6 years of experience, with a six-week washout between readings. Table 5 prints PPV 52.2% without AI and 68.9% with AI; NPV 88.0% without AI and 90.9% with AI.",
+      "support_sets": [
+        [
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+            "block_sha256": "997e59941c1bcc8098bb94dffe4180a28c93f999ae19b88f44b2b36b4bd7f8dc",
+            "start": 0,
+            "end": 365,
+            "quote": "Four readers (2 trainee radiologists (ES – R1) and (NAM – R4) and two general radiologists (NMA-R3 and KMN – R2) with 6 and 12 years’ experience, independently reviewed same set of mammography images in a randomized order, in two separate sessions: first without AI assistance and then with AI assistance following a six-week washout period to minimize recall bias."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "block_sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+            "start": 0,
+            "end": 133,
+            "quote": "Table 5\nDiagnostic performance metrics in dense breasts, comparing four radiologists (R1, R2, R3, R4) with and without AI assistance."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "block_sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+            "start": 271,
+            "end": 385,
+            "quote": "READERS DIAGNOSTIC PERFORMANCE IN DENSE BREAST WITHOUT AI (R1, R2, R3, R4)and WITH AI (R1AI, R2A1, R3A1, R4AI) (%)"
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "block_sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+            "start": 386,
+            "end": 428,
+            "quote": "R1\tR1AI\tR2\tR2AI\tR3\tR3AI\tR4\tR4AI\tALL*\tAI*\t†"
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "block_sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+            "start": 565,
+            "end": 684,
+            "quote": "PPV\t45.5\t43.2\t51.9\t42.6\t52.2\t68.9\t43.2\t59.2\t48.2\t53.5\t0.213\nNPV\t89.6\t88.1\t88.9\t88.1\t88.0\t90.9\t91.3\t90.0\t89.5\t89.3\t0.213"
+          }
+        ],
+        [
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+            "block_sha256": "d9a464559ecbfdd1e0c6818b7e2793807cbe5717f309808b30d50e10dd342172",
+            "start": 484,
+            "end": 565,
+            "quote": "General radiologist (R3), with 6 years of experience, had the highest PPV and NPV"
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/fig[1]/caption[1]/p[1]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[5]/fig[1]/caption[1]/p[1]",
+            "block_sha256": "afde64ccbf14a14dbc6beecca1725594ab64028c4e5e5373f89bfc9f7df9bc02",
+            "start": 0,
+            "end": 145,
+            "quote": "Mammograms were first analysed by radiologists without AI assistance, followed by a six-week washout period before re-evaluation with AI support."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "block_sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+            "start": 0,
+            "end": 133,
+            "quote": "Table 5\nDiagnostic performance metrics in dense breasts, comparing four radiologists (R1, R2, R3, R4) with and without AI assistance."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "block_sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+            "start": 271,
+            "end": 385,
+            "quote": "READERS DIAGNOSTIC PERFORMANCE IN DENSE BREAST WITHOUT AI (R1, R2, R3, R4)and WITH AI (R1AI, R2A1, R3A1, R4AI) (%)"
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "block_sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+            "start": 386,
+            "end": 428,
+            "quote": "R1\tR1AI\tR2\tR2AI\tR3\tR3AI\tR4\tR4AI\tALL*\tAI*\t†"
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+            "block_sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+            "start": 565,
+            "end": 684,
+            "quote": "PPV\t45.5\t43.2\t51.9\t42.6\t52.2\t68.9\t43.2\t59.2\t48.2\t53.5\t0.213\nNPV\t89.6\t88.1\t88.9\t88.1\t88.0\t90.9\t91.3\t90.0\t89.5\t89.3\t0.213"
+          }
+        ]
+      ],
+      "context_anchors": [],
+      "null_reason": null
+    },
+    {
+      "id": "qwen-mammography-02",
+      "query": "During what acquisition period were the mammograms in this study obtained, and what average-measures ICC estimates and 95% confidence intervals were reported for the final BI-RADS assessment without and with AI?",
+      "source_id": "mammography",
+      "answerable": true,
+      "category": "acquisition-timepoint-and-interval",
+      "quantitative": true,
+      "necessary_and": true,
+      "expected_answer": "Mammography cases were from January 2021 to May 2022. Without AI the average-measures ICC was 0.910 (95% CI 0.894–0.924); with AI it was 0.931 (95% CI 0.920–0.941).",
+      "support_sets": [
+        [
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+            "block_sha256": "c2eecc3830430c729f971acf7089eded76051c62e7abc29b7060ec17e7b8b1fd",
+            "start": 45,
+            "end": 144,
+            "quote": "involving mammography cases from January 2021 to May 2022 done in Hospital Al-Sultan Abdullah UiTM."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+            "block_sha256": "da4f56ccccb74e96a68d6416b048444df6b4610ce6330d926619d6188df7d1a4",
+            "start": 231,
+            "end": 456,
+            "quote": "Without AI software, the average measures ICC was 0.910 with a 95% CI of 0.894 to 0.924, F(433, 1299), p < 0.001. With AI software, the average measures ICC was 0.931 with a 95% CI of 0.920 to 0.941, F (433, 1299), p < 0.001."
+          }
+        ]
+      ],
+      "context_anchors": [],
+      "null_reason": null
+    },
+    {
+      "id": "qwen-mammography-03",
+      "query": "In this article's own overall reader analysis, what sensitivity and specificity were reported for R2 without and with AI, and, according specifically to Statistical analysis, how was a case considered benign when no biopsy was performed?",
+      "source_id": "mammography",
+      "answerable": true,
+      "category": "reference-standard-and-accuracy",
+      "quantitative": true,
+      "necessary_and": true,
+      "expected_answer": "R2 sensitivity was 86.5% without AI and 88.0% with AI; specificity was 60.5% without AI and 59.2% with AI. Statistical analysis says unbiopsied cases were followed for up to 2-year and considered benign when stable.",
+      "support_sets": [
+        [
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+            "block_sha256": "f7a6d002f62ac04b9852b45f9b49c9c4f2a86f753c3be8e663c73f6cc4fef376",
+            "start": 282,
+            "end": 478,
+            "quote": "The gold standard for final diagnosis was the HPE results if a biopsy was taken. If no biopsy was performed, the cases were followed up for up to 2-year, and considered benign when remains stable."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+            "block_sha256": "9242ec2b90bfae5e5fb542ac16582b7273daa92ebc0869c711ac0b21063cc9f1",
+            "start": 0,
+            "end": 116,
+            "quote": "Table 4\nOverall diagnostic performance metrics of four radiologists (R1, R2, R3, R4) with and without AI assistance."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+            "block_sha256": "9242ec2b90bfae5e5fb542ac16582b7273daa92ebc0869c711ac0b21063cc9f1",
+            "start": 245,
+            "end": 343,
+            "quote": "READERS DIAGNOSTIC PERFORMANCE WITHOUT AI (R1, R2, R3, R4)and WITH AI (R1AI, R2A1, R3A1, R4AI) (%)"
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+            "block_sha256": "9242ec2b90bfae5e5fb542ac16582b7273daa92ebc0869c711ac0b21063cc9f1",
+            "start": 344,
+            "end": 389,
+            "quote": "R1\tR1AI\tR2\tR2AI\tR3\tR3AI\tR4\tR4AI\tALL*\tALLAI*\t†"
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+            "block_sha256": "9242ec2b90bfae5e5fb542ac16582b7273daa92ebc0869c711ac0b21063cc9f1",
+            "start": 390,
+            "end": 525,
+            "quote": "Sensitivity\t87.2\t84.0\t86.5\t88.0\t91.3\t95.5\t91.9\t92.5\t89.2\t90.0\t0.140\nSpecificity\t64.5\t69.7\t60.5\t59.2\t53.9\t61.8\t50.0\t57.9\t57.2\t62.2\t0.195"
+          }
+        ],
+        [
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+            "block_sha256": "f7a6d002f62ac04b9852b45f9b49c9c4f2a86f753c3be8e663c73f6cc4fef376",
+            "start": 282,
+            "end": 478,
+            "quote": "The gold standard for final diagnosis was the HPE results if a biopsy was taken. If no biopsy was performed, the cases were followed up for up to 2-year, and considered benign when remains stable."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+            "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+            "block_sha256": "e02d2112064495c74520731b7f83ee66f566e70da17863c599d69571c36ec0ef",
+            "start": 116,
+            "end": 269,
+            "quote": "The senior radiologist consistently achieved the highest sensitivity (86.5% without AI, 88.0% with AI) and specificity (60.5% without AI, 59.2% with AI)."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+            "block_sha256": "997e59941c1bcc8098bb94dffe4180a28c93f999ae19b88f44b2b36b4bd7f8dc",
+            "start": 66,
+            "end": 144,
+            "quote": "two general radiologists (NMA-R3 and KMN – R2) with 6 and 12 years’ experience"
+          }
+        ],
+        [
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+            "block_sha256": "f7a6d002f62ac04b9852b45f9b49c9c4f2a86f753c3be8e663c73f6cc4fef376",
+            "start": 282,
+            "end": 478,
+            "quote": "The gold standard for final diagnosis was the HPE results if a biopsy was taken. If no biopsy was performed, the cases were followed up for up to 2-year, and considered benign when remains stable."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+            "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+            "block_sha256": "e02d2112064495c74520731b7f83ee66f566e70da17863c599d69571c36ec0ef",
+            "start": 116,
+            "end": 269,
+            "quote": "The senior radiologist consistently achieved the highest sensitivity (86.5% without AI, 88.0% with AI) and specificity (60.5% without AI, 59.2% with AI)."
+          },
+          {
+            "source_id": "mammography",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+            "block_sha256": "d9a464559ecbfdd1e0c6818b7e2793807cbe5717f309808b30d50e10dd342172",
+            "start": 252,
+            "end": 392,
+            "quote": "General radiologist (R2), with 12 years of experience, achieved the highest sensitivity and specificity, both with and without AI assistance"
+          }
+        ]
+      ],
+      "context_anchors": [],
+      "null_reason": null
+    },
+    {
+      "id": "qwen-mammography-04",
+      "query": "What five-year breast-cancer mortality reduction was reported for AI-assisted versus unassisted reading in this article's own cohort?",
+      "source_id": "mammography",
+      "answerable": false,
+      "category": "article-scoped-unreported-outcome",
+      "quantitative": false,
+      "necessary_and": false,
+      "expected_answer": null,
+      "support_sets": [],
+      "context_anchors": [
+        {
+          "source_id": "mammography",
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+          "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+          "block_sha256": "f7a6d002f62ac04b9852b45f9b49c9c4f2a86f753c3be8e663c73f6cc4fef376",
+          "start": 363,
+          "end": 478,
+          "quote": "If no biopsy was performed, the cases were followed up for up to 2-year, and considered benign when remains stable."
+        },
+        {
+          "source_id": "mammography",
+          "block_id": "xml:/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+          "source_path": "/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+          "block_sha256": "6de153f711ba3d8f881cd7db6d421dae1b90ea4c7384fb260590bf6d20210ce7",
+          "start": 488,
+          "end": 652,
+          "quote": "there is a need for prospective, multicenter validation studies to assess AI’s clinical impact across diverse patient populations and real-world screening settings."
+        }
+      ],
+      "null_reason": "The own study reports retrospective diagnostic reader accuracy, not a five-year breast-cancer mortality comparison. All 55 main-XML canonical blocks were checked; clinical-benefit discussion and shorter follow-up wording do not report this outcome. Candidates can still be returned; this is a gold nonreporting label, not automatic abstention."
+    },
+    {
+      "id": "qwen-breast-us-01",
+      "query": "For this article's own final non-mass-lesion cohort, what sampling period and diagnostic-reference breakdown were reported, and, at a BI-RADS 4B cutoff, what sensitivity and specificity with the literal reported intervals appear in Results?",
+      "source_id": "breast_us",
+      "answerable": true,
+      "category": "population-timepoint-reference-and-interval",
+      "quantitative": true,
+      "necessary_and": true,
+      "expected_answer": "Sampling was January 2017–December 2021. The final cohort was 59 women/59 US-detected non-mass lesions, with diagnoses based on surgical excision (n=52) or US-guided core needle biopsy (n=7). Results reports sensitivity 82.98% (69.19%–92.35%) and specificity 41.67% (15.17%–72.33%); the intervals are retained as printed without adding a confidence level.",
+      "support_sets": [
+        [
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "block_sha256": "da43218d9e0be9a9347c5fb3d5c3dba9549df849d7cce852448358b58676cd81",
+            "start": 162,
+            "end": 223,
+            "quote": "between January 2017 and December 2021 in a tertiary hospital"
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "block_sha256": "da43218d9e0be9a9347c5fb3d5c3dba9549df849d7cce852448358b58676cd81",
+            "start": 2087,
+            "end": 2353,
+            "quote": "Finally, 59 women (mean age 43.3 years ± 10.8, age, range 30–78years) with 59 US-detected breast NMLs were included, for which final diagnoses were established, basing on histopathologic results of surgical excision (n = 52) and US-guided core needle biopsy (n = 7)."
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/p[4]",
+            "source_path": "/article[1]/body[1]/sec[3]/p[4]",
+            "block_sha256": "0985dbd0a8c5531dce9672fa0718fc100773387df18301c5b6c2745fb29db92c",
+            "start": 137,
+            "end": 377,
+            "quote": "If BI-RADS category 4B was taken as a cutoff value, the sensitivity, specificity, AUC, PPV, NPV, and OR were 82.98%(69.19%-92.35%), 41.67%(15.17%-72.33%), 0.62(0.49–0.75), 84.78%(71.13%-93.66%), 38.46%(13.86%-68.42%) and 3.48, respectively."
+          }
+        ]
+      ],
+      "context_anchors": [],
+      "null_reason": null
+    },
+    {
+      "id": "qwen-breast-us-02",
+      "query": "In this article's own Table 4, what counts and percentages of malignant and benign non-mass lesions had punctate hyperechoic foci (microcalcifications) and posterior shadowing, and what P value was printed for each feature?",
+      "source_id": "breast_us",
+      "answerable": true,
+      "category": "table-denominator-count-and-estimate",
+      "quantitative": true,
+      "necessary_and": false,
+      "expected_answer": "Table 4 gives malignant n=47 and benign n=12. Punctate hyperechoic foci: 32 (68.1%) malignant and 2 (16.7%) benign, P=0.001. Posterior shadowing: 19 (40.4%) malignant and 1 (8.3%) benign, P=0.036.",
+      "support_sets": [
+        [
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[3]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[3]",
+            "block_sha256": "9376a4901ea59f41ba8accdd723c19346c6ac5b873b0dfa61c94fa09a2aaafae",
+            "start": 0,
+            "end": 151,
+            "quote": "Table 4\nDistribution of breast NMLs with different ultrasound features.\nFeatures on ultrasound image\tMalignant NML (n = 47)\tBenign NML (n = 12)\tP value"
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[3]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[3]",
+            "block_sha256": "9376a4901ea59f41ba8accdd723c19346c6ac5b873b0dfa61c94fa09a2aaafae",
+            "start": 152,
+            "end": 253,
+            "quote": "Punctate hyperechoic foci (microcalcifications)\t\t\t0.001\n\tYes\t32(68.1)\t2(16.7)\t\n\tNo\t15(31.9)\t10(83.3)\t"
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[3]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[3]",
+            "block_sha256": "9376a4901ea59f41ba8accdd723c19346c6ac5b873b0dfa61c94fa09a2aaafae",
+            "start": 334,
+            "end": 408,
+            "quote": "Posterior shadowing\t\t\t0.036\n\tYes\t19(40.4)\t1 (8.3)\t\n\tNo\t28(59.6)\t11 (91.7)\t"
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[3]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[3]",
+            "block_sha256": "9376a4901ea59f41ba8accdd723c19346c6ac5b873b0dfa61c94fa09a2aaafae",
+            "start": 560,
+            "end": 674,
+            "quote": "Note: Unless otherwise indicated, data are numbers of non-mass lesions and numbers in parentheses are percentages."
+          }
+        ]
+      ],
+      "context_anchors": [],
+      "null_reason": null
+    },
+    {
+      "id": "qwen-breast-us-03",
+      "query": "In Table 3 of this article, what NML counts and malignant-NML counts with their exact printed parenthetical values were listed for BI-RADS 4B and 5, and what literal Total entry appeared in the malignant-NML column?",
+      "source_id": "breast_us",
+      "answerable": true,
+      "category": "literal-table-counts-with-discrepancy",
+      "quantitative": true,
+      "necessary_and": false,
+      "expected_answer": "BI-RADS 4B: 14 NMLs and 9(19.2) in the malignant-NML column. BI-RADS 5: 20 NMLs and 19(40.4). The literal malignant-column Total is 59(100.0). These are printed table entries; no within-category risk is recomputed.",
+      "support_sets": [
+        [
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "block_sha256": "01ab735189e6a8825310d3875e279845a0fd74aaaf0256d9598bfdb3ed7c493d",
+            "start": 0,
+            "end": 166,
+            "quote": "Table 3\nDistributions of breast NMLs and malignancy rates in BI-RADS 3, 4 and 5.\nBI-RADS category\tNMLs\tMalignant NMLs and rate\tLikelihood of cancer in the BI-RADS (%)"
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "block_sha256": "01ab735189e6a8825310d3875e279845a0fd74aaaf0256d9598bfdb3ed7c493d",
+            "start": 210,
+            "end": 234,
+            "quote": "4B\t14\t9(19.2)\t>10 but≤50"
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "block_sha256": "01ab735189e6a8825310d3875e279845a0fd74aaaf0256d9598bfdb3ed7c493d",
+            "start": 262,
+            "end": 279,
+            "quote": "5\t20\t19(40.4)\t≥95"
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "block_sha256": "01ab735189e6a8825310d3875e279845a0fd74aaaf0256d9598bfdb3ed7c493d",
+            "start": 280,
+            "end": 298,
+            "quote": "Total\t59\t59(100.0)"
+          },
+          {
+            "source_id": "breast_us",
+            "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+            "block_sha256": "01ab735189e6a8825310d3875e279845a0fd74aaaf0256d9598bfdb3ed7c493d",
+            "start": 300,
+            "end": 402,
+            "quote": "Note: Unless otherwise indicated, data are numbers of NMLs and numbers in parentheses are percentages."
+          }
+        ]
+      ],
+      "context_anchors": [],
+      "null_reason": null
+    },
+    {
+      "id": "qwen-breast-us-04",
+      "query": "What BI-RADS 4B sensitivity and specificity were reported specifically for male patients in this article's own non-mass-lesion cohort?",
+      "source_id": "breast_us",
+      "answerable": false,
+      "category": "article-scoped-unreported-population",
+      "quantitative": false,
+      "necessary_and": false,
+      "expected_answer": null,
+      "support_sets": [],
+      "context_anchors": [
+        {
+          "source_id": "breast_us",
+          "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+          "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+          "block_sha256": "4e2828e776a3a85d0c6c767d25348319d694da615737a623fa820483dfdf850b",
+          "start": 0,
+          "end": 79,
+          "quote": "Fifty-nine women with 59 ultrasound-detected breast NMLs were finally enrolled."
+        },
+        {
+          "source_id": "breast_us",
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+          "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+          "block_sha256": "da43218d9e0be9a9347c5fb3d5c3dba9549df849d7cce852448358b58676cd81",
+          "start": 2087,
+          "end": 2202,
+          "quote": "Finally, 59 women (mean age 43.3 years ± 10.8, age, range 30–78years) with 59 US-detected breast NMLs were included"
+        }
+      ],
+      "null_reason": "The final own cohort contains 59 women, with no male subgroup sensitivity/specificity reported in any of the 47 main-XML canonical blocks. The overall BI-RADS 4B values are not male-specific results. Candidates can still be returned; no-answer is a gold source-scope label."
+    }
+  ]
+}

@@ -1,0 +1,1230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.3 20210610//EN" "http://jats.nlm.nih.gov/publishing/1.3/JATS-journalpublishing1-3.dtd">
+<article article-type="research-article" dtd-version="1.3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<processing-meta>
+<custom-meta-group content-type="composition">
+<custom-meta specific-use="newgen" xlink:href="https://www.newgen.co/">
+<meta-name>Composition Vendor</meta-name>
+<meta-value>Newgen KnowledgeWorks (P) Ltd.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</processing-meta>
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS One</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLOS One</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pone.0322925</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-24-49101</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Computer and information sciences</subject><subj-group><subject>Artificial intelligence</subject></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>People and places</subject><subj-group><subject>Population groupings</subject><subj-group><subject>Professions</subject><subj-group><subject>Medical personnel</subject><subj-group><subject>Radiologists</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Mammography</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Mammography</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Mammography</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Cancer detection and diagnosis</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancer detection and diagnosis</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Breast tumors</subject><subj-group><subject>Breast cancer</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Clinical medicine</subject><subj-group><subject>Signs and symptoms</subject><subj-group><subject>Lesions</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Computer and information sciences</subject><subj-group><subject>Software engineering</subject><subj-group><subject>Computer software</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Engineering and technology</subject><subj-group><subject>Software engineering</subject><subj-group><subject>Computer software</subject></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Comparative analysis of diagnostic performance in mammography: A reader study on the impact of AI assistance</article-title>
+<alt-title alt-title-type="running-head">Diagnostic performance in mammography: Impact of AI assistance</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-1355-0621</contrib-id>
+<name name-style="western">
+<surname>Ramli Hamid</surname>
+<given-names>Marlina Tanty</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/resources/">Resources</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<xref ref-type="aff" rid="aff001"/>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Ab Mumin</surname>
+<given-names>Nazimah</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/resources/">Resources</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"/>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Abdul Hamid</surname>
+<given-names>Shamsiah</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"/>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0009-0004-9000-1871</contrib-id>
+<name name-style="western">
+<surname>Mohd Ariffin</surname>
+<given-names>Natasha</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"/>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Mat Nor</surname>
+<given-names>Khariah</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"/>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Saib</surname>
+<given-names>Ernisha</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"/>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Mohamed</surname>
+<given-names>Nurul Amira</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"/>
+</contrib>
+</contrib-group>
+<aff id="aff001"><addr-line>Department of Radiology, Faculty of Medicine, University Teknologi MARA, Sungai Buloh, Selangor, Malaysia</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Arita</surname>
+<given-names>Yuki</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"/></contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>Memorial Sloan Kettering Cancer Center, UNITED STATES OF AMERICA</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>The authors have declared that no competing interests exist.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">marlina352@uitm.edu.my</email> (MTRH); <email xlink:type="simple">Nazimah_mumin@uitm.edu.my</email> (NAM)</corresp>
+</author-notes>
+<pub-date pub-type="epub"><day>7</day><month>5</month><year>2025</year></pub-date>
+<pub-date pub-type="collection"><year>2025</year></pub-date>
+<volume>20</volume>
+<issue>5</issue>
+<elocation-id>e0322925</elocation-id>
+<history>
+<date date-type="received"><day>31</day><month>10</month><year>2024</year></date>
+<date date-type="accepted"><day>31</day><month>3</month><year>2025</year></date>
+</history>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Ramli Hamid et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pone.0322925"/>
+<abstract>
+<sec id="sec019">
+<title>Purpose</title>
+<p>This study evaluates the impact of artificial intelligence (AI) assistance on the diagnostic performance of radiologists with varying levels of experience in interpreting mammograms in a Malaysian tertiary referral center, particularly in women with dense breasts.</p>
+</sec>
+<sec id="sec020">
+<title>Methods</title>
+<p>A retrospective study including 434 digital mammograms interpreted by two general radiologists (12 and 6 years of experience) and two trainees (2 years of experience). Diagnostic performance was assessed with and without AI assistance (Lunit INSIGHT MMG), using sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and area under the receiver operating characteristic curve (AUC). Inter-reader agreement was measured using kappa statistics.</p>
+</sec>
+<sec id="sec021">
+<title>Results</title>
+<p>AI assistance significantly improved the diagnostic performance of all reader groups across all metrics (p &lt; 0.05). The senior radiologist consistently achieved the highest sensitivity (86.5% without AI, 88.0% with AI) and specificity (60.5% without AI, 59.2% with AI). The junior radiologist demonstrated the highest PPV (56.9% without AI, 74.6% with AI) and NPV (90.3% without AI, 92.2% with AI). The trainees showed the lowest performance, but AI significantly enhanced their accuracy. AI assistance was particularly beneficial in interpreting mammograms of women with dense breasts.</p>
+</sec>
+<sec id="sec022">
+<title>Conclusion</title>
+<p>AI assistance significantly enhances the diagnostic accuracy and consistency of radiologists in mammogram interpretation, with notable benefits for less experienced readers. These findings support the integration of AI into clinical practice, particularly in resource-limited settings where access to specialized breast radiologists is constrained.</p>
+</sec>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100004625</institution-id>
+<institution>Universiti Teknologi MARA</institution>
+</institution-wrap>
+</funding-source><award-id>600/TNCPI-5/3/DDF (MEDIC)(003/2021)</award-id>
+<principal-award-recipient><contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-1355-0621</contrib-id><name name-style="western">
+<surname>Ramli Hamid</surname><given-names>Marlina Tanty</given-names></name></principal-award-recipient></award-group>
+<award-group id="award002">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100004625</institution-id>
+<institution>Universiti Teknologi MARA</institution>
+</institution-wrap>
+</funding-source><award-id>600/TNCPI-5/3/DDJ(HUITM)(003/2021)</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Abdul Hamid</surname><given-names>Shamsiah</given-names></name></principal-award-recipient></award-group>
+<award-group id="award003">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100004625</institution-id>
+<institution>Universiti Teknologi MARA</institution>
+</institution-wrap>
+</funding-source><award-id>600/RMC-LESTARI SDG-T5/3</award-id>
+<principal-award-recipient><name name-style="western">
+<surname>Ab Mumin</surname><given-names>Nazimah</given-names></name></principal-award-recipient></award-group>
+<funding-statement>This research was supported by the Universiti Teknologi MARA Research Grant Scheme: 600/TNCPI-5/3/DDF (MEDIC)(003/2021), 600/TNCPI-5/3/DDJ(HUITM)(003/2021), and 600/RMC-LESTARI SDG-T5/3. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="6"/>
+<table-count count="5"/>
+<page-count count="13"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>The dataset underlying this study has been made publicly available in Figshare in accordance with PLOS data-sharing requirements. The data can be accessed at DOI: 10.6084/m9.figshare.28529132. This dataset includes de-identified summary statistics relevant to the study while ensuring compliance with institutional policies and patient confidentiality regulations.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec001">
+<title>Introduction</title>
+<p>Breast cancer remains a leading cause of morbidity and mortality among women worldwide, emphasizing the critical need for early detection and accurate diagnosis to improve treatment outcomes and survival rates [<xref ref-type="bibr" rid="pone.0322925.ref001">1</xref>]. Mammography is the primary imaging modality for breast cancer screening, but its diagnostic performance is inherently influenced by the radiologist’s experience, interpretative skills, and workload pressures [<xref ref-type="bibr" rid="pone.0322925.ref002">2</xref>]. Given these limitations, artificial intelligence (AI) has emerged as a promising tool in medical imaging, offering the potential to augment radiologists’ capabilities, improve diagnostic accuracy, reduce human error, and optimize workflow efficiency [<xref ref-type="bibr" rid="pone.0322925.ref003">3</xref>,<xref ref-type="bibr" rid="pone.0322925.ref004">4</xref>].</p>
+<p>Despite the increasing body of evidence supporting AI’s role in mammography, its impact on diagnostic performance across different levels of clinical expertise, particularly in high-volume, tertiary referral settings, remains an area requiring further exploration [<xref ref-type="bibr" rid="pone.0322925.ref005">5</xref>,<xref ref-type="bibr" rid="pone.0322925.ref006">6</xref>]. In resource-constrained environments like Malaysia—a middle-income country with a limited number of breast radiologists and the absence of routine second-reader programs for screening mammography—these challenges are even more pronounced. AI could serve as a crucial second reader and decision-support tool, enhancing diagnostic accuracy and efficiency where specialized expertise is scarce [<xref ref-type="bibr" rid="pone.0322925.ref007">7</xref>,<xref ref-type="bibr" rid="pone.0322925.ref008">8</xref>].</p>
+<p>The implications of AI in mammography extend beyond Malaysia to other low- and middle-income countries facing similar challenges in breast cancer screening. In many regions with a shortage of trained breast radiologists, AI-driven decision-support systems could help bridge the gap by improving diagnostic consistency, particularly among less experienced readers. Understanding how AI performs in the Malaysian context provides valuable insights that may be generalizable to other countries with comparable healthcare infrastructures, supporting its broader adoption in global breast cancer screening programs</p>
+<p>This study, conducted at a tertiary referral center in Malaysia, aims to address this gap by evaluating the diagnostic performance of trainee radiologists and general radiologists in interpreting mammograms, both with and without AI assistance. The integration of AI in mammography offers the potential to improve diagnostic accuracy and potentially democratize expertise by supporting less experienced readers, thereby democratizing expertise in breast imaging. However, concerns remain regarding potential over-reliance on AI, its effect on interpretative skills, and the evolving role of radiologists in breast cancer diagnosis [<xref ref-type="bibr" rid="pone.0322925.ref009">9</xref>,<xref ref-type="bibr" rid="pone.0322925.ref010">10</xref>].</p>
+<p>This reader study assesses the impact of AI assistance on the diagnostic performance of readers with varying levels of expertise, providing valuable insights into the practical benefits and limitations of AI in mammography. By examining diagnostic outcomes with AI assistance, this study contributes to the ongoing discourse on optimizing AI implementation in radiology. It also aims to inform policies and guidelines for AI application in mammography, ensuring that such technologies are utilized to maximize patient care, improve diagnostic accuracy, and enhance healthcare accessibility across diverse clinical settings.</p>
+</sec>
+<sec id="sec002">
+<title>Methodology</title>
+<sec id="sec003">
+<title>Study design</title>
+<p>This was a retrospective cross-sectional study approved by the Institutional Review Board</p>
+<p>(Medical Research Ethics ID 2022530–11258).) involving mammography cases from January 2021 to May 2022 done in Hospital Al-Sultan Abdullah UiTM. We excluded cases with post operative changes, personal history of breast cancer, incomplete or missing data, and patients lost from follow-up. Clinical data were extracted from electronic medical records (EMR). Data on patients age, ethnicity, breast density, American College of Radiology-Breast Imaging and Reporting and Data Systems classification (BIRADS) assessment and final histopathological (HPE) diagnosis were recorded.</p>
+</sec>
+<sec id="sec004">
+<title>Equipment and technique</title>
+<p>Mammography examination were performed using a 3D digital mammography system (Selenia Dimension, Hologic, Bedford, Massachusetts, USA). All sets consist of craniocaudal (CC) and mediolateral oblique (MLO) views. The processed image data were sent from the acquisition workstation to the reading workstation.</p>
+</sec>
+<sec id="sec005">
+<title>AI software &amp; algorithm</title>
+<p>Lunit INSIGHT MMG (version 1.1.7.2, Lunit, South Korea) was selected for this study based on its FDA approval and prior validation studies, which demonstrated its effectiveness in enhancing breast cancer detection [<xref ref-type="bibr" rid="pone.0322925.ref011">11</xref>,<xref ref-type="bibr" rid="pone.0322925.ref012">12</xref>]. Previous research has shown that Lunit INSIGHT MMG improves diagnostic performance, particularly in increasing sensitivity and aiding radiologists in detecting subtle malignancies [<xref ref-type="bibr" rid="pone.0322925.ref013">13</xref>–<xref ref-type="bibr" rid="pone.0322925.ref016">16</xref>].</p>
+<p>The AI system assigns a malignancy probability score ranging from 0% to 100% to each detected lesion. A threshold of 10% was used in this study, where scores below 10% were deemed clinically insignificant based on prior validation studies [<xref ref-type="bibr" rid="pone.0322925.ref012">12</xref>,<xref ref-type="bibr" rid="pone.0322925.ref013">13</xref>]. This means that findings scoring less than 10% were classified as normal or clinically insignificant findings, with no clinical action required. The system prioritizes suspicious findings with higher malignancy scores, assisting radiologists in their decision-making process.</p>
+</sec>
+<sec id="sec006">
+<title>Data collection and storage</title>
+<p>Data were kept in the hospital picture archiving and communication system (PACS) (Infinitt, South Korea). Data were accessed for research purposes from 1<sup>st</sup> June 2023–28<sup>th</sup> February 2024. All image datasets were anonymized and subsequently stored in digital imaging and communication in medicine (DICOM) format in a password-protected external hard disk. Images with incomplete datasets, poor diagnostic quality, and post-operative cases were excluded.</p>
+</sec>
+<sec id="sec007">
+<title>Image assessment protocol</title>
+<p>AI technology was not used in routine clinical practice at the time of image acquisition. The AI-assisted interpretations in this study were conducted solely in a research setting, ensuring that the readers had no prior exposure to AI during routine reporting<bold>.</bold> All readers underwent training on the application of the AI software prior to the research.</p>
+<p>Four readers (2 trainee radiologists (ES – R1) and (NAM – R4) and two general radiologists (NMA-R3 and KMN – R2) with 6 and 12 years’ experience, independently reviewed same set of mammography images in a randomized order, in two separate sessions: first without AI assistance and then with AI assistance following a six-week washout period to minimize recall bias. <xref ref-type="fig" rid="pone.0322925.g001">Fig 1</xref> illustrates the study design workflow.</p>
+<fig id="pone.0322925.g001" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.g001</object-id><label>Fig 1</label><caption><title>Study design flowchart illustrating the methodology.</title><p>Mammograms were first analysed by radiologists without AI assistance, followed by a six-week washout period before re-evaluation with AI support.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.g001" xlink:type="simple"/></fig>
+<p>The readers assigned BI-RADS classifications and density assessments based on ACR BI-RADS 5th edition (2013) lexicon which includes density assessment, calcifications, mass, asymmetric density and architectural distortion. All readers are blinded to the radiology report, HPE findings (if performed), and the patients’ outcome. A final BIRADS assessment category score were given for each case.</p>
+</sec>
+<sec id="sec008">
+<title>Statistical analysis</title>
+<p>All the data were collected in an Excel spreadsheet, and statistical analysis was performed using IBM SPSS software v.23. A p-value of &lt; 0.05 will be taken as statistically significant. Comparisons between reader groups with and without AI assistance were conducted using Cohen kappa tests (κ). Inter-reader correlation (ICC) coefficient was calculated to ascertain agreement between readers in BI-RADS category assessment and breast density.</p>
+<p>Diagnostic performance metrics, including sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and area under the receiver operating characteristic (ROC) curve (AUC), were calculated for each reader group, both with and without AI assistance. The gold standard for final diagnosis was the HPE results if a biopsy was taken. If no biopsy was performed, the cases were followed up for up to 2-year, and considered benign when remains stable.</p>
+<p>Sensitivity was when BIRADS 4 or 5 category given by radiologist and HPE results were malignant. Specificity was BIRADS 1,2, or 3 category given by radiologist on imaging and HPE or follow up imaging were benign. Positive predictive value (PPV) were malignant result in HPE and BIRADS category assigned were 4 or 5. Negative predictive value (NPV) were benign result in HPE or on follow-up, and BIRADS category assigned were 1, 2, or 3.</p>
+</sec>
+<sec id="sec009">
+<title>Ethical approval</title>
+<p>This study was approved by the Ethics Committee of University Malaya Medical Centre and Hospital Al-Sultan Abdullah UiTM (Medical Research Ethics ID 2022530–11258) and supported by University Teknologi MARA Research Grant Scheme: 600/TNCPI-5/3/DDF (MEDIC)(003/2021), 600/TNCPI-5/3/DDJ(HUITM)(003/2021) and 600/RMC-LESTARI SDG-T5/3.</p>
+</sec>
+</sec>
+<sec id="sec010">
+<title>Results</title>
+<p>A total of 434 mammography were analysed, consisting of 339 (78.1%) Malays, 71 (16.4%) Chinese, and 24 (5.5%) Indians. The patients’ ages ranged from 30 to 80, with a mean age of 52.1 (SD: 0.513).</p>
+<sec id="sec011">
+<title>HPE findings</title>
+<p>Tissue biopsies were performed on 134 (30.8%) breasts whilst 300 (69%) were followed up. All patients had at least 2 years of follow-up after mammogram and/or biopsy. Of the lesions biopsied, 58 (43.2%) were benign and 76 (56.7%) were malignant. 9 (6.7%) B3, premalignant lesions, all of which were papilloma, were included in the benign category for this study.</p>
+<p><xref ref-type="table" rid="pone.0322925.t001">Table 1</xref> outlines the detailed HPE findings of the lesions. The most common benign lesion were fibroadenoma and fibrocystic change, and the most common malignant lesion was invasive ductal carcinoma. Notably, all reported benign and normal findings showed no interval cancers during a minimum of one and a half year follow-up period.</p>
+<table-wrap id="pone.0322925.t001" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.t001</object-id><label>Table 1</label><caption><title>Histopathology findings of the lesions (n = 134).</title></caption>
+<alternatives><graphic id="pone.0322925.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.t001" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">Benign</th>
+<th align="left"><italic>n</italic> (%)<break/>58 (43.2)</th>
+<th align="left">Malignant</th>
+<th align="left"><italic>n</italic> (%)<break/>76 (56.7)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Fibroadenoma</td>
+<td align="left">10 (17.2)</td>
+<td align="left">Invasive ductal carcinoma (IDC)</td>
+<td align="left">68 (89.5)</td>
+</tr>
+<tr>
+<td align="left">Fibrocystic disease</td>
+<td align="left">10 (17.2)</td>
+<td align="left">Ductal carcinoma in situ (DCIS)</td>
+<td align="left">8 (10.5)</td>
+</tr>
+<tr>
+<td align="left">Adenosis</td>
+<td align="left">7 (12.1)</td>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">Intraductal papilloma</td>
+<td align="left">9 (15.5)</td>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">Usual ductal hyperplasia (UDH)</td>
+<td align="left">4 (6.9)</td>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">Pseudoangiomatous stromal hyperplasia (PASH)</td>
+<td align="left">2 (3.4)</td>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">Benign breast tissue</td>
+<td align="left">9 (15.5)</td>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">Other benign lesions*</td>
+<td align="left">7 (12.1)</td>
+<td align="left"/>
+<td align="left"/>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t001fn001"><p>*<italic>mastopathy, fibrosis, foreign body reaction, lactational changes, mastitis, granuloma, cyst</italic></p></fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec id="sec012">
+<title>Mammogram findings</title>
+<p>There were 288 (66.4%) women with dense breast (BIRADS density C and D). Supplementary breast ultrasound was performed in all density C and D patients. Of the 134 biopsied performed, 98 (73.1%) were in dense breast. 45 (81.8%) HPE proven benign and 53 (69.7%) malignant lesions were observed in dense breasts.</p>
+<p><xref ref-type="table" rid="pone.0322925.t002">Table 2</xref> outlines the lesion presentation on mammogram and HPE. Masses, calcifications and architectural distortion were observed in a higher proportion of malignant compared to benign cases.</p>
+<table-wrap id="pone.0322925.t002" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.t002</object-id><label>Table 2</label><caption><title>Histopathology and mammographic lesion presentation overall and in dense breasts.</title></caption>
+<alternatives><graphic id="pone.0322925.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.t002" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2">Lesion presentation on mammogram</th>
+<th align="left">Benign<break/>n = 58 (43.2%)</th>
+<th align="left">Malignant<break/>n = 76* (56.7%)</th>
+<th align="left">Total<break/>(n = 134)</th>
+<th align="left">Benign<break/>n = 43 (44.8%)</th>
+<th align="left">Malignant<break/>n = 53* (52.2%)</th>
+<th align="left">Total<break/>(n = 96)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="3"><bold>ALL CASES</bold></td>
+<td align="left" colspan="3"><bold>DENSE BREAST</bold></td>
+</tr>
+<tr>
+<td align="left">Mass</td>
+<td align="left">9 (15.5)</td>
+<td align="left">32 (42.1)</td>
+<td align="left">41</td>
+<td align="left">4 (9.3)</td>
+<td align="left">15 (28.3)</td>
+<td align="left">19</td>
+</tr>
+<tr>
+<td align="left">Calcifications</td>
+<td align="left">14 (24.1)</td>
+<td align="left">26 (34.2)</td>
+<td align="left">40</td>
+<td align="left">11(25.6)</td>
+<td align="left">20 (37.7)</td>
+<td align="left">31</td>
+</tr>
+<tr>
+<td align="left">Architectural distortion</td>
+<td align="left">2 (3.4)</td>
+<td align="left">16 (21.0)</td>
+<td align="left">18</td>
+<td align="left">1 (2.3)</td>
+<td align="left">10 (18.9)</td>
+<td align="left">11</td>
+</tr>
+<tr>
+<td align="left">Asymmetry</td>
+<td align="left">0</td>
+<td align="left">6 (0.8)</td>
+<td align="left">6</td>
+<td align="left">0</td>
+<td align="left">5 (9.4)</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="left">Only seen on ultrasound</td>
+<td align="left">33 (56.9)</td>
+<td align="left">0</td>
+<td align="left">33</td>
+<td align="left">27 (62.8)</td>
+<td align="left">3 (5.7)</td>
+<td align="left">30</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t002fn001"><p>*<italic>there are 4 cases in malignant group with overlapping findings, which is mass with calcifications</italic></p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>There was moderate to substantial agreement in density reading between the readers and AI software with K value 0.549–0.627, p = &lt; 0.001.</p>
+<p>A significant negative correlation were seen between breast density and mass detection on mammograms on Spearman correlation indicating that as breast density increases, mass detection on mammograms tends to decrease, or vice versa. On the other hand, significant positive correlation were seen between breast density and detection of calcifications on mammograms.</p>
+</sec>
+<sec id="sec013">
+<title>Final BI-RADS assessment category</title>
+<p>Intraclass Correlation Coefficient (ICC) showed a very good to excellent agreement observed between all the four readers, for the BI-RADS final assessment category, with a slightly higher agreement observed when using AI software. Without AI software, the average measures ICC was 0.910 with a 95% CI of 0.894 to 0.924, F(433, 1299), p &lt; 0.001. With AI software, the average measures ICC was 0.931 with a 95% CI of 0.920 to 0.941, F (433, 1299), p &lt; 0.001. The significant p-values from the ANOVA tests indicate that the differences in measurements between the readers with and without AI software are statistically significant. <xref ref-type="table" rid="pone.0322925.t003">Table 3</xref> presents the frequency distribution of BI-RADS categories assigned by each reader, both with and without AI assistance. <xref ref-type="fig" rid="pone.0322925.g002">Fig 2</xref> provides a visual representation of BI-RADS category distribution, facilitating comparison between AI-assisted and non-AI interpretations.</p>
+<table-wrap id="pone.0322925.t003" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.t003</object-id><label>Table 3</label><caption><title>Distribution of final BI-RADS assessment categories assigned by four readers (R1, R2, R3, R4) with and without AI assistance. The table presents the frequency of BI-RADS classifications for each reader, illustrating differences in interpretation when using AI.</title></caption>
+<alternatives><graphic id="pone.0322925.t003g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.t003" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2">BI-RADS Category</th>
+<th align="left" colspan="8">READER STUDY WITHOUT AI (R1, R2, R3, R4) and<break/>WITH AI (R1AI, R2A1, R3A1, R4AI) (Frequency n (%))</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>R1</bold></td>
+<td align="left"><bold>R1 AI</bold></td>
+<td align="left"><bold>R2</bold></td>
+<td align="left"><bold>R2 AI</bold></td>
+<td align="left"><bold>R3</bold></td>
+<td align="left"><bold>R3 AI</bold></td>
+<td align="left"><bold>R4</bold></td>
+<td align="left"><bold>R4AI</bold></td>
+</tr>
+<tr>
+<td align="left"><bold>1</bold></td>
+<td align="left">115 (26.5)</td>
+<td align="left">106 (24.4)</td>
+<td align="left">114 (26.3)</td>
+<td align="left">112 (25.8)</td>
+<td align="left">90 (20.7)</td>
+<td align="left">123 (28.3)</td>
+<td align="left">24 (5.5)</td>
+<td align="left">56<break/> (12.9)</td>
+</tr>
+<tr>
+<td align="left"><bold>2</bold></td>
+<td align="left">214 (49.3)</td>
+<td align="left">174 (40.1)</td>
+<td align="left">188 (43.3)</td>
+<td align="left">218 (50.2)</td>
+<td align="left">242 (55.8)</td>
+<td align="left">240 (55.5)</td>
+<td align="left">270 (62.2)</td>
+<td align="left">249 (57.4)</td>
+</tr>
+<tr>
+<td align="left"><bold>3</bold></td>
+<td align="left">10<break/>(2.3)</td>
+<td align="left">42<break/>(9.7)</td>
+<td align="left">36<break/>(8.3)</td>
+<td align="left">16<break/>(3.7)</td>
+<td align="left">28 (6.5)</td>
+<td align="left">8<break/>(1.8)</td>
+<td align="left">73 (16.8)</td>
+<td align="left">58<break/>(13.4)</td>
+</tr>
+<tr>
+<td align="left"><bold>4a</bold></td>
+<td align="left">20<break/>(4.6)</td>
+<td align="left">25<break/>(5.8)</td>
+<td align="left">15<break/>(3.5)</td>
+<td align="left">20<break/>(4.6)</td>
+<td align="left">8 (1.8)</td>
+<td align="left">7<break/>(1.6)</td>
+<td align="left">53 (12.2)</td>
+<td align="left">39<break/>(9.0)</td>
+</tr>
+<tr>
+<td align="left"><bold>4b</bold></td>
+<td align="left">37<break/>(8.5)</td>
+<td align="left">23<break/>(5.3)</td>
+<td align="left">11<break/>(2.5)</td>
+<td align="left">27<break/>(6.2)</td>
+<td align="left">16 (3.7)</td>
+<td align="left">13<break/>(3.0)</td>
+<td align="left">7 (1.6)</td>
+<td align="left">19<break/>(4.4)</td>
+</tr>
+<tr>
+<td align="left"><bold>4c</bold></td>
+<td align="left">2<break/>(0.5)</td>
+<td align="left">38<break/>(8.8)</td>
+<td align="left">44 (10.1)</td>
+<td align="left">1<break/>(0.2)</td>
+<td align="left">28 (6.5)</td>
+<td align="left">14<break/>(3.2)</td>
+<td align="left">5 (1.2)</td>
+<td align="left">8<break/>(1.8)</td>
+</tr>
+<tr>
+<td align="left"><bold>5</bold></td>
+<td align="left">36<break/>(8.3)</td>
+<td align="left">24<break/>(5.5)</td>
+<td align="left">24<break/>(5.5)</td>
+<td align="left">40<break/>(9.2)</td>
+<td align="left">20 (4.6)</td>
+<td align="left">29<break/>(6.7)</td>
+<td align="left">2 (0.5)</td>
+<td align="left">5<break/>(1.2)</td>
+</tr>
+</tbody>
+</table>
+</alternatives></table-wrap>
+<fig id="pone.0322925.g002" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.g002</object-id><label>Fig 2</label><caption><title>Bar chart showing the distribution of final BI-RADS assessment categories among radiologists (R1, R2, R3, R4) with and without AI assistance.</title><p>The graph highlights differences in classification patterns, illustrating trends in BI-RADS assignments based on AI involvement.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.g002" xlink:type="simple"/></fig>
+</sec>
+<sec id="sec014">
+<title>Diagnostic performance overall</title>
+<p>AI assistance improved the diagnostic performance of all reader groups (<xref ref-type="table" rid="pone.0322925.t004">Table 4</xref>, <xref ref-type="fig" rid="pone.0322925.g003">Fig 3</xref>). This is evident from higher sensitivity, specificity, PPV, and AUC for all reader groups with AI (R1AI, R2AI, R3AI, R4AI) compared to without AI (R1, R2, R3, R4). General radiologist (R2), with 12 years of experience, achieved the highest sensitivity and specificity, both with and without AI assistance, suggesting R2 was the most accurate in distinguishing between malignant and benign cases. General radiologist (R3), with 6 years of experience, had the highest PPV and NPV, indicating better accuracy in confirming true positive and true negative cases, both with and without AI assistance. Trainee radiologists (R1 and R4) exhibited the lowest performance, both with and without AI assistance, likely due to less experience. However, AI significantly improved their sensitivity and PPV. <xref ref-type="fig" rid="pone.0322925.g003">Fig 3</xref> (radar plot), provides a visual comparison of overall diagnostic performance, illustrating the increase in key metrics with AI assistance. An example of AI-assisted detection in a patient with a fatty breast composition is illustrated in <xref ref-type="fig" rid="pone.0322925.g004">Fig 4</xref>. The AI system successfully identified high-density lesions, with findings confirmed by radiologists both with and without AI assistance.</p>
+<table-wrap id="pone.0322925.t004" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.t004</object-id><label>Table 4</label><caption><title>Overall diagnostic performance metrics of four radiologists (R1, R2, R3, R4) with and without AI assistance. The table presents sensitivity, specificity, PPV, NPV, and AUC values, illustrating the impact of AI across different readers.</title></caption>
+<alternatives><graphic id="pone.0322925.t004g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.t004" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2"/>
+<th align="left" colspan="11">READERS DIAGNOSTIC PERFORMANCE WITHOUT AI (R1, R2, R3, R4)<break/>and WITH AI (R1AI, R2A1, R3A1, R4AI) (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>R1</bold></td>
+<td align="left"><bold>R1AI</bold></td>
+<td align="left"><bold>R2</bold></td>
+<td align="left"><bold>R2AI</bold></td>
+<td align="left"><bold>R3</bold></td>
+<td align="left"><bold>R3AI</bold></td>
+<td align="left"><bold>R4</bold></td>
+<td align="left"><bold>R4AI</bold></td>
+<td align="left"><bold>ALL</bold>*</td>
+<td align="left"><bold>ALLAI</bold>*</td>
+<td align="left"><sup><bold>†</bold></sup></td>
+</tr>
+<tr>
+<td align="left"><bold>Sensitivity</bold></td>
+<td align="left">87.2</td>
+<td align="left">84.0</td>
+<td align="left">86.5</td>
+<td align="left">88.0</td>
+<td align="left">91.3</td>
+<td align="left">95.5</td>
+<td align="left">91.9</td>
+<td align="left">92.5</td>
+<td align="left">89.2</td>
+<td align="left">90.0</td>
+<td align="left">0.140</td>
+</tr>
+<tr>
+<td align="left"><bold>Specificity</bold></td>
+<td align="left">64.5</td>
+<td align="left">69.7</td>
+<td align="left">60.5</td>
+<td align="left">59.2</td>
+<td align="left">53.9</td>
+<td align="left">61.8</td>
+<td align="left">50.0</td>
+<td align="left">57.9</td>
+<td align="left">57.2</td>
+<td align="left">62.2</td>
+<td align="left">0.195</td>
+</tr>
+<tr>
+<td align="left"><bold>PPV</bold></td>
+<td align="left">51.6</td>
+<td align="left">48.2</td>
+<td align="left">48.9</td>
+<td align="left">51.1</td>
+<td align="left">56.9</td>
+<td align="left">74.6</td>
+<td align="left">56.7</td>
+<td align="left">62.0</td>
+<td align="left">53.5</td>
+<td align="left">59.0</td>
+<td align="left">0.144</td>
+</tr>
+<tr>
+<td align="left"><bold>NPV</bold></td>
+<td align="left">92.0</td>
+<td align="left">92.9</td>
+<td align="left">91.1</td>
+<td align="left">91.0</td>
+<td align="left">90.3</td>
+<td align="left">92.2</td>
+<td align="left">89.6</td>
+<td align="left">91.2</td>
+<td align="left">90.8</td>
+<td align="left">91.9</td>
+<td align="left">0.313</td>
+</tr>
+<tr>
+<td align="left"><bold>AUC</bold></td>
+<td align="left">0.811</td>
+<td align="left">0.799</td>
+<td align="left">0.792</td>
+<td align="left">0.790</td>
+<td align="left">0.779</td>
+<td align="left">0.819</td>
+<td align="left">0.741</td>
+<td align="left">0.814</td>
+<td align="left">0.780</td>
+<td align="left">0.806</td>
+<td align="left">0.285</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t004fn001"><p>*<italic>All indicates the mean of all readers</italic></p></fn>
+</table-wrap-foot>
+</table-wrap>
+<fig id="pone.0322925.g003" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.g003</object-id><label>Fig 3</label><caption><title>Radar plot comparing overall diagnostic performance with and without AI assistance for all readers.</title><p>The graph illustrates key performance metrics, including Sensitivity, Specificity, PPV, NPV, and AUC. The blue line represents AI-assisted performance, while the red dashed line represents performance without AI assistance.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.g003" xlink:type="simple"/></fig>
+<fig id="pone.0322925.g004" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.g004</object-id><label>Fig 4</label><caption><title>Mammogram of a patient with a fatty breast composition.</title><p>Craniocaudal (A) and mediolateral oblique (B) views show two high-density lesions in the left breast. AI-assisted analysis (C) highlights the suspicious regions with a high abnormality score, prompting further evaluation. Both AI-assisted and non-AI interpretations categorized this case as suspicious.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.g004" xlink:type="simple"/></fig>
+</sec>
+<sec id="sec015">
+<title>Diagnostic performance in dense breast</title>
+<p>AI assistance enhanced performance across all reader groups for mammograms of women with dense breasts (<xref ref-type="table" rid="pone.0322925.t005">Table 5</xref>, <xref ref-type="fig" rid="pone.0322925.g005">Fig 5</xref>). General radiologist (R2) continued to show the highest sensitivity and specificity, indicating superior accuracy in classifying malignant and benign cases even in dense breasts. General radiologist (R3) showed higher PPV without AI assistance, but higher NPV with AI, suggesting AI’s role in reducing false negatives in dense breast assessments. Trainee radiologists (R1 and R4) performed the lowest overall, but AI improved their diagnostic accuracy, particularly in terms of NPV and AUC. The radar plot (<xref ref-type="fig" rid="pone.0322925.g005">Fig 5</xref>) visually compares the diagnostic performance in dense breast, demonstrating how AI assistance enhances detection but with varying impacts depending on reader experience. <xref ref-type="fig" rid="pone.0322925.g006">Fig 6</xref> demonstrates AI-assisted interpretation in a patient with a dense breast composition. AI highlighted multiple suspicious regions, supporting radiologists in categorizing this case as suspicious, consistent with non-AI assessments.</p>
+<table-wrap id="pone.0322925.t005" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.t005</object-id><label>Table 5</label><caption><title>Diagnostic performance metrics in dense breasts, comparing four radiologists (R1, R2, R3, R4) with and without AI assistance. The table presents sensitivity, specificity, PPV, NPV, and AUC, illustrating AI’s role in evaluating mammograms in dense breast tissue.</title></caption>
+<alternatives><graphic id="pone.0322925.t005g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.t005" xlink:type="simple"/><table><colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2"/>
+<th align="left" colspan="11">READERS DIAGNOSTIC PERFORMANCE IN DENSE BREAST WITHOUT AI (R1, R2, R3, R4)<break/>and WITH AI (R1AI, R2A1, R3A1, R4AI) (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>R1</bold></td>
+<td align="left"><bold>R1AI</bold></td>
+<td align="left"><bold>R2</bold></td>
+<td align="left"><bold>R2AI</bold></td>
+<td align="left"><bold>R3</bold></td>
+<td align="left"><bold>R3AI</bold></td>
+<td align="left"><bold>R4</bold></td>
+<td align="left"><bold>R4AI</bold></td>
+<td align="left"><bold>ALL</bold>*</td>
+<td align="left"><bold>AI</bold>*</td>
+<td align="left"><sup><bold>†</bold></sup></td>
+</tr>
+<tr>
+<td align="left"><bold>Sensitivity</bold></td>
+<td align="left">83.8</td>
+<td align="left">80.3</td>
+<td align="left">84.6</td>
+<td align="left">85.1</td>
+<td align="left">89.3</td>
+<td align="left">94.0</td>
+<td align="left">90.6</td>
+<td align="left">91.5</td>
+<td align="left">87.1</td>
+<td align="left">87.7</td>
+<td align="left">0.213</td>
+</tr>
+<tr>
+<td align="left"><bold>Specificity</bold></td>
+<td align="left">56.6</td>
+<td align="left">66.0</td>
+<td align="left">56.6</td>
+<td align="left">49.1</td>
+<td align="left">50.9</td>
+<td align="left">58.5</td>
+<td align="left">45.3</td>
+<td align="left">54.7</td>
+<td align="left">52.4</td>
+<td align="left">57.1</td>
+<td align="left">0.238</td>
+</tr>
+<tr>
+<td align="left"><bold>PPV</bold></td>
+<td align="left">45.5</td>
+<td align="left">43.2</td>
+<td align="left">51.9</td>
+<td align="left">42.6</td>
+<td align="left">52.2</td>
+<td align="left">68.9</td>
+<td align="left">43.2</td>
+<td align="left">59.2</td>
+<td align="left">48.2</td>
+<td align="left">53.5</td>
+<td align="left">0.213</td>
+</tr>
+<tr>
+<td align="left"><bold>NPV</bold></td>
+<td align="left">89.6</td>
+<td align="left">88.1</td>
+<td align="left">88.9</td>
+<td align="left">88.1</td>
+<td align="left">88.0</td>
+<td align="left">90.9</td>
+<td align="left">91.3</td>
+<td align="left">90.0</td>
+<td align="left">89.5</td>
+<td align="left">89.3</td>
+<td align="left">0.213</td>
+</tr>
+<tr>
+<td align="left"><bold>AUC</bold></td>
+<td align="left">0.754</td>
+<td align="left">0.764</td>
+<td align="left">0.781</td>
+<td align="left">0.739</td>
+<td align="left">0.738</td>
+<td align="left">0.789</td>
+<td align="left">0.700</td>
+<td align="left">0.796</td>
+<td align="left">0.743</td>
+<td align="left">0.772</td>
+<td align="left">0.213</td>
+</tr>
+</tbody>
+</table>
+</alternatives><table-wrap-foot>
+<fn id="t005fn001"><p>*<italic>All indicates the mean of all readers</italic></p></fn>
+</table-wrap-foot>
+</table-wrap>
+<fig id="pone.0322925.g005" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.g005</object-id><label>Fig 5</label><caption><title>Radar plot comparing diagnostic performance in dense breasts for all readers (R1, R2, R3, R4) with and without AI assistance.</title><p>The figure illustrates how AI affects Sensitivity, Specificity, PPV, NPV, and AUC when interpreting dense breast cases. The blue line represents AI-assisted performance, while the red dashed line represents performance without AI assistance.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.g005" xlink:type="simple"/></fig>
+<fig id="pone.0322925.g006" position="float"><object-id pub-id-type="doi">10.1371/journal.pone.0322925.g006</object-id><label>Fig 6</label><caption><title>Mammogram of a patient with a dense breast composition.</title><p>Craniocaudal (A) and mediolateral oblique (B) views reveal multiple high-density lesions in the right breast. AI-assisted analysis (C) assigns a high abnormality score, supporting the identification of suspicious areas. Both AI-assisted and non-AI interpretations categorized this case as suspicious.</p></caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.g006" xlink:type="simple"/></fig>
+<p>The sensitivity and specificity values were lower for all reader groups in women with dense breasts compared to overall performance, suggesting greater challenges in interpreting mammograms in this subgroup. AI assistance led to an improvement in diagnostic performance across all metrics, though the extent of improvement varied among readers.</p>
+<p>The trend of AI-assisted improvement is clearly visualized in the radar plots (<xref ref-type="fig" rid="pone.0322925.g003">Figs 3</xref> and <xref ref-type="fig" rid="pone.0322925.g005">5</xref>), where AI-assisted interpretation resulted in higher sensitivity, specificity, and AUC across both overall and dense breast subgroups. These figures illustrate the differences in AI’s impact on performance across different breast densities and reader experience levels.</p>
+</sec>
+</sec>
+<sec id="sec016">
+<title>Discussion</title>
+<p>AI has demonstrated significant potential in improving breast cancer screening, particularly by aiding less experienced radiologists [<xref ref-type="bibr" rid="pone.0322925.ref002">2</xref>,<xref ref-type="bibr" rid="pone.0322925.ref017">17</xref>–<xref ref-type="bibr" rid="pone.0322925.ref020">20</xref>]. However, its effect varies based on radiologist expertise, dataset quality, and mammographic findings [<xref ref-type="bibr" rid="pone.0322925.ref003">3</xref>,<xref ref-type="bibr" rid="pone.0322925.ref004">4</xref>,<xref ref-type="bibr" rid="pone.0322925.ref006">6</xref>]. Automation bias and the potential over-reliance on AI are critical considerations in AI-assisted radiology. While AI can enhance diagnostic accuracy, excessive dependence on AI outputs may reduce radiologists’ critical thinking and decision-making skills, potentially impacting patient care [<xref ref-type="bibr" rid="pone.0322925.ref019">19</xref>]. The observed slight decrease in AUC for some readers suggests that AI may not always enhance performance and could introduce unintended challenges in interpretation [<xref ref-type="bibr" rid="pone.0322925.ref019">19</xref>].</p>
+<p>One critical factor influencing AI’s performance in mammography interpretation is image quality. High-quality images with good contrast resolution enable AI to detect subtle abnormalities more effectively, whereas poor-quality images—especially in cases of dense breast tissue—can reduce AI’s diagnostic accuracy [<xref ref-type="bibr" rid="pone.0322925.ref005">5</xref>,<xref ref-type="bibr" rid="pone.0322925.ref007">7</xref>]. Mammographic noise, artifacts, and varying exposure levels may contribute to false-positive or false-negative results [<xref ref-type="bibr" rid="pone.0322925.ref008">8</xref>]. In particular, dense breast tissue can obscure lesions, making it difficult for both AI and human readers to achieve high sensitivity [<xref ref-type="bibr" rid="pone.0322925.ref009">9</xref>,<xref ref-type="bibr" rid="pone.0322925.ref010">10</xref>]. The performance of AI systems should, therefore, be continuously evaluated across different imaging conditions to ensure optimal reliability [<xref ref-type="bibr" rid="pone.0322925.ref017">17</xref>].</p>
+<p>Furthermore, the variability in AI impact across different readers highlights the importance of experience level when integrating AI into radiology workflows [<xref ref-type="bibr" rid="pone.0322925.ref003">3</xref>,<xref ref-type="bibr" rid="pone.0322925.ref006">6</xref>]. While AI has been particularly beneficial for trainee radiologists by improving their sensitivity and overall performance, its effect on experienced radiologists has been more variable [<xref ref-type="bibr" rid="pone.0322925.ref004">4</xref>,<xref ref-type="bibr" rid="pone.0322925.ref018">18</xref>]. This suggests that AI should serve as an adjunct rather than a replacement for human interpretation, ensuring that radiologists remain actively engaged in decision-making rather than becoming over-reliant on AI outputs [<xref ref-type="bibr" rid="pone.0322925.ref019">19</xref>]. This variability in AI performance may explain the observed decrease in AUC values for R1 and R2, as shown in <xref ref-type="table" rid="pone.0322925.t004">Tables 4</xref> and <xref ref-type="table" rid="pone.0322925.t005">5</xref>, where AI’s impact was not uniformly positive.</p>
+<p>The study findings also emphasize the potential role of AI in resource-limited settings, such as Malaysia and other low- and middle-income countries with a shortage of dedicated breast radiologists [<xref ref-type="bibr" rid="pone.0322925.ref001">1</xref>,<xref ref-type="bibr" rid="pone.0322925.ref007">7</xref>,<xref ref-type="bibr" rid="pone.0322925.ref009">9</xref>]. In such environments, AI can function as a second reader, helping to bridge the gap in expertise and reducing diagnostic discrepancies between general radiologists and breast imaging specialists [<xref ref-type="bibr" rid="pone.0322925.ref020">20</xref>]. The insights gained from this study may be generalizable to other countries with similar healthcare challenges, reinforcing AI’s role in addressing global disparities in breast cancer detection [<xref ref-type="bibr" rid="pone.0322925.ref010">10</xref>,<xref ref-type="bibr" rid="pone.0322925.ref017">17</xref>].</p>
+<p>The performance variations observed among different readers in our study also highlight the potential limitations of AI assistance. Some radiologists, particularly those with more experience, may interpret AI outputs differently or be more cautious in adjusting their diagnoses. Additionally, the observed decrease in AUC for some readers suggests that AI’s effectiveness depends on user interaction and experience level. This underscores the need for further training and calibration of AI tools to optimize their integration into clinical practice.</p>
+<sec id="sec017">
+<title>Limitations and future research directions</title>
+<p>This study has several limitations. As a single-center retrospective study, the findings may not be fully generalizable to broader populations. Additionally, the lack of direct comparison with other AI models limits the ability to conclude whether Lunit INSIGHT MMG performs better than alternative AI systems. Another concern is the potential for automation bias, particularly if radiologists become overly reliant on AI predictions rather than using them as a supportive tool. Finally, there is a need for prospective, multicenter validation studies to assess AI’s clinical impact across diverse patient populations and real-world screening settings. Future research should explore AI’s role in multicenter trials, evaluate its cost-effectiveness, and examine its integration into routine radiological workflows to determine its long-term viability in breast cancer screening programs.</p>
+</sec>
+</sec>
+<sec id="sec018">
+<title>Conclusion</title>
+<p>his study highlights the significant role of artificial intelligence in enhancing breast cancer screening, particularly in resource-limited settings like Malaysia. AI has demonstrated the potential to improve diagnostic accuracy, reduce inter-reader variability, and support less experienced radiologists, contributing to a more standardized and equitable healthcare system.</p>
+<p>Beyond Malaysia, these findings are relevant to other low- and middle-income countries facing similar challenges. AI can help bridge the expertise gap and optimize resources, facilitating earlier cancer detection and improved patient outcomes. However, careful implementation is necessary to prevent automation bias and ensure AI complements rather than replaces human expertise.</p>
+<p>While this study provides valuable insights, further research, including multi-center trials and cost-effectiveness studies, is needed to establish AI’s long-term clinical impact. Strategic adoption and ongoing refinement will be crucial to maximizing AI’s potential in breast cancer detection and patient care.</p>
+</sec>
+</body>
+<back>
+<ref-list>
+<title>References</title>
+<ref id="pone.0322925.ref001"><label>1</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Barrios</surname> <given-names>CH</given-names></name>. <article-title>Global challenges in breast cancer detection and treatment</article-title>. <source>Breast</source>. <year>2022</year>;62 Suppl 1(<issue>Suppl 1</issue>):<fpage>S3</fpage>–<lpage>6</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.breast.2022.02.003" xlink:type="simple">10.1016/j.breast.2022.02.003</ext-link></comment> <object-id pub-id-type="pmid">35219542</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Clerkin</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Ski</surname> <given-names>CF</given-names></name>, <name name-style="western"><surname>Brennan</surname> <given-names>PC</given-names></name>, <name name-style="western"><surname>Strudwick</surname> <given-names>R</given-names></name>. <article-title>Identification of factors associated with diagnostic performance variation in reporting of mammograms: a review</article-title>. <source>Radiography (Lond)</source>. <year>2023</year>;<volume>29</volume>(<issue>2</issue>):<fpage>340</fpage>–<lpage>6</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.radi.2023.01.004" xlink:type="simple">10.1016/j.radi.2023.01.004</ext-link></comment> <object-id pub-id-type="pmid">36731351</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Arzamasov</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Vasilev</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Vladzymyrskyy</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Omelyanskaya</surname> <given-names>O</given-names></name>, <name name-style="western"><surname>Shulkin</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Kozikhina</surname> <given-names>D</given-names></name>, <etal>et al</etal>. <article-title>An international non-inferiority study for the benchmarking of AI for routine radiology cases: chest X-ray, fluorography and mammography</article-title>. <source>Healthcare (Basel)</source>. <year>2023</year>;<volume>11</volume>(<issue>12</issue>):<fpage>1684</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3390/healthcare11121684" xlink:type="simple">10.3390/healthcare11121684</ext-link></comment> <object-id pub-id-type="pmid">37372802</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref004"><label>4</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hardy</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Harvey</surname> <given-names>H</given-names></name>. <article-title>Artificial intelligence in diagnostic imaging: impact on the radiography profession</article-title>. <source>Br J Radiol</source>. <year>2020</year>;<volume>93</volume>(<issue>1108</issue>):<fpage>20190840</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1259/bjr.20190840" xlink:type="simple">10.1259/bjr.20190840</ext-link></comment> <object-id pub-id-type="pmid">31821024</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>van Leeuwen</surname> <given-names>KG</given-names></name>, <name name-style="western"><surname>de Rooij</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Schalekamp</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>van Ginneken</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Rutten</surname> <given-names>MJCM</given-names></name>. <article-title>How does artificial intelligence in radiology improve efficiency and health outcomes?</article-title> <source>Pediatr Radiol</source>. <year>2022</year>;<volume>52</volume>(<issue>11</issue>):<fpage>2087</fpage>–<lpage>93</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00247-021-05114-8" xlink:type="simple">10.1007/s00247-021-05114-8</ext-link></comment> <object-id pub-id-type="pmid">34117522</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref006"><label>6</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Najjar</surname> <given-names>R</given-names></name>. <article-title>Redefining radiology: a review of artificial intelligence integration in medical imaging</article-title>. <source>Diagnostics (Basel)</source>. <year>2023</year>;<volume>13</volume>(<issue>17</issue>):<fpage>2760</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3390/diagnostics13172760" xlink:type="simple">10.3390/diagnostics13172760</ext-link></comment> <object-id pub-id-type="pmid">37685300</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref007"><label>7</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Schaffter</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Buist</surname> <given-names>DSM</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>CI</given-names></name>, <name name-style="western"><surname>Nikulin</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Ribli</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Guan</surname> <given-names>Y</given-names></name>, <etal>et al</etal>. <article-title>Evaluation of combined artificial intelligence and radiologist assessment to interpret screening mammograms</article-title>. <source>JAMA Netw Open</source>. <year>2020</year>;<volume>3</volume>(<issue>3</issue>):<fpage>e200265</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jamanetworkopen.2020.0265" xlink:type="simple">10.1001/jamanetworkopen.2020.0265</ext-link></comment> <object-id pub-id-type="pmid">32119094</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Taylor</surname> <given-names>CR</given-names></name>, <name name-style="western"><surname>Monga</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Johnson</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Hawley</surname> <given-names>JR</given-names></name>, <name name-style="western"><surname>Patel</surname> <given-names>M</given-names></name>. <article-title>Artificial intelligence applications in breast imaging: current status and future directions</article-title>. <source>Diagnostics (Basel)</source>. <year>2023</year>;<volume>13</volume>(<issue>12</issue>):<fpage>2041</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3390/diagnostics13122041" xlink:type="simple">10.3390/diagnostics13122041</ext-link></comment> <object-id pub-id-type="pmid">37370936</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lokaj</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Pugliese</surname> <given-names>M-T</given-names></name>, <name name-style="western"><surname>Kinkel</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Lovis</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Schmid</surname> <given-names>J</given-names></name>. <article-title>Barriers and facilitators of artificial intelligence conception and implementation for breast imaging diagnosis in clinical practice: a scoping review</article-title>. <source>Eur Radiol</source>. <year>2024</year>;<volume>34</volume>(<issue>3</issue>):<fpage>2096</fpage>–<lpage>109</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-023-10181-6" xlink:type="simple">10.1007/s00330-023-10181-6</ext-link></comment> <object-id pub-id-type="pmid">37658895</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref010"><label>10</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Koh</surname> <given-names>D-M</given-names></name>, <name name-style="western"><surname>Papanikolaou</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Bick</surname> <given-names>U</given-names></name>, <name name-style="western"><surname>Illing</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Kahn CE</surname> <given-names>Jr</given-names></name>, <name name-style="western"><surname>Kalpathi-Cramer</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Artificial intelligence and machine learning in cancer imaging</article-title>. <source>Commun Med (Lond)</source>. <year>2022</year>;<volume>2</volume>:<fpage>133</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/s43856-022-00199-0" xlink:type="simple">10.1038/s43856-022-00199-0</ext-link></comment> <object-id pub-id-type="pmid">36310650</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Salim</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Wåhlin</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Dembrower</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Azavedo</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Foukakis</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>Y</given-names></name>, <etal>et al</etal>. <article-title>External evaluation of 3 commercial artificial intelligence algorithms for independent assessment of screening mammograms</article-title>. <source>JAMA Oncol</source>. <year>2020</year>;<volume>6</volume>(<issue>10</issue>):<fpage>1581</fpage>–<lpage>8</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jamaoncol.2020.3321" xlink:type="simple">10.1001/jamaoncol.2020.3321</ext-link></comment> <object-id pub-id-type="pmid">32852536</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kim</surname> <given-names>H-E</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>HH</given-names></name>, <name name-style="western"><surname>Han</surname> <given-names>B-K</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Han</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Nam</surname> <given-names>H</given-names></name>, <etal>et al</etal>. <article-title>Changes in cancer detection and false-positive recall in mammography using artificial intelligence: a retrospective, multireader study</article-title>. <source>Lancet Digit Health</source>. <year>2020</year>;<volume>2</volume>(<issue>3</issue>):<fpage>e138</fpage>–<lpage>48</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S2589-7500(20)30003-0" xlink:type="simple">10.1016/S2589-7500(20)30003-0</ext-link></comment> <object-id pub-id-type="pmid">33334578</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kwon</surname> <given-names>M-R</given-names></name>, <name name-style="western"><surname>Chang</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Ham</surname> <given-names>S-Y</given-names></name>, <name name-style="western"><surname>Cho</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>EY</given-names></name>, <name name-style="western"><surname>Kang</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Screening mammography performance according to breast density: a comparison between radiologists versus standalone intelligence detection</article-title>. <source>Breast Cancer Res</source>. <year>2024</year>;<volume>26</volume>(<issue>1</issue>):<fpage>68</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1186/s13058-024-01821-w" xlink:type="simple">10.1186/s13058-024-01821-w</ext-link></comment> <object-id pub-id-type="pmid">38649889</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref014"><label>14</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kizildag Yirgin</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Koyluoglu</surname> <given-names>YO</given-names></name>, <name name-style="western"><surname>Seker</surname> <given-names>ME</given-names></name>, <name name-style="western"><surname>Ozkan Gurdal</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Ozaydin</surname> <given-names>AN</given-names></name>, <name name-style="western"><surname>Ozcinar</surname> <given-names>B</given-names></name>, <etal>et al</etal>. <article-title>Diagnostic performance of AI for cancers registered in a mammography screening program: a retrospective analysis</article-title>. <source>Technol Cancer Res Treat</source>. <year>2022</year>;<volume>21</volume>:<fpage>15330338221075172</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1177/15330338221075172" xlink:type="simple">10.1177/15330338221075172</ext-link></comment> <object-id pub-id-type="pmid">35060413</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chang</surname> <given-names>Y-W</given-names></name>, <name name-style="western"><surname>An</surname> <given-names>JK</given-names></name>, <name name-style="western"><surname>Choi</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Ko</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Han</surname> <given-names>K</given-names></name>, <etal>et al</etal>. <article-title>Corrigendum: artificial intelligence for breast cancer screening in mammography (AI-STREAM): a prospective multicenter study design in korea using AI-based CADe/x</article-title>. <source>J Breast Cancer</source>. <year>2022</year>;<volume>25</volume>(<issue>2</issue>):<fpage>147</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.4048/jbc.2022.25.e16" xlink:type="simple">10.4048/jbc.2022.25.e16</ext-link></comment> <object-id pub-id-type="pmid">35506581</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Ahn</surname> <given-names>JS</given-names></name>, <name name-style="western"><surname>Shin</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Yang</surname> <given-names>S-A</given-names></name>, <name name-style="western"><surname>Park</surname> <given-names>EK</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Cho</surname> <given-names>SI</given-names></name>, <etal>et al</etal>. <article-title>Artificial intelligence in breast cancer diagnosis and personalized medicine</article-title>. <source>J Breast Cancer</source>. <year>2023</year>;<volume>26</volume>(<issue>5</issue>):<fpage>405</fpage>–<lpage>35</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.4048/jbc.2023.26.e45" xlink:type="simple">10.4048/jbc.2023.26.e45</ext-link></comment> <object-id pub-id-type="pmid">37926067</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>van Winkel</surname> <given-names>SL</given-names></name>, <name name-style="western"><surname>Rodríguez-Ruiz</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Appelman</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Gubern-Mérida</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Karssemeijer</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Teuwen</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Impact of artificial intelligence support on accuracy and reading time in breast tomosynthesis image interpretation: a multi-reader multi-case study</article-title>. <source>Eur Radiol</source>. <year>2021</year>;<volume>31</volume>(<issue>11</issue>):<fpage>8682</fpage>–<lpage>91</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-021-07992-w" xlink:type="simple">10.1007/s00330-021-07992-w</ext-link></comment> <object-id pub-id-type="pmid">33948701</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Conant</surname> <given-names>EF</given-names></name>, <name name-style="western"><surname>Toledano</surname> <given-names>AY</given-names></name>, <name name-style="western"><surname>Periaswamy</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Fotin</surname> <given-names>SV</given-names></name>, <name name-style="western"><surname>Go</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Boatsman</surname> <given-names>JE</given-names></name>, <etal>et al</etal>. <article-title>Improving accuracy and efficiency with concurrent use of artificial intelligence for digital breast tomosynthesis</article-title>. <source>Radiol Artif Intell</source>. <year>2019</year>;<volume>1</volume>(<issue>4</issue>):<fpage>e180096</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/ryai.2019180096" xlink:type="simple">10.1148/ryai.2019180096</ext-link></comment> <object-id pub-id-type="pmid">32076660</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Dratsch</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>X</given-names></name>, <name name-style="western"><surname>Rezazade Mehrizi</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Kloeckner</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Mähringer-Kunz</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Püsken</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Automation bias in mammography: the impact of artificial intelligence BI-RADS suggestions on reader performance</article-title>. <source>Radiology</source>. <year>2023</year>;<volume>307</volume>(<issue>4</issue>):<fpage>e222176</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.222176" xlink:type="simple">10.1148/radiol.222176</ext-link></comment> <object-id pub-id-type="pmid">37129490</object-id></mixed-citation></ref>
+<ref id="pone.0322925.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Leibig</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Brehmer</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Bunk</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Byng</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Pinker</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Umutlu</surname> <given-names>L</given-names></name>. <article-title>Combining the strengths of radiologists and AI for breast cancer screening: a retrospective analysis</article-title>. <source>Lancet Digit Health</source>. <year>2022</year>;<volume>4</volume>(<issue>7</issue>):<fpage>e507</fpage>–<lpage>19</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/s2589-7500(22)00070-x" xlink:type="simple">10.1016/s2589-7500(22)00070-x</ext-link></comment></mixed-citation></ref>
+</ref-list>
+</back>
+<sub-article article-type="author-comment" id="pone.0322925.r001" specific-use="rebutted-decision-letter-unavailable">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0322925.r001</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 0</article-title>
+</title-group>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>0</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="author-response-date">31 Oct 2024</named-content></p>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pone.0322925.r002" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0322925.r002</article-id>
+<title-group>
+<article-title>Decision Letter 0</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Arita</surname>
+<given-names>Yuki</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Yuki Arita</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0322925" document-id-type="doi" document-type="article" id="rel-obj002" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>0</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="letter-date">1 Dec 2024</named-content></p>
+<p>PONE-D-24-49101COMPARATIVE ANALYSIS OF DIAGNOSTIC PERFORMANCE IN MAMMOGRAPHY: A READER STUDY ON THE IMPACT OF AI ASSISTANCEPLOS ONE</p>
+<p>Dear Dr. Ramli Hamid,</p>
+<p>Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.</p>
+<p>This manuscript presents an intriguing and relevant study with significant potential to contribute to its field.</p>
+<p>The topic is timely, and the research question is well-defined, addressing an area of growing interest. The authors are commended for their effort in designing and conducting this study.</p>
+<p>However, after a thorough review, I believe that some substantial revisions are necessary to improve the clarity, robustness, and overall impact of the work.</p>
+<p>Several sections require additional detail to support the study's methodology and findings fully.</p>
+<p>There are also areas where the presentation of data and discussion could be strengthened to better highlight the study's implications and relevance in the broader context.</p>
+<p>Please submit your revised manuscript by Jan 15 2025 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at <email xlink:type="simple">plosone@plos.org</email> . When you're ready to submit your revision, log on to <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/">https://www.editorialmanager.com/pone/</ext-link> and select the 'Submissions Needing Revision' folder to locate your manuscript file.</p>
+<p>Please include the following items when submitting your revised manuscript:</p>
+<p><list list-type="bullet"><list-item><p>A rebuttal letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.</p>
+</list-item>
+<list-item>
+<p>A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.</p>
+</list-item>
+<list-item>
+<p>An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.</p>
+</list-item>
+</list>
+</p>
+<p>If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.</p>
+<p>If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols" xlink:type="simple">https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols</ext-link> . Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link> .</p>
+<p>We look forward to receiving your revised manuscript.</p>
+<p>Kind regards,</p>
+<p>Yuki Arita, M.D., Ph.D</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Journal Requirements:</p>
+<p>When submitting your revision, we need you to address these additional requirements.</p>
+<p>1. Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at </p>
+<p><ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf">https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf</ext-link> and </p>
+<p><ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf">https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf</ext-link></p>
+<p>2. Thank you for stating the following financial disclosure: </p>
+<p> University Teknologi MARA Research Grant Scheme: 600/TNCPI-5/3/DDF (MEDIC)(003/2021), 600/TNCPI-5/3/DDJ(HUITM)(003/2021) and 600/RMC-LESTARI SDG-T5/3.   </p>
+<p>Please state what role the funders took in the study.  If the funders had no role, please state: ""The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript."" </p>
+<p>If this statement is not correct you must amend it as needed. </p>
+<p>Please include this amended Role of Funder statement in your cover letter; we will change the online submission form on your behalf.</p>
+<p>3. Thank you for stating the following in the Acknowledgments Section of your manuscript: </p>
+<p>This study was approved by the Ethics Committee of University Malaya Medical Centre and Hospital Al-Sultan Abdullah UiTM (Medical Research Ethics ID 2022530-11258 and supported by University Teknologi MARA Research Grant Scheme: 600/TNCPI-5/3/DDF (MEDIC)(003/2021), 600/TNCPI-5/3/DDJ(HUITM)(003/2021) and 600/RMC-LESTARI SDG307 T5/3. </p>
+<p>We note that you have provided funding information that is not currently declared in your Funding Statement. However, funding information should not appear in the Acknowledgments section or other areas of your manuscript. We will only publish funding information present in the Funding Statement section of the online submission form. </p>
+<p>Please remove any funding-related text from the manuscript and let us know how you would like to update your Funding Statement. Currently, your Funding Statement reads as follows: </p>
+<p> University Teknologi MARA Research Grant Scheme: 600/TNCPI-5/3/DDF (MEDIC)(003/2021), 600/TNCPI-5/3/DDJ(HUITM)(003/2021) and 600/RMC-LESTARI SDG-T5/3. </p>
+<p>Please include your amended statements within your cover letter; we will change the online submission form on your behalf.</p>
+<p>[Note: HTML markup is below. Please do not edit.]</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><bold>Comments to the Author</bold></p>
+<p>1. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented.</p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>Reviewer #4: Partly</p>
+<p>Reviewer #5: Partly</p>
+<p>Reviewer #6: Partly</p>
+<p>**********</p>
+<p>2. Has the statistical analysis been performed appropriately and rigorously?</p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>Reviewer #4: Yes</p>
+<p>Reviewer #5: N/A</p>
+<p>Reviewer #6: Yes</p>
+<p>**********</p>
+<p>3. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.</p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: No</p>
+<p>Reviewer #3: Yes</p>
+<p>Reviewer #4: Yes</p>
+<p>Reviewer #5: Yes</p>
+<p>Reviewer #6: Yes</p>
+<p>**********</p>
+<p>4. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.</p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>Reviewer #3: Yes</p>
+<p>Reviewer #4: Yes</p>
+<p>Reviewer #5: Yes</p>
+<p>Reviewer #6: Yes</p>
+<p>**********</p>
+<p>5. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)</p>
+<p>Reviewer #1: This manuscript investigates the impact of AI assistance in mammography diagnostic performance. Study includes clear methodology, findings, limitations, and conclusion.</p>
+<p>Can you confirm all grammar issues and punctuations for final version?.</p>
+<p>Reviewer #2: The paper investigates the impact of AI techniques on the diagnostic performance of radiologists conducting mammography at a Malaysian hospital. The results demonstrate that AI significantly improves the diagnostic accuracy of junior radiologists, while its effect on the performance of senior radiologists is minimal.</p>
+<p>The study presents an interesting idea, given the broad applications of AI across various domains, particularly in healthcare. This research highlights a valuable opportunity for young radiologists to enhance their diagnostic skills through AI assistance.</p>
+<p>The paper is generally easy to follow; however, addressing the following aspects could further improve its quality:</p>
+<p>-The paper mentions the use of a specific software version but does not detail the AI algorithm used for diagnostics. Providing more insights into the underlying AI techniques would help readers better understand the methodology.</p>
+<p>-The quality of the images in the ROC figure is too low and should be improved for better readability.</p>
+<p>-The impact of image quality on the diagnostic performance of the AI techniques is not discussed. This is a critical aspect that warrants further exploration.</p>
+<p>-It is unclear how the dataset used in this study can be accessed or utilized by others for training their AI models. Clarifying this would enhance the reproducibility and broader applicability of the research.</p>
+<p>Reviewer #3: This manuscript is of interest in low and middle income countries where there is a few radiologist experts, there is one thing is not clear in this manuscript, in the image assessment section: its not clear the details of reading process.</p>
+<p>Is it the trainees read the images without AI assistance and then with AI assitance. Same to the experts.</p>
+<p>Reviewer #4: 1. In the introduction, it is desirable to emphasize what contribution this type of work can have in similar global studies, in mammography, and how Malaysian data can be projected onto other countries or hospitals. It is presented in the Discussion section to some extent.</p>
+<p>2. It is desirable to present the study design as a picture or graph.</p>
+<p>3. There are no references in the methods. It is clear that these are programs or some tools created by the authors, but it is necessary to present some references.</p>
+<p>4. To better understand and see the comparative picture, present tables 3,4,5 in the form of a graph.</p>
+<p>5. To understand what is depicted in the figures, the legends are poorly presented, especially the 3rd one.</p>
+<p>6. Patient data are deciphered, and ethical approvals should be included.</p>
+<p>7. Present the advantages and disadvantages of the method in the discussion section.</p>
+<p>Reviewer #5: 1. The article repeatedly emphasized the significant improvement in diagnostic performance for all reader groups on all indicators with AI assistance. However, the results presented in Tables 4 and 5 contradict this claim, as evidenced by the decrease in AUC values for R1 and R2. Therefore, it is necessary to ascertain the actual outcome.</p>
+<p>2.The decline in certain indicators following the implementation of artificial intelligence assistance lacks a clear explanation. From Table 4 and Table 5, it is evident that the impact of artificial intelligence on doctors' performance is not statistically significant, which contradicts the conclusion.</p>
+<p>3.The selection of Lunit INSIGHT MMG (version 1.1.7.2, Lunit, South Korea) was based on what criteria and whether it underwent comparison with other AI systems?</p>
+<p>4.The retrospective, single-center study design limits the generalizability of the findings. Multicenter, prospective validation is necessary to enhance the broader applicability of the results.</p>
+<p>5.The existing literature has extensively explored this topic, and the novelty of the study is constrained.</p>
+<p>Reviewer #6: The study addresses an important and timely issue, with implications for both current and future generations: the use of AI technologies in diagnosing breast cancer in women, a disease that remains one of the most prevalent and increasingly common over time. The application of AI is still controversial due to the rapid pace at which these technologies evolve, and it cannot replace the expertise of radiologists—particularly the most experienced ones—in identifying positive results or malignant lesions, even in cases of denser breasts, where mammography is often supplemented with additional tests such as ultrasound.</p>
+<p>The section on “study design” does not clarify how the study could be retrospective. Lines 72-73 mention that data were collected between May 2021 and May 2022. Were the radiologists already using AI technology as a part of their routine? Were the imaging exams already accompanied by previous reports? Were these reports analyzed by the same radiologists who were part of the study, or by radiologists who had previously assessed the images in their routine practice?</p>
+<p>Another unclear aspect of the methodology is how the images were distributed among the radiologists. How was it ensured that the same radiologist analyzed the images with and without AI? Or were the analyses conducted by different radiologists with equivalent levels of experience?</p>
+<p>Line 117 mentions a scoring model to evaluate AI's sensitivity in detecting breast cancer. However, if any score corresponds to 10%, how could there be scores lower than this? This point requires further clarification, including specifying how many cases were considered insignificant.</p>
+<p>Line 243 states that AI significantly increases the diagnostic accuracy of radiologists at various levels of experience, yet this was not observed in the study. The results indicate that for the most experienced radiologists, AI did not provide any benefits, whereas it was only useful for less experienced radiologists in improving positive results, particularly for denser breasts. Thus, AI could be a valuable tool in underdeveloped areas with limited access to specialists, ensuring more accurate diagnoses.</p>
+<p>Consequently, the conclusion section should better align with the findings of the study.</p>
+<p>**********</p>
+<p>6. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link> ). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link> .</p>
+<p>Reviewer #1: No</p>
+<p>Reviewer #2: No</p>
+<p>Reviewer #3: <bold>Yes: </bold> Redhwan Ahmed Al-Naggar</p>
+<p>Reviewer #4: No</p>
+<p>Reviewer #5: No</p>
+<p>Reviewer #6: <bold>Yes: </bold> NAIDHIA ALVES SOARES FERREIRA</p>
+<p>**********</p>
+<p>[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]</p>
+<p>While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link> . PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Registration is free. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email PLOS at <email xlink:type="simple">figures@plos.org</email> . Please note that Supporting Information files do not need this step.</p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pone.0322925.r003">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0322925.r003</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 1</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pone.0322925" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj003" link-type="rebutted-decision-letter" object-id="10.1371/journal.pone.0322925.r002" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="author-response-date">3 Mar 2025</named-content></p>
+<p>RESPONSE TO REVIEWERS COMMENTS - AI READER STUDY</p>
+<p>5. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)</p>
+<p>Reviewer #1: This manuscript investigates the impact of AI assistance in mammography diagnostic performance. Study includes clear methodology, findings, limitations, and conclusion.</p>
+<p>Can you confirm all grammar issues and punctuations for final version?.</p>
+<p>Response: Thank you for your comment. We have carefully proofread the manuscript and corrected all grammatical errors and punctuation issues to ensure clarity and readability.</p>
+<p>Reviewer #2: The paper investigates the impact of AI techniques on the diagnostic performance of radiologists conducting mammography at a Malaysian hospital. The results demonstrate that AI significantly improves the diagnostic accuracy of junior radiologists, while its effect on the performance of senior radiologists is minimal.</p>
+<p>The study presents an interesting idea, given the broad applications of AI across various domains, particularly in healthcare. This research highlights a valuable opportunity for young radiologists to enhance their diagnostic skills through AI assistance.</p>
+<p>The paper is generally easy to follow; however, addressing the following aspects could further improve its quality:</p>
+<p>-The paper mentions the use of a specific software version but does not detail the AI algorithm used for diagnostics. Providing more insights into the underlying AI techniques would help readers better understand the methodology.</p>
+<p>Response: We have included additional details about the AI algorithm used in Lunit INSIGHT MMG, specifying that it utilizes deep learning-based convolutional neural networks trained on large mammographic datasets from diverse populations. The updated explanation is now present in the "AI Software &amp; Algorithm" section of the methodology at lines 108 -126.</p>
+<p>-The quality of the images in the ROC figure is too low and should be improved for better readability.</p>
+<p>Response: We have replaced the ROC figure with radar plots (Figures 3 &amp; 5) to better illustrate the comparative diagnostic performance of readers with and without AI assistance. The radar plots provide a clearer and more comprehensive visualization of key performance metrics, including sensitivity, specificity, PPV, NPV, and AUC, for both overall and dense breast performance.</p>
+<p>-The impact of image quality on the diagnostic performance of the AI techniques is not discussed. This is a critical aspect that warrants further exploration.</p>
+<p>Response: We have added a discussion on how image quality can influence AI performance, particularly in cases of dense breasts and poor contrast resolution. This is included in the "Discussion" section at lines 322-349.</p>
+<p>-It is unclear how the dataset used in this study can be accessed or utilized by others for training their AI models. Clarifying this would enhance the reproducibility and broader applicability of the research.</p>
+<p>Response: Thank you for your comment. In compliance with PLOS journal data-sharing requirements, we have now made the dataset underlying our findings publicly available in Figshare. The data can be accessed at the following DOI:10.6084/m9.figshare.28529132. This dataset includes de-identified summary statistics relevant to the study while ensuring compliance with institutional policies and patient confidentiality regulations. At lines 361-366.</p>
+<p>Reviewer #3: This manuscript is of interest in low and middle income countries where there is a few radiologist experts, there is one thing is not clear in this manuscript, in the image assessment section: its not clear the details of reading process.</p>
+<p>Is it the trainees read the images without AI assistance and then with AI assistance. Same to the experts.</p>
+<p>Response: We have revised the "Image Assessment Protocol" section to explicitly clarify that all readers initially interpreted the mammograms without AI assistance, followed by a second review with AI assistance after a washout period to minimize recall bias at lines 142-146</p>
+<p>Reviewer #4: 1. In the introduction, it is desirable to emphasize what contribution this type of work can have in similar global studies, in mammography, and how Malaysian data can be projected onto other countries or hospitals. It is presented in the Discussion section to some extent.</p>
+<p>Response: We have expanded the introduction to highlight the global relevance of this study, emphasizing its implications for other low- and middle-income countries with limited breast radiologists from lines 63-69.</p>
+<p>2. It is desirable to present the study design as a picture or graph.</p>
+<p>Response: We have added a flowchart illustrating the study design in the "Methodology" section – now as figure 1 at line 146</p>
+<p>3. There are no references in the methods. It is clear that these are programs or some tools created by the authors, but it is necessary to present some references.</p>
+<p>Response: We have incorporated references supporting the methodology, including validation studies of Lunit INSIGHT MMG in the "AI Software &amp; Algorithm" section of the methodology at lines 108-126 with references no from 11-19.</p>
+<p>4. To better understand and see the comparative picture, present tables 3,4,5 in the form of a graph.</p>
+<p>Response: We have include figures with these tables for improved clarity as figure 2, 3 and 5.</p>
+<p>5. To understand what is depicted in the figures, the legends are poorly presented, especially the 3rd one.</p>
+<p>Response: We have revised all the figure legends for better clarity and comprehension in figure legend section from lines 535 - 625</p>
+<p>6. Patient data are deciphered, and ethical approvals should be included.</p>
+<p>Response: We have clearly stated that the study was approved by the relevant ethics committees under study design at lines 90 - 91 and acknowledgement at lines 426 - 427.</p>
+<p>7. Present the advantages and disadvantages of the method in the discussion section.</p>
+<p>Response: We have expanded the discussion to include a balanced view of AI’s strengths and limitations in mammography interpretation at lines 312-359.</p>
+<p>Reviewer #5: 1. The article repeatedly emphasized the significant improvement in diagnostic performance for all reader groups on all indicators with AI assistance. However, the results presented in Tables 4 and 5 contradict this claim, as evidenced by the decrease in AUC values for R1 and R2. Therefore, it is necessary to ascertain the actual outcome.</p>
+<p>Response: We acknowledge this observation and have clarified in the discussion at lines 351-359 that while AI generally improved performance, its impact varied among readers. We have revised our conclusion to better align with these findings.</p>
+<p>2.The decline in certain indicators following the implementation of artificial intelligence assistance lacks a clear explanation. From Table 4 and Table 5, it is evident that the impact of artificial intelligence on doctors' performance is not statistically significant, which contradicts the conclusion.</p>
+<p>Response: We have added a discussion on potential reasons for performance variations, including over-reliance on AI and inter-reader variability at lines 369 - 375</p>
+<p>3.The selection of Lunit INSIGHT MMG (version 1.1.7.2, Lunit, South Korea) was based on what criteria and whether it underwent comparison with other AI systems?</p>
+<p>Response: We have clarified in the methodology at lines 108-110 that Lunit INSIGHT MMG was selected due to its FDA approval and previous validation studies. We acknowledge that comparative studies with other AI tools were not performed in this study.</p>
+<p>4.The retrospective, single-center study design limits the generalizability of the findings. Multicenter, prospective validation is necessary to enhance the broader applicability of the results.</p>
+<p>Response: We acknowledge this limitation at lines 377 - 387 and have suggested future prospective multicenter validation studies.</p>
+<p>5.The existing literature has extensively explored this topic, and the novelty of the study is constrained.</p>
+<p>Response: We have emphasized in the discussion at lines 361 - 367 that our study uniquely evaluates AI in a middle-income country with limited breast radiologists, contributing new insights into its role in such settings.</p>
+<p>Reviewer #6: The study addresses an important and timely issue, with implications for both current and future generations: the use of AI technologies in diagnosing breast cancer in women, a disease that remains one of the most prevalent and increasingly common over time. The application of AI is still controversial due to the rapid pace at which these technologies evolve, and it cannot replace the expertise of radiologists—particularly the most experienced ones—in identifying positive results or malignant lesions, even in cases of denser breasts, where mammography is often supplemented with additional tests such as ultrasound.</p>
+<p>The section on “study design” does not clarify how the study could be retrospective. Lines 72-73 mention that data were collected between May 2021 and May 2022. Were the radiologists already using AI technology as a part of their routine? Were the imaging exams already accompanied by previous reports? Were these reports analyzed by the same radiologists who were part of the study, or by radiologists who had previously assessed the images in their routine practice?</p>
+<p>Response: We have clarified in the "Image assessment protocol" section at lines 136 - 139 that AI was not used in routine practice, and the AI-assisted interpretations were conducted in a research setting.</p>
+<p>Another unclear aspect of the methodology is how the images were distributed among the radiologists. How was it ensured that the same radiologist analyzed the images with and without AI? Or were the analyses conducted by different radiologists with equivalent levels of experience?</p>
+<p>Response: We have revised the methodology to specify that each radiologist reviewed the same set of images in two separate sessions, first without AI and then with AI after a washout period at lines 142-146.</p>
+<p>Line 117 mentions a scoring model to evaluate AI's sensitivity in detecting breast cancer. However, if any score corresponds to 10%, how could there be scores lower than this? This point requires further clarification, including specifying how many cases were considered insignificant.</p>
+<p>Response: We appreciate the reviewer’s request for further clarification regarding AI scoring. In this study, our primary focus was on evaluating the diagnostic performance of radiologists with and without AI assistance, rather than assessing AI as an independent tool. Therefore, we do not have standalone AI-only data or the exact number of cases where AI alone scored &lt;10%.</p>
+<p>However, we acknowledge that a malignancy score below 10% from the AI system was considered normal or clinically insignificant findings based on prior validation studies. To provide an alternative clarification, we analyzed the final BI-RADS 1 assessments assigned by radiologists with and without AI assistance. The number of normal or clinically insignificant findings (BI-RADS 1) cases varied depending on the reader and whether AI was used, reflecting how AI influenced radiologists’ decision-making rather than serving as a standalone diagnostic tool.</p>
+<p>Line 243 states that AI significantly increases the diagnostic accuracy of radiologists at various levels of experience, yet this was not observed in the study. The results indicate that for the most experienced radiologists, AI did not provide any benefits, whereas it was only useful for less experienced radiologists in improving positive results, particularly for denser breasts. Thus, AI could be a valuable tool in underdeveloped areas with limited access to specialists, ensuring more accurate diagnoses.</p>
+<p>Consequently, the conclusion section should better align with the findings of the study.</p>
+<p>Response: We have revised the discussion and conclusion to better align with our results, stating that AI was particularly beneficial for less experienced readers while having a more variable impact on senior radiologists at lines 352 – 357 and 391- 394.</p>
+<supplementary-material id="pone.0322925.s002" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0322925.s002" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">RESPONSE TO REVIEWERS COMMENTS - AI READER STUDY.docx</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pone.0322925.r004" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0322925.r004</article-id>
+<title-group>
+<article-title>Decision Letter 1</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Arita</surname>
+<given-names>Yuki</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Yuki Arita</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0322925" document-id-type="doi" document-type="article" id="rel-obj004" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p><named-content content-type="letter-date">31 Mar 2025</named-content></p>
+<p>COMPARATIVE ANALYSIS OF DIAGNOSTIC PERFORMANCE IN MAMMOGRAPHY: A READER STUDY ON THE IMPACT OF AI ASSISTANCE</p>
+<p>PONE-D-24-49101R1</p>
+<p>Dear Dr. Ramli Hamid,</p>
+<p>We’re pleased to inform you that your manuscript has been judged scientifically suitable for publication and will be formally accepted for publication once it meets all outstanding technical requirements.</p>
+<p>Within one week, you’ll receive an e-mail detailing the required amendments. When these have been addressed, you’ll receive a formal acceptance letter and your manuscript will be scheduled for publication.</p>
+<p>An invoice will be generated when your article is formally accepted. Please note, if your institution has a publishing partnership with PLOS and your article meets the relevant criteria, all or part of your publication costs will be covered. Please make sure your user information is up-to-date by logging into Editorial Manager at <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">Editorial Manager®</ext-link>  and clicking the ‘Update My Information' link at the top of the page. If you have any questions relating to publication charges, please contact our Author Billing department directly at <email xlink:type="simple">authorbilling@plos.org</email>.</p>
+<p>If your institution or institutions have a press office, please notify them about your upcoming paper to help maximize its impact. If they’ll be preparing press materials, please inform our press team as soon as possible -- no later than 48 hours after receiving the formal acceptance. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact <email xlink:type="simple">onepress@plos.org</email>.</p>
+<p>Kind regards,</p>
+<p>Yuki Arita, M.D., Ph.D</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Additional Editor Comments (optional):</p>
+<p>This version of the paper is a great improvement, the authors are to be commended.</p>
+<p>The manuscript has been much improved and is in a nice condition now.</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><bold>Comments to the Author</bold></p>
+<p>1. If the authors have adequately addressed your comments raised in a previous round of review and you feel that this manuscript is now acceptable for publication, you may indicate that here to bypass the “Comments to the Author” section, enter your conflict of interest statement in the “Confidential to Editor” section, and submit your "Accept" recommendation.</p>
+<p>Reviewer #3: All comments have been addressed</p>
+<p>Reviewer #4: All comments have been addressed</p>
+<p>**********</p>
+<p>2. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented.</p>
+<p>Reviewer #3: Yes</p>
+<p>Reviewer #4: Yes</p>
+<p>**********</p>
+<p>3. Has the statistical analysis been performed appropriately and rigorously?</p>
+<p>Reviewer #3: Yes</p>
+<p>Reviewer #4: Yes</p>
+<p>**********</p>
+<p>4. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.</p>
+<p>Reviewer #3: Yes</p>
+<p>Reviewer #4: Yes</p>
+<p>**********</p>
+<p>5. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.</p>
+<p>Reviewer #3: Yes</p>
+<p>Reviewer #4: Yes</p>
+<p>**********</p>
+<p>6. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)</p>
+<p>Reviewer #3: Thank you for your response, now the manuscript can be accepted. Congratulations to all the authours</p>
+<p>Reviewer #4: Review Comments to the Author</p>
+<p>All comments have been addressed.</p>
+<p>Good luck to authors in their studies.</p>
+<p>**********</p>
+<p>7. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link> ). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link> .</p>
+<p>Reviewer #3: <bold>Yes: </bold> Redhwan Ahmed Al-Naggar</p>
+<p>Reviewer #4: No</p>
+<p>**********</p>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0322925.r005" specific-use="acceptance-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0322925.r005</article-id>
+<title-group>
+<article-title>Acceptance letter</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western"><surname>Arita</surname>
+<given-names>Yuki</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2025</copyright-year>
+<copyright-holder>Yuki Arita</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link> , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p></license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0322925" document-id-type="doi" document-type="article" id="rel-obj005" link-type="peer-reviewed-article"/>
+</front-stub>
+<body>
+<p>PONE-D-24-49101R1</p>
+<p>PLOS ONE</p>
+<p>Dear Dr. RAMLI HAMID,</p>
+<p>I'm pleased to inform you that your manuscript has been deemed suitable for publication in PLOS ONE. Congratulations! Your manuscript is now being handed over to our production team.</p>
+<p>At this stage, our production department will prepare your paper for publication. This includes ensuring the following:</p>
+<p>* All references, tables, and figures are properly cited</p>
+<p>* All relevant supporting information is included in the manuscript submission,</p>
+<p>* There are no issues that prevent the paper from being properly typeset</p>
+<p>You will receive further instructions from the production team, including instructions on how to review your proof when it is ready. Please keep in mind that we are working through a large volume of accepted articles, so please give us a few days to review your paper and let you know the next and final steps.</p>
+<p>Lastly, if your institution or institutions have a press office, please let them know about your upcoming paper now to help maximize its impact. If they'll be preparing press materials, please inform our press team within the next 48 hours. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact <email xlink:type="simple">onepress@plos.org</email>.</p>
+<p>If we can help with anything else, please email us at <email xlink:type="simple">customercare@plos.org</email>.</p>
+<p>Thank you for submitting your work to PLOS ONE and supporting open access.</p>
+<p>Kind regards,</p>
+<p>PLOS ONE Editorial Office Staff</p>
+<p>on behalf of</p>
+<p>Dr. Yuki Arita</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+</body>
+</sub-article>
+</article>

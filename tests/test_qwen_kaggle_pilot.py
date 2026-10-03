@@ -1,0 +1,191 @@
+"""Independent prospective Kaggle preparation/grading checks; no actual model run."""
+
+from copy import deepcopy
+import json
+from pathlib import Path
+import shutil
+import socket
+
+import pytest
+
+from src.review.qwen import canonical
+from src.review.qwen_batch import PROFILE
+from src.review.store import ReviewStore
+from tools import evaluate_qwen_kaggle as pilot
+from test_qwen_batch import digest, synthetic_results, write_artifact
+
+
+PROJECT = Path(__file__).resolve().parents[1]
+
+
+@pytest.fixture(autouse=True)
+def no_live_dependency(monkeypatch):
+    def denied(*args, **kwargs):
+        pytest.fail("Independent Kaggle pilot evaluation attempted network or credentials")
+    monkeypatch.setattr(socket, "create_connection", denied)
+    monkeypatch.setattr("src.review.qwen.api_key_from_env", denied)
+    monkeypatch.setattr("src.review.qwen.QwenClient.__init__", denied)
+
+
+@pytest.fixture
+def prospective(tmp_path, monkeypatch):
+    root = tmp_path / "frozen-repository"
+    root.mkdir()
+    for name in pilot.REQUIRED:
+        path = root / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        original = PROJECT / name
+        path.write_bytes(original.read_bytes() if original.exists() else ("Synthetic frozen input " + name).encode())
+    for directory in ("qwen_pilot_sources", "qwen_pilot_gold"):
+        shutil.copytree(PROJECT / "tests/fixtures" / directory, root / "tests/fixtures" / directory,
+                        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    files = {str(path.relative_to(root)): pilot.pin(path) for path in root.rglob("*") if path.is_file()}
+    freeze = {"schema_version": 1, "status": "frozen_before_first_kaggle_ranking", "ranking_runs_before_freeze": 0,
+              "profile": deepcopy(PROFILE), "gate": deepcopy(pilot.GATE),
+              "source_dir": "tests/fixtures/qwen_pilot_sources",
+              "source_manifest": "tests/fixtures/qwen_pilot_sources/manifest.json",
+              "questions_file": "tests/fixtures/qwen_pilot_gold/questions.json", "files": files}
+    freeze_path = root / "freeze.json"
+    freeze_path.write_text(canonical(freeze))
+    monkeypatch.setattr(pilot, "ROOT", root)
+    return root, freeze_path, freeze
+
+
+def prepare(prospective, tmp_path):
+    root, freeze_path, freeze = prospective
+    output = tmp_path / "prepared"
+    result = pilot.prepare(freeze_path, output)
+    return output, result
+
+
+def result_for(output):
+    job = json.loads((output / "kaggle-upload/job.json").read_text())
+    result = synthetic_results(job)
+    path = output.parent / "fake-saved-results.json"
+    wrapped = write_artifact(path, result)
+    return path, wrapped
+
+
+@pytest.mark.parametrize("defect", ["status", "previous_rank", "boolean_rank", "profile", "gate", "missing_code_pin",
+    "missing_source_pin", "missing_gold_pin", "changed_code", "changed_source", "changed_truth", "absolute_path",
+    "parent_path", "symlink_escape", "extra_escaped_pin", "boolean_schema", "boolean_gate", "boolean_profile"])
+def test_freeze_rejects_posthoc_inputs_incomplete_pins_tampering_and_path_escape(prospective, tmp_path, defect):
+    root, path, freeze = prospective
+    if defect == "status": freeze["status"] = "already_ranked"
+    elif defect == "previous_rank": freeze["ranking_runs_before_freeze"] = 1
+    elif defect == "boolean_rank": freeze["ranking_runs_before_freeze"] = False
+    elif defect == "profile": freeze["profile"]["embedding_revision"] = "main"
+    elif defect == "gate": freeze["gate"]["min_mean_support_coverage"] = 0.5
+    elif defect == "missing_code_pin": freeze["files"].pop("src/review/qwen_batch.py")
+    elif defect == "missing_source_pin": freeze["files"].pop("tests/fixtures/qwen_pilot_sources/breast_us.xml")
+    elif defect == "missing_gold_pin": freeze["files"].pop("tests/fixtures/qwen_pilot_gold/blocks.json")
+    elif defect == "changed_code": (root / "src/review/qwen_batch.py").write_text("Altered after freezing")
+    elif defect == "changed_source": (root / "tests/fixtures/qwen_pilot_sources/breast_us.xml").write_text("Altered source")
+    elif defect == "changed_truth": (root / "tests/fixtures/qwen_pilot_gold/questions.json").write_text('{"questions":[]}')
+    elif defect == "absolute_path": freeze["questions_file"] = str(root / freeze["questions_file"])
+    elif defect == "parent_path": freeze["questions_file"] = "../escaped.json"
+    elif defect == "symlink_escape":
+        outside = tmp_path / "outside.json"
+        outside.write_text("Escaping source truth")
+        target = root / freeze["questions_file"]
+        target.unlink()
+        target.symlink_to(outside)
+    elif defect == "extra_escaped_pin": freeze["files"]["../outside"] = {"sha256": "0" * 64, "size_bytes": 0}
+    elif defect == "boolean_schema": freeze["schema_version"] = True
+    elif defect == "boolean_gate": freeze["gate"]["paid_inference_calls"] = False
+    elif defect == "boolean_profile": freeze["profile"]["schema_version"] = True
+    path.write_text(canonical(freeze))
+    with pytest.raises((ValueError, OSError)):
+        pilot.verify_freeze(path)
+
+
+def test_preparation_exports_only_queries_source_blocks_and_runner_without_gold_or_credentials(prospective, tmp_path, monkeypatch):
+    import builtins
+    original_import = builtins.__import__
+    def guarded_import(name, *args, **kwargs):
+        if name.split(".", 1)[0] in {"torch", "transformers", "sentence_transformers"}:
+            pytest.fail("Preparing a Kaggle batch attempted to import model packages")
+        return original_import(name, *args, **kwargs)
+    # Other tests may legitimately load Torch earlier; inspect this operation's imports.
+    monkeypatch.setattr(builtins, "__import__", guarded_import)
+    root, freeze_path, freeze = prospective
+    assert pilot.verify_freeze(freeze_path) == freeze
+    output, result = prepare(prospective, tmp_path)
+    assert result["status"] == "prepared_not_ranked"
+    upload = output / "kaggle-upload"
+    assert {path.name for path in upload.iterdir()} == {"job.json", "qwen_kaggle_runner.py", "qwen_kaggle.ipynb"}
+    job = json.loads((upload / "job.json").read_text())
+    assert job["payload_sha256"] == result["job_sha256"]
+    questions = job["payload"]["queries"]
+    assert len(questions) == 8 and len({question["id"] for question in questions}) == 8
+    assert all(set(question) == {"id", "query", "lexical_block_indices"} for question in questions)
+    assert not {"expected_answer", "support_sets", "answerable", "context_anchors", "reviewer", "api_key"}.intersection(job["payload"])
+    assert all(".env" not in path.name and "sqlite" not in path.name and "gold" not in path.name for path in upload.iterdir())
+    preparation = json.loads((output / "preparation.json").read_text())
+    assert preparation["reference"]["metrics"]["answerable"] == 6
+    assert len(preparation["reference"]["metrics"]["nulls"]) == 2
+    assert len(preparation["reference"]["traces"]) == 8
+    with pytest.raises(ValueError): pilot.prepare(freeze_path, output)
+
+
+def test_saved_synthetic_result_can_be_graded_without_claiming_model_quality_and_reference_is_recomputed(prospective, tmp_path):
+    _, freeze_path, _ = prospective
+    output, _ = prepare(prospective, tmp_path)
+    prep_path = output / "preparation.json"
+    prep = json.loads(prep_path.read_text())
+    actual_reference = deepcopy(prep["reference"]["metrics"])
+    prep["reference"]["metrics"]["mean_support_coverage"] = 0.0
+    prep["reference"]["metrics"]["complete_positives"] = 0
+    prep_path.write_text(canonical(prep))
+    results_path, wrapped = result_for(output)
+    result = pilot.grade(freeze_path, output, results_path, wrapped["payload_sha256"])
+    assert result["reference"]["metrics"] == actual_reference
+    assert result["candidate"]["metrics"]["answerable"] == 6
+    assert len(result["candidate"]["metrics"]["nulls"]) == 2
+    assert all(row["coverage"] is row["complete"] is None for row in result["candidate"]["per_question"] if not row["answerable"])
+    assert result["checks"]["exact_anchors_scope_replay_readonly"] is True
+    assert result["checks"]["batch_time"] is True
+    assert result["status"] == ("passed" if all(result["checks"].values()) else "failed")
+    assert json.loads((output / "result.json").read_text()) == result
+    saved_receipt = (output / "validation.receipt.json").read_bytes()
+    with pytest.raises(ValueError): pilot.grade(freeze_path, output, results_path, wrapped["payload_sha256"])
+    assert (output / "validation.receipt.json").read_bytes() == saved_receipt
+
+
+@pytest.mark.parametrize("defect", ["wrong_results_hash", "results_missing_query", "wrong_preparation_freeze", "wrong_ledger_hash", "changed_ledger", "missing_ledger"])
+def test_grading_corruption_and_stale_preparation_fail_before_any_receipt(prospective, tmp_path, defect):
+    _, freeze_path, _ = prospective
+    output, _ = prepare(prospective, tmp_path)
+    results_path, wrapped = result_for(output)
+    prep_path = output / "preparation.json"
+    prep = json.loads(prep_path.read_text())
+    if defect == "wrong_results_hash": wrapped["payload_sha256"] = "0" * 64
+    elif defect == "results_missing_query":
+        wrapped["payload"]["query_results"].pop()
+        wrapped = write_artifact(results_path, wrapped["payload"])
+    elif defect == "wrong_preparation_freeze":
+        prep["freeze"]["sha256"] = "0" * 64
+        prep_path.write_text(canonical(prep))
+    elif defect == "wrong_ledger_hash":
+        prep["ledger_sha256"] = "0" * 64
+        prep_path.write_text(canonical(prep))
+    elif defect == "changed_ledger":
+        with ReviewStore(output / "review.sqlite3") as store:
+            store.create_project("Added state", "scoping", "Changed ledger?")
+    elif defect == "missing_ledger": (output / "review.sqlite3").unlink()
+    with pytest.raises((ValueError, OSError, AssertionError)):
+        pilot.grade(freeze_path, output, results_path, wrapped["payload_sha256"])
+    assert not (output / "validation.receipt.json").exists() and not (output / "result.json").exists()
+    if defect == "missing_ledger": assert not (output / "review.sqlite3").exists()
+
+
+def test_batch_runtime_failure_remains_a_failed_record_without_changing_truth(prospective, tmp_path):
+    root, freeze_path, freeze = prospective
+    output, _ = prepare(prospective, tmp_path)
+    truth_before = (root / freeze["questions_file"]).read_bytes()
+    results_path, wrapped = result_for(output)
+    wrapped["payload"]["runtime"]["elapsed_seconds"]["total"] = 1800.01
+    wrapped = write_artifact(results_path, wrapped["payload"])
+    result = pilot.grade(freeze_path, output, results_path, wrapped["payload_sha256"])
+    assert result["checks"]["batch_time"] is False and result["status"] == "failed"
+    assert (root / freeze["questions_file"]).read_bytes() == truth_before

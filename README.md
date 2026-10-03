@@ -15,10 +15,10 @@ Use **`review.py` for a reproducible medical review**. Begin with the [offline g
 | Import saved exports or preserve an executed PubMed search | [Import formats](docs/import-formats.md), [PubMed receipts and replay](docs/pubmed-search.md) |
 | Associate reports, retain sources and verify findings | [Study links](docs/study-linkage.md), [Source versions](docs/source-documents.md), [Verified evidence](docs/verified-evidence.md) |
 | Retrieve exact passages from eligible project sources | [Project retrieval](docs/project-retrieval.md) |
-| Choose cloud embedding, reranking and generation candidates | [Model strategy and integration plan](docs/model-strategy.md) |
+| Run Qwen on a free Kaggle GPU and inspect its acceptance gates | [Qwen workflow](docs/qwen-cloud.md), [model strategy](docs/model-strategy.md), [Kaggle milestone](docs/qwen-kaggle-milestone.md) |
 | See accepted gates and the next human review pilot | [Pilot contract](docs/pilot-milestone.md), [coordinator roadmap](docs/review-roadmap.md) |
 
-The cloud model strategy is a researched design for the next optional integration. Current defaults remain local BGE embeddings for passage exploration and optional Agnes generation; `review.py` needs neither service. Preserve the SQLite ledger and its source bytes as the review record. A Chroma index can be rebuilt and serves a different purpose.
+`review.py qwen-export` prepares a source snapshot for the importable [Kaggle notebook](notebooks/qwen_kaggle.ipynb). It runs Qwen3-Embedding-4B / Qwen3-Reranker-4B on a free GPU; `qwen-import` validates returned vectors, ranks and exact source anchors locally. No inference API key or model weights are required on the Mac. Paid inference is disabled unless explicitly enabled. Preserve jobs/results/receipts alongside the ledger. The [software release](docs/qwen-kaggle-release.md) passed 1,545 tests and 31 subtests. [CPU evaluation](docs/qwen-kaggle-evaluation.md) establishes integration behavior; actual GPU quality must pass the [prospective gate](docs/qwen-kaggle-milestone.md) before Qwen pilot readiness.
 
 ## Current workflow
 
@@ -42,7 +42,7 @@ flowchart LR
     Verify --> Evidence[Verified evidence plus complete audit exports]
 ```
 
-`review.py` runs offline for imports, screening, project passage retrieval, source/evidence review, counts, export and saved-capture verification; `search-pubmed` explicitly executes an NCBI search. Ledger operations, lexical retrieval and TXT/JATS parsing use Python's standard library; PDF attachment lazily uses PyMuPDF. Full-text retrieval status, eligibility and extracted findings are recorded by reviewers.
+Ledger commands and `retrieve-sources` run offline for imports, screening, lexical passage retrieval, source/evidence review, counts, export and saved-capture verification. `search-pubmed` executes an NCBI search; `qwen-export` and `qwen-import` are offline; the Kaggle notebook separately runs selected source text on its GPU. Historical paid `retrieve-qwen` requires explicit opt-in, while receipt replay is offline. Ledger operations, cloud transport, lexical retrieval and TXT/JATS parsing use Python's standard library; PDF attachment lazily uses PyMuPDF. Full-text retrieval status, eligibility and extracted findings are recorded by reviewers.
 
 The passage exploration pipeline remains separate:
 

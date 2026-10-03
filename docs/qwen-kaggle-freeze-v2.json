@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-10-04 Asia/Singapore",
+  "status": "frozen_before_first_kaggle_ranking",
+  "ranking_runs_before_freeze": 0,
+  "source_dir": "tests/fixtures/qwen_pilot_sources",
+  "source_manifest": "tests/fixtures/qwen_pilot_sources/manifest.json",
+  "questions_file": "tests/fixtures/qwen_pilot_gold/questions.json",
+  "profile": {
+    "schema_version": 1,
+    "provider_contract": "kaggle-cuda-qwen4b-v1",
+    "embedding_model": "Qwen/Qwen3-Embedding-4B",
+    "embedding_revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+    "reranker_model": "Qwen/Qwen3-Reranker-4B",
+    "reranker_revision": "22e683669bc0f0bd69640a1354a6d0aebcfeede5",
+    "dimension": 2560,
+    "query_instruction": "Retrieve source passages relevant to the research question.",
+    "rerank_instruction": "Retrieve source passages relevant to the research question.",
+    "query_encoding": "Instruct: {instruction}\nQuery: {query}",
+    "document_encoding": "unprefixed-within-block-utf8-spans-v1",
+    "rerank_encoding": "qwen-author-prefix-body-suffix-v1",
+    "pooling": "last-attended-token",
+    "normalization": "float32-l2",
+    "distance": "cosine",
+    "fusion": "RRF-k60;max-span-cosine-per-block;stable-source-order-v1",
+    "block_score": "maximum-representation-relevance",
+    "max_document_bytes": 6000,
+    "max_query_bytes": 2000,
+    "max_representations": 1000,
+    "max_queries": 100,
+    "max_tokens": 8192,
+    "batch_size": 1,
+    "dtype": "float16",
+    "attention_implementation": "sdpa",
+    "length_policy": "count-complete-tokenized-input;reject-overlength;no-truncation",
+    "packages": {
+      "transformers": "4.51.3",
+      "tokenizers": "0.21.1",
+      "safetensors": "0.5.3",
+      "huggingface-hub": "0.30.2"
+    }
+  },
+  "gate": {
+    "min_mean_support_coverage": 0.85,
+    "min_complete_positives": 4,
+    "positive_questions": 6,
+    "null_questions": 2,
+    "top_k": 5,
+    "candidate_k": 20,
+    "max_batch_seconds": 1800,
+    "paid_inference_calls": 0
+  },
+  "files": {
+    "docs/qwen-kaggle-milestone.md": {
+      "sha256": "67b5716d13379df2dc750e9ad10f50640e86d9fe104705dca1c9e9c7c1d97724",
+      "size_bytes": 5903
+    },
+    "notebooks/qwen_kaggle.ipynb": {
+      "sha256": "ed38e93828d6637015be8ffbb5d7b7cdabbd679873c82ed2f0f988b2d5c5d604",
+      "size_bytes": 5850
+    },
+    "review.py": {
+      "sha256": "c18c7bbd377ff213a2b803d759d5d6b4f5d9c3da93c1feeb30d936521a96451f",
+      "size_bytes": 177
+    },
+    "src/review/__init__.py": {
+      "sha256": "5e7301b6ed407e5b3822985f449275f9c9551e752df2c9bf7add47de1404672e",
+      "size_bytes": 65
+    },
+    "src/review/cli.py": {
+      "sha256": "57c80d1c748d66771cae70453b634798538999afea5da770f6c74e7a902f6a32",
+      "size_bytes": 19011
+    },
+    "src/review/cloud_retrieval.py": {
+      "sha256": "26c3d3e2f4e825d455f531a3ce393897d579063d369e2003e8e859e3f8793e8e",
+      "size_bytes": 15909
+    },
+    "src/review/documents.py": {
+      "sha256": "c27ec563267bc6d9182a5bae38d48878c9b67a42ecbe1fc185ec7fc4965edb90",
+      "size_bytes": 13615
+    },
+    "src/review/evidence.py": {
+      "sha256": "21715c8fd8a5d090f7db78ea0d1bec851333ec828d2512add6d9fe23b0c7043f",
+      "size_bytes": 20883
+    },
+    "src/review/exporters.py": {
+      "sha256": "24f01b715580eab4bd55f16a60d0a9a8ea1ea81e8169b8ddce4c0cc694ebd2b1",
+      "size_bytes": 5594
+    },
+    "src/review/identity.py": {
+      "sha256": "1e450a17707184c8bab186357c9d19b5ff68f2bc26df4c0807e406da41d34021",
+      "size_bytes": 5269
+    },
+    "src/review/importers.py": {
+      "sha256": "177088f9681f88e2e17d7a1a041c0d90cb138aa9b3a89b08161724b764819599",
+      "size_bytes": 15984
+    },
+    "src/review/models.py": {
+      "sha256": "8a643bf216f96bd88a4803ec9479a2689b84ae5fba520718d176dc6a300d4fd9",
+      "size_bytes": 853
+    },
+    "src/review/qwen.py": {
+      "sha256": "8ee2afb2da211a58f1a1ebcc9f4b7aad04d8011a5ea6f6f3baf4dc3998b9f031",
+      "size_bytes": 12586
+    },
+    "src/review/qwen_batch.py": {
+      "sha256": "b122078dc2c023165f97c681cdf3b6ac4701af5ce7fc97883634532891dc3fbe",
+      "size_bytes": 18461
+    },
+    "src/review/qwen_cli.py": {
+      "sha256": "113a5cb15897d28b71d629d0c2458b4406479225703b4f018448d9cd31136a7e",
+      "size_bytes": 6608
+    },
+    "src/review/retrieval.py": {
+      "sha256": "accaf81530f7cece7ba5dfa08adebc2062f855ab6e0e3a226ffe35f26ec225cb",
+      "size_bytes": 9192
+    },
+    "src/review/store.py": {
+      "sha256": "d1622ea5089ffdfedb196803732dc74c35686e647f758a0e57e0e9d93d1b13a4",
+      "size_bytes": 40104
+    },
+    "src/review/studies.py": {
+      "sha256": "82caacf58e0347d8c90a029825de08f53a7e1e37422e262a0e553a00dca2483f",
+      "size_bytes": 11495
+    },
+    "tests/fixtures/qwen_pilot_gold/README.md": {
+      "sha256": "3f1a4973a5893068e6e3aca5186fd1ef298622e210c2b450eabe07a23ee1f3ab",
+      "size_bytes": 3538
+    },
+    "tests/fixtures/qwen_pilot_gold/blocks.json": {
+      "sha256": "1f4ee8c00aa763baf3b755e5f4a1aae96b90439a008e5d3945c7ccbd12c2980c",
+      "size_bytes": 111991
+    },
+    "tests/fixtures/qwen_pilot_gold/manifest.json": {
+      "sha256": "aad3577f3d61aa67ea0a6af8f5a6fc63ba5e6eb0bb7bcfa0675f3e9df7292d70",
+      "size_bytes": 3183
+    },
+    "tests/fixtures/qwen_pilot_gold/questions.json": {
+      "sha256": "2e81d216851540071a36f2fd9f27fdbd781999f4ca2c006f4dc01ab27152ea4c",
+      "size_bytes": 27107
+    },
+    "tests/fixtures/qwen_pilot_gold/verify.py": {
+      "sha256": "a4853da8321e205fbab96a1568c696fdb5e43df68b7c23e3b1c0ec62392ff9fa",
+      "size_bytes": 12943
+    },
+    "tests/fixtures/qwen_pilot_sources/README.md": {
+      "sha256": "ec313fdfaafb1adb2388d4846b4f94e3c82e8e14a4767a9736b833b6d30900a9",
+      "size_bytes": 4163
+    },
+    "tests/fixtures/qwen_pilot_sources/breast_us.xml": {
+      "sha256": "3fa5a7c38a0517fda006c5b32c9f2b51ee09ff1e744453df3e876a21046bd58e",
+      "size_bytes": 108204
+    },
+    "tests/fixtures/qwen_pilot_sources/mammography.xml": {
+      "sha256": "18537d74837fde29e423aa014274aa877580130eb3eefa284d35255cdda81385",
+      "size_bytes": 127709
+    },
+    "tests/fixtures/qwen_pilot_sources/manifest.json": {
+      "sha256": "3fd57adb6ddac600684528bd53b2bcc7cb366747f077879582f732998b68c21a",
+      "size_bytes": 18801
+    },
+    "tests/fixtures/qwen_pilot_sources/verify.py": {
+      "sha256": "871dd7ae2b4303238642da20ad8e551ad9029360d8a79ca0db705c8648eb1012",
+      "size_bytes": 12979
+    },
+    "tests/test_qwen_batch.py": {
+      "sha256": "b936ca1bd89ba7f4330e4b53977369e1203baff8fdc14c95a8f032e1f77964cf",
+      "size_bytes": 40355
+    },
+    "tests/test_qwen_cloud_acceptance.py": {
+      "sha256": "b8bef9cd03c57c9a2bce2328bf30f354d182d83841dda815f3fb231d91c3cbc7",
+      "size_bytes": 42067
+    },
+    "tests/test_qwen_kaggle_pilot.py": {
+      "sha256": "75b6ec716e214381ac04ee48c3d2e6cf0ddc276b1fb9f170b6a4a09bbaa1eb3a",
+      "size_bytes": 10775
+    },
+    "tests/test_qwen_pilot_evaluation.py": {
+      "sha256": "6864f51fa61cf6dd2bd7b38f7011f23cfaeba39aeb1bc817f355f069e8f2f4bd",
+      "size_bytes": 26980
+    },
+    "tools/evaluate_qwen_kaggle.py": {
+      "sha256": "530a2e10f50985c888b4eaabd61dd675e91174e6327fe26ad4694b2373cd1901",
+      "size_bytes": 14808
+    },
+    "tools/evaluate_qwen_pilot.py": {
+      "sha256": "e806f9a7078ea46c241b881a31d79fc8a6cdb4604a0e1a41427a046688300101",
+      "size_bytes": 23030
+    },
+    "tools/qwen_kaggle_runner.py": {
+      "sha256": "9a065608f649a647b9bd15c5399863b57022064b6cbff10069ca05869e240917",
+      "size_bytes": 21010
+    }
+  },
+  "selection": "Fixed 4B hybrid with RRF-k60, top5 and pool20; no quality rankings yet; no paid fallback",
+  "supersedes": {
+    "freeze": "docs/qwen-kaggle-freeze-v1.json",
+    "repair": "docs/qwen-kaggle-repair-v2.json",
+    "reason": "Evaluator test-order repair and default active-freeze path; no GPU ranking, model, gold or acceptance change"
+  },
+  "evidence_boundary": "CPU fakes do not count as GPU/model quality; actual Kaggle allocation/runtime/quality pending."
+}

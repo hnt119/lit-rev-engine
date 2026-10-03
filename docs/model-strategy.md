@@ -1,16 +1,16 @@
 # Cloud model strategy for the review engine
 
-Research checked **3 October 2026, Asia/Singapore**. The user wants compute-heavy inference in the cloud. This document records the coordinator's recommendation and proposed interfaces. It changes no runtime model, provider, dependency, collection or frozen evaluation. No model was downloaded, deployed or benchmarked for this research.
+Research checked **4 October 2026, Asia/Singapore**. The user wants compute-heavy inference in the cloud and has requested Qwen integration before the human pilot. The user declined paid inference, so the recommended serving route is now a finite free Kaggle GPU notebook: [Qwen workflow](qwen-cloud.md), [Kaggle contract](kaggle-provider-contract.md) and [acceptance milestone](qwen-kaggle-milestone.md). The earlier paid adapter remains opt-in only; its setup produced no ranked result. Existing defaults and frozen medical evaluations remain unchanged. CPU checks and actual GPU quality evidence must be read separately.
 
 ## Decision
 
-Start the optional cloud comparison with **Qwen3-Embedding-4B and Qwen3-Reranker-4B**. Compare the 8B pair only if measured support completeness justifies its latency and cost. Keep the existing BGE-small passage pipeline and exact-anchor lexical project retrieval as explicit baselines. The first integration ticket should provide a validated cloud reranker over a recorded candidate pool; dense retrieval follows through a separate embedding profile and new index.
+The implemented optional pair is **Qwen3-Embedding-4B and Qwen3-Reranker-4B**, using immutable batch source jobs, recorded vectors/scores and locally reconstructed candidate pools. Compare the 8B pair only if measured support completeness justifies its latency and cost. Keep the existing BGE-small passage pipeline and exact-anchor lexical project retrieval as explicit baselines.
 
-This is an architectural recommendation, rather than proof of better medical results. Author model-card benchmarks use other tasks and protocols. The engine's fresh v3 pilot already exposes incomplete multi-block support and misleading candidates on no-answer questions; relevance scores cannot establish an answer or verify a finding. The [human review pilot](pilot-milestone.md) remains the next product milestone.
+Author model-card benchmarks use other tasks and protocols. The engine's fresh v3 pilot already exposes incomplete multi-block support and misleading candidates on no-answer questions; relevance scores cannot establish an answer or verify a finding. The user placed the [Qwen acceptance gate](qwen-kaggle-milestone.md) before the [human review pilot](pilot-milestone.md); scripted responses alone cannot pass its live gate.
 
 ## Current code and concrete integration gaps
 
-`src/settings.py` selects `BAAI/bge-small-en-v1.5` for the separate passage exploration pipeline. `src/embeddings/embedder.py` applies normalized `SentenceTransformer.encode()` to both queries and documents. `src/vectorstore/chroma_store.py` checks only the embedding model name in collection metadata. There is no cloud embedding client, reranker client or project-scoped dense index. The Agnes client supports chat generation; it is not an embedding/reranking transport.
+`src/settings.py` selects `BAAI/bge-small-en-v1.5` for the separate passage exploration pipeline. `src/embeddings/embedder.py` applies normalized `SentenceTransformer.encode()` to both queries and documents. `src/vectorstore/chroma_store.py` checks only the embedding model name in collection metadata. The new Qwen batch module provides stdlib source export and local result validation; they do not reuse or alter that Chroma collection. Agnes remains a separate generation transport.
 
 The BGE-small card describes a 33.4M-parameter, 384-dimensional, 512-token encoder with an MIT license. It permits instruction-free v1.5 use and recommends a query instruction for short-query passage retrieval. A prompted baseline would therefore be a separately recorded experiment, not an invisible change. [BGE-small model card](https://huggingface.co/BAAI/bge-small-en-v1.5).
 
@@ -33,11 +33,9 @@ This is a selected shortlist, not an exhaustive current leaderboard. Medical bra
 
 ## Cloud serving choices
 
-For a small pilot, a managed endpoint avoids provisioning a dedicated GPU before measuring usage. DeepInfra currently documents an [OpenAI-compatible Qwen4B embeddings endpoint](https://deepinfra.com/Qwen/Qwen3-Embedding-4B/api) and a [separate Qwen4B reranking HTTP endpoint](https://deepinfra.com/Qwen/Qwen3-Reranker-4B/api). Those pages also identify their request/response shapes. Verify actual model revision, limits, retention terms and current prices when choosing a service; the presence of an API page is not a compatibility test.
+For this pilot, use the [free Kaggle batch workflow](qwen-cloud.md). The notebook downloads public, ungated Hugging Face checkpoints at immutable revisions, runs one FP16 model at a time and returns saved numeric results. The Mac performs source validation and replay. No paid inference API is needed. Check the account's available GPU/quota and actual memory fit; general platform specifications do not establish those facts. The [Kaggle contract](kaggle-provider-contract.md) records official sources and remaining uncertainties.
 
-For controlled hosting, [Hugging Face Inference Endpoints](https://huggingface.co/docs/inference-endpoints/en/index) provides managed dedicated deployment. [TEI's supported-model documentation](https://huggingface.co/docs/text-embeddings-inference/en/supported_models) includes Qwen3 embeddings. A Qwen reranker needs its scoring conversion/template; use the [current vLLM scoring documentation](https://docs.vllm.ai/en/latest/models/pooling_models/scoring/) rather than assume a generic chat server or embedding endpoint returns pair scores.
-
-Keep the GPU serving environment separate from the local engine requirements. Pin the deployed model revision, serving image/version, tokenizer, precision and actual token budget. Managed services may expose only a model alias; record that limitation and preserve actual responses instead of promising exact future recomputation. Measure cold starts, batching, P50/P95 latency, token usage and cost on the proposed pilot workload. GPU capacity depends on sequence length and batch size as well as weight size.
+Managed DeepInfra and dedicated Hugging Face endpoints remain possible later serving options, but they are outside the current no-spend workflow. The existing [DeepInfra contract](qwen-provider-contract.md) and unsuccessful setup receipts are historical evidence. Model inputs, revisions, tokenizer/encoding rules, runtime versions, actual token lengths, elapsed time and peak Torch allocation are recorded in the batch artifacts. Saved vectors/scores reproduce local ranking without requiring future GPU calculations to be bitwise identical.
 
 ## Proposed architecture
 
@@ -46,20 +44,20 @@ flowchart LR
     Ledger[(Local review ledger / retained sources)] --> Scope[Current project and eligibility snapshot]
     Scope --> Lexical[Existing lexical candidates]
     Scope --> Encode[Versioned document encoding]
-    Encode --> CloudEmbed[Cloud embedding endpoint]
-    CloudEmbed --> Index[Rebuildable project / source-version index]
-    Question[Reviewer question] --> QueryEmbed[Cloud query embedding]
+    Encode --> CloudEmbed[Kaggle embedding batch]
+    CloudEmbed --> Index[Recorded source / query vectors]
+    Question[Reviewer question] --> QueryEmbed[Kaggle query embedding]
     QueryEmbed --> Index
     Index --> Pool[Recorded candidate union]
     Lexical --> Pool
-    Pool --> CloudRank[Cloud reranker]
+    Pool --> CloudRank[Kaggle reranker batch]
     CloudRank --> Validate[Local identity / anchor / scope validation]
     Validate --> Human[Source inspection and manual proposal]
     Human --> Verify[Independent revision verification]
     Verify --> Export[Current verified evidence and audit exports]
 ```
 
-The diagram is proposed work, not a currently available command. Local project state remains authoritative. Send the permitted query/candidate paper text to cloud inference; retain reviewer identities, adjudication and verification in the ledger. A model can rank existing candidates but cannot replace their text, invent block IDs, change screening decisions or confirm its own extraction.
+The retrieval stages are available through `review.py qwen-export`, the Kaggle notebook and `review.py qwen-import`; the final manual review/verification stages use the existing ledger commands. Local project state remains authoritative. Send the permitted query/candidate paper text to cloud inference; retain reviewer identities, adjudication and verification in the ledger. A model can rank existing candidates but cannot replace their text, invent block IDs, change screening decisions or confirm its own extraction.
 
 Cloud latency should not hold a database write transaction open. Capture the source/eligibility manifest first, then validate that the same versions and states remain current when the response arrives. A changed source or scope invalidates that result. Record an unavailable endpoint explicitly; any lexical fallback must expose its actual method rather than masquerade as the selected cloud method.
 
@@ -73,7 +71,7 @@ Cloud latency should not hold a database write transaction open. Capture the sou
 | Local result validation | Recheck source/version/block hashes, exact Unicode spans, same-project ownership and active scope. Preserve the original anchor and typed locator. |
 | Trace / replay receipt | Retain input hashes, candidate pool, provider response and IDs, model/revision/serving version, instruction hashes, token limits, scores/ranks, timings, usage and the final source manifest. |
 
-These signatures are design contracts. Use fake providers for transport/schema tests before adding live calls. Explicit timeout/retry and billing behavior belongs to the provider adapter, not the ledger store.
+The batch job/result interface follows these contracts, with exact shapes documented in the source and Kaggle guide. Independent scripted tests precede an actual GPU evaluation. Kaggle is a finite worker, with account quota and session constraints; no inference endpoint or automatic paid fallback is used.
 
 An index profile must include model ID/revision, vector dimension, document prompt/task, pooling, normalization, similarity metric, representation/chunking rules and source/version identifiers. Query instructions and reranker profiles are versioned separately. A changed document profile needs a fresh collection and full reindex. Existing model-name guards alone cannot detect an altered revision or encoding prompt.
 
@@ -87,7 +85,7 @@ For difficult page layouts, [Granite-Docling-258M](https://huggingface.co/ibm-gr
 
 ## Priorities and acceptance tickets
 
-The [protocol-defined human pilot](pilot-milestone.md) comes first. If its evidence supports adding cloud retrieval, use these bounded tickets:
+The user requested cloud integration first. The concrete [Qwen tickets and prospective gate](qwen-kaggle-milestone.md) implement that ordering; this original integration decomposition remains useful for later model comparisons:
 
 | Ticket / owner | Scope | Acceptance |
 | --- | --- | --- |

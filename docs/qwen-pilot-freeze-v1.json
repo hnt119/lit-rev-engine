@@ -1,0 +1,188 @@
+{
+  "candidate": "qwen_hybrid",
+  "candidate_k": 20,
+  "files": {
+    ".env.example": {
+      "sha256": "edf3cb0c3a2950abaa5e3056e6ab796e48292e1a787e1997e034aa0d3a671682",
+      "size_bytes": 504
+    },
+    "docs/qwen-milestone.md": {
+      "sha256": "ed09bef226dfc9e6d63e086a5918f0fa950ef0d0bb6db94ff3c470e00c69ce23",
+      "size_bytes": 4606
+    },
+    "review.py": {
+      "sha256": "c18c7bbd377ff213a2b803d759d5d6b4f5d9c3da93c1feeb30d936521a96451f",
+      "size_bytes": 177
+    },
+    "src/review/__init__.py": {
+      "sha256": "5e7301b6ed407e5b3822985f449275f9c9551e752df2c9bf7add47de1404672e",
+      "size_bytes": 65
+    },
+    "src/review/cli.py": {
+      "sha256": "57c80d1c748d66771cae70453b634798538999afea5da770f6c74e7a902f6a32",
+      "size_bytes": 19011
+    },
+    "src/review/cloud_retrieval.py": {
+      "sha256": "26c3d3e2f4e825d455f531a3ce393897d579063d369e2003e8e859e3f8793e8e",
+      "size_bytes": 15909
+    },
+    "src/review/documents.py": {
+      "sha256": "c27ec563267bc6d9182a5bae38d48878c9b67a42ecbe1fc185ec7fc4965edb90",
+      "size_bytes": 13615
+    },
+    "src/review/evidence.py": {
+      "sha256": "21715c8fd8a5d090f7db78ea0d1bec851333ec828d2512add6d9fe23b0c7043f",
+      "size_bytes": 20883
+    },
+    "src/review/exporters.py": {
+      "sha256": "24f01b715580eab4bd55f16a60d0a9a8ea1ea81e8169b8ddce4c0cc694ebd2b1",
+      "size_bytes": 5594
+    },
+    "src/review/identity.py": {
+      "sha256": "1e450a17707184c8bab186357c9d19b5ff68f2bc26df4c0807e406da41d34021",
+      "size_bytes": 5269
+    },
+    "src/review/importers.py": {
+      "sha256": "177088f9681f88e2e17d7a1a041c0d90cb138aa9b3a89b08161724b764819599",
+      "size_bytes": 15984
+    },
+    "src/review/models.py": {
+      "sha256": "8a643bf216f96bd88a4803ec9479a2689b84ae5fba520718d176dc6a300d4fd9",
+      "size_bytes": 853
+    },
+    "src/review/qwen.py": {
+      "sha256": "8ee2afb2da211a58f1a1ebcc9f4b7aad04d8011a5ea6f6f3baf4dc3998b9f031",
+      "size_bytes": 12586
+    },
+    "src/review/qwen_cli.py": {
+      "sha256": "f919f5a0f36169a1e89a9b7041269eb75c9aa0bf5e57f734b6fc20b2eb956bb8",
+      "size_bytes": 3803
+    },
+    "src/review/retrieval.py": {
+      "sha256": "accaf81530f7cece7ba5dfa08adebc2062f855ab6e0e3a226ffe35f26ec225cb",
+      "size_bytes": 9192
+    },
+    "src/review/store.py": {
+      "sha256": "d1622ea5089ffdfedb196803732dc74c35686e647f758a0e57e0e9d93d1b13a4",
+      "size_bytes": 40104
+    },
+    "src/review/studies.py": {
+      "sha256": "82caacf58e0347d8c90a029825de08f53a7e1e37422e262a0e553a00dca2483f",
+      "size_bytes": 11495
+    },
+    "src/search/pubmed_search.py": {
+      "sha256": "7c5434b80986705007e57d30a15422d6f0546a89ea5701fceba0f2aa45d011a0",
+      "size_bytes": 29809
+    },
+    "tests/fixtures/qwen_pilot_gold/README.md": {
+      "sha256": "3f1a4973a5893068e6e3aca5186fd1ef298622e210c2b450eabe07a23ee1f3ab",
+      "size_bytes": 3538
+    },
+    "tests/fixtures/qwen_pilot_gold/blocks.json": {
+      "sha256": "1f4ee8c00aa763baf3b755e5f4a1aae96b90439a008e5d3945c7ccbd12c2980c",
+      "size_bytes": 111991
+    },
+    "tests/fixtures/qwen_pilot_gold/manifest.json": {
+      "sha256": "aad3577f3d61aa67ea0a6af8f5a6fc63ba5e6eb0bb7bcfa0675f3e9df7292d70",
+      "size_bytes": 3183
+    },
+    "tests/fixtures/qwen_pilot_gold/questions.json": {
+      "sha256": "2e81d216851540071a36f2fd9f27fdbd781999f4ca2c006f4dc01ab27152ea4c",
+      "size_bytes": 27107
+    },
+    "tests/fixtures/qwen_pilot_gold/verify.py": {
+      "sha256": "a4853da8321e205fbab96a1568c696fdb5e43df68b7c23e3b1c0ec62392ff9fa",
+      "size_bytes": 12943
+    },
+    "tests/fixtures/qwen_pilot_sources/README.md": {
+      "sha256": "ec313fdfaafb1adb2388d4846b4f94e3c82e8e14a4767a9736b833b6d30900a9",
+      "size_bytes": 4163
+    },
+    "tests/fixtures/qwen_pilot_sources/breast_us.xml": {
+      "sha256": "3fa5a7c38a0517fda006c5b32c9f2b51ee09ff1e744453df3e876a21046bd58e",
+      "size_bytes": 108204
+    },
+    "tests/fixtures/qwen_pilot_sources/mammography.xml": {
+      "sha256": "18537d74837fde29e423aa014274aa877580130eb3eefa284d35255cdda81385",
+      "size_bytes": 127709
+    },
+    "tests/fixtures/qwen_pilot_sources/manifest.json": {
+      "sha256": "3fd57adb6ddac600684528bd53b2bcc7cb366747f077879582f732998b68c21a",
+      "size_bytes": 18801
+    },
+    "tests/fixtures/qwen_pilot_sources/verify.py": {
+      "sha256": "871dd7ae2b4303238642da20ad8e551ad9029360d8a79ca0db705c8648eb1012",
+      "size_bytes": 12979
+    },
+    "tests/test_qwen_cloud_acceptance.py": {
+      "sha256": "b8bef9cd03c57c9a2bce2328bf30f354d182d83841dda815f3fb231d91c3cbc7",
+      "size_bytes": 42067
+    },
+    "tests/test_qwen_pilot_evaluation.py": {
+      "sha256": "6864f51fa61cf6dd2bd7b38f7011f23cfaeba39aeb1bc817f355f069e8f2f4bd",
+      "size_bytes": 26980
+    },
+    "tools/evaluate_qwen_pilot.py": {
+      "sha256": "b3a35ad5691e7c17cf68012078e6cce1cf077ede85648700454268ca8d3dc0c2",
+      "size_bytes": 22742
+    }
+  },
+  "foundation_commit": "40da7b44121c1204aab8c22adeef53e2d4d6d8a4",
+  "frozen_at_utc": "2026-10-03T03:23:48.231585+00:00",
+  "gate": {
+    "complete_nonregression": true,
+    "coverage_nonregression": true,
+    "exact_anchors_scope_replay_readonly": 1.0,
+    "max_cold_seconds": 900,
+    "max_reported_cost_usd": 0.25,
+    "max_warm_p95_seconds": 60,
+    "min_complete_positives": 4,
+    "min_mean_support_coverage": 0.85
+  },
+  "live_ranking_runs_before_freeze": 0,
+  "pre_live_acceptance": {
+    "context_spans": 4,
+    "independent_tests": 132,
+    "main_tables": 9,
+    "necessary_and": 4,
+    "null_questions": 2,
+    "original_xml_blocks": 102,
+    "positive_questions": 6,
+    "support_spans": 36,
+    "truth_and_harness_accepted": true
+  },
+  "profile": {
+    "batch_size": 16,
+    "dimension": 2560,
+    "distance": "cosine",
+    "document_encoding": "unprefixed-within-block-utf8-spans-v1",
+    "embedding_model": "Qwen/Qwen3-Embedding-4B",
+    "embedding_order": "one input per native request; no assumed batch ordering",
+    "embedding_revision": null,
+    "embedding_url": "https://api.deepinfra.com/v1/inference/Qwen/Qwen3-Embedding-4B",
+    "length_policy": "Explicit UTF-8 byte ceiling; no client truncation; server tokenization/truncation is not exposed",
+    "max_document_bytes": 6000,
+    "max_query_bytes": 2000,
+    "max_representations": 1000,
+    "normalization": "local-l2",
+    "pooling": "provider-managed-last-token",
+    "provider_contract": "deepinfra-qwen4b-v1",
+    "query_encoding": "Instruct: {instruction}\\nQuery: {query}",
+    "query_instruction": "Retrieve source passages relevant to the research question.",
+    "rerank_encoding": "explicit-instruction-query-document-pairs",
+    "rerank_instruction": "Retrieve source passages relevant to the research question.",
+    "reranker_model": "Qwen/Qwen3-Reranker-4B",
+    "reranker_revision": null,
+    "reranker_url": "https://api.deepinfra.com/v1/inference/Qwen/Qwen3-Reranker-4B",
+    "revision_limit": "Managed model aliases; immutable revision is not supplied by this API contract",
+    "schema_version": 1,
+    "timeout_seconds": 60.0
+  },
+  "questions_file": "tests/fixtures/qwen_pilot_gold/questions.json",
+  "reference": "bm25_context_blocks",
+  "schema_version": 1,
+  "source_dir": "tests/fixtures/qwen_pilot_sources",
+  "source_manifest": "tests/fixtures/qwen_pilot_sources/manifest.json",
+  "status": "frozen_before_first_live_qwen_ranking",
+  "top_k": 5
+}

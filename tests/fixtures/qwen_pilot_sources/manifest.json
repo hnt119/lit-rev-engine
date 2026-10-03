@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "ticket": "R-Q2",
+  "purpose": "Fresh source-disjoint prospective Qwen pilot acceptance; source selection precedes model performance.",
+  "created_at_utc": "2026-10-03T03:09:59.091927+00:00",
+  "sources": [
+    {
+      "id": "mammography",
+      "file": "mammography.xml",
+      "format": "jats_xml",
+      "doi": "10.1371/journal.pone.0322925",
+      "title": "Comparative analysis of diagnostic performance in mammography: A reader study on the impact of AI assistance",
+      "authors": [
+        {
+          "given_names": "Marlina Tanty",
+          "surname": "Ramli Hamid"
+        },
+        {
+          "given_names": "Nazimah",
+          "surname": "Ab Mumin"
+        },
+        {
+          "given_names": "Shamsiah",
+          "surname": "Abdul Hamid"
+        },
+        {
+          "given_names": "Natasha",
+          "surname": "Mohd Ariffin"
+        },
+        {
+          "given_names": "Khariah",
+          "surname": "Mat Nor"
+        },
+        {
+          "given_names": "Ernisha",
+          "surname": "Saib"
+        },
+        {
+          "given_names": "Nurul Amira",
+          "surname": "Mohamed"
+        }
+      ],
+      "published_date": "2025-05-07",
+      "journal": "PLOS One",
+      "publisher_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0322925",
+      "publisher_xml_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0322925&type=manuscript",
+      "source_sha256": "18537d74837fde29e423aa014274aa877580130eb3eefa284d35255cdda81385",
+      "size_bytes": 127709,
+      "acquisition": {
+        "id": "mammography",
+        "file": "mammography.xml",
+        "permanent_download_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0322925&type=manuscript",
+        "sanitized_final_redirect_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0322925/1/pone.0322925.xml",
+        "final_redirect_query_omitted": true,
+        "http_status": 200,
+        "acquired_at_utc": "2026-10-03T02:58:42.015439+00:00",
+        "size_bytes": 127709,
+        "sha256": "18537d74837fde29e423aa014274aa877580130eb3eefa284d35255cdda81385"
+      },
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "url": "http://creativecommons.org/licenses/by/4.0/",
+        "copyright_year": "2025",
+        "copyright_holder": "Ramli Hamid et al",
+        "literal_notice": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+      },
+      "version_label": "Publisher main-article XML, observed GCS version path /1/; unchanged acquisition snapshot",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "block_count": 55,
+      "main_table_count": 5,
+      "canonical_blocks_sha256": "3f0f12e07e52c7110434a44a8ff124f7fe929165bca3cddd42721545ea191b49",
+      "notices": {
+        "observation_scope": "Publisher article page, its copyright link, and the acquired own XML only; not an exhaustive correction/retraction search.",
+        "external_dataset_and_supplements": "Not acquired; article-text license is not an assertion about separately hosted datasets, supplements, or images."
+      },
+      "caveats": [
+        {
+          "summary": "The abstract claims improvement across all metrics but prints a decrease in senior-reader specificity.",
+          "observations": [
+            {
+              "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+              "canonical_fragment": "AI assistance significantly improved the diagnostic performance of all reader groups across all metrics (p < 0.05)."
+            },
+            {
+              "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+              "canonical_fragment": "specificity (60.5% without AI, 59.2% with AI)"
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        },
+        {
+          "summary": "The dense-breast Results prose says R3 PPV was higher without AI, whereas Table 5 prints a higher R3AI value.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[5]/p[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/p[1]",
+              "canonical_fragment": "General radiologist (R3) showed higher PPV without AI assistance, but higher NPV with AI"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+              "canonical_fragment": "R1\tR1AI\tR2\tR2AI\tR3\tR3AI\tR4\tR4AI\tALL*\tAI*\t†"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+              "canonical_fragment": "PPV\t45.5\t43.2\t51.9\t42.6\t52.2\t68.9\t43.2\t59.2\t48.2\t53.5\t0.213"
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        },
+        {
+          "summary": "Dense-breast biopsy denominators differ between Results prose and Table 2.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+              "canonical_fragment": "Of the 134 biopsied performed, 98 (73.1%) were in dense breast. 45 (81.8%) HPE proven benign and 53 (69.7%) malignant lesions were observed in dense breasts."
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+              "canonical_fragment": "Benignn = 43 (44.8%)\tMalignantn = 53* (52.2%)\tTotal(n = 96)"
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        },
+        {
+          "summary": "Follow-up duration wording differs between Statistical analysis and Results regions.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+              "canonical_fragment": "If no biopsy was performed, the cases were followed up for up to 2-year, and considered benign when remains stable."
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+              "canonical_fragment": "All patients had at least 2 years of follow-up after mammogram and/or biopsy."
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+              "canonical_fragment": "during a minimum of one and a half year follow-up period."
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        },
+        {
+          "summary": "The Results calls R2 the highest-sensitivity reader; Table 4 prints larger R3/R4 sensitivities. The source claim is retained without reconciliation.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+              "canonical_fragment": "General radiologist (R2), with 12 years of experience, achieved the highest sensitivity and specificity, both with and without AI assistance"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+              "canonical_fragment": "Sensitivity\t87.2\t84.0\t86.5\t88.0\t91.3\t95.5\t91.9\t92.5\t89.2\t90.0\t0.140"
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        },
+        {
+          "summary": "Table 4 last column is marked dagger without an explanatory dagger footnote in that canonical table; do not interpret its values as named statistics.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+              "canonical_fragment": "ALL*\tALLAI*\t†"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+              "canonical_fragment": "*All indicates the mean of all readers"
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        }
+      ]
+    },
+    {
+      "id": "breast_us",
+      "file": "breast_us.xml",
+      "format": "jats_xml",
+      "doi": "10.1371/journal.pone.0278299",
+      "title": "Ultrasound classification of non-mass breast lesions following BI-RADS presents high positive predictive value",
+      "authors": [
+        {
+          "given_names": "Mingnan",
+          "surname": "Lin"
+        },
+        {
+          "given_names": "Size",
+          "surname": "Wu"
+        }
+      ],
+      "published_date": "2022-11-30",
+      "journal": "PLOS ONE",
+      "publisher_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0278299",
+      "publisher_xml_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0278299&type=manuscript",
+      "source_sha256": "3fa5a7c38a0517fda006c5b32c9f2b51ee09ff1e744453df3e876a21046bd58e",
+      "size_bytes": 108204,
+      "acquisition": {
+        "id": "breast_us",
+        "file": "breast_us.xml",
+        "permanent_download_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0278299&type=manuscript",
+        "sanitized_final_redirect_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0278299/1/pone.0278299.xml",
+        "final_redirect_query_omitted": true,
+        "http_status": 200,
+        "acquired_at_utc": "2026-10-03T02:58:42.697390+00:00",
+        "size_bytes": 108204,
+        "sha256": "3fa5a7c38a0517fda006c5b32c9f2b51ee09ff1e744453df3e876a21046bd58e"
+      },
+      "license": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "url": "http://creativecommons.org/licenses/by/4.0/",
+        "copyright_year": "2022",
+        "copyright_holder": "Lin, Wu",
+        "literal_notice": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited."
+      },
+      "version_label": "Publisher main-article XML, observed GCS version path /1/; unchanged acquisition snapshot",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "python_version": "3.12.7",
+        "normalization": "xml-whitespace-v1",
+        "tables": "rows-tab-separated-v1",
+        "external_dtd": "ignored",
+        "entities": "rejected"
+      },
+      "block_count": 47,
+      "main_table_count": 4,
+      "canonical_blocks_sha256": "9f4ab56d4ab8e221892b8e30a5efeddb85684030ba08bded0c085ea21e81a65f",
+      "notices": {
+        "observation_scope": "Publisher article page, its copyright link, and the acquired own XML only; not an exhaustive correction/retraction search.",
+        "external_dataset_and_supplements": "Not acquired; article-text license is not an assertion about separately hosted datasets, supplements, or images."
+      },
+      "caveats": [
+        {
+          "summary": "Table 3 malignant-column category counts and literal Total entry do not reconcile; parenthetical values are preserved as printed, without treating them as within-category malignancy risk.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "canonical_fragment": "3\t4\t2(4.3)"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "canonical_fragment": "4A\t7\t5(10.6)"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "canonical_fragment": "4B\t14\t9(19.2)"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "canonical_fragment": "4C\t14\t12(25.5)"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "canonical_fragment": "5\t20\t19(40.4)"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+              "canonical_fragment": "Total\t59\t59(100.0)"
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        },
+        {
+          "summary": "The benign non-ductal hypoechoic count/percentage differs between Table 4 and Discussion.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/table-wrap[3]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[3]",
+              "canonical_fragment": "Non-ductal hypoechoic area\t\t\t0.775\n\tYes\t26(55.3)\t7(58.3)"
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[4]/p[7]",
+              "block_id": "xml:/article[1]/body[1]/sec[4]/p[7]",
+              "canonical_fragment": "55.3% (26/47) of malignant NMLs and 41.7% (2/12) of benign NMLs"
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        },
+        {
+          "summary": "Methods describe measuring lesion dimensions during imaging, whereas the study analysis and Discussion say no size calculation/measurement was performed.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+              "canonical_fragment": "the size was determined at its greatest dimension and smallest dimension, respectively."
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+              "canonical_fragment": "the size of breast NMLs was difficult to measure, and therefore it was not calculated."
+            },
+            {
+              "source_path": "/article[1]/body[1]/sec[4]/p[10]",
+              "block_id": "xml:/article[1]/body[1]/sec[4]/p[10]",
+              "canonical_fragment": "no size measurement was performed in our study."
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        },
+        {
+          "summary": "Reported accuracy intervals in Results are not explicitly labeled with a confidence level in that paragraph or Statistical analysis; retain the literal intervals without adding 95%.",
+          "observations": [
+            {
+              "source_path": "/article[1]/body[1]/sec[3]/p[4]",
+              "block_id": "xml:/article[1]/body[1]/sec[3]/p[4]",
+              "canonical_fragment": "82.98%(69.19%-92.35%), 41.67%(15.17%-72.33%)"
+            }
+          ],
+          "treatment": "Literal source discrepancy/ambiguity preserved; no clinical or numerical correction."
+        }
+      ]
+    }
+  ],
+  "exclusion_manifest_checks": [
+    {
+      "manifest": "tests/fixtures/medical_sources/manifest.json",
+      "sha256": "3a654350be8c6f4df5f10f582c143c456a0d462f89a643ec5bfcc648427a183d",
+      "size_bytes": 12184,
+      "candidate_doi_overlap": false,
+      "scope": "DOI-only metadata exclusion check; no legacy raw source or question/gold content used."
+    },
+    {
+      "manifest": "tests/fixtures/medical_sources_v2/manifest.json",
+      "sha256": "587b067dcde48a0c62939f4aa795402811fd883837af63a2925a7b9dce942c00",
+      "size_bytes": 15518,
+      "candidate_doi_overlap": false,
+      "scope": "DOI-only metadata exclusion check; no legacy raw source or question/gold content used."
+    },
+    {
+      "manifest": "tests/fixtures/medical_sources_v3/manifest.json",
+      "sha256": "926489c7d05f2cb3b5e6d0cdfeb899f728df63299ce54bacea6a79a286d894a2",
+      "size_bytes": 18262,
+      "candidate_doi_overlap": false,
+      "scope": "DOI-only metadata exclusion check; no legacy raw source or question/gold content used."
+    },
+    {
+      "manifest": "tests/fixtures/medical_sources_v3_imaging/manifest.json",
+      "sha256": "05d2a7008f0f9bb36eeaf2bdcd6b47b4074c53b53802890ce8ab2c376913bb8b",
+      "size_bytes": 8091,
+      "candidate_doi_overlap": false,
+      "scope": "DOI-only metadata exclusion check; no legacy raw source or question/gold content used."
+    }
+  ],
+  "limits": [
+    "Agent-curated nonexhaustive two-article pilot; not clinical validation or an exhaustive/latest literature review.",
+    "Only unchanged main-article XML bytes acquired; no supplement, image, participant dataset, credentials or inference.",
+    "Source discrepancies are quoted literally with region qualifiers; no numerical correction."
+  ]
+}

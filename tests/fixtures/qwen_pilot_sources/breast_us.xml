@@ -1,0 +1,1103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1d3 20150301//EN" "http://jats.nlm.nih.gov/publishing/1.1d3/JATS-journalpublishing1.dtd">
+<article article-type="research-article" dtd-version="1.1d3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS ONE</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLOS ONE</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pone.0278299</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-22-24181</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Malignant tumors</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Clinical medicine</subject><subj-group><subject>Signs and symptoms</subject><subj-group><subject>Lesions</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Breast tumors</subject><subj-group><subject>Breast cancer</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Epidemiology</subject><subj-group><subject>Medical risk factors</subject><subj-group><subject>Cancer risk factors</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancer risk factors</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Women's health</subject><subj-group><subject>Benign breast conditions</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Epidemiology</subject><subj-group><subject>Cancer epidemiology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Physiology</subject><subj-group><subject>Physiological processes</subject><subj-group><subject>Calcification</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Ultrasound imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Ultrasound imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Ultrasound imaging</subject></subj-group></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Ultrasound classification of non-mass breast lesions following BI-RADS presents high positive predictive value</article-title>
+<alt-title alt-title-type="running-head">Risk stratification of non-mass breast cancer</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Lin</surname>
+<given-names>Mingnan</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<xref ref-type="aff" rid="aff001"/>
+</contrib>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-1086-764X</contrib-id>
+<name name-style="western">
+<surname>Wu</surname>
+<given-names>Size</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="corresp" rid="cor001">*</xref>
+<xref ref-type="aff" rid="aff001"/>
+</contrib>
+</contrib-group>
+<aff id="aff001"><addr-line>Department of Ultrasound, The First Affiliated Hospital of Hainan Medical University, Haikou, Hainan Province, People’s Republic of China</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Garzali</surname>
+<given-names>Ibrahim Umar</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"/>
+</contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>Aminu Kano Teaching Hospital, NIGERIA</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>The authors have declared that no competing interests exist.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">wsz074@aliyun.com</email></corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>30</day>
+<month>11</month>
+<year>2022</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2022</year>
+</pub-date>
+<volume>17</volume>
+<issue>11</issue>
+<elocation-id>e0278299</elocation-id>
+<history>
+<date date-type="received">
+<day>31</day>
+<month>8</month>
+<year>2022</year>
+</date>
+<date date-type="accepted">
+<day>14</day>
+<month>11</month>
+<year>2022</year>
+</date>
+</history>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Lin, Wu</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pone.0278299"/>
+<abstract>
+<sec id="sec001">
+<title>Purpose</title>
+<p>To investigate the positive predictive value of ultrasound classification of non-mass breast lesions (NMLs) following breast imaging reporting and data system (BI-RADS), and enhance understanding of NMLs.</p>
+</sec>
+<sec id="sec002">
+<title>Materials and methods</title>
+<p>Fifty-nine women with 59 ultrasound-detected breast NMLs were finally enrolled. The ultrasound (US) features of breast NMLs were analyzed; the incidence of malignant NMLs was calculated; the malignancy risk stratification of US for breast NMLs was established using BI-RADS.</p>
+</sec>
+<sec id="sec003">
+<title>Results</title>
+<p>The incidence of malignant NMLs was 4.59% of all breast carcinoma. Non-ductal hypoechoic area, microcalcifications and posterior shadowing are the main US features of malignant NMLs, and there were significant differences between malignant and benign NMLs for microcalcifications and posterior shadowing. Taking BI-RADS 4B as a cutoff value, the sensitivity, specificity, area under the receiver operating characteristic curve (AUC), positive and negative predictive values, and odds ratio of the BI-RADS category were 82.98%,41.67%,0.62,84.78%,38.46% and 3.48, respectively.</p>
+</sec>
+<sec id="sec004">
+<title>Conclusions</title>
+<p>Stratifying the malignancy risk of breast NMLs using the BI-RADS the sensitivity and positive and predictive value are promising, but the likelihood of malignancy of malignant NMLs is underestimated, and that of benign NMLs is overestimated. The solution may be that to separate NMLs from breast masses and use different malignancy risk stratification protocols.</p>
+</sec>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/501100001809</institution-id>
+<institution>National Natural Science Foundation of China</institution>
+</institution-wrap>
+</funding-source>
+<award-id>81560290</award-id>
+<principal-award-recipient>
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-1086-764X</contrib-id>
+<name name-style="western">
+<surname>Wu</surname>
+<given-names>Size</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+<funding-statement>This study was financially supported by the National Natural Science Foundation of China (Grant No. 81560290).</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="6"/>
+<table-count count="4"/>
+<page-count count="14"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>All data are present in the paper and its <xref ref-type="sec" rid="sec016">Supporting Information</xref> files.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec005" sec-type="intro">
+<title>Introduction</title>
+<p>Breast lesions are common in the adult female population. While some lesions are palpable, and the others may be vague or occult. Currently, breast lesions can be detected and assessed using mammography, ultrasound and magnetic resonance imaging (MRI). Mass is a common term used for findings in various imaging modalities in the Breast Imaging Reporting and Data System (BI-RADS) descriptive lexicon, in which the mass is defined as a three-dimensional space-occupying lesion that is observed on two different projections and can be distinguished from normal anatomic structures [<xref ref-type="bibr" rid="pone.0278299.ref001">1</xref>–<xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>]. Not all breast lesions manifest features meeting the exact BI-RADS US criteria in clinical practice. There are some non-mass lesions (NMLs) or non-mass-like lesions on US images, which causes an issue for the depiction of breast lesions using the standard lexicon. There is currently no standardized definition, terminology or guidelines for interpretation of a NML on US image, which affects interpretative accuracy and management.</p>
+<p>Breast cancer is a round, oval or irregular shaped entity, with or without extra associated pathological lesions, manifesting as a mass or NML-like appearance on medical images. Some breast benign lesions mimic malignant lesions in appearance. There is considerable overlap between the US features of benign and malignant breast NMLs. In previous routine clinical practice, except a few of NMLs were classified as BI-RADS category 0, other NMLs were actually classified as a certain category. This results in an inappropriate malignancy risk stratification of breast masses and NMLs. Therefore, one or more reliable and non-invasive US findings that could reduce the number of unnecessary procedures would be valuable. There are several descriptions of breast NMLs on US, but none of them have been adopted in consensus [<xref ref-type="bibr" rid="pone.0278299.ref002">2</xref>, <xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>]. To date, knowledge and understanding about breast NMLs on US are still insufficient. Previous study showed that US BI-RADS exhibits high efficacy for the assessment of breast masses, with sensitivity of 92%, specificity of 85% and accuracy of 87% for BIRADS 3–5 lesions [<xref ref-type="bibr" rid="pone.0278299.ref004">4</xref>]. However, there is no protocol for the malignancy risk assessment of breast NMLs. The purpose of this study was to investigate the positive predictive value and other performances of malignancy risk stratification of the breast NMLs on US images following BI-RADS in a try, and enhance understanding of NMLs.</p>
+</sec>
+<sec id="sec006" sec-type="materials|methods">
+<title>Materials and methods</title>
+<sec id="sec007">
+<title>Study population</title>
+<p>In this cross-sectional retrospective study, consecutive patients who had undergone breast surgery, coarse needle biopsy, and an US-guided vacuum-assisted biopsy between January 2017 and December 2021 in a tertiary hospital were retrieved from the informatics database to comprise the target population. We retrieved all adult patients with histology of the breast, correlated them with the informatics database for the US examination and patients’ history, and reviewed the US images. The inclusion criteria were that the patients who had undergone US evaluation immediately before the above procedures, the quality of US images was good, and the images of the breast lesions met the features of breast NML on US addressed in the literature by Choe et al. that an area with or without an associated mass, accompanying calcifications, and architectural distortion and duct ectasia [<xref ref-type="bibr" rid="pone.0278299.ref002">2</xref>]. The exclusion criteria were that the patients with breast mass and NMLs did not have corresponding US images (undetected), male patients with breast mass lesions meeting the strict BI-RADS criteria of “mass” in consensus by two physicians-in-ultrasound (radiologists) (a junior with 2 years and a senior physician with 20 years of breast imaging experience), the breast lesions had a BI-RADS category 0 on US images, and the histopathological result of the breast lesion was indeterminant. If a patient underwent two or more breast US, only the most recent US images and results were included. If a patient had two or more NMLs in a breast, only the malignant lesion or the most conspicuous representative benign lesions was included. If a patient underwent both biopsy and surgical excision, only the data from surgical excision were included. Based on these inclusion and exclusion criteria, 5,612 subjects with 5,795 lesions were recruited (4,671 benign lesions and 1,024 malignant lesions), and 5,553 subjects with 5,736 lesions were excluded, including 15 breast lesions (3 malignant lesion) miss detected by US, and 7 breast lesions (no malignant lesion) determined as BI-RADS category 0 by US. Finally, 59 women (mean age 43.3 years ± 10.8, age, range 30–78years) with 59 US-detected breast NMLs were included, for which final diagnoses were established, basing on histopathologic results of surgical excision (n = 52) and US-guided core needle biopsy (n = 7). Baseline characteristics of the 59 NMLs are summarized in <bold><xref ref-type="table" rid="pone.0278299.t001">Table 1</xref></bold>.</p>
+<table-wrap id="pone.0278299.t001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.t001</object-id>
+<label>Table 1</label> <caption><title>Baseline characteristics of patients with NMLs.</title></caption>
+<alternatives>
+<graphic id="pone.0278299.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.t001" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="justify">Characteristic</th>
+<th align="center">Malignant NML (n = 47)</th>
+<th align="center">Benign NML (n = 12)</th>
+<th align="center"><italic>P</italic> value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>Age (y)</bold></td>
+<td align="center">51.11±10.27*</td>
+<td align="center">42.42±10.59*</td>
+<td align="center">0.12</td>
+</tr>
+<tr>
+<td align="left"><bold>BMI (kg/m<sup>2</sup>)</bold></td>
+<td align="center">23.36±2.73*</td>
+<td align="center">23.25±2.34*</td>
+<td align="center">0.90</td>
+</tr>
+<tr>
+<td align="left"><bold>Family history of breast cancer</bold></td>
+<td align="center"/>
+<td align="center"/>
+<td align="center">1.00</td>
+</tr>
+<tr>
+<td align="left">    <bold>Yes</bold></td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>No</bold></td>
+<td align="center">46</td>
+<td align="center">12</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"><bold>Breast pain</bold></td>
+<td align="center"/>
+<td align="center"/>
+<td align="center">1.00</td>
+</tr>
+<tr>
+<td align="left">    <bold>Yes</bold></td>
+<td align="center">18</td>
+<td align="center">5</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>No</bold></td>
+<td align="center">29</td>
+<td align="center">7</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"><bold>Nipple discharge</bold></td>
+<td align="center"/>
+<td align="center"/>
+<td align="center">1.00</td>
+</tr>
+<tr>
+<td align="left">    <bold>Yes</bold></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>No</bold></td>
+<td align="center">47</td>
+<td align="center">12</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"><bold>Palpable mass</bold></td>
+<td align="center"/>
+<td align="center"/>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>Yes</bold></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1.00</td>
+</tr>
+<tr>
+<td align="left">    <bold>No</bold></td>
+<td align="center">47</td>
+<td align="center">12</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"><bold>Architectural changes</bold></td>
+<td align="center"/>
+<td align="center"/>
+<td align="center">1.00</td>
+</tr>
+<tr>
+<td align="left">    <bold>Skin thickening</bold></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>Architectural distortion</bold></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>No change</bold></td>
+<td align="center">47</td>
+<td align="center">12</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"><bold>Position of lesion</bold></td>
+<td align="center"/>
+<td align="center"/>
+<td align="center">1.00</td>
+</tr>
+<tr>
+<td align="left">    <bold>Left</bold></td>
+<td align="center">22</td>
+<td align="center">7</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>Right</bold></td>
+<td align="center">25</td>
+<td align="center">5</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"><bold>Quadrant</bold></td>
+<td align="center"/>
+<td align="center"/>
+<td align="center">0.53</td>
+</tr>
+<tr>
+<td align="left">    <bold>Upper exterior</bold></td>
+<td align="center">20</td>
+<td align="center">4</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>Upper interior</bold></td>
+<td align="center">7</td>
+<td align="center">3</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>Lower interior</bold></td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left">    <bold>Lower exterior</bold></td>
+<td align="center">8</td>
+<td align="center">2</td>
+<td align="center"/>
+</tr>
+<tr>
+<td align="left"><bold>Enlarged lymph nodes in axillary regions</bold></td>
+<td align="center"/>
+<td align="center"/>
+<td align="center">1.00</td>
+</tr>
+<tr>
+<td align="left">    <bold>Yes</bold></td>
+<td align="left">2</td>
+<td align="left">0</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"><bold>No</bold></td>
+<td align="left">45</td>
+<td align="left">12</td>
+<td align="left"/>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t001fn001"><p>Note: Unless otherwise indicated, data are numbers of NMLs and numbers in parentheses are percentages.</p></fn>
+<fn id="t001fn002"><p>*Data are mean values, with standard deviation. BMI: Body mass index.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>A flowchart for inclusion of the study population is shown on <bold><xref ref-type="fig" rid="pone.0278299.g001">Fig 1</xref></bold>.</p>
+<fig id="pone.0278299.g001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.g001</object-id>
+<label>Fig 1</label>
+<caption>
+<title>Study flowchart.</title>
+<p>The sample selection of this study.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.g001" xlink:type="simple"/>
+</fig>
+</sec>
+<sec id="sec008">
+<title>Ethics declaration</title>
+<p>The data obtained from patients who had undergone US evaluation, biopsy and/or surgical operation, and all procedures followed were in accordance with the ethical standards of the responsible committee on human experimentation and with the World Medical Association Declaration of Helsinki (revised in 2000). The study was approved by the Ethics Committee of the first affiliated hospital of Hainan medical university [(2022, Scientific research (L) No.32)], and informed consent was waived because of the anonymized retrospective study design.</p>
+</sec>
+<sec id="sec009">
+<title>Interpretation of the US images of NMLs</title>
+<p>The US images of the breast NMLs were reviewed by two physicians-in-ultrasound (radiologists) together with reference to the definition, descriptions and associated US images for breast NMLs in the literature by Choe et al. [<xref ref-type="bibr" rid="pone.0278299.ref002">2</xref>]. Neither physicians-in-ultrasound knew the patients’ clinical details or specific pathological results. The breast fatty tissue (isoechogenic) was used as the reference for comparison of echogenicity [<xref ref-type="bibr" rid="pone.0278299.ref001">1</xref>–<xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>]. They stratified the malignancy risk of the breast NMLs in an analogous protocol that the BI-RADS for breast masses in consensus. Namely, in the assessment of NMLs, one or more descriptors (nonparallel orientation of the breast nodule, spiculated margins, angular margins, microcalcifications, or posterior shadowing) that commonly associated with histopathologically malignant nodules were used for the malignancy risk of NMLs [<xref ref-type="bibr" rid="pone.0278299.ref005">5</xref>].</p>
+</sec>
+<sec id="sec010">
+<title>Acquisition of US images of the breast lesions</title>
+<p>Breast US imaging had been performed for all patients referred to a tertiary hospital with suspicious breast lesions, breast pain, and for routine screening for malignancy. Multi-parameter US systems (Mindray DC 8; Mindray Resona 7; Aloka Prosound α-7; Aloka Prosound α-10; Siemens Acuson S2000; Phillips EPIQ5 and GE Logiq E9) were used for the breast examination by physicians-in-ultrasound with 5 to 30 years of experience in breast US. During the examination, the US systems were adjusted to small parts mode (breast), and a linear array transducer with a frequency of 5–15 MHz was used. The patient was instructed to take a supine position with the upper limb abduction, fully exposing the breast and axillary region. The breast was scanned carefully to detect any lesion. If a breast lesion or aberrant echogenic area was found, its location, shape, size, orientation (parallel and nonparallel), margin, echo pattern, posterior features, calcifications, architecture, vascularity, other associated findings, lymph node in the axillary region and other special findings were identified and scrutinized. A breast lesion or aberrant echogenic area was scanned in different projections, and the size was determined at its greatest dimension and smallest dimension, respectively. Representative images were saved in the informatics database of Picture Archiving and Communications System.</p>
+</sec>
+<sec id="sec011">
+<title>Histopathological assessments</title>
+<p>The final pathology of the breast lesion and its grade were recorded on the basis of biopsy and/ or post-surgical evaluations, which was assessed by two senior pathologists-in-breast. Standard immunohistochemical methods were used to determine the positivity of the tumour for estrogen receptor (ER), progesterone receptor (PR), human epidermal growth factor receptor 2 (HER2), and Ki-67 protein level.</p>
+</sec>
+<sec id="sec012">
+<title>Statistical analysis</title>
+<p>Continuous variables with normal distribution are represented as mean ± standard deviation, while those without the normal distribution are represented as median (interquartile range). Categorical classified variables are represented as numbers (percentage). Primary descriptive statistics of the study were reported. Incidence of malignant NMLs was calculated. Because the irregular indetermined shape, ambiguous contour and blurring margin, the size of breast NMLs was difficult to measure, and therefore it was not calculated. Odds ratio (OR) was determined for the variable analysis. Independent sample t-test was used for the analyses of continuous variables. The receiver operating characteristic (ROC) curve was drawn, the area under the ROC curve (AUC) was calculated, and Youden index was determined and taken as the cut-off value for the determination of malignancy risk stratification of the sensitivity and specificity. The positive predictive value(PPV) and negative predictive value(NPV) were calculated. All analyses were conducted using SPSS software for Windows, version 23 (IBM Corp, Armonk, NY, USA) and/or Medcalc statistical software version 15.2.2 (Medcalc software BVBA, Ostend, Belgium), and a <italic>p</italic>&lt;0.05 was considered statistically significant.</p>
+</sec>
+</sec>
+<sec id="sec013" sec-type="results">
+<title>Results</title>
+<p>The incidence of malignant NMLs was 4.59% (47/1024) of all pathologically confirmed breast malignant lesions. Analyses of baseline characteristics of the 59 NMLs are summarized in <bold><xref ref-type="table" rid="pone.0278299.t001">Table 1</xref></bold>. Pathologies of the 59 NMLs are listed in <bold><xref ref-type="table" rid="pone.0278299.t002">Table 2</xref></bold>.</p>
+<table-wrap id="pone.0278299.t002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.t002</object-id>
+<label>Table 2</label> <caption><title>Distribution of different breast non-mass lesions.</title></caption>
+<alternatives>
+<graphic id="pone.0278299.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.t002" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">Pathology</th>
+<th align="left"/>
+<th align="left">Number(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>Benign lesion</bold></td>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Breast adenosis</td>
+<td align="left">4 (33.33)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Mammary duct ectasia</td>
+<td align="left">1 (8.33)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Fibrocystic breast changes</td>
+<td align="left">1 (8.33)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Granulomatous lobular mastitis</td>
+<td align="left">3 (25.00)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Usual ductal hyperplasia</td>
+<td align="left">1 (8.33)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Usual ductal ectasia with</td>
+<td align="left">1 (8.33)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">apocrine metaplasia</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Aberrant adipose tissues</td>
+<td align="left">1 (8.33)</td>
+</tr>
+<tr>
+<td align="left"><bold>Total</bold></td>
+<td align="left"/>
+<td align="left">12(100.00)</td>
+</tr>
+<tr>
+<td align="left"><bold>Malignant lesion</bold></td>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Invasive lobular carcinoma</td>
+<td align="left">4 (8.51)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Invasive carcinoma of no special type</td>
+<td align="left">20 (42.55)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Invasive ductal carcinoma</td>
+<td align="left">8 (17.02)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Ductal carcinoma in situs</td>
+<td align="left">13 (27.66)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Intraductal solid papillary carcinoma</td>
+<td align="left">2 (4.26)</td>
+</tr>
+<tr>
+<td align="left"><bold>Total</bold></td>
+<td align="left"/>
+<td align="left">47(100.00)</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t002fn001"><p>Note: Unless otherwise indicated, data are numbers of NMLs and numbers in parentheses are percentages.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>The distribution and malignancy rate of different classifications of BI-RADS are summarized in <bold><xref ref-type="table" rid="pone.0278299.t003">Table 3</xref></bold>.</p>
+<table-wrap id="pone.0278299.t003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.t003</object-id>
+<label>Table 3</label> <caption><title>Distributions of breast NMLs and malignancy rates in BI-RADS 3, 4 and 5.</title></caption>
+<alternatives>
+<graphic id="pone.0278299.t003g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.t003" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">BI-RADS category</th>
+<th align="left">NMLs</th>
+<th align="left">Malignant NMLs and rate</th>
+<th align="left">Likelihood of cancer in the BI-RADS (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>3</bold></td>
+<td align="left">4</td>
+<td align="left">2(4.3)</td>
+<td align="left">&gt;0 but≤2</td>
+</tr>
+<tr>
+<td align="left"><bold>4A</bold></td>
+<td align="left">7</td>
+<td align="left">5(10.6)</td>
+<td align="left">&gt;2 but≤10</td>
+</tr>
+<tr>
+<td align="left"><bold>4B</bold></td>
+<td align="left">14</td>
+<td align="left">9(19.2)</td>
+<td align="left">&gt;10 but≤50</td>
+</tr>
+<tr>
+<td align="left"><bold>4C</bold></td>
+<td align="left">14</td>
+<td align="left">12(25.5)</td>
+<td align="left">&gt;50 but &lt;95</td>
+</tr>
+<tr>
+<td align="left"><bold>5</bold></td>
+<td align="left">20</td>
+<td align="left">19(40.4)</td>
+<td align="left">≥95</td>
+</tr>
+<tr>
+<td align="left"><bold>Total</bold></td>
+<td align="left">59</td>
+<td align="left">59(100.0)</td>
+<td align="left"/>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t003fn001"><p>Note: Unless otherwise indicated, data are numbers of NMLs and numbers in parentheses are percentages. NMLs: non-mass lesions.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>Of the 12 benign NMLs, one NML was classified as BI-RADS category 3, four NMLs were classified as BI-RADS 4A, five NMLs were classified as BI-RADS 4B, and two NMLs were classified as BI-RADS 4C. The malignancy rate of NMLs was not concordant with the likelihood of malignancy in the BI-RADS. The NMLs classified as BI-RADS category 3 and category 4A were higher than the corresponding likelihood of malignancy in the BI-RADS, while the category 5 was substantially lower than the corresponding likelihood of malignancy in the BI-RADS. Of the 59 breast NMLs, the main US features are summarized in <bold><xref ref-type="table" rid="pone.0278299.t004">Table 4</xref></bold> and illustrated in <bold>Figs <xref ref-type="fig" rid="pone.0278299.g002">2</xref>–<xref ref-type="fig" rid="pone.0278299.g006">6</xref></bold>.</p>
+<fig id="pone.0278299.g002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.g002</object-id>
+<label>Fig 2</label>
+<caption>
+<title>36-year-old woman with a non-mass lesion in the right breast.</title>
+<p>Image shows the breast lesion locates at outer inferior quadrant, shows irregular heterogeneous isoechoic appearance without space-occupying, with scattering fine hyperechoic foci (microcalcifications) in it, and the border and margin is ambiguous. It is pathologically confirmed a non-special invasive breast carcinoma.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.g002" xlink:type="simple"/>
+</fig>
+<fig id="pone.0278299.g003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.g003</object-id>
+<label>Fig 3</label>
+<caption>
+<title>67-year-old woman with a non-mass lesion in the right breast.</title>
+<p>Image shows the breast lesion locates at outer inferior quadrant, irregular heterogeneous hypoechoic appearance without space-occupying, with scattering fine hyperechoic foci (microcalcifications) and posterior shadowing, and the border and margin is ambiguous. It is pathologically confirmed a breast ductal carcinoma in situs.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.g003" xlink:type="simple"/>
+</fig>
+<fig id="pone.0278299.g004" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.g004</object-id>
+<label>Fig 4</label>
+<caption>
+<title>A 47-year-old woman with a non-mass lesion in the right breast.</title>
+<p>Image shows the breast lesion locates at outer inferior quadrant, irregular heterogeneous hypoechoic appearance without space-occupying, with scattering fine hyperechoic foci (microcalcifications) and posterior shadowing, and the border and margin is ambiguous. It is pathologically confirmed a breast adenosis with discrete adenoma-like proliferation.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.g004" xlink:type="simple"/>
+</fig>
+<fig id="pone.0278299.g005" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.g005</object-id>
+<label>Fig 5</label>
+<caption>
+<title>47-year-old woman with a non-mass lesion in the right breast.</title>
+<p>Image shows the breast lesion locates at internal superior quadrant, markedly hypoechoic regions, and the border and margin is ambiguous. It is pathologically confirmed a breast ductal carcinoma in situs.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.g005" xlink:type="simple"/>
+</fig>
+<fig id="pone.0278299.g006" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.g006</object-id>
+<label>Fig 6</label>
+<caption>
+<title>32-year-old with a non-mass lesion in the right breast.</title>
+<p>Image shows the breast lesion locates at internal inferior quadrant, irregular heterogeneous isoechoic appearance without space-occupying, with scattering fine hyperechoic foci (microcalcifications) in it, and the border and margin is indiscernible. It is pathologically confirmed a focal adipose tissue.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.g006" xlink:type="simple"/>
+</fig>
+<table-wrap id="pone.0278299.t004" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0278299.t004</object-id>
+<label>Table 4</label> <caption><title>Distribution of breast NMLs with different ultrasound features.</title></caption>
+<alternatives>
+<graphic id="pone.0278299.t004g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.t004" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="justify" colspan="2">Features on ultrasound image</th>
+<th align="left">Malignant NML (n = 47)</th>
+<th align="left">Benign NML (n = 12)</th>
+<th align="justify">P value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="2"><bold>Punctate hyperechoic foci (microcalcifications)</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left">0.001</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>Yes</bold></td>
+<td align="left">32(68.1)</td>
+<td align="left">2(16.7)</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>No</bold></td>
+<td align="left">15(31.9)</td>
+<td align="left">10(83.3)</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left" colspan="2"><bold>Non-ductal hypoechoic area</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left">0.775</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>Yes</bold></td>
+<td align="left">26(55.3)</td>
+<td align="left">7(58.3)</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>No</bold></td>
+<td align="left">21(44.7)</td>
+<td align="left">5(41.7)</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left" colspan="2"><bold>Posterior shadowing</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left">0.036</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>Yes</bold></td>
+<td align="left">19(40.4)</td>
+<td align="left">1 (8.3)</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>No</bold></td>
+<td align="left">28(59.6)</td>
+<td align="left">11 (91.7)</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left" colspan="2"><bold>Abnormal ductal change</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>Yes</bold></td>
+<td align="left">1(2.1)</td>
+<td align="left">1(8.3)</td>
+<td align="left">0.868</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>No</bold></td>
+<td align="left">46(97.9)</td>
+<td align="left">11(91.7)</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left" colspan="2"><bold>Architectural distortion</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left">0.467</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>Yes</bold></td>
+<td align="left">2(4.3)</td>
+<td align="left">0(0.0)</td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left"><bold>No</bold></td>
+<td align="left">45(95.7)</td>
+<td align="left">12(100.0)</td>
+<td align="left"/>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t004fn001"><p>Note: Unless otherwise indicated, data are numbers of non-mass lesions and numbers in parentheses are percentages. NMLs: non-mass lesions</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>There were significant differences between malignant and benign NMLs for punctate hyperechoic foci and posterior shadowing (all <italic>p</italic>&lt;0.05). If BI-RADS category 4B was taken as a cutoff value, the sensitivity, specificity, AUC, PPV, NPV, and OR were 82.98%(69.19%-92.35%), 41.67%(15.17%-72.33%), 0.62(0.49–0.75), 84.78%(71.13%-93.66%), 38.46%(13.86%-68.42%) and 3.48, respectively.</p>
+</sec>
+<sec id="sec014" sec-type="conclusions">
+<title>Discussion</title>
+<p>On MRI NML refers to an enhancing area without an associated mass in shape in the BI-RADS lexicon, whose internal enhancement characteristics can be distinguished from the normal surrounding breast parenchymal enhancement, and the enhancement is distinct [<xref ref-type="bibr" rid="pone.0278299.ref001">1</xref>, <xref ref-type="bibr" rid="pone.0278299.ref002">2</xref>]. NML on US is different from that found on MRI, apart for some associated findings of tiny cysts, dilated duct, some calcifications, posterior shadowing, nothing of the lesion is distinct [<xref ref-type="bibr" rid="pone.0278299.ref006">6</xref>]. Our findings were consistent with the above summary, as shown on <bold>Figs <xref ref-type="fig" rid="pone.0278299.g002">2</xref>–<xref ref-type="fig" rid="pone.0278299.g006">6</xref></bold>.</p>
+<p>Previous studies showed that there was a high malignancy risk in breast NMLs [<xref ref-type="bibr" rid="pone.0278299.ref002">2</xref>, <xref ref-type="bibr" rid="pone.0278299.ref007">7</xref>–<xref ref-type="bibr" rid="pone.0278299.ref010">10</xref>]. A study by Park et al. showed that 46.2% (330/715) of breast NMLs were malignant, and 53.8% (385/715) of breast NMLs were benign [<xref ref-type="bibr" rid="pone.0278299.ref002">2</xref>]. Kim et al. reported that the malignant breast NMLs were found in 16% (30/186) of 186 pathologically confirmed NMLs, the benign NMLs were in 84% (156/186), and the incidence of NMLs was 5.3% (505/9528) [<xref ref-type="bibr" rid="pone.0278299.ref007">7</xref>]. In a study by Park et al., the results showed that 27.3%(33/121) of NMLs were malignant, and 72.7% (88/121) of NMLs were benign [<xref ref-type="bibr" rid="pone.0278299.ref008">8</xref>]. Based on a large sample of screening breast US, Lee et al. founded that the likelihood of malignancy of the NMLs was 2.2% (2/93), the PPV of biopsy was 6.3%, that 95 NMLs were detected in 88 patients from a total of 17,868 screening breast US in 8,856 asymptomatic patients, and the incidence of the NML was 1% [<xref ref-type="bibr" rid="pone.0278299.ref009">9</xref>]. Wang et al. reported that, in their study, malignant NMLs of 53.8% (43/80) were more than benign NMLs of 46.2% (37/80) [<xref ref-type="bibr" rid="pone.0278299.ref010">10</xref>]. In our study, the total number of breast NMLs were not available, so the incidences of breast NMLs and overall malignant NMLs were not calculated. However, we observed the incidence of 4.59% (47/1024) of malignant NMLs from all pathologically confirmed malignant breast lesions. Considering the relatively low probability of NMLs in all breast lesions according to other studies, the incidence of malignant NMLs in all breast NMLs in our study would be far more than 4.59%, so more attention should be paid to breast NMLs.</p>
+<p>Ultrasound imaging exhibited promising performance in the malignancy risk stratification of breast masses. A study by Stavros et al. showed that a sensitivity of 98.4% and a NPV of 99.5% were obtained for the assessment of 750 breast solid nodules (625 benign nodules, 125 malignant nodules) in 622 women [<xref ref-type="bibr" rid="pone.0278299.ref005">5</xref>]. In another study by eight experienced radiologists from two countries, they found that PPVs increased with BI-RADS category based on US BI-RADS version 1. The PPVs pre- and post-guidelines for category 3 were 6.0% and 4.4%, for category 4a were 27.3% and 30.5%, for category 4b were 49.9% and 51.5%, for category 4c were 69.0% and 67.4%, and for category 5 were 79.3% and 80.1% [<xref ref-type="bibr" rid="pone.0278299.ref011">11</xref>]. US BI-RADS for the malignancy risk evaluation of breast masses of BIRADS 3–5 lesions showed promising performance, with sensitivity of 92%, specificity of 85% and accuracy of 87% [<xref ref-type="bibr" rid="pone.0278299.ref004">4</xref>]. However, stratifying malignancy risk of breast NMLs using BI-RADS cannot get satisfactory performance. In our study, the sensitivity, specificity, and NPV were 82.98%, 41.67% and 38.46%, respectively, which were lower than the study by Wang et al. [<xref ref-type="bibr" rid="pone.0278299.ref010">10</xref>] that the sensitivity of 95.35%, specificity of 43.24%, and NPV of 88.89% of US for NMLs; and the PPV of 84.78% in our study was higher than the PPV of 66.13% obtained by Wang et al. [<xref ref-type="bibr" rid="pone.0278299.ref010">10</xref>]. The AUC of 0.62 in our study was lower than the accuracy of 71.25% by Wang et al. [<xref ref-type="bibr" rid="pone.0278299.ref010">10</xref>] and the AUC of 0.908–0.911 by Park et al. [<xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>], the reason may be that the incidences of these US features are various in different study population, which affect the malignancy risk stratification in different degree. The lower specificity indicates that US has problem of higher false positive rate for malignancy risk stratification of breast NMLs.</p>
+<p>Previous study has identified the descriptors that nonparallel orientation of the breast nodule, spiculated margins, angular margins, microcalcifications, or posterior shadowing that are commonly associated with histopathologically malignant nodules [<xref ref-type="bibr" rid="pone.0278299.ref005">5</xref>]. However, except for the likelihood of malignancy, there is little information regarding which descriptors are most strongly associated with malignancy in nodules of BI-RADS 3 and 4 as well as to what extent a single descriptor should be considered for the final evaluation of malignancy risk; and there are no definite US features for category 4 and 5 in the BI-RADS [<xref ref-type="bibr" rid="pone.0278299.ref005">5</xref>, <xref ref-type="bibr" rid="pone.0278299.ref006">6</xref>]. In regard to the assessment of NMLs, descriptors of spiculated and angular margins seem applicable or ambiguous for majority of the NMLs, circumscribed and well-defined margins, round and ovoid shapes are not applicable for almost all NMLs, and only the rest descriptors are applicable; these lead to a compromise for the proper BI-RADS classification. In this study, many NMLs were classified as 4A, which suggests &gt;2% to≤10% likelihood of malignancy according to the ACR recommendation of BI-RADS [<xref ref-type="bibr" rid="pone.0278299.ref006">6</xref>]. Given BI-RADS 4B as the cutoff value, many NMLs with BI-RADS 4A were regarded as benign lesions. There are suggestive features for category 3 in the BI-RADS (a solid mass with a circumscribed margin, oval shape, and parallel orientation, and an isolated complicated cyst) [<xref ref-type="bibr" rid="pone.0278299.ref006">6</xref>], but the category may be adjusted by upgrading and downgrading, therefore, some NMLs without the typical features of BI-RADS category 3 in this study were classified as category 4A and overestimated for malignancy. On the other hand, some malignant NMLs were classified into a lower BI-RADS category and underestimated for malignancy. As a result, the PPVs were still excellent, but the NPVs were very poor (38.46%). The malignancy rates of NMLs were not concordant with the likelihood of malignancy in the BI-RADS, the malignancy rates of NMLs classified as BI-RADS category 3 (6.4% and 4.3%) and category 4A (all 10.6%) were higher than the corresponding likelihood of malignancy in the recommended BI-RADS. However, the malignancy rates of NMLs classified as BI-RADS category 4C and 5 were from 25.5% to 40.4%, which were substantial lower than the likelihood of malignancy of &gt;50% to ≥95% in the recommended BI-RADS [<xref ref-type="bibr" rid="pone.0278299.ref006">6</xref>].</p>
+<p>Microcalcifications associate dominantly with breast cancer in breast NMLs [<xref ref-type="bibr" rid="pone.0278299.ref002">2</xref>, <xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>, <xref ref-type="bibr" rid="pone.0278299.ref007">7</xref>, <xref ref-type="bibr" rid="pone.0278299.ref008">8</xref>]. In our study, 68.1% (32/47) of malignant NMLs showed microcalcifications, as did 16.7% (2/12)of benign NMLs. These were different from the previous studies [<xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>, <xref ref-type="bibr" rid="pone.0278299.ref007">7</xref>, <xref ref-type="bibr" rid="pone.0278299.ref008">8</xref>]. Park et al. [<xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>] reported that 72.3% (154/213) of malignant NMLs showed calcifications, whereas 10.1% (25/247) of benign NMLs showed calcifications; Kim et al. [<xref ref-type="bibr" rid="pone.0278299.ref007">7</xref>] reported that calcifications appeared in 40% (12/30) of malignant NMLs, whereas in the benign NMLs there were no visible calcifications; Park et al. [<xref ref-type="bibr" rid="pone.0278299.ref008">8</xref>] reported that 27.3% (9/33) of malignant NMLs showed calcifications, while only 10.2% (9/88) of benign NMLs did. The reasons for various incidences of microcalcifications may be that they usually present as punctate hyperechoic foci on US images (and, while not all punctate hyperechoic foci are microcalcifications, some microcalcifications do not present hyperechoic); in addition, the confounder of different study population; the presence of inter-observer agreement; and the variant of different US systems. Mammography is superior to US for detecting microcalcifications and remains the gold standard [<xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>, <xref ref-type="bibr" rid="pone.0278299.ref012">12</xref>]. In a study, Grigoryev et al. reported that the sensitivity and specificity for detecting microcalcifications were 70% and 30% in US and 45% and 55% in mammography, respectively; and the PPV of 88% for mammography was superior to that of 78% for US [<xref ref-type="bibr" rid="pone.0278299.ref012">12</xref>].</p>
+<p>Posterior shadowing often appears following scar tissue, macrocalcifications, and clustered microcalcifications, which highly associate with breast carcinoma [<xref ref-type="bibr" rid="pone.0278299.ref002">2</xref>, <xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>, <xref ref-type="bibr" rid="pone.0278299.ref013">13</xref>]. In this study, posterior shadowing appeared in 8.3% of benign NMLs (<italic>P</italic> = 0.036), while it appeared in 40.4% (19/47) of malignant NMLs. This is a higher incidence than that of 26.8% (57/156) of malignant breast NMLs reported by Park et al. [<xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>].</p>
+<p>In our study, non-ductal hypoechoic area presented in 55.3% (26/47) of malignant NMLs and 41.7% (2/12) of benign NMLs, with or without microcalcifications. This was higher than in the report by Wang et al., in which 92.5% (74/80) of breast NMLs presented as a hypoechoic area and a hypoechoic area with microcalcification [<xref ref-type="bibr" rid="pone.0278299.ref010">10</xref>]. These results showed that non-ductal hypoechoic area is the main common feature of malignant and benign NMLs.</p>
+<p>In this study, 4.3% (2/47) of malignant NMLs were found with architectural distortion, and all benign NMLs without. Park et al. reported that 6.6% (14/213) of malignant NMLs and 4.0%(10/247) of benign NMLs had architectural distortion on US images [<xref ref-type="bibr" rid="pone.0278299.ref003">3</xref>]. Wang et al. reported that in 80 breast NMLs, 5% had architectural distortion [<xref ref-type="bibr" rid="pone.0278299.ref010">10</xref>].</p>
+<p>A dilated ductus without a tumor in it is usually associated with benign breast diseases. In this study, abnormal ductal changes, such as a tortuous dilated ductus, were seen in 2.1% (1/47) of malignant and 8.3% (1/12) of benign NMLs. In a study by Wang et al., there were two visible ducts with solid entities in 80 NMLs (2.5%; 2/80) [<xref ref-type="bibr" rid="pone.0278299.ref010">10</xref>]. These suggest that abnormal ductal change is not common in malignant NMLs.</p>
+<p>The size of breast carcinomas is an important variable for clinical management, metastasis, and prognosis, and inadequate measurement may be misleading [<xref ref-type="bibr" rid="pone.0278299.ref014">14</xref>]. Because taking an accurate measurement in breast NMLs is difficult, no size measurement was performed in our study.</p>
+<p>In future, ultrasound elastography and/ or contrast-enhanced ultrasound may combined with conventional US to improve assessment of breast non-mass lesions [<xref ref-type="bibr" rid="pone.0278299.ref015">15</xref>–<xref ref-type="bibr" rid="pone.0278299.ref017">17</xref>]; new descriptors may be adopted and/or incorporated with BI-RADS for the malignancy risk stratification of breast masses and NMLs, and the stratification efficacy may be improvable [<xref ref-type="bibr" rid="pone.0278299.ref018">18</xref>].</p>
+<p>Collectively, it is hard to distinguish malignant from benign NMLs by non-ductal hypoechoic areas and dilated ductus on US, and punctate hyperechoic foci indicating microcalcifications and posterior shadowing are important features significantly suggestive of malignant breast NMLs. Stratifying the malignancy risk of breast NMLs using BI-RADS in a protocol analogous to that the BI-RADS for breast masse lesions cannot obtain satisfactory results except the sensitivity and PPV, and it may compromise the overall stratification efficacy. To identify and separate NMLs from breast masses and perform different assessment protocols will be a rational solution.</p>
+<p>The strengths of this study are that the breast NMLs were derived from a histopathologically confirmed large sample, and the incidence of breast malignant NMLs and other associated variables calculated are accurate, reliable and robust.</p>
+<p>There was limitation in this study. The source sample was large, but the sample for NMLs study was small, and many benign NMLs without histological results were excluded, which may cause sample selection bias.</p>
+</sec>
+<sec id="sec015" sec-type="conclusions">
+<title>Conclusions</title>
+<p>Breast NMLs present various US appearances, breast carcinoma is not rare in the NMLs, and the incidence of malignant NMLs was 4.59% of all breast carcinomas. Non-ductal hypoechogenicity, microcalcifications and posterior shadowing are common findings in the breast NMLs, and microcalcifications and posterior shadowing associate significantly with breast carcinoma. In stratifying the malignancy risk of breast NMLs using BI-RADS in a protocol analogous to that the BI-RADS for breast masse lesions, some benign NMLs are upgraded in category, and their likelihood of malignancy is overestimated, some malignant NMLs are underestimated in their likelihood of malignancy. If BI-RADS 4B is taken as a cutoff value, the sensitivity and PPV for the malignancy risk is promising, but the specificity and NPV are very poor. The solution may be that to identify and separate NMLs from breast masses and use different malignancy risk stratification protocols (<xref ref-type="supplementary-material" rid="pone.0278299.s001">S1</xref> and <xref ref-type="supplementary-material" rid="pone.0278299.s002">S2</xref> Data).</p>
+</sec>
+<sec id="sec016" sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material id="pone.0278299.s001" mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.s001" xlink:type="simple">
+<label>S1 Data</label>
+<caption>
+<title>Finally enrolled patients.</title>
+<p>Table of number of subjects, histopathology, BI-RADS classifications, and locations of breast non-mass lesions of the finally enrolled patients.</p>
+<p>(XLSX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pone.0278299.s002" mimetype="application/zip" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.s002" xlink:type="simple">
+<label>S2 Data</label>
+<caption>
+<title>Figures of breast non-mass lesions.</title>
+<p>Representative sonographic images of breast non-mass lesions.</p>
+<p>(ZIP)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ref-list>
+<title>References</title>
+<ref id="pone.0278299.ref001"><label>1</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>D’Orsi</surname> <given-names>CJ</given-names></name>, <name name-style="western"><surname>Sickles</surname> <given-names>EA</given-names></name>, <name name-style="western"><surname>Mendelson</surname> <given-names>EB</given-names></name>, <name name-style="western"><surname>Morris</surname> <given-names>EA</given-names></name>. <chapter-title>ACR BI-RADS Atlas, Breast Imaging Reporting and Data System</chapter-title>, <edition designator="5">5th ed</edition>. <name name-style="western"><surname>Reston</surname> <given-names>VA</given-names></name>: <publisher-name>American College of Radiology</publisher-name>; <year>2013</year>; pp.<fpage>56</fpage>–<lpage>71</lpage>.</mixed-citation></ref>
+<ref id="pone.0278299.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Choe</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Chikarmane</surname> <given-names>SA</given-names></name>, <name name-style="western"><surname>Giess</surname> <given-names>CS</given-names></name>. <article-title>Nonmass Findings at Breast US: Definition, Classifications, and Differential Diagnosis</article-title>. <source>Radiographics</source>. <year>2020</year>; <volume>40</volume>:<fpage>326</fpage>–<lpage>335</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/rg.2020190125" xlink:type="simple">10.1148/rg.2020190125</ext-link></comment> <object-id pub-id-type="pmid">32125954</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Park</surname> <given-names>KW</given-names></name>, <name name-style="western"><surname>Park</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Shon</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>MJ</given-names></name>, <name name-style="western"><surname>Han</surname> <given-names>BK</given-names></name>, <name name-style="western"><surname>Ko</surname> <given-names>EY</given-names></name>, <etal>et al</etal>. <article-title>Non-mass lesions detected by breast US: stratification of cancer risk for clinical management</article-title>. <source>Eur Radiol</source>. <year>2021</year>; <volume>31</volume>:<fpage>1693</fpage>–<lpage>1706</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-020-07168-y" xlink:type="simple">10.1007/s00330-020-07168-y</ext-link></comment> <object-id pub-id-type="pmid">32888070</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref004"><label>4</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hille</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Vetter</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Hackelöer</surname> <given-names>BJ</given-names></name>. <article-title>The accuracy of BI-RADS classification of breast ultrasound as a first-line imaging method.</article-title> <source>Ultraschall Med</source>. <year>2012</year>;<volume>33</volume>:<fpage>160</fpage>–<lpage>3</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1055/s-0031-1281667" xlink:type="simple">10.1055/s-0031-1281667</ext-link></comment> <object-id pub-id-type="pmid">21877320</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Stavros</surname> <given-names>AT</given-names></name>, <name name-style="western"><surname>Thickman</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Rapp</surname> <given-names>CL</given-names></name>, <name name-style="western"><surname>Dennis</surname> <given-names>MA</given-names></name>, <name name-style="western"><surname>Parker</surname> <given-names>SH</given-names></name>, <name name-style="western"><surname>Sisney</surname> <given-names>GA</given-names></name>. <article-title>Solid breast nodules: use of sonography to distinguish between benign and malignant lesions</article-title>. <source>Radiology</source>. <year>1995</year>;<volume>196</volume>:<fpage>123</fpage>–<lpage>34</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiology.196.1.7784555" xlink:type="simple">10.1148/radiology.196.1.7784555</ext-link></comment> <object-id pub-id-type="pmid">7784555</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref006"><label>6</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Mendelson</surname> <given-names>EB</given-names></name>, <name name-style="western"><surname>Bohm-Velez</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Berg</surname> <given-names>WA</given-names></name>, <name name-style="western"><surname>Morris</surname> <given-names>EA</given-names></name>. <chapter-title>BI-RADS: ultrasound</chapter-title>. In: <name name-style="western"><surname>D’Orsi</surname> <given-names>CJ</given-names></name>, <name name-style="western"><surname>Sickles</surname> <given-names>EA</given-names></name>, <name name-style="western"><surname>Mendelson</surname> <given-names>EB</given-names></name>, <name name-style="western"><surname>Morris</surname> <given-names>EA</given-names></name>(eds). <source>Breast Imaging Reporting and Data System: ACR BI-RADS Atlas</source>. <publisher-loc>Reston, VA</publisher-loc>: <publisher-name>American College of Radiology</publisher-name>; <year>2013</year>.</mixed-citation></ref>
+<ref id="pone.0278299.ref007"><label>7</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kim</surname> <given-names>SJ</given-names></name>, <name name-style="western"><surname>Park</surname> <given-names>YM</given-names></name>, <name name-style="western"><surname>Jung</surname> <given-names>HK</given-names></name>. <article-title>Nonmass like lesions on breast sonography: comparison between benign and malignant lesions</article-title>. <source>J Ultrasound Med</source>. <year>2014</year>;<volume>33</volume>:<fpage>421</fpage>–<lpage>430</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.7863/ultra.33.3.421" xlink:type="simple">10.7863/ultra.33.3.421</ext-link></comment> <object-id pub-id-type="pmid">24567453</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Park</surname> <given-names>JW</given-names></name>, <name name-style="western"><surname>Ko</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>EK</given-names></name>, <name name-style="western"><surname>Kuzmiak</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Jung</surname> <given-names>HK</given-names></name>. <article-title>Non-mass breast lesions on ultrasound: final outcomes and predictors of malignancy</article-title>. <source>Acta Radiol</source>. <year>2017</year>; <volume>58</volume>:<fpage>1054</fpage>–<lpage>1060</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1177/0284185116683574" xlink:type="simple">10.1177/0284185116683574</ext-link></comment> <object-id pub-id-type="pmid">28114809</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lee</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>JH</given-names></name>, <name name-style="western"><surname>Baik</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Cho</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>DW</given-names></name>, <name name-style="western"><surname>Kwon</surname> <given-names>HJ</given-names></name>, <etal>et al</etal>. <article-title>Non-mass lesions on screening breast ultrasound</article-title>. <source>Med Ultrason</source>. <year>2016</year>;<volume>18</volume>: <fpage>446</fpage>–<lpage>451</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.11152/mu-871" xlink:type="simple">10.11152/mu-871</ext-link></comment> <object-id pub-id-type="pmid">27981276</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref010"><label>10</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Wang</surname> <given-names>ZL</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Wan</surname> <given-names>WB</given-names></name>. <article-title>Non-mass-like lesions on breast ultrasound: classification and correlation with histology</article-title>. <source>Radiol Med</source>. <year>2015</year>;<volume>120</volume>:<fpage>905</fpage>–<lpage>910</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s11547-014-0493-x" xlink:type="simple">10.1007/s11547-014-0493-x</ext-link></comment> <object-id pub-id-type="pmid">25725790</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Stavros</surname> <given-names>AT</given-names></name>, <name name-style="western"><surname>Freitas</surname> <given-names>AG</given-names></name>, <name name-style="western"><surname>deMello</surname> <given-names>GGN</given-names></name>, <name name-style="western"><surname>Barke</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>McDonald</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Kaske</surname> <given-names>T</given-names></name>, <etal>et al</etal>. <article-title>Ultrasound positive predictive values by BI-RADS categories 3–5 for solid masses: An independent reader study</article-title>. <source>Eur Radiol</source>. <year>2017</year>;<volume>27</volume>:<fpage>4307</fpage>–<lpage>4315</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-017-4835-7" xlink:type="simple">10.1007/s00330-017-4835-7</ext-link></comment> <object-id pub-id-type="pmid">28396996</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Grigoryev</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Thomas</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Plath</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Durmus</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Slowinski</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Diekmann</surname> <given-names>F</given-names></name>, <etal>et al</etal>. <article-title>Detection of microcalcifications in women with dense breasts and hypoechoic focal lesions: comparison of mammography and ultrasound</article-title>. <source>Ultraschall Med</source>. <year>2014</year>; <volume>35</volume>:<fpage>554</fpage>–<lpage>560</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1055/s-0034-1366466" xlink:type="simple">10.1055/s-0034-1366466</ext-link></comment> <object-id pub-id-type="pmid">24871694</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Evans</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Sim</surname> <given-names>YT</given-names></name>, <name name-style="western"><surname>Whelehan</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Savaridas</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Jordan</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Thompson</surname> <given-names>A</given-names></name>. <article-title>Are baseline mammographic and ultrasound features associated with metastasis free survival in women receiving neoadjuvant chemotherapy for invasive breast cancer?</article-title> <source>Eur J Radiol</source>. <year>2021</year>;<volume>141</volume>:<fpage>109790</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ejrad.2021.109790" xlink:type="simple">10.1016/j.ejrad.2021.109790</ext-link></comment> <object-id pub-id-type="pmid">34091135</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref014"><label>14</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Azhdeh</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Kaviani</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Sadighi</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Rahmani</surname> <given-names>M</given-names></name>. <article-title>Accurate Estimation of Breast Tumor Size: A Comparison Between Ultrasonography, Mammography, Magnetic Resonance Imaging, and Associated Contributing Factors</article-title>. <source>Eur J Breast Health</source>. <year>2020</year>;<volume>17</volume>:<fpage>53</fpage>–<lpage>61</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.4274/ejbh.2020.5888" xlink:type="simple">10.4274/ejbh.2020.5888</ext-link></comment> <object-id pub-id-type="pmid">33796831</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Wang</surname> <given-names>ZL</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Wan</surname> <given-names>WB</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Tang</surname> <given-names>J</given-names></name>. <article-title>Shear-Wave Elastography: Could it be Helpful for the Diagnosis of Non-Mass-Like Breast Lesions</article-title>? <source>Ultrasound Med Biol</source>. <year>2017</year> <month>Jan</month>;<volume>43</volume>:<fpage>83</fpage>–<lpage>90</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ultrasmedbio.2016.03.022" xlink:type="simple">10.1016/j.ultrasmedbio.2016.03.022</ext-link></comment> <object-id pub-id-type="pmid">27717515</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Choi</surname> <given-names>JS</given-names></name>, <name name-style="western"><surname>Han</surname> <given-names>BK</given-names></name>, <name name-style="western"><surname>Ko</surname> <given-names>EY</given-names></name>, <name name-style="western"><surname>Ko</surname> <given-names>ES</given-names></name>, <name name-style="western"><surname>Shin</surname> <given-names>JH</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>GR</given-names></name>. <article-title>Additional diagnostic value of shear-wave elastography and color Doppler US for evaluation of breast non-mass lesions detected at B-mode US</article-title>. <source>Eur Radiol</source>. <year>2016</year>;<volume>26</volume>:<fpage>3542</fpage>–<lpage>3549</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-015-4201-6" xlink:type="simple">10.1007/s00330-015-4201-6</ext-link></comment> <object-id pub-id-type="pmid">26787603</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Zhang</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Jin</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Jia</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Shi</surname> <given-names>Q</given-names></name>, <name name-style="western"><surname>Du</surname> <given-names>L</given-names></name>, <etal>et al</etal>. <article-title>The role of contrast-enhanced ultrasound in the diagnosis of malignant non-mass breast lesions and exploration of diagnostic criteria</article-title>. <source>Br J Radio</source>l. <year>2021</year>;<volume>94</volume>:<fpage>20200880</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1259/bjr.20200880" xlink:type="simple">10.1259/bjr.20200880</ext-link></comment> <object-id pub-id-type="pmid">33560894</object-id></mixed-citation></ref>
+<ref id="pone.0278299.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jamshidii</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Chang</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Mock</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Nguyen</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Dauphine</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Kuo</surname> <given-names>MD</given-names></name>. <article-title>Evaluation of the predictive ability of ultrasound-based assessment of breast cancer using BI-RADS natural language reporting against commercial transcriptome-based tests</article-title>. <source>PLoS One</source>. <year>2020</year>;<volume>15</volume>:<fpage>e0226634</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0226634" xlink:type="simple">10.1371/journal.pone.0226634</ext-link></comment> <object-id pub-id-type="pmid">31923222</object-id></mixed-citation></ref>
+</ref-list>
+</back>
+<sub-article article-type="aggregated-review-documents" id="pone.0278299.r001" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0278299.r001</article-id>
+<title-group>
+<article-title>Decision Letter 0</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Garzali</surname>
+<given-names>Ibrahim Umar</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Ibrahim Umar Garzali</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0278299" document-id-type="doi" document-type="article" id="rel-obj001" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>0</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">22 Sep 2022</named-content>
+</p>
+<p><!-- <div> -->PONE-D-22-24181<!-- </div> --><!-- <div> -->Ultrasound classification of non-mass breast lesions following BI-RADS presents high positive predictive value<!-- </div> --><!-- <div> -->PLOS ONE</p>
+<p>Dear Dr. Wu,</p>
+<p>Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.</p>
+<p>Please submit your revised manuscript by Nov 06 2022 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at <email xlink:type="simple">plosone@plos.org</email>. When you're ready to submit your revision, log on to <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">https://www.editorialmanager.com/pone/</ext-link> and select the 'Submissions Needing Revision' folder to locate your manuscript file.</p>
+<p>Please include the following items when submitting your revised manuscript:<!-- </div> --><list list-type="bullet"><list-item><p>A rebuttal letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.</p></list-item><list-item><p>A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.</p></list-item><list-item><p>An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.</p></list-item></list></p>
+<p>If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.</p>
+<p>If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols" xlink:type="simple">https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols</ext-link>. Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link>.</p>
+<p>We look forward to receiving your revised manuscript.</p>
+<p>Kind regards,</p>
+<p>Ibrahim Umar Garzali, MBBS, FWACS</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Journal requirements:</p>
+<p>When submitting your revision, we need you to address these additional requirements.</p>
+<p>1.  Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at</p>
+<p><ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf" xlink:type="simple">https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf</ext-link>  and</p>
+<p><ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf" xlink:type="simple">https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf</ext-link></p>
+<p><bold>2. </bold>In your Data Availability statement, you have not specified where the minimal data set underlying the results described in your manuscript can be found. PLOS defines a study's minimal data set as the underlying data used to reach the conclusions drawn in the manuscript and any additional data required to replicate the reported study findings in their entirety. All PLOS journals require that the minimal data set be made fully available. For more information about our data policy, please see <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosone/s/data-availability" xlink:type="simple">http://journals.plos.org/plosone/s/data-availability</ext-link>.</p>
+<p>Upon re-submitting your revised manuscript, please upload your study’s minimal underlying data set as either Supporting Information files or to a stable, public repository and include the relevant URLs, DOIs, or accession numbers within your revised cover letter. For a list of acceptable repositories, please see <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosone/s/data-availability#loc-recommended-repositories" xlink:type="simple">http://journals.plos.org/plosone/s/data-availability#loc-recommended-repositories</ext-link>. Any potentially identifying patient information must be fully anonymized.</p>
+<p>Important: If there are ethical or legal restrictions to sharing your data publicly, please explain these restrictions in detail. Please see our guidelines for more information on what we consider unacceptable restrictions to publicly sharing data: <ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosone/s/data-availability#loc-unacceptable-data-access-restrictions" xlink:type="simple">http://journals.plos.org/plosone/s/data-availability#loc-unacceptable-data-access-restrictions</ext-link>. Note that it is not acceptable for the authors to be the sole named individuals responsible for ensuring data access.</p>
+<p>We will update your Data Availability statement to reflect the information you provide in your cover letter.</p>
+<p>[Note: HTML markup is below. Please do not edit.]</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><!-- <font color="black"> --><bold>Comments to the Author</bold></p>
+<p>1. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: No</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->2. Has the statistical analysis been performed appropriately and rigorously? <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: No</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->3. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->4. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->5. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)<!-- </font> --></p>
+<p>Reviewer #1: i read the article with an interest. non mass lesions is an important and challenging issue in breast cancer. the authors give the satisfying results for this entity. thanks for all authors for this study.</p>
+<p>Reviewer #2: The title and objectives are different. the title talks about positive predictive value while the objective is mainly on incident of malignancy in NML by USS. The methodology contains some results like age and bio-demographic characteristics.</p>
+<p>odd ratio should not have calculated because the study is not trying to ascertain cause or risk factors for breast cancer. The figures reflecting USS findings suggestive of mass lesions should not been part of the result. for the fact that the study is a retrospective one, sensitivity and predictive value should not have considered because standardization could not be made as such the sensitivity would be very low.</p>
+<p>Discussion was initially off point as the study was on uss findings and not MRI. Most of the analyses were not in keeping with objective of the study. The discussion was mainly analysing microcalcification, punctate hypoechoic foci and posterior acoustic shadow.</p>
+<p>The author did well by stating the AUC of 0.62 was low compared to other stuydy.</p>
+<p>the conclusion ought to have qoute the low incidence of malignancy in all patients with NML not just NML with histological confirmation compared to all maligmant breast lesions.</p>
+<p>The references are very scanty. authors should have qouted copiously from the literature especially during the intrioduction and discussion.</p>
+<p>the sensitivity and specificity are low and not promising as stated and therefore the conclusion should have reflected this reality since p&lt;0.05 was regarded as statistically significant</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->6. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link>). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link>.<!-- </font> --></p>
+<p>Reviewer #1: <bold>Yes: </bold>Kemal EYVAZ</p>
+<p>Reviewer #2: No</p>
+<p>**********</p>
+<p>[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]</p>
+<p>While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link>. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Registration is free. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email PLOS at <email xlink:type="simple">figures@plos.org</email>. Please note that Supporting Information files do not need this step.</p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pone.0278299.r002">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0278299.r002</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 0</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pone.0278299" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj002" link-type="rebutted-decision-letter" object-id="10.1371/journal.pone.0278299.r001" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="author-response-date">20 Oct 2022</named-content>
+</p>
+<p>Response Letter</p>
+<p>Dear Editor, </p>
+<p>On behalf of all authors, I would like to resubmitted the revised manuscript (PONE-D-22-24181) entitled Ultrasound classification of non-mass breast lesions following BI-RADS presents high positive predictive value. The manuscript has been revised following the reviewers’ comments, and detailed response was given trackable in the revised manuscript. I believe that the revised manuscript may meet the criteria of the prestigious journal of PLOS ONE for publication in general. Please feel free to contact me (as the corresponding author) should further clarity be needed. I’m looking forward to hearing from you.</p>
+<p>Sincerely,</p>
+<p>Prof. Size Wu</p>
+<p>The corresponding author</p>
+<p>Responses to the Reviewer's Questions</p>
+<p>Comments: 1. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented.</p>
+<p>Reviewer #1: Yes</p>
+<p>Responses: Thanks.</p>
+<p>Reviewer #2: No</p>
+<p>Responses: The aims of our manuscript were to investigate the performance (diagnostic efficacy) of stratifying the malignancy risk of non-mass breast lesions (NMLs) following breast imaging reporting and data system (BI-RADS), including sensitivity, specificity, area under the receiver operating characteristic curve (AUC) (accuracy), positive and negative predictive values. Among them, positive predictive value is a useful parameter for the interpretation of the role of BI-RADS for NMLs.                        There are numerous publishing relating to the assessment of breast masses, however, the studies of US for the assessment of breast non-masses are much fewer. In fact, NMLs were not rare, they were frequently overlooked in clinical evaluation, for some physicians regarded them as atypical breast masses. On breast X ray and sonography, some breast mass and NMLs showed similar appearance, on contrast-enhanced MRI, breast mass and NMLs presented different features, and thus the conception and terminology of NML were coined. On ultrasound images, typical breast mass was with distinct appearance, even in small size. While on X ray some typical small size breast mass presented ambiguous contour, and less attention had paid for them in past time. In previous routine clinical practice, expect some case of NMLs were categorized as BI-RADS 0, other cases were actually classified as a certain category (breast mass). Strictly speaking, classifying breast NMLs using BI-RADS is not appropriated. We believe that confusion of breast mass and NML may result in an incomplete and not sound evaluation.                                                           In this study, a large sample of population were reviewed to determine the incidence of NMLs, to better understand the NMLs. Majority of NMLs were benign lesions, did not undergo biopsy or operation, and absence of histological results, so it’s hard to determine accurately, while malignant NMLs were undergone biopsy or surgical treatment, with histological results available, thus the diagnosis was sound and vigorous. So we investigated the incidence of malignant NMLs in this study, and the result was sound and vigorous. For the process of data, criteria of inclusion and exclusion were followed strictly, with appropriate design, and the statistical analyses were competent. The protocols of ultrasound imaging for the breast were following standard specification, as descripted in the Methods section (Acquisition of US images of the breast lesions). The conclusions drawn were appropriately.</p>
+<p>Comments: 2. Has the statistical analysis been performed appropriately and rigorously?</p>
+<p>Reviewer #1: Yes</p>
+<p>Responses: Thanks.</p>
+<p>Reviewer #2: No</p>
+<p>Responses: For the process of data, an appropriate design was conducted, the statistical analyses were performed appropriately, and also with consultation to expertise in statistics.</p>
+<p>Comments: 3. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The PLOS Data policy requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.</p>
+<p>Reviewer #1: Yes</p>
+<p>Responses: Thanks. </p>
+<p>Reviewer #2: Yes</p>
+<p>Responses: Thanks.</p>
+<p>Comments: 4. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.</p>
+<p>Reviewer #1: Yes</p>
+<p>Responses: Thanks.</p>
+<p>Reviewer #2: Yes</p>
+<p>Responses: Thanks.</p>
+<p>Comments:  Reviewer #1: i read the article with an interest. non mass lesions is an important and challenging issue in breast cancer. the authors give the satisfying results for this entity. thanks for all authors for this study.</p>
+<p>Responses: Thanks.</p>
+<p>Comments:  Reviewer #2: The title and objectives are different. the title talks about positive predictive value while the objective is mainly on incident of malignancy in NML by US. </p>
+<p>Responses: Agreed. The “objective” was revised. The aims of our manuscript were to investigate the performance (diagnostic efficacy) of stratifying the malignancy risk of non-mass breast lesions (NMLs) following breast imaging reporting and data system (BI-RADS), including sensitivity, specificity, area under the receiver operating characteristic curve (AUC) (accuracy), positive and negative predictive values. Among them, positive predictive value is a useful parameter for the interpretation of the role of BI-RADS for NMLs, to use it as a title can highlight the main finding of this study. Of course, there were other findings that using the BI-RADS for the assessment, the likelihood of malignancy of malignant NMLs is underestimated, and that of benign NMLs is overestimated, these are challenge and drawbacks.</p>
+<p>To better understand the NMLs, incident of malignancy was analyzed. Majority of NMLs were benign lesions, did not undergo biopsy or operation, and absence of histological results, so it’s hard to determine accurately, while malignant NMLs were undergone biopsy or surgical treatment, with histological results available, thus the diagnosis was sound and reliable. So we investigated the incidence of malignant NMLs in this study, and the result was sound and reliable.</p>
+<p>Comments: The methodology contains some results like age and bio-demographic characteristics. odd ratio should not have calculated because the study is not trying to ascertain cause or risk factors for breast cancer. </p>
+<p>Responses: ## To save page and shorted the length of the paper, age and bio-demographic characteristics were incorporated into a table. Similar format style can be found in other article, e.g., (1) Kim et al. Radiology. 2018;288(1):55-63. doi: 10.1148/radiol.2018171987. (2) Zhuang et al. Radiology. 2017;283(3):873-882. doi: 10.1148/radiol.2016160131”. Of course, it had better be apart. </p>
+<p>## “odd ratio” has different usages in biomedical study, similar application can be found in articles: (1) Kim et al. Preoperative Axillary US in Early-Stage Breast Cancer: Potential to Prevent Unnecessary Axillary Lymph Node Dissection. Radiology. 2018;288(1):55-63. doi: 10.1148/radiol.2018171987. (2) Stavros, et al. Solid breast nodules: use of sonography to distinguish between benign and malignant lesions. Radiology. 1995;196(1):123-34. doi: 10.1148/radiology.</p>
+<p>Comments: The figures reflecting USS findings suggestive of mass lesions should not been part of the result. for the fact that the study is a retrospective one, sensitivity and predictive value should not have considered because standardization could not be made as such the sensitivity would be very low.</p>
+<p>Responses: It’s right that the sensitivity and predictive value are used mainly in a prospective study. On the other hand, in a retrospective study, if the design is adequate, the reference standardization is objective and reliable (e.g., histopathological result), the data were collected adequately, then the sensitivity and predictive value can be calculated properly. E.g., Buda et al. Management of Thyroid Nodules Seen on US Images: Deep Learning May Match Performance of Radiologists. Radiology. 2019;292(3):695-701. doi: 10.1148/radiol.2019181343.</p>
+<p>Comments: Discussion was initially off point as the study was on USS findings and not MRI. Most of the analyses were not in keeping with objective of the study. </p>
+<p>Responses: Somewhat agreed. It’s right that the purpose of this study was to discuss USS findings, but to avoid abruption of definition of NML, background knowledge was introduced. On breast X ray and sonography, some breast mass and NMLs showed similar appearance, on contrast-enhanced MRI, breast mass and NMLs presented different features, and thus the conception and terminology of NML were coined. The following words were keeping with the objective of the study and associated findings.</p>
+<p>Comments: The discussion was mainly analysing microcalcification, punctate hypoechoic foci and posterior acoustic shadow.</p>
+<p>Responses: Somewhat agreed. The sensitivity, specificity, AUC, PPV and NPV were dominantly with microcalcification, punctate hypoechoic foci and posterior acoustic shadow in NMLs, so these features were discussed intensively. </p>
+<p>Comments: The author did well by stating the AUC of 0.62 was low compared to other study. the conclusion ought to have qoute the low incidence of malignancy in all patients with NML not just NML with histological confirmation compared to all malignant breast lesions.</p>
+<p>Responses: Somewhat agreed. To obtain sound and reliable results and conclusion, we did not use breast lesions without histological results, so many benign lesions were excluded, the results were obtained mainly on malignant lesions, and these were the limitations of this study.</p>
+<p>Comments: The references are very scanty. authors should have qouted copiously from the literature especially during the introduction and discussion.</p>
+<p>Responses: Agreed. The literature of contrast-enhanced MRI for the assessment of NMLs were rich, but it’s scanty for ultrasound, so there were not enough valuable references for this manuscript. Some references relating to breast mass and US BI-RADS were added, and associated revision was done.</p>
+<p>Comments: the sensitivity and specificity are low and not promising as stated and therefore the conclusion should have reflected this reality since p&lt;0.05 was regarded as statistically significant.</p>
+<p>Responses: In this study we believed that the present statement may replace other expression, and more rephrase may be omitted.</p>
+<supplementary-material id="pone.0278299.s003" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0278299.s003" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">Response to Reviewers Comments..doc</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0278299.r003" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0278299.r003</article-id>
+<title-group>
+<article-title>Decision Letter 1</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Garzali</surname>
+<given-names>Ibrahim Umar</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Ibrahim Umar Garzali</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0278299" document-id-type="doi" document-type="article" id="rel-obj003" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">15 Nov 2022</named-content>
+</p>
+<p>Ultrasound classification of non-mass breast lesions following BI-RADS presents high positive predictive value</p>
+<p>PONE-D-22-24181R1</p>
+<p>Dear Dr. Wu,</p>
+<p>We’re pleased to inform you that your manuscript has been judged scientifically suitable for publication and will be formally accepted for publication once it meets all outstanding technical requirements.</p>
+<p>Within one week, you’ll receive an e-mail detailing the required amendments. When these have been addressed, you’ll receive a formal acceptance letter and your manuscript will be scheduled for publication.</p>
+<p>An invoice for payment will follow shortly after the formal acceptance. To ensure an efficient process, please log into Editorial Manager at <ext-link ext-link-type="uri" xlink:href="http://www.editorialmanager.com/pone/" xlink:type="simple">http://www.editorialmanager.com/pone/</ext-link>, click the 'Update My Information' link at the top of the page, and double check that your user information is up-to-date. If you have any billing related questions, please contact our Author Billing department directly at <email xlink:type="simple">authorbilling@plos.org</email>.</p>
+<p>If your institution or institutions have a press office, please notify them about your upcoming paper to help maximize its impact. If they’ll be preparing press materials, please inform our press team as soon as possible -- no later than 48 hours after receiving the formal acceptance. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact <email xlink:type="simple">onepress@plos.org</email>.</p>
+<p>Kind regards,</p>
+<p>Ibrahim Umar Garzali, MBBS, FWACS</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Additional Editor Comments (optional):</p>
+<p>Reviewers' comments:</p>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0278299.r004" specific-use="acceptance-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0278299.r004</article-id>
+<title-group>
+<article-title>Acceptance letter</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Garzali</surname>
+<given-names>Ibrahim Umar</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Ibrahim Umar Garzali</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0278299" document-id-type="doi" document-type="article" id="rel-obj004" link-type="peer-reviewed-article"/>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">18 Nov 2022</named-content>
+</p>
+<p>PONE-D-22-24181R1 </p>
+<p>Ultrasound classification of non-mass breast lesions following BI-RADS presents high positive predictive value </p>
+<p>Dear Dr. Wu:</p>
+<p>I'm pleased to inform you that your manuscript has been deemed suitable for publication in PLOS ONE. Congratulations! Your manuscript is now with our production department. </p>
+<p>If your institution or institutions have a press office, please let them know about your upcoming paper now to help maximize its impact. If they'll be preparing press materials, please inform our press team within the next 48 hours. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information please contact <email xlink:type="simple">onepress@plos.org</email>.</p>
+<p>If we can help with anything else, please email us at <email xlink:type="simple">plosone@plos.org</email>. </p>
+<p>Thank you for submitting your work to PLOS ONE and supporting open access. </p>
+<p>Kind regards, </p>
+<p>PLOS ONE Editorial Office Staff</p>
+<p>on behalf of</p>
+<p>Dr. Ibrahim Umar Garzali </p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+</body>
+</sub-article>
+</article>

@@ -1,6 +1,6 @@
 # Next milestone: one protocol-defined human review pilot
 
-Status: **saved and planned**. The accepted foundation release is `69e7a6b`; its software and bounded retrieval evidence are preserved. This next milestone requires a review team's actual topic and protocol. No real search, screening or model inference has started, and no topic or medical conclusion is assumed.
+Status: **saved and planned, after the Qwen acceptance gate**. The accepted foundation release is `69e7a6b`; its software and bounded retrieval evidence are preserved. The user requested [free GPU Qwen integration and evaluation](qwen-kaggle-milestone.md) before this human milestone. The actual review still requires the team's topic and protocol; no real review search, screening or medical conclusion is assumed by software/model evaluations.
 
 ## Objective and starting inputs
 
@@ -14,7 +14,7 @@ Use a new durable database/project, separate from software examples and frozen b
 
 Imports preserve original records, each occurrence, search metadata and capture receipts. Screening and full-text status are declared reviewer events with reasons. Study links are explicit complete association sets. Attached source versions retain bytes, hashes and typed locators. Evidence proposals retain exact quotations and context; verification references the current immutable revision. Exports include current eligible/verified evidence alongside complete audit history and reconciled counts.
 
-Model-generated relevance and text are assistance only. The [cloud strategy](model-strategy.md) is optional future integration. The pilot should first expose missing workflow support and demonstrated errors in the existing CLI, rather than depend on an unevaluated model choice.
+Model-generated relevance and text are assistance only. The [Qwen workflow](qwen-cloud.md) is optional retrieval assistance; its software and actual live gates must be reviewed before declaring readiness. The human pilot should expose missing workflow support and demonstrated errors in the existing CLI, using the accepted retrieval method explicitly.
 
 ## Small role-specific tickets
 

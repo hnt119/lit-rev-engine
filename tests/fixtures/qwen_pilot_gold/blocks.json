@@ -1,0 +1,1653 @@
+{
+  "schema_version": 1,
+  "blocks": [
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "ordinal": 1,
+      "source_path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "kind": "article-title",
+      "section": "",
+      "text": "Comparative analysis of diagnostic performance in mammography: A reader study on the impact of AI assistance",
+      "sha256": "c5c740975498a3b585242fa48d417dc4dbc2e6f3b62d09d97f4faf5979531d56",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+        "tag": "article-title"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "ordinal": 2,
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "kind": "p",
+      "section": "Purpose",
+      "text": "This study evaluates the impact of artificial intelligence (AI) assistance on the diagnostic performance of radiologists with varying levels of experience in interpreting mammograms in a Malaysian tertiary referral center, particularly in women with dense breasts.",
+      "sha256": "6aef7ab325ecae829c3c7e57c4870ab54c017a4b828b91ced66eda2d9533cd33",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Purpose"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "ordinal": 3,
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "kind": "p",
+      "section": "Methods",
+      "text": "A retrospective study including 434 digital mammograms interpreted by two general radiologists (12 and 6 years of experience) and two trainees (2 years of experience). Diagnostic performance was assessed with and without AI assistance (Lunit INSIGHT MMG), using sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and area under the receiver operating characteristic curve (AUC). Inter-reader agreement was measured using kappa statistics.",
+      "sha256": "c4ae582993591561d9ed5c7eef8e44127ad8ad11ee4f9f6ebfea3ac7189b5b10",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Methods"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "ordinal": 4,
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "AI assistance significantly improved the diagnostic performance of all reader groups across all metrics (p < 0.05). The senior radiologist consistently achieved the highest sensitivity (86.5% without AI, 88.0% with AI) and specificity (60.5% without AI, 59.2% with AI). The junior radiologist demonstrated the highest PPV (56.9% without AI, 74.6% with AI) and NPV (90.3% without AI, 92.2% with AI). The trainees showed the lowest performance, but AI significantly enhanced their accuracy. AI assistance was particularly beneficial in interpreting mammograms of women with dense breasts.",
+      "sha256": "e02d2112064495c74520731b7f83ee66f566e70da17863c599d69571c36ec0ef",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "ordinal": 5,
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "kind": "p",
+      "section": "Conclusion",
+      "text": "AI assistance significantly enhances the diagnostic accuracy and consistency of radiologists in mammogram interpretation, with notable benefits for less experienced readers. These findings support the integration of AI into clinical practice, particularly in resource-limited settings where access to specialized breast radiologists is constrained.",
+      "sha256": "c6258eb98669e078165e5afbd202ee4680ed72de5581298d654c65e760ec0b86",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Conclusion"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+      "ordinal": 6,
+      "source_path": "/article[1]/body[1]/sec[1]/p[1]",
+      "kind": "p",
+      "section": "Introduction",
+      "text": "Breast cancer remains a leading cause of morbidity and mortality among women worldwide, emphasizing the critical need for early detection and accurate diagnosis to improve treatment outcomes and survival rates [1]. Mammography is the primary imaging modality for breast cancer screening, but its diagnostic performance is inherently influenced by the radiologist’s experience, interpretative skills, and workload pressures [2]. Given these limitations, artificial intelligence (AI) has emerged as a promising tool in medical imaging, offering the potential to augment radiologists’ capabilities, improve diagnostic accuracy, reduce human error, and optimize workflow efficiency [3,4].",
+      "sha256": "d93d1e100654e0033375288e066f65bc915b87eb5647a1c818e9c87254283856",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Introduction"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+      "ordinal": 7,
+      "source_path": "/article[1]/body[1]/sec[1]/p[2]",
+      "kind": "p",
+      "section": "Introduction",
+      "text": "Despite the increasing body of evidence supporting AI’s role in mammography, its impact on diagnostic performance across different levels of clinical expertise, particularly in high-volume, tertiary referral settings, remains an area requiring further exploration [5,6]. In resource-constrained environments like Malaysia—a middle-income country with a limited number of breast radiologists and the absence of routine second-reader programs for screening mammography—these challenges are even more pronounced. AI could serve as a crucial second reader and decision-support tool, enhancing diagnostic accuracy and efficiency where specialized expertise is scarce [7,8].",
+      "sha256": "1b1776a5a4ff6e4a8860f3289276042f77cb65a8a0c955b80fd93c00bcdda572",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[1]/p[2]",
+        "tag": "p",
+        "section_title": "Introduction"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[3]",
+      "ordinal": 8,
+      "source_path": "/article[1]/body[1]/sec[1]/p[3]",
+      "kind": "p",
+      "section": "Introduction",
+      "text": "The implications of AI in mammography extend beyond Malaysia to other low- and middle-income countries facing similar challenges in breast cancer screening. In many regions with a shortage of trained breast radiologists, AI-driven decision-support systems could help bridge the gap by improving diagnostic consistency, particularly among less experienced readers. Understanding how AI performs in the Malaysian context provides valuable insights that may be generalizable to other countries with comparable healthcare infrastructures, supporting its broader adoption in global breast cancer screening programs",
+      "sha256": "ab8d8375c1705d50e977681a26cd59f27d8f9bf48f0f9b64b95c97a9d02e4e17",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[1]/p[3]",
+        "tag": "p",
+        "section_title": "Introduction"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[4]",
+      "ordinal": 9,
+      "source_path": "/article[1]/body[1]/sec[1]/p[4]",
+      "kind": "p",
+      "section": "Introduction",
+      "text": "This study, conducted at a tertiary referral center in Malaysia, aims to address this gap by evaluating the diagnostic performance of trainee radiologists and general radiologists in interpreting mammograms, both with and without AI assistance. The integration of AI in mammography offers the potential to improve diagnostic accuracy and potentially democratize expertise by supporting less experienced readers, thereby democratizing expertise in breast imaging. However, concerns remain regarding potential over-reliance on AI, its effect on interpretative skills, and the evolving role of radiologists in breast cancer diagnosis [9,10].",
+      "sha256": "795f9a1745783b3f869ba3272bdbdca70c5205da141c386190287fb55dc90734",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[1]/p[4]",
+        "tag": "p",
+        "section_title": "Introduction"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[5]",
+      "ordinal": 10,
+      "source_path": "/article[1]/body[1]/sec[1]/p[5]",
+      "kind": "p",
+      "section": "Introduction",
+      "text": "This reader study assesses the impact of AI assistance on the diagnostic performance of readers with varying levels of expertise, providing valuable insights into the practical benefits and limitations of AI in mammography. By examining diagnostic outcomes with AI assistance, this study contributes to the ongoing discourse on optimizing AI implementation in radiology. It also aims to inform policies and guidelines for AI application in mammography, ensuring that such technologies are utilized to maximize patient care, improve diagnostic accuracy, and enhance healthcare accessibility across diverse clinical settings.",
+      "sha256": "8cd9b046c393454691d2ed08949bdafe9add7121c54177be3c5ff469a9901996",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[1]/p[5]",
+        "tag": "p",
+        "section_title": "Introduction"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "ordinal": 11,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "kind": "p",
+      "section": "Study design",
+      "text": "This was a retrospective cross-sectional study approved by the Institutional Review Board",
+      "sha256": "f1d831d451147aad2a0f1aad3f3d25b016f5ba6fd188fcea29db0eb447ecca02",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Study design"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "ordinal": 12,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "kind": "p",
+      "section": "Study design",
+      "text": "(Medical Research Ethics ID 2022530–11258).) involving mammography cases from January 2021 to May 2022 done in Hospital Al-Sultan Abdullah UiTM. We excluded cases with post operative changes, personal history of breast cancer, incomplete or missing data, and patients lost from follow-up. Clinical data were extracted from electronic medical records (EMR). Data on patients age, ethnicity, breast density, American College of Radiology-Breast Imaging and Reporting and Data Systems classification (BIRADS) assessment and final histopathological (HPE) diagnosis were recorded.",
+      "sha256": "c2eecc3830430c729f971acf7089eded76051c62e7abc29b7060ec17e7b8b1fd",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+        "tag": "p",
+        "section_title": "Study design"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "ordinal": 13,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "kind": "p",
+      "section": "Equipment and technique",
+      "text": "Mammography examination were performed using a 3D digital mammography system (Selenia Dimension, Hologic, Bedford, Massachusetts, USA). All sets consist of craniocaudal (CC) and mediolateral oblique (MLO) views. The processed image data were sent from the acquisition workstation to the reading workstation.",
+      "sha256": "5510a3697b42505d318aad7d8fda9dc2a83a7caf2b2dd8969c7818162cfd1d40",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Equipment and technique"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "ordinal": 14,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "kind": "p",
+      "section": "AI software & algorithm",
+      "text": "Lunit INSIGHT MMG (version 1.1.7.2, Lunit, South Korea) was selected for this study based on its FDA approval and prior validation studies, which demonstrated its effectiveness in enhancing breast cancer detection [11,12]. Previous research has shown that Lunit INSIGHT MMG improves diagnostic performance, particularly in increasing sensitivity and aiding radiologists in detecting subtle malignancies [13–16].",
+      "sha256": "5e507428026b8825246dc1fb48751cb83280bdcae869e8303f44403dabd2c208",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "AI software & algorithm"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "ordinal": 15,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "kind": "p",
+      "section": "AI software & algorithm",
+      "text": "The AI system assigns a malignancy probability score ranging from 0% to 100% to each detected lesion. A threshold of 10% was used in this study, where scores below 10% were deemed clinically insignificant based on prior validation studies [12,13]. This means that findings scoring less than 10% were classified as normal or clinically insignificant findings, with no clinical action required. The system prioritizes suspicious findings with higher malignancy scores, assisting radiologists in their decision-making process.",
+      "sha256": "ac70b30ef384104e14ae467a1be22cd0dad3f205bd6923219546b62ce4d3b4a9",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "AI software & algorithm"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "ordinal": 16,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "kind": "p",
+      "section": "Data collection and storage",
+      "text": "Data were kept in the hospital picture archiving and communication system (PACS) (Infinitt, South Korea). Data were accessed for research purposes from 1st June 2023–28th February 2024. All image datasets were anonymized and subsequently stored in digital imaging and communication in medicine (DICOM) format in a password-protected external hard disk. Images with incomplete datasets, poor diagnostic quality, and post-operative cases were excluded.",
+      "sha256": "432b6712953a978e6419691fd20c33fcd84c108d568831adb0f8b1bc2bab9fc9",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Data collection and storage"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "ordinal": 17,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "kind": "p",
+      "section": "Image assessment protocol",
+      "text": "AI technology was not used in routine clinical practice at the time of image acquisition. The AI-assisted interpretations in this study were conducted solely in a research setting, ensuring that the readers had no prior exposure to AI during routine reporting. All readers underwent training on the application of the AI software prior to the research.",
+      "sha256": "a09128d14097c72f35e4896e2d99b9d600c1725a9fac961abf29a9900fdec342",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+        "tag": "p",
+        "section_title": "Image assessment protocol"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+      "ordinal": 18,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+      "kind": "p",
+      "section": "Image assessment protocol",
+      "text": "Four readers (2 trainee radiologists (ES – R1) and (NAM – R4) and two general radiologists (NMA-R3 and KMN – R2) with 6 and 12 years’ experience, independently reviewed same set of mammography images in a randomized order, in two separate sessions: first without AI assistance and then with AI assistance following a six-week washout period to minimize recall bias. Fig 1 illustrates the study design workflow.",
+      "sha256": "997e59941c1bcc8098bb94dffe4180a28c93f999ae19b88f44b2b36b4bd7f8dc",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+        "tag": "p",
+        "section_title": "Image assessment protocol"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/fig[1]/caption[1]/p[1]",
+      "ordinal": 19,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Image assessment protocol",
+      "text": "Mammograms were first analysed by radiologists without AI assistance, followed by a six-week washout period before re-evaluation with AI support.",
+      "sha256": "afde64ccbf14a14dbc6beecca1725594ab64028c4e5e5373f89bfc9f7df9bc02",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/fig[1]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Image assessment protocol"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[3]",
+      "ordinal": 20,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[3]",
+      "kind": "p",
+      "section": "Image assessment protocol",
+      "text": "The readers assigned BI-RADS classifications and density assessments based on ACR BI-RADS 5th edition (2013) lexicon which includes density assessment, calcifications, mass, asymmetric density and architectural distortion. All readers are blinded to the radiology report, HPE findings (if performed), and the patients’ outcome. A final BIRADS assessment category score were given for each case.",
+      "sha256": "aa74dbb255bb12e958d7d193591f9b6f0731078146edb24e434026d571c7456b",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[3]",
+        "tag": "p",
+        "section_title": "Image assessment protocol"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "ordinal": 21,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "kind": "p",
+      "section": "Statistical analysis",
+      "text": "All the data were collected in an Excel spreadsheet, and statistical analysis was performed using IBM SPSS software v.23. A p-value of < 0.05 will be taken as statistically significant. Comparisons between reader groups with and without AI assistance were conducted using Cohen kappa tests (κ). Inter-reader correlation (ICC) coefficient was calculated to ascertain agreement between readers in BI-RADS category assessment and breast density.",
+      "sha256": "4fa05b3c7969d78b1fb4a44cf46e63f85fa3cb80595981fa3fd4d908a4ee9ae7",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "tag": "p",
+        "section_title": "Statistical analysis"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+      "ordinal": 22,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+      "kind": "p",
+      "section": "Statistical analysis",
+      "text": "Diagnostic performance metrics, including sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and area under the receiver operating characteristic (ROC) curve (AUC), were calculated for each reader group, both with and without AI assistance. The gold standard for final diagnosis was the HPE results if a biopsy was taken. If no biopsy was performed, the cases were followed up for up to 2-year, and considered benign when remains stable.",
+      "sha256": "f7a6d002f62ac04b9852b45f9b49c9c4f2a86f753c3be8e663c73f6cc4fef376",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+        "tag": "p",
+        "section_title": "Statistical analysis"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[3]",
+      "ordinal": 23,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[3]",
+      "kind": "p",
+      "section": "Statistical analysis",
+      "text": "Sensitivity was when BIRADS 4 or 5 category given by radiologist and HPE results were malignant. Specificity was BIRADS 1,2, or 3 category given by radiologist on imaging and HPE or follow up imaging were benign. Positive predictive value (PPV) were malignant result in HPE and BIRADS category assigned were 4 or 5. Negative predictive value (NPV) were benign result in HPE or on follow-up, and BIRADS category assigned were 1, 2, or 3.",
+      "sha256": "e1184091f48f4a92953fefbba87126eaf0855343a1eea9b921afaa6b37ece95b",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[3]",
+        "tag": "p",
+        "section_title": "Statistical analysis"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+      "ordinal": 24,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+      "kind": "p",
+      "section": "Ethical approval",
+      "text": "This study was approved by the Ethics Committee of University Malaya Medical Centre and Hospital Al-Sultan Abdullah UiTM (Medical Research Ethics ID 2022530–11258) and supported by University Teknologi MARA Research Grant Scheme: 600/TNCPI-5/3/DDF (MEDIC)(003/2021), 600/TNCPI-5/3/DDJ(HUITM)(003/2021) and 600/RMC-LESTARI SDG-T5/3.",
+      "sha256": "c111c0e3b6e5013901734ffb86b503b730d2dff08927fd2a18d0e2586f1b22fb",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+        "tag": "p",
+        "section_title": "Ethical approval"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+      "ordinal": 25,
+      "source_path": "/article[1]/body[1]/sec[3]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "A total of 434 mammography were analysed, consisting of 339 (78.1%) Malays, 71 (16.4%) Chinese, and 24 (5.5%) Indians. The patients’ ages ranged from 30 to 80, with a mean age of 52.1 (SD: 0.513).",
+      "sha256": "8e88c67b97a8383f5b7997016338deb9875f826579ab84e218c72b9576c09d7d",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "ordinal": 26,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "kind": "p",
+      "section": "HPE findings",
+      "text": "Tissue biopsies were performed on 134 (30.8%) breasts whilst 300 (69%) were followed up. All patients had at least 2 years of follow-up after mammogram and/or biopsy. Of the lesions biopsied, 58 (43.2%) were benign and 76 (56.7%) were malignant. 9 (6.7%) B3, premalignant lesions, all of which were papilloma, were included in the benign category for this study.",
+      "sha256": "5fe1fd836292a51cd9f83ecf998a2643f572e211347fa5af7c0d6451ccc455de",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "HPE findings"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+      "ordinal": 27,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+      "kind": "p",
+      "section": "HPE findings",
+      "text": "Table 1 outlines the detailed HPE findings of the lesions. The most common benign lesion were fibroadenoma and fibrocystic change, and the most common malignant lesion was invasive ductal carcinoma. Notably, all reported benign and normal findings showed no interval cancers during a minimum of one and a half year follow-up period.",
+      "sha256": "84d961ebc9e73716f0c2beeb60effede565878c0d1211e112c8fde77d047154c",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+        "tag": "p",
+        "section_title": "HPE findings"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "ordinal": 28,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "kind": "table-wrap",
+      "section": "HPE findings",
+      "text": "Table 1\nHistopathology findings of the lesions (n = 134).\nBenign\tn (%)58 (43.2)\tMalignant\tn (%)76 (56.7)\nFibroadenoma\t10 (17.2)\tInvasive ductal carcinoma (IDC)\t68 (89.5)\nFibrocystic disease\t10 (17.2)\tDuctal carcinoma in situ (DCIS)\t8 (10.5)\nAdenosis\t7 (12.1)\t\t\nIntraductal papilloma\t9 (15.5)\t\t\nUsual ductal hyperplasia (UDH)\t4 (6.9)\t\t\nPseudoangiomatous stromal hyperplasia (PASH)\t2 (3.4)\t\t\nBenign breast tissue\t9 (15.5)\t\t\nOther benign lesions*\t7 (12.1)\t\t\n*mastopathy, fibrosis, foreign body reaction, lactational changes, mastitis, granuloma, cyst",
+      "sha256": "4bc38ec2184e0434f3fcc2ed9c2ff1e492e64348b2bd3c994e6e3a0270c63bf6",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0322925.t001",
+        "section_title": "HPE findings",
+        "table_label": "Table 1"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "ordinal": 29,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "kind": "p",
+      "section": "Mammogram findings",
+      "text": "There were 288 (66.4%) women with dense breast (BIRADS density C and D). Supplementary breast ultrasound was performed in all density C and D patients. Of the 134 biopsied performed, 98 (73.1%) were in dense breast. 45 (81.8%) HPE proven benign and 53 (69.7%) malignant lesions were observed in dense breasts.",
+      "sha256": "686d9a3d9b5f708ff3ce2519374ab75d400a039a40d606f1db87d52bb82e0ef8",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Mammogram findings"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "ordinal": 30,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "kind": "p",
+      "section": "Mammogram findings",
+      "text": "Table 2 outlines the lesion presentation on mammogram and HPE. Masses, calcifications and architectural distortion were observed in a higher proportion of malignant compared to benign cases.",
+      "sha256": "f1c5b678aa963b3f084614bfc347f3e6a4c4c7f1006a3fb7bc012e39bbc42f4f",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "tag": "p",
+        "section_title": "Mammogram findings"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+      "ordinal": 31,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+      "kind": "table-wrap",
+      "section": "Mammogram findings",
+      "text": "Table 2\nHistopathology and mammographic lesion presentation overall and in dense breasts.\nLesion presentation on mammogram\tBenignn = 58 (43.2%)\tMalignantn = 76* (56.7%)\tTotal(n = 134)\tBenignn = 43 (44.8%)\tMalignantn = 53* (52.2%)\tTotal(n = 96)\nALL CASES\tDENSE BREAST\nMass\t9 (15.5)\t32 (42.1)\t41\t4 (9.3)\t15 (28.3)\t19\nCalcifications\t14 (24.1)\t26 (34.2)\t40\t11(25.6)\t20 (37.7)\t31\nArchitectural distortion\t2 (3.4)\t16 (21.0)\t18\t1 (2.3)\t10 (18.9)\t11\nAsymmetry\t0\t6 (0.8)\t6\t0\t5 (9.4)\t5\nOnly seen on ultrasound\t33 (56.9)\t0\t33\t27 (62.8)\t3 (5.7)\t30\n*there are 4 cases in malignant group with overlapping findings, which is mass with calcifications",
+      "sha256": "f904d7bd8eff802756589f6bb8a8729b147ddf2cb390f378773e76a20afe99bf",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0322925.t002",
+        "section_title": "Mammogram findings",
+        "table_label": "Table 2"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+      "ordinal": 32,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+      "kind": "p",
+      "section": "Mammogram findings",
+      "text": "There was moderate to substantial agreement in density reading between the readers and AI software with K value 0.549–0.627, p = < 0.001.",
+      "sha256": "f038706c0d660fd34649fc99a91e684f179d95688e7f72981d8bdab019f3c740",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+        "tag": "p",
+        "section_title": "Mammogram findings"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[4]",
+      "ordinal": 33,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[4]",
+      "kind": "p",
+      "section": "Mammogram findings",
+      "text": "A significant negative correlation were seen between breast density and mass detection on mammograms on Spearman correlation indicating that as breast density increases, mass detection on mammograms tends to decrease, or vice versa. On the other hand, significant positive correlation were seen between breast density and detection of calcifications on mammograms.",
+      "sha256": "84e540d58d9e3c980fecfef12d4925c1c0fc087cb706407def772321dc3cb9bc",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[4]",
+        "tag": "p",
+        "section_title": "Mammogram findings"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+      "ordinal": 34,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+      "kind": "p",
+      "section": "Final BI-RADS assessment category",
+      "text": "Intraclass Correlation Coefficient (ICC) showed a very good to excellent agreement observed between all the four readers, for the BI-RADS final assessment category, with a slightly higher agreement observed when using AI software. Without AI software, the average measures ICC was 0.910 with a 95% CI of 0.894 to 0.924, F(433, 1299), p < 0.001. With AI software, the average measures ICC was 0.931 with a 95% CI of 0.920 to 0.941, F (433, 1299), p < 0.001. The significant p-values from the ANOVA tests indicate that the differences in measurements between the readers with and without AI software are statistically significant. Table 3 presents the frequency distribution of BI-RADS categories assigned by each reader, both with and without AI assistance. Fig 2 provides a visual representation of BI-RADS category distribution, facilitating comparison between AI-assisted and non-AI interpretations.",
+      "sha256": "da4f56ccccb74e96a68d6416b048444df6b4610ce6330d926619d6188df7d1a4",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Final BI-RADS assessment category"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/table-wrap[1]",
+      "ordinal": 35,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[3]/table-wrap[1]",
+      "kind": "table-wrap",
+      "section": "Final BI-RADS assessment category",
+      "text": "Table 3\nDistribution of final BI-RADS assessment categories assigned by four readers (R1, R2, R3, R4) with and without AI assistance. The table presents the frequency of BI-RADS classifications for each reader, illustrating differences in interpretation when using AI.\nBI-RADS Category\tREADER STUDY WITHOUT AI (R1, R2, R3, R4) andWITH AI (R1AI, R2A1, R3A1, R4AI) (Frequency n (%))\nR1\tR1 AI\tR2\tR2 AI\tR3\tR3 AI\tR4\tR4AI\n1\t115 (26.5)\t106 (24.4)\t114 (26.3)\t112 (25.8)\t90 (20.7)\t123 (28.3)\t24 (5.5)\t56 (12.9)\n2\t214 (49.3)\t174 (40.1)\t188 (43.3)\t218 (50.2)\t242 (55.8)\t240 (55.5)\t270 (62.2)\t249 (57.4)\n3\t10(2.3)\t42(9.7)\t36(8.3)\t16(3.7)\t28 (6.5)\t8(1.8)\t73 (16.8)\t58(13.4)\n4a\t20(4.6)\t25(5.8)\t15(3.5)\t20(4.6)\t8 (1.8)\t7(1.6)\t53 (12.2)\t39(9.0)\n4b\t37(8.5)\t23(5.3)\t11(2.5)\t27(6.2)\t16 (3.7)\t13(3.0)\t7 (1.6)\t19(4.4)\n4c\t2(0.5)\t38(8.8)\t44 (10.1)\t1(0.2)\t28 (6.5)\t14(3.2)\t5 (1.2)\t8(1.8)\n5\t36(8.3)\t24(5.5)\t24(5.5)\t40(9.2)\t20 (4.6)\t29(6.7)\t2 (0.5)\t5(1.2)",
+      "sha256": "c5d3ddd6ad6f54e16e64774500aee4f2ffda7e162789f3a9983dd828e43a841a",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0322925.t003",
+        "section_title": "Final BI-RADS assessment category",
+        "table_label": "Table 3"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/fig[1]/caption[1]/p[1]",
+      "ordinal": 36,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[3]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Final BI-RADS assessment category",
+      "text": "The graph highlights differences in classification patterns, illustrating trends in BI-RADS assignments based on AI involvement.",
+      "sha256": "e0559419a5ba3ba748ce36cb76f13915ee5e267dee237e106de8358f2ba44c6e",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/fig[1]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Final BI-RADS assessment category"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+      "ordinal": 37,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+      "kind": "p",
+      "section": "Diagnostic performance overall",
+      "text": "AI assistance improved the diagnostic performance of all reader groups (Table 4, Fig 3). This is evident from higher sensitivity, specificity, PPV, and AUC for all reader groups with AI (R1AI, R2AI, R3AI, R4AI) compared to without AI (R1, R2, R3, R4). General radiologist (R2), with 12 years of experience, achieved the highest sensitivity and specificity, both with and without AI assistance, suggesting R2 was the most accurate in distinguishing between malignant and benign cases. General radiologist (R3), with 6 years of experience, had the highest PPV and NPV, indicating better accuracy in confirming true positive and true negative cases, both with and without AI assistance. Trainee radiologists (R1 and R4) exhibited the lowest performance, both with and without AI assistance, likely due to less experience. However, AI significantly improved their sensitivity and PPV. Fig 3 (radar plot), provides a visual comparison of overall diagnostic performance, illustrating the increase in key metrics with AI assistance. An example of AI-assisted detection in a patient with a fatty breast composition is illustrated in Fig 4. The AI system successfully identified high-density lesions, with findings confirmed by radiologists both with and without AI assistance.",
+      "sha256": "d9a464559ecbfdd1e0c6818b7e2793807cbe5717f309808b30d50e10dd342172",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Diagnostic performance overall"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+      "ordinal": 38,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+      "kind": "table-wrap",
+      "section": "Diagnostic performance overall",
+      "text": "Table 4\nOverall diagnostic performance metrics of four radiologists (R1, R2, R3, R4) with and without AI assistance. The table presents sensitivity, specificity, PPV, NPV, and AUC values, illustrating the impact of AI across different readers.\n\tREADERS DIAGNOSTIC PERFORMANCE WITHOUT AI (R1, R2, R3, R4)and WITH AI (R1AI, R2A1, R3A1, R4AI) (%)\nR1\tR1AI\tR2\tR2AI\tR3\tR3AI\tR4\tR4AI\tALL*\tALLAI*\t†\nSensitivity\t87.2\t84.0\t86.5\t88.0\t91.3\t95.5\t91.9\t92.5\t89.2\t90.0\t0.140\nSpecificity\t64.5\t69.7\t60.5\t59.2\t53.9\t61.8\t50.0\t57.9\t57.2\t62.2\t0.195\nPPV\t51.6\t48.2\t48.9\t51.1\t56.9\t74.6\t56.7\t62.0\t53.5\t59.0\t0.144\nNPV\t92.0\t92.9\t91.1\t91.0\t90.3\t92.2\t89.6\t91.2\t90.8\t91.9\t0.313\nAUC\t0.811\t0.799\t0.792\t0.790\t0.779\t0.819\t0.741\t0.814\t0.780\t0.806\t0.285\n*All indicates the mean of all readers",
+      "sha256": "9242ec2b90bfae5e5fb542ac16582b7273daa92ebc0869c711ac0b21063cc9f1",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0322925.t004",
+        "section_title": "Diagnostic performance overall",
+        "table_label": "Table 4"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/fig[1]/caption[1]/p[1]",
+      "ordinal": 39,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[4]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Diagnostic performance overall",
+      "text": "The graph illustrates key performance metrics, including Sensitivity, Specificity, PPV, NPV, and AUC. The blue line represents AI-assisted performance, while the red dashed line represents performance without AI assistance.",
+      "sha256": "caf92ec83424d1f22112bb2ddae4f76afbebb161f8e3bc040c6efb532e1c729e",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/fig[1]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Diagnostic performance overall"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/fig[2]/caption[1]/p[1]",
+      "ordinal": 40,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[4]/fig[2]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Diagnostic performance overall",
+      "text": "Craniocaudal (A) and mediolateral oblique (B) views show two high-density lesions in the left breast. AI-assisted analysis (C) highlights the suspicious regions with a high abnormality score, prompting further evaluation. Both AI-assisted and non-AI interpretations categorized this case as suspicious.",
+      "sha256": "16e2dda245accf1025f8203b6d710ce727fec915586db3ff117c82aac930e4b5",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/fig[2]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Diagnostic performance overall"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/p[1]",
+      "ordinal": 41,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[5]/p[1]",
+      "kind": "p",
+      "section": "Diagnostic performance in dense breast",
+      "text": "AI assistance enhanced performance across all reader groups for mammograms of women with dense breasts (Table 5, Fig 5). General radiologist (R2) continued to show the highest sensitivity and specificity, indicating superior accuracy in classifying malignant and benign cases even in dense breasts. General radiologist (R3) showed higher PPV without AI assistance, but higher NPV with AI, suggesting AI’s role in reducing false negatives in dense breast assessments. Trainee radiologists (R1 and R4) performed the lowest overall, but AI improved their diagnostic accuracy, particularly in terms of NPV and AUC. The radar plot (Fig 5) visually compares the diagnostic performance in dense breast, demonstrating how AI assistance enhances detection but with varying impacts depending on reader experience. Fig 6 demonstrates AI-assisted interpretation in a patient with a dense breast composition. AI highlighted multiple suspicious regions, supporting radiologists in categorizing this case as suspicious, consistent with non-AI assessments.",
+      "sha256": "727a94f74713de096427166123e22cff215583273dca834446b401177c147232",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[5]/p[1]",
+        "tag": "p",
+        "section_title": "Diagnostic performance in dense breast"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+      "ordinal": 42,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+      "kind": "table-wrap",
+      "section": "Diagnostic performance in dense breast",
+      "text": "Table 5\nDiagnostic performance metrics in dense breasts, comparing four radiologists (R1, R2, R3, R4) with and without AI assistance. The table presents sensitivity, specificity, PPV, NPV, and AUC, illustrating AI’s role in evaluating mammograms in dense breast tissue.\n\tREADERS DIAGNOSTIC PERFORMANCE IN DENSE BREAST WITHOUT AI (R1, R2, R3, R4)and WITH AI (R1AI, R2A1, R3A1, R4AI) (%)\nR1\tR1AI\tR2\tR2AI\tR3\tR3AI\tR4\tR4AI\tALL*\tAI*\t†\nSensitivity\t83.8\t80.3\t84.6\t85.1\t89.3\t94.0\t90.6\t91.5\t87.1\t87.7\t0.213\nSpecificity\t56.6\t66.0\t56.6\t49.1\t50.9\t58.5\t45.3\t54.7\t52.4\t57.1\t0.238\nPPV\t45.5\t43.2\t51.9\t42.6\t52.2\t68.9\t43.2\t59.2\t48.2\t53.5\t0.213\nNPV\t89.6\t88.1\t88.9\t88.1\t88.0\t90.9\t91.3\t90.0\t89.5\t89.3\t0.213\nAUC\t0.754\t0.764\t0.781\t0.739\t0.738\t0.789\t0.700\t0.796\t0.743\t0.772\t0.213\n*All indicates the mean of all readers",
+      "sha256": "17401a039a6005577d91cffa6e1b243166c0bde252dc413ba729f60a12091551",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[5]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0322925.t005",
+        "section_title": "Diagnostic performance in dense breast",
+        "table_label": "Table 5"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/fig[1]/caption[1]/p[1]",
+      "ordinal": 43,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[5]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Diagnostic performance in dense breast",
+      "text": "The figure illustrates how AI affects Sensitivity, Specificity, PPV, NPV, and AUC when interpreting dense breast cases. The blue line represents AI-assisted performance, while the red dashed line represents performance without AI assistance.",
+      "sha256": "8aeace8084ec578de4e2669ebf4ba025407785852db986881404aed30dab80e4",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[5]/fig[1]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Diagnostic performance in dense breast"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/fig[2]/caption[1]/p[1]",
+      "ordinal": 44,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[5]/fig[2]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Diagnostic performance in dense breast",
+      "text": "Craniocaudal (A) and mediolateral oblique (B) views reveal multiple high-density lesions in the right breast. AI-assisted analysis (C) assigns a high abnormality score, supporting the identification of suspicious areas. Both AI-assisted and non-AI interpretations categorized this case as suspicious.",
+      "sha256": "dc04ecd03a9e8f0b6c2862d1c99e9b64a92a4661729d519be48cb6a49a401d3e",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[5]/fig[2]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Diagnostic performance in dense breast"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/p[2]",
+      "ordinal": 45,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[5]/p[2]",
+      "kind": "p",
+      "section": "Diagnostic performance in dense breast",
+      "text": "The sensitivity and specificity values were lower for all reader groups in women with dense breasts compared to overall performance, suggesting greater challenges in interpreting mammograms in this subgroup. AI assistance led to an improvement in diagnostic performance across all metrics, though the extent of improvement varied among readers.",
+      "sha256": "15d69ed7a43f51b46746a09af6a771ccf02ae33920173bc171244d53871d87ee",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[5]/p[2]",
+        "tag": "p",
+        "section_title": "Diagnostic performance in dense breast"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/p[3]",
+      "ordinal": 46,
+      "source_path": "/article[1]/body[1]/sec[3]/sec[5]/p[3]",
+      "kind": "p",
+      "section": "Diagnostic performance in dense breast",
+      "text": "The trend of AI-assisted improvement is clearly visualized in the radar plots (Figs 3 and 5), where AI-assisted interpretation resulted in higher sensitivity, specificity, and AUC across both overall and dense breast subgroups. These figures illustrate the differences in AI’s impact on performance across different breast densities and reader experience levels.",
+      "sha256": "35089afc24bd87fcce6e815f65e21cfcfff994a97e1d060d97193159d7b12f9a",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/sec[5]/p[3]",
+        "tag": "p",
+        "section_title": "Diagnostic performance in dense breast"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+      "ordinal": 47,
+      "source_path": "/article[1]/body[1]/sec[4]/p[1]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "AI has demonstrated significant potential in improving breast cancer screening, particularly by aiding less experienced radiologists [2,17–20]. However, its effect varies based on radiologist expertise, dataset quality, and mammographic findings [3,4,6]. Automation bias and the potential over-reliance on AI are critical considerations in AI-assisted radiology. While AI can enhance diagnostic accuracy, excessive dependence on AI outputs may reduce radiologists’ critical thinking and decision-making skills, potentially impacting patient care [19]. The observed slight decrease in AUC for some readers suggests that AI may not always enhance performance and could introduce unintended challenges in interpretation [19].",
+      "sha256": "a338871af2132c7fd5ed3164d47bec1e0fc688e156e5b7193604ea64b01b28a4",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+      "ordinal": 48,
+      "source_path": "/article[1]/body[1]/sec[4]/p[2]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "One critical factor influencing AI’s performance in mammography interpretation is image quality. High-quality images with good contrast resolution enable AI to detect subtle abnormalities more effectively, whereas poor-quality images—especially in cases of dense breast tissue—can reduce AI’s diagnostic accuracy [5,7]. Mammographic noise, artifacts, and varying exposure levels may contribute to false-positive or false-negative results [8]. In particular, dense breast tissue can obscure lesions, making it difficult for both AI and human readers to achieve high sensitivity [9,10]. The performance of AI systems should, therefore, be continuously evaluated across different imaging conditions to ensure optimal reliability [17].",
+      "sha256": "e9f3963e0e2237c5d6b0ec5bec2292141c0b52f7b9c32ec08daa10a7a9ce5763",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[2]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+      "ordinal": 49,
+      "source_path": "/article[1]/body[1]/sec[4]/p[3]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "Furthermore, the variability in AI impact across different readers highlights the importance of experience level when integrating AI into radiology workflows [3,6]. While AI has been particularly beneficial for trainee radiologists by improving their sensitivity and overall performance, its effect on experienced radiologists has been more variable [4,18]. This suggests that AI should serve as an adjunct rather than a replacement for human interpretation, ensuring that radiologists remain actively engaged in decision-making rather than becoming over-reliant on AI outputs [19]. This variability in AI performance may explain the observed decrease in AUC values for R1 and R2, as shown in Tables 4 and 5, where AI’s impact was not uniformly positive.",
+      "sha256": "6542ba26959598eda324f0bee91cd02c6661a2682c63b99ec92f9481f8397fcf",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[3]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[4]",
+      "ordinal": 50,
+      "source_path": "/article[1]/body[1]/sec[4]/p[4]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "The study findings also emphasize the potential role of AI in resource-limited settings, such as Malaysia and other low- and middle-income countries with a shortage of dedicated breast radiologists [1,7,9]. In such environments, AI can function as a second reader, helping to bridge the gap in expertise and reducing diagnostic discrepancies between general radiologists and breast imaging specialists [20]. The insights gained from this study may be generalizable to other countries with similar healthcare challenges, reinforcing AI’s role in addressing global disparities in breast cancer detection [10,17].",
+      "sha256": "0af895d3dbe1aa5bfae7a5c058159b176fb38eab2623bfbbe38e09662e35e6dd",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[4]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+      "ordinal": 51,
+      "source_path": "/article[1]/body[1]/sec[4]/p[5]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "The performance variations observed among different readers in our study also highlight the potential limitations of AI assistance. Some radiologists, particularly those with more experience, may interpret AI outputs differently or be more cautious in adjusting their diagnoses. Additionally, the observed decrease in AUC for some readers suggests that AI’s effectiveness depends on user interaction and experience level. This underscores the need for further training and calibration of AI tools to optimize their integration into clinical practice.",
+      "sha256": "1fd60bbcae9344f736d14264dfa0cf2a746d4dbaccd6aaaf4ea8f23b8b2d9e29",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[5]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+      "ordinal": 52,
+      "source_path": "/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+      "kind": "p",
+      "section": "Limitations and future research directions",
+      "text": "This study has several limitations. As a single-center retrospective study, the findings may not be fully generalizable to broader populations. Additionally, the lack of direct comparison with other AI models limits the ability to conclude whether Lunit INSIGHT MMG performs better than alternative AI systems. Another concern is the potential for automation bias, particularly if radiologists become overly reliant on AI predictions rather than using them as a supportive tool. Finally, there is a need for prospective, multicenter validation studies to assess AI’s clinical impact across diverse patient populations and real-world screening settings. Future research should explore AI’s role in multicenter trials, evaluate its cost-effectiveness, and examine its integration into routine radiological workflows to determine its long-term viability in breast cancer screening programs.",
+      "sha256": "6de153f711ba3d8f881cd7db6d421dae1b90ea4c7384fb260590bf6d20210ce7",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Limitations and future research directions"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[5]/p[1]",
+      "ordinal": 53,
+      "source_path": "/article[1]/body[1]/sec[5]/p[1]",
+      "kind": "p",
+      "section": "Conclusion",
+      "text": "his study highlights the significant role of artificial intelligence in enhancing breast cancer screening, particularly in resource-limited settings like Malaysia. AI has demonstrated the potential to improve diagnostic accuracy, reduce inter-reader variability, and support less experienced radiologists, contributing to a more standardized and equitable healthcare system.",
+      "sha256": "905e230dc53d738d446132c06bf3485adcdf795edfa0e8649ee0edeb19262445",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[5]/p[1]",
+        "tag": "p",
+        "section_title": "Conclusion"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[5]/p[2]",
+      "ordinal": 54,
+      "source_path": "/article[1]/body[1]/sec[5]/p[2]",
+      "kind": "p",
+      "section": "Conclusion",
+      "text": "Beyond Malaysia, these findings are relevant to other low- and middle-income countries facing similar challenges. AI can help bridge the expertise gap and optimize resources, facilitating earlier cancer detection and improved patient outcomes. However, careful implementation is necessary to prevent automation bias and ensure AI complements rather than replaces human expertise.",
+      "sha256": "7006112a638db8afef9b735a6d779eee4ad22ab0d79fe2b332cd7ae65649ef68",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[5]/p[2]",
+        "tag": "p",
+        "section_title": "Conclusion"
+      }
+    },
+    {
+      "source_id": "mammography",
+      "block_id": "xml:/article[1]/body[1]/sec[5]/p[3]",
+      "ordinal": 55,
+      "source_path": "/article[1]/body[1]/sec[5]/p[3]",
+      "kind": "p",
+      "section": "Conclusion",
+      "text": "While this study provides valuable insights, further research, including multi-center trials and cost-effectiveness studies, is needed to establish AI’s long-term clinical impact. Strategic adoption and ongoing refinement will be crucial to maximizing AI’s potential in breast cancer detection and patient care.",
+      "sha256": "ffbc07388bf0ada04d18680c152325f38320cb93a74de334ac01e78b1ee9b931",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[5]/p[3]",
+        "tag": "p",
+        "section_title": "Conclusion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "ordinal": 1,
+      "source_path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "kind": "article-title",
+      "section": "",
+      "text": "Ultrasound classification of non-mass breast lesions following BI-RADS presents high positive predictive value",
+      "sha256": "ac26eda040b0b38dba6cb77d12807deed3a40fab87075bcdc40a568f8cc5079f",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+        "tag": "article-title"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "ordinal": 2,
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "kind": "p",
+      "section": "Purpose",
+      "text": "To investigate the positive predictive value of ultrasound classification of non-mass breast lesions (NMLs) following breast imaging reporting and data system (BI-RADS), and enhance understanding of NMLs.",
+      "sha256": "21b9b8eb13cebd8079a513d4e02ba5aab141d7e75791664398b449b5421bef12",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Purpose"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "ordinal": 3,
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "kind": "p",
+      "section": "Materials and methods",
+      "text": "Fifty-nine women with 59 ultrasound-detected breast NMLs were finally enrolled. The ultrasound (US) features of breast NMLs were analyzed; the incidence of malignant NMLs was calculated; the malignancy risk stratification of US for breast NMLs was established using BI-RADS.",
+      "sha256": "4e2828e776a3a85d0c6c767d25348319d694da615737a623fa820483dfdf850b",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Materials and methods"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "ordinal": 4,
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "The incidence of malignant NMLs was 4.59% of all breast carcinoma. Non-ductal hypoechoic area, microcalcifications and posterior shadowing are the main US features of malignant NMLs, and there were significant differences between malignant and benign NMLs for microcalcifications and posterior shadowing. Taking BI-RADS 4B as a cutoff value, the sensitivity, specificity, area under the receiver operating characteristic curve (AUC), positive and negative predictive values, and odds ratio of the BI-RADS category were 82.98%,41.67%,0.62,84.78%,38.46% and 3.48, respectively.",
+      "sha256": "8f461083da0c1ee3fb16a6dda9c8c4cca609bcb9d8803e9e8c08c4c32e2b883a",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "ordinal": 5,
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "kind": "p",
+      "section": "Conclusions",
+      "text": "Stratifying the malignancy risk of breast NMLs using the BI-RADS the sensitivity and positive and predictive value are promising, but the likelihood of malignancy of malignant NMLs is underestimated, and that of benign NMLs is overestimated. The solution may be that to separate NMLs from breast masses and use different malignancy risk stratification protocols.",
+      "sha256": "42a00da9fe30597709ba8e7b224f1fac8d7a6c07fe7a94737ecb9463ecda433d",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Conclusions"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+      "ordinal": 6,
+      "source_path": "/article[1]/body[1]/sec[1]/p[1]",
+      "kind": "p",
+      "section": "Introduction",
+      "text": "Breast lesions are common in the adult female population. While some lesions are palpable, and the others may be vague or occult. Currently, breast lesions can be detected and assessed using mammography, ultrasound and magnetic resonance imaging (MRI). Mass is a common term used for findings in various imaging modalities in the Breast Imaging Reporting and Data System (BI-RADS) descriptive lexicon, in which the mass is defined as a three-dimensional space-occupying lesion that is observed on two different projections and can be distinguished from normal anatomic structures [1–3]. Not all breast lesions manifest features meeting the exact BI-RADS US criteria in clinical practice. There are some non-mass lesions (NMLs) or non-mass-like lesions on US images, which causes an issue for the depiction of breast lesions using the standard lexicon. There is currently no standardized definition, terminology or guidelines for interpretation of a NML on US image, which affects interpretative accuracy and management.",
+      "sha256": "0abeaa8b5937a5ceb4b29afe65fc5ad499edf96d26e9a034fb7b9d3503932a34",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Introduction"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+      "ordinal": 7,
+      "source_path": "/article[1]/body[1]/sec[1]/p[2]",
+      "kind": "p",
+      "section": "Introduction",
+      "text": "Breast cancer is a round, oval or irregular shaped entity, with or without extra associated pathological lesions, manifesting as a mass or NML-like appearance on medical images. Some breast benign lesions mimic malignant lesions in appearance. There is considerable overlap between the US features of benign and malignant breast NMLs. In previous routine clinical practice, except a few of NMLs were classified as BI-RADS category 0, other NMLs were actually classified as a certain category. This results in an inappropriate malignancy risk stratification of breast masses and NMLs. Therefore, one or more reliable and non-invasive US findings that could reduce the number of unnecessary procedures would be valuable. There are several descriptions of breast NMLs on US, but none of them have been adopted in consensus [2, 3]. To date, knowledge and understanding about breast NMLs on US are still insufficient. Previous study showed that US BI-RADS exhibits high efficacy for the assessment of breast masses, with sensitivity of 92%, specificity of 85% and accuracy of 87% for BIRADS 3–5 lesions [4]. However, there is no protocol for the malignancy risk assessment of breast NMLs. The purpose of this study was to investigate the positive predictive value and other performances of malignancy risk stratification of the breast NMLs on US images following BI-RADS in a try, and enhance understanding of NMLs.",
+      "sha256": "111687d885fddd70eac3c597827ddcb3f31652681edb4ad811aa857d3033f819",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[1]/p[2]",
+        "tag": "p",
+        "section_title": "Introduction"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "ordinal": 8,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "kind": "p",
+      "section": "Study population",
+      "text": "In this cross-sectional retrospective study, consecutive patients who had undergone breast surgery, coarse needle biopsy, and an US-guided vacuum-assisted biopsy between January 2017 and December 2021 in a tertiary hospital were retrieved from the informatics database to comprise the target population. We retrieved all adult patients with histology of the breast, correlated them with the informatics database for the US examination and patients’ history, and reviewed the US images. The inclusion criteria were that the patients who had undergone US evaluation immediately before the above procedures, the quality of US images was good, and the images of the breast lesions met the features of breast NML on US addressed in the literature by Choe et al. that an area with or without an associated mass, accompanying calcifications, and architectural distortion and duct ectasia [2]. The exclusion criteria were that the patients with breast mass and NMLs did not have corresponding US images (undetected), male patients with breast mass lesions meeting the strict BI-RADS criteria of “mass” in consensus by two physicians-in-ultrasound (radiologists) (a junior with 2 years and a senior physician with 20 years of breast imaging experience), the breast lesions had a BI-RADS category 0 on US images, and the histopathological result of the breast lesion was indeterminant. If a patient underwent two or more breast US, only the most recent US images and results were included. If a patient had two or more NMLs in a breast, only the malignant lesion or the most conspicuous representative benign lesions was included. If a patient underwent both biopsy and surgical excision, only the data from surgical excision were included. Based on these inclusion and exclusion criteria, 5,612 subjects with 5,795 lesions were recruited (4,671 benign lesions and 1,024 malignant lesions), and 5,553 subjects with 5,736 lesions were excluded, including 15 breast lesions (3 malignant lesion) miss detected by US, and 7 breast lesions (no malignant lesion) determined as BI-RADS category 0 by US. Finally, 59 women (mean age 43.3 years ± 10.8, age, range 30–78years) with 59 US-detected breast NMLs were included, for which final diagnoses were established, basing on histopathologic results of surgical excision (n = 52) and US-guided core needle biopsy (n = 7). Baseline characteristics of the 59 NMLs are summarized in Table 1.",
+      "sha256": "da43218d9e0be9a9347c5fb3d5c3dba9549df849d7cce852448358b58676cd81",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "tag": "p",
+        "section_title": "Study population"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/table-wrap[1]",
+      "ordinal": 9,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/table-wrap[1]",
+      "kind": "table-wrap",
+      "section": "Study population",
+      "text": "Table 1\nBaseline characteristics of patients with NMLs.\nCharacteristic\tMalignant NML (n = 47)\tBenign NML (n = 12)\tP value\nAge (y)\t51.11±10.27*\t42.42±10.59*\t0.12\nBMI (kg/m2)\t23.36±2.73*\t23.25±2.34*\t0.90\nFamily history of breast cancer\t\t\t1.00\nYes\t1\t0\t\nNo\t46\t12\t\nBreast pain\t\t\t1.00\nYes\t18\t5\t\nNo\t29\t7\t\nNipple discharge\t\t\t1.00\nYes\t0\t0\t\nNo\t47\t12\t\nPalpable mass\t\t\t\nYes\t0\t0\t1.00\nNo\t47\t12\t\nArchitectural changes\t\t\t1.00\nSkin thickening\t0\t0\t\nArchitectural distortion\t0\t0\t\nNo change\t47\t12\t\nPosition of lesion\t\t\t1.00\nLeft\t22\t7\t\nRight\t25\t5\t\nQuadrant\t\t\t0.53\nUpper exterior\t20\t4\t\nUpper interior\t7\t3\t\nLower interior\t1\t2\t\nLower exterior\t8\t2\t\nEnlarged lymph nodes in axillary regions\t\t\t1.00\nYes\t2\t0\t\nNo\t45\t12\t\nNote: Unless otherwise indicated, data are numbers of NMLs and numbers in parentheses are percentages. *Data are mean values, with standard deviation. BMI: Body mass index.",
+      "sha256": "44fe23a17345a4dcedf4567ef7631f77bff5d00f82c3eb559141a34a37284dea",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0278299.t001",
+        "section_title": "Study population",
+        "table_label": "Table 1"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "ordinal": 10,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "kind": "p",
+      "section": "Study population",
+      "text": "A flowchart for inclusion of the study population is shown on Fig 1.",
+      "sha256": "6df1c3310f3168a95651077d2a0a8a5b92ad1ad14835f1632a1d2c1da7eeda76",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+        "tag": "p",
+        "section_title": "Study population"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/fig[1]/caption[1]/p[1]",
+      "ordinal": 11,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Study population",
+      "text": "The sample selection of this study.",
+      "sha256": "03b5e7e4715c970032f2b4a38ea6f898d22d17a6d230c96f76fe0530897b1880",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/fig[1]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Study population"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "ordinal": 12,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "kind": "p",
+      "section": "Ethics declaration",
+      "text": "The data obtained from patients who had undergone US evaluation, biopsy and/or surgical operation, and all procedures followed were in accordance with the ethical standards of the responsible committee on human experimentation and with the World Medical Association Declaration of Helsinki (revised in 2000). The study was approved by the Ethics Committee of the first affiliated hospital of Hainan medical university [(2022, Scientific research (L) No.32)], and informed consent was waived because of the anonymized retrospective study design.",
+      "sha256": "ad84bb9646fdd197f4805e96d5c0f47e400de20278ca0916d487ce1e5742eeb5",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "tag": "p",
+        "section_title": "Ethics declaration"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "ordinal": 13,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "kind": "p",
+      "section": "Interpretation of the US images of NMLs",
+      "text": "The US images of the breast NMLs were reviewed by two physicians-in-ultrasound (radiologists) together with reference to the definition, descriptions and associated US images for breast NMLs in the literature by Choe et al. [2]. Neither physicians-in-ultrasound knew the patients’ clinical details or specific pathological results. The breast fatty tissue (isoechogenic) was used as the reference for comparison of echogenicity [1–3]. They stratified the malignancy risk of the breast NMLs in an analogous protocol that the BI-RADS for breast masses in consensus. Namely, in the assessment of NMLs, one or more descriptors (nonparallel orientation of the breast nodule, spiculated margins, angular margins, microcalcifications, or posterior shadowing) that commonly associated with histopathologically malignant nodules were used for the malignancy risk of NMLs [5].",
+      "sha256": "16e4e518dde57d0230d0b81662915a5fea3943ac65310a37991873d5e479a00a",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Interpretation of the US images of NMLs"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "ordinal": 14,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "kind": "p",
+      "section": "Acquisition of US images of the breast lesions",
+      "text": "Breast US imaging had been performed for all patients referred to a tertiary hospital with suspicious breast lesions, breast pain, and for routine screening for malignancy. Multi-parameter US systems (Mindray DC 8; Mindray Resona 7; Aloka Prosound α-7; Aloka Prosound α-10; Siemens Acuson S2000; Phillips EPIQ5 and GE Logiq E9) were used for the breast examination by physicians-in-ultrasound with 5 to 30 years of experience in breast US. During the examination, the US systems were adjusted to small parts mode (breast), and a linear array transducer with a frequency of 5–15 MHz was used. The patient was instructed to take a supine position with the upper limb abduction, fully exposing the breast and axillary region. The breast was scanned carefully to detect any lesion. If a breast lesion or aberrant echogenic area was found, its location, shape, size, orientation (parallel and nonparallel), margin, echo pattern, posterior features, calcifications, architecture, vascularity, other associated findings, lymph node in the axillary region and other special findings were identified and scrutinized. A breast lesion or aberrant echogenic area was scanned in different projections, and the size was determined at its greatest dimension and smallest dimension, respectively. Representative images were saved in the informatics database of Picture Archiving and Communications System.",
+      "sha256": "f0204d2d38dd67af2a1db0999dc54e77613ff3edd07e4247bbefc88e627bb13d",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Acquisition of US images of the breast lesions"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "ordinal": 15,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "kind": "p",
+      "section": "Histopathological assessments",
+      "text": "The final pathology of the breast lesion and its grade were recorded on the basis of biopsy and/ or post-surgical evaluations, which was assessed by two senior pathologists-in-breast. Standard immunohistochemical methods were used to determine the positivity of the tumour for estrogen receptor (ER), progesterone receptor (PR), human epidermal growth factor receptor 2 (HER2), and Ki-67 protein level.",
+      "sha256": "e48848f61507e4f71dcf0557cc3cca7a1430c9e1fd60a8b1823964d7ab7db9cd",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+        "tag": "p",
+        "section_title": "Histopathological assessments"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "ordinal": 16,
+      "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "kind": "p",
+      "section": "Statistical analysis",
+      "text": "Continuous variables with normal distribution are represented as mean ± standard deviation, while those without the normal distribution are represented as median (interquartile range). Categorical classified variables are represented as numbers (percentage). Primary descriptive statistics of the study were reported. Incidence of malignant NMLs was calculated. Because the irregular indetermined shape, ambiguous contour and blurring margin, the size of breast NMLs was difficult to measure, and therefore it was not calculated. Odds ratio (OR) was determined for the variable analysis. Independent sample t-test was used for the analyses of continuous variables. The receiver operating characteristic (ROC) curve was drawn, the area under the ROC curve (AUC) was calculated, and Youden index was determined and taken as the cut-off value for the determination of malignancy risk stratification of the sensitivity and specificity. The positive predictive value(PPV) and negative predictive value(NPV) were calculated. All analyses were conducted using SPSS software for Windows, version 23 (IBM Corp, Armonk, NY, USA) and/or Medcalc statistical software version 15.2.2 (Medcalc software BVBA, Ostend, Belgium), and a p<0.05 was considered statistically significant.",
+      "sha256": "b51a38579cc0584be06439227b0694d7086c667abf629d393b030f2c45d8a9e0",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "tag": "p",
+        "section_title": "Statistical analysis"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+      "ordinal": 17,
+      "source_path": "/article[1]/body[1]/sec[3]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "The incidence of malignant NMLs was 4.59% (47/1024) of all pathologically confirmed breast malignant lesions. Analyses of baseline characteristics of the 59 NMLs are summarized in Table 1. Pathologies of the 59 NMLs are listed in Table 2.",
+      "sha256": "c36971b3434cf0593dcbfddabe6a8f2771b997b5d1fd9cc0f7b2c7330cfcf302",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "ordinal": 18,
+      "source_path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "kind": "table-wrap",
+      "section": "Results",
+      "text": "Table 2\nDistribution of different breast non-mass lesions.\nPathology\t\tNumber(%)\nBenign lesion\t\t\n\tBreast adenosis\t4 (33.33)\n\tMammary duct ectasia\t1 (8.33)\n\tFibrocystic breast changes\t1 (8.33)\n\tGranulomatous lobular mastitis\t3 (25.00)\n\tUsual ductal hyperplasia\t1 (8.33)\n\tUsual ductal ectasia with\t1 (8.33)\n\tapocrine metaplasia\t\n\tAberrant adipose tissues\t1 (8.33)\nTotal\t\t12(100.00)\nMalignant lesion\t\t\n\tInvasive lobular carcinoma\t4 (8.51)\n\tInvasive carcinoma of no special type\t20 (42.55)\n\tInvasive ductal carcinoma\t8 (17.02)\n\tDuctal carcinoma in situs\t13 (27.66)\n\tIntraductal solid papillary carcinoma\t2 (4.26)\nTotal\t\t47(100.00)\nNote: Unless otherwise indicated, data are numbers of NMLs and numbers in parentheses are percentages.",
+      "sha256": "a406b6cb3247234f96886b40b65e083707ca0da7e1a4cc8d82360e164aae871d",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+        "tag": "table-wrap",
+        "element_id": "pone.0278299.t002",
+        "section_title": "Results",
+        "table_label": "Table 2"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[2]",
+      "ordinal": 19,
+      "source_path": "/article[1]/body[1]/sec[3]/p[2]",
+      "kind": "p",
+      "section": "Results",
+      "text": "The distribution and malignancy rate of different classifications of BI-RADS are summarized in Table 3.",
+      "sha256": "3ce73efbb6324e9fc9f141588f3ed480d7f81b4b8548ce822065349f03a2ea6d",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[2]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[2]",
+      "ordinal": 20,
+      "source_path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+      "kind": "table-wrap",
+      "section": "Results",
+      "text": "Table 3\nDistributions of breast NMLs and malignancy rates in BI-RADS 3, 4 and 5.\nBI-RADS category\tNMLs\tMalignant NMLs and rate\tLikelihood of cancer in the BI-RADS (%)\n3\t4\t2(4.3)\t>0 but≤2\n4A\t7\t5(10.6)\t>2 but≤10\n4B\t14\t9(19.2)\t>10 but≤50\n4C\t14\t12(25.5)\t>50 but <95\n5\t20\t19(40.4)\t≥95\nTotal\t59\t59(100.0)\t\nNote: Unless otherwise indicated, data are numbers of NMLs and numbers in parentheses are percentages. NMLs: non-mass lesions.",
+      "sha256": "01ab735189e6a8825310d3875e279845a0fd74aaaf0256d9598bfdb3ed7c493d",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/table-wrap[2]",
+        "tag": "table-wrap",
+        "element_id": "pone.0278299.t003",
+        "section_title": "Results",
+        "table_label": "Table 3"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[3]",
+      "ordinal": 21,
+      "source_path": "/article[1]/body[1]/sec[3]/p[3]",
+      "kind": "p",
+      "section": "Results",
+      "text": "Of the 12 benign NMLs, one NML was classified as BI-RADS category 3, four NMLs were classified as BI-RADS 4A, five NMLs were classified as BI-RADS 4B, and two NMLs were classified as BI-RADS 4C. The malignancy rate of NMLs was not concordant with the likelihood of malignancy in the BI-RADS. The NMLs classified as BI-RADS category 3 and category 4A were higher than the corresponding likelihood of malignancy in the BI-RADS, while the category 5 was substantially lower than the corresponding likelihood of malignancy in the BI-RADS. Of the 59 breast NMLs, the main US features are summarized in Table 4 and illustrated in Figs 2–6.",
+      "sha256": "b9f11e01a86443caa7b693e4d2d0281b0e02bc367bef5f6dad66f7fbb1490d01",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[3]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+      "ordinal": 22,
+      "source_path": "/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "Image shows the breast lesion locates at outer inferior quadrant, shows irregular heterogeneous isoechoic appearance without space-occupying, with scattering fine hyperechoic foci (microcalcifications) in it, and the border and margin is ambiguous. It is pathologically confirmed a non-special invasive breast carcinoma.",
+      "sha256": "dc6cc0ab1e0b5f3614cbcc28f6e9bfa2e3cd54cc4e1879310c75f0ac64c0b59b",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/fig[2]/caption[1]/p[1]",
+      "ordinal": 23,
+      "source_path": "/article[1]/body[1]/sec[3]/fig[2]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "Image shows the breast lesion locates at outer inferior quadrant, irregular heterogeneous hypoechoic appearance without space-occupying, with scattering fine hyperechoic foci (microcalcifications) and posterior shadowing, and the border and margin is ambiguous. It is pathologically confirmed a breast ductal carcinoma in situs.",
+      "sha256": "9a7ad1bd6afa065c677c7650a8b47875c7a0a10eefcbd7ec1afa384ba60161cb",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/fig[2]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/fig[3]/caption[1]/p[1]",
+      "ordinal": 24,
+      "source_path": "/article[1]/body[1]/sec[3]/fig[3]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "Image shows the breast lesion locates at outer inferior quadrant, irregular heterogeneous hypoechoic appearance without space-occupying, with scattering fine hyperechoic foci (microcalcifications) and posterior shadowing, and the border and margin is ambiguous. It is pathologically confirmed a breast adenosis with discrete adenoma-like proliferation.",
+      "sha256": "51c2cbf817b87c8fa966440594aa84da0a9abd2347bdaf666acfec718c686290",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/fig[3]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/fig[4]/caption[1]/p[1]",
+      "ordinal": 25,
+      "source_path": "/article[1]/body[1]/sec[3]/fig[4]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "Image shows the breast lesion locates at internal superior quadrant, markedly hypoechoic regions, and the border and margin is ambiguous. It is pathologically confirmed a breast ductal carcinoma in situs.",
+      "sha256": "dfaf40ea05af878451b415b79a774b2ce56a5332f827cf05068f0da291db0c58",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/fig[4]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/fig[5]/caption[1]/p[1]",
+      "ordinal": 26,
+      "source_path": "/article[1]/body[1]/sec[3]/fig[5]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Results",
+      "text": "Image shows the breast lesion locates at internal inferior quadrant, irregular heterogeneous isoechoic appearance without space-occupying, with scattering fine hyperechoic foci (microcalcifications) in it, and the border and margin is indiscernible. It is pathologically confirmed a focal adipose tissue.",
+      "sha256": "d842e5dac68b134302cd8b1961a75236db331c172d02aee28194ef51711fb6ea",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/fig[5]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[3]",
+      "ordinal": 27,
+      "source_path": "/article[1]/body[1]/sec[3]/table-wrap[3]",
+      "kind": "table-wrap",
+      "section": "Results",
+      "text": "Table 4\nDistribution of breast NMLs with different ultrasound features.\nFeatures on ultrasound image\tMalignant NML (n = 47)\tBenign NML (n = 12)\tP value\nPunctate hyperechoic foci (microcalcifications)\t\t\t0.001\n\tYes\t32(68.1)\t2(16.7)\t\n\tNo\t15(31.9)\t10(83.3)\t\nNon-ductal hypoechoic area\t\t\t0.775\n\tYes\t26(55.3)\t7(58.3)\t\n\tNo\t21(44.7)\t5(41.7)\t\nPosterior shadowing\t\t\t0.036\n\tYes\t19(40.4)\t1 (8.3)\t\n\tNo\t28(59.6)\t11 (91.7)\t\nAbnormal ductal change\t\t\t\n\tYes\t1(2.1)\t1(8.3)\t0.868\n\tNo\t46(97.9)\t11(91.7)\t\nArchitectural distortion\t\t\t0.467\n\tYes\t2(4.3)\t0(0.0)\t\n\tNo\t45(95.7)\t12(100.0)\t\nNote: Unless otherwise indicated, data are numbers of non-mass lesions and numbers in parentheses are percentages. NMLs: non-mass lesions",
+      "sha256": "9376a4901ea59f41ba8accdd723c19346c6ac5b873b0dfa61c94fa09a2aaafae",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/table-wrap[3]",
+        "tag": "table-wrap",
+        "element_id": "pone.0278299.t004",
+        "section_title": "Results",
+        "table_label": "Table 4"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[4]",
+      "ordinal": 28,
+      "source_path": "/article[1]/body[1]/sec[3]/p[4]",
+      "kind": "p",
+      "section": "Results",
+      "text": "There were significant differences between malignant and benign NMLs for punctate hyperechoic foci and posterior shadowing (all p<0.05). If BI-RADS category 4B was taken as a cutoff value, the sensitivity, specificity, AUC, PPV, NPV, and OR were 82.98%(69.19%-92.35%), 41.67%(15.17%-72.33%), 0.62(0.49–0.75), 84.78%(71.13%-93.66%), 38.46%(13.86%-68.42%) and 3.48, respectively.",
+      "sha256": "0985dbd0a8c5531dce9672fa0718fc100773387df18301c5b6c2745fb29db92c",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[3]/p[4]",
+        "tag": "p",
+        "section_title": "Results"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+      "ordinal": 29,
+      "source_path": "/article[1]/body[1]/sec[4]/p[1]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "On MRI NML refers to an enhancing area without an associated mass in shape in the BI-RADS lexicon, whose internal enhancement characteristics can be distinguished from the normal surrounding breast parenchymal enhancement, and the enhancement is distinct [1, 2]. NML on US is different from that found on MRI, apart for some associated findings of tiny cysts, dilated duct, some calcifications, posterior shadowing, nothing of the lesion is distinct [6]. Our findings were consistent with the above summary, as shown on Figs 2–6.",
+      "sha256": "30bbd982bc02ea24fa6c1f353acc0d96e7c024fb713ce4c5a6943cd682234804",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[1]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+      "ordinal": 30,
+      "source_path": "/article[1]/body[1]/sec[4]/p[2]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "Previous studies showed that there was a high malignancy risk in breast NMLs [2, 7–10]. A study by Park et al. showed that 46.2% (330/715) of breast NMLs were malignant, and 53.8% (385/715) of breast NMLs were benign [2]. Kim et al. reported that the malignant breast NMLs were found in 16% (30/186) of 186 pathologically confirmed NMLs, the benign NMLs were in 84% (156/186), and the incidence of NMLs was 5.3% (505/9528) [7]. In a study by Park et al., the results showed that 27.3%(33/121) of NMLs were malignant, and 72.7% (88/121) of NMLs were benign [8]. Based on a large sample of screening breast US, Lee et al. founded that the likelihood of malignancy of the NMLs was 2.2% (2/93), the PPV of biopsy was 6.3%, that 95 NMLs were detected in 88 patients from a total of 17,868 screening breast US in 8,856 asymptomatic patients, and the incidence of the NML was 1% [9]. Wang et al. reported that, in their study, malignant NMLs of 53.8% (43/80) were more than benign NMLs of 46.2% (37/80) [10]. In our study, the total number of breast NMLs were not available, so the incidences of breast NMLs and overall malignant NMLs were not calculated. However, we observed the incidence of 4.59% (47/1024) of malignant NMLs from all pathologically confirmed malignant breast lesions. Considering the relatively low probability of NMLs in all breast lesions according to other studies, the incidence of malignant NMLs in all breast NMLs in our study would be far more than 4.59%, so more attention should be paid to breast NMLs.",
+      "sha256": "7f93688ce9740f143b9ed3a5b7efda4cd9f0ee6a883c3880be48657b06809ca2",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[2]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+      "ordinal": 31,
+      "source_path": "/article[1]/body[1]/sec[4]/p[3]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "Ultrasound imaging exhibited promising performance in the malignancy risk stratification of breast masses. A study by Stavros et al. showed that a sensitivity of 98.4% and a NPV of 99.5% were obtained for the assessment of 750 breast solid nodules (625 benign nodules, 125 malignant nodules) in 622 women [5]. In another study by eight experienced radiologists from two countries, they found that PPVs increased with BI-RADS category based on US BI-RADS version 1. The PPVs pre- and post-guidelines for category 3 were 6.0% and 4.4%, for category 4a were 27.3% and 30.5%, for category 4b were 49.9% and 51.5%, for category 4c were 69.0% and 67.4%, and for category 5 were 79.3% and 80.1% [11]. US BI-RADS for the malignancy risk evaluation of breast masses of BIRADS 3–5 lesions showed promising performance, with sensitivity of 92%, specificity of 85% and accuracy of 87% [4]. However, stratifying malignancy risk of breast NMLs using BI-RADS cannot get satisfactory performance. In our study, the sensitivity, specificity, and NPV were 82.98%, 41.67% and 38.46%, respectively, which were lower than the study by Wang et al. [10] that the sensitivity of 95.35%, specificity of 43.24%, and NPV of 88.89% of US for NMLs; and the PPV of 84.78% in our study was higher than the PPV of 66.13% obtained by Wang et al. [10]. The AUC of 0.62 in our study was lower than the accuracy of 71.25% by Wang et al. [10] and the AUC of 0.908–0.911 by Park et al. [3], the reason may be that the incidences of these US features are various in different study population, which affect the malignancy risk stratification in different degree. The lower specificity indicates that US has problem of higher false positive rate for malignancy risk stratification of breast NMLs.",
+      "sha256": "ca20ea265d14fa98df3f86dfba5333cb060212f85f9fa959f872e9649a590cef",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[3]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[4]",
+      "ordinal": 32,
+      "source_path": "/article[1]/body[1]/sec[4]/p[4]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "Previous study has identified the descriptors that nonparallel orientation of the breast nodule, spiculated margins, angular margins, microcalcifications, or posterior shadowing that are commonly associated with histopathologically malignant nodules [5]. However, except for the likelihood of malignancy, there is little information regarding which descriptors are most strongly associated with malignancy in nodules of BI-RADS 3 and 4 as well as to what extent a single descriptor should be considered for the final evaluation of malignancy risk; and there are no definite US features for category 4 and 5 in the BI-RADS [5, 6]. In regard to the assessment of NMLs, descriptors of spiculated and angular margins seem applicable or ambiguous for majority of the NMLs, circumscribed and well-defined margins, round and ovoid shapes are not applicable for almost all NMLs, and only the rest descriptors are applicable; these lead to a compromise for the proper BI-RADS classification. In this study, many NMLs were classified as 4A, which suggests >2% to≤10% likelihood of malignancy according to the ACR recommendation of BI-RADS [6]. Given BI-RADS 4B as the cutoff value, many NMLs with BI-RADS 4A were regarded as benign lesions. There are suggestive features for category 3 in the BI-RADS (a solid mass with a circumscribed margin, oval shape, and parallel orientation, and an isolated complicated cyst) [6], but the category may be adjusted by upgrading and downgrading, therefore, some NMLs without the typical features of BI-RADS category 3 in this study were classified as category 4A and overestimated for malignancy. On the other hand, some malignant NMLs were classified into a lower BI-RADS category and underestimated for malignancy. As a result, the PPVs were still excellent, but the NPVs were very poor (38.46%). The malignancy rates of NMLs were not concordant with the likelihood of malignancy in the BI-RADS, the malignancy rates of NMLs classified as BI-RADS category 3 (6.4% and 4.3%) and category 4A (all 10.6%) were higher than the corresponding likelihood of malignancy in the recommended BI-RADS. However, the malignancy rates of NMLs classified as BI-RADS category 4C and 5 were from 25.5% to 40.4%, which were substantial lower than the likelihood of malignancy of >50% to ≥95% in the recommended BI-RADS [6].",
+      "sha256": "586f7933d02213a2ebc99ea60070784d49e0ac433fe4f9207f0998271990adbf",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[4]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+      "ordinal": 33,
+      "source_path": "/article[1]/body[1]/sec[4]/p[5]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "Microcalcifications associate dominantly with breast cancer in breast NMLs [2, 3, 7, 8]. In our study, 68.1% (32/47) of malignant NMLs showed microcalcifications, as did 16.7% (2/12)of benign NMLs. These were different from the previous studies [3, 7, 8]. Park et al. [3] reported that 72.3% (154/213) of malignant NMLs showed calcifications, whereas 10.1% (25/247) of benign NMLs showed calcifications; Kim et al. [7] reported that calcifications appeared in 40% (12/30) of malignant NMLs, whereas in the benign NMLs there were no visible calcifications; Park et al. [8] reported that 27.3% (9/33) of malignant NMLs showed calcifications, while only 10.2% (9/88) of benign NMLs did. The reasons for various incidences of microcalcifications may be that they usually present as punctate hyperechoic foci on US images (and, while not all punctate hyperechoic foci are microcalcifications, some microcalcifications do not present hyperechoic); in addition, the confounder of different study population; the presence of inter-observer agreement; and the variant of different US systems. Mammography is superior to US for detecting microcalcifications and remains the gold standard [3, 12]. In a study, Grigoryev et al. reported that the sensitivity and specificity for detecting microcalcifications were 70% and 30% in US and 45% and 55% in mammography, respectively; and the PPV of 88% for mammography was superior to that of 78% for US [12].",
+      "sha256": "d04adbf0a98f11ec84bfed9ed42af048562083d3a862cf53fa5954f5c07934a6",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[5]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[6]",
+      "ordinal": 34,
+      "source_path": "/article[1]/body[1]/sec[4]/p[6]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "Posterior shadowing often appears following scar tissue, macrocalcifications, and clustered microcalcifications, which highly associate with breast carcinoma [2, 3, 13]. In this study, posterior shadowing appeared in 8.3% of benign NMLs (P = 0.036), while it appeared in 40.4% (19/47) of malignant NMLs. This is a higher incidence than that of 26.8% (57/156) of malignant breast NMLs reported by Park et al. [3].",
+      "sha256": "373fb0291e236b3aaa179ebf5e9edaeeb5b0ed3b15e315b90bf0d7d90ab9f4ec",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[6]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[7]",
+      "ordinal": 35,
+      "source_path": "/article[1]/body[1]/sec[4]/p[7]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "In our study, non-ductal hypoechoic area presented in 55.3% (26/47) of malignant NMLs and 41.7% (2/12) of benign NMLs, with or without microcalcifications. This was higher than in the report by Wang et al., in which 92.5% (74/80) of breast NMLs presented as a hypoechoic area and a hypoechoic area with microcalcification [10]. These results showed that non-ductal hypoechoic area is the main common feature of malignant and benign NMLs.",
+      "sha256": "d138aaa44afae7b11008d0ea68483c08997c5d2a09cf93abcca88ef78868f48f",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[7]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[8]",
+      "ordinal": 36,
+      "source_path": "/article[1]/body[1]/sec[4]/p[8]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "In this study, 4.3% (2/47) of malignant NMLs were found with architectural distortion, and all benign NMLs without. Park et al. reported that 6.6% (14/213) of malignant NMLs and 4.0%(10/247) of benign NMLs had architectural distortion on US images [3]. Wang et al. reported that in 80 breast NMLs, 5% had architectural distortion [10].",
+      "sha256": "2052ac1baa5db20e3f369958610a405fa2d2151c059a79d2a8824183af1d2c01",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[8]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[9]",
+      "ordinal": 37,
+      "source_path": "/article[1]/body[1]/sec[4]/p[9]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "A dilated ductus without a tumor in it is usually associated with benign breast diseases. In this study, abnormal ductal changes, such as a tortuous dilated ductus, were seen in 2.1% (1/47) of malignant and 8.3% (1/12) of benign NMLs. In a study by Wang et al., there were two visible ducts with solid entities in 80 NMLs (2.5%; 2/80) [10]. These suggest that abnormal ductal change is not common in malignant NMLs.",
+      "sha256": "9377634ec08e931be31cad74ec5b07e8060c56c4b45282bf4b2cccbac2099ded",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[9]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[10]",
+      "ordinal": 38,
+      "source_path": "/article[1]/body[1]/sec[4]/p[10]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "The size of breast carcinomas is an important variable for clinical management, metastasis, and prognosis, and inadequate measurement may be misleading [14]. Because taking an accurate measurement in breast NMLs is difficult, no size measurement was performed in our study.",
+      "sha256": "69c841a8d25649e30b7ca5a8bcbe2d6e03b45f3a87eda90a8740242001901c9f",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[10]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[11]",
+      "ordinal": 39,
+      "source_path": "/article[1]/body[1]/sec[4]/p[11]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "In future, ultrasound elastography and/ or contrast-enhanced ultrasound may combined with conventional US to improve assessment of breast non-mass lesions [15–17]; new descriptors may be adopted and/or incorporated with BI-RADS for the malignancy risk stratification of breast masses and NMLs, and the stratification efficacy may be improvable [18].",
+      "sha256": "02539b865ce9cc2510e75e5ace85df8673b2102dabe9e4f2fb3efb6f0d3db12a",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[11]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[12]",
+      "ordinal": 40,
+      "source_path": "/article[1]/body[1]/sec[4]/p[12]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "Collectively, it is hard to distinguish malignant from benign NMLs by non-ductal hypoechoic areas and dilated ductus on US, and punctate hyperechoic foci indicating microcalcifications and posterior shadowing are important features significantly suggestive of malignant breast NMLs. Stratifying the malignancy risk of breast NMLs using BI-RADS in a protocol analogous to that the BI-RADS for breast masse lesions cannot obtain satisfactory results except the sensitivity and PPV, and it may compromise the overall stratification efficacy. To identify and separate NMLs from breast masses and perform different assessment protocols will be a rational solution.",
+      "sha256": "b17970b89f4ac685ca749e913a1cfccb6eb8213bfa53e92570b4555d82549fa1",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[12]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[13]",
+      "ordinal": 41,
+      "source_path": "/article[1]/body[1]/sec[4]/p[13]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "The strengths of this study are that the breast NMLs were derived from a histopathologically confirmed large sample, and the incidence of breast malignant NMLs and other associated variables calculated are accurate, reliable and robust.",
+      "sha256": "f1e4409fd36549fa9602f0e9a3d415bfa908cf97ac978623acbc9940c01bd645",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[13]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[14]",
+      "ordinal": 42,
+      "source_path": "/article[1]/body[1]/sec[4]/p[14]",
+      "kind": "p",
+      "section": "Discussion",
+      "text": "There was limitation in this study. The source sample was large, but the sample for NMLs study was small, and many benign NMLs without histological results were excluded, which may cause sample selection bias.",
+      "sha256": "da336bf7676483bef11b36b7d257b440b31eae5464552b2fbd24ea8916a55210",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[4]/p[14]",
+        "tag": "p",
+        "section_title": "Discussion"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[5]/p[1]",
+      "ordinal": 43,
+      "source_path": "/article[1]/body[1]/sec[5]/p[1]",
+      "kind": "p",
+      "section": "Conclusions",
+      "text": "Breast NMLs present various US appearances, breast carcinoma is not rare in the NMLs, and the incidence of malignant NMLs was 4.59% of all breast carcinomas. Non-ductal hypoechogenicity, microcalcifications and posterior shadowing are common findings in the breast NMLs, and microcalcifications and posterior shadowing associate significantly with breast carcinoma. In stratifying the malignancy risk of breast NMLs using BI-RADS in a protocol analogous to that the BI-RADS for breast masse lesions, some benign NMLs are upgraded in category, and their likelihood of malignancy is overestimated, some malignant NMLs are underestimated in their likelihood of malignancy. If BI-RADS 4B is taken as a cutoff value, the sensitivity and PPV for the malignancy risk is promising, but the specificity and NPV are very poor. The solution may be that to identify and separate NMLs from breast masses and use different malignancy risk stratification protocols (S1 and S2 Data).",
+      "sha256": "22776f441f941a64b4609c11a41399f93b9dd1edbaa1be56b441f171607d2fdb",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[5]/p[1]",
+        "tag": "p",
+        "section_title": "Conclusions"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[1]",
+      "ordinal": 44,
+      "source_path": "/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Supporting information",
+      "text": "Table of number of subjects, histopathology, BI-RADS classifications, and locations of breast non-mass lesions of the finally enrolled patients.",
+      "sha256": "64ab3ea78357f8c130864c524c2a37a0f7d68dfef40af4c5aba140f527208786",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Supporting information"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[2]",
+      "ordinal": 45,
+      "source_path": "/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[2]",
+      "kind": "p",
+      "section": "Supporting information",
+      "text": "(XLSX)",
+      "sha256": "f02332cfc667e04fc2f86d4cfa8e90407509809cd631d9ad2735a61b8f971523",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[2]",
+        "tag": "p",
+        "section_title": "Supporting information"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[1]",
+      "ordinal": 46,
+      "source_path": "/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[1]",
+      "kind": "p",
+      "section": "Supporting information",
+      "text": "Representative sonographic images of breast non-mass lesions.",
+      "sha256": "68723a875cd08b7e169206c2e544340711aefda20d1c1838f43ca020d73c4a58",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[1]",
+        "tag": "p",
+        "section_title": "Supporting information"
+      }
+    },
+    {
+      "source_id": "breast_us",
+      "block_id": "xml:/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[2]",
+      "ordinal": 47,
+      "source_path": "/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[2]",
+      "kind": "p",
+      "section": "Supporting information",
+      "text": "(ZIP)",
+      "sha256": "614ca9fa61a4644ea3475925fedaea744215a008b738c0a35cb88c46bc039cd0",
+      "locator": {
+        "type": "xml_element",
+        "path": "/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[2]",
+        "tag": "p",
+        "section_title": "Supporting information"
+      }
+    }
+  ]
+}

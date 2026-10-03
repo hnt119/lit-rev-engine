@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "superseded_before_successful_inference",
+  "reason": "User declined paid inference on 2026-10-04; use Kaggle batch workflow",
+  "original_freeze": {
+    "file": "docs/qwen-pilot-freeze-v1.json",
+    "sha256": "a4cf8adbbc12ec7b02735bc76ec04dbcde45813ed0136d1f6d65d539b9740bdd"
+  },
+  "original_setup": "docs/qwen-live-setup-v1.json",
+  "successful_provider_replies": 0,
+  "quality_rankings": 0,
+  "changed_original_files": {
+    ".env.example": {
+      "file": "tests/fixtures/qwen_setup_v1/original/.env.example",
+      "sha256": "edf3cb0c3a2950abaa5e3056e6ab796e48292e1a787e1997e034aa0d3a671682",
+      "size_bytes": 504
+    },
+    "docs/qwen-milestone.md": {
+      "file": "tests/fixtures/qwen_setup_v1/original/docs/qwen-milestone.md",
+      "sha256": "ed09bef226dfc9e6d63e086a5918f0fa950ef0d0bb6db94ff3c470e00c69ce23",
+      "size_bytes": 4606
+    },
+    "src/review/qwen_cli.py": {
+      "file": "tests/fixtures/qwen_setup_v1/original/src/review/qwen_cli.py",
+      "sha256": "f919f5a0f36169a1e89a9b7041269eb75c9aa0bf5e57f734b6fc20b2eb956bb8",
+      "size_bytes": 3803
+    },
+    "tools/evaluate_qwen_pilot.py": {
+      "file": "tests/fixtures/qwen_setup_v1/original/tools/evaluate_qwen_pilot.py",
+      "sha256": "b3a35ad5691e7c17cf68012078e6cce1cf077ede85648700454268ca8d3dc0c2",
+      "size_bytes": 22742
+    }
+  },
+  "unchanged_original_files": "All remaining paths retain their original freeze pins in the repository."
+}

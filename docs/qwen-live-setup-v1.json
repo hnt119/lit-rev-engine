@@ -1,0 +1,26 @@
+{
+  "actual_quality_ranking_runs": 0,
+  "attempts": [
+    {
+      "diagnosis": "Unauthenticated public-schema GET: SSLCertVerificationError code20; defaultCAfile/directoryabsent",
+      "directory": "data/qwen-pilot-20261003-v1",
+      "outcome": "TLS verification failure before provider HTTP exchange"
+    },
+    {
+      "directory": "data/qwen-pilot-20261003-v1-tls",
+      "outcome": "HTTP402; no valid model response; no automatic retry",
+      "tls_configuration": "SSL_CERT_FILE existingtrustedPEMbundle; certificateverificationenabled"
+    }
+  ],
+  "ca_bundle_sha256": "7cef540c6af3bf0a3c7d0070bd3fd7aae34f8aa805b408d1c27a01c8aeb305df",
+  "code_profile_sources_gold_thresholds_changed": false,
+  "freeze": {
+    "sha256": "a4cf8adbbc12ec7b02735bc76ec04dbcde45813ed0136d1f6d65d539b9740bdd",
+    "size_bytes": 7358
+  },
+  "limits": "An unsuccessful authenticated request has no reported model usage/cost; no modelquality metrics exist.",
+  "schema_version": 1,
+  "status": "live_quality_pending_provider_billing",
+  "successful_provider_responses": 0,
+  "user_configuration_needed": "Provider inferencebilling mustbeenabled/funded before livequality can pass"
+}

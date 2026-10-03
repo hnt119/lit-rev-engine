@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "prospective_test_only_repair_before_first_gpu_ranking",
+  "created_on": "2026-10-04 Asia/Singapore",
+  "original_freeze": {
+    "file": "docs/qwen-kaggle-freeze-v1.json",
+    "sha256": "62aab065c601f24127d75f476c0d95c459cf4e0180df043f10472f0d89475e87",
+    "size_bytes": 7972
+  },
+  "active_freeze": {
+    "file": "docs/qwen-kaggle-freeze-v2.json",
+    "sha256": "04f0a961eb0f7d91626a72e93f68c5d4f8cc77f4ff0f78fbb72063219d878b62",
+    "size_bytes": 7973
+  },
+  "actual_gpu_rankings_before_repair": 0,
+  "reason": "Full release tests legitimately preloaded Torch in an earlier exploration test; replace evaluator process-global absence assertion with operation-scoped import guard. Harness default points to v2.",
+  "evidence": {
+    "initial_clean_gate": "1544 passed, 31 subtests passed, 1 evaluator test-order failure in92.34s",
+    "repaired_focused_gate": "305 passed in11.93s with installed Torch preloaded"
+  },
+  "unchanged": [
+    "quality thresholds",
+    "model profile and revisions",
+    "notebook and runner",
+    "source/gold bytes",
+    "batch export/import production implementation",
+    "lexical reference"
+  ],
+  "original_changed_files": {
+    "tests/test_qwen_kaggle_pilot.py": {
+      "snapshot": "tests/fixtures/qwen_kaggle_freeze_v1/test_qwen_kaggle_pilot.py.snapshot",
+      "original_pin": {
+        "sha256": "0adae40cb3ef2c7bbf3cd0dfa36d9e80667b706b04dff0691dd23907c6975fbf",
+        "size_bytes": 10358
+      },
+      "repaired_pin": {
+        "sha256": "75b6ec716e214381ac04ee48c3d2e6cf0ddc276b1fb9f170b6a4a09bbaa1eb3a",
+        "size_bytes": 10775
+      }
+    },
+    "tools/evaluate_qwen_kaggle.py": {
+      "snapshot": "tests/fixtures/qwen_kaggle_freeze_v1/evaluate_qwen_kaggle.py.snapshot",
+      "original_pin": {
+        "sha256": "593f726358fbe34c8f52a7194c4da6e9a9ec42d2e3be14bad34ef479fb6bdd95",
+        "size_bytes": 14808
+      },
+      "repaired_pin": {
+        "sha256": "530a2e10f50985c888b4eaabd61dd675e91174e6327fe26ad4694b2373cd1901",
+        "size_bytes": 14808
+      }
+    }
+  }
+}
