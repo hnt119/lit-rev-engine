@@ -1,0 +1,389 @@
+{
+  "created_at_utc": "2026-10-04T08:55:59.813902+00:00",
+  "exclusion_manifest_checks": [
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_retrieval/manifest.json",
+      "sha256": "dfd28050e83b3cf01fe4edd531bc8ecf79086b9a3ddabd83519a34811e8c4a9b",
+      "size_bytes": 7922
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/evidence/manifest.json",
+      "sha256": "6eccd01ebc30256e71a4529617e4d061783e55df03b9d396fdb9dd99bfedf2cd",
+      "size_bytes": 16236
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/studies/manifest.json",
+      "sha256": "f7a3402bf9ceaf607aee5c878bd250482e2e961009bbd359a53d54e539b846ec",
+      "size_bytes": 10333
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_sources/manifest.json",
+      "sha256": "3a654350be8c6f4df5f10f582c143c456a0d462f89a643ec5bfcc648427a183d",
+      "size_bytes": 12184
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/qwen_pilot_sources/manifest.json",
+      "sha256": "3fd57adb6ddac600684528bd53b2bcc7cb366747f077879582f732998b68c21a",
+      "size_bytes": 18801
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/qwen_kaggle_run_v2/manifest.json",
+      "sha256": "3f37d2ad5d48697a63731d72ca122d489900b6944c31032a26905e5e02b47135",
+      "size_bytes": 2381
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_retrieval_v2/manifest.json",
+      "sha256": "fabddc904f9e979a792c8106bcb846cc42d7fd18e93c7a273165ba3873e4ab1d",
+      "size_bytes": 13697
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_sources_v2/manifest.json",
+      "sha256": "587b067dcde48a0c62939f4aa795402811fd883837af63a2925a7b9dce942c00",
+      "size_bytes": 15518
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_retrieval_v3/manifest.json",
+      "sha256": "75e4671eba59b28a22d40798445d41f52b426c34f3e1964b9f884f707d9b7a3b",
+      "size_bytes": 37329
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_sources_v3/manifest.json",
+      "sha256": "926489c7d05f2cb3b5e6d0cdfeb899f728df63299ce54bacea6a79a286d894a2",
+      "size_bytes": 18262
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/pubmed/manifest.json",
+      "sha256": "ea19299138ed5b5e604f324a3a4ff4c81f962a74ebf0b9308bd54a499fb75bdf",
+      "size_bytes": 4643
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_sources_v3_imaging/manifest.json",
+      "sha256": "05d2a7008f0f9bb36eeaf2bdcd6b47b4074c53b53802890ce8ab2c376913bb8b",
+      "size_bytes": 8091
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/qwen_pilot_gold/manifest.json",
+      "sha256": "aad3577f3d61aa67ea0a6af8f5a6fc63ba5e6eb0bb7bcfa0675f3e9df7292d70",
+      "size_bytes": 3183
+    }
+  ],
+  "limits": {
+    "paid_inference_calls": 0,
+    "rankings_observed": 0,
+    "scope": "main_articles_only"
+  },
+  "purpose": "Prospective source-disjoint component-retrieval development originals; never ranked before truth freeze",
+  "schema_version": 1,
+  "sources": [
+    {
+      "acquisition": {
+        "acquired_at_utc": "2026-10-04T08:55:59.813902+00:00",
+        "file": "lung_ct.xml",
+        "final_redirect_query_omitted": true,
+        "http_status": 200,
+        "id": "lung_ct",
+        "permanent_download_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0266799&type=manuscript",
+        "sanitized_final_redirect_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0266799/1/pone.0266799.xml",
+        "sha256": "2810887fe0d21a13850e1c80df3053114ae29225040741663b9fbfaecefa06db",
+        "size_bytes": 183458
+      },
+      "authors": [
+        {
+          "given_names": "John T.",
+          "surname": "Murchison"
+        },
+        {
+          "given_names": "Gillian",
+          "surname": "Ritchie"
+        },
+        {
+          "given_names": "David",
+          "surname": "Senyszak"
+        },
+        {
+          "given_names": "Jeroen H.",
+          "surname": "Nijwening"
+        },
+        {
+          "given_names": "Gerben",
+          "surname": "van Veenendaal"
+        },
+        {
+          "given_names": "Joris",
+          "surname": "Wakkie"
+        },
+        {
+          "given_names": "Edwin J. R.",
+          "surname": "van Beek"
+        }
+      ],
+      "block_count": 40,
+      "canonical_blocks_sha256": "db4b45ecf91a7df65e3ceed45982fc54b1555a8d1bd9ae8e7bdd022b4707a7ea",
+      "caveats": [
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+              "canonical_fragment": "The radiologists with CAD readings showed a sensitivity of 93.5% and average FP rate of 3.0.",
+              "source_path": "/article[1]/body[1]/sec[3]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+              "canonical_fragment": "square the AIDED performance (sensitivity: 80.3% average FP rate 0.16 per scan)",
+              "source_path": "/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+              "canonical_fragment": "using aided detection from 71.9% to 90.3%",
+              "source_path": "/article[1]/body[1]/sec[4]/p[1]"
+            }
+          ],
+          "summary": "Own report has inconsistent aided-detection sensitivity wording across Results, figure caption and Discussion; no detection-sensitivity positive is constructed.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        },
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+              "canonical_fragment": "337 fully anonymized chest CT examinations from 314 subjects (173 women, 164 men)",
+              "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]"
+            }
+          ],
+          "summary": "The subject-selection paragraph labels 314 subjects but parenthetical sex counts sum to 337, matching scan count; demographic denominators are not reconciled.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        }
+      ],
+      "doi": "10.1371/journal.pone.0266799",
+      "file": "lung_ct.xml",
+      "format": "jats_xml",
+      "id": "lung_ct",
+      "journal": "PLOS ONE",
+      "license": {
+        "copyright_holder": "Murchison et al",
+        "copyright_year": "2022",
+        "literal_notice": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+        "name": "Creative Commons Attribution 4.0 International",
+        "url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "main_table_count": 1,
+      "notices": {
+        "archive_scope": "Original publisher main-article XML only; no supplements or participant data"
+      },
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "entities": "rejected",
+        "external_dtd": "ignored",
+        "normalization": "xml-whitespace-v1",
+        "python_version": "3.12.7",
+        "tables": "rows-tab-separated-v1"
+      },
+      "published_date": "2022-05-05",
+      "publisher_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266799",
+      "publisher_xml_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0266799&type=manuscript",
+      "size_bytes": 183458,
+      "source_sha256": "2810887fe0d21a13850e1c80df3053114ae29225040741663b9fbfaecefa06db",
+      "title": "Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population",
+      "version_label": "/plos-corpus-prod/10.1371/journal.pone.0266799/1/pone.0266799.xml"
+    },
+    {
+      "acquisition": {
+        "acquired_at_utc": "2026-10-04T08:55:59.813902+00:00",
+        "file": "hypertension.xml",
+        "final_redirect_query_omitted": true,
+        "http_status": 200,
+        "id": "hypertension",
+        "permanent_download_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371%2Fjournal.pmed.1002997&type=manuscript",
+        "sanitized_final_redirect_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pmed.1002997/1/pmed.1002997.xml",
+        "sha256": "5f674ce8028ba23411c3ee437f976e85d7fcb688cf13a0d5a39bf9c582ddfeba",
+        "size_bytes": 142222
+      },
+      "authors": [
+        {
+          "given_names": "Dilan Giguruwa",
+          "surname": "Gamage"
+        },
+        {
+          "given_names": "Michaela A.",
+          "surname": "Riddell"
+        },
+        {
+          "given_names": "Rohina",
+          "surname": "Joshi"
+        },
+        {
+          "given_names": "Kavumpurathu R.",
+          "surname": "Thankappan"
+        },
+        {
+          "given_names": "Clara K.",
+          "surname": "Chow"
+        },
+        {
+          "given_names": "Brian",
+          "surname": "Oldenburg"
+        },
+        {
+          "given_names": "Roger G.",
+          "surname": "Evans"
+        },
+        {
+          "given_names": "Ajay S.",
+          "surname": "Mahal"
+        },
+        {
+          "given_names": "Kartik",
+          "surname": "Kalyanram"
+        },
+        {
+          "given_names": "Kamakshi",
+          "surname": "Kartik"
+        },
+        {
+          "given_names": "Oduru",
+          "surname": "Suresh"
+        },
+        {
+          "given_names": "Nihal",
+          "surname": "Thomas"
+        },
+        {
+          "given_names": "Gomathyamma K.",
+          "surname": "Mini"
+        },
+        {
+          "given_names": "Pallab K.",
+          "surname": "Maulik"
+        },
+        {
+          "given_names": "Velandai K.",
+          "surname": "Srikanth"
+        },
+        {
+          "given_names": "Simin",
+          "surname": "Arabshahi"
+        },
+        {
+          "given_names": "Ravi P.",
+          "surname": "Varma"
+        },
+        {
+          "given_names": "Rama K.",
+          "surname": "Guggilla"
+        },
+        {
+          "given_names": "Fabrizio",
+          "surname": "D’Esposito"
+        },
+        {
+          "given_names": "Thirunavukkarasu",
+          "surname": "Sathish"
+        },
+        {
+          "given_names": "Mohammed",
+          "surname": "Alim"
+        },
+        {
+          "given_names": "Amanda G.",
+          "surname": "Thrift"
+        }
+      ],
+      "block_count": 86,
+      "canonical_blocks_sha256": "5eb9a69561b49023092857a5aaf26d2be93c2762855147ecbf75865bf6623040",
+      "caveats": [
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+              "canonical_fragment": "637 from 5 intervention clusters and 1,097 from 10 UC clusters were recruited",
+              "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+              "canonical_fragment": "resulting in 1,736 recruited.",
+              "source_path": "/article[1]/body[1]/sec[3]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+              "canonical_fragment": "Mean age was 56.9 years (SD 13.7).",
+              "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/p[3]",
+              "canonical_fragment": "The mean age of participants was 56.8 years",
+              "source_path": "/article[1]/body[1]/sec[3]/p[3]"
+            }
+          ],
+          "summary": "Own abstract and body/complete-case tables describe different recruited or analysed sample counts and mean-age values; positive questions preserve outcome-specific complete-case denominators.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        },
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+              "canonical_fragment": "Control of hypertension\t459\t1,011",
+              "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+              "canonical_fragment": "Prescribed antihypertensive medication\t459\t1,012",
+              "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+              "canonical_fragment": "A person who did not have blood pressure measured at follow-up had details of medications",
+              "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]"
+            }
+          ],
+          "summary": "Complete-case BP-control and medication rows use different usual-care denominators; Table 2 footnote explains this distinction.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        }
+      ],
+      "doi": "10.1371/journal.pmed.1002997",
+      "file": "hypertension.xml",
+      "format": "jats_xml",
+      "id": "hypertension",
+      "journal": "PLOS Medicine",
+      "license": {
+        "copyright_holder": "Gamage et al",
+        "copyright_year": "2020",
+        "literal_notice": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+        "name": "Creative Commons Attribution 4.0 International",
+        "url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "main_table_count": 5,
+      "notices": {
+        "archive_scope": "Original publisher main-article XML only; no supplements or participant data"
+      },
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "entities": "rejected",
+        "external_dtd": "ignored",
+        "normalization": "xml-whitespace-v1",
+        "python_version": "3.12.7",
+        "tables": "rows-tab-separated-v1"
+      },
+      "published_date": "2020-01-02",
+      "publisher_article_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002997",
+      "publisher_xml_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371%2Fjournal.pmed.1002997&type=manuscript",
+      "size_bytes": 142222,
+      "source_sha256": "5f674ce8028ba23411c3ee437f976e85d7fcb688cf13a0d5a39bf9c582ddfeba",
+      "title": "Effectiveness of a scalable group-based education and monitoring program, delivered by health workers, to improve control of hypertension in rural India: A cluster randomised controlled trial",
+      "version_label": "/plos-corpus-prod/10.1371/journal.pmed.1002997/1/pmed.1002997.xml"
+    }
+  ],
+  "split": "development",
+  "ticket": "KR4B"
+}

@@ -7,6 +7,7 @@ This guide describes the current code. The [Qwen workflow](qwen-cloud.md) adds o
 | Entry point | Purpose | Persistent state | Inference |
 | --- | --- | --- | --- |
 | `review.py` | Systematic/scoping project, search/import provenance, screening, study links, source/evidence history, counts and exports | SQLite ledger, including retained source and capture bytes | Offline lexical retrieval; `qwen-export`/`qwen-import` prepare and validate external Kaggle GPU jobs; historical paid transport requires explicit opt-in |
+| `review_components.py` | Experimental component-aware source jobs and result import; delegates existing commands | Same SQLite ledger plus separate immutable job/result/receipt artifacts | Free finite Kaggle batch; local export/import/replay |
 | `main.py` | Search arXiv, download and index PDF passages | Downloaded PDFs/chunks and a Chroma index | Local Sentence Transformers embeddings |
 | `query.py` | Explore passages in that Chroma index | Reads the index | Local embeddings; no generation key |
 | `ask.py` | Ask the optional passage assistant | Reads the index; outputs answer/source passages | Local embeddings plus configured Agnes chat API |
@@ -53,6 +54,9 @@ Citation identity uses conservative DOI/PMID matching and a limited exact fallba
 | `src/review/retrieval.py` | Current project/source/scope checks, BM25/overlap scoring and exact-anchor traces |
 | `src/review/qwen_batch.py`, `qwen_cli.py` | Offline immutable source jobs, local result validation/replay and CLI delegation to the frozen ledger commands |
 | `tools/qwen_kaggle_runner.py`, `notebooks/qwen_kaggle.ipynb` | Standalone free GPU batch worker: pinned weights, sequential embedding/reranking, token and runtime receipts |
+| `src/review_components/` | Separate component profile, shared standalone allocation/selection math, read-only ledger adapter and new CLI |
+| `tools/qwen_components_kaggle_runner.py`, `tools/qwen_kaggle_environment.py`, `notebooks/qwen_components_kaggle.ipynb` | New worker and isolated package installer; hash-bound executable bundle and dependency/CUDA preflight |
+| `tools/evaluate_qwen_components.py`, `tests/fixtures/qwen_components_*` | Separate prospective development/confirmation sources, truth, matched comparators and grading |
 | `src/review/qwen.py`, `cloud_retrieval.py` | Historical native paid transport and saved-response replay; no default paid invocation |
 | `src/review/exporters.py` | Reconciled counts and current/audit exports from one snapshot |
 | `src/search/pubmed_search.py` | Explicit search capture, membership verification and offline capture import |
@@ -72,6 +76,8 @@ The passage pipeline's downloaded PDFs, chunks and Chroma files live under `data
 
 Qwen batch retrieval exports a hashed project/source/scope snapshot and questions while keeping the ledger local. The Kaggle notebook downloads immutable Hugging Face model revisions, records full token lengths without truncation and loads one FP16 model at a time. Local import reconstructs dense/lexical fusion and ranks, validates every returned identity/value and rechecks current state before publishing an immutable receipt. Changed source/eligibility/linkage/profile invalidates the job. Saved results replay offline with trusted original hashes. GPU runtime metadata documents execution; it is not remote attestation. Ledger export does not include these external artifacts. Historical DeepInfra aliases and setup failures remain documented separately.
 
+The [component profile](qwen-components-contract-v1.md) accepts a whole question and zero, two or three reviewer-declared parts. It reserves each part's first two hybrid candidates, fills one shared pool of twenty, then selects each part's highest-scoring block before filling five display places by whole-question score. Shared passages occupy one place and retain every selection reason. The uploaded standalone core and local importer use identical pinned bytes. Report grouping adds no passages or inferred study relationships. Whole-query Qwen, whole-query lexical and component lexical traces remain separate comparisons; a selection reason is not proof of semantic support. The [workflow guide](qwen-components-guide.md) describes the separate commands and package isolation.
+
 Project retrieval reads a consistent SQLite snapshot. Its trace includes query, scope, method/version/parameters, selected source manifests and exact half-open Unicode anchors. Context used to rank a passage remains separately anchored and cannot replace that passage's own evidence quotation. The existing methods and frozen results remain versioned.
 
 CSV exports escape spreadsheet formula prefixes; JSON retains exact input text. Separate output files are replaced individually, so an export directory is not an atomic transaction. Read the [starter guide](getting-started.md) for a deterministic unchanged-ledger export example.
@@ -84,6 +90,6 @@ Cloud inference should be optional and keep these same source/scope/history boun
 
 ## Validation and next milestone
 
-The accepted engine release passed 1,240 tests and 31 subtests, with seven source/gold checkers. For local regression, install `requirements-dev.txt` and run `python -m pytest -q`. The ledger starter guide itself needs only Python 3.12 and uses invented records. Model-card specifications are research evidence; no recommended cloud model has yet been benchmarked by this repository.
+The accepted foundation release passed 1,240 tests and 31 subtests, with seven source/gold checkers; the historical Qwen software release passed 1,545 tests and 31 subtests. The component software checkout passed 1,771 tests and 31 subtests. For local regression, install `requirements-dev.txt` and run `python -m pytest -q`. The ledger starter guide itself needs only Python 3.12 and uses invented records. The [first measured free-GPU Qwen run](qwen-kaggle-run-v2.md) completed but failed its fixed quality gate. The [component evaluation](qwen-components-evaluation.md) records source/software acceptance; the [separate run record](qwen-components-runs-v1.md) tracks actual cloud progress and current limitations.
 
 The next milestone uses a real review team's question, search strategy, eligibility rules and extraction form. Preserve independent original decisions, reconcile disagreements and report missing support. Build only the workflow fixes that pilot demonstrates. The [roadmap](review-roadmap.md) separates Implementation, Retrieval and Evaluation acceptance.

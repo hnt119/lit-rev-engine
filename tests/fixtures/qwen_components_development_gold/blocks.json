@@ -1,0 +1,2030 @@
+{
+  "blocks": [
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "kind": "article-title",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+        "tag": "article-title",
+        "type": "xml_element"
+      },
+      "ordinal": 1,
+      "section": "",
+      "sha256": "7f16762f2470a85c9f253cc396e5ab61636680c0aa95cdcffc5106c8ddf4ab26",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "text": "Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population"
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+        "section_title": "Objective",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 2,
+      "section": "Objective",
+      "sha256": "14f65ab1c17ad2e2c451b9ff298439dfae6d6f7e18e60fe8a86ebb86988fa83a",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "text": "In this study, we evaluated a commercially available computer assisted diagnosis system (CAD). The deep learning algorithm of the CAD was trained with a lung cancer screening cohort and developed for detection, classification, quantification, and growth of actionable pulmonary nodules on chest CT scans. Here, we evaluated the CAD in a retrospective cohort of a routine clinical population."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "section_title": "Materials and methods",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 3,
+      "section": "Materials and methods",
+      "sha256": "a9cd42423f64f962d51d9a0e98fc5df0a97a76a27fc87fc15d165a007758167f",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "text": "In total, a number of 337 scans of 314 different subjects with reported nodules of 3–30 mm in size were included into the evaluation. Two independent thoracic radiologists alternately reviewed scans with or without CAD assistance to detect, classify, segment, and register pulmonary nodules. A third, more experienced, radiologist served as an adjudicator. In addition, the cohort was analyzed by the CAD alone. The study cohort was divided into five different groups: 1) 178 CT studies without reported pulmonary nodules, 2) 95 studies with 1–10 pulmonary nodules, 23 studies from the same patients with 3) baseline and 4) follow-up studies, and 5) 18 CT studies with subsolid nodules. A reference standard for nodules was based on majority consensus with the third thoracic radiologist as required. Sensitivity, false positive (FP) rate and Dice inter-reader coefficient were calculated."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 4,
+      "section": "Results",
+      "sha256": "7ce86a62990b954b10cecf3cd791ece8f0222a9ba258c0106b3485fe2c9b6c5b",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "text": "After analysis of 470 pulmonary nodules, the sensitivity readings for radiologists without CAD and radiologist with CAD, were 71.9% (95% CI: 66.0%, 77.0%) and 80.3% (95% CI: 75.2%, 85.0%) (p < 0.01), with average FP rate of 0.11 and 0.16 per CT scan, respectively. Accuracy and kappa of CAD for classifying solid vs sub-solid nodules was 94.2% and 0.77, respectively. Average inter-reader Dice coefficient for nodule segmentation was 0.83 (95% CI: 0.39, 0.96) and 0.86 (95% CI: 0.51, 0.95) for CAD versus readers. Mean growth percentage discrepancy of readers and CAD alone was 1.30 (95% CI: 1.02, 2.21) and 1.35 (95% CI: 1.01, 4.99), respectively."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+        "section_title": "Conclusion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 5,
+      "section": "Conclusion",
+      "sha256": "2de7da7e8a9384143eff80f9f40891633976a763292183a1d54104d3cc62cdd4",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "text": "The applied CAD significantly increased radiologist’s detection of actionable nodules yet also minimally increasing the false positive rate. The CAD can automatically classify and quantify nodules and calculate nodule growth rate in a cohort of a routine clinical population. Results suggest this Deep Learning software has the potential to assist chest radiologists in the tasks of pulmonary nodule detection and management within their routine clinical practice."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[1]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 6,
+      "section": "Introduction",
+      "sha256": "4190fe1f580071fd025c0794c9f39c7f3816d63996c11928161e0fc6e172b292",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[1]/p[1]",
+      "text": "Lung nodule detection and management is one of the most frequent challenges in chest computed tomography (CT), not just in the context of lung cancer screening, but also in the staging of other malignancies in routine clinical practice. Lung cancer remains the third most prevalent cancer worldwide, is both rising in incidence [1], and maintains high mortality rates with around 1.8 million global deaths annually. Several recent studies demonstrated the benefits of lung cancer screening on early detection and improved outcomes [2–4]. The advent of lung cancer screening results in the need to detect smaller nodules, and therefore, the importance of fast and accurate detection is even more pronounced [5]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[2]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 7,
+      "section": "Introduction",
+      "sha256": "e792781b1ce8b84376fac588f03e706cf90b9fcdc721016c8f5fe5bb4022d0ea",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[1]/p[2]",
+      "text": "Lung cancer is ideally diagnosed by histopathological confirmation. However, the diagnostic process usually begins with chest CT where pulmonary nodules are identified incidentally. Pulmonary nodules are very common and mostly benign, however they should be considered as early stage cancers. The biggest challenges for pulmonary nodule detection on CT are acceptable sensitivity levels and reading times. Many failures in lung cancer diagnoses are due to detection errors rather than interpretation [6, 7]. Several studies showed that the performance of (sub-specialist) radiologists for detecting pulmonary nodules is suboptimal with reported sensitivities around 80% [8, 9]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[3]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 8,
+      "section": "Introduction",
+      "sha256": "1d7f3ff69f15edc1ff8c1d575f2faf5f5ff983bea5ffc552c638cbccec040ec8",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[1]/p[3]",
+      "text": "Pulmonary nodule guidelines recommend different cut-off levels for nodule size and/or volume and volume doubling time as metrics to assess nodule size and growth [10–15]. There is increasing consensus that semi-automated volume assessment gives the most robust assessment for lung nodule growth during follow up [5, 14, 15]. Another important parameter to consider is pulmonary nodule composition (solid vs sub-solid), as sub-solid nodules are more likely to be malignant [16]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[4]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 9,
+      "section": "Introduction",
+      "sha256": "2323f3452bf8920b04d46ab38280cac05b432c6e0eb158e7761e05976531d948",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[1]/p[4]",
+      "text": "The above-mentioned challenges lead to many hospitals currently unable to assess nodules in a timely and accurate manner. Software aided detection and classification of lung nodules should improve the radiologist’s diagnostic arsenal and throughput time and additionally could facilitate the roll-out of CT lung cancer screening [17]. Therefore, there has been an increasing focus on developing deep learning based computer assisted detection systems to facilitate more rapid reporting [18–28]. A few of these systems have reached availability for use in clinical practice. The study described here was performed to validate one such system, which was originally trained on a lung cancer screening cohort, in a retrospective clinical population cohort of Scottish patients undergoing routine chest CT investigations."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "section_title": "Subject selection",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 10,
+      "section": "Subject selection",
+      "sha256": "e74ba9d468a0b15e9dab51296b30773ca4bbd97cdafa54763983135e30dbd4ea",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "text": "CT studies from a routine clinical population, in a single academic hospital, between January 2008 and December 2009 (9 years before start of this retrospective study), were searched for the following inclusion criteria: age 50–74 years, current smokers, a smoking history and/or radiological evidence of pulmonary emphysema. CT studies excluded from the analysis had slice thickness >3mm, or the presence of diffuse pulmonary disease in the radiology report, and/or the CT images, with widespread abnormalities such as interstitial lung disease."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+        "section_title": "Subject selection",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 11,
+      "section": "Subject selection",
+      "sha256": "3e3ad24b231df625465e64b111871af522f93fffffcd62f4c1dcb636ebfb156f",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "text": "In total, 337 fully anonymized chest CT examinations from 314 subjects (173 women, 164 men) with reported nodule size of ≥3mm and ≤30mm were included and transferred onto a stand-alone server. A waiver of informed consent was obtained from the South East Scotland Research Ethics Service."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[3]",
+        "section_title": "Subject selection",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 12,
+      "section": "Subject selection",
+      "sha256": "9e05da44d1c3861a33b7355ae55a574fea44fec3d336ca64cf03ab64eaa2d424",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[3]",
+      "text": "From these CT scans, five groups were created. Group 1: 178 CT scans, initially reported as being free from pulmonary nodules. Group 2: 95 CT scans, reported to have between 1 and 10 pulmonary nodules. Group 3: 23 CT scans from patients undergoing follow-up of a pulmonary nodule. Group 4, consisted of the 23 follow-up scans of group 3. Finally, group 5 consisted of 18 scans to enrich the study group with part-solid and/or ground-glass nodule(s)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "section_title": "CT protocol",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 13,
+      "section": "CT protocol",
+      "sha256": "59c6df7126f5560aae0f2c7f908591429a19db470939e22f317b73c523bf85dd",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "text": "A Toshiba Aquilion was used for most (330) studies; intravenous contrast was used in 22 CT scans. The mean tube peak potential energies used was 120 kVp, (range: 120–140 kVp), the average tube current was 243 mAs (range: 80–491 mAs) and the average CTDIvol was 14.0 mGy (range: 2.9–29.7). Data was reconstructed at a mean slice thickness of 1.0 mm (range 1.0–2.5mm). All CT scans were reconstructed using filtered back-projection, as these studies predated the routine application of novel reconstruction methods, such as iterative reconstruction. Other CT scanners used were: Toshiba Aquilion-CX: 2 scans, Toshiba Aquilion ONE: 1 scan, GE Medical Systems LightSpeed 16: 2 scans, GE Medical Systems LightSpeed: 2 scans."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "section_title": "Nodule definition",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 14,
+      "section": "Nodule definition",
+      "sha256": "380652df9ec23f026434dd2338d50a316a0c70a7a8cc074e852c6125f5bedddd",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "text": "The Fleischner Society’s definition for pulmonary nodules was broadly used during this study [12]. The size range was 3–30 mm with “actionable nodules” regarded as having a largest axial diameter between ≥5mm (or a volume of ≥80mm3) and ≤30mm as recommended by the British Thoracic Society guidelines [10]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "section_title": "CAD software",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 15,
+      "section": "CAD software",
+      "sha256": "d254bfaf4a474701f83ce9d16a37337017e69861a6d527c7390b3596f88919b7",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "text": "Veye Chest version 2.0 (now known as Veye Lung Nodules, developed by Aidence B.V., Amsterdam, the Netherlands), which is CE marked and certified as a Class IIb medical device, was evaluated in this study, see (S1 Fig). The software is primarily based on Deep Learning technology, which was trained on 45k+ chest CT-scans (slice thickness ≤3mm without contrast fluid) and 40k+ annotations by radiologists. The software runs automatically and comprises of CADe and CADx functionality and growth rate calculation. The software has a detection threshold based on nodule likelihood values (range 0.0 to 1.0). For this study the threshold was set to 0.1 which means that the threshold is set to ahigh sensitivity and consequently a relatively high false positive rate."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+        "section_title": "Image annotation",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 16,
+      "section": "Image annotation",
+      "sha256": "8159596473338e1dde3765f413082446e0dfb2089384d6e57da84e6dcaa076c9",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "text": "A panel consisting of three thoracic radiologists (≥ 9 years’ experience; JTM, GR and EJRvB, expert readers 1, 2 and 3, respectively) received training on the annotation tasks and annotation tool with written instructions available throughout. The study was performed at the University of Edinburgh between February–May 2018."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+        "section_title": "Image annotation",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 17,
+      "section": "Image annotation",
+      "sha256": "392d4b1d62643367ea04c53c17c6a3c8270c2fc102d9038ba5d1b53aaea4796d",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+      "text": "Two datasets were created from the 337 CT scans: one set with CAD results and one set without CAD results. Reader 1 reviewed all the CT scans, but half of the CT scans with the CAD results (CAD aided) and the other half without CAD results (CAD unaided). For reader 2 this was vice versa. Hence, each CT scan was reviewed twice, once by one reader with the CAD results (CAD aided) and once by the other reader without the use of CAD (CAD unaided). Readers had to identify all lesions they considered to be a pulmonary nodule without clear benign morphological characteristics (calcification, typical perifissural lymph node). Any nodules requiring follow-up according to lung cancer screening criteria were classified as “actionable nodules” [10]. The Reader would mark an actionable pulmonary nodule manually on unaided scans or classify a CAD prompt on an aided scan as either true positive (TP) or false positive (FP). Any actionable nodules identified on aided scans, which had not been detected by CAD were also recorded. Readers registered all actionable nodules present on CT scans from groups 3 and 4. Finally, the readers classified all FP CAD prompts into four different groups: micro-nodules (largest axial diameter <3mm), masses (largest axial diameter >30mm), benign nodules (benign calcification pattern or clear benign perifissural appearance) and non-nodules (1088 non-nodules in total. More specific: atelectasis: 283; scar tissue: 229; fibrosis: 157; vessels: 126; non-lung: 81; other: 81; pleural: 80; fissure: 25; pleural plaque: 14; consolidations: 12 pleural plaque)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[3]",
+        "section_title": "Image annotation",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 18,
+      "section": "Image annotation",
+      "sha256": "86983fcd51cc3a98dcb899912a0a0ff48d4c5e570af7035d236d5357279b41c7",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[3]",
+      "text": "After completing all the readings on the workstations the readers reviewed their own previously identified nodules on a tablet (iPad Pro). The reader was asked to determine the composition (solid or sub-solid) and segment each nodule on every slice. The results from readers 1 and 2 were evaluated for the presence of any discrepancies. Discrepancies were defined as a difference between the results in terms of: location (3D Dice coefficient of 0); composition; segmentation (3D Dice coefficient < -1 standard deviation of the mean) and nodule registration. The Dice coefficient is a spatial overlap index and a reproducibility validation metric with a range of 0.0 (no overlap) to 1.0 (perfect overlap) [29]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[4]",
+        "section_title": "Image annotation",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 19,
+      "section": "Image annotation",
+      "sha256": "c6699993b6f7864a5f3eb5224305a56a57ede662e2aa7570b19c54552663e282",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[4]",
+      "text": "Reader 3 subsequently adjudicated all discrepancies without the results of CAD using the same materials used in the blinded phase. Reader 3 created an independent reading for each nodule that had a discrepancy for at least one characteristic."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "section_title": "Reference standard",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 20,
+      "section": "Reference standard",
+      "sha256": "fd32d7b48a85504d7c8be4e6a8aecbd723eb1af7615e8c78dee779b2c4348a8c",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "text": "The reference standard for actionable nodules consisted of lesions from groups 1 and 2 which were marked as a pulmonary nodule by the majority of the panel and met the size criteria of having a largest axial diameter between ≥5mm (or a volume of ≥80mm3) and ≤30mm. The majority consisted of consensus between reader 1 and 2 or, in the case of no consensus, the adjudication of reader 3. The location of an actionable nodule was defined by averaging the center of mass of all reader’s segmentations. Subsequently, the radius and volume were derived from these segmentations. The reference standard for composition was determined by majority consensus of lesions from groups 1–3 and 5. Finally, growth rate was determined as the relative volume difference between nodules visible on a study from group 3 and on its follow-up study from group 4."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+        "section_title": "Data analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 21,
+      "section": "Data analysis",
+      "sha256": "4764b45394aed3328cbdf9db22f3a7f93582c0a16f2ae5abe59818106d0c11c3",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+      "text": "Findings from a reader or from CAD were scored as either TP, if the center of the detection was within the volume of actionable nodules in the reference standard, or otherwise as FP. Findings from a reader or CAD in the center of the detection that was within the volume of a micro-nodule or a mass or a nodule detected by only a single reader were neither scored TP or FP. The absence of a prompt from CAD in the center of an actionable nodule in the reference standard was considered FN. Sensitivity for detecting actionable nodules and the average number of FP detections per CT scan for AIDED readings, UNAIDED readings and CAD alone was calculated using the reference standard for actionable nodules."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+        "section_title": "Data analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 22,
+      "section": "Data analysis",
+      "sha256": "1e4b50c7b62ec44e5d75f5475bd64f2805da87a69021ae0b5da8166d89098eb1",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+      "text": "The sensitivity, specificity, positive predictive value and negative predictive value, accuracy and kappa score for determining the composition (solid or sub-solid) by CAD alone was calculated using the reference standard for composition."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[7]/p[3]",
+        "section_title": "Data analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 23,
+      "section": "Data analysis",
+      "sha256": "fca88557cca2672f51c87ac365b32f52229215b0a0f096ed4bfcfaebf18ec29a",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[3]",
+      "text": "The segmentation accuracy of readers was calculated as the Dice coefficient between each reader’s segmentation and averaged (inter-reader dice coefficient). The segmentation accuracy of CAD alone was calculated as the Dice coefficient between each CAD segmentation and each individual reader segmentation and averaged. In addition, the inter-reader mean diametric and volumetric discrepancy was calculated using the largest axial diameter and volume from each segmentation of each reader’s segmentation and compared to those from the other readers, this was also calculated for CAD alone compared to the other readers."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[7]/p[4]",
+        "section_title": "Data analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 24,
+      "section": "Data analysis",
+      "sha256": "0f7fe99203ae217e4ab43a6df41e07377ba442684fa44c652d4fe7aaad30d7ce",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[4]",
+      "text": "For sequential scans (groups 3 and 4), nodule registration from CAD was scored as either TP, if the detected registration was included in the nodule registration reference standard, or otherwise as FP. The mean discrepancy between growth percentages determined by readers and CAD alone was calculated."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+        "section_title": "Statistical analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 25,
+      "section": "Statistical analysis",
+      "sha256": "ac8991d18e59e5adc8e27d6a35a4585553d30a6c72ec31a592e1e747227ca0c0",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+      "text": "One-tailed Welch’s t-test was used to accept the hypothesis that the mean sensitivity of AIDED is higher than the mean sensitivity of the UNAIDED readings (p <0.05), with the use of bootstrapping over scans with 2000 iterations. One-tailed Welch’s t-test was used to accept the hypothesis that the mean CAD Dice score is higher than the mean inter-reader Dice score (p < 0.05)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 26,
+      "section": "Results",
+      "sha256": "a8518f9ef91463fee84a55e37a1edf505201028dce91c5bc2344b8c55dc2e041",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[3]/p[1]",
+      "text": "Groups 1 and 2 consisted of 273 CT scans with 269 actionable nodules see Table 1. Remarkably, nodules were identified in group 1, highlighting the importance of concurrent reading. The radiologists with CAD readings showed a sensitivity of 93.5% and average FP rate of 3.0. The sensitivity for detecting actionable nodules of radiologists without CAD on scans from groups 1 and 2 was: 71.9% (95% CI: 66.0%, 77.0%) and 80.3% (95% CI: 75.2%, 85.0%) (p < 0.01), respectively. The average FP rate of radiologists alone and radiologists with CAD readers was: 0.11 and 0.16, respectively. The maximum obtainable sensitivity of CAD alone was 95.9% at an average FP rate of 10.9. The sensitivity of CAD alone was equivalent to radiologists without and radiologists with CAD readings at an average FP rate of 0.62 and 0.88, respectively (Fig 1). Details regarding the number of CT scans and nodules per group are described in Table 1."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 27,
+      "section": "Results",
+      "sha256": "b8b7880440ed4126f36e58fb3f0911e8bd232f72ed289d1069ac4d3360e3d919",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+      "text": "This curve shows the standalone performance of CAD for detecting actionable nodules based on scans from groups 1 and 2. The vertical axis represent the sensitivity and the horizontal axis the average number of false positives per scan. The dashed lines show the upper and lower boundary of 95% confidence interval, bootstrapping of scans with 2000 samples. The circle represents the UNAIDED performance (sensitivity: 71.9% average FP rate 0.11 per scan) and square the AIDED performance (sensitivity: 80.3% average FP rate 0.16 per scan) for detecting actionable nodules."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pone.0266799.t001",
+        "path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+        "section_title": "Results",
+        "table_label": "Table 1",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 28,
+      "section": "Results",
+      "sha256": "2955e5611ec64d424b4c5089aa456f336035f932846ff2790a2c2e96819c3f41",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "text": "Table 1\nDistribution of study subjects and nodule size by group.\nGroup\tNumber of subjects\tNumber of CT scans\tNumber of nodules with largest axial diameter ≥3 and <5mm\tNumber of nodules with largest axial diameter or mean volume ≥5mm / ≥80mm3 and <30mm\n1\t178\t178\t19\t71\n2\t95\t95\t34\t198\n3\t23\t23\t0\t68\n4\t23\t6\t36\n5\t18\t18\t2\t36\nTOTAL\t314\t337\t61\t409"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[2]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 29,
+      "section": "Results",
+      "sha256": "96ad15c63f6884a600451ae789e447efb7deb76d9c32452976eda9435d25749d",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[3]/p[2]",
+      "text": "The composition of nodules within groups 1, 2, 3, and 5 totaled 325 solid nodules and 57 sub-solid nodules. The sensitivity, specificity, positive predictive value and negative predictive value of CAD for determining the composition of solid nodules in groups 1, 2, 3, and 5 was 98.8%, 68.4%, 90.7% and 94.7%, and was 68.4%, 98.8%, 94.7% and 90.7% for sub-solid nodules, respectively. The accuracy and kappa of CAD for determining the composition (solid or sub-solid) of a pulmonary nodule was 94.2% and 0.77."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[3]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 30,
+      "section": "Results",
+      "sha256": "641bbf50e0bf227dde9ef61976645d30a3f867d233cffdbc53a99c271589261e",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[3]/p[3]",
+      "text": "The CAD software successfully segmented 95% of pulmonary nodules from groups 1–3 and 5. The average inter-reader Dice coefficient was 0.83 (95% CI: 0.39, 0.96) versus 0.86 (95% CI: 0.51, 0.95) for CAD alone (p<0.01). The mean largest axial diameter of all nodules was 7.68 ± 3.50 mm (range: 3.42–28.45 mm) and the mean volume was 198 ± 333 mm3 (range: 21–2797 mm3. The inter-reader geometric mean diameter discrepancy was 1.15 (95% CI: 1.00, 1.58) versus 1.17 (95% CI: 1.01, 1.69) for CAD alone. The inter-reader geometric mean volumetric discrepancy was 1.39 (95% CI: 1.01, 3.19) versus 1.38 (95% CI: 1.01, 3.38) for CAD alone."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[4]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 31,
+      "section": "Results",
+      "sha256": "67516b1ec4a2b3730bbaac9ea02614d910d8b8d9f17de7335bcd81a7dea879f8",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[3]/p[4]",
+      "text": "The total number of nodules in group 3 and 4 was 68 and 42, respectively. The total number of nodule-pairs in groups 3 and 4 was 23 and all nodules were successfully identified by CAD. The mean growth percentage discrepancy of readers and CAD alone was 1.30 (95% CI: 1.02, 2.21) and 1.35 (95% CI: 1.01, 4.99), respectively, which was not statistically significant."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[1]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 32,
+      "section": "Discussion",
+      "sha256": "faa0febede8fcbce234b5f19a7a3c6e1806abd20c5ae4815d27131863d9d11ef",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[4]/p[1]",
+      "text": "The study described here shows improved sensitivity of experienced thoracic radiologists using aided detection from 71.9% to 90.3% with a minor increase in FP rate. The maximum stand-alone CAD sensitivity was 95.9% at an average FP rate of 10.9, which would be unworkable in clinical practice. A more acceptable average FP rate would be between 1 and 2 with corresponding sensitivity range (82.3% - 89.0%), outperforming thoracic radiologists with and without using CAD. The standalone performance of the CAD, when set to the threshold of 0.1 applied in this study, correlates to an average sensitivity of 95% and an average number of 7 false positives per study based on this dataset."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[2]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 33,
+      "section": "Discussion",
+      "sha256": "14b74a5cca1074759cd959971e01c171ae50d17997d1d0732ce9a2488b8a1468",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[4]/p[2]",
+      "text": "Computer assisted detection and diagnosis software, including convolutional neural networks and machine learning approaches have shown promising results in aiding radiologists to identify incidental pulmonary nodules. A study using the LIDC database as a comparison tested 108 CT scans and demonstrated high sensitivity and specificity [18, 20]. However, there are also conflicting results. A more recent study [21] demonstrated moderately high sensitivity of 84% and a corresponding positive predictive value of 67% when tested in 100 patients with 106 biopsied lung nodules at a slice thickness of 3 mm. Another commercial system was clearly suboptimal when tested on 50 pure ground glass and 50 part solid nodules [22]. The most comprehensive deep learning system to date used 11,625 chest CT scans for model training and validation and subsequently used 1,129 chest CT studies for testing of the model with a sensitivity between 74%-86% at FP rates of 1–8, respectively [23]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[3]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 34,
+      "section": "Discussion",
+      "sha256": "0e4a70ec83663f1cd33a316a4f29a59dd93d48a46456c753f282a561f98f81fc",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[4]/p[3]",
+      "text": "This is the first study using this CAD software to look at a routine cohort of smokers who underwent chest CT for non-screening purposes. The software tested here was initially validated on a lung cancer screening population [2, 17] and the results of our study are of similar sensitivity and accuracy to that initial cohor, (87% at 1 FP/scan) [2] confirming broader use is feasible."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[4]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 35,
+      "section": "Discussion",
+      "sha256": "650631c6ab95c0ad52c373e179be34eb58c22cffd4d096c7dee0aa518fb1221a",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[4]/p[4]",
+      "text": "In this study, AIDED readings outperformed UNAIDED readings, yielding a sensitivity of 93.5% at an average FP rate of 3.0. However, 36 CAD detected nodules confirmed by the majority of the panel were scored as FP by one reader. A possible explanation could be that due to the high number the readers develop a tendency to call CAD prompts FP. Another explanation could be a structural difference in pulmonary nodule definition between the readers. Even allowing for this, the number of TP nodules detected by CAD was higher than without CAD."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[5]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 36,
+      "section": "Discussion",
+      "sha256": "c12752904923ce8daa6eee1b3104b5d8e70d00e9356e68f5990b926182da0f7b",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[4]/p[5]",
+      "text": "For determining the composition (solid or sub-solid) of a pulmonary nodule, the CAD software yielded a high accuracy of 94.2% and a kappa score of 0.77. The segmentation accuracy of CAD was similar to that of thoracic radiologists, CAD dice 0.86 and inter-reader dice 0.83 (p <0.01)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[6]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[6]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 37,
+      "section": "Discussion",
+      "sha256": "c4d6c55d798950d1af1864bec96043863175e42c071eb71c3d162f20478db541",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[4]/p[6]",
+      "text": "In addition, the CAD software yielded a perfect score for a limited number of nodule pairs and analyzing its volumes; sensitivity 100.0% without FP pairs, but further validation will be required. The mean growth percentage discrepancy of readers was 1.30 compared to 1.35 for CAD alone. However, due to a single incorrect segmentation of the CAD software, the upper end of its confidence interval (95% CI,1.01–4.99) is twice as high compared to that of readers (95% CI,1.02–2.21), illustrating that visual verification is still required. Nevertheless, this compares favorably with results from a software comparison sub-study of the NELSON study in 50 subjects [25]. Similarly, a study of 134 participants in the NLST also demonstrated a decrease in variability of detection and volumetry with the use of software [26]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[7]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[7]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 38,
+      "section": "Discussion",
+      "sha256": "ef720d26eaf68c231d789ff5be70f57d8752e36b3454794bada8b39dc979c8e2",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[4]/p[7]",
+      "text": "This study has several limitations. First, the data was obtained from a single site and the vast majority of CT scans were acquired by a single CT scanner vendor. A recent study demonstrated decreased diagnostic performance of machine learning-based radiomics models in 26 patients with subsolid adenocarcinoma nodules when iterative reconstruction was applied [27]. Therefore, care must be taken to validate any software tool on actual datasets. Although differences between scanner manufacturers and CT imaging protocols may alter the interpretation of lung parenchymal features, it is unlikely to significantly affect the presence or absence of actionable pulmonary nodules. Indeed, all vendors have taken part in various CT lung screening trials and have shown similar results. Second, the readings were performed under artificial conditions and therefore the performance of the CAD software and the radiologists may be different in a real-world setting. This is considered of potential importance, as artificial conditions and use in selected datasets tend to lead to excellent results of lung CT CAD systems [28, 29]. Further prospective clinical validation is therefore required, and this also highlights the need for seamless workflow integration of this software for it to become standard practice. Lastly, the sensitivity of the readers without and with CAD versus CAD alone was calculated using the reference standard established by the same readers and CAD. The only addition to this was the third reader, who effectively assured consensus on the final classification and morphologic features of lung nodules. One could consider performing the same test in multiple readers, but this would be time consuming and unlikely lead to significantly different results. Recently, the software described here was independently evaluated in a large teaching hospital [30]. This study found a sensitivity of 88% and the mean FP rate was 1.04 FPs per scan."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[8]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[8]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 39,
+      "section": "Discussion",
+      "sha256": "4a4ab0b7e629e0fa003a9de7e558662941d373e2a218562dbb421601d58309f4",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[4]/p[8]",
+      "text": "In conclusion, the use of the CAD significantly increased radiologist’s detection of actionable nodules yet also increasing the false positive rate. The Deep Learning model for nodule detection was trained on data from a lung cancer screening cohort. In addition, this study appears to show that it is also effective in a general, “real life” clinical setting where it improves the sensitivity of detection of actionable nodules by thoracic radiologists. This CAD system is able to automatically classify, quantify, and calculate the growth rate of pulmonary nodules. These results suggest that Deep Learning software has the potential to assist radiologists in the tasks of pulmonary nodule detection and management on routine chest CT."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 40,
+      "section": "Supporting information",
+      "sha256": "7800d82eeae13ceff5aa4831f0f573d4b679b65bb6d4ee4fcd3c4bb8d76c5b57",
+      "source_id": "lung_ct",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+      "text": "(TIF)"
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "kind": "article-title",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+        "tag": "article-title",
+        "type": "xml_element"
+      },
+      "ordinal": 1,
+      "section": "",
+      "sha256": "258f74d242bda470f487ce8ba53e80fded31b797fad990deae410fdcd9b10909",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "text": "Effectiveness of a scalable group-based education and monitoring program, delivered by health workers, to improve control of hypertension in rural India: A cluster randomised controlled trial"
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+        "section_title": "Background",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 2,
+      "section": "Background",
+      "sha256": "9de92bc81d0cc46ba2143664907a73191679239cadc10510c800778eaefa2766",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "text": "New methods are required to manage hypertension in resource-poor settings. We hypothesised that a community health worker (CHW)–led group-based education and monitoring intervention would improve control of blood pressure (BP)."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "section_title": "Methods and findings",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 3,
+      "section": "Methods and findings",
+      "sha256": "2d2e5846ebcc49d598314fa9fc49bf2c2430e73890432fcdb75ebd50d39c1ef9",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "text": "We conducted a baseline community-based survey followed by a cluster randomised controlled trial of people with hypertension in 3 rural regions of South India, each at differing stages of epidemiological transition. Participants with hypertension, defined as BP ≥ 140/90 mm Hg or taking antihypertensive medication, were advised to visit a doctor. In each region, villages were randomly assigned to intervention or usual care (UC) in a 1:2 ratio. In intervention clusters, trained CHWs delivered a group-based intervention to people with hypertension. The program, conducted fortnightly for 3 months, included monitoring of BP, education about hypertension, and support for healthy lifestyle change. Outcomes were assessed approximately 2 months after completion of the intervention. The primary outcome was control of BP (BP < 140/90 mm Hg), analysed using mixed effects regression, clustered by village within region and adjusted for baseline control of hypertension (using intention-to-treat principles). Of 2,382 potentially eligible people, 637 from 5 intervention clusters and 1,097 from 10 UC clusters were recruited between November 2015 and April 2016, with follow-up occurring in 459 in the intervention group and 1,012 in UC. Mean age was 56.9 years (SD 13.7). Baseline BP was similar between groups. Control of BP improved from baseline to follow-up more in the intervention group (from 227 [49.5%] to 320 [69.7%] individuals) than in the UC group (from 528 [52.2%] to 624 [61.7%] individuals) (odds ratio [OR] 1.6, 95% CI 1.2–2.1; P = 0.001). In secondary outcome analyses, there was a greater decline in systolic BP in the intervention than UC group (−5.0 mm Hg, 95% CI −7.1 to −3.0; P < 0.001) and a greater decline in diastolic BP (−2.1 mm Hg, 95% CI −3.6 to −0.6; P < 0.006), but no detectable difference in the use of BP-lowering medications between groups (OR 1.2, 95% CI 0.8–1.9; P = 0.34). Similar results were found when using imputation analyses that included those lost to follow-up. Limitations include a relatively short follow-up period and use of outcome assessors who were not blinded to the group allocation."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+        "section_title": "Conclusions",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 4,
+      "section": "Conclusions",
+      "sha256": "10b2ed18b5123f83145d604199a67a8213c62a1e8451619f6c3ad07f5f4d8cb1",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "text": "While the durability of the effect is uncertain, this trial provides evidence that a low-cost program using CHWs to deliver an education and monitoring intervention is effective in controlling BP and is potentially scalable in resource-poor settings globally."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+        "section_title": "Trial registration",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 5,
+      "section": "Trial registration",
+      "sha256": "40ae3456b3437a7ee6428320055112f33e951e1df70a9de49dd2acdec24ec04c",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "text": "The trial was registered with the Clinical Trials Registry-India (CTRI/2016/02/006678)."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[2]/p[1]",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 6,
+      "section": "",
+      "sha256": "f8230d52a0c63155fe9bbed4e50dfd60838c23d59f76baf052e8e7e9b0694a36",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[2]/p[1]",
+      "text": "Amanda Thrift and colleagues reveal the benefits of education around hypertension and improved lifestyle guidance for patients in rural India with high blood pressure."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[1]/p[1]",
+        "section_title": "Why was the study done?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 7,
+      "section": "Why was the study done?",
+      "sha256": "526a8f360b100188da4df57bb8692e1b4023637010b637a0eb53274667b58676",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[1]/p[1]",
+      "text": "Many regions of the world have inadequate or inaccessible health resources and health professionals to diagnose, monitor, or manage hypertension."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[2]/p[1]",
+        "section_title": "Why was the study done?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 8,
+      "section": "Why was the study done?",
+      "sha256": "3ee4f58ea204153392a85266e4eabe7fefc8faefbc25eeb30ec6e030e5df01e8",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[2]/p[1]",
+      "text": "This gap could potentially be addressed by using non-physician community health workers (CHWs), who reside in the community and are available in sufficient numbers."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[1]/p[1]",
+        "section_title": "What did the researchers do and find?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 9,
+      "section": "What did the researchers do and find?",
+      "sha256": "26cffb494d18067aec285899adbd05c20302421d07b1e009fd59b5c79cb8ae05",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[1]/p[1]",
+      "text": "In a cluster randomised controlled trial in 3 very diverse regions in rural India, 637 participants with hypertension from 5 clusters were recruited and randomised to the intervention, and 1,097 with hypertension from 10 clusters were recruited and randomised to usual care."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+        "section_title": "What did the researchers do and find?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 10,
+      "section": "What did the researchers do and find?",
+      "sha256": "6e13dc6718b2e3f936be512be4e8de794fdf903b604c0e98fc3fdd8a41fc6d90",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+      "text": "Every 2 weeks, CHWs educated people in the intervention clusters about hypertension and measured their blood pressure."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+        "section_title": "What did the researchers do and find?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 11,
+      "section": "What did the researchers do and find?",
+      "sha256": "4b50db82e6cdd4dbe49750b1bd73ff983cb9942adae23b0afe06d4618e9fcb61",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+      "text": "Blood pressure declined an average of 5.0/2.1 mm Hg more in the intervention group than the usual care group, and control of blood pressure improved."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[1]/p[1]",
+        "section_title": "What do these findings mean?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 12,
+      "section": "What do these findings mean?",
+      "sha256": "2dafa71295f0a7c6c0dd18044d21ae820707df508c47f6d4c61d6003cdb4f7f1",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[1]/p[1]",
+      "text": "Our approach overcomes limitations in access to healthcare by utilising a CHW workforce that not only is local, but requires very little training."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+        "section_title": "What do these findings mean?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 13,
+      "section": "What do these findings mean?",
+      "sha256": "4f06ad6170c1ae25c4ec43e9300520c667d097212c1e226efc259faa57a025ae",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+      "text": "This low-cost group-based education and monitoring intervention is a potentially scalable approach that could be implemented across other diverse settings in rural India, and globally."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[3]/p[1]",
+        "section_title": "What do these findings mean?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 14,
+      "section": "What do these findings mean?",
+      "sha256": "c0cf14be0f3c5e2c345fbb18dc1ff59d16525c21f2f4ece888349c420d339783",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[3]/p[1]",
+      "text": "Use of this approach may help reduce the emergence of cardiovascular diseases in low-resource settings."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[1]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 15,
+      "section": "Introduction",
+      "sha256": "bb2f2fed6fc5d7efb660fd858fdaf2d7e1afd63536b98e45e6f400540af1e1d8",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[1]/p[1]",
+      "text": "Hypertension is the largest contributor to the global burden of disease, and has a prevalence that has almost doubled over the last 25 years, from 442 million in 1990 to 874 million in 2015 [1]. This growth has occurred most rapidly in low- and middle-income countries (LMICs) [1], which now account for the majority of those with hypertension (66%) [2]. India, with rapidly rising prevalence of hypertension also occurring in rural regions [3], is now well on its way to becoming the global “hypertension capital” [4]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[2]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 16,
+      "section": "Introduction",
+      "sha256": "c60cb3f4e8f50d3f7ed39723755afc3e82db2b7def57fc7c139960e104c22f3d",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[1]/p[2]",
+      "text": "Controlling hypertension is paramount for reducing risks of adverse outcomes, but there are significant barriers to its control, particularly in rural regions [5]. For example, awareness of having hypertension is significantly less among those with hypertension in rural (mean 25%) than urban (mean 42%) India [5], and differs markedly across rural regions [5]. In addition, patients often do not receive evidence-based care for hypertension, with a recent review providing evidence that only 25% of people with hypertension in rural India were receiving treatment, and only 11% had their blood pressure (BP) controlled [5]. Such inadequate care is partly due to a shortage of doctors (below 1:20,000 in some regions) [6] and doctor absenteeism in public health centres [7]. Other barriers include the cost of treatment and the lack of availability of medications [8,9]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[3]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 17,
+      "section": "Introduction",
+      "sha256": "111a73b171e787c6cc69532065df450e7cd9efe386861d230ca219bd95b3f04a",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[1]/p[3]",
+      "text": "Sharing tasks between community health workers (CHWs) and doctors is a promising and potentially scalable approach for delivering care for hypertension in hard-to-reach settings [10], as it improves access to healthcare and reduces costs associated with treatment [11]. Only 7 studies have incorporated this approach to managing hypertension in LMICs [12–18], and in another study, it was unclear whether the staff sharing the tasks were nurses or CHWs [19]. Furthermore, only 4 of the studies included a randomised comparator [12,13,17,18]. While there were reductions in BP and improved control of hypertension, the interventions cited in these studies were all resource-intensive individualised approaches. None incorporated a group-based approach, which has been shown to reduce costs in other diseases [20], thereby enhancing scalability."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[4]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 18,
+      "section": "Introduction",
+      "sha256": "363747c5f256d8a511e6f841156eae8595f69a1a30c96737ebee4fe17609ba6f",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[1]/p[4]",
+      "text": "We aimed to determine whether a CHW-led group-based education and monitoring program for the management of hypertension is effective, both individually and by region, in rural India. We used a cluster design to facilitate our group-based approach."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "section_title": "Study design",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 19,
+      "section": "Study design",
+      "sha256": "28bbe5c40fe3979ec70dd2816331ccbaf74d9a64c22d6fe545de59791dfb98e4",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "text": "The study was conducted in 2 stages. Initially, a baseline community-based survey was conducted to identify people with hypertension. This was followed by an open-label cluster randomised controlled trial (cRCT) of an intervention program to manage hypertension, as outlined in our published study protocol [21]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "section_title": "Study setting",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 20,
+      "section": "Study setting",
+      "sha256": "5b0aa5d6f53329bf95af1fc5bffaf5218e9d9807a736b1d37eee9f3971722b6b",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "text": "The study was conducted in 3 rural regions of South India with differing economic and epidemiological profiles. The Trivandrum region in Kerala has a relatively high life expectancy of 76.4 years [22] and more than 90% literacy [23]. In the Rishi Valley region, located in Chittoor District near the southwestern border of Andhra Pradesh, the population largely comprises subsistence farmers. Approximately half the population in this region has no formal schooling [24]. The Western Godavari study region is economically intermediate between these 2 other regions [23]. In 2011, approximately 75% of the population in West Godavari were literate [23]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[2]",
+        "section_title": "Study setting",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 21,
+      "section": "Study setting",
+      "sha256": "bcf4e9bbce4b37527a67fa511e6e6a22a265a7310b081b1951c8637216882e49",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[2]",
+      "text": "Ethics approval was obtained from Sree Chitra Tirunal Institute for Medical Sciences and Technology (Trivandrum, India; SCT/IEC-484/July-2013), the Centre for Chronic Disease Control (CCDC-IEC-09-2012), Christian Medical College (Vellore, India), the Health Ministry Screening Committee of the Government of India (58/4/1F/CHR/2013/NCD II), and Monash University (CF13/2516–2013001327)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "section_title": "Participants",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 22,
+      "section": "Participants",
+      "sha256": "d8724c36034b8aa21e255cc8a3fbbf5cede86386dd659c954ebe60a2c1bb002e",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "text": "In each region, primary sampling units (PSUs) were wards, villages, or hamlets, the last being clusters of approximately 10 to 200 houses geographically separated within a larger village (collectively referred to as “villages” hereafter) (Fig 1). Members of the investigator team of each region randomly selected the PSUs. To randomly identify potential participants, polling lists were used in Trivandrum, whereas a list of residents compiled following a census we conducted was used in West Godavari (see [21] for more details)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/fig[1]/caption[1]/p[1]",
+        "section_title": "Participants",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 23,
+      "section": "Participants",
+      "sha256": "c0be198913cc41fc0107b4254a93ae571a8d0204dd06391b1ac14bcc11128c1d",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/fig[1]/caption[1]/p[1]",
+      "text": "‘Not meeting inclusion criteria’ refers to those not categorised as hypertensive when re-assessed for eligibility. BP, blood pressure; PHC, primary health centre; RCT, randomised controlled trial."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "section_title": "Participants",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 24,
+      "section": "Participants",
+      "sha256": "cfb8c6a8fc035a2f862b0e402b73b078688bb198670a45222fe0168ba5b591b8",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "text": "Age and sex stratification was used to obtain approximately equal numbers of males and females in the age categories 18–24, 25–34, 35–44, 45–54, 55–64, and 65+ years in each PSU. In Trivandrum, 10 wards were surveyed, with approximately 375 participants in each (3,757 total). In West Godavari, 10 villages were surveyed, with approximately 450 participants in each (4,500 total). In the Rishi Valley, 139 hamlets, located within 7 villages, were randomly selected (6,243 participants). Thus, 14,500 participants were surveyed from a total of 27 clusters in 3 regions of India. Individual informed consent was obtained, via a signature or thumb print, following full explanation of the study to potential participants prior to enrolment in the baseline survey and again prior to randomisation into the cRCT."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "section_title": "Participant baseline assessments",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 25,
+      "section": "Participant baseline assessments",
+      "sha256": "d4ee1a551cced8a48b857799742e1884c97cb6dab4c2be7bb7554c5c748e5268",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "text": "Prior to commencing the study, we engaged with local village leaders in each region. Then, a team of trained research assistants conducted a baseline community-based survey between September 2013 and December 2015. We measured BP and anthropometry and conducted interviews to elicit details on use of medications, demographics, lifestyle behaviours, and access to healthcare. Arterial BP was measured after the participant had been seated quietly for at least 15 minutes. Three measurements were taken at 3-minute intervals using the appropriate cuff size and a calibrated digital automatic BP monitor (OMRON HEM-907, OMRON Healthcare, Kyoto, Japan) according to the WHO STEPS protocol, modified only by using the right arm for all measurements [25]. Measurement continued until 2 consecutive readings differed by <10 mm Hg systolic and <6 mm Hg diastolic, with a maximum of 5 measurements. The mean of the last 2 consecutive measurements was considered the baseline BP level for each participant."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+        "section_title": "Participant baseline assessments",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 26,
+      "section": "Participant baseline assessments",
+      "sha256": "b51ac59f1fb20360a90ef70d3d36b3ef647ce234fcf13bded269dd249c4f84e4",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+      "text": "We measured height to the nearest 0.1 cm using a portable stadiometer (213, Seca, Hamburg, Germany) and weight to the nearest 0.1 kg using a portable digital weighing scale (9000SV3R, Salter, Kent, UK). Waist and hip circumference were measured using a spring-loaded tension tape (Gulick M-22C, Patterson Medical, Illinois, US) in a private setting. In accordance with the WHO STEPS protocol [25], waist circumference was measured at the midpoint between the lowest rib and upper point of the iliac crest and at the end of normal expiration, while hip circumference was measured at the maximum protrusion of the buttocks."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+        "section_title": "Participant baseline assessments",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 27,
+      "section": "Participant baseline assessments",
+      "sha256": "3eee6d76c2858758430e9381fccdaa616618d06e60c9cc53eacdaa8ea02f00d5",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[3]",
+      "text": "At the time of the baseline survey, all participants with systolic BP (SBP) ≥ 140 mm Hg and/or diastolic BP (DBP) ≥ 90 mm Hg were informed they may have hypertension and were advised to visit a doctor to have their BP re-checked."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+        "section_title": "Randomisation and eligibility",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 28,
+      "section": "Randomisation and eligibility",
+      "sha256": "d710491209be8c7eb58850840457e8ecaebb8b31fd574751fa75c6bb604d09d7",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "text": "Participants re-assessed for eligibility to be recruited to the cRCT were those identified as potentially hypertensive in the baseline community-based survey. Because of limited resources, we did not recruit or follow-up participants in all PSUs. Instead the lead investigator (AGT), located off site, used a computer-generated random sequence to randomly allocate 20% of PSUs to the intervention and 40% to usual care (UC) in each region (Fig 1). Eligibility of all potential participants within these PSUs was determined prior to enrolment [21], using the following definition for hypertension: (1) self-report of an existing diagnosis of hypertension; (2) use of antihypertensive medications; (3) SBP ≥ 140 mm Hg and/or DBP ≥ 90 mm Hg in the baseline community-based survey, with a subsequent diagnosis of hypertension by their primary healthcare provider; or (4) SBP ≥ 140 mm Hg and/or DBP ≥ 90 mm Hg both in the baseline survey and at another measurement prior to recruitment to the cRCT. All people with verified hypertension, i.e., satisfying any of the above criteria, were invited to participate by the study field staff, and comprised the intention-to-treat group."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "section_title": "CHWs and training",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 29,
+      "section": "CHWs and training",
+      "sha256": "b1a56d9bc13d54ed6ebf3bde898047b676e7fe6d76f1eb0940afa0085319280b",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "text": "The intervention program was conducted by accredited social health activists (ASHAs), who are CHWs who reside in most villages in rural India. We employed 14 ASHAs who were already working in this role in the region [26]. In 1 village that had no ASHA, we specifically employed someone for this role."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+        "section_title": "CHWs and training",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 30,
+      "section": "CHWs and training",
+      "sha256": "90aa8100382a899340dfc692b2e412c6dbe2b5336f5aaf108407e8ad3f3b4a2d",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[2]",
+      "text": "Prior to commencement of the intervention, CHWs were trained to deliver the community-based program over a 5-day course [21,26]. They were remunerated for their time in accordance with government salary scales (for specific details of this remuneration please refer to [21]). This included time for training and for delivering the intervention. No further training was provided during the 3-month intervention period. However, study supervisors, who were specifically employed for the study, reviewed the content and activities with CHWs after each intervention session."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+        "section_title": "Patient and public involvement",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 31,
+      "section": "Patient and public involvement",
+      "sha256": "a0f35aed5b4ffab7ea1d0a05d78681995413f3c635e0ab663e6143fa027da543",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+      "text": "Participants and the public were involved in the shaping of the intervention program in a number of ways. First, the results of focus group discussion and preliminary analyses of the baseline survey drove content for the educational materials. These interactions highlighted poor knowledge of hypertension and poor access to health services. CHWs who were involved in the pilot training and local clinicians in the Rishi Valley (K. Kar. and K. Kal.) also provided feedback on this content, enabling refinement of the educational resources. In addition, in October 2014 a stakeholder meeting was held in which experts from the Ministry of Health and the Indian Council of Medical Research and an independent researcher provided input as to how this approach could fit within the Indian health system."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+        "section_title": "Intervention",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 32,
+      "section": "Intervention",
+      "sha256": "c0aecbbc28d6dbf78862afae4046e88f889c4a460ceaed8021cc5fd310b02860",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+      "text": "The intervention consisted of 6 fortnightly sessions of ~90 minutes, held within the villages (clusters) in which the participants resided, and delivered over 3 months. Each participant in an intervention cluster was allocated to 1 of 32 groups in which the intervention was delivered: 6 in the Rishi Valley, 14 in West Godavari, and 12 in Trivandrum. CHWs encouraged group members to attend all 6 sessions. At the start of each fortnightly session, CHWs measured BP and weighed all participants to assist with self-management. During each session, they delivered education about hypertension and how to manage it, in the local language [21,26]. This included details about adhering to medications and the importance of making lifestyle changes, such as increasing physical activity and following a healthier diet. Pictorial flipcharts were used as education aids, and handouts were provided to participants to use at home. Full details of the education provided, including all session flipcharts and handouts, are available online (doi: 10.4225/03/5967f9a94970d [English version]). Those whose BP was controlled were provided the same education as those whose BP was not controlled, with positive feedback provided when BP levels were maintained below 140/90 mm Hg."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[9]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[9]/p[1]",
+        "section_title": "Usual care",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 33,
+      "section": "Usual care",
+      "sha256": "dcc982556d7c65372443e8a79720fab4e7465dd44caaac0628f2979edb2a490e",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[9]/p[1]",
+      "text": "The UC group was not informed of the intervention program. They were contacted once between the baseline survey and the final follow-up to determine their eligibility, i.e., their hypertensive status was confirmed, as for the intervention group."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[10]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[10]/p[1]",
+        "section_title": "Blinding",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 34,
+      "section": "Blinding",
+      "sha256": "279991f9ad8d799b42d24a051beb97b1dc105002686667333945650df97bd5d7",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[10]/p[1]",
+      "text": "As this was a behavioural intervention, neither the workers delivering the program nor the participants in the intervention group could be blinded to the intervention. Participants in the UC group were unaware of the intervention. The outcome assessors were the same trained research assistants who conducted the baseline survey. They were also not blinded to treatment group, as they monitored the CHWs during delivery of the intervention."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+        "section_title": "Outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 35,
+      "section": "Outcomes",
+      "sha256": "be1c69994ff51119a42685e44921e2d4a94399966b5dfe4b65713d961e6b4c35",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+      "text": "Participant outcomes were collected at a follow-up visit occurring approximately 2 months after the final session of the group-based education and monitoring program. The primary outcome was a change from baseline in the proportion of people with controlled hypertension (BP < 140/90 mm Hg), as outlined in our clinical trial registration. Secondary BP outcomes, as listed in our published protocol [21], included change in SBP and DBP from baseline, measured in an identical way to the baseline survey in accordance with the WHO STEPS protocol [25]. Other outcomes comprised changes in use of antihypertensive medications, body mass index (BMI), waist–hip ratio (WHR), and lifestyle behaviours (physical activity, fruit and salt intake, tobacco smoking, and alcohol consumption)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[12]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[12]/p[1]",
+        "section_title": "Sample size",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 36,
+      "section": "Sample size",
+      "sha256": "6572eeafdd4b9e1ea07d22b466029e63a10a9ffce5ea10cfed7fb666d11165e0",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[12]/p[1]",
+      "text": "Our original sample size was based on a mean SBP among people with hypertension of 147 mm Hg (SD 22) and a 6–mm Hg reduction with the intervention, slightly less than that seen in an earlier trial of hypertension in a developed country [27]. We further estimated 100 participants per cluster (30 clusters) and presumed an intraclass correlation coefficient (ICC) of 0.047, giving a design effect of 5.653 [28]. At a significance level of 5% and a power of 80%, and adjusting for clustering (i.e., adjusting for the design effect), we estimated requiring 1,097 people with hypertension per study arm. However, as we had insufficient resources to include all of the clusters in the subsequently designed cRCT, our eventual sample size was projected to be less than this, leading us to initially propose this as a feasibility study. Towards the end of the baseline survey, a preliminary analysis of mean baseline SBP in 15 clusters revealed that the ICC among those with SBP ≥ 140 mm Hg was 0.01, with 37% having controlled hypertension. Estimating an average cluster size of 120 yielded a design effect of 2.19 (1 + [119 × 0.01] = 2.19). Using a 1:2 ratio for the intervention versus UC and a power of 80% to detect a difference in the proportion with controlled BP of 37% in UC versus 50% in the intervention group resulted in an initial required sample size of 170 in the intervention group and 339 in UC. Multiplying by the design effect (i.e., 2.19), to ensure adequate power for a cRCT, resulted in a requirement of 372 in the intervention group and 742 in UC. From the baseline survey, we estimated that we would have approximately 600 in the intervention group and 1,200 in UC. This sample size would give us 94% power to detect the same level of effect (i.e., difference in the proportion with controlled BP of 37% in UC versus 50% in the intervention group), hence providing the rationale to analyse this as a stand-alone cRCT. Sample size was determined for the whole sample and not for subgroups, i.e., site or sex."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[13]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[13]/p[1]",
+        "section_title": "Data management and analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 37,
+      "section": "Data management and analysis",
+      "sha256": "4dca3b0e1dc6c0927445d42a1da3c61947076b12535787e4e2b6f6143d9219d8",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[13]/p[1]",
+      "text": "Data from questionnaires were captured into an electronic database using TeleForm version 10.5 (Cardiff Software, CA, US). The data were cleaned by identifying outliers. Potential errors in these outliers were checked with the original forms and by seeking clarification from the research sites. Errors identified in this way were then corrected."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[13]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[13]/p[2]",
+        "section_title": "Data management and analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 38,
+      "section": "Data management and analysis",
+      "sha256": "53dbafbc07adfc55f8a4b2fc8e5cf1cf440e02bbd0fac323f1675d37020e875c",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[13]/p[2]",
+      "text": "In the analysis we followed intention-to-treat principles (Stata IC/11.2, StataCorp, College Station, TX, US). ANOVA was used to determine whether baseline characteristics (continuous variables) differed significantly between treatment groups, and between regions, and whether the differences between the treatment groups varied according to region. Tukey’s test was applied to determine which regions differed. Student’s unpaired t test was used to detect whether differences existed between the treatment groups in each of the 3 regions, so a Bonferroni correction was applied to protect against increased risk of type I error. Differences in categorical variables between regions and treatment groups were analysed using chi-squared tests with Bonferroni correction to account for multiple comparisons between and within regions. Two-tailed P ≤ 0.05 was considered statistically significant."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[13]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[13]/p[3]",
+        "section_title": "Data management and analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 39,
+      "section": "Data management and analysis",
+      "sha256": "7a7073e112b2b1b95b3972aa8f96e2468227791b59cc3f474a48b63dc99539ab",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[13]/p[3]",
+      "text": "The primary outcome comprised mixed effects logistic regression analyses, clustered by village within region and adjusted for baseline control of BP, conducted to determine the odds for control of BP for the intervention versus UC group. We used similar analyses to determine the odds of prescription of antihypertensive medication (a secondary analysis). Separate analyses were conducted for women and men."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[13]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[13]/p[4]",
+        "section_title": "Data management and analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 40,
+      "section": "Data management and analysis",
+      "sha256": "2fe9297cdcbcdef7b7a66ac0473bb19da96f2d163c781ab222daf3ef93b065f3",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[13]/p[4]",
+      "text": "In sensitivity analyses that included all eligible participants, the outcome data from individuals who dropped out of the study were imputed using multiple imputation by chained equations as some variables were binary and others continuous. Twenty imputed datasets were created for each relevant outcome variable. Details of the proportion of missing observations imputed for each variable and the variables used in each imputation model are provided in the footnotes to tables and figures."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[13]/p[5]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[13]/p[5]",
+        "section_title": "Data management and analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 41,
+      "section": "Data management and analysis",
+      "sha256": "0a62a52f9bf0750b0ee49f6470d2d66f6958aba088e90dc6ce9d6539e945ce63",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[13]/p[5]",
+      "text": "For imputed outcomes, differences in categorical variables between groups were initially assessed using a 2-sample test of proportions, while linear regression was used to determine differences in continuous variables. Further, sensitivity analyses using the same methods were conducted in those whose BP was uncontrolled at baseline, but without baseline adjustment."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[13]/p[6]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[13]/p[6]",
+        "section_title": "Data management and analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 42,
+      "section": "Data management and analysis",
+      "sha256": "e10b4633bf1a9a257bfafec28ce9ccfe4bd5714856c917aa5da43fe7963285f6",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[13]/p[6]",
+      "text": "Mixed effects linear regression analyses, adjusted for baseline control of BP and clustered by village within region, were used to determine the effectiveness of the intervention in reducing SBP and DBP (secondary analyses). Separate analyses were conducted for women and men."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[13]/p[7]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[13]/p[7]",
+        "section_title": "Data management and analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 43,
+      "section": "Data management and analysis",
+      "sha256": "0a04ac4590675f02a53e17edd30db34c8eb4efa44ff1b20dc4c6f2fed9cbef0f",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[13]/p[7]",
+      "text": "The trial was registered with the Clinical Trials Registry–India (CTRI; CTRI/2016/02/006678). We applied for registration on 28 September 2015, approximately 2 months before the first patient was enrolled. As delays in having a trial approved are very common in India, it is usual practice to commence recruiting patients before the final registration number is received. We obtained official approval from the CTRI on 25 February 2016 (CTRI/2016/006678), notably with no changes to the protocol from our original application."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 44,
+      "section": "Results",
+      "sha256": "da828f86ac2fd1310546bb609efeaaab42888eb8292c2e34a8a23f0fcfc07f3d",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/p[1]",
+      "text": "In total, 2,382 residents were identified as potentially eligible to participate in this cRCT. Since the baseline survey, 46 had died and 140 had migrated, leaving 2,196 potentially eligible (Fig 1). Among these, 273 did not meet the inclusion criteria for verified diagnosis of hypertension, while in 187 the eligibility status could not be ascertained (149 refused to participate and 38 either were unavailable or their status was unknown), resulting in 1,736 recruited. In the villages randomly allocated to the intervention, the 3-month group-based education and monitoring program commenced first in West Godavari (November 2015) and last in Trivandrum (April 2016). Final follow-up of 1,471 participants occurred between January and September 2016, with 200 (11.5%) refusing or unavailable for the final outcome assessment. In sensitivity analyses, outcome variables were imputed for these participants. Two participants died, and so were not included in the outcome analyses."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[2]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 45,
+      "section": "Results",
+      "sha256": "fec1e73d14ce7cb6ed1435c1d6ee8d8ae9cc79b02d00994fc3d26ed391c26c00",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/p[2]",
+      "text": "Participants from the Rishi Valley region had poorer educational attainment, literacy, and other markers of socioeconomic position than the other 2 regions (Fig 2; S1 Table). Educational attainment was greatest in Trivandrum, with 62.0% of participants completing at least class 7 (Fig 2). This compares with 23.3% in West Godavari and 17.0% in the Rishi Valley (both P for difference from Trivandrum < 0.001; Fig 2). Participants in the Rishi Valley also self-reported greater difficulty in accessing healthcare than the other 2 sites (P < 0.001)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 46,
+      "section": "Results",
+      "sha256": "09048ac341a64b80b549c160bc36a5a4ad7813d5d1ffe0eea50fb2b978a573ed",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/fig[1]/caption[1]/p[1]",
+      "text": "n = 1,711 (18 missing observations for the Rishi Valley and 5 missing for West Godavari, with none imputed). *P < 0.01, with Bonferroni correction for specific contrasts between each of the 3 regions."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[3]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 47,
+      "section": "Results",
+      "sha256": "77ef84352ed3bdcd94aed808ebcf00b4a70fcbbd0d33b97ecb1ba3824e155aa0",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/p[3]",
+      "text": "The mean age of participants was 56.8 years, and 58.2% were female (Table 1). Overall, baseline characteristics of participants were balanced between the intervention and UC groups, except that participants in the intervention group reported eating more servings of fruit per week. Importantly, control of BP, and mean SBP and DBP, were similar between groups overall (Table 1; Fig 3) and within regions (S2 Table) but differed between regions (S1 Fig; S2 Table). Baseline mean SBP was approximately 9 mm Hg greater in participants in the Rishi Valley than in the other 2 regions (P < 0.001), while baseline mean DBP differed between all 3 regions (P < 0.001), being greatest in the Rishi Valley (85.1 mm Hg), least in Trivandrum (78.5 mm Hg), and intermediate in West Godavari (80.3 mm Hg). There were also large differences between regions in BMI and WHR, which were least in the Rishi Valley and greatest in Trivandrum (P for difference < 0.001; S2 Table)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/fig[2]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/fig[2]/caption[1]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 48,
+      "section": "Results",
+      "sha256": "a56c0b730afbcb94450f7426308e7061b2df0fcee85deda22736c9d58c4fbf84",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/fig[2]/caption[1]/p[1]",
+      "text": "SBP (A) and DBP (B) at baseline and follow-up according to study group. Change in SBP (C) and DBP (D) in the usual care and intervention groups. Proportion of patients with controlled BP (E) and taking BP-lowering medications (F) at baseline and follow-up according to study group. P values for categorical variables were generated using a test for 2-sample differences in proportions (E and F), while differences in continuous variables were generated using linear regression (A–D). Error bars show 95% confidence limits. BP, blood pressure; DBP, diastolic blood pressure; SBP, systolic blood pressure."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pmed.1002997.t001",
+        "path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+        "section_title": "Results",
+        "table_label": "Table 1",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 49,
+      "section": "Results",
+      "sha256": "8bba1b96bd57fd970e558ee6bae58df26f62b12d95d82c471f15118238bf560d",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "text": "Table 1\nBaseline characteristics of the intention-to-treat sample.\nVariable\tInterventionn = 637\tUCn = 1,097\nAge (years), mean (SD)\t56.6 (14.3)\t56.9 (13.7)\nFemale, n (%)\t373 (58.7)*\t633 (57.9)§\nSBP (mm Hg), mean (SD)\t140.5 (22.7)\t137.8 (22.2)\nDBP (mm Hg), mean (SD)\t80.4 (13.7)\t80.6 (13.9)\nControlled hypertension, n (%)\t277 (43.5)\t549 (50.1)\nAntihypertensive medication, n (%)\t242 (38.0)\t445 (40.6)\nBody mass index (kg/m2), mean (SD)\t24.5 (4.8)†\t24.8 (5.0)¶\nWaist hip ratio, mean (SD)\t0.92 (0.09)¶\t0.92 (0.09)§\nPhysical activity per day (METS), mean (SD)\t928 (947)§\t860 (896)§\nFruit (weekly servings), mean (SD)\t3.3 (5.8)§\t2.5 (3.3)‖\nVegetables (weekly servings), mean (SD)\t11.3 (7.9)\t10.5 (6.4)\nTeaspoons of salt added/day, mean (SD)\t0.05 (0.09)¶\t0.06 (0.13)\nAdding extra salt to food, n (%)\t227 (36.0)¶\t410 (38.6)\nCurrent smoking, n (%)\t96 (15.3)¶\t165 (15.1)¶\nCurrent alcohol use, n (%)\t68 (10.8)¶\t145 (13.3)¶\nNone of these baseline data were imputed. Control of hypertension is defined as SBP < 140 mm Hg and DBP < 90 mm Hg; control may be achieved with use of antihypertensive medications or changing lifestyle. *One missing observation. †Two missing observations. ‡Three missing observations. §Four missing observations. ‖Five missing observations. ¶Six to eight missing observations. Salt added to food: 34 missing observations in UC. The data for servings of vegetables in Trivandrum had some errors that could not be resolved. Therefore, there are no data for weekly servings of vegetables in this region. These data on servings of vegetables rely on 329 observations in the intervention group and 668 in the UC group. DBP, diastolic blood pressure; METS, metabolic equivalent tasks; SBP, systolic blood pressure; SD, standard deviation; UC, usual care."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "section_title": "Primary outcome",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 50,
+      "section": "Primary outcome",
+      "sha256": "a00eef0c4f6ddcf4b6662131826415f222b510824baabfe1c0aebb17a2e2bb93",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "text": "In the primary outcome analysis, which was clustered by village and study region, there was 1.6-fold (95% CI 1.2 to 2.1; P = 0.001) better control of hypertension in the intervention group than in the UC group at follow-up (Table 2; Fig 3E). Similar results were obtained in sensitivity analyses that included those who were recruited but not followed up (S3 Table). In further sensitivity analyses limited to those whose BP was uncontrolled at baseline, similar results were obtained for the overall group, but findings appeared to be limited to men (S4 Table). Control of hypertension improved more in the intervention than UC group in 2 of the 3 regions (S5 Table)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pmed.1002997.t002",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "section_title": "Primary outcome",
+        "table_label": "Table 2",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 51,
+      "section": "Primary outcome",
+      "sha256": "fcc134864536d501c73ad7abc8c4bd1903f515c4f3cf8b2737e7a984ee02db18",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "text": "Table 2\nEffects of intervention on control of hypertension (primary outcome) and prescription of antihypertensive medication (secondary outcome) in people with hypertension: complete case analysis.\nOutcome\tNumber of participants\tChange from baseline to follow-up*\tP value\tAdjusted odds ratio (95% CI)†\tP value\nIntervention\tUC‡\tIntervention\tUC\nOverall\t\t\t\t\t\t\t\nControl of hypertension\t459\t1,011\t93 (20.3)\t96 (9.5)\t<0.001\t1.6 (1.2–2.1)\t0.001\nPrescribed antihypertensive medication\t459\t1,012\t57 (12.4)\t100 (9.9)\t0.14\t1.2 (0.8–1.9)\t0.34\nWomen\t\t\t\t\t\t\t\nControl of hypertension\t280\t596\t52 (18.6)\t49 (8.2)\t<0.001\t1.6 (1.1–2.2)\t0.01\nPrescribed antihypertensive medication\t280\t597\t38 (13.6)\t45 (7.5)\t0.004\t1.5 (0.9–2.2)\t0.09\nMen\t\t\t\t\t\t\t\nControl of hypertension\t178\t411\t41 (23.0)\t48 (11.7)\t<0.001\t1.6 (1.1–2.5)\t0.02\nPrescribed antihypertensive medication\t178\t411\t19 (10.7)\t54 (13.1)\t0.40\t0.9 (0.5–1.7)\t0.85\nThere are 4 missing observations for sex in the UC group and 1 in the intervention group. *Change in control of hypertension was obtained by subtracting the number of people with control of hypertension at baseline from the number with control at follow-up. The same approach was applied to prescription of antihypertensive medication. Positive number demonstrates improvement. †Odds ratios obtained using mixed effects logistic regression, clustered by village and study region. For control of hypertension, the dependent variable was control of hypertension at follow-up, with adjustment for control of hypertension at baseline (ICC: overall, 0.002; women, 0.003; men, 0.008). The same approach was applied to prescription of antihypertensive medication (ICC: overall, 0.04; women, 0.02; men, 0.09). ‡A person who did not have blood pressure measured at follow-up had details of medications, and so there is an extra observation for the latter analysis. ICC, intraclass correlation coefficient; UC, usual care."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "section_title": "Secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 52,
+      "section": "Secondary outcomes",
+      "sha256": "172d81f1c7d154dd04b1d120cb61c13320f4fe958bcdca95cea7009647630c4a",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "text": "In secondary outcomes, there was no evidence for greater uptake in the use of BP-lowering medications with the intervention (P = 0.31; Fig 3F; Table 2), except in West Godavari (P < 0.01; S5 Table). Interestingly, there was greater uptake of BP-lowering medications in women in the intervention than UC group, although not in adjusted analyses (Table 2). This improvement in women appeared to be driven by the improvement observed in West Godavari (S6 Table). There was no evidence for a change in use of medications by men in any region, although sample sizes were small."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "section_title": "Secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 53,
+      "section": "Secondary outcomes",
+      "sha256": "436da08c684e3a3282f948c42762b6995ec669506d03ab77b277890d3073df70",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "text": "Overall, SBP declined by 8.2 mm Hg in the intervention group, 6.1 mm Hg more than in the UC group (Table 3; Fig 3A and 3C). This finding was similar in imputation analyses that included those who were not followed up (S7 Table). The decline in SBP was greatest in the Rishi Valley, being 13.6 mm Hg in the intervention group, (S8 Table). This change in SBP was greater than in the other 2 regions (P < 0.001; distribution shown in S2 Fig). Also, in contrast to the other 2 regions, participants in the Rishi Valley region showed a large decline in SBP in the UC group."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pmed.1002997.t003",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+        "section_title": "Secondary outcomes",
+        "table_label": "Table 3",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 54,
+      "section": "Secondary outcomes",
+      "sha256": "7d94ef13be59671394620def7c4bf56d83c0fc90997cc206f4f15f1e5052c2dd",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+      "text": "Table 3\nEffects of intervention on secondary outcomes in people with hypertension: complete case analysis.\nOutcome\tNumber of participants\tUnadjusted mean change (95% CI)\tUnadjusted net mean change (95% CI)\tP value\tAdjusted net mean change (95% CI)\tP value\nIntervention\tUC\tInterventionn = 459\tUCn = 1,012\nOverall\t\t\t\t\t\t\t\t\nSBP (mm Hg)\t459\t1,011\t−8.2 (−10.0 to −6.3)\t−2.1 (−3.4 to −0.8)\t−6.1 (−8.4 to −3.8)\t<0.001\t−5.0 (−7.1 to −3.0)*\t<0.001\nDBP (mm Hg)\t459\t1,011\t−4.2 (−5.3 to −3.1)\t−2.2 (−3.0 to −1.4)\t−2.0 (−3.4 to 0.6)\t0.004\t−2.1 (−3.6 to −0.6)†\t<0.006\nWomen\t\t\t\t\t\t\t\t\nSBP (mm Hg)\t280\t596\t−6.7 (−8.8 to −4.6)\t−1.5 (−3.1 to 0.2)\t−5.2 (−8.0 to −2.4)\t<0.001\t−4.8 (−7.2 to −2.3)‡\t<0.001\nDBP (mm Hg)\t280\t596\t−2.6 (−3.9 to −1.3)\t−1.7 (−2.7 to 0.8)\t−0.9 (−2.5 to 0.7)\t0.29\t−1.3 (−2.7 to 0.0)§\t0.06\nMen\t\t\t\t\t\t\t\t\nSBP (mm Hg)\t178\t411\t−10.5 (−13.8 to −7.2)\t−3.1 (−5.2 to −1.0)\t−7.4 (−11.3 to −3.5)\t<0.001\t−6.3 (−10.3 to −2.2)‖\t0.002\nDBP (mm Hg)\t178\t411\t−6.8 (−8.8 to −4.8)\t−3.0 (−4.3 to −1.7)\t−3.8 (−6.2 to −1.4)\t0.002\t−3.9 (−7.0 to −0.8)¶\t0.014\nFor change values, negative number demonstrates improvement. Adjusted analyses were conducted using mixed effects linear regression, clustered by region and village. *Adjusted for age, sex, SBP at baseline, use of antihypertensive medications, change in body mass index, and alcohol use; 37 missing observations due to missing variables. ICC = 0.022. †Adjusted for age, sex, DBP at baseline, education, use of antihypertensive medications, change in body mass index, fruit per week, and alcohol use; 49 missing observations due to missing variables. ICC = 0.020. ‡Adjusted for age, SBP at baseline, regular visits to doctor, use of antihypertensive medications, change in body mass index, and adding salt to food; 32 missing observations due to missing variables. ICC < 0.001. §Adjusted for age, DBP at baseline, education, regular visits to doctor, use of antihypertensive medications, and change in body mass index; 13 missing observations due to missing variables. ICC = 0.010. ‖Adjusted for age, SBP at baseline, education, use of antihypertensive medications, and alcohol use; 15 missing observations due to missing variables. ICC = 0.021. ¶Adjusted for age, DBP at baseline, education, regular visits to doctor, use of antihypertensive medications, and alcohol use; 15 missing observations due to missing variables. ICC = 0.045. DBP, diastolic blood pressure; ICC, intraclass correlation coefficient; SBP, systolic blood pressure; UC, usual care."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+        "section_title": "Secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 55,
+      "section": "Secondary outcomes",
+      "sha256": "dd98dc00f851e97d9d9c3946b46f4dbc7b357ec6c695a5f083b37d1daba61216",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+      "text": "Similar to the pattern observed for SBP, DBP also declined more in the intervention group (4.2 mm Hg) than the UC group (2.2 mm Hg; Fig 3B and 3D; Table 3). Also, in contrast to the other 2 regions, there was a large decline in DBP in the UC group in the Rishi Valley region (S8 Table; S1 Fig; distribution shown in S3 Fig)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[4]",
+        "section_title": "Secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 56,
+      "section": "Secondary outcomes",
+      "sha256": "b62e6d426002f34f03b65c51b47e9013cdcc32ee6a6921d2f6d5f0a2be7bb4b6",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[4]",
+      "text": "There was no evidence for an effect of the intervention on BMI, WHR, physical activity, or fruit consumption (Table 4), but the intervention appeared to result in greater reductions in extra salt added to food (P = 0.003), smoking (P < 0.001), and alcohol consumption (P < 0.001) than in the UC group (Table 5)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[2]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pmed.1002997.t004",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[2]",
+        "section_title": "Secondary outcomes",
+        "table_label": "Table 4",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 57,
+      "section": "Secondary outcomes",
+      "sha256": "da66c3d024f7d51950becb9de99f5e0d05c2ba68549eff509ace86a922b18ff3",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[2]",
+      "text": "Table 4\nChanges in risk factors from baseline to follow-up in the intervention and UC groups (continuous variables).\nVariable\tMean change (95% confidence interval)\tP value\nInterventionn = 637\tUCn = 1,097\nBMI (kg/m2)1\t0.17 (0.03 to 0.31)*\t0.23 (0.12 to 0.34)§\t0.50\nWHR1\t0.006 (0.001 to 0.012)‖\t0.003 (−0.001 to 0.006)§\t0.29\nPhysical activity (METS) per day2\t104 (89 to 119)†\t108 (98 to 118)†\t0.65\nFruit (weekly servings)2\t0.03 (−0.47 to 0.53)†\t0.48 (0.24 to 0.72)‡\t0.08\nChange in BMI between baseline and follow-up was imputed for 260 observations (using BMI at baseline); change in WHR was imputed for 257 observations (using WHR and BMI at baseline); change in physical activity per day was imputed for 259 observations (using physical activity at baseline); change in fruit consumption per week was imputed for 259 observations (using fruit consumption at baseline). 1Negative number demonstrates improvement. 2Positive number demonstrates improvement. *Two missing observations. †Four missing observations. ‡Five missing observations. §Six missing observations. ‖Seven missing observations. BMI, body mass index; METS, metabolic equivalent tasks; UC, usual care; WHR, waist–hip ratio."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[3]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pmed.1002997.t005",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[3]",
+        "section_title": "Secondary outcomes",
+        "table_label": "Table 5",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 58,
+      "section": "Secondary outcomes",
+      "sha256": "436921f76152a471afd7010e7a2c05c66132ce90590ec0c9c51b4cfc33b5b715",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[3]",
+      "text": "Table 5\nChanges in risk factors from baseline to follow-up in the intervention and UC groups (categorical variables).\nVariable\tChange in number of individuals (%)\tP value\nIntervention\tUC\nOverall\tn = 637\tn = 1,097\t\nChange in adding extra salt to food\t−69 (−11.0)†\t−73 (−6.9)‖\t0.003\nChange in current smoking\t−18 (−2.9)†\t−6 (−0.6)†\t<0.001\nChange alcohol use in last 30 days\t−7 (−1.1)†\t3 (0.2)†\t<0.001\nWomen\tn = 373\tn = 633\t\nChange in adding extra salt to food\t−37 (10.1)†\t−45 (7.3)§\t0.13\nChange in current smoking\t−6 (−1.7)†\t1 (0.2)†\t0.001\nChange alcohol use in last 30 days\t−1 (−0.1)†\t3 (0.5)*\t0.19\nMen\tn = 263\tn = 460\t\nChange in adding extra salt to food\t−32 (−12.3)*\t−29 (−6.5)‡\t0.009\nChange in current smoking\t−12 (−4.7)*\t−7 (−1.6)*\t0.014\nChange alcohol use in last 30 days\t−6 (−2.4)*\t−1 (−0.1)*\t0.006\nNegative number demonstrates improvement. Data for salt use at follow-up were imputed for 254 observations (using salt use at baseline); data for smoking at follow-up were imputed for 258 observations (using smoking at baseline and sex); data for alcohol consumption at follow-up were imputed for 258 observations (using alcohol consumption at baseline and sex). Change in adding salt to food was obtained by subtracting the number of people reporting adding salt to food at baseline from the number adding salt to food at follow-up. This same approach was applied for the other variables in the table. *Two to four missing observations. †Five to eight missing observations. ‡Sixteen missing observations. §Eighteen missing observations. ‖Thirty-four missing observations. UC, usual care."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[5]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[5]",
+        "section_title": "Secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 59,
+      "section": "Secondary outcomes",
+      "sha256": "b17b5810b7c7331f3fa4714f1c6dc9ade7a0ba2d121abaa705682085159a73f5",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[5]",
+      "text": "There appeared to be some sex differences in the effects of the intervention on BP. While SBP was reduced in both women and men (Table 3 and S9 Table), the reduction in DBP appeared to occur in men only."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[6]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[6]",
+        "section_title": "Secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 60,
+      "section": "Secondary outcomes",
+      "sha256": "f5c934fefa8efaa23b8f6feeafb8012a08a17a82af7a748e83c2e6decf7200c9",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[6]",
+      "text": "There was no evidence that the effectiveness of the intervention on control of BP differed according to age or other differences in characteristics (Fig 4). This finding appeared to be similar for women and men separately (S4 Fig)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/fig[1]/caption[1]/p[1]",
+        "section_title": "Secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 61,
+      "section": "Secondary outcomes",
+      "sha256": "8adda1f1cd38a18da0db9fc644954cb4654359a53c5d0086e5ae447852154e99",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/fig[1]/caption[1]/p[1]",
+      "text": "The dashed line represents the line of no effect. Symbols show point estimates, and error bars show 95% confidence limits. P values indicate subgroup interactions (obtained using logistic regression). The following variables had missing data: BMI, 7; access to healthcare, 9; and regular check-ups, 7. BMI, body mass index; BP, blood pressure; DBP, diastolic blood pressure; SBP, systolic blood pressure."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[1]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 62,
+      "section": "Discussion",
+      "sha256": "b3fae41e518e74c2a14b8ccd4a3d7899510854d7e80394a8e78d12a25d50e9bf",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/p[1]",
+      "text": "This cRCT, conducted in rural India, provides evidence that a group-based education and monitoring program, delivered by health workers, is effective in reducing SBP and DBP and in improving control of hypertension. The intervention was effective in all 3 regions, which are at differing stages of the economic and epidemiological transition, indicating that the intervention could be effective and scalable across rural India. With an estimated prevalence of hypertension of 25% among adults in rural India [5], our intervention is thus potentially scalable to more than 100 million adults with hypertension living in rural India."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[2]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 63,
+      "section": "Discussion",
+      "sha256": "b95aa7db5fbb289f727a2f7292cd2272436bbd6406db2ab1c664b159e54ade7f",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/p[2]",
+      "text": "Our intervention has enormous potential for reducing BP and improving control of hypertension in poor and hard-to-reach settings. This was just a 3-month intervention, yet the BP reduction attained was comparable to that observed in clinical trials of BP-lowering medications, equating to a 20% reduction in the risk of coronary heart disease and vascular death [29]. Apart from the education provided to intervention participants in a group setting, at each session participants also had their BP measured. This ongoing monitoring may have empowered participants to determine whether and how their lifestyle changes resulted in tangible benefits [30]. This approach also provides motivation for continuing behavioural changes or adopting new ones [30], and this may be one of the mechanisms for the success of the intervention. Furthermore, the program included several components that were evidence-based for improving the control of hypertension. These components included improving the adherence to antihypertensive medications [31], providing regular monitoring of BP [30], and encouraging lifestyle changes such as losing excess weight and increasing physical activity [32]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[3]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 64,
+      "section": "Discussion",
+      "sha256": "4b5413d9174606885404edc347bcf666c7af1ffe5904bb9470a6c0c7337241ea",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/p[3]",
+      "text": "Trained professionals are not always available in rural and remote settings [6,7]. Thus, training the existing workforce in specific tasks, such as monitoring BP and providing education and support, that do not require clinical decision-making but can be implemented using evidence-based protocols, enables a reorganisation of health tasks to improve access and minimise costs [10]. Although other investigators have also shown the effectiveness of task-shifting management of hypertension to CHWs [12,15–17], major limitations included that these studies involved intensive, time-consuming individual-based interventions [12,13,15–17], lacked a UC group [14–16], or provided home BP monitors (equipment unaffordable to the poor) [12]. Our approach, using a group-based intervention, provides a novel, effective, and potentially cheaper and sustainable alternative to managing hypertension in disadvantaged and hard-to-reach settings."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[4]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 65,
+      "section": "Discussion",
+      "sha256": "66b558679af06044824a0a6ba76d74bbaf4c8239a0d7bef23cbf36fbbe8fb103",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/p[4]",
+      "text": "Our findings confirm and extend those from other task-sharing intervention programs of the effect of education programs in LMICs. He et al. reported a 6.6/5.4–mm Hg greater reduction in BP in participants exposed to a CHW-led multicomponent education and coaching program, home BP monitoring, text messaging, and better trained physicians than in those receiving UC [12]. A similar decrease of 5 mm Hg of SBP was reported by Jafar et al. in Pakistan in a group exposed to home health education and upskilled general practitioners, compared to other groups [17], and Neupane et al. reported a 4.9–mm Hg greater decrease in SBP in a group in Nepal with home-monitoring and education, compared to UC [13,17]. However, all 3 studies were of individualised-care approaches, which are likely to be more resource-intensive than our group-based approach."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[5]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 66,
+      "section": "Discussion",
+      "sha256": "dc6b5ff8e384df93184d6b3f2f52263fb030bbd8e006c9fed44e1d04e7e0a8c8",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/p[5]",
+      "text": "Simple surveillance may be an incentive to patients to take steps to reduce their BP levels in regions with poor access to healthcare. There was a large improvement in SBP and DBP in the UC group in the Rishi Valley region, a decline of 9.5/6.8 mm Hg. Following the baseline community-based survey, participants who had BP levels of ≥140/90 mm Hg were informed that their BP was high and that this might put them at risk of other diseases, and were advised to visit a doctor. While some of the observed decline in BP could be regression to the mean, it might also suggest that BP surveillance itself can help control BP in regions with poor access to healthcare."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[6]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[6]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 67,
+      "section": "Discussion",
+      "sha256": "299e724b0a911f07a0c52bb610f60140d9a191c6decff40d7d7b598d85e99893",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/p[6]",
+      "text": "It was notable that the effect of the intervention did not appear to be attributable to new prescription of antihypertensive medication at follow-up. Potentially, BP may have declined with the adoption of healthy lifestyle habits, with some evidence of reductions in alcohol consumption, an effect largely seen in men as few women consumed alcohol at baseline. There was some evidence that adding salt to food declined, but as most of the salt in the diet is added in the cooking process, it is unlikely that reducing salt at the table would explain the BP reductions observed."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+        "section_title": "Strengths and limitations of the study",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 68,
+      "section": "Strengths and limitations of the study",
+      "sha256": "3a8fbe01f04da9b7011427149f7278f4545742481e916d95d8645b1f0a606984",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+      "text": "There were some limitations to our study that may influence the interpretation of our findings. Although the sample size was large overall, the number of participants in the Rishi Valley was less than half the number of participants in either of the other 2 regions. Of the individuals with hypertension identified in the baseline community-based survey in each region, we recruited approximately 20% to the intervention group and 40% to the UC group. However, the baseline prevalence of hypertension was the least in the Rishi Valley, and even though we surveyed a larger number of people, it was not sufficient to ensure similar group sizes. In addition, a total of 263 individuals dropped out of the study, most of whom were in the intervention group. This raises potential issues around the intention-to-treat approach, with subsequent potential biases, as discussed by Giraudeau and Ravaud [33]. We minimised bias by randomising clusters after the baseline community-based survey was conducted, and so we had baseline data on all those who participated in the baseline survey. Although some people then dropped out, we included these individuals in a sensitivity analysis by imputing their outcome, thereby reducing the potential bias of excluding these individuals who dropped out. Of note, the findings for the 2 regions with a larger number of individuals who dropped out are consistent with those from the West Godavari region, where only 24 individuals dropped out, adding to the credence of our findings. There were also no empty clusters. We also acknowledge that both the 3-month intervention and the follow-up period of 6–8 weeks, between the last session of the program and assessment of outcomes, were relatively short. Because of this, we cannot determine whether there is a long-lasting improvement in controlling hypertension from our group-based education and monitoring program. It is also possible that there was some selection bias as the control of BP was relatively high at baseline, being approximately 50%. Indeed, in those who did not participate, only 19.9% had their BP controlled at baseline, indicating that extra efforts should be made to improve the reach of the intervention. There could potentially have been some post-randomisation selection bias as individuals were recruited following randomisation of their village. However, potential participants were blinded to the recruitment status of their village at the time that their eligibility was established and their recruitment sought, thereby reducing this potential bias. Another limitation of our study is that it was not possible to blind the outcome assessors to the treatment allocation of the individuals as the assessors were instrumental in observing the fidelity of the intervention. However, we reduced the impact of detection bias on our main outcome measures by using digital automated BP monitors, thereby limiting the influence of the perceptions of the outcome assessors that might have arisen with the use of auscultation. A further limitation is that, for logistic reasons, details about salt intake were asked of individuals only about salt added at the table. However, as most of the salt consumed is added during cooking, these details would have been better obtained from the person responsible for the cooking. Thus, the data we generated on salt consumption should be interpreted with caution. Some of the reduction in BP observed may be attributable to the Hawthorne effect, whereby participants alter behaviours just because they are being observed. However, this does not discount the difference that we observed between the UC and intervention groups, comprising a randomised comparison."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/sec[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/sec[1]/p[2]",
+        "section_title": "Strengths and limitations of the study",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 69,
+      "section": "Strengths and limitations of the study",
+      "sha256": "4977ed0229c33a130aac07d14e835627c67df1a40f96ecf2618140603d436f5e",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/sec[1]/p[2]",
+      "text": "There are several strengths to our study, including the cluster-randomised allocation of the PSUs to facilitate delivery of the group-based intervention, and the consistency in the delivery of the program in all 3 regions. The PSUs were geographically separated and had different CHWs, thereby minimising contamination between groups. Another major strength is our inclusion of 3 very diverse regions of rural India using the available workforce, so that our findings may be generalisable to a large portion of rural India. Additionally, the sample size of our project was large, thereby reducing the likelihood of a chance finding. Furthermore, our study included a UC comparator, which enabled us to minimise the effects of other variables. Only 4 prior trials of CHW-led task-shifting intervention programs to treat hypertension included a clearly defined UC group [12,13,17,18], so our study is one of the few to have a robust comparator to test the effectiveness of the intervention."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/sec[2]/p[1]",
+        "section_title": "Conclusion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 70,
+      "section": "Conclusion",
+      "sha256": "711127817f2646b677ab0573d0779b549b67f6b474b921f455b3b7ecf340920e",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[4]/sec[2]/p[1]",
+      "text": "Our program was effective in increasing the proportion who had control of hypertension, and in reducing both SBP and DBP. Simple surveillance also appeared to result in reduced BP in these rural settings. Our findings add to the limited research on task-shifting interventions for treating hypertension in LMICs. In particular, we have shown that this intervention is applicable across very diverse rural settings, so there is considerable potential to implement and scale up across rural India and potentially other resource-poor regions in other countries. Future programs incorporating comprehensive collection of data on changes in medication use, changes to lifestyle behaviours, and knowledge of hypertension may help tease out which factors are best targeted to improve the control of hypertension in these settings."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 71,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 72,
+      "section": "Supporting information",
+      "sha256": "ba180e40fc8144e7c30c0e32ec2c2cf0b2afccf1f52be3d83d5005935cd1b76e",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[1]",
+      "text": "(A) Percent with controlled BP, (B) percent with BP-lowering medications, (C) mean SBP, (D) mean DBP, and (E) change in BP (mean change in mm Hg, and 95% confidence intervals). P values for categorical variables were generated using chi-squared tests (A and B) or linear regression for continuous variables (C–E), with Bonferroni correction for specific contrasts between each of the 3 regions. Error bars show 95% confidence limits."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[2]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 73,
+      "section": "Supporting information",
+      "sha256": "7800d82eeae13ceff5aa4831f0f573d4b679b65bb6d4ee4fcd3c4bb8d76c5b57",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[2]",
+      "text": "(TIF)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[3]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[3]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 74,
+      "section": "Supporting information",
+      "sha256": "7800d82eeae13ceff5aa4831f0f573d4b679b65bb6d4ee4fcd3c4bb8d76c5b57",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[3]/caption[1]/p[1]",
+      "text": "(TIF)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[4]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[4]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 75,
+      "section": "Supporting information",
+      "sha256": "7800d82eeae13ceff5aa4831f0f573d4b679b65bb6d4ee4fcd3c4bb8d76c5b57",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[4]/caption[1]/p[1]",
+      "text": "(TIF)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 76,
+      "section": "Supporting information",
+      "sha256": "c0735182317db9a2b7e4901724af17ddd59b658330799482a382cbb340217ec6",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[1]",
+      "text": "(A) Women; (B) men. The dashed line represents the line of no effect. Symbols show point estimates, and error bars show 95% confidence limits. P values indicate subgroup interactions (obtained using logistic regression)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[2]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 77,
+      "section": "Supporting information",
+      "sha256": "7800d82eeae13ceff5aa4831f0f573d4b679b65bb6d4ee4fcd3c4bb8d76c5b57",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[2]",
+      "text": "(TIF)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[6]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[6]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 78,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[6]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 79,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[8]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[8]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 80,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[8]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[9]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[9]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 81,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[9]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[10]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[10]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 82,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[10]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[11]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[11]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 83,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[11]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[12]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[12]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 84,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[12]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[13]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[13]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 85,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[13]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[14]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[14]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 86,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "hypertension",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[14]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    }
+  ],
+  "schema_version": 1
+}

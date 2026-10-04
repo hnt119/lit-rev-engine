@@ -1,0 +1,653 @@
+{
+  "created_at_utc": "2026-10-04T08:55:59.813902+00:00",
+  "exclusion_manifest_checks": [
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_retrieval/manifest.json",
+      "sha256": "dfd28050e83b3cf01fe4edd531bc8ecf79086b9a3ddabd83519a34811e8c4a9b",
+      "size_bytes": 7922
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/evidence/manifest.json",
+      "sha256": "6eccd01ebc30256e71a4529617e4d061783e55df03b9d396fdb9dd99bfedf2cd",
+      "size_bytes": 16236
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/studies/manifest.json",
+      "sha256": "f7a3402bf9ceaf607aee5c878bd250482e2e961009bbd359a53d54e539b846ec",
+      "size_bytes": 10333
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_sources/manifest.json",
+      "sha256": "3a654350be8c6f4df5f10f582c143c456a0d462f89a643ec5bfcc648427a183d",
+      "size_bytes": 12184
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/qwen_pilot_sources/manifest.json",
+      "sha256": "3fd57adb6ddac600684528bd53b2bcc7cb366747f077879582f732998b68c21a",
+      "size_bytes": 18801
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/qwen_kaggle_run_v2/manifest.json",
+      "sha256": "3f37d2ad5d48697a63731d72ca122d489900b6944c31032a26905e5e02b47135",
+      "size_bytes": 2381
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_retrieval_v2/manifest.json",
+      "sha256": "fabddc904f9e979a792c8106bcb846cc42d7fd18e93c7a273165ba3873e4ab1d",
+      "size_bytes": 13697
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_sources_v2/manifest.json",
+      "sha256": "587b067dcde48a0c62939f4aa795402811fd883837af63a2925a7b9dce942c00",
+      "size_bytes": 15518
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_retrieval_v3/manifest.json",
+      "sha256": "75e4671eba59b28a22d40798445d41f52b426c34f3e1964b9f884f707d9b7a3b",
+      "size_bytes": 37329
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_sources_v3/manifest.json",
+      "sha256": "926489c7d05f2cb3b5e6d0cdfeb899f728df63299ce54bacea6a79a286d894a2",
+      "size_bytes": 18262
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/pubmed/manifest.json",
+      "sha256": "ea19299138ed5b5e604f324a3a4ff4c81f962a74ebf0b9308bd54a499fb75bdf",
+      "size_bytes": 4643
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/medical_sources_v3_imaging/manifest.json",
+      "sha256": "05d2a7008f0f9bb36eeaf2bdcd6b47b4074c53b53802890ce8ab2c376913bb8b",
+      "size_bytes": 8091
+    },
+    {
+      "candidate_doi_overlap": false,
+      "file": "tests/fixtures/qwen_pilot_gold/manifest.json",
+      "sha256": "aad3577f3d61aa67ea0a6af8f5a6fc63ba5e6eb0bb7bcfa0675f3e9df7292d70",
+      "size_bytes": 3183
+    }
+  ],
+  "limits": {
+    "paid_inference_calls": 0,
+    "rankings_observed": 0,
+    "scope": "main_articles_only"
+  },
+  "purpose": "Prospective source-disjoint component-retrieval confirmation originals; never ranked before truth freeze",
+  "schema_version": 1,
+  "sources": [
+    {
+      "acquisition": {
+        "acquired_at_utc": "2026-10-04T08:55:59.813902+00:00",
+        "file": "thyroid.xml",
+        "final_redirect_query_omitted": true,
+        "http_status": 200,
+        "id": "thyroid",
+        "permanent_download_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0312121&type=manuscript",
+        "sanitized_final_redirect_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0312121/1/pone.0312121.xml",
+        "sha256": "16fa9e8b026a4d1ef4bba69ce3c128eb4a297d655107b4e3776b63a12b8c3b73",
+        "size_bytes": 102942
+      },
+      "authors": [
+        {
+          "given_names": "Abdulrahman M.",
+          "surname": "Alfuraih"
+        },
+        {
+          "given_names": "Abdullah M.",
+          "surname": "Alotaibi"
+        },
+        {
+          "given_names": "Alanoud K.",
+          "surname": "Alshammari"
+        },
+        {
+          "given_names": "Basmah F.",
+          "surname": "Alrashied"
+        },
+        {
+          "given_names": "Yahya M.",
+          "surname": "Mashhor"
+        },
+        {
+          "given_names": "Mustafa",
+          "surname": "Mahmoud"
+        },
+        {
+          "given_names": "Mohammed J.",
+          "surname": "Alsaadi"
+        }
+      ],
+      "block_count": 40,
+      "canonical_blocks_sha256": "616c8e2a94fc28d02e7b9dd60339bd74aed1788fa900f3296088aad236b31238",
+      "caveats": [
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+              "canonical_fragment": "TR1 and TR2 were categorized as “low suspicion of malignancy” and TR3, TR4, TR5 categorized as “high suspicion of malignancy”",
+              "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+              "canonical_fragment": "Negative or low suspicion scores (TR1, TR2, TR3)",
+              "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]"
+            }
+          ],
+          "summary": "Methods groups TR3 with high suspicion while diagnostic contingency table groups TR3 with negative/low suspicion; no threshold inference or repair is made.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        },
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+              "canonical_fragment": "histological results based on the Bethesda system.",
+              "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+              "canonical_fragment": "The cytological results were reported according to the Bethesda System for Reporting Thyroid Cytopathology",
+              "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+              "canonical_fragment": "All 11 patients with FNA results indicating malignancy (n = 8) or suspicion for malignancy (n = 3) underwent surgical excision and histopathological examination.",
+              "source_path": "/article[1]/body[1]/sec[3]/p[1]"
+            }
+          ],
+          "summary": "The report uses histological terminology in abstract/results while Methods describes FNA cytology and Bethesda categories; positives preserve reported diagnostic estimates without declaring universal histopathology confirmation.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        },
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+              "canonical_fragment": "Margin score\t0.102\t0.102\t[-1.430–0.301]\t0.153",
+              "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]"
+            }
+          ],
+          "summary": "Margin-score confidence bound is printed below the conventional kappa range; quote and score are retained exactly, without statistical repair.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        }
+      ],
+      "doi": "10.1371/journal.pone.0312121",
+      "file": "thyroid.xml",
+      "format": "jats_xml",
+      "id": "thyroid",
+      "journal": "PLOS ONE",
+      "license": {
+        "copyright_holder": "Alfuraih et al",
+        "copyright_year": "2024",
+        "literal_notice": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+        "name": "Creative Commons Attribution 4.0 International",
+        "url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "main_table_count": 5,
+      "notices": {
+        "archive_scope": "Original publisher main-article XML only; no supplements or participant data"
+      },
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "entities": "rejected",
+        "external_dtd": "ignored",
+        "normalization": "xml-whitespace-v1",
+        "python_version": "3.12.7",
+        "tables": "rows-tab-separated-v1"
+      },
+      "published_date": "2024-10-11",
+      "publisher_article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0312121",
+      "publisher_xml_url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0312121&type=manuscript",
+      "size_bytes": 102942,
+      "source_sha256": "16fa9e8b026a4d1ef4bba69ce3c128eb4a297d655107b4e3776b63a12b8c3b73",
+      "title": "Evaluating diagnostic accuracy and agreement of TI-RADS scoring in thyroid nodules: A comparative analysis between sonographers and radiologists",
+      "version_label": "/plos-corpus-prod/10.1371/journal.pone.0312121/1/pone.0312121.xml"
+    },
+    {
+      "acquisition": {
+        "acquired_at_utc": "2026-10-04T08:55:59.813902+00:00",
+        "file": "copcov.xml",
+        "final_redirect_query_omitted": true,
+        "http_status": 200,
+        "id": "copcov",
+        "permanent_download_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371%2Fjournal.pmed.1004428&type=manuscript",
+        "sanitized_final_redirect_url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pmed.1004428/1/pmed.1004428.xml",
+        "sha256": "636e4d4a87c84cc256d565fe10f48ec134d2c6af201973f439778771ba97f04d",
+        "size_bytes": 258039
+      },
+      "authors": [
+        {
+          "given_names": "William H. K.",
+          "surname": "Schilling"
+        },
+        {
+          "given_names": "Mavuto",
+          "surname": "Mukaka"
+        },
+        {
+          "given_names": "James J.",
+          "surname": "Callery"
+        },
+        {
+          "given_names": "Martin J.",
+          "surname": "Llewelyn"
+        },
+        {
+          "given_names": "Cintia V.",
+          "surname": "Cruz"
+        },
+        {
+          "given_names": "Mehul",
+          "surname": "Dhorda"
+        },
+        {
+          "given_names": "Thatsanun",
+          "surname": "Ngernseng"
+        },
+        {
+          "given_names": "Naomi",
+          "surname": "Waithira"
+        },
+        {
+          "given_names": "Maneerat",
+          "surname": "Ekkapongpisit"
+        },
+        {
+          "given_names": "James A.",
+          "surname": "Watson"
+        },
+        {
+          "given_names": "Arjun",
+          "surname": "Chandna"
+        },
+        {
+          "given_names": "Erni J.",
+          "surname": "Nelwan"
+        },
+        {
+          "given_names": "Raph L.",
+          "surname": "Hamers"
+        },
+        {
+          "given_names": "Anthony",
+          "surname": "Etyang"
+        },
+        {
+          "given_names": "Mohammad Asim",
+          "surname": "Beg"
+        },
+        {
+          "given_names": "Samba",
+          "surname": "Sow"
+        },
+        {
+          "given_names": "William",
+          "surname": "Yavo"
+        },
+        {
+          "given_names": "Aurel Constant",
+          "surname": "Allabi"
+        },
+        {
+          "given_names": "Buddha",
+          "surname": "Basnyat"
+        },
+        {
+          "given_names": "Sanjib Kumar",
+          "surname": "Sharma"
+        },
+        {
+          "given_names": "Modupe",
+          "surname": "Amofa-Sekyi"
+        },
+        {
+          "given_names": "Paul",
+          "surname": "Yonga"
+        },
+        {
+          "given_names": "Amanda",
+          "surname": "Adler"
+        },
+        {
+          "given_names": "Prayoon",
+          "surname": "Yuentrakul"
+        },
+        {
+          "given_names": "Tanya",
+          "surname": "Cope"
+        },
+        {
+          "given_names": "Janjira",
+          "surname": "Thaipadungpanit"
+        },
+        {
+          "given_names": "Panuvit",
+          "surname": "Rienpradub"
+        },
+        {
+          "given_names": "Mallika",
+          "surname": "Imwong"
+        },
+        {
+          "given_names": "Mohammad Yazid",
+          "surname": "Abdad"
+        },
+        {
+          "given_names": "Stuart D.",
+          "surname": "Blacksell"
+        },
+        {
+          "given_names": "Joel",
+          "surname": "Tarning"
+        },
+        {
+          "given_names": "Frejus Faustin",
+          "surname": "Goudjo"
+        },
+        {
+          "given_names": "Ange D.",
+          "surname": "Dossou"
+        },
+        {
+          "given_names": "Abibatou",
+          "surname": "Konaté-Touré"
+        },
+        {
+          "given_names": "Serge-Brice",
+          "surname": "Assi"
+        },
+        {
+          "given_names": "Kra",
+          "surname": "Ouffoué"
+        },
+        {
+          "given_names": "Nasronudin",
+          "surname": "Nasronudin"
+        },
+        {
+          "given_names": "Brian Eka",
+          "surname": "Rachman"
+        },
+        {
+          "given_names": "Pradana Zaky",
+          "surname": "Romadhon"
+        },
+        {
+          "given_names": "Didi Darmahadi",
+          "surname": "Dewanto"
+        },
+        {
+          "given_names": "Made Oka",
+          "surname": "Heryana"
+        },
+        {
+          "given_names": "Theresia",
+          "surname": "Novi"
+        },
+        {
+          "given_names": "Ayodhia Pitaloka",
+          "surname": "Pasaribu"
+        },
+        {
+          "given_names": "Mutiara",
+          "surname": "Mutiara"
+        },
+        {
+          "given_names": "Miranda Putri Rahayu",
+          "surname": "Nasution"
+        },
+        {
+          "given_names": "Khairunnisa",
+          "surname": "Khairunnisa"
+        },
+        {
+          "given_names": "Fauzan Azima",
+          "surname": "Dalimunthe"
+        },
+        {
+          "given_names": "Eka",
+          "surname": "Airlangga"
+        },
+        {
+          "given_names": "Akmal",
+          "surname": "Fahrezzy"
+        },
+        {
+          "given_names": "Yanri",
+          "surname": "Subronto"
+        },
+        {
+          "given_names": "Nur Rahmi",
+          "surname": "Ananda"
+        },
+        {
+          "given_names": "Mutia",
+          "surname": "Rahardjani"
+        },
+        {
+          "given_names": "Atika",
+          "surname": "Rimainar"
+        },
+        {
+          "given_names": "Ruth Khadembu",
+          "surname": "Lucinde"
+        },
+        {
+          "given_names": "Molline",
+          "surname": "Timbwa"
+        },
+        {
+          "given_names": "Otieno Edwin",
+          "surname": "Onyango"
+        },
+        {
+          "given_names": "Clara",
+          "surname": "Agutu"
+        },
+        {
+          "given_names": "Samuel",
+          "surname": "Akech"
+        },
+        {
+          "given_names": "Mainga",
+          "surname": "Hamaluba"
+        },
+        {
+          "given_names": "Jairus",
+          "surname": "Kipyego"
+        },
+        {
+          "given_names": "Obadiah",
+          "surname": "Ngachi"
+        },
+        {
+          "given_names": "Fadima Cheick",
+          "surname": "Haidara"
+        },
+        {
+          "given_names": "Oumar Y.",
+          "surname": "Traoré"
+        },
+        {
+          "given_names": "François",
+          "surname": "Diarra"
+        },
+        {
+          "given_names": "Basudha",
+          "surname": "Khanal"
+        },
+        {
+          "given_names": "Piyush",
+          "surname": "Dahal"
+        },
+        {
+          "given_names": "Suchita",
+          "surname": "Shrestha"
+        },
+        {
+          "given_names": "Samita",
+          "surname": "Rijal"
+        },
+        {
+          "given_names": "Youssouf",
+          "surname": "Kabore"
+        },
+        {
+          "given_names": "Eric",
+          "surname": "Adehossi"
+        },
+        {
+          "given_names": "Ousmane",
+          "surname": "Guindo"
+        },
+        {
+          "given_names": "Farah Naz",
+          "surname": "Qamar"
+        },
+        {
+          "given_names": "Abdul Momin",
+          "surname": "Kazi"
+        },
+        {
+          "given_names": "Charles J.",
+          "surname": "Woodrow"
+        },
+        {
+          "given_names": "Steven",
+          "surname": "Laird"
+        },
+        {
+          "given_names": "Maina",
+          "surname": "Cheeba"
+        },
+        {
+          "given_names": "Helen",
+          "surname": "Ayles"
+        },
+        {
+          "given_names": "Phaik Yeong",
+          "surname": "Cheah"
+        },
+        {
+          "given_names": "Walter R. J.",
+          "surname": "Taylor"
+        },
+        {
+          "given_names": "Elizabeth M.",
+          "surname": "Batty"
+        },
+        {
+          "given_names": "Kesinee",
+          "surname": "Chotivanich"
+        },
+        {
+          "given_names": "Sasithon",
+          "surname": "Pukrittayakamee"
+        },
+        {
+          "given_names": "Weerapong",
+          "surname": "Phumratanaprapin"
+        },
+        {
+          "given_names": "Lorenz",
+          "surname": "von Seidlein"
+        },
+        {
+          "given_names": "Arjen",
+          "surname": "Dondorp"
+        },
+        {
+          "given_names": "Nicholas P. J.",
+          "surname": "Day"
+        },
+        {
+          "given_names": "Nicholas J.",
+          "surname": "White"
+        },
+        {
+          "collaboration": "on behalf of the COPCOV Collaborative Group"
+        }
+      ],
+      "block_count": 60,
+      "canonical_blocks_sha256": "f26e3c438e50c4362641aa71b3d9f1e6e541bbd84915180167b8c08fa00ab4f8",
+      "caveats": [
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+              "canonical_fragment": "284/2,332 (12.3% [95% CI, 10.9 to 13.6])",
+              "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+              "canonical_fragment": "284/2,33212.2 (10.9 to 13.6)",
+              "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]"
+            }
+          ],
+          "summary": "Primary narrative and table display slightly different percentage confidence-bound and p-value formatting; trial risk ratio and confidence interval are consistent and remain separate from PCR-only and meta-analysis outcomes.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        },
+        {
+          "observations": [
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+              "canonical_fragment": "Participants with any underlying disease or contraindication to taking 4-aminoquinolines were excluded.",
+              "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]"
+            },
+            {
+              "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+              "canonical_fragment": "4.8% (225/4,652) reported having a chronic disease.",
+              "source_path": "/article[1]/body[1]/sec[3]/p[1]"
+            }
+          ],
+          "summary": "Participant eligibility excludes underlying disease, while reported baseline cohort contains chronic conditions; questions do not reconcile eligibility against observed comorbidity prevalence.",
+          "treatment": "Retain original source wording; no clinical or numerical correction. Truth asks only literal, explicitly scoped estimates and does not reconcile these discrepancies."
+        }
+      ],
+      "doi": "10.1371/journal.pmed.1004428",
+      "file": "copcov.xml",
+      "format": "jats_xml",
+      "id": "copcov",
+      "journal": "PLOS Medicine",
+      "license": {
+        "copyright_holder": "Schilling et al",
+        "copyright_year": "2024",
+        "literal_notice": "This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+        "name": "Creative Commons Attribution 4.0 International",
+        "url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "main_table_count": 3,
+      "notices": {
+        "archive_scope": "Original publisher main-article XML only; no supplements or participant data"
+      },
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "parser_metadata": {
+        "entities": "rejected",
+        "external_dtd": "ignored",
+        "normalization": "xml-whitespace-v1",
+        "python_version": "3.12.7",
+        "tables": "rows-tab-separated-v1"
+      },
+      "published_date": "2024-09-12",
+      "publisher_article_url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004428",
+      "publisher_xml_url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371%2Fjournal.pmed.1004428&type=manuscript",
+      "size_bytes": 258039,
+      "source_sha256": "636e4d4a87c84cc256d565fe10f48ec134d2c6af201973f439778771ba97f04d",
+      "title": "Evaluation of hydroxychloroquine or chloroquine for the prevention of COVID-19 (COPCOV): A double-blind, randomised, placebo-controlled trial",
+      "version_label": "/plos-corpus-prod/10.1371/journal.pmed.1004428/1/pmed.1004428.xml"
+    }
+  ],
+  "split": "confirmation",
+  "ticket": "KR4B"
+}

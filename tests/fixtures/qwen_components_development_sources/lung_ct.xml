@@ -1,0 +1,1211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1d3 20150301//EN" "http://jats.nlm.nih.gov/publishing/1.1d3/JATS-journalpublishing1.dtd">
+<article article-type="research-article" dtd-version="1.1d3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS ONE</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLOS ONE</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-21-07234</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Neuroimaging</subject><subj-group><subject>Computed axial tomography</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Neuroscience</subject><subj-group><subject>Neuroimaging</subject><subj-group><subject>Computed axial tomography</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Tomography</subject><subj-group><subject>Computed axial tomography</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Tomography</subject><subj-group><subject>Computed axial tomography</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Tomography</subject><subj-group><subject>Computed axial tomography</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>People and places</subject><subj-group><subject>Population groupings</subject><subj-group><subject>Professions</subject><subj-group><subject>Medical personnel</subject><subj-group><subject>Radiologists</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Computer and information sciences</subject><subj-group><subject>Software engineering</subject><subj-group><subject>Computer software</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Engineering and technology</subject><subj-group><subject>Software engineering</subject><subj-group><subject>Computer software</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Lung and intrathoracic tumors</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Cancer detection and diagnosis</subject><subj-group><subject>Cancer screening</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancer detection and diagnosis</subject><subj-group><subject>Cancer screening</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Computer and information sciences</subject><subj-group><subject>Artificial intelligence</subject><subj-group><subject>Machine learning</subject><subj-group><subject>Deep learning</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Cancer detection and diagnosis</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancer detection and diagnosis</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Computer and information sciences</subject><subj-group><subject>Computer applications</subject><subj-group><subject>Computer-assisted instruction</subject></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population</article-title>
+<alt-title alt-title-type="running-head">Clinical validation of a deep learning computer aided system for CT based lung nodule detection</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<name name-style="western">
+<surname>Murchison</surname>
+<given-names>John T.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Ritchie</surname>
+<given-names>Gillian</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Senyszak</surname>
+<given-names>David</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0001-8855-6086</contrib-id>
+<name name-style="western">
+<surname>Nijwening</surname>
+<given-names>Jeroen H.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>van Veenendaal</surname>
+<given-names>Gerben</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Wakkie</surname>
+<given-names>Joris</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>van Beek</surname>
+<given-names>Edwin J. R.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Department of Radiology, Royal Infirmary of Edinburgh, Edinburgh, United Kingdom</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>Edinburgh Imaging facility QMRI, University of Edinburgh, Edinburgh, United Kingdom</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>Aidence, Amsterdam, The Netherlands</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Park</surname>
+<given-names>Chang Min</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"/>
+</contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>Seoul National University Hospital, Seoul National University College of Medicine, REPUBLIC OF KOREA</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>JTM, GR, and DS declare no competing interests. EJRvB declares ownership of QCTIS Ltd and serves on the medical advisory boards of Aidence BV and Imbio LLC. EJRvB received a restricted research grant from Siemens Healthineers and speaker fees from AstraZeneca and Roche Diagnostics. EJRvB’s non-financial competing interest is serving as an expert witness on medicolegal advice on imaging based cases. JHN and GvV are full time, paid employees of Aidence and have aided in part of the raw data analysis (GvV) or re-submitting this manuscript to PLOS ONE (JHN). These interests do not alter our adherence to PLOS ONE policies on sharing data and materials.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">john.murchison@luht.scot.nhs.uk</email> (JTM); <email xlink:type="simple">jeroen.nijwening@aidence.com</email> (JHN)</corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>5</day>
+<month>5</month>
+<year>2022</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2022</year>
+</pub-date>
+<volume>17</volume>
+<issue>5</issue>
+<elocation-id>e0266799</elocation-id>
+<history>
+<date date-type="received">
+<day>8</day>
+<month>3</month>
+<year>2021</year>
+</date>
+<date date-type="accepted">
+<day>28</day>
+<month>3</month>
+<year>2022</year>
+</date>
+</history>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Murchison et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pone.0266799"/>
+<abstract>
+<sec id="sec001">
+<title>Objective</title>
+<p>In this study, we evaluated a commercially available computer assisted diagnosis system (CAD). The deep learning algorithm of the CAD was trained with a lung cancer screening cohort and developed for detection, classification, quantification, and growth of actionable pulmonary nodules on chest CT scans. Here, we evaluated the CAD in a retrospective cohort of a routine clinical population.</p>
+</sec>
+<sec id="sec002">
+<title>Materials and methods</title>
+<p>In total, a number of 337 scans of 314 different subjects with reported nodules of 3–30 mm in size were included into the evaluation. Two independent thoracic radiologists alternately reviewed scans with or without CAD assistance to detect, classify, segment, and register pulmonary nodules. A third, more experienced, radiologist served as an adjudicator. In addition, the cohort was analyzed by the CAD alone. The study cohort was divided into five different groups: 1) 178 CT studies without reported pulmonary nodules, 2) 95 studies with 1–10 pulmonary nodules, 23 studies from the same patients with 3) baseline and 4) follow-up studies, and 5) 18 CT studies with subsolid nodules. A reference standard for nodules was based on majority consensus with the third thoracic radiologist as required. Sensitivity, false positive (FP) rate and Dice inter-reader coefficient were calculated.</p>
+</sec>
+<sec id="sec003">
+<title>Results</title>
+<p>After analysis of 470 pulmonary nodules, the sensitivity readings for radiologists without CAD and radiologist with CAD, were 71.9% (95% CI: 66.0%, 77.0%) and 80.3% (95% CI: 75.2%, 85.0%) (p &lt; 0.01), with average FP rate of 0.11 and 0.16 per CT scan, respectively. Accuracy and kappa of CAD for classifying solid vs sub-solid nodules was 94.2% and 0.77, respectively. Average inter-reader Dice coefficient for nodule segmentation was 0.83 (95% CI: 0.39, 0.96) and 0.86 (95% CI: 0.51, 0.95) for CAD versus readers. Mean growth percentage discrepancy of readers and CAD alone was 1.30 (95% CI: 1.02, 2.21) and 1.35 (95% CI: 1.01, 4.99), respectively.</p>
+</sec>
+<sec id="sec004">
+<title>Conclusion</title>
+<p>The applied CAD significantly increased radiologist’s detection of actionable nodules yet also minimally increasing the false positive rate. The CAD can automatically classify and quantify nodules and calculate nodule growth rate in a cohort of a routine clinical population. Results suggest this Deep Learning software has the potential to assist chest radiologists in the tasks of pulmonary nodule detection and management within their routine clinical practice.</p>
+</sec>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source>
+<institution>sustainable innovation fund</institution>
+</funding-source>
+<award-id>SBRI phase I</award-id>
+</award-group>
+<funding-statement>This study was funded by NHS England via the SBRI Phase 1 grant for “Early Detection and Diagnosis of Cancer” which was granted to Aidence (Amsterdam, the Netherlands). Aidence provided support with this grant in the form of salaries for authors [JTM, GR, EJRVB], but did not have any additional role in the study design, data collection and most of the analysis, decision to publish, or preparation of the manuscript. The specific roles of these authors are articulated in the ‘author contributions’ section. EJRvB is a member of the Medical Advisory Board of Aidence and received support in the form of salary for the work performed in this study. JTM has no affiliation with Aidence and received support in the form of salary for the work performed in this study. GR has no affiliation with Aidence and received support in the form of salary for the work performed in this study. DS has no affiliation with Aidence and received support in the form of salary for the work performed in this study. JHN is a full time, paid employee of Aidence at the time of submission of this manuscript. GvV is a full time, paid employee of Aidence at the time of submission of this manuscript.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="1"/>
+<table-count count="1"/>
+<page-count count="10"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>Data cannot be shared publicly because of confidential patient information. Anonymous data is stored on a stand-alone server at the Edinburgh Imaging facility QMRI, University of Edinburgh, Edinburgh, UK. <ext-link ext-link-type="uri" xlink:href="http://www.ed.ac.uk/edinburgh-imaging" xlink:type="simple">http://www.ed.ac.uk/edinburgh-imaging</ext-link> To access the data, please contact the Caldicott Guardian's Office: Caldicott Office NHS Lothian Waverley Gate 2-4 Waterloo Place Edinburgh EH1 3EG Phone +44-131-4655452 <email xlink:type="simple">Calcicott.guardian@nhslothian.scot.nhs.uk</email>.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec005" sec-type="intro">
+<title>Introduction</title>
+<p>Lung nodule detection and management is one of the most frequent challenges in chest computed tomography (CT), not just in the context of lung cancer screening, but also in the staging of other malignancies in routine clinical practice. Lung cancer remains the third most prevalent cancer worldwide, is both rising in incidence [<xref ref-type="bibr" rid="pone.0266799.ref001">1</xref>], and maintains high mortality rates with around 1.8 million global deaths annually. Several recent studies demonstrated the benefits of lung cancer screening on early detection and improved outcomes [<xref ref-type="bibr" rid="pone.0266799.ref002">2</xref>–<xref ref-type="bibr" rid="pone.0266799.ref004">4</xref>]. The advent of lung cancer screening results in the need to detect smaller nodules, and therefore, the importance of fast and accurate detection is even more pronounced [<xref ref-type="bibr" rid="pone.0266799.ref005">5</xref>].</p>
+<p>Lung cancer is ideally diagnosed by histopathological confirmation. However, the diagnostic process usually begins with chest CT where pulmonary nodules are identified incidentally. Pulmonary nodules are very common and mostly benign, however they should be considered as early stage cancers. The biggest challenges for pulmonary nodule detection on CT are acceptable sensitivity levels and reading times. Many failures in lung cancer diagnoses are due to detection errors rather than interpretation [<xref ref-type="bibr" rid="pone.0266799.ref006">6</xref>, <xref ref-type="bibr" rid="pone.0266799.ref007">7</xref>]. Several studies showed that the performance of (sub-specialist) radiologists for detecting pulmonary nodules is suboptimal with reported sensitivities around 80% [<xref ref-type="bibr" rid="pone.0266799.ref008">8</xref>, <xref ref-type="bibr" rid="pone.0266799.ref009">9</xref>].</p>
+<p>Pulmonary nodule guidelines recommend different cut-off levels for nodule size and/or volume and volume doubling time as metrics to assess nodule size and growth [<xref ref-type="bibr" rid="pone.0266799.ref010">10</xref>–<xref ref-type="bibr" rid="pone.0266799.ref015">15</xref>]. There is increasing consensus that semi-automated volume assessment gives the most robust assessment for lung nodule growth during follow up [<xref ref-type="bibr" rid="pone.0266799.ref005">5</xref>, <xref ref-type="bibr" rid="pone.0266799.ref014">14</xref>, <xref ref-type="bibr" rid="pone.0266799.ref015">15</xref>]. Another important parameter to consider is pulmonary nodule composition (solid vs sub-solid), as sub-solid nodules are more likely to be malignant [<xref ref-type="bibr" rid="pone.0266799.ref016">16</xref>].</p>
+<p>The above-mentioned challenges lead to many hospitals currently unable to assess nodules in a timely and accurate manner. Software aided detection and classification of lung nodules should improve the radiologist’s diagnostic arsenal and throughput time and additionally could facilitate the roll-out of CT lung cancer screening [<xref ref-type="bibr" rid="pone.0266799.ref017">17</xref>]. Therefore, there has been an increasing focus on developing deep learning based computer assisted detection systems to facilitate more rapid reporting [<xref ref-type="bibr" rid="pone.0266799.ref018">18</xref>–<xref ref-type="bibr" rid="pone.0266799.ref028">28</xref>]. A few of these systems have reached availability for use in clinical practice. The study described here was performed to validate one such system, which was originally trained on a lung cancer screening cohort, in a retrospective clinical population cohort of Scottish patients undergoing routine chest CT investigations.</p>
+</sec>
+<sec id="sec006" sec-type="materials|methods">
+<title>Materials and methods</title>
+<sec id="sec007">
+<title>Subject selection</title>
+<p>CT studies from a routine clinical population, in a single academic hospital, between January 2008 and December 2009 (9 years before start of this retrospective study), were searched for the following inclusion criteria: age 50–74 years, current smokers, a smoking history and/or radiological evidence of pulmonary emphysema. CT studies excluded from the analysis had slice thickness &gt;3mm, or the presence of diffuse pulmonary disease in the radiology report, and/or the CT images, with widespread abnormalities such as interstitial lung disease.</p>
+<p>In total, 337 fully anonymized chest CT examinations from 314 subjects (173 women, 164 men) with reported nodule size of ≥3mm and ≤30mm were included and transferred onto a stand-alone server. A waiver of informed consent was obtained from the South East Scotland Research Ethics Service.</p>
+<p>From these CT scans, five groups were created. Group 1: 178 CT scans, initially reported as being free from pulmonary nodules. Group 2: 95 CT scans, reported to have between 1 and 10 pulmonary nodules. Group 3: 23 CT scans from patients undergoing follow-up of a pulmonary nodule. Group 4, consisted of the 23 follow-up scans of group 3. Finally, group 5 consisted of 18 scans to enrich the study group with part-solid and/or ground-glass nodule(s).</p>
+</sec>
+<sec id="sec008">
+<title>CT protocol</title>
+<p>A Toshiba Aquilion was used for most (330) studies; intravenous contrast was used in 22 CT scans. The mean tube peak potential energies used was 120 kVp, (range: 120–140 kVp), the average tube current was 243 mAs (range: 80–491 mAs) and the average CTDIvol was 14.0 mGy (range: 2.9–29.7). Data was reconstructed at a mean slice thickness of 1.0 mm (range 1.0–2.5mm). All CT scans were reconstructed using filtered back-projection, as these studies predated the routine application of novel reconstruction methods, such as iterative reconstruction. Other CT scanners used were: Toshiba Aquilion-CX: 2 scans, Toshiba Aquilion ONE: 1 scan, GE Medical Systems LightSpeed 16: 2 scans, GE Medical Systems LightSpeed: 2 scans.</p>
+</sec>
+<sec id="sec009">
+<title>Nodule definition</title>
+<p>The Fleischner Society’s definition for pulmonary nodules was broadly used during this study [<xref ref-type="bibr" rid="pone.0266799.ref012">12</xref>]. The size range was 3–30 mm with “actionable nodules” regarded as having a largest axial diameter between ≥5mm (or a volume of ≥80mm<sup>3</sup>) and ≤30mm as recommended by the British Thoracic Society guidelines [<xref ref-type="bibr" rid="pone.0266799.ref010">10</xref>].</p>
+</sec>
+<sec id="sec010">
+<title>CAD software</title>
+<p>Veye Chest version 2.0 (now known as Veye Lung Nodules, developed by Aidence B.V., Amsterdam, the Netherlands), which is CE marked and certified as a Class IIb medical device, was evaluated in this study, see (<xref ref-type="supplementary-material" rid="pone.0266799.s001">S1 Fig</xref>). The software is primarily based on Deep Learning technology, which was trained on 45k+ chest CT-scans (slice thickness ≤3mm without contrast fluid) and 40k+ annotations by radiologists. The software runs automatically and comprises of CADe and CADx functionality and growth rate calculation. The software has a detection threshold based on nodule likelihood values (range 0.0 to 1.0). For this study the threshold was set to 0.1 which means that the threshold is set to ahigh sensitivity and consequently a relatively high false positive rate.</p>
+</sec>
+<sec id="sec011">
+<title>Image annotation</title>
+<p>A panel consisting of three thoracic radiologists (≥ 9 years’ experience; JTM, GR and EJRvB, expert readers 1, 2 and 3, respectively) received training on the annotation tasks and annotation tool with written instructions available throughout. The study was performed at the University of Edinburgh between February–May 2018.</p>
+<p>Two datasets were created from the 337 CT scans: one set with CAD results and one set without CAD results. Reader 1 reviewed all the CT scans, but half of the CT scans with the CAD results (CAD aided) and the other half without CAD results (CAD unaided). For reader 2 this was vice versa. Hence, each CT scan was reviewed twice, once by one reader with the CAD results (CAD aided) and once by the other reader without the use of CAD (CAD unaided). Readers had to identify all lesions they considered to be a pulmonary nodule without clear benign morphological characteristics (calcification, typical perifissural lymph node). Any nodules requiring follow-up according to lung cancer screening criteria were classified as “actionable nodules” [<xref ref-type="bibr" rid="pone.0266799.ref010">10</xref>]. The Reader would mark an actionable pulmonary nodule manually on unaided scans or classify a CAD prompt on an aided scan as either true positive (TP) or false positive (FP). Any actionable nodules identified on aided scans, which had not been detected by CAD were also recorded. Readers registered all actionable nodules present on CT scans from groups 3 and 4. Finally, the readers classified all FP CAD prompts into four different groups: micro-nodules (largest axial diameter &lt;3mm), masses (largest axial diameter &gt;30mm), benign nodules (benign calcification pattern or clear benign perifissural appearance) and non-nodules (1088 non-nodules in total. More specific: atelectasis: 283; scar tissue: 229; fibrosis: 157; vessels: 126; non-lung: 81; other: 81; pleural: 80; fissure: 25; pleural plaque: 14; consolidations: 12 pleural plaque).</p>
+<p>After completing all the readings on the workstations the readers reviewed their own previously identified nodules on a tablet (iPad Pro). The reader was asked to determine the composition (solid or sub-solid) and segment each nodule on every slice. The results from readers 1 and 2 were evaluated for the presence of any discrepancies. Discrepancies were defined as a difference between the results in terms of: location (3D Dice coefficient of 0); composition; segmentation (3D Dice coefficient &lt; -1 standard deviation of the mean) and nodule registration. The Dice coefficient is a spatial overlap index and a reproducibility validation metric with a range of 0.0 (no overlap) to 1.0 (perfect overlap) [<xref ref-type="bibr" rid="pone.0266799.ref029">29</xref>].</p>
+<p>Reader 3 subsequently adjudicated all discrepancies without the results of CAD using the same materials used in the blinded phase. Reader 3 created an independent reading for each nodule that had a discrepancy for at least one characteristic.</p>
+</sec>
+<sec id="sec012">
+<title>Reference standard</title>
+<p>The reference standard for actionable nodules consisted of lesions from groups 1 and 2 which were marked as a pulmonary nodule by the majority of the panel and met the size criteria of having a largest axial diameter between ≥5mm (or a volume of ≥80mm<sup>3</sup>) and ≤30mm. The majority consisted of consensus between reader 1 and 2 or, in the case of no consensus, the adjudication of reader 3. The location of an actionable nodule was defined by averaging the center of mass of all reader’s segmentations. Subsequently, the radius and volume were derived from these segmentations. The reference standard for composition was determined by majority consensus of lesions from groups 1–3 and 5. Finally, growth rate was determined as the relative volume difference between nodules visible on a study from group 3 and on its follow-up study from group 4.</p>
+</sec>
+<sec id="sec013">
+<title>Data analysis</title>
+<p>Findings from a reader or from CAD were scored as either TP, if the center of the detection was within the volume of actionable nodules in the reference standard, or otherwise as FP. Findings from a reader or CAD in the center of the detection that was within the volume of a micro-nodule or a mass or a nodule detected by only a single reader were neither scored TP or FP. The absence of a prompt from CAD in the center of an actionable nodule in the reference standard was considered FN. Sensitivity for detecting actionable nodules and the average number of FP detections per CT scan for AIDED readings, UNAIDED readings and CAD alone was calculated using the reference standard for actionable nodules.</p>
+<p>The sensitivity, specificity, positive predictive value and negative predictive value, accuracy and kappa score for determining the composition (solid or sub-solid) by CAD alone was calculated using the reference standard for composition.</p>
+<p>The segmentation accuracy of readers was calculated as the Dice coefficient between each reader’s segmentation and averaged (inter-reader dice coefficient). The segmentation accuracy of CAD alone was calculated as the Dice coefficient between each CAD segmentation and each individual reader segmentation and averaged. In addition, the inter-reader mean diametric and volumetric discrepancy was calculated using the largest axial diameter and volume from each segmentation of each reader’s segmentation and compared to those from the other readers, this was also calculated for CAD alone compared to the other readers.</p>
+<p>For sequential scans (groups 3 and 4), nodule registration from CAD was scored as either TP, if the detected registration was included in the nodule registration reference standard, or otherwise as FP. The mean discrepancy between growth percentages determined by readers and CAD alone was calculated.</p>
+</sec>
+<sec id="sec014">
+<title>Statistical analysis</title>
+<p>One-tailed Welch’s t-test was used to accept the hypothesis that the mean sensitivity of AIDED is higher than the mean sensitivity of the UNAIDED readings (p &lt;0.05), with the use of bootstrapping over scans with 2000 iterations. One-tailed Welch’s t-test was used to accept the hypothesis that the mean CAD Dice score is higher than the mean inter-reader Dice score (p &lt; 0.05).</p>
+</sec>
+</sec>
+<sec id="sec015" sec-type="results">
+<title>Results</title>
+<p>Groups 1 and 2 consisted of 273 CT scans with 269 actionable nodules see <xref ref-type="table" rid="pone.0266799.t001">Table 1</xref>. Remarkably, nodules were identified in group 1, highlighting the importance of concurrent reading. The radiologists with CAD readings showed a sensitivity of 93.5% and average FP rate of 3.0. The sensitivity for detecting actionable nodules of radiologists without CAD on scans from groups 1 and 2 was: 71.9% (95% CI: 66.0%, 77.0%) and 80.3% (95% CI: 75.2%, 85.0%) (p &lt; 0.01), respectively. The average FP rate of radiologists alone and radiologists with CAD readers was: 0.11 and 0.16, respectively. The maximum obtainable sensitivity of CAD alone was 95.9% at an average FP rate of 10.9. The sensitivity of CAD alone was equivalent to radiologists without and radiologists with CAD readings at an average FP rate of 0.62 and 0.88, respectively (<xref ref-type="fig" rid="pone.0266799.g001">Fig 1</xref>). Details regarding the number of CT scans and nodules per group are described in <xref ref-type="table" rid="pone.0266799.t001">Table 1</xref>.</p>
+<fig id="pone.0266799.g001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0266799.g001</object-id>
+<label>Fig 1</label>
+<caption>
+<title>Free-response ROC (FROC) curve.</title>
+<p>This curve shows the standalone performance of CAD for detecting actionable nodules based on scans from groups 1 and 2. The vertical axis represent the sensitivity and the horizontal axis the average number of false positives per scan. The dashed lines show the upper and lower boundary of 95% confidence interval, bootstrapping of scans with 2000 samples. The circle represents the UNAIDED performance (sensitivity: 71.9% average FP rate 0.11 per scan) and square the AIDED performance (sensitivity: 80.3% average FP rate 0.16 per scan) for detecting actionable nodules.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0266799.g001" xlink:type="simple"/>
+</fig>
+<table-wrap id="pone.0266799.t001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0266799.t001</object-id>
+<label>Table 1</label> <caption><title>Distribution of study subjects and nodule size by group.</title></caption>
+<alternatives>
+<graphic id="pone.0266799.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0266799.t001" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">Group</th>
+<th align="left">Number of subjects</th>
+<th align="left">Number of CT scans</th>
+<th align="left">Number of nodules with largest axial diameter ≥3 and &lt;5mm</th>
+<th align="left">Number of nodules with largest axial diameter or mean volume ≥5mm / ≥80mm<sup>3</sup> and &lt;30mm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">178</td>
+<td align="left">178</td>
+<td align="left">19</td>
+<td align="left">71</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">95</td>
+<td align="left">95</td>
+<td align="left">34</td>
+<td align="left">198</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left" rowspan="2">23</td>
+<td align="left">23</td>
+<td align="left">0</td>
+<td align="left">68</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">23</td>
+<td align="left">6</td>
+<td align="left">36</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">18</td>
+<td align="left">18</td>
+<td align="left">2</td>
+<td align="left">36</td>
+</tr>
+<tr>
+<td align="left"><bold>TOTAL</bold></td>
+<td align="left"><bold>314</bold></td>
+<td align="left"><bold>337</bold></td>
+<td align="left"><bold>61</bold></td>
+<td align="left"><bold>409</bold></td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+</table-wrap>
+<p>The composition of nodules within groups 1, 2, 3, and 5 totaled 325 solid nodules and 57 sub-solid nodules. The sensitivity, specificity, positive predictive value and negative predictive value of CAD for determining the composition of solid nodules in groups 1, 2, 3, and 5 was 98.8%, 68.4%, 90.7% and 94.7%, and was 68.4%, 98.8%, 94.7% and 90.7% for sub-solid nodules, respectively. The accuracy and kappa of CAD for determining the composition (solid or sub-solid) of a pulmonary nodule was 94.2% and 0.77.</p>
+<p>The CAD software successfully segmented 95% of pulmonary nodules from groups 1–3 and 5. The average inter-reader Dice coefficient was 0.83 (95% CI: 0.39, 0.96) versus 0.86 (95% CI: 0.51, 0.95) for CAD alone (p&lt;0.01). The mean largest axial diameter of all nodules was 7.68 ± 3.50 mm (range: 3.42–28.45 mm) and the mean volume was 198 ± 333 mm3 (range: 21–2797 mm<sup>3</sup>. The inter-reader geometric mean diameter discrepancy was 1.15 (95% CI: 1.00, 1.58) versus 1.17 (95% CI: 1.01, 1.69) for CAD alone. The inter-reader geometric mean volumetric discrepancy was 1.39 (95% CI: 1.01, 3.19) versus 1.38 (95% CI: 1.01, 3.38) for CAD alone.</p>
+<p>The total number of nodules in group 3 and 4 was 68 and 42, respectively. The total number of nodule-pairs in groups 3 and 4 was 23 and all nodules were successfully identified by CAD. The mean growth percentage discrepancy of readers and CAD alone was 1.30 (95% CI: 1.02, 2.21) and 1.35 (95% CI: 1.01, 4.99), respectively, which was not statistically significant.</p>
+</sec>
+<sec id="sec016" sec-type="conclusions">
+<title>Discussion</title>
+<p>The study described here shows improved sensitivity of experienced thoracic radiologists using aided detection from 71.9% to 90.3% with a minor increase in FP rate. The maximum stand-alone CAD sensitivity was 95.9% at an average FP rate of 10.9, which would be unworkable in clinical practice. A more acceptable average FP rate would be between 1 and 2 with corresponding sensitivity range (82.3% - 89.0%), outperforming thoracic radiologists with and without using CAD. The standalone performance of the CAD, when set to the threshold of 0.1 applied in this study, correlates to an average sensitivity of 95% and an average number of 7 false positives per study based on this dataset.</p>
+<p>Computer assisted detection and diagnosis software, including convolutional neural networks and machine learning approaches have shown promising results in aiding radiologists to identify incidental pulmonary nodules. A study using the LIDC database as a comparison tested 108 CT scans and demonstrated high sensitivity and specificity [<xref ref-type="bibr" rid="pone.0266799.ref018">18</xref>, <xref ref-type="bibr" rid="pone.0266799.ref020">20</xref>]. However, there are also conflicting results. A more recent study [<xref ref-type="bibr" rid="pone.0266799.ref021">21</xref>] demonstrated moderately high sensitivity of 84% and a corresponding positive predictive value of 67% when tested in 100 patients with 106 biopsied lung nodules at a slice thickness of 3 mm. Another commercial system was clearly suboptimal when tested on 50 pure ground glass and 50 part solid nodules [<xref ref-type="bibr" rid="pone.0266799.ref022">22</xref>]. The most comprehensive deep learning system to date used 11,625 chest CT scans for model training and validation and subsequently used 1,129 chest CT studies for testing of the model with a sensitivity between 74%-86% at FP rates of 1–8, respectively [<xref ref-type="bibr" rid="pone.0266799.ref023">23</xref>].</p>
+<p>This is the first study using this CAD software to look at a routine cohort of smokers who underwent chest CT for non-screening purposes. The software tested here was initially validated on a lung cancer screening population [<xref ref-type="bibr" rid="pone.0266799.ref002">2</xref>, <xref ref-type="bibr" rid="pone.0266799.ref017">17</xref>] and the results of our study are of similar sensitivity and accuracy to that initial cohor, (87% at 1 FP/scan) [<xref ref-type="bibr" rid="pone.0266799.ref002">2</xref>] confirming broader use is feasible.</p>
+<p>In this study, AIDED readings outperformed UNAIDED readings, yielding a sensitivity of 93.5% at an average FP rate of 3.0. However, 36 CAD detected nodules confirmed by the majority of the panel were scored as FP by one reader. A possible explanation could be that due to the high number the readers develop a tendency to call CAD prompts FP. Another explanation could be a structural difference in pulmonary nodule definition between the readers. Even allowing for this, the number of TP nodules detected by CAD was higher than without CAD.</p>
+<p>For determining the composition (solid or sub-solid) of a pulmonary nodule, the CAD software yielded a high accuracy of 94.2% and a kappa score of 0.77. The segmentation accuracy of CAD was similar to that of thoracic radiologists, CAD dice 0.86 and inter-reader dice 0.83 (p &lt;0.01).</p>
+<p>In addition, the CAD software yielded a perfect score for a limited number of nodule pairs and analyzing its volumes; sensitivity 100.0% without FP pairs, but further validation will be required. The mean growth percentage discrepancy of readers was 1.30 compared to 1.35 for CAD alone. However, due to a single incorrect segmentation of the CAD software, the upper end of its confidence interval (95% CI,1.01–4.99) is twice as high compared to that of readers (95% CI,1.02–2.21), illustrating that visual verification is still required. Nevertheless, this compares favorably with results from a software comparison sub-study of the NELSON study in 50 subjects [<xref ref-type="bibr" rid="pone.0266799.ref025">25</xref>]. Similarly, a study of 134 participants in the NLST also demonstrated a decrease in variability of detection and volumetry with the use of software [<xref ref-type="bibr" rid="pone.0266799.ref026">26</xref>].</p>
+<p>This study has several limitations. First, the data was obtained from a single site and the vast majority of CT scans were acquired by a single CT scanner vendor. A recent study demonstrated decreased diagnostic performance of machine learning-based radiomics models in 26 patients with subsolid adenocarcinoma nodules when iterative reconstruction was applied [<xref ref-type="bibr" rid="pone.0266799.ref027">27</xref>]. Therefore, care must be taken to validate any software tool on actual datasets. Although differences between scanner manufacturers and CT imaging protocols may alter the interpretation of lung parenchymal features, it is unlikely to significantly affect the presence or absence of actionable pulmonary nodules. Indeed, all vendors have taken part in various CT lung screening trials and have shown similar results. Second, the readings were performed under artificial conditions and therefore the performance of the CAD software and the radiologists may be different in a real-world setting. This is considered of potential importance, as artificial conditions and use in selected datasets tend to lead to excellent results of lung CT CAD systems [<xref ref-type="bibr" rid="pone.0266799.ref028">28</xref>, <xref ref-type="bibr" rid="pone.0266799.ref029">29</xref>]. Further prospective clinical validation is therefore required, and this also highlights the need for seamless workflow integration of this software for it to become standard practice. Lastly, the sensitivity of the readers without and with CAD versus CAD alone was calculated using the reference standard established by the same readers and CAD. The only addition to this was the third reader, who effectively assured consensus on the final classification and morphologic features of lung nodules. One could consider performing the same test in multiple readers, but this would be time consuming and unlikely lead to significantly different results. Recently, the software described here was independently evaluated in a large teaching hospital [<xref ref-type="bibr" rid="pone.0266799.ref030">30</xref>]. This study found a sensitivity of 88% and the mean FP rate was 1.04 FPs per scan.</p>
+<p>In conclusion, the use of the CAD significantly increased radiologist’s detection of actionable nodules yet also increasing the false positive rate. The Deep Learning model for nodule detection was trained on data from a lung cancer screening cohort. In addition, this study appears to show that it is also effective in a general, “real life” clinical setting where it improves the sensitivity of detection of actionable nodules by thoracic radiologists. This CAD system is able to automatically classify, quantify, and calculate the growth rate of pulmonary nodules. These results suggest that Deep Learning software has the potential to assist radiologists in the tasks of pulmonary nodule detection and management on routine chest CT.</p>
+</sec>
+<sec id="sec017" sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material id="pone.0266799.s001" mimetype="image/tiff" position="float" xlink:href="info:doi/10.1371/journal.pone.0266799.s001" xlink:type="simple">
+<label>S1 Fig</label>
+<caption>
+<title>Screenshot of Veye Chest.</title>
+<p>(TIF)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item><term>3D</term>
+<def><p>3 dimensional</p></def>
+</def-item>
+<def-item><term>CAD</term>
+<def><p>Computer Assisted Detection</p></def>
+</def-item>
+<def-item><term>CADe</term>
+<def><p>Computer Assisted Detection Device</p></def>
+</def-item>
+<def-item><term>CADx</term>
+<def><p>Computer Assisted Diagnostic Device</p></def>
+</def-item>
+<def-item><term>CE</term>
+<def><p>Conformité Européenne</p></def>
+</def-item>
+<def-item><term>CI</term>
+<def><p>Confidence Interval</p></def>
+</def-item>
+<def-item><term>CT</term>
+<def><p>Computed Tomography</p></def>
+</def-item>
+<def-item><term>CTDlvol</term>
+<def><p>Volume CT Dose Index</p></def>
+</def-item>
+<def-item><term>DICOM</term>
+<def><p>Digital Imaging and Communications in Medicine</p></def>
+</def-item>
+<def-item><term>FP</term>
+<def><p>False Positive</p></def>
+</def-item>
+<def-item><term>FN</term>
+<def><p>False negative</p></def>
+</def-item>
+<def-item><term>FROC</term>
+<def><p>Free Response Receiver Operating Characteristic</p></def>
+</def-item>
+<def-item><term>GE</term>
+<def><p>General Electric</p></def>
+</def-item>
+<def-item><term>MIP</term>
+<def><p>Maximum Intensity Projection</p></def>
+</def-item>
+<def-item><term>MPR</term>
+<def><p>Multiplanar reconstruction</p></def>
+</def-item>
+<def-item><term>kVp</term>
+<def><p>Kilovoltage peak</p></def>
+</def-item>
+<def-item><term>mAs</term>
+<def><p>Milliamp seconds</p></def>
+</def-item>
+<def-item><term>mGy</term>
+<def><p>Milligray</p></def>
+</def-item>
+<def-item><term>NLST</term>
+<def><p>National Lung Screening Trial</p></def>
+</def-item>
+<def-item><term>TP</term>
+<def><p>True positive</p></def>
+</def-item>
+<def-item><term>VDT</term>
+<def><p>Volume Doubling Time</p></def>
+</def-item>
+</def-list>
+</glossary>
+<ref-list>
+<title>References</title>
+<ref id="pone.0266799.ref001"><label>1</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Sung</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Ferlay</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Siegel</surname> <given-names>RL</given-names></name>, <name name-style="western"><surname>Laversanne</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Soerjomataram</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Jemal</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Global Cancer Statistics 2020: GLOBOCAN Estimates of Incidence and Mortality Worldwide for 36 Cancers in 185 Countries</article-title>. <source>CA Cancer J Clin</source>. <year>2021</year> <month>May</month>;<volume>71</volume>(<issue>3</issue>):<fpage>209</fpage>–<lpage>249</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3322/caac.21660" xlink:type="simple">10.3322/caac.21660</ext-link></comment> Epub 2021 Feb 4. <object-id pub-id-type="pmid">33538338</object-id>.</mixed-citation></ref>
+<ref id="pone.0266799.ref002"><label>2</label><mixed-citation publication-type="other" xlink:type="simple">The National Lung Screening Trial Research. Results of Initial Low-Dose Computed Tomographic Screening for Lung Cancer. <ext-link ext-link-type="uri" xlink:href="https://doi.org/101056/NEJMoa1209120" xlink:type="simple">https://doi.org/101056/NEJMoa1209120</ext-link> [Internet]. 2013 May 22 [cited 2021 Sep 15];368(21):1980–91. Available from: <ext-link ext-link-type="uri" xlink:href="https://www.nejm.org/doi/10.1056/NEJMoa1209120" xlink:type="simple">https://www.nejm.org/doi/10.1056/NEJMoa1209120</ext-link></mixed-citation></ref>
+<ref id="pone.0266799.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Becker</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Motsch</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Trotter</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Heussel</surname> <given-names>CP</given-names></name>, <name name-style="western"><surname>Dienemann</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Schnabel</surname> <given-names>PA</given-names></name>, <etal>et al</etal>. <article-title>Lung cancer mortality reduction by LDCT screening—Results from the randomized German LUSI trial</article-title>. <source>International Journal of Cancer</source>. <year>2020</year>;<volume>146</volume>(<issue>6</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/ijc.32486" xlink:type="simple">10.1002/ijc.32486</ext-link></comment> <object-id pub-id-type="pmid">31162856</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref004"><label>4</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>de Koning</surname> <given-names>HJ</given-names></name>, <name name-style="western"><surname>van der Aalst</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>de Jong</surname> <given-names>PA</given-names></name>, <name name-style="western"><surname>Scholten</surname> <given-names>ET</given-names></name>, <name name-style="western"><surname>Nackaerts</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Heuvelmans</surname> <given-names>MA</given-names></name>, <etal>et al</etal>. <article-title>Reduced Lung-Cancer Mortality with Volume CT Screening in a Randomized Trial</article-title>. <source>New England Journal of Medicine</source>. <year>2020</year>;<volume>382</volume>(<issue>6</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1056/NEJMoa1911793" xlink:type="simple">10.1056/NEJMoa1911793</ext-link></comment> <object-id pub-id-type="pmid">31995683</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Oudkerk</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Devaraj</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Vliegenthart</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Henzler</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Prosch</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Heussel</surname> <given-names>CP</given-names></name>, <etal>et al</etal>. <article-title>European position statement on lung cancer screening</article-title>. Vol. <volume>18</volume>, <source>The Lancet Oncology</source>. <year>2017</year>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S1470-2045(17)30861-6" xlink:type="simple">10.1016/S1470-2045(17)30861-6</ext-link></comment> <object-id pub-id-type="pmid">29208441</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref006"><label>6</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kakinuma</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Ohmatsu</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Kaneko</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Eguchi</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Naruke</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Nagai</surname> <given-names>K</given-names></name>, <etal>et al</etal>. <article-title>Detection failures in spiral CT screening for lung caner: Analysis of CT findings</article-title>. <source>Radiology</source>. <year>1999</year>;<fpage>212</fpage>(1).</mixed-citation></ref>
+<ref id="pone.0266799.ref007"><label>7</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>White</surname> <given-names>CS</given-names></name>, <name name-style="western"><surname>Romney</surname> <given-names>BM</given-names></name>, <name name-style="western"><surname>Mason</surname> <given-names>AC</given-names></name>, <name name-style="western"><surname>Austin</surname> <given-names>JHM</given-names></name>, <name name-style="western"><surname>Miller</surname> <given-names>BH</given-names></name>, <name name-style="western"><surname>Protopapas</surname> <given-names>Z</given-names></name>. <article-title>Primary carcinoma of the lung overlooked at CT: Analysis of findings in 14 patients</article-title>. <source>Radiology</source>. <year>1996</year>;<volume>199</volume>(<issue>1</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiology.199.1.8633131" xlink:type="simple">10.1148/radiology.199.1.8633131</ext-link></comment> <object-id pub-id-type="pmid">8633131</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kakinuma</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Ashizawa</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Kobayashi</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Fukushima</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Hayashi</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Kondo</surname> <given-names>T</given-names></name>, <etal>et al</etal>. <article-title>Comparison of sensitivity of lung nodule detection between radiologists and technologists on low-dose CT lung cancer screening images</article-title>. <source>British Journal of Radiology</source>. <year>2012</year>;<volume>85</volume>(<issue>1017</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1259/bjr/75768386" xlink:type="simple">10.1259/bjr/75768386</ext-link></comment> <object-id pub-id-type="pmid">22919013</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Nair</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Gartland</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Barton</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Jones</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Clements</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Screaton</surname> <given-names>NJ</given-names></name>, <etal>et al</etal>. <article-title>Comparing the performance of trained radiographers against experienced radiologists in the UK lung cancer screening (UKLS) trial</article-title>. <source>British Journal of Radiology</source>. <year>2016</year>;<volume>89</volume>(<issue>1066</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1259/bjr.20160301" xlink:type="simple">10.1259/bjr.20160301</ext-link></comment> <object-id pub-id-type="pmid">27461068</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref010"><label>10</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Baldwin</surname> <given-names>DR</given-names></name>, <name name-style="western"><surname>Callister</surname> <given-names>MEJ</given-names></name>. <article-title>The British Thoracic Society guidelines on the investigation and management of pulmonary nodules</article-title>. <source>Thorax</source>. <year>2015</year>;<volume>70</volume>(<issue>8</issue>).</mixed-citation></ref>
+<ref id="pone.0266799.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>McKee</surname> <given-names>BJ</given-names></name>, <name name-style="western"><surname>Regis</surname> <given-names>SM</given-names></name>, <name name-style="western"><surname>McKee</surname> <given-names>AB</given-names></name>, <name name-style="western"><surname>Flacke</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Wald</surname> <given-names>C</given-names></name>. <article-title>Performance of ACR lung-RADS in a clinical CT lung screening program</article-title>. <source>Journal of the American College of Radiology</source>. <year>2015</year>;<volume>12</volume>(<issue>3</issue>).</mixed-citation></ref>
+<ref id="pone.0266799.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>MacMahon</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Naidich</surname> <given-names>DP</given-names></name>, <name name-style="western"><surname>Goo</surname> <given-names>JM</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>KS</given-names></name>, <name name-style="western"><surname>Leung</surname> <given-names>ANC</given-names></name>, <name name-style="western"><surname>Mayo</surname> <given-names>JR</given-names></name>, <etal>et al</etal>. <article-title>Guidelines for management of incidental pulmonary nodules detected on CT images: From the Fleischner Society 2017</article-title>. <source>Radiology</source>. <year>2017</year> <month>Jul</month> <day>1</day>;<volume>284</volume>(<issue>1</issue>):<fpage>228</fpage>–<lpage>43</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.2017161659" xlink:type="simple">10.1148/radiol.2017161659</ext-link></comment> <object-id pub-id-type="pmid">28240562</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Bankier</surname> <given-names>AA</given-names></name>, <name name-style="western"><surname>MacMahon</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Goo</surname> <given-names>JM</given-names></name>, <name name-style="western"><surname>Rubin</surname> <given-names>GD</given-names></name>, <name name-style="western"><surname>Schaefer-Prokop</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Naidich</surname> <given-names>DP</given-names></name>. <article-title>Recommendations for measuring pulmonary nodules at CT: A statement from the Fleischner society</article-title>. <source>Radiology</source>. <year>2017</year> <month>Nov</month> <day>1</day>;<volume>285</volume>(<issue>2</issue>):<fpage>584</fpage>–<lpage>600</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.2017162894" xlink:type="simple">10.1148/radiol.2017162894</ext-link></comment> <object-id pub-id-type="pmid">28650738</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref014"><label>14</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Devaraj</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>van Ginneken</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Nair</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Baldwin</surname> <given-names>D</given-names></name>. <article-title>Use of volumetry for Lung nodule management: Theory and Practice 1 STATE OF THE ART: Volumetry for Lung Nodule Management Devaraj et al</article-title>. radiology.rsna.org n <source>Radiology</source>. <year>2017</year>;<volume>284</volume>(<issue>3</issue>).</mixed-citation></ref>
+<ref id="pone.0266799.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Heuvelmans</surname> <given-names>MA</given-names></name>, <name name-style="western"><surname>Walter</surname> <given-names>JE</given-names></name>, <name name-style="western"><surname>Vliegenthart</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>van Ooijen</surname> <given-names>PMA</given-names></name>, <name name-style="western"><surname>de Bock</surname> <given-names>GH</given-names></name>, <name name-style="western"><surname>de Koning</surname> <given-names>HJ</given-names></name>, <etal>et al</etal>. <article-title>Disagreement of diameter and volume measurements for pulmonary nodule size estimation in CT lung cancer screening</article-title>. <source>Thorax</source>. <year>2018</year>;<volume>73</volume>(<issue>8</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1136/thoraxjnl-2017-210770" xlink:type="simple">10.1136/thoraxjnl-2017-210770</ext-link></comment> <object-id pub-id-type="pmid">29056601</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Naidich</surname> <given-names>DP</given-names></name>, <name name-style="western"><surname>Bankier</surname> <given-names>AA</given-names></name>, <name name-style="western"><surname>MacMahon</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Schaefer-Prokop</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Pistolesi</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Goo</surname> <given-names>JM</given-names></name>, <etal>et al</etal>. <article-title>Recommendations for the management of subsolid pulmonary nodules detected at CT: A statement from the Fleischner Society</article-title>. Vol. <volume>266</volume>, <source>Radiology</source>. <year>2013</year>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.12120628" xlink:type="simple">10.1148/radiol.12120628</ext-link></comment> <object-id pub-id-type="pmid">23070270</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Armato</surname> <given-names>SG</given-names></name>, <name name-style="western"><surname>McLennan</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>McNitt-Gray</surname> <given-names>MF</given-names></name>, <name name-style="western"><surname>Meyer</surname> <given-names>CR</given-names></name>, <name name-style="western"><surname>Yankelevitz</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Aberle</surname> <given-names>DR</given-names></name>, <etal>et al</etal>. <article-title>Lung image database consortium: Developing a resource for the medical imaging research community</article-title>. <source>Radiology</source>. <year>2004</year>;<volume>232</volume>(<issue>3</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.2323032035" xlink:type="simple">10.1148/radiol.2323032035</ext-link></comment> <object-id pub-id-type="pmid">15333795</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lo</surname> <given-names>SCB</given-names></name>, <name name-style="western"><surname>Freedman</surname> <given-names>MT</given-names></name>, <name name-style="western"><surname>Gillis</surname> <given-names>LB</given-names></name>, <name name-style="western"><surname>White</surname> <given-names>CS</given-names></name>, <name name-style="western"><surname>Mun</surname> <given-names>SK</given-names></name>. <article-title>Computer-aided detection of lung nodules on CT with a computerized pulmonary vessel suppressed function</article-title>. <source>American Journal of Roentgenology</source>. <year>2018</year>;<volume>210</volume>(<issue>3</issue>).</mixed-citation></ref>
+<ref id="pone.0266799.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Roos</surname> <given-names>JE</given-names></name>, <name name-style="western"><surname>Paik</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Olsen</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>EG</given-names></name>, <name name-style="western"><surname>Chow</surname> <given-names>LC</given-names></name>, <name name-style="western"><surname>Leung</surname> <given-names>AN</given-names></name>, <etal>et al</etal>. <article-title>Computer-aided detection (CAD) of lung nodules in CT scans: Radiologist performance and reading time with incremental CAD assistance</article-title>. <source>European Radiology</source>. <year>2010</year>;<volume>20</volume>(<issue>3</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-009-1596-y" xlink:type="simple">10.1007/s00330-009-1596-y</ext-link></comment> <object-id pub-id-type="pmid">19760237</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Brown</surname> <given-names>MS</given-names></name>, <name name-style="western"><surname>Lo</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Goldin</surname> <given-names>JG</given-names></name>, <name name-style="western"><surname>Barnoy</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>GHJ</given-names></name>, <name name-style="western"><surname>McNitt-Gray</surname> <given-names>MF</given-names></name>, <etal>et al</etal>. <article-title>Toward clinically usable CAD for lung cancer screening with computed tomography</article-title>. <source>European Radiology</source>. <year>2014</year>;<volume>24</volume>(<issue>11</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-014-3329-0" xlink:type="simple">10.1007/s00330-014-3329-0</ext-link></comment> <object-id pub-id-type="pmid">25052078</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Wagner</surname> <given-names>AK</given-names></name>, <name name-style="western"><surname>Hapich</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Psychogios</surname> <given-names>MN</given-names></name>, <name name-style="western"><surname>Teichgräber</surname> <given-names>U</given-names></name>, <name name-style="western"><surname>Malich</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Papageorgiou</surname> <given-names>I</given-names></name>. <article-title>Computer-Aided Detection of Pulmonary Nodules in Computed Tomography Using ClearReadCT</article-title>. <source>Journal of Medical Systems</source>. <year>2019</year>;<volume>43</volume>(<issue>3</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s10916-019-1180-1" xlink:type="simple">10.1007/s10916-019-1180-1</ext-link></comment> <object-id pub-id-type="pmid">30706143</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref022"><label>22</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Benzakoun</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Bommart</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Coste</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Chassagnon</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Lederlin</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Boussouar</surname> <given-names>S</given-names></name>, <etal>et al</etal>. <article-title>Computer-aided diagnosis (CAD) of subsolid nodules: Evaluation of a commercial CAD system</article-title>. <source>European Journal of Radiology</source>. <year>2016</year>;<volume>85</volume>(<issue>10</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ejrad.2016.07.011" xlink:type="simple">10.1016/j.ejrad.2016.07.011</ext-link></comment> <object-id pub-id-type="pmid">27666609</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref023"><label>23</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Liu</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>Q</given-names></name>, <name name-style="western"><surname>Ma</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Zhou</surname> <given-names>Z</given-names></name>, <name name-style="western"><surname>Sun</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Deng</surname> <given-names>Y</given-names></name>, <etal>et al</etal>. <article-title>Evaluating a Fully Automated Pulmonary Nodule Detection Approach and Its Impact on Radiologist Performance</article-title>. <source>Radiology: Artificial Intelligence</source>. <year>2019</year>;<volume>1</volume>(<issue>3</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/ryai.2019180084" xlink:type="simple">10.1148/ryai.2019180084</ext-link></comment> <object-id pub-id-type="pmid">33937792</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Zhao</surname> <given-names>YR</given-names></name>, <name name-style="western"><surname>van Ooijen</surname> <given-names>PMA</given-names></name>, <name name-style="western"><surname>Dorrius</surname> <given-names>MD</given-names></name>, <name name-style="western"><surname>Heuvelmans</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>de Bock</surname> <given-names>GH</given-names></name>, <name name-style="western"><surname>Vliegenthart</surname> <given-names>R</given-names></name>, <etal>et al</etal>. <article-title>Comparison of three software systems for semi-automatic volumetry of pulmonary nodules on baseline and follow-up CT examinations</article-title>. <source>Acta Radiologica</source>. <year>2014</year>;<volume>55</volume>(<issue>6</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1177/0284185113508177" xlink:type="simple">10.1177/0284185113508177</ext-link></comment> <object-id pub-id-type="pmid">24132766</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref025"><label>25</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jeon</surname> <given-names>KN</given-names></name>, <name name-style="western"><surname>Goo</surname> <given-names>JM</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>CH</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Choo</surname> <given-names>JY</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>NK</given-names></name>, <etal>et al</etal>. <article-title>Computer-aided nodule detection and volumetry to reduce variability between radiologists in the interpretation of lung nodules at low-dose screening computed tomography</article-title>. <source>Investigative Radiology</source>. <year>2012</year>;<volume>47</volume>(<issue>8</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/RLI.0b013e318250a5aa" xlink:type="simple">10.1097/RLI.0b013e318250a5aa</ext-link></comment> <object-id pub-id-type="pmid">22717879</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kim</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Park</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>Gwak</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Hwang</surname> <given-names>EJ</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>SY</given-names></name>, <name name-style="western"><surname>Jung</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Effect of CT reconstruction algorithm on the diagnostic performance of radiomics models: A task-based approach for pulmonary subsolid nodules</article-title>. <source>American Journal of Roentgenology</source>. <year>2019</year>;<volume>212</volume>(<issue>3</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2214/AJR.18.20018" xlink:type="simple">10.2214/AJR.18.20018</ext-link></comment> <object-id pub-id-type="pmid">30476456</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref027"><label>27</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jacobs</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>van Rikxoort</surname> <given-names>EM</given-names></name>, <name name-style="western"><surname>Murphy</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Prokop</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Schaefer-Prokop</surname> <given-names>CM</given-names></name>, <name name-style="western"><surname>van Ginneken</surname> <given-names>B</given-names></name>. <article-title>Computer-aided detection of pulmonary nodules: a comparative study using the public LIDC/IDRI database</article-title>. <source>European Radiology</source>. <year>2016</year>;<volume>26</volume>(<issue>7</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00330-015-4030-7" xlink:type="simple">10.1007/s00330-015-4030-7</ext-link></comment> <object-id pub-id-type="pmid">26443601</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref028"><label>28</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Setio</surname> <given-names>AAA</given-names></name>, <name name-style="western"><surname>Traverso</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>de Bel</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Berens</surname> <given-names>MSN</given-names></name>, <name name-style="western"><surname>Bogaard</surname> <given-names>C van den</given-names></name>, <name name-style="western"><surname>Cerello</surname> <given-names>P</given-names></name>, <etal>et al</etal>. <article-title>Validation, comparison, and combination of algorithms for automatic detection of pulmonary nodules in computed tomography images: The LUNA16 challenge</article-title>. <source>Medical Image Analysis</source>. <year>2017</year>;<fpage>42</fpage>.</mixed-citation></ref>
+<ref id="pone.0266799.ref029"><label>29</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Zou</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Warfield</surname> <given-names>SK</given-names></name>, <name name-style="western"><surname>Bharatha</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Tempany</surname> <given-names>CMC</given-names></name>, <name name-style="western"><surname>Kaus</surname> <given-names>MR</given-names></name>, <name name-style="western"><surname>Haker</surname> <given-names>SJ</given-names></name>, <etal>et al</etal>. <article-title>Statistical Validation of Image Segmentation Quality Based on a Spatial Overlap Index</article-title>. <source>Academic Radiology</source>. <year>2004</year>;<volume>11</volume>(<issue>2</issue>). <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/s1076-6332(03)00671-8" xlink:type="simple">10.1016/s1076-6332(03)00671-8</ext-link></comment> <object-id pub-id-type="pmid">14974593</object-id></mixed-citation></ref>
+<ref id="pone.0266799.ref030"><label>30</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Martins Jarnalo</surname> <given-names>CO</given-names></name>, <name name-style="western"><surname>Linsen</surname> <given-names>PVM</given-names></name>, <name name-style="western"><surname>Blazís</surname> <given-names>SP</given-names></name>, <name name-style="western"><surname>van der Valk</surname> <given-names>PHM</given-names></name>, <name name-style="western"><surname>Dickerscheid</surname> <given-names>DBM</given-names></name>. <article-title>Clinical evaluation of a deep-learning-based computer-aided detection system for the detection of pulmonary nodules in a large teaching hospital</article-title>. <source>Clinical Radiology</source>. <year>2021</year>.</mixed-citation></ref>
+</ref-list>
+</back>
+<sub-article article-type="aggregated-review-documents" id="pone.0266799.r001" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r001</article-id>
+<title-group>
+<article-title>Decision Letter 0</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Park</surname>
+<given-names>Chang Min</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Chang Min Park</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="article" id="rel-obj001" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>0</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">12 May 2021</named-content>
+</p>
+<p>PONE-D-21-07234</p>
+<p>Validation of a deep learning computer aided system for CT based lung nodule detection, classification and quantification and growth rate estimation in a routine clinical population</p>
+<p>PLOS ONE</p>
+<p>Dear Dr. Nijwening,</p>
+<p>Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.</p>
+<p>Please submit your revised manuscript by Jun 11 2021 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at <email xlink:type="simple">plosone@plos.org</email>. When you're ready to submit your revision, log on to <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">https://www.editorialmanager.com/pone/</ext-link> and select the 'Submissions Needing Revision' folder to locate your manuscript file.</p>
+<p>Please include the following items when submitting your revised manuscript:</p>
+<p><list list-type="bullet"><list-item><p>A rebuttal letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.</p></list-item><list-item><p>A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.</p></list-item><list-item><p>An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.</p></list-item></list></p>
+<p>If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.</p>
+<p><!-- <span style="color: rgb(51, 51, 51); font-family: sans-serif, Arial, Verdana, "Trebuchet MS"; font-size: 13px; background-color: rgb(255, 255, 255);"> -->If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: <!-- </span> --><ext-link ext-link-type="uri" xlink:href="http://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols" xlink:type="simple">http://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols</ext-link><!-- <span style="color: rgb(51, 51, 51); font-family: sans-serif, Arial, Verdana, "Trebuchet MS"; font-size: 13px; background-color: rgb(255, 255, 255);"> -->. Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at <!-- </span> --><ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link><!-- <span style="color: rgb(51, 51, 51); font-family: sans-serif, Arial, Verdana, "Trebuchet MS"; font-size: 13px; background-color: rgb(255, 255, 255);"> -->.<!-- </span> --></p>
+<p>We look forward to receiving your revised manuscript.</p>
+<p>Kind regards,</p>
+<p>Chang Min Park, MD, Ph.D</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Journal Requirements:</p>
+<p>When submitting your revision, we need you to address these additional requirements.</p>
+<p>1. Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at</p>
+<p><underline><ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf" xlink:type="simple">https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf</ext-link></underline> and</p>
+<p><ext-link ext-link-type="uri" xlink:href="about:blank" xlink:type="simple">https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf</ext-link></p>
+<p>2. Thank you for stating the following in the Competing Interests section:</p>
+<p>"Prof. Van Beek is a member of the Advisory Board of Aidence.</p>
+<p>Prof. Murchison, Dr. Ritchie and Mr. Senyszak declare no interest. "</p>
+<p>We note that one or more of the authors have an affiliation to the commercial funders of this research study : Aidence.</p>
+<p>2.1. Please provide an amended Funding Statement declaring this commercial affiliation, as well as a statement regarding the Role of Funders in your study. If the funding organization did not play a role in the study design, data collection and analysis, decision to publish, or preparation of the manuscript and only provided financial support in the form of authors' salaries and/or research materials, please review your statements relating to the author contributions, and ensure you have specifically and accurately indicated the role(s) that these authors had in your study. You can update author roles in the Author Contributions section of the online submission form.</p>
+<p>Please also include the following statement within your amended Funding Statement.</p>
+<p>“The funder provided support in the form of salaries for authors [insert relevant initials], but did not have any additional role in the study design, data collection and analysis, decision to publish, or preparation of the manuscript. The specific roles of these authors are articulated in the ‘author contributions’ section.”</p>
+<p>If your commercial affiliation did play a role in your study, please state and explain this role within your updated Funding Statement.</p>
+<p>2.2. Please also provide an updated Competing Interests Statement declaring this commercial affiliation along with any other relevant declarations relating to employment, consultancy, patents, products in development, or marketed products, etc.  </p>
+<p>Within your Competing Interests Statement, please confirm that this commercial affiliation does not alter your adherence to all PLOS ONE policies on sharing data and materials by including the following statement: "This does not alter our adherence to  PLOS ONE policies on sharing data and materials.” (as detailed online in our guide for authors <ext-link ext-link-type="uri" xlink:href="about:blank" xlink:type="simple">http://journals.plos.org/plosone/s/competing-interests</ext-link>). If this adherence statement is not accurate and  there are restrictions on sharing of data and/or materials, please state these. Please note that we cannot proceed with consideration of your article until this information has been declared.</p>
+<p>Please include both an updated Funding Statement and Competing Interests Statement in your cover letter. We will change the online submission form on your behalf.</p>
+<p>Please know it is PLOS ONE policy for corresponding authors to declare, on behalf of all authors, all potential competing interests for the purposes of transparency. PLOS defines a competing interest as anything that interferes with, or could reasonably be perceived as interfering with, the full and objective presentation, peer review, editorial decision-making, or publication of research or non-research articles submitted to one of the journals. Competing interests can be financial or non-financial, professional, or personal. Competing interests can arise in relationship to an organization or another person. Please follow this link to our website for more details on competing interests: <ext-link ext-link-type="uri" xlink:href="about:blank" xlink:type="simple">http://journals.plos.org/plosone/s/competing-interests</ext-link></p>
+<p>3. PLOS requires an ORCID iD for the corresponding author in Editorial Manager on papers submitted after December 6th, 2016. Please ensure that you have an ORCID iD and that it is validated in Editorial Manager. To do this, go to ‘Update my Information’ (in the upper left-hand corner of the main menu), and click on the Fetch/Validate link next to the ORCID field. This will take you to the ORCID site and allow you to create a new iD or authenticate a pre-existing iD in Editorial Manager. Please see the following video for instructions on linking an ORCID iD to your Editorial Manager account: <ext-link ext-link-type="uri" xlink:href="https://www.youtube.com/watch?v=_xcclfuvtxQ" xlink:type="simple">https://www.youtube.com/watch?v=_xcclfuvtxQ</ext-link></p>
+<p>4. Please include your tables as part of your main manuscript and remove the individual files. Please note that supplementary tables should be uploaded as separate "supporting information" files.</p>
+<p>[Note: HTML markup is below. Please do not edit.]</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><!-- <font color="black"> --><bold>Comments to the Author</bold></p>
+<p>1. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Partly</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->2. Has the statistical analysis been performed appropriately and rigorously? <!-- </font> --></p>
+<p>Reviewer #1: I Don't Know</p>
+<p>Reviewer #2: No</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->3. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: No</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->4. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.<!-- </font> --></p>
+<p>Reviewer #1: No</p>
+<p>Reviewer #2: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->5. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)<!-- </font> --></p>
+<p>Reviewer #1: 1. Abstract: The important points are well organized in the abstract.</p>
+<p>2. Introduction: It reflected well the reality and difficulties of detecting pulmonary nodules on CT scans. In addtion, the authoes well explanied the importance of CAD regarding this point.</p>
+<p>3. Subject selection - exclusion criteria: the authors excluded diffuse pulmonary disease such as ILD. What threshold they used for this exclusion? If patients had very subtle ILD (or ILA), were they excluded? And how could the authors know the existence of ILD? They reviewed all the CT exams? Please clarify.</p>
+<p>5. Subject selection- group categorization seems cumbersome for future readers. and the authors decribed that Group 1 consisted of 178 CT scans reported as being free from pulmonary nodules. But the result (Table 1) is different. It was read that there was no pulmonary nodule, but were these cases actually had pulmonary nodules?</p>
+<p>6. Only one CT machine was used in this study. If so, it seems very unified protocols and well organized study protocol. If not, please state more clear about types of CT machines</p>
+<p>7. Nodule definition - please consider to delete "“pulmonary nodule” was not firmly defined since the notion of nodule may not represent a single entity capable of verbal definition." It seems unnecessory.</p>
+<p>8. Nodule definition - the authors defined "actionable nodules" as a largest axial diameter between ≥5mm (or a volume of ≥80mm3) and ≤30mm. I wonder whether they have some references for this definition or they arbitraly decided it.</p>
+<p>9. CAD software - For readers who are not friendly with this commercially avilable CAD system, please add detailed information about the CAD. For example, 1) why the threshold was decided as 0.1? what dose it mean? 2) which CT examinations were used for its development in terms of slice thickness or use of contrast media?</p>
+<p>10. Image annotation - "three different groups: micro-nodules, masses, benign nodules and non-nodules." Not three different groups. Please revise it.</p>
+<p>11. Reference standard and Data analysis -The description is rather complex and difficult to understand. I hope it is organized so that it is easy to understand.</p>
+<p>12. Reference standard and Data analysis -The most curious thing is that the authors created a reference standard as a result of the panels consisting of readers 1, 2, and 3. Nevertheless, it seems that the performance evaluation of readers was done as this reference standard.</p>
+<p>13. Results: The content of the result may seem appropriate, but revision should be made according to the above items being modified.</p>
+<p>Reviewer #2: This paper describes a retrospective validation study of a deep learning computer-aided diagnosis system for lung nodule detection, classification, quantification and growth rate estimation in a routine clinical population. For this study, a retrospective dataset from one academic center in Scotland is collected with scans made in 2008 and 2009. In total, 337 scans from 314 different subjects are collected. If I understand correctly, the original radiology reports of these scans are consulted and based on these reports, the scans are divided over 5 different groups.</p>
+<p>A panel of 3 radiologists is used to annotate the dataset where the readers alternated between an aided and unaided reading. So, each reader read half of the scans with CAD, and half of the scans without CAD. A third experienced reader finally resolved discrepancies between the two readers.</p>
+<p>The paper shows the performance of CAD was better than the radiologists on this dataset, and showed good results for segmentation, growth rate estimation and nodule type classification.</p>
+<p>The authors conclude that the CAD system significantly increased the detection performance of radiologists for actionable nodules while only minimally increasing the false positive rate.</p>
+<p>I have several major comments of criticism:</p>
+<p>- The CAD system that is under investigation here is used for setting the reference standard. In addition, the readers for which the aided and unaided performance is reported, are used to make the reference standard. This affects the results and potentially positively biases the CAD results. The authors have also mentioned this in the Discussion so it is recognized as a limitation already. I think the conclusions of this study should therefore be less strong. It would be best if two other readers would also split all cases and read all of them without CAD support. Then, a truly independent read would be available. Ideally, this reader would read with and without CAD, but then, all cases need to be read twice, so is more effort.</p>
+<p>- Related to the first point: A proper experiment setup for an observer study to compare aided vs unaided reads of data is multi-reader multi-case (MRMC) analysis, which also allows for better statistical comparisons than the t-tests that are performed now. If it is still possible to ask additional readers, that would make the study stronger. In addition, please consult with a statistician to see whether a form of MRMC analysis is possible on this data.</p>
+<p>- The CAD is used at a setting with high sensitivity and relatively high false positive rates. If this is the setting that the radiologists used while reading the cases, then the paper should also report the standalone performance of the CAD system at this operating point. It is not clear to me what the performance is at this operating point. Several operating points are reported by the authors, but it is not clear to me which one correspond to the setting used by the readers (threshold of 0.1). Please add that as a dot on the FROC curve in Figure 1. Please also discuss what effect this setting may have on the study results in the Discussion part.</p>
+<p>- Is the current CAD system approved/cleared for clinical use as a second reader or concurrent reader? This is not clear to me.</p>
+<p>- Some important related literature in this area is not covered, for example: <ext-link ext-link-type="uri" xlink:href="https://www.ajronline.org/doi/pdf/10.2214/AJR.17.18718" xlink:type="simple">https://www.ajronline.org/doi/pdf/10.2214/AJR.17.18718</ext-link></p>
+<p>- A table which gives a breakdown of the CAD marks and the TP and FP categories would be very useful. The authors wrote "Finally, the readers classified all FP CAD prompts into three different groups: micro-nodules (largest axial diameter &lt;3mm), masses (largest axial diameter &gt;30mm), benign nodules (benign calcification pattern or clear benign perifissural appearance) and non-nodules (pleural plaque, scar tissue, atelectasis, fibrosis, fissure thickening, pleural fluid, pleural thickening, intrapulmonary vessels, consolidations, outside of lung tissue, or other (free format))." So, for every CAD mark, this rating is available so would be great to see a table with this information.</p>
+<p>Detailed comments:</p>
+<p>- Please be more clear about the selection of the CT cases. If I understand correctly, the original radiologist reports were manually checked to see whether nodules were reported or not, and that gave groups 1 and 2. But then the abstract should not state the exact nodule numbers yet, because I suppose this is the result after the annotation process, so should be in the Results section of the abstract.</p>
+<p>- The statement on Data Availability: I understand that the scans cannot be shared, but it would be good if the result files with the readings can be shared. So, a csv file with for each cases the recorded nodules per reader, and whether they were in the end part of the reference standard, etc.</p>
+<p>- How many CAD marks in total were there at the threshold of 0.1?</p>
+<p>- How many CAD marks were there on micronodules or masses or marks only annotated by one reader and thus ignored in the FROC analysis? Please report.</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->6. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link>). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link>.<!-- </font> --></p>
+<p>Reviewer #1: No</p>
+<p>Reviewer #2: No</p>
+<p>[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]</p>
+<p>While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link>. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Registration is free. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email PLOS at <email xlink:type="simple">figures@plos.org</email>. Please note that Supporting Information files do not need this step.</p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pone.0266799.r002">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r002</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 0</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj002" link-type="rebutted-decision-letter" object-id="10.1371/journal.pone.0266799.r001" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="author-response-date">16 Sep 2021</named-content>
+</p>
+<p>Response to reviewers</p>
+<p>Dear PLOS editorial team, reviewer #1 and reviewer #2, </p>
+<p>Thank you for your comments, critical questions and suggestions. We have updated the manuscript accordingly and have addressed your comments in the response letter below. </p>
+<p>Our apologies for our late reply. The reason we give for this is that the software analyzed in this study is developed by a start-up company with limited resources. Most of our efforts in the past months have gone to additional studies that are required to obtain 510(k) approval from the FDA. </p>
+<p>Our CAD has been further developed since the study described in this paper and has increased in performance, both in sensitivity and specificity. Yet, we believe it is still valuable for the scientific literature to publish our initial clinical validation of the software. We believe that transparency is one of the most fundamental values in science. </p>
+<p>Kind Regards,</p>
+<p>Jeroen Nijwening</p>
+<p>Response to Academic editors</p>
+<p>Dear academic editors, we have adapted the style of the manuscript as requested. Furthermore, we have included a new cover letter which contains the updated information regarding the funding statement and competing interest statement. </p>
+<p>Response to Reviewer #1</p>
+<p>1. The important points are well organized in the abstract.</p>
+<p>Thank you for your compliment regarding the abstract. We have revised the abstract based on the reviewers’ suggestions and expect that it still holds the core message of the manuscript.</p>
+<p>2. Introduction: It reflected well the reality and difficulties of detecting pulmonary nodules on CT scans. In addition, the authors well explained the importance of CAD regarding this point.</p>
+<p>Thank you for highlighting the importance of CAD within a radiologist’s practice. We believe that CAD will improve the quality of reports and will decrease the amount of time spent on decision making. </p>
+<p>3. Subject selection - exclusion criteria: the authors excluded diffuse pulmonary disease such as ILD. What threshold they used for this exclusion? If patients had very subtle ILD (or ILA), were they excluded? And how could the authors know the existence of ILD? They reviewed all the CT exams? Please clarify.</p>
+<p>All studies were initially selected based on the reports in the electronic health records. This provided us with a clinical diagnosis, including the presence of lung nodules or other concomitant lung diseases. If the diagnosis of a diffuse pulmonary disease, like ILD, was made in the clinical report, these studies were excluded. However, emphysema, likely from a smoking history, was  We have clarified this in the materials and methods section, lines 121 to 123.</p>
+<p>4. (There was no comment #4)</p>
+<p>5. Subject selection- group categorization seems cumbersome for future readers and the authors described that Group 1 consisted of 178 CT scans reported as being free from pulmonary nodules. But the result (Table 1) is different. It was read that there was no pulmonary nodule, but were these cases actually had pulmonary nodules?</p>
+<p>We thank the reviewer for this excellent question and observation. We selected CT studies based on the clinical report, but (almost as expected), some lung nodules had been missed and therefore were only reported during this study. As these were historical cases, we did not evaluate whether this could have had an impact on the patient outcome, given that malignancy should have become clear before the start of this selection process. We have clarified this in the materials and methods section, line 127 and 128 and in the results, lines 244 and 245. </p>
+<p>6. Only one CT machine was used in this study. If so, it seems very unified protocols and well organized study protocol. If not, please state more clear about types of CT machines.</p>
+<p>This was a single center study, using historical cases. We selected a period of stability, and therefore the work was done on a single vendor system. We appreciate that this may be a weakness, and have highlighted this in the discussion. We have addressed this in the discussion section, lines 331 to 338. </p>
+<p>7. Nodule definition - please consider to delete "“pulmonary nodule” was not firmly defined since the notion of nodule may not represent a single entity capable of verbal definition." It seems unnecessary.</p>
+<p>We thank the reviewer for this suggestion and have removed this sentence.</p>
+<p>8. Nodule definition - the authors defined "actionable nodules" as a largest axial diameter between ≥5mm (or a volume of ≥80mm3) and ≤30mm. I wonder whether they have some references for this definition or they arbitrarily decided it.</p>
+<p>“Actionable nodules” means nodules that require follow-up based on risk of malignancy. We have applied the British Thoracic Society guidelines on nodule management (reference: Callister et al., 2015), and have added this to the end of the sentence.</p>
+<p>9. CAD software - For readers who are not friendly with this commercially available CAD system, please add detailed information about the CAD. For example, 1) why the threshold was decided as 0.1? what does it mean? 2) which CT examinations were used for its development in terms of slice thickness or use of contrast media?</p>
+<p>Thank you for suggesting to add this information. Based on this comment and others comments from reviewer #1 and #2 we have adapted the chapter about the CAD software. </p>
+<p>In brief: the operating point was configured to yield a high sensitivity in order to detect as many actionable nodules as possible. Configuration favoring sensitivity automatically also yields a high number of false positives. </p>
+<p>The device was developed using a lung cancer screening cohort using appropriate screening scanning protocols which include slice thickness &lt;=3mm and without contrast media. A part for conducting the study described in the manuscript was to investigate how the AI models (which were trained on screening scans) would relate to scans obtained in routine clinical practice.</p>
+<p>10. Image annotation - "three different groups: micro-nodules, masses, benign nodules and non-nodules." Not three different groups. Please revise it.</p>
+<p>Thank you for this remark, we will change the text to: “four different groups”. </p>
+<p>11. Reference standard and Data analysis -The description is rather complex and difficult to understand. I hope it is organized so that it is easy to understand.</p>
+<p>We thank both reviewers for this comment. We have tried to clarify the process in the materials and methods section. The nodules were read independently, and blinded for clinical information, by two experienced chest radiologists, with a third senior chest radiologist available if no consensus was reached.</p>
+<p>12. Reference standard and Data analysis -The most curious thing is that the authors created a reference standard as a result of the panels consisting of readers 1, 2, and 3. Nevertheless, it seems that the performance evaluation of readers was done as this reference standard.</p>
+<p>The readers have read each case unaided and aided by the CAD (concurrent reader). As there were independent reads in place, we were able to construct a consensus report for all nodules, involved a third reader where necessary, which served as the reference standard.</p>
+<p>13. Results: The content of the result may seem appropriate, but revision should be made according to the above items being modified.</p>
+<p>We thank the reviewer for his/her helpful comments, and hope that the changes made according to the suggestion have clarified questions and improved the manuscript accordingly.</p>
+<p>Response to Reviewer #2</p>
+<p>We thank reviewer #2 for understanding the message of our manuscript by providing a correct and  concise summary of the research and its objectives. </p>
+<p>Major comments of reviewer #2: </p>
+<p>1.  The CAD system that is under investigation here is used for setting the reference standard. In addition, the readers for which the aided and unaided performance is reported, are used to make the reference standard. This affects the results and potentially positively biases the CAD results. The authors have also mentioned this in the Discussion so it is recognized as a limitation already. I think the conclusions of this study should therefore be less strong. It would be best if two other readers would also split all cases and read all of them without CAD support. Then, a truly independent read would be available. Ideally, this reader would read with and without CAD, but then, all cases need to be read twice, so is more effort.</p>
+<p>We thank the reviewer for this comment. We wish to make it clear that the reference standard was created by a consensus report of up to three (where required) experienced chest radiologists. The software was indeed part of creating the reference” standard, but we opted to test the software by allowing readers to see 50% of cases with added software information to assess its impact. </p>
+<p>2. Related to the first point: A proper experiment setup for an observer study to compare aided vs unaided reads of data is multi-reader multi-case (MRMC) analysis, which also allows for better statistical comparisons than the t-tests that are performed now. If it is still possible to ask additional readers, that would make the study stronger. In addition, please consult with a statistician to see whether a form of MRMC analysis is possible on this data.</p>
+<p>As stated under point 1, we only investigated the potential impact of the software tool once the readers had independently read the studies and reached consensus. We apologize this wasn’t made clear, and have amended the text.</p>
+<p>3. The CAD is used at a setting with high sensitivity and relatively high false positive rates. If this is the setting that the radiologists used while reading the cases, then the paper should also report the standalone performance of the CAD system at this operating point. It is not clear to me what the performance is at this operating point. Several operating points are reported by the authors, but it is not clear to me which one correspond to the setting used by the readers (threshold of 0.1). Please add that as a dot on the FROC curve in Figure 1. Please also discuss what effect this setting may have on the study results in the Discussion part.</p>
+<p>We thank the reviewer for this comment and have added this to the text, see lines 284 – 286. The standalone performance of the CAD, when set to 0.1, correlates to an average sensitivity of 95% and an average number of 7 false positives per study based on this dataset. </p>
+<p>4. Is the current CAD system approved/cleared for clinical use as a second reader or concurrent reader? This is not clear to me.</p>
+<p>The current CAD system is CE certified as a second and concurrent reader.</p>
+<p>5. Some important related literature in this area is not covered, for example: <ext-link ext-link-type="uri" xlink:href="https://www.ajronline.org/doi/pdf/10.2214/AJR.17.18718" xlink:type="simple">https://www.ajronline.org/doi/pdf/10.2214/AJR.17.18718</ext-link></p>
+<p>We thank the reviewer for this suggestion, and have incorporated this reference to the introduction and discussion.</p>
+<p>6. A table which gives a breakdown of the CAD marks and the TP and FP categories would be very useful. The authors wrote "Finally, the readers classified all FP CAD prompts into three different groups: micro-nodules (largest axial diameter &lt;3mm), masses (largest axial diameter &gt;30mm), benign nodules (benign calcification pattern or clear benign perifissural appearance) and non-nodules (pleural plaque, scar tissue, atelectasis, fibrosis, fissure thickening, pleural fluid, pleural thickening, intrapulmonary vessels, consolidations, outside of lung tissue, or other (free format))." So, for every CAD mark, this rating is available so would be great to see a table with this information.</p>
+<p>We agree that this is useful information to add to the manuscript, thank you for the suggestion. Instead of adding an extra table to the paper, we have added this information to the text in the M&amp;M section on line 178 to 180.  </p>
+<p>Detailed comments of reviewer #2:</p>
+<p>7. Please be more clear about the selection of the CT cases. If I understand correctly, the original radiologist reports were manually checked to see whether nodules were reported or not, and that gave groups 1 and 2. But then the abstract should not state the exact nodule numbers yet, because I suppose this is the result after the annotation process, so should be in the Results section of the abstract.</p>
+<p>Thank you for this suggestion, we have changed the abstract accordingly. We acknowledge that the total number of cases per group are part of the result section.</p>
+<p>8. The statement on Data Availability: I understand that the scans cannot be shared, but it would be good if the result files with the readings can be shared. So, a csv file with for each cases the recorded nodules per reader, and whether they were in the end part of the reference standard, etc.</p>
+<p>We have made a csv file with all raw data available and have uploaded this to the PLOS One site. </p>
+<p>9. How many CAD marks in total were there at the threshold of 0.1?</p>
+<p>The standalone performance at a detection threshold of 0.1 are: 327 actionable nodules – 16 false negatives (FN) = 311 true positives (TP); 311 TP + 1927 false positives (FP) = 2238 CAD marks. </p>
+<p>10. How many CAD marks were there on micronodules or masses or marks only annotated by one reader and thus ignored in the FROC analysis? Please report.</p>
+<p>Since the inclusion criteria were: all nodules ≥ 5 mm / ≥ 80 mm3 AND &lt; 30 mm based on average segmentation. The following nodules were excluded based on the above criteria: nodules without majority consensus: 208; nodules &lt; 5mm or &lt; 80 mm3: 86; masses (≥ 30 mm): 6; benign nodules (calcified or perifissural nodules with actionable size: 59.</p>
+<supplementary-material id="pone.0266799.s002" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0266799.s002" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">Response to Reviewers.docx</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pone.0266799.r003" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r003</article-id>
+<title-group>
+<article-title>Decision Letter 1</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Park</surname>
+<given-names>Chang Min</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Chang Min Park</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="article" id="rel-obj003" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>1</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">19 Oct 2021</named-content>
+</p>
+<p><!-- <div> -->PONE-D-21-07234R1<!-- </div> --></p>
+<p>Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population</p>
+<p>PLOS ONE</p>
+<p>Dear Dr. Nijwening,</p>
+<p>Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.</p>
+<p>Please submit your revised manuscript by Nov 25 2021 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at <email xlink:type="simple">plosone@plos.org</email>. When you're ready to submit your revision, log on to <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">https://www.editorialmanager.com/pone/</ext-link> and select the 'Submissions Needing Revision' folder to locate your manuscript file.</p>
+<p>Please include the following items when submitting your revised manuscript:</p>
+<p><list list-type="bullet"><list-item><p>A rebuttal letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.</p></list-item><list-item><p>A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.</p></list-item><list-item><p>An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.</p></list-item></list></p>
+<p>If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.</p>
+<p>If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols" xlink:type="simple">https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols</ext-link>. Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link>.</p>
+<p>We look forward to receiving your revised manuscript.</p>
+<p>Kind regards,</p>
+<p>Chang Min Park, MD, Ph.D</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>[Note: HTML markup is below. Please do not edit.]</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><!-- <font color="black"> --><bold>Comments to the Author</bold></p>
+<p>1. If the authors have adequately addressed your comments raised in a previous round of review and you feel that this manuscript is now acceptable for publication, you may indicate that here to bypass the “Comments to the Author” section, enter your conflict of interest statement in the “Confidential to Editor” section, and submit your "Accept" recommendation.<!-- </font> --></p>
+<p>Reviewer #1: (No Response)</p>
+<p>Reviewer #2: (No Response)</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->2. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. <!-- </font> --></p>
+<p>Reviewer #1: Partly</p>
+<p>Reviewer #2: Partly</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->3. Has the statistical analysis been performed appropriately and rigorously? <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: No</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->4. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.<!-- </font> --></p>
+<p>Reviewer #1: No</p>
+<p>Reviewer #2: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->5. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->6. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)<!-- </font> --></p>
+<p>Reviewer #1: Thank you for submitting the manuscript. I raised the following queries to improve the quality of this study</p>
+<p>1. Page 16, lines 95-96: Please specify the diagnostic performance of radiologists (sub-specialist or specialist) for future readers to be interested in this manuscript and compare the performance with that of the CAD’s system.</p>
+<p>2. Page 16, line 101-102: Please clarify how different malignancy probability pulmonary nodules have as they are solid or subsolid nodules presented in the CT examinations.</p>
+<p>3. Page 18, line 117: Please give specific intervals the subjects participants in this study instead of “obtained at least 5 years prior to this study.”</p>
+<p>4. The “subject selection” section is somewhat complicated. The authors should suggest a flowchart for selecting the study population as Figure.</p>
+<p>5. As can be seen from the title, this study is a validation study in the routine clinical population. In fact, there are cases where there are more than 10 pulmonary nodules in routine clinical practice, and there is no other mention of this. Please explain this.</p>
+<p>6. Please suggest all CT scanners included in this study.</p>
+<p>7. There is no figure using the Veye Chest software in this study. Since most future readers are unfamiliar with this software, the authors will need a representative figure of how it works.</p>
+<p>8. Why did the authors set the threshold of the software as 0.1? Of course, sensitivity is vital importance in the screening setting, the authors should perform various settings with various threshold values (for example, 0.1, 0.3, 0.5, 0.7) to adjust false-positive results.</p>
+<p>9. “The detection results of CAD were made available at random in half the scans.” conflict to the following sentences. The CAD system was not all CT scans? Please revise this part appropriately.</p>
+<p>10. Page 20, line 168-169: Please add the reference of the “Any nodules requiring follow-up according to lung cancer screening criteria were classified as “actionable nodules.”</p>
+<p>11. Why the readers evaluated the CT features (solid or sub-solid) on a tablet? I believe that a dedicated workstation for reading CT scans is appropriate.</p>
+<p>12. The concept of “center” of the nodule and adjudication of TP or FP with this concept is confusing. Please clarify and revise this part to make it easier to understand.</p>
+<p>13. The authors mentioned that group 1 consisted of 178 CT scans being free from nodules. How was sensitivity calculated from group 1 without nodules?</p>
+<p>14. Is it possible to statistically compare diagnostic performance between the CAD alone and radiologists with or without CAD?</p>
+<p>Reviewer #2: I want to thank the authors for the additional effort that went into this manuscript, and for clarifying some of my comments.</p>
+<p>I am however not satisfied with how the authors addressed my main points of criticism.</p>
+<p>The reference standard is set by using the tested CAD system at a high sensitivity (and high FP rate) setting, and the same readers that set the reference standard are used for testing whether CAD helps them. This introduces a bias, even if there is a third experienced radiologist as an adjudicator. The authors have not addressed my suggestions for compensating for this. Another alternative solution that I did not mention before would be to take the full set of marks found by the two readers during the reading session (50% aided, 50% unaided) and have a new panel of 3 radiologists review this consolidated set of marks and set the reference standard. Note that this reference panel should then be blinded as to whether the mark that they are presented with was detected by a reader only, or by the reader following a CAD prompt.</p>
+<p>Finally, the claim that the software helps radiologists is with the current data only partly supported when the CAD software is set at this high sensitivity threshold. Using the presented data, we cannot make conclusions as to whether the CAD software would still help radiologist when it is used at a different, more clinically acceptable operating point of 1 or 2FPs on average per scan.</p>
+<p>**********</p>
+<p><!-- <font color="black"> -->7. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link>). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link>.<!-- </font> --></p>
+<p>Reviewer #1: No</p>
+<p>Reviewer #2: No</p>
+<p>[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]</p>
+<p>While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link>. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Registration is free. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email PLOS at <email xlink:type="simple">figures@plos.org</email>. Please note that Supporting Information files do not need this step.</p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pone.0266799.r004">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r004</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 1</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj004" link-type="rebutted-decision-letter" object-id="10.1371/journal.pone.0266799.r003" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>2</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="author-response-date">15 Dec 2021</named-content>
+</p>
+<p>Rebuttal letter, second response to reviewers</p>
+<p>Reviewer #1: Thank you for submitting the manuscript. I raised the following queries to improve the quality of this study</p>
+<p>1. Page 16, lines 95-96: Please specify the diagnostic performance of radiologists (sub-specialist or specialist) for future readers to be interested in this manuscript and compare the performance with that of the CAD’s system.</p>
+<p>As you suggested, we have added the corresponding performance from the cited papers to the text. However, we cannot compare this performance to what we find in our study (with and without CAD support) because the introduction is not the place to add this. We do compare our results with that of other studies in the Discussion section. </p>
+<p>2. Page 16, line 101-102: Please clarify how different malignancy probability pulmonary nodules have as they are solid or subsolid nodules presented in the CT examinations.</p>
+<p>We thank the reviewer for this observation and have added to the manuscript that sub-solid nodules are likely to be malignant (see Track Changes). In the current guidelines there is not yet a clear cut off or probability factor for malignancy. Sub-solid nodules are more often identified as malignant when analyzed (after a biopsy / resection, or via PET). The Fleischner recommendation in the cited paper states the following about sub-solid nodules: “Solitary part-solid GGNs, especially those in which the solid component is larger than 5 mm, should be considered malignant until proved otherwise provided either growth or no change is seen at a follow-up CT examination performed in 3 months”.</p>
+<p>3. Page 18, line 117: Please give specific intervals the subjects participants in this study instead of “obtained at least 5 years prior to this study.”</p>
+<p>Thank you for this remark. Based on this and your following comment, we have rewritten the whole “Subject Selection” part to be more clear about the procedure of collecting the scans for the study, see the rewritten part in Track Changes. In addition, we would like to add that CT studies between January 2008 and December 2009 were searched for potential inclusion into this study. This gave us a follow-up period of more than 7 years, to enable potential reference standard to be assessed.</p>
+<p>4. The “subject selection” section is somewhat complicated. The authors should suggest a flowchart for selecting the study population as Figure.</p>
+<p>This is a good suggestion. We realize that the “Subject Selection” paragraph could be confusing and we would like to suggest to rewrite this paragraph in a concise way instead of adding a flowchart as an extra figure to the text. We hope that the reviewer and editor agree to this suggestion. Please find the rewritten part in the uploaded “Revised Manuscript with Track Changes”. </p>
+<p>5. As can be seen from the title, this study is a validation study in the routine clinical population. In fact, there are cases where there are more than 10 pulmonary nodules in routine clinical practice, and there is no other mention of this. Please explain this.</p>
+<p>This is a good question and we understand why the reviewer is asking this since, indeed, we see cases with more than 10 nodules in clinical practice. For this study, however, we choose for simplicity reasons to cap the maximum amount of nodules in a study to 10. Since in our population the vast majority of patients has less than 10 nodules. Adding studies of more than 10 nodules per patient would not add more value to the quality of the study.  </p>
+<p>6. Please suggest all CT scanners included in this study.</p>
+<p>These are the number of studies performed with a specific CT scanner:  </p>
+<p>• Toshiba 333 Aquillion: 330</p>
+<p>• Toshiba Aquillion-CX: 2</p>
+<p>• Toshiba Aquillion ONE: 1</p>
+<p>• GE Medical Systems LightSpeed 16: 2</p>
+<p>• GE Medical Systems LightSpeed: 2</p>
+<p>We have added this to the revised manuscript. </p>
+<p>7. There is no figure using the Veye Chest software in this study. Since most future readers are unfamiliar with this software, the authors will need a representative figure of how it works.</p>
+<p>We would like to thank the reviewer for this excellent suggestion. We have added a screenshot of the actual product to the supplementary material. I do want to stress, however, that the intention of this manuscript is non-promotional and therefore we want to exclude branded material as much as possible from the main body of text and figures.  </p>
+<p>8. Why did the authors set the threshold of the software as 0.1? Of course, sensitivity is vital importance in the screening setting, the authors should perform various settings with various threshold values (for example, 0.1, 0.3, 0.5, 0.7) to adjust false-positive results.</p>
+<p>We would like to thank the reviewer for this question and expect that the following answer suffices. As discussed in the first paragraph in the Discussion, the threshold of 0.1 was based on a sensitivity of 95% and a false-positive rate of 7, which is a workable number of false-positives. We have done a variation of the thresholds, as demonstrated in the range of threshold of false positive lung nodules in the results section. In addition, the nodule software was not used as a screening tool, rather for evaluation of incidental pulmonary nodules in a routine chest CT population using standard-dose CT protocol. In this setting, it is commonplace to evaluate at a threshold of 80 mm3 or 5 mm detection level, and for this threshold, the software setting of 0.1 is the optimal setting. </p>
+<p>9. “The detection results of CAD were made available at random in half the scans.” conflict to the following sentences. The CAD system was not all CT scans? Please revise this part appropriately.</p>
+<p>Thank you for this remark. We realize the set-up of our study could be more clarified and have adjusted the manuscript accordingly. Briefly, the CT-studies were divided in two parts, A and B. Reader 1 analyzed the studies in part A with CAD and part B without CAD. For Reader 2 this was the other way around: studies in part A were analyzed without CAD and part B with CAD. Discrepancies were compared. Reader 3 subsequently adjudicated all discrepancies without the results of CAD.</p>
+<p>10. Page 20, line 168-169: Please add the reference of the “Any nodules requiring follow-up according to lung cancer screening criteria were classified as “actionable nodules.”</p>
+<p>Thank you for this suggestion, we have added reference 10 behind this sentence because we are referring to the same reference as is cited in the Nodule Definition paragraph in the Materials and Methods section. </p>
+<p>11. Why the readers evaluated the CT features (solid or sub-solid) on a tablet? I believe that a dedicated workstation for reading CT scans is appropriate.</p>
+<p>Good question from the reviewer, we would like to give the following explanation: “We used a high-definition iPAD Pro tablet in order to facilitate this study, which was performed by three different radiologists. Although possibly slightly suboptimal compared to a dedicated workstation, this pragmatic approach was chosen in order to allow this study to take place outside the working environment. We don’t believe that this significantly altered the outcome of the study, as we were able to compare nodules detected by the study radiologists with clinical reports (and indeed found more nodules than initially reported).”</p>
+<p>12. The concept of “center” of the nodule and adjudication of TP or FP with this concept is confusing. Please clarify and revise this part to make it easier to understand.</p>
+<p>We thank the reviewer for this question and believe that revision of the manuscript is not necessary because this is a standard method. The CAD software should position and prompt within the center of any nodule, and we wished to find out of this prompt aligned with the mark-up of the two radiologists. We then applied the Dice coefficient method to detect discrepancies in the segmentation between the software and the various observers. This method is described in the methods section, and is a common way of demonstrating the level of overlap between the different segmentations in these types of studies.</p>
+<p>13. The authors mentioned that group 1 consisted of 178 CT scans being free from nodules. How was sensitivity calculated from group 1 without nodules?</p>
+<p>We can be very brief answering this question: sensitivity is calculated on lesion level, not on scan level. We hope the reviewer will be satisfied with this answer.  </p>
+<p>14. Is it possible to statistically compare diagnostic performance between the CAD alone and radiologists with or without CAD?</p>
+<p>Yes, this was the set-up of our study as described in the re-written part of the “Image Annotation” chapter of the Materials and Methods section. We have rewritten this part as per suggestion of the reviewer (comment #9). We hope we made this section more clear and thank the reviewer for notifying the opaqueness of this part. </p>
+<p>Reviewer #2: I want to thank the authors for the additional effort that went into this manuscript, and for clarifying some of my comments.</p>
+<p>I am however not satisfied with how the authors addressed my main points of criticism.</p>
+<p>The reference standard is set by using the tested CAD system at a high sensitivity (and high FP rate) setting, and the same readers that set the reference standard are used for testing whether CAD helps them. This introduces a bias, even if there is a third experienced radiologist as an adjudicator. The authors have not addressed my suggestions for compensating for this. Another alternative solution that I did not mention before would be to take the full set of marks found by the two readers during the reading session (50% aided, 50% unaided) and have a new panel of 3 radiologists review this consolidated set of marks and set the reference standard. Note that this reference panel should then be blinded as to whether the mark that they are presented with was detected by a reader only, or by the reader following a CAD prompt.</p>
+<p>Answer to Reviewer #2: We would like to thank Reviewer #2 for her/his critical appraisal of the manuscript. In this and the previous review-round, Reviewer #2 suggests to perform additional studies with more readers to confirm the results described in this manuscript. However, we choose not to invest in further analyses of  a study that already has been completed, but to invest in additional research questions instead. There are more studies with the same software ongoing and published, please search for “Aidence” in PubMed.  </p>
+<p>In this manuscript, we describe the validation of software, that was initially developed with lung cancer screening data, in “everyday clinical use”. In this routine clinical practice we aim for high detection rates of nodules because of their potential malignancy. Therefore, we apply a CAD system with high sensitivity. Radiologists were allowed to accept or refute marks indicating potential nodules. This is a commonly applied methodology, as it allows the detection of nodules otherwise missed, while the radiologist can discount “over call”. This is how a system works in clinical practice when aiming for high detection rates: high sensitivity at a cost of decreased specificity. Examples include mammography screening and also screening tests such as cervical smear testing and occult blood testing for colon cancer.</p>
+<p>We do acknowledge the concern of reviewer #2 and have addressed this as a limitation of our study in the discussion. At the time of the first clinical validation of our novel software, time and budget were limited. However, we believe that the study described in this manuscript is fair and significant, despite the constraints we had to face when conducting it. </p>
+<p>Reviewer #2: Finally, the claim that the software helps radiologists is with the current data only partly supported when the CAD software is set at this high sensitivity threshold. Using the presented data, we cannot make conclusions as to whether the CAD software would still help radiologist when it is used at a different, more clinically acceptable operating point of 1 or 2FPs on average per scan.</p>
+<p>Answer to Reviewer #2: We thank the reviewer again and we respectfully disagree. What the reviewer claims as clinically acceptable is actually very close to what we were seeing in the aided reads: an average FP rate of 0.11 (radiologists without CAD) and 0.16 (radiologists with CAD) per CT scan. This merely reinforces what we stated above: we require high sensitivity settings in order not to miss actionable nodules. We have addressed the limitations of the study in our discussion and we believe that we validated the point of our retrospective study: showing that this software could help radiologists in their daily clinical practice to not miss pulmonary nodules in patients.</p>
+<supplementary-material id="pone.0266799.s003" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0266799.s003" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">Response_to_Reviewers.docx</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="aggregated-review-documents" id="pone.0266799.r005" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r005</article-id>
+<title-group>
+<article-title>Decision Letter 2</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Park</surname>
+<given-names>Chang Min</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Chang Min Park</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="article" id="rel-obj005" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>2</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">4 Feb 2022</named-content>
+</p>
+<p><!-- <div> -->PONE-D-21-07234R2<!-- </div> --></p>
+<p>Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population</p>
+<p>PLOS ONE</p>
+<p>Dear Dr. Nijwening,</p>
+<p>Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.</p>
+<p>==============================</p>
+<p>ACADEMIC EDITOR: Please insert comments here and delete this placeholder text when finished. Be sure to:</p>
+<p>First of all, thank you very much for your time and effort for the revision.</p>
+<p>Your paper showed much improvement through the revision, but I felt it still needs additional work for the final acceptance. You might want to check the reviews from our reviewers.</p>
+<p>Please ensure that your decision is justified on PLOS ONE’s <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/criteria-for-publication" xlink:type="simple">publication criteria</ext-link> and not, for example, on novelty or perceived impact.</p>
+<p>For Lab, Study and Registered Report Protocols: These article types are not expected to include results but may include pilot data. </p>
+<p>==============================</p>
+<p>Please submit your revised manuscript by Mar 21 2022 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at <email xlink:type="simple">plosone@plos.org</email>. When you're ready to submit your revision, log on to <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">https://www.editorialmanager.com/pone/</ext-link> and select the 'Submissions Needing Revision' folder to locate your manuscript file.</p>
+<p>Please include the following items when submitting your revised manuscript:</p>
+<p><list list-type="bullet"><list-item><p>A rebuttal letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.</p></list-item><list-item><p>A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.</p></list-item><list-item><p>An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.</p></list-item></list></p>
+<p>If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.</p>
+<p>If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols" xlink:type="simple">https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols</ext-link>. Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link>.</p>
+<p>We look forward to receiving your revised manuscript.</p>
+<p>Kind regards,</p>
+<p>Chang Min Park, MD, Ph.D</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Journal Requirements:</p>
+<p>Please review your reference list to ensure that it is complete and correct. If you have cited papers that have been retracted, please include the rationale for doing so in the manuscript text, or remove these references and replace them with relevant current references. Any changes to the reference list should be mentioned in the rebuttal letter that accompanies your revised manuscript. If you need to cite a retracted article, indicate the article’s retracted status in the References list and also include a citation and full reference for the retraction notice.</p>
+<p>[Note: HTML markup is below. Please do not edit.]</p>
+<p>Reviewers' comments:</p>
+<p>Reviewer's Responses to Questions</p>
+<p><!-- <font color="black"> --><bold>Comments to the Author</bold></p>
+<p>1. If the authors have adequately addressed your comments raised in a previous round of review and you feel that this manuscript is now acceptable for publication, you may indicate that here to bypass the “Comments to the Author” section, enter your conflict of interest statement in the “Confidential to Editor” section, and submit your "Accept" recommendation.<!-- </font> --></p>
+<p>Reviewer #1: All comments have been addressed</p>
+<p>Reviewer #2: (No Response)</p>
+<p>********** </p>
+<p><!-- <font color="black"> -->2. Is the manuscript technically sound, and do the data support the conclusions?</p>
+<p>The manuscript must describe a technically sound piece of scientific research with data that supports the conclusions. Experiments must have been conducted rigorously, with appropriate controls, replication, and sample sizes. The conclusions must be drawn appropriately based on the data presented. <!-- </font> --></p>
+<p>Reviewer #1: Partly</p>
+<p>Reviewer #2: Partly</p>
+<p>********** </p>
+<p><!-- <font color="black"> -->3. Has the statistical analysis been performed appropriately and rigorously? <!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: No</p>
+<p>********** </p>
+<p><!-- <font color="black"> -->4. Have the authors made all data underlying the findings in their manuscript fully available?</p>
+<p>The <ext-link ext-link-type="uri" xlink:href="http://www.plosone.org/static/policies.action#sharing" xlink:type="simple">PLOS Data policy</ext-link> requires authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception (please refer to the Data Availability Statement in the manuscript PDF file). The data should be provided as part of the manuscript or its supporting information, or deposited to a public repository. For example, in addition to summary statistics, the data points behind means, medians and variance measures should be available. If there are restrictions on publicly sharing data—e.g. participant privacy or use of data from a third party—those must be specified.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>********** </p>
+<p><!-- <font color="black"> -->5. Is the manuscript presented in an intelligible fashion and written in standard English?</p>
+<p>PLOS ONE does not copyedit accepted manuscripts, so the language in submitted articles must be clear, correct, and unambiguous. Any typographical or grammatical errors should be corrected at revision, so please note any specific errors here.<!-- </font> --></p>
+<p>Reviewer #1: Yes</p>
+<p>Reviewer #2: Yes</p>
+<p>********** </p>
+<p><!-- <font color="black"> -->6. Review Comments to the Author</p>
+<p>Please use the space provided to explain your answers to the questions above. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. (Please upload your review as an attachment if it exceeds 20,000 characters)<!-- </font> --></p>
+<p>Reviewer #1: First of all, thank you for your submitting your manuscript with appropriate revision. I think your revision was very appropriate and will make future readers’ concerns alleviated.</p>
+<p>Reviewer #2: I want to thank the authors for their responses.</p>
+<p>The rebuttal letter reads that the authors respectfully disagree with my statement "we cannot make conclusions as to whether the CAD software would still help radiologist when it is used at a different, more clinically acceptable operating point of 1 or 2FPs on average per scan." Based on the response in the letter, it is my understanding that the authors disagree that 1 or 2 FPS on average per scan is a more clinically acceptable operating point? This surprises me because the authors write in the discussion: "A more acceptable average FP rate would be between 1 and 2 with corresponding sensitivity range (82.3% - 89.0%), outperforming thoracic radiologists with and without using CAD."</p>
+<p>So, I think the authors and me actually agree on what is a clinically acceptable setting, so I do not fully understand the response. My main point is that this study shows the CAD system set to operate at 7 FPs per scan helps increasing sensitivity of radiologists, but has no direct evidence what the added performance would be when the CAD is set to operate at 1 or 2 FPs per scan. Do the authors disagree with that?</p>
+<p>The authors have decided to not do additional analysis and I respect that. I understand that priorities shift over time and that time and resources are limited. The concerns that I described are to a certain extent covered in the Discussion section.</p>
+<p>If this paper is to be published in its current form, I think it is necessary to at least perform the following changes:</p>
+<p>- As discussed in the first paragraph in the Discussion, the threshold of 0.1 was used in this study for the CAD, corresponding to a sensitivity of 95% and a false-positive rate of 7 on this dataset.</p>
+<p>Since the CAD is used by the readers at this operating point, I think the result section of the abstract should report this performance, and not the performance at another operating point. Especially because the next sentences are about radiologist performance with or without CAD. That is confusing and misleading, in my opinion.</p>
+<p>So, I think the first sentence of the Result section of the Abstract should read:</p>
+<p>"After analysis of 470 pulmonary nodules, the sensitivity of CAD as a stand-alone test for detecting nodules was 95% with an average FP rate of 7 per CT scan at the operating point used in this study."</p>
+<p>- The discussion section reads "These findings compare favorably with several other software tools (21,23)." I think this statement is not fair and not proven by the current results and with the current reference standard. Please remove this part.</p>
+<p>********** </p>
+<p><!-- <font color="black"> -->7. PLOS authors have the option to publish the peer review history of their article (<ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/editorial-and-peer-review-process#loc-peer-review-history" xlink:type="simple">what does this mean?</ext-link>). If published, this will include your full peer review and any attached files.</p>
+<p>If you choose “no”, your identity will remain anonymous but your review may still be made public.</p>
+<p><bold>Do you want your identity to be public for this peer review?</bold> For information about this choice, including consent withdrawal, please see our <ext-link ext-link-type="uri" xlink:href="https://www.plos.org/privacy-policy" xlink:type="simple">Privacy Policy</ext-link>.<!-- </font> --></p>
+<p>Reviewer #1: No</p>
+<p>Reviewer #2: No</p>
+<p>[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]</p>
+<p>While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link>. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Registration is free. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email PLOS at <email xlink:type="simple">figures@plos.org</email>. Please note that Supporting Information files do not need this step.<!-- </div> --></p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pone.0266799.r006">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r006</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 2</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj006" link-type="rebutted-decision-letter" object-id="10.1371/journal.pone.0266799.r005" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>3</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="author-response-date">9 Feb 2022</named-content>
+</p>
+<p>9 February 2022</p>
+<p>Reviewer #1: First of all, thank you for your submitting your manuscript with appropriate revision. I think your revision was very appropriate and will make future readers’ concerns alleviated.</p>
+<p>Corresponding author: thank you for your contributions and critical appraisal of our manuscript, reviewer #1.</p>
+<p>Reviewer #2: I want to thank the authors for their responses.</p>
+<p>The rebuttal letter reads that the authors respectfully disagree with my statement "we cannot make conclusions as to whether the CAD software would still help radiologist when it is used at a different, more clinically acceptable operating point of 1 or 2FPs on average per scan." Based on the response in the letter, it is my understanding that the authors disagree that 1 or 2 FPS on average per scan is a more clinically acceptable operating point? This surprises me because the authors write in the discussion: "A more acceptable average FP rate would be between 1 and 2 with corresponding sensitivity range (82.3% - 89.0%), outperforming thoracic radiologists with and without using CAD."</p>
+<p>So, I think the authors and me actually agree on what is a clinically acceptable setting, so I do not fully understand the response. My main point is that this study shows the CAD system set to operate at 7 FPs per scan helps increasing sensitivity of radiologists, but has no direct evidence what the added performance would be when the CAD is set to operate at 1 or 2 FPs per scan. Do the authors disagree with that?</p>
+<p>Corresponding author: first of all, we (the corresponding author and the radiologists involved in the study) would like to thank reviewer #2 for the discussion and critical comments regarding our manuscript. In the end, this is what creates progress in science. Regarding your point above, we do not disagree. The primary purpose of our study was to validate the detection, segmentation, classification, and growth assessment of our software device in clinical practice. Not the detection, nor its impact on reader performance. The operating point was therefore set to an extreme level to make sure that the ground truth was as complete as possible. We agree with reviewer #2 that we would never use an OP of 7 FP per scan in clinical practice. We therefore will adopt the manuscript as suggested.    </p>
+<p>Reviewer #2: The authors have decided to not do additional analysis and I respect that. I understand that priorities shift over time and that time and resources are limited. The concerns that I described are to a certain extent covered in the Discussion section.</p>
+<p>Corresponding author: we would like to thank reviewer #2 for her/his understanding of shifting our priorities. We have invested our resources in an FDA study for 510(k) approval, of which we will publish the results as well. </p>
+<p>Reviewer #2: If this paper is to be published in its current form, I think it is necessary to at least perform the following changes:</p>
+<p>- As discussed in the first paragraph in the Discussion, the threshold of 0.1 was used in this study for the CAD, corresponding to a sensitivity of 95% and a false-positive rate of 7 on this dataset.</p>
+<p>Since the CAD is used by the readers at this operating point, I think the result section of the abstract should report this performance, and not the performance at another operating point. Especially because the next sentences are about radiologist performance with or without CAD. That is confusing and misleading, in my opinion.</p>
+<p>So, I think the first sentence of the Result section of the Abstract should read:</p>
+<p>"After analysis of 470 pulmonary nodules, the sensitivity of CAD as a stand-alone test for detecting nodules was 95% with an average FP rate of 7 per CT scan at the operating point used in this study."</p>
+<p>Corresponding author: in concordance with the points you raised above and in previous review rounds, we agree with you. Therefore, we have decided to completely remove the sensitivity and FP numbers from the abstract (please see the revised manuscript with track changes). After all, the purpose of the study was to validate an algorithm and therefore the radiologist performance with or without CAD is the main point of the study. </p>
+<p>Reviewer #2: The discussion section reads "These findings compare favorably with several other software tools (21,23)." I think this statement is not fair and not proven by the current results and with the current reference standard. Please remove this part.</p>
+<p>Corresponding author: yes, we agree with this suggestion and have removed the sentence from the manuscript.</p>
+<supplementary-material id="pone.0266799.s004" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0266799.s004" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">Response to Reviewers.docx</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0266799.r007" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r007</article-id>
+<title-group>
+<article-title>Decision Letter 3</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Park</surname>
+<given-names>Chang Min</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Chang Min Park</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="article" id="rel-obj007" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>3</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">14 Mar 2022</named-content>
+</p>
+<p><!-- <div> -->PONE-D-21-07234R3<!-- </div> --><!-- <div> -->Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population<!-- </div> --><!-- <div> -->PLOS ONE</p>
+<p>Dear Dr. Nijwening,</p>
+<p>Thank you for submitting your manuscript to PLOS ONE. After careful consideration, we feel that it has merit but does not fully meet PLOS ONE’s publication criteria as it currently stands. Therefore, we invite you to submit a revised version of the manuscript that addresses the points raised during the review process.</p>
+<p>Please submit your revised manuscript by Apr 28 2022 11:59PM. If you will need more time than this to complete your revisions, please reply to this message or contact the journal office at <email xlink:type="simple">plosone@plos.org</email>. When you're ready to submit your revision, log on to <ext-link ext-link-type="uri" xlink:href="https://www.editorialmanager.com/pone/" xlink:type="simple">https://www.editorialmanager.com/pone/</ext-link> and select the 'Submissions Needing Revision' folder to locate your manuscript file.</p>
+<p>Please include the following items when submitting your revised manuscript:<!-- </div> --><list list-type="bullet"><list-item><p>A rebuttal letter that responds to each point raised by the academic editor and reviewer(s). You should upload this letter as a separate file labeled 'Response to Reviewers'.</p></list-item><list-item><p>A marked-up copy of your manuscript that highlights changes made to the original version. You should upload this as a separate file labeled 'Revised Manuscript with Track Changes'.</p></list-item><list-item><p>An unmarked version of your revised paper without tracked changes. You should upload this as a separate file labeled 'Manuscript'.</p></list-item></list><!-- <div> -->If you would like to make changes to your financial disclosure, please include your updated statement in your cover letter. Guidelines for resubmitting your figure files are available below the reviewer comments at the end of this letter.</p>
+<p>If applicable, we recommend that you deposit your laboratory protocols in protocols.io to enhance the reproducibility of your results. Protocols.io assigns your protocol its own identifier (DOI) so that it can be cited independently in the future. For instructions see: <ext-link ext-link-type="uri" xlink:href="https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols" xlink:type="simple">https://journals.plos.org/plosone/s/submission-guidelines#loc-laboratory-protocols</ext-link>. Additionally, PLOS ONE offers an option for publishing peer-reviewed Lab Protocol articles, which describe protocols hosted on protocols.io. Read more information on sharing protocols at <ext-link ext-link-type="uri" xlink:href="https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols" xlink:type="simple">https://plos.org/protocols?utm_medium=editorial-email&amp;utm_source=authorletters&amp;utm_campaign=protocols</ext-link>.</p>
+<p>We look forward to receiving your revised manuscript.</p>
+<p>Kind regards,</p>
+<p>Chang Min Park, MD, Ph.D</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+<p>Journal Requirements:</p>
+<p>Please review your reference list to ensure that it is complete and correct. If you have cited papers that have been retracted, please include the rationale for doing so in the manuscript text, or remove these references and replace them with relevant current references. Any changes to the reference list should be mentioned in the rebuttal letter that accompanies your revised manuscript. If you need to cite a retracted article, indicate the article’s retracted status in the References list and also include a citation and full reference for the retraction notice.</p>
+<p>Additional Editor Comments:</p>
+<p>Dear Authors:</p>
+<p>Thank your for your rebuttal and revision. I can understand your points. However, there still remains several minor parts that needs revisions for final acceptance.</p>
+<p>Fortunately, I think you can respond to them without efforts.  </p>
+<p>1. line 34-35: "the readings for radiologists without CAD and radiologist with CAD, were 71.9% ... and 80.3%.." --&gt; The meaning of each number is not clear by this sentence, and thus should be properly revised.</p>
+<p>2. line 45-47: "Results suggest this software could assist chest radiologists in pulmonary nodule detection and management within their routine clinical practice."--&gt; I think this statement cannot be supported by the results, so I recommend to remove this part or the authors might want to revise as "The deep Learning software has the potential to assist radiologists in the tasks of pulmonary nodule detection and management on routine chest CT, which was written in the Discussion section by the authors.</p>
+<p>3. line 82-84: "Lung cancer remains the third most prevalent cancer worldwide, is both rising in incidence (1), and maintains high mortality rates with around 1.7 million global deaths annually."</p>
+<p>--&gt; Reference #1 is too much out-of-date. The authors need to update the reference.</p>
+<p>4. line 290-292: "the results of our study are of similar sensitivity and accuracy to that initial cohort, (87% at 1 FP/scan) confirming broader use is feasible."--&gt; This part needs a reference.</p>
+<p>5. line 337-340: "The Deep Learning model for nodule detection was trained on data from a lung cancer screening cohort but this study shows that it is effective in a general, “real life” clinical setting where it improves the sensitivity of detection of actionable nodules by thoracic radiologists." --&gt; this statement went too far and actually was not supported by the results. So the authors might want to remove this part.</p>
+<p>[Note: HTML markup is below. Please do not edit.]</p>
+<p>Reviewers' comments:</p>
+<p>[NOTE: If reviewer comments were submitted as an attachment file, they will be attached to this email and accessible via the submission site. Please log into your account, locate the manuscript record, and check for the action link "View Attachments". If this link does not appear, there are no attachment files.]</p>
+<p>While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, <ext-link ext-link-type="uri" xlink:href="https://pacev2.apexcovantage.com/" xlink:type="simple">https://pacev2.apexcovantage.com/</ext-link>. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Registration is free. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email PLOS at <email xlink:type="simple">figures@plos.org</email>. Please note that Supporting Information files do not need this step.<!-- </div> --></p>
+</body>
+</sub-article>
+<sub-article article-type="author-comment" id="pone.0266799.r008">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r008</article-id>
+<title-group>
+<article-title>Author response to Decision Letter 3</article-title>
+</title-group>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="peer-reviewed-article" id="rel-obj008" link-type="rebutted-decision-letter" object-id="10.1371/journal.pone.0266799.r007" object-id-type="doi" object-type="decision-letter"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>4</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="author-response-date">25 Mar 2022</named-content>
+</p>
+<p>Rebuttal Letter, 4th response to reviewers</p>
+<p>25 March 2022</p>
+<p>Reviewer: 1. line 34-35: "the readings for radiologists without CAD and radiologist with CAD, were 71.9% ... and 80.3%.." --&gt; The meaning of each number is not clear by this sentence, and thus should be properly revised.</p>
+<p>Corresponding author: thank you for highlighting this error, the numbers indicate sensitivity and we have added this to the text. </p>
+<p>Reviewer: 2. line 45-47: "Results suggest this software could assist chest radiologists in pulmonary nodule detection and management within their routine clinical practice."--&gt; I think this statement cannot be supported by the results, so I recommend to remove this part or the authors might want to revise as "The deep Learning software has the potential to assist radiologists in the tasks of pulmonary nodule detection and management on routine chest CT, which was written in the Discussion section by the authors.</p>
+<p>Corresponding author: thank you for your suggestion, we have adapted the text accordingly, see “track changes”. </p>
+<p>Reviewer: 3. line 82-84: "Lung cancer remains the third most prevalent cancer worldwide, is both rising in incidence (1), and maintains high mortality rates with around 1.7 million global deaths annually."</p>
+<p>--&gt; Reference #1 is too much out-of-date. The authors need to update the reference.</p>
+<p>Corresponding author: the reviewer is right, new data indicates that lung cancer mortality rates are even 1.8 million global deaths. We have edited the text and the reference accordingly. </p>
+<p>Reviewer: 4. line 290-292: "the results of our study are of similar sensitivity and accuracy to that initial cohort, (87% at 1 FP/scan) confirming broader use is feasible."--&gt; This part needs a reference.</p>
+<p>Corresponding author: we have added the reference. </p>
+<p>Reviewer: 5. line 337-340: "The Deep Learning model for nodule detection was trained on data from a lung cancer screening cohort but this study shows that it is effective in a general, “real life” clinical setting where it improves the sensitivity of detection of actionable nodules by thoracic radiologists." --&gt; this statement went too far and actually was not supported by the results. So the authors might want to remove this part.</p>
+<p>Corresponding author: we have altered the original sentences, see track changes, and weakened our initial conclusion. We expect that these new sentences will be in line with what the reviewer suggests.</p>
+<supplementary-material id="pone.0266799.s005" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0266799.s005" xlink:type="simple">
+<label>Attachment</label>
+<caption>
+<p>Submitted filename: <named-content content-type="submitted-filename">Response to Reviewers.docx</named-content></p>
+</caption>
+</supplementary-material>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0266799.r009" specific-use="decision-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r009</article-id>
+<title-group>
+<article-title>Decision Letter 4</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Park</surname>
+<given-names>Chang Min</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Chang Min Park</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="article" id="rel-obj009" link-type="peer-reviewed-article"/>
+<custom-meta-group>
+<custom-meta>
+<meta-name>Submission Version</meta-name>
+<meta-value>4</meta-value>
+</custom-meta>
+</custom-meta-group>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">29 Mar 2022</named-content>
+</p>
+<p>Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population</p>
+<p>PONE-D-21-07234R4</p>
+<p>Dear Dr. Jeroen Nijwening:</p>
+<p>We’re pleased to inform you that your manuscript has been judged scientifically suitable for publication and will be formally accepted for publication once it meets all outstanding technical requirements.</p>
+<p>Within one week, you’ll receive an e-mail detailing the required amendments. When these have been addressed, you’ll receive a formal acceptance letter and your manuscript will be scheduled for publication.</p>
+<p>An invoice for payment will follow shortly after the formal acceptance. To ensure an efficient process, please log into Editorial Manager at <ext-link ext-link-type="uri" xlink:href="http://www.editorialmanager.com/pone/" xlink:type="simple">http://www.editorialmanager.com/pone/</ext-link>, click the 'Update My Information' link at the top of the page, and double check that your user information is up-to-date. If you have any billing related questions, please contact our Author Billing department directly at <email xlink:type="simple">authorbilling@plos.org</email>.</p>
+<p>If your institution or institutions have a press office, please notify them about your upcoming paper to help maximize its impact. If they’ll be preparing press materials, please inform our press team as soon as possible -- no later than 48 hours after receiving the formal acceptance. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information, please contact <email xlink:type="simple">onepress@plos.org</email>.</p>
+<p>Kind regards,</p>
+<p>Chang Min Park, MD, Ph.D</p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+</body>
+</sub-article>
+<sub-article article-type="editor-report" id="pone.0266799.r010" specific-use="acceptance-letter">
+<front-stub>
+<article-id pub-id-type="doi">10.1371/journal.pone.0266799.r010</article-id>
+<title-group>
+<article-title>Acceptance letter</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<surname>Park</surname>
+<given-names>Chang Min</given-names>
+</name>
+<role>Academic Editor</role>
+</contrib>
+</contrib-group>
+<permissions>
+<copyright-year>2022</copyright-year>
+<copyright-holder>Chang Min Park</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<related-object document-id="10.1371/journal.pone.0266799" document-id-type="doi" document-type="article" id="rel-obj010" link-type="peer-reviewed-article"/>
+</front-stub>
+<body>
+<p>
+<named-content content-type="letter-date">26 Apr 2022</named-content>
+</p>
+<p>PONE-D-21-07234R4 </p>
+<p>Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population </p>
+<p>Dear Dr. Nijwening:</p>
+<p>I'm pleased to inform you that your manuscript has been deemed suitable for publication in PLOS ONE. Congratulations! Your manuscript is now with our production department. </p>
+<p>If your institution or institutions have a press office, please let them know about your upcoming paper now to help maximize its impact. If they'll be preparing press materials, please inform our press team within the next 48 hours. Your manuscript will remain under strict press embargo until 2 pm Eastern Time on the date of publication. For more information please contact <email xlink:type="simple">onepress@plos.org</email>.</p>
+<p>If we can help with anything else, please email us at <email xlink:type="simple">plosone@plos.org</email>. </p>
+<p>Thank you for submitting your work to PLOS ONE and supporting open access. </p>
+<p>Kind regards, </p>
+<p>PLOS ONE Editorial Office Staff</p>
+<p>on behalf of</p>
+<p>Professor Chang Min Park  </p>
+<p>Academic Editor</p>
+<p>PLOS ONE</p>
+</body>
+</sub-article>
+</article>

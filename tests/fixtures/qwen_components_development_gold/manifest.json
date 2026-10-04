@@ -1,0 +1,83 @@
+{
+  "counts": {
+    "answerable": 6,
+    "canonical_blocks": 126,
+    "components": 19,
+    "context_spans": 4,
+    "main_tables": 6,
+    "necessary_and": 5,
+    "necessary_methods_results_and": 4,
+    "nulls": 2,
+    "quantitative": 6,
+    "questions": 8,
+    "sources": 2,
+    "support_alternatives": 9,
+    "support_spans": 20
+  },
+  "files": {
+    "blocks.json": {
+      "sha256": "189dda53b0635bbfc641a26d84188df1ab73eb9570abcffcf7b9a68aba0d1ddd",
+      "size_bytes": 144723
+    },
+    "questions.json": {
+      "sha256": "e54ffd95a010d7eb3de25dbd220be78fca53633314c9b2b633edad00abaabb71",
+      "size_bytes": 38863
+    }
+  },
+  "prospective": {
+    "coordinator_confirmation_qa_blind": false,
+    "paid_inference_calls": 0,
+    "ranking_limit": "Do not rank before independent source/truth acceptance and prospective runtime freeze",
+    "rankings_observed": 0,
+    "truth_status": "accepted_independent_source_first_evaluation"
+  },
+  "runtime_budget": {
+    "batch_seconds": 1800,
+    "candidate_own_blocks": 20,
+    "complete_positive_floor": 4,
+    "display_own_blocks": 5,
+    "nonregression_comparators": [
+      "whole_question_lexical",
+      "whole_question_qwen",
+      "component_lexical"
+    ],
+    "positive_coverage_floor_percent": 85
+  },
+  "schema_version": 1,
+  "semantics": {
+    "clinical_scope": "Research source-fidelity evaluation only, not clinical advice or evidence endorsement.",
+    "components": "Two or three explicit reviewer-request components, written before any ranking; no expected answer values injected into component text.",
+    "context_anchors": "Exact source limitations and hard-negative context, never scored as sufficient support. Article-scoped null does not assert universal absence of evidence.",
+    "offsets": "Half-open Unicode code-point offsets in independently reconstructed original canonical text.",
+    "support_sets": "Sufficient OR alternatives; each alternative is a necessary AND of exact own-source spans. All requested components and quantitative qualifiers must be supported. Alternative cardinality is not an answerability score."
+  },
+  "source_manifest": {
+    "file": "../qwen_components_development_sources/manifest.json",
+    "sha256": "0e0d53afe320f87349fe812c61d5212ef9e74f80caa06132a07fd5474afc849e",
+    "size_bytes": 15945
+  },
+  "sources": [
+    {
+      "block_count": 40,
+      "canonical_blocks_sha256": "db4b45ecf91a7df65e3ceed45982fc54b1555a8d1bd9ae8e7bdd022b4707a7ea",
+      "doi": "10.1371/journal.pone.0266799",
+      "file": "../qwen_components_development_sources/lung_ct.xml",
+      "id": "lung_ct",
+      "sha256": "2810887fe0d21a13850e1c80df3053114ae29225040741663b9fbfaecefa06db",
+      "size_bytes": 183458,
+      "title": "Validation of a deep learning computer aided system for CT based lung nodule detection, classification, and growth rate estimation in a routine clinical population"
+    },
+    {
+      "block_count": 86,
+      "canonical_blocks_sha256": "5eb9a69561b49023092857a5aaf26d2be93c2762855147ecbf75865bf6623040",
+      "doi": "10.1371/journal.pmed.1002997",
+      "file": "../qwen_components_development_sources/hypertension.xml",
+      "id": "hypertension",
+      "sha256": "5f674ce8028ba23411c3ee437f976e85d7fcb688cf13a0d5a39bf9c582ddfeba",
+      "size_bytes": 142222,
+      "title": "Effectiveness of a scalable group-based education and monitoring program, delivered by health workers, to improve control of hypertension in rural India: A cluster randomised controlled trial"
+    }
+  ],
+  "split": "development",
+  "ticket": "KR4B"
+}

@@ -1,0 +1,83 @@
+{
+  "counts": {
+    "answerable": 6,
+    "canonical_blocks": 100,
+    "components": 19,
+    "context_spans": 4,
+    "main_tables": 8,
+    "necessary_and": 6,
+    "necessary_methods_results_and": 5,
+    "nulls": 2,
+    "quantitative": 6,
+    "questions": 8,
+    "sources": 2,
+    "support_alternatives": 10,
+    "support_spans": 24
+  },
+  "files": {
+    "blocks.json": {
+      "sha256": "215f52a41a350a9ef36801b8cd5f5e3c083111065d91da507a137e434be937bf",
+      "size_bytes": 122715
+    },
+    "questions.json": {
+      "sha256": "d81f1f0d53c6a5325daf65a7ce3f1d92e4d7309985b3ff9c80bf892890b76c6c",
+      "size_bytes": 33233
+    }
+  },
+  "prospective": {
+    "coordinator_confirmation_qa_blind": true,
+    "paid_inference_calls": 0,
+    "ranking_limit": "Do not rank before independent source/truth acceptance and prospective runtime freeze",
+    "rankings_observed": 0,
+    "truth_status": "accepted_independent_source_first_evaluation"
+  },
+  "runtime_budget": {
+    "batch_seconds": 1800,
+    "candidate_own_blocks": 20,
+    "complete_positive_floor": 4,
+    "display_own_blocks": 5,
+    "nonregression_comparators": [
+      "whole_question_lexical",
+      "whole_question_qwen",
+      "component_lexical"
+    ],
+    "positive_coverage_floor_percent": 85
+  },
+  "schema_version": 1,
+  "semantics": {
+    "clinical_scope": "Research source-fidelity evaluation only, not clinical advice or evidence endorsement.",
+    "components": "Two or three explicit reviewer-request components, written before any ranking; no expected answer values injected into component text.",
+    "context_anchors": "Exact source limitations and hard-negative context, never scored as sufficient support. Article-scoped null does not assert universal absence of evidence.",
+    "offsets": "Half-open Unicode code-point offsets in independently reconstructed original canonical text.",
+    "support_sets": "Sufficient OR alternatives; each alternative is a necessary AND of exact own-source spans. All requested components and quantitative qualifiers must be supported. Alternative cardinality is not an answerability score."
+  },
+  "source_manifest": {
+    "file": "../qwen_components_confirmation_sources/manifest.json",
+    "sha256": "005d36c6776efa993f45a6be7efd918ac82a8633810edde76380f630edb8821f",
+    "size_bytes": 22232
+  },
+  "sources": [
+    {
+      "block_count": 40,
+      "canonical_blocks_sha256": "616c8e2a94fc28d02e7b9dd60339bd74aed1788fa900f3296088aad236b31238",
+      "doi": "10.1371/journal.pone.0312121",
+      "file": "../qwen_components_confirmation_sources/thyroid.xml",
+      "id": "thyroid",
+      "sha256": "16fa9e8b026a4d1ef4bba69ce3c128eb4a297d655107b4e3776b63a12b8c3b73",
+      "size_bytes": 102942,
+      "title": "Evaluating diagnostic accuracy and agreement of TI-RADS scoring in thyroid nodules: A comparative analysis between sonographers and radiologists"
+    },
+    {
+      "block_count": 60,
+      "canonical_blocks_sha256": "f26e3c438e50c4362641aa71b3d9f1e6e541bbd84915180167b8c08fa00ab4f8",
+      "doi": "10.1371/journal.pmed.1004428",
+      "file": "../qwen_components_confirmation_sources/copcov.xml",
+      "id": "copcov",
+      "sha256": "636e4d4a87c84cc256d565fe10f48ec134d2c6af201973f439778771ba97f04d",
+      "size_bytes": 258039,
+      "title": "Evaluation of hydroxychloroquine or chloroquine for the prevention of COVID-19 (COPCOV): A double-blind, randomised, placebo-controlled trial"
+    }
+  ],
+  "split": "confirmation",
+  "ticket": "KR4B"
+}

@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1d3 20150301//EN" "http://jats.nlm.nih.gov/publishing/1.1d3/JATS-journalpublishing1.dtd">
+<article article-type="research-article" dtd-version="1.1d3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS ONE</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosone</journal-id>
+<journal-title-group>
+<journal-title>PLOS ONE</journal-title>
+</journal-title-group>
+<issn pub-type="epub">1932-6203</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pone.0312121</article-id>
+<article-id pub-id-type="publisher-id">PONE-D-24-29674</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>People and places</subject><subj-group><subject>Population groupings</subject><subj-group><subject>Professions</subject><subj-group><subject>Medical personnel</subject><subj-group><subject>Radiologists</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Anatomy</subject><subj-group><subject>Endocrine system</subject><subj-group><subject>Thyroid</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Anatomy</subject><subj-group><subject>Endocrine system</subject><subj-group><subject>Thyroid</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Ultrasound imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Ultrasound imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Ultrasound imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Cancer detection and diagnosis</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancer detection and diagnosis</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Anatomy</subject><subj-group><subject>Histology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Anatomy</subject><subj-group><subject>Histology</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Oncology</subject><subj-group><subject>Cancers and neoplasms</subject><subj-group><subject>Malignant tumors</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Diagnostic medicine</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Thyroid imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Research and analysis methods</subject><subj-group><subject>Imaging techniques</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Thyroid imaging</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Radiology and imaging</subject><subj-group><subject>Diagnostic radiology</subject><subj-group><subject>Thyroid imaging</subject></subj-group></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Evaluating diagnostic accuracy and agreement of TI-RADS scoring in thyroid nodules: A comparative analysis between sonographers and radiologists</article-title>
+<alt-title alt-title-type="running-head">Diagnostic accuracy and agreement of TI-RADS scores between sonographers and radiologists</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-4655-7248</contrib-id>
+<name name-style="western">
+<surname>Alfuraih</surname>
+<given-names>Abdulrahman M.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role>
+<role content-type="http://credit.niso.org/contributor-roles/funding-acquisition/">Funding acquisition</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Alotaibi</surname>
+<given-names>Abdullah M.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Alshammari</surname>
+<given-names>Alanoud K.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/resources/">Resources</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Alrashied</surname>
+<given-names>Basmah F.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/data-curation/">Data curation</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/resources/">Resources</role>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Mashhor</surname>
+<given-names>Yahya M.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+<role content-type="http://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+<role content-type="http://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+<role content-type="http://credit.niso.org/contributor-roles/project-administration/">Project administration</role>
+<role content-type="http://credit.niso.org/contributor-roles/resources/">Resources</role>
+<role content-type="http://credit.niso.org/contributor-roles/supervision/">Supervision</role>
+<role content-type="http://credit.niso.org/contributor-roles/validation/">Validation</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Mahmoud</surname>
+<given-names>Mustafa</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff005"><sup>5</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Alsaadi</surname>
+<given-names>Mohammed J.</given-names>
+</name>
+<role content-type="http://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role>
+<role content-type="http://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff006"><sup>6</sup></xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Radiology and Medical Imaging Department, College of Applied Medical Sciences, Prince Sattam bin Abdulaziz University, Kharj, Saudi Arabia</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>Research Center, King Fahad Medical City, Riyadh, Saudi Arabia</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>Ultrasound Unit, Radiology Department, King Fahad Medical City, Riyadh, Saudi Arabia</addr-line></aff>
+<aff id="aff004"><label>4</label> <addr-line>Radiology Department, Altakassusi Alliance Medical, Riyadh, Saudi Arabia</addr-line></aff>
+<aff id="aff005"><label>5</label> <addr-line>Department of Radiological Sciences, College of Applied Medical Sciences, King Khalid University, Abha, Saudi Arabia</addr-line></aff>
+<aff id="aff006"><label>6</label> <addr-line>Radiology and Medical Imaging Department, College of Applied Medical Sciences, Prince Sattam bin Abdulaziz University, Kharj, Saudi Arabia</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Khorasani</surname>
+<given-names>Milad</given-names>
+</name>
+<role>Editor</role>
+<xref ref-type="aff" rid="edit1"/>
+</contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>Neyshabur University of Medical Sciences, ISLAMIC REPUBLIC OF IRAN</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>The authors have declared that no competing interests exist.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">a.alfuraih@psau.edu.sa</email></corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>11</day>
+<month>10</month>
+<year>2024</year>
+</pub-date>
+<pub-date pub-type="collection">
+<year>2024</year>
+</pub-date>
+<volume>19</volume>
+<issue>10</issue>
+<elocation-id>e0312121</elocation-id>
+<history>
+<date date-type="received">
+<day>1</day>
+<month>8</month>
+<year>2024</year>
+</date>
+<date date-type="accepted">
+<day>1</day>
+<month>10</month>
+<year>2024</year>
+</date>
+</history>
+<permissions>
+<copyright-year>2024</copyright-year>
+<copyright-holder>Alfuraih et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pone.0312121"/>
+<abstract>
+<sec id="sec001">
+<title>Objective</title>
+<p>The Thyroid Imaging Reporting and Data System (TI-RADS) is an essential tool for assessing thyroid nodules, primarily used by radiologists. This study aimed to compare the agreement of TI-RADS scores between sonographers and radiologists and to assess the diagnostic performance of these scores against histological findings in suspicious thyroid nodules.</p>
+</sec>
+<sec id="sec002">
+<title>Methods</title>
+<p>In a retrospective analysis, 168 patients with suspicious thyroid nodules classified as TR3 and above by the radiologists were included. Both sonographers and radiologists independently assigned the American College of Radiologists (ACR) TI-RADS scores, which were then compared for inter-reader agreement using Cohen’s Kappa statistic. The scores were also evaluated for diagnostic performance against histological results based on the Bethesda system.</p>
+</sec>
+<sec id="sec003">
+<title>Results</title>
+<p>The study revealed a moderate overall agreement between sonographers and radiologists in TI-RADS scoring (κ = 0.504; 95% CI: 0.409–0.599), with poor agreement noted specifically for nodule margin scores (κ = 0.102; 95% CI: -1.430–0.301). In terms of diagnostic performance against histological outcomes, sonographers’ TI-RADS scores showed a sensitivity of 100% and a specificity of 44.6%, while radiologists’ scores showed a sensitivity of 100% but a lower specificity of 29.3%.</p>
+</sec>
+<sec id="sec004">
+<title>Conclusion</title>
+<p>The findings indicate moderate agreement in TI-RADS scoring between sonographers and radiologists, with reproducibility challenges especially in scoring nodule margins. The marginally superior diagnostic performance of sonographers’ scores suggests potential efficiency benefits in involving sonographers in preliminary assessments. Future research should aim to encompass a wider range of TI-RADS categories and focus on minimizing scoring variability to enhance the system’s clinical utility.</p>
+</sec>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source>
+<institution-wrap>
+<institution-id institution-id-type="funder-id">http://dx.doi.org/10.13039/100009392</institution-id>
+<institution>Prince Sattam bin Abdulaziz University</institution>
+</institution-wrap>
+</funding-source>
+<award-id>PSAU/2024/01/78904</award-id>
+<principal-award-recipient>
+<contrib-id authenticated="true" contrib-id-type="orcid">https://orcid.org/0000-0002-4655-7248</contrib-id>
+<name name-style="western">
+<surname>Alfuraih</surname>
+<given-names>Abdulrahman M.</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+<funding-statement>This research was funded by PRINCE SATTAM BIN ABDULAZIZ UNIVERSITY, grant number PSAU/2024/01/78904.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="3"/>
+<table-count count="5"/>
+<page-count count="14"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>All relevant data are within the manuscript and its <xref ref-type="sec" rid="sec016">Supporting Information</xref> files.</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec005" sec-type="intro">
+<title>Introduction</title>
+<p>Thyroid nodules are a common clinical finding, with a prevalence of 19–68% in the general population when assessed by ultrasound [<xref ref-type="bibr" rid="pone.0312121.ref001">1</xref>]. The majority of these nodules are benign, and only a small percentage are malignant [<xref ref-type="bibr" rid="pone.0312121.ref002">2</xref>]. Accurate identification of high-risk nodules is crucial for timely intervention and optimal patient management. The Thyroid Imaging Reporting and Data System (TI-RADS) is a widely used classification system for the risk stratification of thyroid nodules based on ultrasound features [<xref ref-type="bibr" rid="pone.0312121.ref003">3</xref>,<xref ref-type="bibr" rid="pone.0312121.ref004">4</xref>]. This system aims to standardize the reporting of thyroid ultrasound findings and improve the diagnostic accuracy of thyroid nodule evaluation [<xref ref-type="bibr" rid="pone.0312121.ref005">5</xref>,<xref ref-type="bibr" rid="pone.0312121.ref006">6</xref>].</p>
+<p>The rationale behind this study is rooted in the clinical need for accurate scoring of thyroid nodules to guide patient management. High-risk nodules may require fine needle aspiration (FNA) to rule out malignancy, whereas low-risk nodules can be managed conservatively without invasive procedures [<xref ref-type="bibr" rid="pone.0312121.ref007">7</xref>,<xref ref-type="bibr" rid="pone.0312121.ref008">8</xref>]. Accurate TI-RADS scoring is essential for identifying which patients require FNA and sparing those with low-risk nodules from unnecessary invasive procedures.</p>
+<p>Multiple previous studies have demonstrated a high accuracy of sonographers’ diagnostic opinion compared to radiologists in abdominal [<xref ref-type="bibr" rid="pone.0312121.ref009">9</xref>–<xref ref-type="bibr" rid="pone.0312121.ref016">16</xref>], obstetric [<xref ref-type="bibr" rid="pone.0312121.ref017">17</xref>], musculoskeletal [<xref ref-type="bibr" rid="pone.0312121.ref018">18</xref>], and emergency ultrasound [<xref ref-type="bibr" rid="pone.0312121.ref019">19</xref>]. However, no previous studies have directly compared the agreement of TI-RADS scores between sonographers and radiologists. Albeit previous studies have examined the agreement of TI-RADS scores between radiologists, with varying results [<xref ref-type="bibr" rid="pone.0312121.ref020">20</xref>–<xref ref-type="bibr" rid="pone.0312121.ref025">25</xref>]. Given the increasing demand for ultrasound examinations and the limited availability of radiologists, it is essential to determine if sonographers can accurately assess thyroid nodules using the TI-RADS scoring system [<xref ref-type="bibr" rid="pone.0312121.ref026">26</xref>,<xref ref-type="bibr" rid="pone.0312121.ref027">27</xref>]. Moreover, if sonographers can reliably and accurately score thyroid nodules, radiologists may be able to focus on more complicated tasks, improving overall efficiency and resource allocation within the radiology department [<xref ref-type="bibr" rid="pone.0312121.ref028">28</xref>,<xref ref-type="bibr" rid="pone.0312121.ref029">29</xref>].</p>
+<p>Despite the potential benefits of using TI-RADS in clinical practice, some concerns have been raised regarding the reproducibility and reliability of the classification system [<xref ref-type="bibr" rid="pone.0312121.ref030">30</xref>]. Inconsistencies in the application of TI-RADS criteria and interobserver variability may affect the accuracy of the scoring system, warranting further investigation to ensure its validity and reliability [<xref ref-type="bibr" rid="pone.0312121.ref031">31</xref>].</p>
+<p>The main objectives of this study are twofold. The first is to compare agreement of TI-RADS scores assigned by sonographers and radiologists. The second objective is to analyze the diagnostic accuracy of the TI-RADS scoring system. The underlying hypothesis is that the scores assigned by sonographers agree with those assigned by radiologists. If confirmed, this could have considerable implications for the allocation of resources within radiology.</p>
+</sec>
+<sec id="sec006" sec-type="materials|methods">
+<title>Materials and methods</title>
+<sec id="sec007">
+<title>Study design and case selection</title>
+<p>The study employed a retrospective design, covering the period from January 2021 to January 2022. The research data were accessed from the radiology department at King Fahad Medical City in Riyadh, Saudi Arabia, between July 2022 and January 2023 for research purposes. To minimize selection bias, we included all consecutive adult patients who met the inclusion criteria during the study period, ensuring a representative sample. The study was approved by the hospital’s IRB committee and a consent waiver was granted (NIH registration number: IRB00010471) to retrospectively collect this study data.</p>
+<p>During the study period, all patients with thyroid nodules received a TI-RADS score [according to the TI-RADS system developed by the American College of Radiologists (ACR) [<xref ref-type="bibr" rid="pone.0312121.ref008">8</xref>]] by the scanning sonographer and the reporting radiologist in real-time during the patient visits, which was documented on the radiology information system (RIS). Each case was scored based on two-plane grey-scale images of the thyroid nodule. When a patient has more than one nodule, the most suspicious one was scored and documented. The patients were considered eligible if they were an adult (18 years or older) and had a documented Bethesda score following an FNA biopsy done after the ultrasound scan. Patients who did not undergo thyroid sonography prior to the FNA or the duration between the scan and FNA was more than two weeks were excluded.</p>
+</sec>
+<sec id="sec008">
+<title>TI-RADS scoring</title>
+<p>The thyroid ultrasound scans were performed using a linear array transducer (5–15 MHz) on a LOGIQ E9 ultrasound system (GE Healthcare, Milwaukee, WI, USA) by one of 11 accredited sonographers with ultrasound experiences ranging from 2 to 18 years. All sonographers were trained to interpret thyroid US images and assign ACR TI-RADS scores after receiving a focused training course by the chief consultant radiologist (12 years of experience). The training was done in July 2020, which included official educational materials developed by the ACR including the TI-RADS atlas and user guide [<xref ref-type="bibr" rid="pone.0312121.ref032">32</xref>]. This was followed by regular monitoring and feedback over 3 months. The retrospective data collected for this study was set after approximately 6-months of the sonographers’ training and practice. Hence, all sonographers had the same level of experience (6-months) in TI-RADS scoring. Following the sonographers TI-RADS scores, the images were reviewed by one of 5 accredited radiologists with experiences ranging from 5 to 12 years and a TI-RADS score was documented on the RIS system. The radiologists included in the study consisted of three neuroradiologists, one cardiothoracic radiologist, and one abdominal radiologist. While their primary subspecialties are varied, all radiologists are board-certified and routinely interpret thyroid ultrasound examinations as part of their clinical duties.</p>
+</sec>
+<sec id="sec009">
+<title>Bethesda scoring</title>
+<p>After the ultrasound examinations, fine-needle aspiration (FNA) biopsies were performed on suspicious thyroid nodules (≥ TR3 score by the radiologist). The cytological results were reported according to the Bethesda System for Reporting Thyroid Cytopathology (TBSRTC) [<xref ref-type="bibr" rid="pone.0312121.ref033">33</xref>]. This standardized system categorizes thyroid FNA results into six diagnostic categories: Category I: Non-diagnostic or Unsatisfactory; Category II: Benign; Category III: Atypia of Undetermined Significance or Follicular Lesion of Undetermined Significance; Category IV: Follicular Neoplasm or Suspicious for a Follicular Neoplasm; Category V: Suspicious for Malignancy; Category VI: Malignant.</p>
+<p>FNA procedures were conducted by experienced interventional radiologists under ultrasound guidance using a 25-gauge needle. The obtained samples were processed and evaluated by board-certified cytopathologists following the TBSRTC guidelines. For our analysis, we grouped the Bethesda categories as follows: Benign: Category II; Malignant or Suspicious for Malignancy: Categories V and VI; Indeterminate: Categories I, III, and IV [<xref ref-type="bibr" rid="pone.0312121.ref025">25</xref>,<xref ref-type="bibr" rid="pone.0312121.ref033">33</xref>].</p>
+</sec>
+<sec id="sec010">
+<title>Statistical analysis</title>
+<p>All categorical variables are presented as frequencies and percentages while continuous variables are presented as mean ± SD. The Kolmogorov-Smirnov test was used to confirm the assumption of normal distribution. The Bethesda scores were used to categorize the nodules into benign (Bethesda II), suspicious or malignant (Bethesda V and VI), or indeterminate (Bethesda I, III, and IV) [<xref ref-type="bibr" rid="pone.0312121.ref025">25</xref>,<xref ref-type="bibr" rid="pone.0312121.ref033">33</xref>].</p>
+<p>Inter-reader reliability for TI-RADS scores were assessed using Cohen’s Kappa statistic. The Kappa scale was interpreted as follows: &lt;0, poor agreement; 0.01–0.20, slight agreement; 0.21–0.40, fair agreement; 0.41–0.60, moderate agreement; 0.61–0.80, substantial agreement; and 0.81–1.00; almost perfect agreement. Diagnostic accuracy analysis was performed to determine the sensitivity and specificity analysis of TI-RADS by sonographer and radiologist. To simplify the analysis, TR1 and TR2 were categorized as “low suspicion of malignancy” and TR3, TR4, TR5 categorized as “high suspicion of malignancy” [<xref ref-type="bibr" rid="pone.0312121.ref034">34</xref>]. The indeterminate (Bethesda I, III, and IV) scores were excluded from the diagnostic accuracy analysis. Receiver Operating Characteristic (ROC) curve analyses were conducted to evaluate and compare the diagnostic performance of the sonographers and radiologists. The area under the curve (AUC) was calculated for each group to quantify their overall diagnostic accuracy. The association between TI-RADS scores and the histological outcomes was evaluated using the Chi-Square test. A two-sided p-value less than 0.05 was considered statistically significant. All data was entered and analyzed using the SPSS 25 Statistics Package (SPSS Inc., Chicago, Illinois, USA) and MEDCALC version 18.11.6 (Acacialaan 22 8400 Ostend Belgium).</p>
+</sec>
+</sec>
+<sec id="sec011" sec-type="results">
+<title>Results</title>
+<p>A total of 168 patients were eligible (adults with available TI-RADS and Bethesda scores) and included in the study, of which 18 (11.1%) were male and 150 (88.9%) were female. The mean age was 50.3 ± 13.7 years. The histological results of the nodules were as follows: malignant or suspicious nodule (n = 11), benign nodule (n = 92), and indeterminate nodule (n = 65). The distribution of TI-RADS scores and Bethesda scores is presented in <xref ref-type="table" rid="pone.0312121.t001">Table 1</xref> and <xref ref-type="fig" rid="pone.0312121.g001">Fig 1</xref> respectively. The 9 patients scored by the sonographers as TR1 or TR2 had benign follicular nodules (Bethesda II). The detailed distribution of the TI-RADS features based on the Bethesda subcategories is available in the supplementary materials (<xref ref-type="supplementary-material" rid="pone.0312121.s001">S1 Table</xref>). All 11 patients with FNA results indicating malignancy (n = 8) or suspicion for malignancy (n = 3) underwent surgical excision and histopathological examination. The histopathological analysis confirmed malignancy in all cases, showing concordance with the FNA cytology results.</p>
+<fig id="pone.0312121.g001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0312121.g001</object-id>
+<label>Fig 1</label>
+<caption>
+<title>Overall distribution of the TI-RADS scores of the sonographer and radiologist.</title>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.g001" xlink:type="simple"/>
+</fig>
+<table-wrap id="pone.0312121.t001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0312121.t001</object-id>
+<label>Table 1</label> <caption><title>Distribution of thyroid nodules based on the Bethesda results and TI-RADS scores.</title></caption>
+<alternatives>
+<graphic id="pone.0312121.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.t001" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2"/>
+<th align="center" rowspan="2">Description</th>
+<th align="center" colspan="3">Nodules</th>
+</tr>
+<tr>
+<th align="center">Malignant or Suspicious <break/>Nodule <break/>(n = 11)</th>
+<th align="center">Benign <break/>Nodule<break/>(n = 92)</th>
+<th align="center">Indeterminate Nodule <break/>(n = 65)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" rowspan="6">FNA—Bethesda score</td>
+<td align="center">I. Non-diagnostic or Unsatisfactory</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">16 (24.6%)</td>
+</tr>
+<tr>
+<td align="center">II. Benign</td>
+<td align="center">0</td>
+<td align="center">92 (100.0%)</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">III. Atypia of Indeterminate Significance or Follicular Lesion of Indeterminate Significance</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">43 (66.2%)</td>
+</tr>
+<tr>
+<td align="center">IV. Follicular Neoplasm or Suspicious for a Follicular Neoplasm</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">6 (9.2%)</td>
+</tr>
+<tr>
+<td align="center">V. Suspicious for Malignancy</td>
+<td align="center">3 (27.3%)</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">VI. Malignant</td>
+<td align="center">8 (72.7%)</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="left" rowspan="5">TI-RADS score (sonographer)</td>
+<td align="center">TR1</td>
+<td align="center">0</td>
+<td align="center">2 (2.2%)</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">TR2</td>
+<td align="center">0</td>
+<td align="center">6 (6.5%)</td>
+<td align="center">1 (1.5%)</td>
+</tr>
+<tr>
+<td align="center">TR3</td>
+<td align="center">0</td>
+<td align="center">33 (35.9%)</td>
+<td align="center">28 (43.1%)</td>
+</tr>
+<tr>
+<td align="center">TR4</td>
+<td align="center">6 (54.5%)</td>
+<td align="center">39 (42.4%)</td>
+<td align="center">29 (44.6%)</td>
+</tr>
+<tr>
+<td align="center">TR5</td>
+<td align="center">5 (45.5%)</td>
+<td align="center">12 (13.0%)</td>
+<td align="center">7 (10.8%)</td>
+</tr>
+<tr>
+<td align="left" rowspan="5">TI-RADS score (radiologist)</td>
+<td align="center">TR1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">TR2</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">TR3</td>
+<td align="center">0</td>
+<td align="center">27 (29.3%)</td>
+<td align="center">24 (36.9%)</td>
+</tr>
+<tr>
+<td align="center">TR4</td>
+<td align="center">3 (27.3%)</td>
+<td align="center">41 (44.6%)</td>
+<td align="center">23 (35.4%)</td>
+</tr>
+<tr>
+<td align="center">TR5</td>
+<td align="center">8 (72.7%)</td>
+<td align="center">24 (26.1%)</td>
+<td align="center">18 (27.7%)</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t001fn001"><p><bold>*</bold> Categorical data presented as frequency (%).</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<sec id="sec012">
+<title>Agreement results</title>
+<p><xref ref-type="table" rid="pone.0312121.t002">Table 2</xref> cross-tabulates the scores by the radiologists and sonographers’ readers per case. The scores are also visually presented in <xref ref-type="fig" rid="pone.0312121.g002">Fig 2</xref>. The results demonstrate good agreement overall, and few instances of substantial discrepancies in scoring between readers. For example, two cases where scored TR1 by the sonographer compared to TR3 by the radiologist.</p>
+<fig id="pone.0312121.g002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0312121.g002</object-id>
+<label>Fig 2</label>
+<caption>
+<title>Bubble chart of readers’ agreement on TI-RADS scores.</title>
+<p>The Bubble labels represent the instances of matched scores.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.g002" xlink:type="simple"/>
+</fig>
+<table-wrap id="pone.0312121.t002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0312121.t002</object-id>
+<label>Table 2</label> <caption><title>Cross-tabulation of readers’ agreement on TI-RADS scores shown as count and frequency.</title></caption>
+<alternatives>
+<graphic id="pone.0312121.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.t002" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left"/>
+<th align="left"/>
+<th align="center" colspan="5">Sonographers TI-RADS</th>
+<th align="center"/>
+</tr>
+<tr>
+<th align="left"/>
+<th align="left"/>
+<th align="center">TR1</th>
+<th align="center">TR2</th>
+<th align="center">TR3</th>
+<th align="center">TR4</th>
+<th align="center">TR5</th>
+<th align="center">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" rowspan="3">Radiologists <break/>TI-RADS</td>
+<td align="left">TR3</td>
+<td align="center">2 (1.2%)</td>
+<td align="center">4 (2.4%)</td>
+<td align="center">39 (23.2%)</td>
+<td align="center">4 (2.4%)</td>
+<td align="center">2 (1.2%)</td>
+<td align="center">51 (30%)</td>
+</tr>
+<tr>
+<td align="left">TR4</td>
+<td align="center">-</td>
+<td align="center">3 (1.8%)</td>
+<td align="center">17 (10.1%)</td>
+<td align="center">46 (27.4%)</td>
+<td align="center">1 (0.6%)</td>
+<td align="center">67 (40%)</td>
+</tr>
+<tr>
+<td align="left">TR5</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">5 (3.0%)</td>
+<td align="center">24 (14.3%)</td>
+<td align="center">21 (12.5%)</td>
+<td align="center">50 (30%)</td>
+</tr>
+<tr>
+<td align="left"/>
+<td align="left">Total</td>
+<td align="center">2 (1.2%)</td>
+<td align="center">7 (4%)</td>
+<td align="center">61 (36%)</td>
+<td align="center">74 (44%)</td>
+<td align="center">24 (14%)</td>
+<td align="center">168 (100%)</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+</table-wrap>
+<p>Inter-reader reliability was assessed using the Kappa statistic in <xref ref-type="table" rid="pone.0312121.t003">Table 3</xref>. Moderate agreement was found between the sonographer and radiologist readers for TI-RADS (κ = 0.504), composition score (κ = 0.463), echogenicity score (κ = 0.584), shape score (Kappa = 0.462), and echogenic foci score (κ = 0.548) (<xref ref-type="table" rid="pone.0312121.t003">Table 3</xref>). All p-values were significant at p &lt; 0.001, indicating significant agreement among readers. The margin score, however, was not significant (p = 0.153) and the Kappa statistic of 0.102 indicated slight agreement.</p>
+<table-wrap id="pone.0312121.t003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0312121.t003</object-id>
+<label>Table 3</label> <caption><title>Inter-reader reliability between sonographer and radiologist readers of Thyroid Imaging Reporting and Data System (TI-RADS) features.</title></caption>
+<alternatives>
+<graphic id="pone.0312121.t003g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.t003" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="center">Kappa</th>
+<th align="center">SE</th>
+<th align="center">95% C.I</th>
+<th align="center">P–value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TI-RADS</td>
+<td align="center">0.504</td>
+<td align="center">0.049</td>
+<td align="center">[0.409–0.599]</td>
+<td align="center"><xref ref-type="table-fn" rid="t003fn001">*</xref>&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">Composition score</td>
+<td align="center">0.463</td>
+<td align="center">0.091</td>
+<td align="center">[0.283–0.642]</td>
+<td align="center"><xref ref-type="table-fn" rid="t003fn001">*</xref>&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">Echogenicity score</td>
+<td align="center">0.584</td>
+<td align="center">0.054</td>
+<td align="center">[0.478–0.689]</td>
+<td align="center"><xref ref-type="table-fn" rid="t003fn001">*</xref>&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">Shape score</td>
+<td align="center">0.462</td>
+<td align="center">0.131</td>
+<td align="center">[0.204–0.719]</td>
+<td align="center"><xref ref-type="table-fn" rid="t003fn001">*</xref>&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">Margin score</td>
+<td align="center">0.102</td>
+<td align="center">0.102</td>
+<td align="center">[-1.430–0.301]</td>
+<td align="center">0.153</td>
+</tr>
+<tr>
+<td align="left">Echogenic foci score</td>
+<td align="center">0.548</td>
+<td align="center">0.052</td>
+<td align="center">[0.446–0.650]</td>
+<td align="center"><xref ref-type="table-fn" rid="t003fn001">*</xref>&lt;0.001</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t003fn001"><p>* shows that P-value is significant at P&lt;0.05 and agreement among participants, CI, confident Interval; SE, standard error.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec id="sec013">
+<title>Diagnostic accuracy results</title>
+<p>In evaluating the diagnostic accuracy of TI-RADS scores in Tables <xref ref-type="table" rid="pone.0312121.t004">4</xref> and <xref ref-type="table" rid="pone.0312121.t005">5</xref>, in which the indeterminate nodules were excluded, both sonographers and radiologists demonstrated high sensitivity but varied in specificity and positive likelihood ratios. The sonographers achieved a sensitivity of 100% (95% CI: 71.5–100.0), indicating accurate identification of all positive (suspicious or malignant) cases (11 out of 11). However, specificity was moderate at 44.6% (95% CI: 34.2–53.3), suggesting a higher rate of false-positive diagnoses compared to true negatives. The positive likelihood ratio was 1.80 (95% CI: 1.5–2.2), reinforcing the reliability of a positive test result in diagnosing the disease. The positive predictive value (PPV) was 17.7% (95% CI: 15.2–20.6), and the overall accuracy of the sonographer’s TI-RADS scoring was 50.5% (95% CI: 40.5–60.5).</p>
+<table-wrap id="pone.0312121.t004" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0312121.t004</object-id>
+<label>Table 4</label> <caption><title>Contingency tables for the diagnostic accuracy of Thyroid Imaging Reporting and Data System (TI-RADS) scores by sonographer and radiologist.</title></caption>
+<alternatives>
+<graphic id="pone.0312121.t004g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.t004" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2"> </th>
+<th align="left" rowspan="2"> </th>
+<th align="center" colspan="2">Nodule histology diagnosis</th>
+<th align="center" rowspan="2">P—value</th>
+</tr>
+<tr>
+<th align="center">Malignant<break/>(n = 11)</th>
+<th align="center">Benign<break/>(n = 92)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" rowspan="2"><bold>TI-RADS (Sonographers)</bold></td>
+<td align="left">Suspicious scores <break/>(TR4, TR5)</td>
+<td align="center">11 (100%)</td>
+<td align="center">51 (55.4%)</td>
+<td align="center" rowspan="2"><xref ref-type="table-fn" rid="t004fn001">*</xref>0.003</td>
+</tr>
+<tr>
+<td align="left">Negative or low suspicion scores <break/>(TR1, TR2, TR3)</td>
+<td align="center">0 (0%)</td>
+<td align="center">41 (44.6%)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2"><bold>TI-RADS (Radiologists)</bold></td>
+<td align="left">Suspicious scores<break/>(TR4, TR5)</td>
+<td align="center">11 (100%)</td>
+<td align="center">65 (70.7%)</td>
+<td align="center" rowspan="2"><xref ref-type="table-fn" rid="t004fn001">*</xref>0.029</td>
+</tr>
+<tr>
+<td align="left">Negative or low suspicion scores <break/>(TR1, TR2, TR3)</td>
+<td align="center">0 (0%)</td>
+<td align="center">27 (29.3%)</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t004fn001"><p>Note: * shows that P-value is significant at P&lt;0.05.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="pone.0312121.t005" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0312121.t005</object-id>
+<label>Table 5</label> <caption><title>Diagnostic performance of Thyroid Imaging Reporting and Data System (TI-RADS) scores by sonographer and radiologist.</title></caption>
+<alternatives>
+<graphic id="pone.0312121.t005g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.t005" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left"/>
+<th align="center" colspan="2">Sonographers</th>
+<th align="center" colspan="2">Radiologist</th>
+</tr>
+<tr>
+<th align="left">Statistic</th>
+<th align="center">Value</th>
+<th align="center">95% CI</th>
+<th align="center">Value</th>
+<th align="center">95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>Sensitivity</bold></td>
+<td align="center">100.0%</td>
+<td align="center">[71.5–100.0]</td>
+<td align="center">100.0%</td>
+<td align="center">[71.5–100.0]</td>
+</tr>
+<tr>
+<td align="left"><bold>Specificity</bold></td>
+<td align="center">44.6%</td>
+<td align="center">[34.2–53.3]</td>
+<td align="center">29.3%</td>
+<td align="center">[20.3–39.8]</td>
+</tr>
+<tr>
+<td align="left"><bold>Positive Likelihood Ratio</bold></td>
+<td align="center">1.8</td>
+<td align="center">[1.5–2.2]</td>
+<td align="center">1.4</td>
+<td align="center">[1.2–1.6]</td>
+</tr>
+<tr>
+<td align="left"><bold>Positive Predictive Value</bold></td>
+<td align="center">17.7%</td>
+<td align="center">[15.2–20.6]</td>
+<td align="center">14.5%</td>
+<td align="center">[12.9–16.2]</td>
+</tr>
+<tr>
+<td align="left"><bold>Negative Predictive Value</bold></td>
+<td align="center">100.0%</td>
+<td align="center">-</td>
+<td align="center">100.0%</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="left"><bold>Accuracy</bold></td>
+<td align="center">50.5%</td>
+<td align="center">[40.5–60.5]</td>
+<td align="center">36.90%</td>
+<td align="center">[27.6–47.0]</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+</table-wrap>
+<p>Similarly, the radiologist’s sensitivity was 100% (95% CI: 71.5–100.0). However, specificity was lower at 29.3% (95% CI: 20.3–39.8), indicating a greater tendency for false positives with only 27 of 92 non-malignant cases correctly identified. The positive likelihood ratio of 1.4 (95% CI: 1.2–1.6) was also lower compared to the sonographer, suggesting a slightly reduced diagnostic accuracy in positive test interpretation. The PPV was 14.5% (95% CI: 12.9–16.2), and the overall accuracy was 36.9% (95% CI: 27.6–47.0). The negative predictive value (NPV) was 100% for both sonographers and radiologists, indicating that all nodules with negative or low suspicion TI-RADS scores were confirmed to be benign on histology when tested.</p>
+<p>The ROC curves for sonographers and radiologists are presented in <xref ref-type="fig" rid="pone.0312121.g003">Fig 3</xref>. The AUC for sonographers was 0.723 (95% CI: 0.684–0.762), indicating acceptable diagnostic accuracy. For radiologists, the AUC was 0.662 (95% CI: 0.626–0.699). The difference between the two AUCs was statistically significant (p &lt; 0.001), suggesting that sonographers had a slightly better diagnostic performance compared to radiologists.</p>
+<fig id="pone.0312121.g003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pone.0312121.g003</object-id>
+<label>Fig 3</label>
+<caption>
+<title>ROC curves comparing the diagnostic performance of sonographers and radiologists.</title>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.g003" xlink:type="simple"/>
+</fig>
+</sec>
+</sec>
+<sec id="sec014" sec-type="conclusions">
+<title>Discussion</title>
+<p>This study is the first, to our knowledge, that compared the agreement of TI-RADS scores in suspicious thyroid nodules between sonographers and radiologists. Our results highlighted an overall moderate agreement between the two groups of readers. This agrees with the published results on inter-reader reproducibility between radiologists in other studies. For example, Liu et al. [<xref ref-type="bibr" rid="pone.0312121.ref023">23</xref>] conducted a meta-analysis of seven studies investigating the agreement of TI-RADS scores between various groups of radiologists. They found an overall moderate agreement across the seven studies (κ = 0.54; 95% CI: 0.49−0.58). More recently, Li et al [<xref ref-type="bibr" rid="pone.0312121.ref035">35</xref>] conducted a similar meta-analysis, which yielded a total of 13 studies. The pooled inter-reader agreement for overall ACR TI-RADS system was also moderate (k = 0.51, 95% CI: 0.42–0.59). They reported no significant difference between experienced and inexperienced readers (p = 0.55). They also noted that agreements were usually higher in inexperienced readers, which could be explained by their likelihood to follow the ACR scoring lexicon more strictly than experienced readers. Indeed, a recent study by Daniels et al [<xref ref-type="bibr" rid="pone.0312121.ref036">36</xref>] reported the worst intra-reader agreement in the most experienced radiologists.</p>
+<p>Chung et al. [<xref ref-type="bibr" rid="pone.0312121.ref024">24</xref>] investigated the inter-reader agreement between three experienced and three inexperienced radiologists. They reported a moderate inter-reader agreement amongst experienced radiologists (κ = 0.47, 95% CI: 0.41–0.54) and inexperienced radiologists (κ = 0.53, 95% CI: 0.47–0.58), and between them (κ = 0.47, 95% CI: 0.44–0.49). More recently, Alyami et al. [<xref ref-type="bibr" rid="pone.0312121.ref037">37</xref>] conducted a similar study between two radiologists on a small sample of 39 patients and reported fair to substantial agreements (κ = 0.21–0.78) using an arbitrary scoring system of five characteristics (composition, margin, shape, calcification, and vasculitis).</p>
+<p>A recent study by de Carlos et al. investigated interobserver variability in thyroid ultrasound assessments among four endocrinologists evaluating 100 thyroid nodules [<xref ref-type="bibr" rid="pone.0312121.ref038">38</xref>]. They assessed ultrasound features, risk stratification using various classification systems (ATA, EU-TIRADS, K-TIRADS, and ACR-TIRADS), and the indication for fine needle aspiration (FNA). Their findings showed acceptable interobserver agreement for identifying nodules requiring cytological study but limited concordance in risk stratification and ultrasonographic characteristics, especially for margins. The Krippendorff’s alpha coefficient for margins was 0.41, indicating moderate agreement, which aligns with our finding of poor agreement in nodule margin scores between sonographers and radiologists (κ = 0.102).</p>
+<p>Previously, only one study was found that evaluated the sonographers TI-RADS scores [<xref ref-type="bibr" rid="pone.0312121.ref039">39</xref>]. Fifteen sonographers were assigned to retrospectively score 100 nodules. They found fair to moderate agreement across most scores (κ = 0.21–0.52) but only slight agreement on margin (κ = 0.18, 95% CI: 0.16–0.20). The above studies underscore the inherent challenges in achieving uniformity in TI-RADS scoring, a factor that our study further elucidates by comparing different professional groups. Notably, while previous research focused on the variability among radiologists with various levels of experience and training, our study expands this understanding by including sonographers, highlighting the broader applicability of the TI-RADS system across different medical qualifications. The ROC analysis demonstrated that sonographers had a slightly higher AUC than radiologists, indicating marginally better diagnostic performance in distinguishing between benign and malignant nodules. This finding aligns with our earlier results showing higher specificity for sonographers.</p>
+<p>Despite the good agreement noted between the sonographers and radiologists, the agreement for the nodule margin scores was poor. This finding also corresponds with the challenges noted in the literature with this score category between radiologists [<xref ref-type="bibr" rid="pone.0312121.ref023">23</xref>,<xref ref-type="bibr" rid="pone.0312121.ref035">35</xref>]. This is critical due to the importance of this category for predicting malignancy (PPV = 94%) [<xref ref-type="bibr" rid="pone.0312121.ref040">40</xref>]. Our study’s findings, supported by existing literature, indicate that distinguishing between ill-defined and irregular/lobulated margins can be challenging. Indeed, the ACR guidelines lack specific criteria regarding the number and extent of protrusions required to classify margins as lobulated or spiculated. Updating the ACR whitepaper [<xref ref-type="bibr" rid="pone.0312121.ref041">41</xref>], published in 2015, for the TI-RADS reporting lexicon of nodule characteristics to clarify any ambiguous definitions is warranted [<xref ref-type="bibr" rid="pone.0312121.ref042">42</xref>]. This may potentially improve the overall agreement of the TI-RADS score. Moreover, to improve the overall reproducibility within and between readers we recommend conducting practical training on the ACR TI-RADS user guide and lexicon to eliminate personal interpretation biases. This has demonstrated its effectiveness in previous studies [<xref ref-type="bibr" rid="pone.0312121.ref024">24</xref>,<xref ref-type="bibr" rid="pone.0312121.ref043">43</xref>].</p>
+<p>Unlike most previous agreement studies, which lack histological confirmation, the current study investigated the diagnostic performance of ACR TI-RADS scores between sonographers and radiologists. While the sonographers appear to have a better diagnostic performance, this should be cautiously interpreted for two reasons. Firstly, a key limitation of our study is that it only included nodules classified as TR3 and above by radiologists, as we focused on samples with available histological Bethesda data. This means that our findings might not fully represent the diagnostic performance across the entire spectrum of thyroid nodules, particularly those in the lower-risk categories (TR1 and TR2), which are often evaluated in clinical settings. Moreover, it is essential to note that TI-RADS is primarily a system for risk-stratification for further investigation, such as fine needle aspiration (FNA), rather than a direct diagnostic tool for thyroid malignancy. This context is crucial because it frames the system’s role in guiding clinical decisions about the need for more invasive procedures. Another limitation of our study is its retrospective design and relatively small sample size, which may introduce selection bias. By including all consecutive eligible patients and strictly defining our criteria, we attempted to mitigate this risk. Future prospective studies with larger cohorts are recommended.</p>
+<p>Our study adds to the understanding of how TI-RADS is scored by sonographers and radiologists. The use of TI-RADS scoring by sonographers may offer several advantages, such as reducing the need for radiologist intervention in routine cases, optimizing the triage of patients requiring further evaluation, and potentially shortening the time to diagnosis and treatment [<xref ref-type="bibr" rid="pone.0312121.ref044">44</xref>]. Moreover, accurate TI-RADS scoring by sonographers could contribute to more cost-effective healthcare delivery, as well as reducing the overall burden on radiology departments [<xref ref-type="bibr" rid="pone.0312121.ref045">45</xref>]. Empowering sonographers to perform TI-RADS interpretation could enhance their job satisfaction by recognizing their expertise and expanding their professional roles. This practice also improves clinical care efficiency by streamlining workflows, reducing radiologists’ workload, and allowing for more timely patient management. Additionally, advances in artificial intelligence (AI) and deep learning have the potential to impact TI-RADS scoring. Recent studies suggest that AI algorithms can enhance diagnostic accuracy and consistency in thyroid imaging by providing objective assessments and reducing interobserver variability [<xref ref-type="bibr" rid="pone.0312121.ref046">46</xref>]. Incorporating AI into TI-RADS evaluation could further optimize workflow efficiency and support clinicians in decision-making.</p>
+<p>Future research should aim to include a wider range of TI-RADS categories and work on reducing the variability in interpretation to improve the system’s effectiveness in clinical decision-making. Finally, we recommend investigating the benefits and drawbacks of enabling conclusive sonographers’ TI-RADS scores in future research, which can yield valuable insights of the outcomes.</p>
+</sec>
+<sec id="sec015" sec-type="conclusions">
+<title>Conclusions</title>
+<p>Comparing ACR TI-RADS scoring between sonographers and radiologists revealed moderate agreement, highlighting some challenges in achieving inter-reader reproducibility in thyroid nodule assessment. The poor agreement in nodule margin scores emphasizes the need for clearer lexicon definitions and training. The diagnostic performance of the sonographers’ TI-RADS scores was marginally superior to that of the radiologists when evaluated against histological outcomes. Our research, centered on suspicious nodules, highlights the importance of sonographer involvement in preliminary assessments, potentially enhancing efficiency in clinical settings. Future studies should aim to encompass a broader range of TI-RADS categories and focus on minimizing scoring variability.</p>
+</sec>
+<sec id="sec016" sec-type="supplementary-material">
+<title>Supporting information</title>
+<supplementary-material id="pone.0312121.s001" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.s001" xlink:type="simple">
+<label>S1 Table</label>
+<caption>
+<title>Distribution of the TI-RADS features based on the Bethesda subcategories.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pone.0312121.s002" mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" position="float" xlink:href="info:doi/10.1371/journal.pone.0312121.s002" xlink:type="simple">
+<label>S1 Dataset</label>
+<caption>
+<title/>
+<p>(XLSX)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ref-list>
+<title>References</title>
+<ref id="pone.0312121.ref001"><label>1</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gharib</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Papini</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Paschke</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Duick</surname> <given-names>DS</given-names></name>, <name name-style="western"><surname>Valcavi</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Hegedüs</surname> <given-names>L</given-names></name>, <etal>et al</etal>. <article-title>American Association of Clinical Endocrinologists, Associazione Medici Endocrinologi, and European Thyroid Association medical guidelines for clinical practice for the diagnosis and management of thyroid nodules: Executive Summary of recommendations</article-title>. <source>J Endocrinol Invest</source>. <year>2010</year>;<volume>33</volume>: <fpage>287</fpage>–<lpage>291</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/BF03346587" xlink:type="simple">10.1007/BF03346587</ext-link></comment> <object-id pub-id-type="pmid">20479572</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Hegedüs</surname> <given-names>L.</given-names></name> <article-title>The thyroid nodule</article-title>. <source>New England Journal of Medicine</source>. <year>2004</year>;<volume>351</volume>: <fpage>1764</fpage>–<lpage>1771</lpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Horvath</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Majlis</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Rossi</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Franco</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Niedmann</surname> <given-names>JP</given-names></name>, <name name-style="western"><surname>Castro</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>An ultrasonogram reporting system for thyroid nodules stratifying cancer risk for clinical management</article-title>. <source>J Clin Endocrinol Metab</source>. <year>2009</year>;<volume>94</volume>: <fpage>1748</fpage>–<lpage>1751</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/jc.2008-1724" xlink:type="simple">10.1210/jc.2008-1724</ext-link></comment> <object-id pub-id-type="pmid">19276237</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref004"><label>4</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kwak</surname> <given-names>JY</given-names></name>, <name name-style="western"><surname>Han</surname> <given-names>KH</given-names></name>, <name name-style="western"><surname>Yoon</surname> <given-names>JH</given-names></name>, <name name-style="western"><surname>Moon</surname> <given-names>HJ</given-names></name>, <name name-style="western"><surname>Son</surname> <given-names>EJ</given-names></name>, <name name-style="western"><surname>Park</surname> <given-names>SH</given-names></name>, <etal>et al</etal>. <article-title>Thyroid imaging reporting and data system for US features of nodules: a step in establishing better stratification of cancer risk</article-title>. <source>Radiology</source>. <year>2011</year>;<volume>260</volume>: <fpage>892</fpage>–<lpage>899</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.11110206" xlink:type="simple">10.1148/radiol.11110206</ext-link></comment> <object-id pub-id-type="pmid">21771959</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Park</surname> <given-names>J-Y</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>HJ</given-names></name>, <name name-style="western"><surname>Jang</surname> <given-names>HW</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>HK</given-names></name>, <name name-style="western"><surname>Yi</surname> <given-names>JH</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>W</given-names></name>, <etal>et al</etal>. <article-title>A proposal for a thyroid imaging reporting and data system for ultrasound features of thyroid carcinoma</article-title>. <source>Thyroid</source>. <year>2009</year>;<volume>19</volume>: <fpage>1257</fpage>–<lpage>1264</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1089/thy.2008.0021" xlink:type="simple">10.1089/thy.2008.0021</ext-link></comment> <object-id pub-id-type="pmid">19754280</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref006"><label>6</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Shin</surname> <given-names>JH</given-names></name>, <name name-style="western"><surname>Baek</surname> <given-names>JH</given-names></name>, <name name-style="western"><surname>Chung</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Ha</surname> <given-names>EJ</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>YH</given-names></name>, <etal>et al</etal>. <article-title>Ultrasonography diagnosis and imaging-based management of thyroid nodules: revised Korean Society of Thyroid Radiology consensus statement and recommendations</article-title>. <source>Korean J Radiol</source>. <year>2016</year>;<volume>17</volume>: <fpage>370</fpage>–<lpage>395</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3348/kjr.2016.17.3.370" xlink:type="simple">10.3348/kjr.2016.17.3.370</ext-link></comment> <object-id pub-id-type="pmid">27134526</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref007"><label>7</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Russ</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Bonnema</surname> <given-names>SJ</given-names></name>, <name name-style="western"><surname>Erdogan</surname> <given-names>MF</given-names></name>, <name name-style="western"><surname>Durante</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Ngu</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Leenhardt</surname> <given-names>L</given-names></name>. <article-title>European Thyroid Association guidelines for ultrasound malignancy risk stratification of thyroid nodules in adults: the EU-TIRADS</article-title>. <source>Eur Thyroid J</source>. <year>2017</year>;<volume>6</volume>: <fpage>225</fpage>–<lpage>237</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1159/000478927" xlink:type="simple">10.1159/000478927</ext-link></comment> <object-id pub-id-type="pmid">29167761</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Tessler</surname> <given-names>FN</given-names></name>, <name name-style="western"><surname>Middleton</surname> <given-names>WD</given-names></name>, <name name-style="western"><surname>Grant</surname> <given-names>EG</given-names></name>, <name name-style="western"><surname>Hoang</surname> <given-names>JK</given-names></name>, <name name-style="western"><surname>Berland</surname> <given-names>LL</given-names></name>, <name name-style="western"><surname>Teefey</surname> <given-names>SA</given-names></name>, <etal>et al</etal>. <article-title>ACR thyroid imaging, reporting and data system (TI-RADS): white paper of the ACR TI-RADS committee</article-title>. <source>Journal of the American college of radiology</source>. <year>2017</year>;<volume>14</volume>: <fpage>587</fpage>–<lpage>595</lpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Necas</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Shen</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Ong</surname> <given-names>QH</given-names></name>, <name name-style="western"><surname>Prout</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Wackrow</surname> <given-names>W</given-names></name>. <article-title>Do radiologists need to review abdominal ultrasound examinations reported as ‘normal’by the sonographer?</article-title> <source>Australas J Ultrasound Med</source>. <year>2020</year>;<volume>23</volume>: <fpage>167</fpage>–<lpage>175</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1002/ajum.12202" xlink:type="simple">10.1002/ajum.12202</ext-link></comment> <object-id pub-id-type="pmid">34760596</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref010"><label>10</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gibbs</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Edwards</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Harrison</surname> <given-names>G</given-names></name>. <article-title>Independent reporting sonographers-could other countries follow the UK’s lead 2017.</article-title> <source>Imaging &amp; Therapy Practice.</source> <year>2017</year>; <fpage>25</fpage>–<lpage>29</lpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Lo</surname> <given-names>RH</given-names></name>, <name name-style="western"><surname>Chan</surname> <given-names>PP</given-names></name>, <name name-style="western"><surname>Chan</surname> <given-names>LP</given-names></name>, <name name-style="western"><surname>Wilde</surname> <given-names>CC</given-names></name>, <name name-style="western"><surname>Pant</surname> <given-names>R</given-names></name>. <article-title>Routine abdominal and pelvic ultrasound examinations: an audit comparing radiographers and radiologists.</article-title> <source>Ann Acad Med Singap</source>. <year>2003</year>;<volume>32</volume>: <fpage>126</fpage>–<lpage>128</lpage>. <object-id pub-id-type="pmid">12625111</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gerhardsen</surname> <given-names>KV</given-names></name>, <name name-style="western"><surname>Hofmann</surname> <given-names>B</given-names></name>. <article-title>The accuracy of sonographers carrying out upper abdominal ultrasound examinations.</article-title> <source>Dieurope.</source> <year>2014</year>;<volume>30</volume>: <fpage>12</fpage>–<lpage>15</lpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Riley</surname> <given-names>SJ</given-names></name>, <name name-style="western"><surname>Groves</surname> <given-names>CJ</given-names></name>, <name name-style="western"><surname>Chandramohan</surname> <given-names>M</given-names></name>. <article-title>Musculoskeletal ultrasound: audit of sonographer reporting.</article-title> <source>Ultrasound.</source> <year>2010</year>;<volume>18</volume>: <fpage>36</fpage>–<lpage>40</lpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref014"><label>14</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Dawkins</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>George</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Ganesh</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Ayoob</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Nair</surname> <given-names>R</given-names></name>, <etal>et al</etal>. <article-title>Radiologist and sonographer interpretation discrepancies for biliary sonographic findings: our experience</article-title>. <source>Ultrasound Q.</source> <year>2017</year>;<volume>33</volume>: <fpage>261</fpage>–<lpage>264</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/RUQ.0000000000000280" xlink:type="simple">10.1097/RUQ.0000000000000280</ext-link></comment> <object-id pub-id-type="pmid">28399070</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Leslie</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Lockyer</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Virjee</surname> <given-names>JP</given-names></name>. <article-title>Who should be performing routine abdominal ultrasound? A prospective double-blind study comparing the accuracy of radiologist and radiographer</article-title>. <source>Clin Radiol</source>. <year>2000</year>;<volume>55</volume>: <fpage>606</fpage>–<lpage>609</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1053/crad.2000.0491" xlink:type="simple">10.1053/crad.2000.0491</ext-link></comment> <object-id pub-id-type="pmid">10964731</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Dongola</surname> <given-names>NA</given-names></name>, <name name-style="western"><surname>Guy</surname> <given-names>RL</given-names></name>, <name name-style="western"><surname>Giles</surname> <given-names>JA</given-names></name>, <name name-style="western"><surname>Ward</surname> <given-names>S</given-names></name>. <article-title>Can sonographers offer an accurate upper abdominal ultrasound service in a district general hospital?</article-title> <source>Radiography</source>. <year>2003</year>;<volume>9</volume>: <fpage>29</fpage>–<lpage>33</lpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Persutte</surname> <given-names>WH</given-names></name>, <name name-style="western"><surname>Drose</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Spitz</surname> <given-names>JL</given-names></name>, <name name-style="western"><surname>Cyr</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Sansoucie</surname> <given-names>DA</given-names></name>, <name name-style="western"><surname>West</surname> <given-names>FW</given-names></name>, <etal>et al</etal>. <article-title>Advanced-practice sonography in obstetrics and gynecology: a pilot study investigating the efficacy of the ultrasound practitioner</article-title>. <source>J Allied Health</source>. <year>1999</year>;<volume>28</volume>: <fpage>71</fpage>–<lpage>79</lpage>. <object-id pub-id-type="pmid">10389050</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Riley</surname> <given-names>SJ</given-names></name>, <name name-style="western"><surname>Groves</surname> <given-names>CJ</given-names></name>, <name name-style="western"><surname>Chandramohan</surname> <given-names>M</given-names></name>. <article-title>Musculoskeletal ultrasound: audit of sonographer reporting</article-title>. Ultrasound. <year>2010</year>;<volume>18</volume>: <fpage>36</fpage>–<lpage>40</lpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Schneider</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Bloesch</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Lombardo</surname> <given-names>P</given-names></name>. <article-title>Abdominal ultrasound referred by the Emergency department–Can sonographer findings help guide timely patient management?</article-title> <source>Radiography.</source> <year>2014</year>;<volume>20</volume>: <fpage>4</fpage>–<lpage>7</lpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Castellana</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Castellana</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Treglia</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Giorgino</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Giovanella</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Russ</surname> <given-names>G</given-names></name>, <etal>et al</etal>. <article-title>Performance of Five Ultrasound Risk Stratification Systems in Selecting Thyroid Nodules for FNA</article-title>. <source>J Clin Endocrinol Metab</source>. <year>2020</year>;<volume>105</volume>: <fpage>1659</fpage>–<lpage>1669</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/clinem/dgz170" xlink:type="simple">10.1210/clinem/dgz170</ext-link></comment> <object-id pub-id-type="pmid">31690937</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Haugen</surname> <given-names>BR</given-names></name>, <name name-style="western"><surname>Alexander</surname> <given-names>EK</given-names></name>, <name name-style="western"><surname>Bible</surname> <given-names>KC</given-names></name>, <name name-style="western"><surname>Doherty</surname> <given-names>GM</given-names></name>, <name name-style="western"><surname>Mandel</surname> <given-names>SJ</given-names></name>, <name name-style="western"><surname>Nikiforov</surname> <given-names>YE</given-names></name>, <etal>et al</etal>. <article-title>2015 American Thyroid Association management guidelines for adult patients with thyroid nodules and differentiated thyroid cancer: the American Thyroid Association guidelines task force on thyroid nodules and differentiated thyroid cancer</article-title>. <source>Thyroid</source>. <year>2016</year>;<volume>26</volume>: <fpage>1</fpage>–<lpage>133</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1089/thy.2015.0020" xlink:type="simple">10.1089/thy.2015.0020</ext-link></comment> <object-id pub-id-type="pmid">26462967</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref022"><label>22</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Grani</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Lamartina</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Ascoli</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Bosco</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Biffoni</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Giacomelli</surname> <given-names>L</given-names></name>, <etal>et al</etal>. <article-title>Reducing the number of unnecessary thyroid biopsies while improving diagnostic accuracy: toward the “right” TIRADS</article-title>. <source>J Clin Endocrinol Metab</source>. <year>2019</year>;<volume>104</volume>: <fpage>95</fpage>–<lpage>102</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1210/jc.2018-01674" xlink:type="simple">10.1210/jc.2018-01674</ext-link></comment> <object-id pub-id-type="pmid">30299457</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref023"><label>23</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Liu</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Ma</surname> <given-names>A-L</given-names></name>, <name name-style="western"><surname>Zhou</surname> <given-names>Y-S</given-names></name>, <name name-style="western"><surname>Yang</surname> <given-names>D-H</given-names></name>, <name name-style="western"><surname>Ruan</surname> <given-names>J-L</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>X-D</given-names></name>, <etal>et al</etal>. <article-title>Variability in the interpretation of grey-scale ultrasound features in assessing thyroid nodules: A systematic review and meta-analysis</article-title>. <source>Eur J Radiol</source>. <year>2020</year>;<volume>129</volume>: <fpage>109050</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ejrad.2020.109050" xlink:type="simple">10.1016/j.ejrad.2020.109050</ext-link></comment> <object-id pub-id-type="pmid">32447147</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Chung</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Rosenkrantz</surname> <given-names>AB</given-names></name>, <name name-style="western"><surname>Bennett</surname> <given-names>GL</given-names></name>, <name name-style="western"><surname>Dane</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Jacobs</surname> <given-names>JE</given-names></name>, <name name-style="western"><surname>Slywotzky</surname> <given-names>C</given-names></name>, <etal>et al</etal>. <article-title>Interreader concordance of the TI-RADS: impact of radiologist experience</article-title>. <source>American Journal of Roentgenology</source>. <year>2020</year>;<volume>214</volume>: <fpage>1152</fpage>–<lpage>1157</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2214/AJR.19.21913" xlink:type="simple">10.2214/AJR.19.21913</ext-link></comment> <object-id pub-id-type="pmid">32097031</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref025"><label>25</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Macedo BM de</surname> <given-names>Izquierdo RF</given-names></name>, <name name-style="western"><surname>Golbert L</surname> <given-names>Meyer ELS</given-names></name>. <article-title>Reliability of Thyroid Imaging Reporting and Data System (TI-RADS), and ultrasonographic classification of the American Thyroid Association (ATA) in differentiating benign from malignant thyroid nodules</article-title>. <source>Arch Endocrinol Metab.</source> <year>2018</year>;<volume>62</volume>: <fpage>131</fpage>–<lpage>138</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.20945/2359-3997000000018" xlink:type="simple">10.20945/2359-3997000000018</ext-link></comment> <object-id pub-id-type="pmid">29641731</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Frates</surname> <given-names>MC</given-names></name>, <name name-style="western"><surname>Benson</surname> <given-names>CB</given-names></name>, <name name-style="western"><surname>Charboneau</surname> <given-names>JW</given-names></name>, <name name-style="western"><surname>Cibas</surname> <given-names>ES</given-names></name>, <name name-style="western"><surname>Clark</surname> <given-names>OH</given-names></name>, <name name-style="western"><surname>Coleman</surname> <given-names>BG</given-names></name>, <etal>et al</etal>. <article-title>Management of thyroid nodules detected at US: Society of Radiologists in Ultrasound consensus conference statement</article-title>. <source>Radiology</source>. <year>2005</year>;<volume>237</volume>: <fpage>794</fpage>–<lpage>800</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.2373050220" xlink:type="simple">10.1148/radiol.2373050220</ext-link></comment> <object-id pub-id-type="pmid">16304103</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref027"><label>27</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Wolinski</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Szkudlarek</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Szczepanek-Parulska</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Ruchala</surname> <given-names>M</given-names></name>. <article-title>Usefulness of different ultrasound features of malignancy in predicting the type of thyroid lesions: a meta-analysis of prospective studies</article-title>. <source>Pol Arch Med Wewn</source>. <year>2014</year>;<volume>124</volume>: <fpage>97</fpage>–<lpage>104</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.20452/pamw.2132" xlink:type="simple">10.20452/pamw.2132</ext-link></comment> <object-id pub-id-type="pmid">24473342</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref028"><label>28</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Middleton</surname> <given-names>WD</given-names></name>, <name name-style="western"><surname>Teefey</surname> <given-names>SA</given-names></name>, <name name-style="western"><surname>Reading</surname> <given-names>CC</given-names></name>, <name name-style="western"><surname>Langer</surname> <given-names>JE</given-names></name>, <name name-style="western"><surname>Beland</surname> <given-names>MD</given-names></name>, <name name-style="western"><surname>Szabunio</surname> <given-names>MM</given-names></name>, <etal>et al</etal>. <article-title>Comparison of performance characteristics of american college of radiology TI-RADS, Korean Society of thyroid radiology TIRADS, and American Thyroid Association guidelines</article-title>. <source>American Journal of Roentgenology.</source> <year>2018</year>;<volume>210</volume>: <fpage>1148</fpage>–<lpage>1154</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2214/AJR.17.18822" xlink:type="simple">10.2214/AJR.17.18822</ext-link></comment> <object-id pub-id-type="pmid">29629797</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref029"><label>29</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Remonti</surname> <given-names>LR</given-names></name>, <name name-style="western"><surname>Kramer</surname> <given-names>CK</given-names></name>, <name name-style="western"><surname>Leitao</surname> <given-names>CB</given-names></name>, <name name-style="western"><surname>Pinto</surname> <given-names>LCF</given-names></name>, <name name-style="western"><surname>Gross</surname> <given-names>JL</given-names></name>. <article-title>Thyroid ultrasound features and risk of carcinoma: a systematic review and meta-analysis of observational studies</article-title>. <source>Thyroid</source>. <year>2015</year>;<volume>25</volume>: <fpage>538</fpage>–<lpage>550</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1089/thy.2014.0353" xlink:type="simple">10.1089/thy.2014.0353</ext-link></comment> <object-id pub-id-type="pmid">25747526</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref030"><label>30</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Yoon</surname> <given-names>JH</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>HS</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>E-K</given-names></name>, <name name-style="western"><surname>Moon</surname> <given-names>HJ</given-names></name>, <name name-style="western"><surname>Kwak</surname> <given-names>JY</given-names></name>. <article-title>Malignancy risk stratification of thyroid nodules: comparison between the thyroid imaging reporting and data system and the 2014 American Thyroid Association management guidelines</article-title>. <source>Radiology.</source> <year>2016</year>;<volume>278</volume>: <fpage>917</fpage>–<lpage>924</lpage>. <object-id pub-id-type="pmid">26348102</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref031"><label>31</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Choi</surname> <given-names>SH</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>E-K</given-names></name>, <name name-style="western"><surname>Kwak</surname> <given-names>JY</given-names></name>, <name name-style="western"><surname>Kim</surname> <given-names>MJ</given-names></name>, <name name-style="western"><surname>Son</surname> <given-names>EJ</given-names></name>. <article-title>Interobserver and intraobserver variations in ultrasound assessment of thyroid nodules</article-title>. <source>Thyroid</source>. <year>2010</year>;<volume>20</volume>: <fpage>167</fpage>–<lpage>172</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1089/thy.2008.0354" xlink:type="simple">10.1089/thy.2008.0354</ext-link></comment> <object-id pub-id-type="pmid">19725777</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref032"><label>32</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Tessler</surname> <given-names>FN</given-names></name>, <name name-style="western"><surname>Middleton</surname> <given-names>WD</given-names></name>, <name name-style="western"><surname>Grant</surname> <given-names>EG</given-names></name>. <article-title>Thyroid Imaging Reporting and Data System (TI-RADS): A User’s Guide.</article-title> <source>Radiology.</source> <year>2018</year>;<volume>287</volume>: <fpage>29</fpage>–<lpage>36</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1148/radiol.2017171240" xlink:type="simple">10.1148/radiol.2017171240</ext-link></comment> <object-id pub-id-type="pmid">29558300</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref033"><label>33</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Cibas</surname> <given-names>ES</given-names></name>, <name name-style="western"><surname>Ali</surname> <given-names>SZ</given-names></name>. <article-title>The 2017 Bethesda system for reporting thyroid cytopathology</article-title>. <source>Thyroid</source>. <year>2017</year>;<volume>27</volume>: <fpage>1341</fpage>–<lpage>1346</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1089/thy.2017.0500" xlink:type="simple">10.1089/thy.2017.0500</ext-link></comment> <object-id pub-id-type="pmid">29091573</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref034"><label>34</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Anwar</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Mohammad</surname> <given-names>AY</given-names></name>, <name name-style="western"><surname>Khan</surname> <given-names>S</given-names></name>. <article-title>The sensitivity of TIRADS scoring on ultrasonography in the management of thyroid nodules</article-title>. <source>Pak J Med Sci</source>. <year>2023</year>;<volume>39</volume>: <fpage>870</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.12669/pjms.39.3.7313" xlink:type="simple">10.12669/pjms.39.3.7313</ext-link></comment> <object-id pub-id-type="pmid">37250572</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref035"><label>35</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Li</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Sun</surname> <given-names>Y</given-names></name>, <name name-style="western"><surname>Xu</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Shang</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Dong</surname> <given-names>A</given-names></name>. <article-title>Systematic Review and Meta-Analysis of American College of Radiology TI-RADS Inter-Reader Reliability for Risk Stratification of Thyroid Nodules.</article-title> <source>Front Oncol</source>. <year>2022</year>;<fpage>12</fpage>. Available: <ext-link ext-link-type="uri" xlink:href="https://www.frontiersin.org/articles/10.3389/fonc.2022.840516" xlink:type="simple">https://www.frontiersin.org/articles/10.3389/fonc.2022.840516</ext-link>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.3389/fonc.2022.840516" xlink:type="simple">10.3389/fonc.2022.840516</ext-link></comment> <object-id pub-id-type="pmid">35646667</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref036"><label>36</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Daniels</surname> <given-names>KE</given-names></name>, <name name-style="western"><surname>Xu</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>J-B</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>X</given-names></name>, <name name-style="western"><surname>Huang</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Patel</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Diagnostic value of TI-RADS classification system and next generation genetic sequencing in indeterminate thyroid nodules</article-title>. <source>Acad Radiol</source>. <year>2021</year>;<volume>28</volume>: <fpage>1685</fpage>–<lpage>1691</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.acra.2020.07.037" xlink:type="simple">10.1016/j.acra.2020.07.037</ext-link></comment> <object-id pub-id-type="pmid">32839097</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref037"><label>37</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Alyami</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Almutairi</surname> <given-names>FF</given-names></name>, <name name-style="western"><surname>Aldoassary</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Albeshry</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Almontashri</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Abounassif</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Interobserver variability in ultrasound assessment of thyroid nodules</article-title>. <source>Medicine</source>. <year>2022</year>;<volume>101</volume>: <fpage>e31106</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/MD.0000000000031106" xlink:type="simple">10.1097/MD.0000000000031106</ext-link></comment> <object-id pub-id-type="pmid">36254067</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref038"><label>38</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>de Carlos</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Garcia</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Basterra</surname> <given-names>FJ</given-names></name>, <name name-style="western"><surname>Pineda</surname> <given-names>JJ</given-names></name>, <name name-style="western"><surname>Dolores Ollero</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Toni</surname> <given-names>M</given-names></name>, <etal>et al</etal>. <article-title>Interobserver variability in thyroid ultrasound</article-title>. <source>Endocrine</source>. <year>2024</year>;<volume>85</volume>: <fpage>730</fpage>–<lpage>736</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1007/s12020-024-03731-5" xlink:type="simple">10.1007/s12020-024-03731-5</ext-link></comment> <object-id pub-id-type="pmid">38372907</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref039"><label>39</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Wildman-Tobriner</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Ahmed</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Erkanli</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Mazurowski</surname> <given-names>MA</given-names></name>, <name name-style="western"><surname>Hoang</surname> <given-names>JK</given-names></name>. <article-title>Using the American College of Radiology Thyroid Imaging Reporting and Data System at the point of care: sonographer performance and interobserver variability</article-title>. <source>Ultrasound Med Biol</source>. <year>2020</year>;<volume>46</volume>: <fpage>1928</fpage>–<lpage>1933</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.ultrasmedbio.2020.04.019" xlink:type="simple">10.1016/j.ultrasmedbio.2020.04.019</ext-link></comment> <object-id pub-id-type="pmid">32507343</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref040"><label>40</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Srinivas</surname> <given-names>MNS</given-names></name>, <name name-style="western"><surname>Amogh</surname> <given-names>VN</given-names></name>, <name name-style="western"><surname>Gautam</surname> <given-names>MS</given-names></name>, <name name-style="western"><surname>Prathyusha</surname> <given-names>IS</given-names></name>, <name name-style="western"><surname>Vikram</surname> <given-names>NR</given-names></name>, <name name-style="western"><surname>Retnam</surname> <given-names>MK</given-names></name>, <etal>et al</etal>. <article-title>A prospective study to evaluate the reliability of thyroid imaging reporting and data system in differentiation between benign and malignant thyroid lesions</article-title>. <source>J Clin Imaging Sci</source>. <year>2016</year>;<fpage>6</fpage>.</mixed-citation></ref>
+<ref id="pone.0312121.ref041"><label>41</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Grant</surname> <given-names>EG</given-names></name>, <name name-style="western"><surname>Tessler</surname> <given-names>FN</given-names></name>, <name name-style="western"><surname>Hoang</surname> <given-names>JK</given-names></name>, <name name-style="western"><surname>Langer</surname> <given-names>JE</given-names></name>, <name name-style="western"><surname>Beland</surname> <given-names>MD</given-names></name>, <name name-style="western"><surname>Berland</surname> <given-names>LL</given-names></name>, <etal>et al</etal>. <article-title>Thyroid Ultrasound Reporting Lexicon: White Paper of the ACR Thyroid Imaging, Reporting and Data System (TIRADS) Committee.</article-title> <source>Journal of the American College of Radiology.</source> <year>2015</year>;<volume>12</volume>: <fpage>1272</fpage>–<lpage>1279</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jacr.2015.07.011" xlink:type="simple">10.1016/j.jacr.2015.07.011</ext-link></comment> <object-id pub-id-type="pmid">26419308</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref042"><label>42</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Solymosi</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Hegedűs</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Bonnema</surname> <given-names>SJ</given-names></name>, <name name-style="western"><surname>Frasoldati</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Jambor</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Karanyi</surname> <given-names>Z</given-names></name>, <etal>et al</etal>. <article-title>Considerable interobserver variation calls for unambiguous definitions of thyroid nodule ultrasound characteristics</article-title>. <source>Eur Thyroid J</source>. <year>2023</year>;<fpage>12</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1530/ETJ-22-0134" xlink:type="simple">10.1530/ETJ-22-0134</ext-link></comment> <object-id pub-id-type="pmid">36692389</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref043"><label>43</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Grani</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Lamartina</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Cantisani</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Maranghi</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Lucia</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Durante</surname> <given-names>C</given-names></name>. <article-title>Interobserver agreement of various thyroid imaging reporting and data systems</article-title>. <source>Endocr Connect</source>. <year>2018</year>;<volume>7</volume>: <fpage>1</fpage>–<lpage>7</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1530/EC-17-0336" xlink:type="simple">10.1530/EC-17-0336</ext-link></comment> <object-id pub-id-type="pmid">29196301</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref044"><label>44</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Trimboli</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Ngu</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Royer</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Giovanella</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Bigorgne</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Simo</surname> <given-names>R</given-names></name>, <etal>et al</etal>. <article-title>A multicentre validation study for the EU‐TIRADS using histological diagnosis as a gold standard</article-title>. <source>Clin Endocrinol (Oxf).</source> <year>2019</year>;<volume>91</volume>: <fpage>340</fpage>–<lpage>347</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/cen.13997" xlink:type="simple">10.1111/cen.13997</ext-link></comment> <object-id pub-id-type="pmid">31002419</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref045"><label>45</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kim</surname> <given-names>PH</given-names></name>, <name name-style="western"><surname>Suh</surname> <given-names>CH</given-names></name>, <name name-style="western"><surname>Baek</surname> <given-names>JH</given-names></name>, <name name-style="western"><surname>Chung</surname> <given-names>SR</given-names></name>, <name name-style="western"><surname>Choi</surname> <given-names>YJ</given-names></name>, <name name-style="western"><surname>Lee</surname> <given-names>JH</given-names></name>. <article-title>Diagnostic performance of four ultrasound risk stratification systems: a systematic review and meta-analysis</article-title>. <source>Thyroid</source>. <year>2020</year>;<volume>30</volume>: <fpage>1159</fpage>–<lpage>1168</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1089/thy.2019.0812" xlink:type="simple">10.1089/thy.2019.0812</ext-link></comment> <object-id pub-id-type="pmid">32303153</object-id></mixed-citation></ref>
+<ref id="pone.0312121.ref046"><label>46</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Yang</surname> <given-names>WT</given-names></name>, <name name-style="western"><surname>Ma</surname> <given-names>BY</given-names></name>, <name name-style="western"><surname>Chen</surname> <given-names>Y</given-names></name>. <article-title>A narrative review of deep learning in thyroid imaging: current progress and future prospects.</article-title> <source>Quantitative Imaging in Medicine and Surgery. AME Publishing Company</source>; <year>2024</year>. pp. <fpage>2069</fpage>–<lpage>2088</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.21037/qims-23-908" xlink:type="simple">10.21037/qims-23-908</ext-link></comment> <object-id pub-id-type="pmid">38415152</object-id></mixed-citation></ref>
+</ref-list>
+</back>
+</article>

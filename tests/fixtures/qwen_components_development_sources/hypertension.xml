@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1d3 20150301//EN" "http://jats.nlm.nih.gov/publishing/1.1d3/JATS-journalpublishing1.dtd">
+<article article-type="research-article" dtd-version="1.1d3" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">PLoS Med</journal-id>
+<journal-id journal-id-type="publisher-id">plos</journal-id>
+<journal-id journal-id-type="pmc">plosmed</journal-id>
+<journal-title-group>
+<journal-title>PLOS Medicine</journal-title>
+</journal-title-group>
+<issn pub-type="ppub">1549-1277</issn>
+<issn pub-type="epub">1549-1676</issn>
+<publisher>
+<publisher-name>Public Library of Science</publisher-name>
+<publisher-loc>San Francisco, CA USA</publisher-loc>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1371/journal.pmed.1002997</article-id>
+<article-id pub-id-type="publisher-id">PMEDICINE-D-19-01554</article-id>
+<article-categories>
+<subj-group subj-group-type="heading">
+<subject>Research Article</subject>
+</subj-group>
+<subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Vascular medicine</subject><subj-group><subject>Blood pressure</subject><subj-group><subject>Hypertension</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>People and places</subject><subj-group><subject>Geographical locations</subject><subj-group><subject>Asia</subject><subj-group><subject>India</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Pharmacology</subject><subj-group><subject>Drugs</subject><subj-group><subject>Antihypertensives</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Vascular medicine</subject><subj-group><subject>Blood pressure</subject></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Earth sciences</subject><subj-group><subject>Geomorphology</subject><subj-group><subject>Topography</subject><subj-group><subject>Landforms</subject><subj-group><subject>Valleys</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Vascular medicine</subject><subj-group><subject>Blood pressure</subject><subj-group><subject>Hypertension</subject><subj-group><subject>Primary hypertension</subject></subj-group></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Biology and life sciences</subject><subj-group><subject>Nutrition</subject><subj-group><subject>Diet</subject><subj-group><subject>Alcohol consumption</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Nutrition</subject><subj-group><subject>Diet</subject><subj-group><subject>Alcohol consumption</subject></subj-group></subj-group></subj-group></subj-group><subj-group subj-group-type="Discipline-v3">
+<subject>Medicine and health sciences</subject><subj-group><subject>Vascular medicine</subject><subj-group><subject>Blood pressure</subject><subj-group><subject>Hypertension</subject><subj-group><subject>Secondary hypertension</subject></subj-group></subj-group></subj-group></subj-group></subj-group></article-categories>
+<title-group>
+<article-title>Effectiveness of a scalable group-based education and monitoring program, delivered by health workers, to improve control of hypertension in rural India: A cluster randomised controlled trial</article-title>
+<alt-title alt-title-type="running-head">Health-worker-led program to control hypertension</alt-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-6382-2779</contrib-id>
+<name name-style="western">
+<surname>Gamage</surname>
+<given-names>Dilan Giguruwa</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Formal analysis</role>
+<role content-type="http://credit.casrai.org/">Writing – original draft</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0001-8852-0569</contrib-id>
+<name name-style="western">
+<surname>Riddell</surname>
+<given-names>Michaela A.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Project administration</role>
+<role content-type="http://credit.casrai.org/">Resources</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Joshi</surname>
+<given-names>Rohina</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Resources</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-4536-2684</contrib-id>
+<name name-style="western">
+<surname>Thankappan</surname>
+<given-names>Kavumpurathu R.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff005"><sup>5</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Chow</surname>
+<given-names>Clara K.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+<xref ref-type="aff" rid="aff003"><sup>3</sup></xref>
+<xref ref-type="aff" rid="aff006"><sup>6</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-7712-5413</contrib-id>
+<name name-style="western">
+<surname>Oldenburg</surname>
+<given-names>Brian</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff007"><sup>7</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-9241-0757</contrib-id>
+<name name-style="western">
+<surname>Evans</surname>
+<given-names>Roger G.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Formal analysis</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – original draft</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff008"><sup>8</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-7246-3261</contrib-id>
+<name name-style="western">
+<surname>Mahal</surname>
+<given-names>Ajay S.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff009"><sup>9</sup></xref>
+<xref ref-type="aff" rid="aff010"><sup>10</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-6837-0062</contrib-id>
+<name name-style="western">
+<surname>Kalyanram</surname>
+<given-names>Kartik</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Resources</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff011"><sup>11</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0003-1896-6818</contrib-id>
+<name name-style="western">
+<surname>Kartik</surname>
+<given-names>Kamakshi</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Resources</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff011"><sup>11</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Suresh</surname>
+<given-names>Oduru</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Resources</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff011"><sup>11</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Thomas</surname>
+<given-names>Nihal</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff012"><sup>12</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Mini</surname>
+<given-names>Gomathyamma K.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Resources</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff005"><sup>5</sup></xref>
+<xref ref-type="aff" rid="aff013"><sup>13</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Maulik</surname>
+<given-names>Pallab K.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff002"><sup>2</sup></xref>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+<xref ref-type="aff" rid="aff014"><sup>14</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Srikanth</surname>
+<given-names>Velandai K.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="aff" rid="aff015"><sup>15</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>Arabshahi</surname>
+<given-names>Simin</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Resources</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-1147-9622</contrib-id>
+<name name-style="western">
+<surname>Varma</surname>
+<given-names>Ravi P.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff005"><sup>5</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-7486-5977</contrib-id>
+<name name-style="western">
+<surname>Guggilla</surname>
+<given-names>Rama K.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+<xref ref-type="aff" rid="aff016"><sup>16</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<name name-style="western">
+<surname>D’Esposito</surname>
+<given-names>Fabrizio</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Project administration</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff007"><sup>7</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-2016-4964</contrib-id>
+<name name-style="western">
+<surname>Sathish</surname>
+<given-names>Thirunavukkarasu</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff007"><sup>7</sup></xref>
+<xref ref-type="aff" rid="aff017"><sup>17</sup></xref>
+</contrib>
+<contrib contrib-type="author" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0002-1802-2203</contrib-id>
+<name name-style="western">
+<surname>Alim</surname>
+<given-names>Mohammed</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff004"><sup>4</sup></xref>
+<xref ref-type="aff" rid="aff018"><sup>18</sup></xref>
+</contrib>
+<contrib contrib-type="author" corresp="yes" xlink:type="simple">
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0001-8533-4170</contrib-id>
+<name name-style="western">
+<surname>Thrift</surname>
+<given-names>Amanda G.</given-names>
+</name>
+<role content-type="http://credit.casrai.org/">Conceptualization</role>
+<role content-type="http://credit.casrai.org/">Data curation</role>
+<role content-type="http://credit.casrai.org/">Formal analysis</role>
+<role content-type="http://credit.casrai.org/">Funding acquisition</role>
+<role content-type="http://credit.casrai.org/">Investigation</role>
+<role content-type="http://credit.casrai.org/">Methodology</role>
+<role content-type="http://credit.casrai.org/">Project administration</role>
+<role content-type="http://credit.casrai.org/">Resources</role>
+<role content-type="http://credit.casrai.org/">Supervision</role>
+<role content-type="http://credit.casrai.org/">Writing – original draft</role>
+<role content-type="http://credit.casrai.org/">Writing – review &amp; editing</role>
+<xref ref-type="aff" rid="aff001"><sup>1</sup></xref>
+<xref ref-type="corresp" rid="cor001">*</xref>
+</contrib>
+</contrib-group>
+<aff id="aff001"><label>1</label> <addr-line>Department of Medicine, School of Clinical Sciences at Monash Health, Monash University, Melbourne, Victoria, Australia</addr-line></aff>
+<aff id="aff002"><label>2</label> <addr-line>George Institute for Global Health, University of New South Wales, Sydney, New South Wales, Australia</addr-line></aff>
+<aff id="aff003"><label>3</label> <addr-line>University of Sydney, Sydney, New South Wales, Australia</addr-line></aff>
+<aff id="aff004"><label>4</label> <addr-line>George Institute for Global Health, New Delhi, India</addr-line></aff>
+<aff id="aff005"><label>5</label> <addr-line>Achutha Menon Centre for Health Science Studies, Sree Chitra Tirunal Institute for Medical Sciences and Technology, Trivandrum, Kerala, India</addr-line></aff>
+<aff id="aff006"><label>6</label> <addr-line>Department of Cardiology, Westmead Hospital, Sydney, New South Wales, Australia</addr-line></aff>
+<aff id="aff007"><label>7</label> <addr-line>Melbourne School of Population and Global Health, University of Melbourne, Melbourne, Victoria, Australia</addr-line></aff>
+<aff id="aff008"><label>8</label> <addr-line>Cardiovascular Disease Program, Biomedicine Discovery Institute and Department of Physiology, Monash University, Melbourne, Victoria, Australia</addr-line></aff>
+<aff id="aff009"><label>9</label> <addr-line>School of Public Health and Preventative Medicine, Monash University, Melbourne, Victoria, Australia</addr-line></aff>
+<aff id="aff010"><label>10</label> <addr-line>Nossal Institute for Global Health, Melbourne School of Population and Global Health, University of Melbourne, Melbourne, Victoria, Australia</addr-line></aff>
+<aff id="aff011"><label>11</label> <addr-line>Rishi Valley Rural Health Centre, Chittoor District, Andhra Pradesh, India</addr-line></aff>
+<aff id="aff012"><label>12</label> <addr-line>Department of Endocrinology, Diabetes &amp; Metabolism, Christian Medical College, Vellore, Tamil Nadu, India</addr-line></aff>
+<aff id="aff013"><label>13</label> <addr-line>Global Institute of Public Health, Ananthapuri Hospitals and Research Institute, Trivandrum, Kerala, India</addr-line></aff>
+<aff id="aff014"><label>14</label> <addr-line>George Institute for Global Health, Oxford University, Oxford, United Kingdom</addr-line></aff>
+<aff id="aff015"><label>15</label> <addr-line>Peninsula Clinical School, Central Clinical School, Monash University, Frankston, Victoria, Australia</addr-line></aff>
+<aff id="aff016"><label>16</label> <addr-line>Department of Population Medicine and Civilization Diseases Prevention, Faculty of Medicine, Division of Dentistry and Division of Medical Education in English, Medical University of Bialystok, Bialystok, Poland</addr-line></aff>
+<aff id="aff017"><label>17</label> <addr-line>Centre for Population Health Sciences, Lee Kong Chian School of Medicine, Nanyang Technological University, Singapore</addr-line></aff>
+<aff id="aff018"><label>18</label> <addr-line>University of Central Lancashire, Preston, United Kingdom</addr-line></aff>
+<contrib-group>
+<contrib contrib-type="editor" xlink:type="simple">
+<name name-style="western">
+<surname>Neupane</surname>
+<given-names>Dinesh</given-names>
+</name>
+<role>Academic Editor</role>
+<xref ref-type="aff" rid="edit1"/>
+</contrib>
+</contrib-group>
+<aff id="edit1"><addr-line>Johns Hopkins University Bloomberg School of Public Health, UNITED STATES</addr-line></aff>
+<author-notes>
+<fn fn-type="conflict" id="coi001">
+<p>I have read the journal's policy and the authors of this manuscript have the following competing interests: CKC reports grants from the National Health and Medical Research Council (NHMRC) and National Heart Foundation, outside the submitted work; RGE reports grants from the NHMRC, during the conduct of the study. KKal, KKar and AGT report grants from NHMRC for this study and for other projects outside the submitted work; RKG reports a grant from the European Commission and the Ministry of Science and Higher Education, Republic of Poland under the H2020-MSCA-COFUND-2016-DP Grant (Grant Agreement No. 754432). RKG reports being a stock holder in three Indian multinational pharmaceutical (Ajanta Pharma Limited, Divi’s Laboratories Limited, and NATCO Pharma Limited); no other relationships or activities that could appear to have influenced the submitted work exist.</p>
+</fn>
+<corresp id="cor001">* E-mail: <email xlink:type="simple">amanda.thrift@monash.edu</email></corresp>
+</author-notes>
+<pub-date pub-type="epub">
+<day>2</day>
+<month>1</month>
+<year>2020</year>
+</pub-date>
+<pub-date pub-type="collection">
+<month>1</month>
+<year>2020</year>
+</pub-date>
+<volume>17</volume>
+<issue>1</issue>
+<elocation-id>e1002997</elocation-id>
+<history>
+<date date-type="received">
+<day>30</day>
+<month>4</month>
+<year>2019</year>
+</date>
+<date date-type="accepted">
+<day>6</day>
+<month>12</month>
+<year>2019</year>
+</date>
+</history>
+<permissions>
+<copyright-year>2020</copyright-year>
+<copyright-holder>Gamage et al</copyright-holder>
+<license xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">
+<license-p>This is an open access article distributed under the terms of the <ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/" xlink:type="simple">Creative Commons Attribution License</ext-link>, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</license-p>
+</license>
+</permissions>
+<self-uri content-type="pdf" xlink:href="info:doi/10.1371/journal.pmed.1002997"/>
+<abstract>
+<sec id="sec001">
+<title>Background</title>
+<p>New methods are required to manage hypertension in resource-poor settings. We hypothesised that a community health worker (CHW)–led group-based education and monitoring intervention would improve control of blood pressure (BP).</p>
+</sec>
+<sec id="sec002">
+<title>Methods and findings</title>
+<p>We conducted a baseline community-based survey followed by a cluster randomised controlled trial of people with hypertension in 3 rural regions of South India, each at differing stages of epidemiological transition. Participants with hypertension, defined as BP ≥ 140/90 mm Hg or taking antihypertensive medication, were advised to visit a doctor. In each region, villages were randomly assigned to intervention or usual care (UC) in a 1:2 ratio. In intervention clusters, trained CHWs delivered a group-based intervention to people with hypertension. The program, conducted fortnightly for 3 months, included monitoring of BP, education about hypertension, and support for healthy lifestyle change. Outcomes were assessed approximately 2 months after completion of the intervention. The primary outcome was control of BP (BP &lt; 140/90 mm Hg), analysed using mixed effects regression, clustered by village within region and adjusted for baseline control of hypertension (using intention-to-treat principles). Of 2,382 potentially eligible people, 637 from 5 intervention clusters and 1,097 from 10 UC clusters were recruited between November 2015 and April 2016, with follow-up occurring in 459 in the intervention group and 1,012 in UC. Mean age was 56.9 years (SD 13.7). Baseline BP was similar between groups. Control of BP improved from baseline to follow-up more in the intervention group (from 227 [49.5%] to 320 [69.7%] individuals) than in the UC group (from 528 [52.2%] to 624 [61.7%] individuals) (odds ratio [OR] 1.6, 95% CI 1.2–2.1; <italic>P =</italic> 0.001). In secondary outcome analyses, there was a greater decline in systolic BP in the intervention than UC group (−5.0 mm Hg, 95% CI −7.1 to −3.0; <italic>P &lt;</italic> 0.001) and a greater decline in diastolic BP (−2.1 mm Hg, 95% CI −3.6 to −0.6; <italic>P &lt;</italic> 0.006), but no detectable difference in the use of BP-lowering medications between groups (OR 1.2, 95% CI 0.8–1.9; <italic>P =</italic> 0.34). Similar results were found when using imputation analyses that included those lost to follow-up. Limitations include a relatively short follow-up period and use of outcome assessors who were not blinded to the group allocation.</p>
+</sec>
+<sec id="sec003">
+<title>Conclusions</title>
+<p>While the durability of the effect is uncertain, this trial provides evidence that a low-cost program using CHWs to deliver an education and monitoring intervention is effective in controlling BP and is potentially scalable in resource-poor settings globally.</p>
+</sec>
+<sec id="sec004">
+<title>Trial registration</title>
+<p>The trial was registered with the Clinical Trials Registry-India (<ext-link ext-link-type="uri" xlink:href="http://ctri.nic.in/Clinicaltrials/pdf_generate.php?trialid=13013&amp;EncHid=&amp;modid=&amp;compid=%27,%2713013det%27" xlink:type="simple">CTRI/2016/02/006678</ext-link>).</p>
+</sec>
+</abstract>
+<abstract abstract-type="toc">
+<p>Amanda Thrift and colleagues reveal the benefits of education around hypertension and improved lifestyle guidance for patients in rural India with high blood pressure.</p>
+</abstract>
+<abstract abstract-type="summary">
+<title>Author summary</title>
+<sec id="sec005">
+<title>Why was the study done?</title>
+<list list-type="bullet">
+<list-item><p>Many regions of the world have inadequate or inaccessible health resources and health professionals to diagnose, monitor, or manage hypertension.</p></list-item>
+<list-item><p>This gap could potentially be addressed by using non-physician community health workers (CHWs), who reside in the community and are available in sufficient numbers.</p></list-item>
+</list>
+</sec>
+<sec id="sec006">
+<title>What did the researchers do and find?</title>
+<list list-type="bullet">
+<list-item><p>In a cluster randomised controlled trial in 3 very diverse regions in rural India, 637 participants with hypertension from 5 clusters were recruited and randomised to the intervention, and 1,097 with hypertension from 10 clusters were recruited and randomised to usual care.</p></list-item>
+<list-item><p>Every 2 weeks, CHWs educated people in the intervention clusters about hypertension and measured their blood pressure.</p></list-item>
+<list-item><p>Blood pressure declined an average of 5.0/2.1 mm Hg more in the intervention group than the usual care group, and control of blood pressure improved.</p></list-item>
+</list>
+</sec>
+<sec id="sec007">
+<title>What do these findings mean?</title>
+<list list-type="bullet">
+<list-item><p>Our approach overcomes limitations in access to healthcare by utilising a CHW workforce that not only is local, but requires very little training.</p></list-item>
+<list-item><p>This low-cost group-based education and monitoring intervention is a potentially scalable approach that could be implemented across other diverse settings in rural India, and globally.</p></list-item>
+<list-item><p>Use of this approach may help reduce the emergence of cardiovascular diseases in low-resource settings.</p></list-item>
+</list>
+</sec>
+</abstract>
+<funding-group>
+<award-group id="award001">
+<funding-source>
+<institution>National Health and Medical Research Council (Australia)</institution>
+</funding-source>
+<award-id>1040030</award-id>
+<principal-award-recipient>
+<contrib-id authenticated="true" contrib-id-type="orcid">http://orcid.org/0000-0001-8533-4170</contrib-id>
+<name name-style="western">
+<surname>Thrift</surname>
+<given-names>Amanda G.</given-names>
+</name>
+</principal-award-recipient>
+</award-group>
+<funding-statement>This study was funded by the National Health &amp; Medical Research Council (NHMRC, Australia; GNT 1040030). The funder of the study had no role in the study design, data collection, data analysis, data interpretation, or writing the report.</funding-statement>
+</funding-group>
+<counts>
+<fig-count count="4"/>
+<table-count count="5"/>
+<page-count count="22"/>
+</counts>
+<custom-meta-group>
+<custom-meta id="data-availability">
+<meta-name>Data Availability</meta-name>
+<meta-value>The data file, and the data dictionary, are available from the figshare database (accession number <ext-link ext-link-type="uri" xlink:href="http://dx.doi.org/10.26180/5cc80de987113" xlink:type="simple">dx.doi.org/10.26180/5cc80de987113</ext-link>).</meta-value>
+</custom-meta>
+</custom-meta-group>
+</article-meta>
+</front>
+<body>
+<sec id="sec008" sec-type="intro">
+<title>Introduction</title>
+<p>Hypertension is the largest contributor to the global burden of disease, and has a prevalence that has almost doubled over the last 25 years, from 442 million in 1990 to 874 million in 2015 [<xref ref-type="bibr" rid="pmed.1002997.ref001">1</xref>]. This growth has occurred most rapidly in low- and middle-income countries (LMICs) [<xref ref-type="bibr" rid="pmed.1002997.ref001">1</xref>], which now account for the majority of those with hypertension (66%) [<xref ref-type="bibr" rid="pmed.1002997.ref002">2</xref>]. India, with rapidly rising prevalence of hypertension also occurring in rural regions [<xref ref-type="bibr" rid="pmed.1002997.ref003">3</xref>], is now well on its way to becoming the global “hypertension capital” [<xref ref-type="bibr" rid="pmed.1002997.ref004">4</xref>].</p>
+<p>Controlling hypertension is paramount for reducing risks of adverse outcomes, but there are significant barriers to its control, particularly in rural regions [<xref ref-type="bibr" rid="pmed.1002997.ref005">5</xref>]. For example, awareness of having hypertension is significantly less among those with hypertension in rural (mean 25%) than urban (mean 42%) India [<xref ref-type="bibr" rid="pmed.1002997.ref005">5</xref>], and differs markedly across rural regions [<xref ref-type="bibr" rid="pmed.1002997.ref005">5</xref>]. In addition, patients often do not receive evidence-based care for hypertension, with a recent review providing evidence that only 25% of people with hypertension in rural India were receiving treatment, and only 11% had their blood pressure (BP) controlled [<xref ref-type="bibr" rid="pmed.1002997.ref005">5</xref>]. Such inadequate care is partly due to a shortage of doctors (below 1:20,000 in some regions) [<xref ref-type="bibr" rid="pmed.1002997.ref006">6</xref>] and doctor absenteeism in public health centres [<xref ref-type="bibr" rid="pmed.1002997.ref007">7</xref>]. Other barriers include the cost of treatment and the lack of availability of medications [<xref ref-type="bibr" rid="pmed.1002997.ref008">8</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref009">9</xref>].</p>
+<p>Sharing tasks between community health workers (CHWs) and doctors is a promising and potentially scalable approach for delivering care for hypertension in hard-to-reach settings [<xref ref-type="bibr" rid="pmed.1002997.ref010">10</xref>], as it improves access to healthcare and reduces costs associated with treatment [<xref ref-type="bibr" rid="pmed.1002997.ref011">11</xref>]. Only 7 studies have incorporated this approach to managing hypertension in LMICs [<xref ref-type="bibr" rid="pmed.1002997.ref012">12</xref>–<xref ref-type="bibr" rid="pmed.1002997.ref018">18</xref>], and in another study, it was unclear whether the staff sharing the tasks were nurses or CHWs [<xref ref-type="bibr" rid="pmed.1002997.ref019">19</xref>]. Furthermore, only 4 of the studies included a randomised comparator [<xref ref-type="bibr" rid="pmed.1002997.ref012">12</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref013">13</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref017">17</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref018">18</xref>]. While there were reductions in BP and improved control of hypertension, the interventions cited in these studies were all resource-intensive individualised approaches. None incorporated a group-based approach, which has been shown to reduce costs in other diseases [<xref ref-type="bibr" rid="pmed.1002997.ref020">20</xref>], thereby enhancing scalability.</p>
+<p>We aimed to determine whether a CHW-led group-based education and monitoring program for the management of hypertension is effective, both individually and by region, in rural India. We used a cluster design to facilitate our group-based approach.</p>
+</sec>
+<sec id="sec009" sec-type="materials|methods">
+<title>Methods</title>
+<sec id="sec010">
+<title>Study design</title>
+<p>The study was conducted in 2 stages. Initially, a baseline community-based survey was conducted to identify people with hypertension. This was followed by an open-label cluster randomised controlled trial (cRCT) of an intervention program to manage hypertension, as outlined in our published study protocol [<xref ref-type="bibr" rid="pmed.1002997.ref021">21</xref>].</p>
+</sec>
+<sec id="sec011">
+<title>Study setting</title>
+<p>The study was conducted in 3 rural regions of South India with differing economic and epidemiological profiles. The Trivandrum region in Kerala has a relatively high life expectancy of 76.4 years [<xref ref-type="bibr" rid="pmed.1002997.ref022">22</xref>] and more than 90% literacy [<xref ref-type="bibr" rid="pmed.1002997.ref023">23</xref>]. In the Rishi Valley region, located in Chittoor District near the southwestern border of Andhra Pradesh, the population largely comprises subsistence farmers. Approximately half the population in this region has no formal schooling [<xref ref-type="bibr" rid="pmed.1002997.ref024">24</xref>]. The Western Godavari study region is economically intermediate between these 2 other regions [<xref ref-type="bibr" rid="pmed.1002997.ref023">23</xref>]. In 2011, approximately 75% of the population in West Godavari were literate [<xref ref-type="bibr" rid="pmed.1002997.ref023">23</xref>].</p>
+<p>Ethics approval was obtained from Sree Chitra Tirunal Institute for Medical Sciences and Technology (Trivandrum, India; SCT/IEC-484/July-2013), the Centre for Chronic Disease Control (CCDC-IEC-09-2012), Christian Medical College (Vellore, India), the Health Ministry Screening Committee of the Government of India (58/4/1F/CHR/2013/NCD II), and Monash University (CF13/2516–2013001327).</p>
+</sec>
+<sec id="sec012">
+<title>Participants</title>
+<p>In each region, primary sampling units (PSUs) were wards, villages, or hamlets, the last being clusters of approximately 10 to 200 houses geographically separated within a larger village (collectively referred to as “villages” hereafter) (<xref ref-type="fig" rid="pmed.1002997.g001">Fig 1</xref>). Members of the investigator team of each region randomly selected the PSUs. To randomly identify potential participants, polling lists were used in Trivandrum, whereas a list of residents compiled following a census we conducted was used in West Godavari (see [<xref ref-type="bibr" rid="pmed.1002997.ref021">21</xref>] for more details).</p>
+<fig id="pmed.1002997.g001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.g001</object-id>
+<label>Fig 1</label>
+<caption>
+<title>Flow diagram of trial participants.</title>
+<p>‘Not meeting inclusion criteria’ refers to those not categorised as hypertensive when re-assessed for eligibility. BP, blood pressure; PHC, primary health centre; RCT, randomised controlled trial.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.g001" xlink:type="simple"/>
+</fig>
+<p>Age and sex stratification was used to obtain approximately equal numbers of males and females in the age categories 18–24, 25–34, 35–44, 45–54, 55–64, and 65+ years in each PSU. In Trivandrum, 10 wards were surveyed, with approximately 375 participants in each (3,757 total). In West Godavari, 10 villages were surveyed, with approximately 450 participants in each (4,500 total). In the Rishi Valley, 139 hamlets, located within 7 villages, were randomly selected (6,243 participants). Thus, 14,500 participants were surveyed from a total of 27 clusters in 3 regions of India. Individual informed consent was obtained, via a signature or thumb print, following full explanation of the study to potential participants prior to enrolment in the baseline survey and again prior to randomisation into the cRCT.</p>
+</sec>
+<sec id="sec013">
+<title>Participant baseline assessments</title>
+<p>Prior to commencing the study, we engaged with local village leaders in each region. Then, a team of trained research assistants conducted a baseline community-based survey between September 2013 and December 2015. We measured BP and anthropometry and conducted interviews to elicit details on use of medications, demographics, lifestyle behaviours, and access to healthcare. Arterial BP was measured after the participant had been seated quietly for at least 15 minutes. Three measurements were taken at 3-minute intervals using the appropriate cuff size and a calibrated digital automatic BP monitor (OMRON HEM-907, OMRON Healthcare, Kyoto, Japan) according to the WHO STEPS protocol, modified only by using the right arm for all measurements [<xref ref-type="bibr" rid="pmed.1002997.ref025">25</xref>]. Measurement continued until 2 consecutive readings differed by &lt;10 mm Hg systolic and &lt;6 mm Hg diastolic, with a maximum of 5 measurements. The mean of the last 2 consecutive measurements was considered the baseline BP level for each participant.</p>
+<p>We measured height to the nearest 0.1 cm using a portable stadiometer (213, Seca, Hamburg, Germany) and weight to the nearest 0.1 kg using a portable digital weighing scale (9000SV3R, Salter, Kent, UK). Waist and hip circumference were measured using a spring-loaded tension tape (Gulick M-22C, Patterson Medical, Illinois, US) in a private setting. In accordance with the WHO STEPS protocol [<xref ref-type="bibr" rid="pmed.1002997.ref025">25</xref>], waist circumference was measured at the midpoint between the lowest rib and upper point of the iliac crest and at the end of normal expiration, while hip circumference was measured at the maximum protrusion of the buttocks.</p>
+<p>At the time of the baseline survey, all participants with systolic BP (SBP) ≥ 140 mm Hg and/or diastolic BP (DBP) ≥ 90 mm Hg were informed they may have hypertension and were advised to visit a doctor to have their BP re-checked.</p>
+</sec>
+<sec id="sec014">
+<title>Randomisation and eligibility</title>
+<p>Participants re-assessed for eligibility to be recruited to the cRCT were those identified as potentially hypertensive in the baseline community-based survey. Because of limited resources, we did not recruit or follow-up participants in all PSUs. Instead the lead investigator (AGT), located off site, used a computer-generated random sequence to randomly allocate 20% of PSUs to the intervention and 40% to usual care (UC) in each region (<xref ref-type="fig" rid="pmed.1002997.g001">Fig 1</xref>). Eligibility of all potential participants within these PSUs was determined prior to enrolment [<xref ref-type="bibr" rid="pmed.1002997.ref021">21</xref>], using the following definition for hypertension: (1) self-report of an existing diagnosis of hypertension; (2) use of antihypertensive medications; (3) SBP ≥ 140 mm Hg and/or DBP ≥ 90 mm Hg in the baseline community-based survey, with a subsequent diagnosis of hypertension by their primary healthcare provider; or (4) SBP ≥ 140 mm Hg and/or DBP ≥ 90 mm Hg both in the baseline survey and at another measurement prior to recruitment to the cRCT. All people with verified hypertension, i.e., satisfying any of the above criteria, were invited to participate by the study field staff, and comprised the intention-to-treat group.</p>
+</sec>
+<sec id="sec015">
+<title>CHWs and training</title>
+<p>The intervention program was conducted by accredited social health activists (ASHAs), who are CHWs who reside in most villages in rural India. We employed 14 ASHAs who were already working in this role in the region [<xref ref-type="bibr" rid="pmed.1002997.ref026">26</xref>]. In 1 village that had no ASHA, we specifically employed someone for this role.</p>
+<p>Prior to commencement of the intervention, CHWs were trained to deliver the community-based program over a 5-day course [<xref ref-type="bibr" rid="pmed.1002997.ref021">21</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref026">26</xref>]. They were remunerated for their time in accordance with government salary scales (for specific details of this remuneration please refer to [<xref ref-type="bibr" rid="pmed.1002997.ref021">21</xref>]). This included time for training and for delivering the intervention. No further training was provided during the 3-month intervention period. However, study supervisors, who were specifically employed for the study, reviewed the content and activities with CHWs after each intervention session.</p>
+</sec>
+<sec id="sec016">
+<title>Patient and public involvement</title>
+<p>Participants and the public were involved in the shaping of the intervention program in a number of ways. First, the results of focus group discussion and preliminary analyses of the baseline survey drove content for the educational materials. These interactions highlighted poor knowledge of hypertension and poor access to health services. CHWs who were involved in the pilot training and local clinicians in the Rishi Valley (K. Kar. and K. Kal.) also provided feedback on this content, enabling refinement of the educational resources. In addition, in October 2014 a stakeholder meeting was held in which experts from the Ministry of Health and the Indian Council of Medical Research and an independent researcher provided input as to how this approach could fit within the Indian health system.</p>
+</sec>
+<sec id="sec017">
+<title>Intervention</title>
+<p>The intervention consisted of 6 fortnightly sessions of ~90 minutes, held within the villages (clusters) in which the participants resided, and delivered over 3 months. Each participant in an intervention cluster was allocated to 1 of 32 groups in which the intervention was delivered: 6 in the Rishi Valley, 14 in West Godavari, and 12 in Trivandrum. CHWs encouraged group members to attend all 6 sessions. At the start of each fortnightly session, CHWs measured BP and weighed all participants to assist with self-management. During each session, they delivered education about hypertension and how to manage it, in the local language [<xref ref-type="bibr" rid="pmed.1002997.ref021">21</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref026">26</xref>]. This included details about adhering to medications and the importance of making lifestyle changes, such as increasing physical activity and following a healthier diet. Pictorial flipcharts were used as education aids, and handouts were provided to participants to use at home. Full details of the education provided, including all session flipcharts and handouts, are available online (doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.4225/03/5967f9a94970d" xlink:type="simple">10.4225/03/5967f9a94970d</ext-link> [English version]). Those whose BP was controlled were provided the same education as those whose BP was not controlled, with positive feedback provided when BP levels were maintained below 140/90 mm Hg.</p>
+</sec>
+<sec id="sec018">
+<title>Usual care</title>
+<p>The UC group was not informed of the intervention program. They were contacted once between the baseline survey and the final follow-up to determine their eligibility, i.e., their hypertensive status was confirmed, as for the intervention group.</p>
+</sec>
+<sec id="sec019">
+<title>Blinding</title>
+<p>As this was a behavioural intervention, neither the workers delivering the program nor the participants in the intervention group could be blinded to the intervention. Participants in the UC group were unaware of the intervention. The outcome assessors were the same trained research assistants who conducted the baseline survey. They were also not blinded to treatment group, as they monitored the CHWs during delivery of the intervention.</p>
+</sec>
+<sec id="sec020">
+<title>Outcomes</title>
+<p>Participant outcomes were collected at a follow-up visit occurring approximately 2 months after the final session of the group-based education and monitoring program. The primary outcome was a change from baseline in the proportion of people with controlled hypertension (BP &lt; 140/90 mm Hg), as outlined in our clinical trial registration. Secondary BP outcomes, as listed in our published protocol [<xref ref-type="bibr" rid="pmed.1002997.ref021">21</xref>], included change in SBP and DBP from baseline, measured in an identical way to the baseline survey in accordance with the WHO STEPS protocol [<xref ref-type="bibr" rid="pmed.1002997.ref025">25</xref>]. Other outcomes comprised changes in use of antihypertensive medications, body mass index (BMI), waist–hip ratio (WHR), and lifestyle behaviours (physical activity, fruit and salt intake, tobacco smoking, and alcohol consumption).</p>
+</sec>
+<sec id="sec021">
+<title>Sample size</title>
+<p>Our original sample size was based on a mean SBP among people with hypertension of 147 mm Hg (SD 22) and a 6–mm Hg reduction with the intervention, slightly less than that seen in an earlier trial of hypertension in a developed country [<xref ref-type="bibr" rid="pmed.1002997.ref027">27</xref>]. We further estimated 100 participants per cluster (30 clusters) and presumed an intraclass correlation coefficient (ICC) of 0.047, giving a design effect of 5.653 [<xref ref-type="bibr" rid="pmed.1002997.ref028">28</xref>]. At a significance level of 5% and a power of 80%, and adjusting for clustering (i.e., adjusting for the design effect), we estimated requiring 1,097 people with hypertension per study arm. However, as we had insufficient resources to include all of the clusters in the subsequently designed cRCT, our eventual sample size was projected to be less than this, leading us to initially propose this as a feasibility study. Towards the end of the baseline survey, a preliminary analysis of mean baseline SBP in 15 clusters revealed that the ICC among those with SBP ≥ 140 mm Hg was 0.01, with 37% having controlled hypertension. Estimating an average cluster size of 120 yielded a design effect of 2.19 (1 + [119 × 0.01] = 2.19). Using a 1:2 ratio for the intervention versus UC and a power of 80% to detect a difference in the proportion with controlled BP of 37% in UC versus 50% in the intervention group resulted in an initial required sample size of 170 in the intervention group and 339 in UC. Multiplying by the design effect (i.e., 2.19), to ensure adequate power for a cRCT, resulted in a requirement of 372 in the intervention group and 742 in UC. From the baseline survey, we estimated that we would have approximately 600 in the intervention group and 1,200 in UC. This sample size would give us 94% power to detect the same level of effect (i.e., difference in the proportion with controlled BP of 37% in UC versus 50% in the intervention group), hence providing the rationale to analyse this as a stand-alone cRCT. Sample size was determined for the whole sample and not for subgroups, i.e., site or sex.</p>
+</sec>
+<sec id="sec022">
+<title>Data management and analysis</title>
+<p>Data from questionnaires were captured into an electronic database using TeleForm version 10.5 (Cardiff Software, CA, US). The data were cleaned by identifying outliers. Potential errors in these outliers were checked with the original forms and by seeking clarification from the research sites. Errors identified in this way were then corrected.</p>
+<p>In the analysis we followed intention-to-treat principles (Stata IC/11.2, StataCorp, College Station, TX, US). ANOVA was used to determine whether baseline characteristics (continuous variables) differed significantly between treatment groups, and between regions, and whether the differences between the treatment groups varied according to region. Tukey’s test was applied to determine which regions differed. Student’s unpaired <italic>t</italic> test was used to detect whether differences existed between the treatment groups in each of the 3 regions, so a Bonferroni correction was applied to protect against increased risk of type I error. Differences in categorical variables between regions and treatment groups were analysed using chi-squared tests with Bonferroni correction to account for multiple comparisons between and within regions. Two-tailed <italic>P</italic> ≤ 0.05 was considered statistically significant.</p>
+<p>The primary outcome comprised mixed effects logistic regression analyses, clustered by village within region and adjusted for baseline control of BP, conducted to determine the odds for control of BP for the intervention versus UC group. We used similar analyses to determine the odds of prescription of antihypertensive medication (a secondary analysis). Separate analyses were conducted for women and men.</p>
+<p>In sensitivity analyses that included all eligible participants, the outcome data from individuals who dropped out of the study were imputed using multiple imputation by chained equations as some variables were binary and others continuous. Twenty imputed datasets were created for each relevant outcome variable. Details of the proportion of missing observations imputed for each variable and the variables used in each imputation model are provided in the footnotes to tables and figures.</p>
+<p>For imputed outcomes, differences in categorical variables between groups were initially assessed using a 2-sample test of proportions, while linear regression was used to determine differences in continuous variables. Further, sensitivity analyses using the same methods were conducted in those whose BP was uncontrolled at baseline, but without baseline adjustment.</p>
+<p>Mixed effects linear regression analyses, adjusted for baseline control of BP and clustered by village within region, were used to determine the effectiveness of the intervention in reducing SBP and DBP (secondary analyses). Separate analyses were conducted for women and men.</p>
+<p>The trial was registered with the Clinical Trials Registry–India (CTRI; CTRI/2016/02/006678). We applied for registration on 28 September 2015, approximately 2 months before the first patient was enrolled. As delays in having a trial approved are very common in India, it is usual practice to commence recruiting patients before the final registration number is received. We obtained official approval from the CTRI on 25 February 2016 (CTRI/2016/006678), notably with no changes to the protocol from our original application.</p>
+</sec>
+</sec>
+<sec id="sec023" sec-type="results">
+<title>Results</title>
+<p>In total, 2,382 residents were identified as potentially eligible to participate in this cRCT. Since the baseline survey, 46 had died and 140 had migrated, leaving 2,196 potentially eligible (<xref ref-type="fig" rid="pmed.1002997.g001">Fig 1</xref>). Among these, 273 did not meet the inclusion criteria for verified diagnosis of hypertension, while in 187 the eligibility status could not be ascertained (149 refused to participate and 38 either were unavailable or their status was unknown), resulting in 1,736 recruited. In the villages randomly allocated to the intervention, the 3-month group-based education and monitoring program commenced first in West Godavari (November 2015) and last in Trivandrum (April 2016). Final follow-up of 1,471 participants occurred between January and September 2016, with 200 (11.5%) refusing or unavailable for the final outcome assessment. In sensitivity analyses, outcome variables were imputed for these participants. Two participants died, and so were not included in the outcome analyses.</p>
+<p>Participants from the Rishi Valley region had poorer educational attainment, literacy, and other markers of socioeconomic position than the other 2 regions (<xref ref-type="fig" rid="pmed.1002997.g002">Fig 2</xref>; <xref ref-type="supplementary-material" rid="pmed.1002997.s006">S1 Table</xref>). Educational attainment was greatest in Trivandrum, with 62.0% of participants completing at least class 7 (<xref ref-type="fig" rid="pmed.1002997.g002">Fig 2</xref>). This compares with 23.3% in West Godavari and 17.0% in the Rishi Valley (both <italic>P</italic> for difference from Trivandrum &lt; 0.001; <xref ref-type="fig" rid="pmed.1002997.g002">Fig 2</xref>). Participants in the Rishi Valley also self-reported greater difficulty in accessing healthcare than the other 2 sites (<italic>P</italic> &lt; 0.001).</p>
+<fig id="pmed.1002997.g002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.g002</object-id>
+<label>Fig 2</label>
+<caption>
+<title>Educational attainment of participants by region.</title>
+<p><italic>n</italic> = 1,711 (18 missing observations for the Rishi Valley and 5 missing for West Godavari, with none imputed). *<italic>P</italic> &lt; 0.01, with Bonferroni correction for specific contrasts between each of the 3 regions.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.g002" xlink:type="simple"/>
+</fig>
+<p>The mean age of participants was 56.8 years, and 58.2% were female (<xref ref-type="table" rid="pmed.1002997.t001">Table 1</xref>). Overall, baseline characteristics of participants were balanced between the intervention and UC groups, except that participants in the intervention group reported eating more servings of fruit per week. Importantly, control of BP, and mean SBP and DBP, were similar between groups overall (<xref ref-type="table" rid="pmed.1002997.t001">Table 1</xref>; <xref ref-type="fig" rid="pmed.1002997.g003">Fig 3</xref>) and within regions (<xref ref-type="supplementary-material" rid="pmed.1002997.s007">S2 Table</xref>) but differed between regions (<xref ref-type="supplementary-material" rid="pmed.1002997.s002">S1 Fig</xref>; <xref ref-type="supplementary-material" rid="pmed.1002997.s007">S2 Table</xref>). Baseline mean SBP was approximately 9 mm Hg greater in participants in the Rishi Valley than in the other 2 regions (<italic>P &lt;</italic> 0.001), while baseline mean DBP differed between all 3 regions (<italic>P &lt;</italic> 0.001), being greatest in the Rishi Valley (85.1 mm Hg), least in Trivandrum (78.5 mm Hg), and intermediate in West Godavari (80.3 mm Hg). There were also large differences between regions in BMI and WHR, which were least in the Rishi Valley and greatest in Trivandrum (<italic>P</italic> for difference &lt; 0.001; <xref ref-type="supplementary-material" rid="pmed.1002997.s007">S2 Table</xref>).</p>
+<fig id="pmed.1002997.g003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.g003</object-id>
+<label>Fig 3</label>
+<caption>
+<title>Summary of study findings.</title>
+<p>SBP (A) and DBP (B) at baseline and follow-up according to study group. Change in SBP (C) and DBP (D) in the usual care and intervention groups. Proportion of patients with controlled BP (E) and taking BP-lowering medications (F) at baseline and follow-up according to study group. <italic>P</italic> values for categorical variables were generated using a test for 2-sample differences in proportions (E and F), while differences in continuous variables were generated using linear regression (A–D). Error bars show 95% confidence limits. BP, blood pressure; DBP, diastolic blood pressure; SBP, systolic blood pressure.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.g003" xlink:type="simple"/>
+</fig>
+<table-wrap id="pmed.1002997.t001" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.t001</object-id>
+<label>Table 1</label> <caption><title>Baseline characteristics of the intention-to-treat sample.</title></caption>
+<alternatives>
+<graphic id="pmed.1002997.t001g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.t001" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left">Variable</th>
+<th align="left">Intervention<break/><italic>n</italic> = 637</th>
+<th align="left">UC<break/><italic>n</italic> = 1,097</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Age (years), mean (SD)</td>
+<td align="left">56.6 (14.3)</td>
+<td align="left">56.9 (13.7)</td>
+</tr>
+<tr>
+<td align="left">Female, <italic>n</italic> (%)</td>
+<td align="left">373 (58.7)<xref ref-type="table-fn" rid="t001fn002">*</xref></td>
+<td align="left">633 (57.9)<xref ref-type="table-fn" rid="t001fn005"><sup>§</sup></xref></td>
+</tr>
+<tr>
+<td align="left">SBP (mm Hg), mean (SD)</td>
+<td align="left">140.5 (22.7)</td>
+<td align="left">137.8 (22.2)</td>
+</tr>
+<tr>
+<td align="left">DBP (mm Hg), mean (SD)</td>
+<td align="left">80.4 (13.7)</td>
+<td align="left">80.6 (13.9)</td>
+</tr>
+<tr>
+<td align="left">Controlled hypertension, <italic>n</italic> (%)</td>
+<td align="left">277 (43.5)</td>
+<td align="left">549 (50.1)</td>
+</tr>
+<tr>
+<td align="left">Antihypertensive medication, <italic>n</italic> (%)</td>
+<td align="left">242 (38.0)</td>
+<td align="left">445 (40.6)</td>
+</tr>
+<tr>
+<td align="left">Body mass index (kg/m<sup>2</sup>), mean (SD)</td>
+<td align="left">24.5 (4.8)<xref ref-type="table-fn" rid="t001fn003"><sup>†</sup></xref></td>
+<td align="left">24.8 (5.0)<xref ref-type="table-fn" rid="t001fn007"><sup>¶</sup></xref></td>
+</tr>
+<tr>
+<td align="left">Waist hip ratio, mean (SD)</td>
+<td align="left">0.92 (0.09)<xref ref-type="table-fn" rid="t001fn007"><sup>¶</sup></xref></td>
+<td align="left">0.92 (0.09)<xref ref-type="table-fn" rid="t001fn005"><sup>§</sup></xref></td>
+</tr>
+<tr>
+<td align="left">Physical activity per day (METS), mean (SD)</td>
+<td align="left">928 (947)<xref ref-type="table-fn" rid="t001fn005"><sup>§</sup></xref></td>
+<td align="left">860 (896)<xref ref-type="table-fn" rid="t001fn005"><sup>§</sup></xref></td>
+</tr>
+<tr>
+<td align="left">Fruit (weekly servings), mean (SD)</td>
+<td align="left">3.3 (5.8)<xref ref-type="table-fn" rid="t001fn005"><sup>§</sup></xref></td>
+<td align="left">2.5 (3.3)<xref ref-type="table-fn" rid="t001fn006"><sup>‖</sup></xref></td>
+</tr>
+<tr>
+<td align="left">Vegetables (weekly servings), mean (SD)</td>
+<td align="left">11.3 (7.9)</td>
+<td align="left">10.5 (6.4)</td>
+</tr>
+<tr>
+<td align="left">Teaspoons of salt added/day, mean (SD)</td>
+<td align="left">0.05 (0.09)<xref ref-type="table-fn" rid="t001fn007"><sup>¶</sup></xref></td>
+<td align="left">0.06 (0.13)</td>
+</tr>
+<tr>
+<td align="left">Adding extra salt to food, <italic>n</italic> (%)</td>
+<td align="left">227 (36.0)<xref ref-type="table-fn" rid="t001fn007"><sup>¶</sup></xref></td>
+<td align="left">410 (38.6)</td>
+</tr>
+<tr>
+<td align="left">Current smoking, <italic>n</italic> (%)</td>
+<td align="left">96 (15.3)<xref ref-type="table-fn" rid="t001fn007"><sup>¶</sup></xref></td>
+<td align="left">165 (15.1)<xref ref-type="table-fn" rid="t001fn007"><sup>¶</sup></xref></td>
+</tr>
+<tr>
+<td align="left">Current alcohol use, <italic>n</italic> (%)</td>
+<td align="left">68 (10.8)<xref ref-type="table-fn" rid="t001fn007"><sup>¶</sup></xref></td>
+<td align="left">145 (13.3)<xref ref-type="table-fn" rid="t001fn007"><sup>¶</sup></xref></td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t001fn001"><p>None of these baseline data were imputed. Control of hypertension is defined as SBP &lt; 140 mm Hg and DBP &lt; 90 mm Hg; control may be achieved with use of antihypertensive medications or changing lifestyle.</p></fn>
+<fn id="t001fn002"><p>*One missing observation.</p></fn>
+<fn id="t001fn003"><p><sup>†</sup>Two missing observations.</p></fn>
+<fn id="t001fn004"><p><sup>‡</sup>Three missing observations.</p></fn>
+<fn id="t001fn005"><p><sup>§</sup>Four missing observations.</p></fn>
+<fn id="t001fn006"><p><sup>‖</sup>Five missing observations.</p></fn>
+<fn id="t001fn007"><p><sup>¶</sup>Six to eight missing observations. Salt added to food: 34 missing observations in UC. The data for servings of vegetables in Trivandrum had some errors that could not be resolved. Therefore, there are no data for weekly servings of vegetables in this region. These data on servings of vegetables rely on 329 observations in the intervention group and 668 in the UC group.</p></fn>
+<fn id="t001fn008"><p>DBP, diastolic blood pressure; METS, metabolic equivalent tasks; SBP, systolic blood pressure; SD, standard deviation; UC, usual care.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<sec id="sec024">
+<title>Primary outcome</title>
+<p>In the primary outcome analysis, which was clustered by village and study region, there was 1.6-fold (95% CI 1.2 to 2.1; <italic>P =</italic> 0.001) better control of hypertension in the intervention group than in the UC group at follow-up (<xref ref-type="table" rid="pmed.1002997.t002">Table 2</xref>; <xref ref-type="fig" rid="pmed.1002997.g003">Fig 3E</xref>). Similar results were obtained in sensitivity analyses that included those who were recruited but not followed up (<xref ref-type="supplementary-material" rid="pmed.1002997.s008">S3 Table</xref>). In further sensitivity analyses limited to those whose BP was uncontrolled at baseline, similar results were obtained for the overall group, but findings appeared to be limited to men (<xref ref-type="supplementary-material" rid="pmed.1002997.s009">S4 Table</xref>). Control of hypertension improved more in the intervention than UC group in 2 of the 3 regions (<xref ref-type="supplementary-material" rid="pmed.1002997.s010">S5 Table</xref>).</p>
+<table-wrap id="pmed.1002997.t002" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.t002</object-id>
+<label>Table 2</label> <caption><title>Effects of intervention on control of hypertension (primary outcome) and prescription of antihypertensive medication (secondary outcome) in people with hypertension: complete case analysis.</title></caption>
+<alternatives>
+<graphic id="pmed.1002997.t002g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.t002" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2">Outcome</th>
+<th align="left" colspan="2">Number of participants</th>
+<th align="left" colspan="2">Change from baseline to follow-up<xref ref-type="table-fn" rid="t002fn002">*</xref></th>
+<th align="left" rowspan="2"><italic>P</italic> value</th>
+<th align="left" rowspan="2">Adjusted odds ratio (95% CI)<xref ref-type="table-fn" rid="t002fn003"><sup>†</sup></xref></th>
+<th align="left" rowspan="2"><italic>P</italic> value</th>
+</tr>
+<tr>
+<th align="left">Intervention</th>
+<th align="left">UC<xref ref-type="table-fn" rid="t002fn004"><sup>‡</sup></xref></th>
+<th align="left">Intervention</th>
+<th align="left">UC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>Overall</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    Control of hypertension</td>
+<td align="left">459</td>
+<td align="left">1,011</td>
+<td align="left">93 (20.3)</td>
+<td align="left">96 (9.5)</td>
+<td align="left">&lt;0.001</td>
+<td align="left"> <list list-type="simple"><list-item><p>1.6 (1.2–2.1)</p></list-item></list></td>
+<td align="left">0.001</td>
+</tr>
+<tr>
+<td align="left">    Prescribed antihypertensive medication</td>
+<td align="left">459</td>
+<td align="left">1,012</td>
+<td align="left">57 (12.4)</td>
+<td align="left">100 (9.9)</td>
+<td align="left">0.14</td>
+<td align="left">1.2 (0.8–1.9)</td>
+<td align="left">0.34</td>
+</tr>
+<tr>
+<td align="left"><bold>Women</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    Control of hypertension</td>
+<td align="left">280</td>
+<td align="left">596</td>
+<td align="left">52 (18.6)</td>
+<td align="left">49 (8.2)</td>
+<td align="left">&lt;0.001</td>
+<td align="left">1.6 (1.1–2.2)</td>
+<td align="left">0.01</td>
+</tr>
+<tr>
+<td align="left">    Prescribed antihypertensive medication</td>
+<td align="left">280</td>
+<td align="left">597</td>
+<td align="left">38 (13.6)</td>
+<td align="left">45 (7.5)</td>
+<td align="left">0.004</td>
+<td align="left">1.5 (0.9–2.2)</td>
+<td align="left">0.09</td>
+</tr>
+<tr>
+<td align="left"><bold>Men</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    Control of hypertension</td>
+<td align="left">178</td>
+<td align="left">411</td>
+<td align="left">41 (23.0)</td>
+<td align="left">48 (11.7)</td>
+<td align="left">&lt;0.001</td>
+<td align="left">1.6 (1.1–2.5)</td>
+<td align="left">0.02</td>
+</tr>
+<tr>
+<td align="left">    Prescribed antihypertensive medication</td>
+<td align="left">178</td>
+<td align="left">411</td>
+<td align="left">19 (10.7)</td>
+<td align="left">54 (13.1)</td>
+<td align="left">0.40</td>
+<td align="left">0.9 (0.5–1.7)</td>
+<td align="left">0.85</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t002fn001"><p>There are 4 missing observations for sex in the UC group and 1 in the intervention group.</p></fn>
+<fn id="t002fn002"><p>*Change in control of hypertension was obtained by subtracting the number of people with control of hypertension at baseline from the number with control at follow-up. The same approach was applied to prescription of antihypertensive medication. Positive number demonstrates improvement.</p></fn>
+<fn id="t002fn003"><p><sup>†</sup>Odds ratios obtained using mixed effects logistic regression, clustered by village and study region. For control of hypertension, the dependent variable was control of hypertension at follow-up, with adjustment for control of hypertension at baseline (ICC: overall, 0.002; women, 0.003; men, 0.008). The same approach was applied to prescription of antihypertensive medication (ICC: overall, 0.04; women, 0.02; men, 0.09).</p></fn>
+<fn id="t002fn004"><p><sup>‡</sup>A person who did not have blood pressure measured at follow-up had details of medications, and so there is an extra observation for the latter analysis.</p></fn>
+<fn id="t002fn005"><p>ICC, intraclass correlation coefficient; UC, usual care.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+</sec>
+<sec id="sec025">
+<title>Secondary outcomes</title>
+<p>In secondary outcomes, there was no evidence for greater uptake in the use of BP-lowering medications with the intervention (<italic>P =</italic> 0.31; <xref ref-type="fig" rid="pmed.1002997.g003">Fig 3F</xref>; <xref ref-type="table" rid="pmed.1002997.t002">Table 2</xref>), except in West Godavari (<italic>P &lt;</italic> 0.01; <xref ref-type="supplementary-material" rid="pmed.1002997.s010">S5 Table</xref>). Interestingly, there was greater uptake of BP-lowering medications in women in the intervention than UC group, although not in adjusted analyses (<xref ref-type="table" rid="pmed.1002997.t002">Table 2</xref>). This improvement in women appeared to be driven by the improvement observed in West Godavari (<xref ref-type="supplementary-material" rid="pmed.1002997.s011">S6 Table</xref>). There was no evidence for a change in use of medications by men in any region, although sample sizes were small.</p>
+<p>Overall, SBP declined by 8.2 mm Hg in the intervention group, 6.1 mm Hg more than in the UC group (<xref ref-type="table" rid="pmed.1002997.t003">Table 3</xref>; <xref ref-type="fig" rid="pmed.1002997.g003">Fig 3A and 3C</xref>). This finding was similar in imputation analyses that included those who were not followed up (<xref ref-type="supplementary-material" rid="pmed.1002997.s012">S7 Table</xref>). The decline in SBP was greatest in the Rishi Valley, being 13.6 mm Hg in the intervention group, (<xref ref-type="supplementary-material" rid="pmed.1002997.s013">S8 Table</xref>). This change in SBP was greater than in the other 2 regions (<italic>P &lt;</italic> 0.001; distribution shown in <xref ref-type="supplementary-material" rid="pmed.1002997.s003">S2 Fig</xref>). Also, in contrast to the other 2 regions, participants in the Rishi Valley region showed a large decline in SBP in the UC group.</p>
+<table-wrap id="pmed.1002997.t003" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.t003</object-id>
+<label>Table 3</label> <caption><title>Effects of intervention on secondary outcomes in people with hypertension: complete case analysis.</title></caption>
+<alternatives>
+<graphic id="pmed.1002997.t003g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.t003" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2">Outcome</th>
+<th align="left" colspan="2">Number of participants</th>
+<th align="left" colspan="2">Unadjusted mean change (95% CI)</th>
+<th align="left" rowspan="2">Unadjusted net mean change (95% CI)</th>
+<th align="left" rowspan="2"><italic>P</italic> value</th>
+<th align="left" rowspan="2">Adjusted net mean change (95% CI)</th>
+<th align="left" rowspan="2"><italic>P</italic> value</th>
+</tr>
+<tr>
+<th align="left">Intervention</th>
+<th align="left">UC</th>
+<th align="left">Intervention<break/><italic>n</italic> = 459</th>
+<th align="left">UC<break/><italic>n</italic> = 1,012</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>Overall</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    SBP (mm Hg)</td>
+<td align="left">459</td>
+<td align="left">1,011</td>
+<td align="left">−8.2 (−10.0 to −6.3)</td>
+<td align="left">−2.1 (−3.4 to −0.8)</td>
+<td align="left">−6.1 (−8.4 to −3.8)</td>
+<td align="left">&lt;0.001</td>
+<td align="left">−5.0 (−7.1 to −3.0)<xref ref-type="table-fn" rid="t003fn002">*</xref></td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">    DBP (mm Hg)</td>
+<td align="left">459</td>
+<td align="left">1,011</td>
+<td align="left">−4.2 (−5.3 to −3.1)</td>
+<td align="left">−2.2 (−3.0 to −1.4)</td>
+<td align="left">−2.0 (−3.4 to 0.6)</td>
+<td align="left">0.004</td>
+<td align="left">−2.1 (−3.6 to −0.6)<xref ref-type="table-fn" rid="t003fn003"><sup>†</sup></xref></td>
+<td align="left">&lt;0.006</td>
+</tr>
+<tr>
+<td align="left"><bold>Women</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    SBP (mm Hg)</td>
+<td align="left">280</td>
+<td align="left">596</td>
+<td align="left">−6.7 (−8.8 to −4.6)</td>
+<td align="left">−1.5 (−3.1 to 0.2)</td>
+<td align="left">−5.2 (−8.0 to −2.4)</td>
+<td align="left">&lt;0.001</td>
+<td align="left">−4.8 (−7.2 to −2.3)<xref ref-type="table-fn" rid="t003fn004"><sup>‡</sup></xref></td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">    DBP (mm Hg)</td>
+<td align="left">280</td>
+<td align="left">596</td>
+<td align="left">−2.6 (−3.9 to −1.3)</td>
+<td align="left">−1.7 (−2.7 to 0.8)</td>
+<td align="left">−0.9 (−2.5 to 0.7)</td>
+<td align="left">0.29</td>
+<td align="left">−1.3 (−2.7 to 0.0)<xref ref-type="table-fn" rid="t003fn005"><sup>§</sup></xref></td>
+<td align="left">0.06</td>
+</tr>
+<tr>
+<td align="left"><bold>Men</bold></td>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    SBP (mm Hg)</td>
+<td align="left">178</td>
+<td align="left">411</td>
+<td align="left">−10.5 (−13.8 to −7.2)</td>
+<td align="left">−3.1 (−5.2 to −1.0)</td>
+<td align="left">−7.4 (−11.3 to −3.5)</td>
+<td align="left">&lt;0.001</td>
+<td align="left">−6.3 (−10.3 to −2.2)<xref ref-type="table-fn" rid="t003fn006"><sup>‖</sup></xref></td>
+<td align="left">0.002</td>
+</tr>
+<tr>
+<td align="left">    DBP (mm Hg)</td>
+<td align="left">178</td>
+<td align="left">411</td>
+<td align="left">−6.8 (−8.8 to −4.8)</td>
+<td align="left">−3.0 (−4.3 to −1.7)</td>
+<td align="left">−3.8 (−6.2 to −1.4)</td>
+<td align="left">0.002</td>
+<td align="left">−3.9 (−7.0 to −0.8)<xref ref-type="table-fn" rid="t003fn007"><sup>¶</sup></xref></td>
+<td align="left">0.014</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t003fn001"><p>For change values, negative number demonstrates improvement. Adjusted analyses were conducted using mixed effects linear regression, clustered by region and village.</p></fn>
+<fn id="t003fn002"><p>*Adjusted for age, sex, SBP at baseline, use of antihypertensive medications, change in body mass index, and alcohol use; 37 missing observations due to missing variables. ICC = 0.022.</p></fn>
+<fn id="t003fn003"><p><sup>†</sup>Adjusted for age, sex, DBP at baseline, education, use of antihypertensive medications, change in body mass index, fruit per week, and alcohol use; 49 missing observations due to missing variables. ICC = 0.020.</p></fn>
+<fn id="t003fn004"><p><sup>‡</sup>Adjusted for age, SBP at baseline, regular visits to doctor, use of antihypertensive medications, change in body mass index, and adding salt to food; 32 missing observations due to missing variables. ICC &lt; 0.001.</p></fn>
+<fn id="t003fn005"><p><sup>§</sup>Adjusted for age, DBP at baseline, education, regular visits to doctor, use of antihypertensive medications, and change in body mass index; 13 missing observations due to missing variables. ICC = 0.010.</p></fn>
+<fn id="t003fn006"><p><sup>‖</sup>Adjusted for age, SBP at baseline, education, use of antihypertensive medications, and alcohol use; 15 missing observations due to missing variables. ICC = 0.021.</p></fn>
+<fn id="t003fn007"><p><sup>¶</sup>Adjusted for age, DBP at baseline, education, regular visits to doctor, use of antihypertensive medications, and alcohol use; 15 missing observations due to missing variables. ICC = 0.045.</p></fn>
+<fn id="t003fn008"><p>DBP, diastolic blood pressure; ICC, intraclass correlation coefficient; SBP, systolic blood pressure; UC, usual care.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>Similar to the pattern observed for SBP, DBP also declined more in the intervention group (4.2 mm Hg) than the UC group (2.2 mm Hg; <xref ref-type="fig" rid="pmed.1002997.g003">Fig 3B and 3D</xref>; <xref ref-type="table" rid="pmed.1002997.t003">Table 3</xref>). Also, in contrast to the other 2 regions, there was a large decline in DBP in the UC group in the Rishi Valley region (<xref ref-type="supplementary-material" rid="pmed.1002997.s013">S8 Table</xref>; <xref ref-type="supplementary-material" rid="pmed.1002997.s002">S1 Fig</xref>; distribution shown in <xref ref-type="supplementary-material" rid="pmed.1002997.s004">S3 Fig</xref>).</p>
+<p>There was no evidence for an effect of the intervention on BMI, WHR, physical activity, or fruit consumption (<xref ref-type="table" rid="pmed.1002997.t004">Table 4</xref>), but the intervention appeared to result in greater reductions in extra salt added to food (<italic>P =</italic> 0.003), smoking (<italic>P &lt;</italic> 0.001), and alcohol consumption (<italic>P</italic> &lt; 0.001) than in the UC group (<xref ref-type="table" rid="pmed.1002997.t005">Table 5</xref>).</p>
+<table-wrap id="pmed.1002997.t004" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.t004</object-id>
+<label>Table 4</label> <caption><title>Changes in risk factors from baseline to follow-up in the intervention and UC groups (continuous variables).</title></caption>
+<alternatives>
+<graphic id="pmed.1002997.t004g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.t004" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2">Variable</th>
+<th align="left" colspan="2">Mean change (95% confidence interval)</th>
+<th align="left" rowspan="2"><italic>P</italic> value</th>
+</tr>
+<tr>
+<th align="left">Intervention<break/><italic>n</italic> = 637</th>
+<th align="left">UC<break/><italic>n</italic> = 1,097</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">BMI (kg/m<sup>2</sup>)<xref ref-type="table-fn" rid="t004fn002"><sup>1</sup></xref></td>
+<td align="left">0.17 (0.03 to 0.31)<xref ref-type="table-fn" rid="t004fn004">*</xref></td>
+<td align="left">0.23 (0.12 to 0.34)<xref ref-type="table-fn" rid="t004fn007"><sup>§</sup></xref></td>
+<td align="left">0.50</td>
+</tr>
+<tr>
+<td align="left">WHR<sup>1</sup></td>
+<td align="left">0.006 (0.001 to 0.012)<xref ref-type="table-fn" rid="t004fn008"><sup>‖</sup></xref></td>
+<td align="left">0.003 (−0.001 to 0.006)<xref ref-type="table-fn" rid="t004fn007"><sup>§</sup></xref></td>
+<td align="left">0.29</td>
+</tr>
+<tr>
+<td align="left">Physical activity (METS) per day<xref ref-type="table-fn" rid="t004fn003"><sup>2</sup></xref></td>
+<td align="left">104 (89 to 119)<xref ref-type="table-fn" rid="t004fn005"><sup>†</sup></xref></td>
+<td align="left">108 (98 to 118)<xref ref-type="table-fn" rid="t004fn005"><sup>†</sup></xref></td>
+<td align="left">0.65</td>
+</tr>
+<tr>
+<td align="left">Fruit (weekly servings)<xref ref-type="table-fn" rid="t004fn003"><sup>2</sup></xref></td>
+<td align="left">0.03 (−0.47 to 0.53)<xref ref-type="table-fn" rid="t004fn005"><sup>†</sup></xref></td>
+<td align="left">0.48 (0.24 to 0.72)<xref ref-type="table-fn" rid="t004fn006"><sup>‡</sup></xref></td>
+<td align="left">0.08</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t004fn001"><p>Change in BMI between baseline and follow-up was imputed for 260 observations (using BMI at baseline); change in WHR was imputed for 257 observations (using WHR and BMI at baseline); change in physical activity per day was imputed for 259 observations (using physical activity at baseline); change in fruit consumption per week was imputed for 259 observations (using fruit consumption at baseline).</p></fn>
+<fn id="t004fn002"><p><sup>1</sup>Negative number demonstrates improvement.</p></fn>
+<fn id="t004fn003"><p><sup>2</sup>Positive number demonstrates improvement.</p></fn>
+<fn id="t004fn004"><p>*Two missing observations.</p></fn>
+<fn id="t004fn005"><p><sup>†</sup>Four missing observations.</p></fn>
+<fn id="t004fn006"><p><sup>‡</sup>Five missing observations.</p></fn>
+<fn id="t004fn007"><p><sup>§</sup>Six missing observations.</p></fn>
+<fn id="t004fn008"><p><sup>‖</sup>Seven missing observations.</p></fn>
+<fn id="t004fn009"><p>BMI, body mass index; METS, metabolic equivalent tasks; UC, usual care; WHR, waist–hip ratio.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<table-wrap id="pmed.1002997.t005" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.t005</object-id>
+<label>Table 5</label> <caption><title>Changes in risk factors from baseline to follow-up in the intervention and UC groups (categorical variables).</title></caption>
+<alternatives>
+<graphic id="pmed.1002997.t005g" mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.t005" xlink:type="simple"/>
+<table>
+<colgroup>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+<col align="left" valign="middle"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" rowspan="2">Variable</th>
+<th align="left" colspan="2">Change in number of individuals (%)</th>
+<th align="left" rowspan="2"><italic>P</italic> value</th>
+</tr>
+<tr>
+<th align="left">Intervention</th>
+<th align="left">UC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><bold>Overall</bold></td>
+<td align="left"><bold><italic>n</italic> = 637</bold></td>
+<td align="left"><bold><italic>n</italic> = 1,097</bold></td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    Change in adding extra salt to food</td>
+<td align="left">−69 (−11.0)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">−73 (−6.9)<xref ref-type="table-fn" rid="t005fn006"><sup>‖</sup></xref></td>
+<td align="left">0.003</td>
+</tr>
+<tr>
+<td align="left">    Change in current smoking</td>
+<td align="left">−18 (−2.9)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">−6 (−0.6)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left">    Change alcohol use in last 30 days</td>
+<td align="left">−7 (−1.1)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">3 (0.2)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr>
+<td align="left"><bold>Women</bold></td>
+<td align="left"><bold><italic>n</italic> = 373</bold></td>
+<td align="left"><bold><italic>n</italic> = 633</bold></td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    Change in adding extra salt to food</td>
+<td align="left">−37 (10.1)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">−45 (7.3)<xref ref-type="table-fn" rid="t005fn005"><sup>§</sup></xref></td>
+<td align="left">0.13</td>
+</tr>
+<tr>
+<td align="left">    Change in current smoking</td>
+<td align="left">−6 (−1.7)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">1 (0.2)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">0.001</td>
+</tr>
+<tr>
+<td align="left">    Change alcohol use in last 30 days</td>
+<td align="left">−1 (−0.1)<xref ref-type="table-fn" rid="t005fn003"><sup>†</sup></xref></td>
+<td align="left">3 (0.5)<xref ref-type="table-fn" rid="t005fn002">*</xref></td>
+<td align="left">0.19</td>
+</tr>
+<tr>
+<td align="left"><bold>Men</bold></td>
+<td align="left"><bold><italic>n</italic> = 263</bold></td>
+<td align="left"><bold><italic>n</italic> = 460</bold></td>
+<td align="left"/>
+</tr>
+<tr>
+<td align="left">    Change in adding extra salt to food</td>
+<td align="left">−32 (−12.3)<xref ref-type="table-fn" rid="t005fn002">*</xref></td>
+<td align="left">−29 (−6.5)<xref ref-type="table-fn" rid="t005fn004"><sup>‡</sup></xref></td>
+<td align="left">0.009</td>
+</tr>
+<tr>
+<td align="left">    Change in current smoking</td>
+<td align="left">−12 (−4.7)<xref ref-type="table-fn" rid="t005fn002">*</xref></td>
+<td align="left">−7 (−1.6)<xref ref-type="table-fn" rid="t005fn002">*</xref></td>
+<td align="left">0.014</td>
+</tr>
+<tr>
+<td align="left">    Change alcohol use in last 30 days</td>
+<td align="left">−6 (−2.4)<xref ref-type="table-fn" rid="t005fn002">*</xref></td>
+<td align="left">−1 (−0.1)<xref ref-type="table-fn" rid="t005fn002">*</xref></td>
+<td align="left">0.006</td>
+</tr>
+</tbody>
+</table>
+</alternatives>
+<table-wrap-foot>
+<fn id="t005fn001"><p>Negative number demonstrates improvement. Data for salt use at follow-up were imputed for 254 observations (using salt use at baseline); data for smoking at follow-up were imputed for 258 observations (using smoking at baseline and sex); data for alcohol consumption at follow-up were imputed for 258 observations (using alcohol consumption at baseline and sex). Change in adding salt to food was obtained by subtracting the number of people reporting adding salt to food at baseline from the number adding salt to food at follow-up. This same approach was applied for the other variables in the table.</p></fn>
+<fn id="t005fn002"><p>*Two to four missing observations.</p></fn>
+<fn id="t005fn003"><p><sup>†</sup>Five to eight missing observations.</p></fn>
+<fn id="t005fn004"><p><sup>‡</sup>Sixteen missing observations.</p></fn>
+<fn id="t005fn005"><p><sup>§</sup>Eighteen missing observations.</p></fn>
+<fn id="t005fn006"><p><sup>‖</sup>Thirty-four missing observations.</p></fn>
+<fn id="t005fn007"><p>UC, usual care.</p></fn>
+</table-wrap-foot>
+</table-wrap>
+<p>There appeared to be some sex differences in the effects of the intervention on BP. While SBP was reduced in both women and men (<xref ref-type="table" rid="pmed.1002997.t003">Table 3</xref> and <xref ref-type="supplementary-material" rid="pmed.1002997.s014">S9 Table</xref>), the reduction in DBP appeared to occur in men only.</p>
+<p>There was no evidence that the effectiveness of the intervention on control of BP differed according to age or other differences in characteristics (<xref ref-type="fig" rid="pmed.1002997.g004">Fig 4</xref>). This finding appeared to be similar for women and men separately (<xref ref-type="supplementary-material" rid="pmed.1002997.s005">S4 Fig</xref>).</p>
+<fig id="pmed.1002997.g004" position="float">
+<object-id pub-id-type="doi">10.1371/journal.pmed.1002997.g004</object-id>
+<label>Fig 4</label>
+<caption>
+<title>Forest plot of differences in control of BP by group, according to different characteristics of the sample (complete case analysis).</title>
+<p>The dashed line represents the line of no effect. Symbols show point estimates, and error bars show 95% confidence limits. <italic>P</italic> values indicate subgroup interactions (obtained using logistic regression). The following variables had missing data: BMI, 7; access to healthcare, 9; and regular check-ups, 7. BMI, body mass index; BP, blood pressure; DBP, diastolic blood pressure; SBP, systolic blood pressure.</p>
+</caption>
+<graphic mimetype="image" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.g004" xlink:type="simple"/>
+</fig>
+</sec>
+</sec>
+<sec id="sec026" sec-type="conclusions">
+<title>Discussion</title>
+<p>This cRCT, conducted in rural India, provides evidence that a group-based education and monitoring program, delivered by health workers, is effective in reducing SBP and DBP and in improving control of hypertension. The intervention was effective in all 3 regions, which are at differing stages of the economic and epidemiological transition, indicating that the intervention could be effective and scalable across rural India. With an estimated prevalence of hypertension of 25% among adults in rural India [<xref ref-type="bibr" rid="pmed.1002997.ref005">5</xref>], our intervention is thus potentially scalable to more than 100 million adults with hypertension living in rural India.</p>
+<p>Our intervention has enormous potential for reducing BP and improving control of hypertension in poor and hard-to-reach settings. This was just a 3-month intervention, yet the BP reduction attained was comparable to that observed in clinical trials of BP-lowering medications, equating to a 20% reduction in the risk of coronary heart disease and vascular death [<xref ref-type="bibr" rid="pmed.1002997.ref029">29</xref>]. Apart from the education provided to intervention participants in a group setting, at each session participants also had their BP measured. This ongoing monitoring may have empowered participants to determine whether and how their lifestyle changes resulted in tangible benefits [<xref ref-type="bibr" rid="pmed.1002997.ref030">30</xref>]. This approach also provides motivation for continuing behavioural changes or adopting new ones [<xref ref-type="bibr" rid="pmed.1002997.ref030">30</xref>], and this may be one of the mechanisms for the success of the intervention. Furthermore, the program included several components that were evidence-based for improving the control of hypertension. These components included improving the adherence to antihypertensive medications [<xref ref-type="bibr" rid="pmed.1002997.ref031">31</xref>], providing regular monitoring of BP [<xref ref-type="bibr" rid="pmed.1002997.ref030">30</xref>], and encouraging lifestyle changes such as losing excess weight and increasing physical activity [<xref ref-type="bibr" rid="pmed.1002997.ref032">32</xref>].</p>
+<p>Trained professionals are not always available in rural and remote settings [<xref ref-type="bibr" rid="pmed.1002997.ref006">6</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref007">7</xref>]. Thus, training the existing workforce in specific tasks, such as monitoring BP and providing education and support, that do not require clinical decision-making but can be implemented using evidence-based protocols, enables a reorganisation of health tasks to improve access and minimise costs [<xref ref-type="bibr" rid="pmed.1002997.ref010">10</xref>]. Although other investigators have also shown the effectiveness of task-shifting management of hypertension to CHWs [<xref ref-type="bibr" rid="pmed.1002997.ref012">12</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref015">15</xref>–<xref ref-type="bibr" rid="pmed.1002997.ref017">17</xref>], major limitations included that these studies involved intensive, time-consuming individual-based interventions [<xref ref-type="bibr" rid="pmed.1002997.ref012">12</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref013">13</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref015">15</xref>–<xref ref-type="bibr" rid="pmed.1002997.ref017">17</xref>], lacked a UC group [<xref ref-type="bibr" rid="pmed.1002997.ref014">14</xref>–<xref ref-type="bibr" rid="pmed.1002997.ref016">16</xref>], or provided home BP monitors (equipment unaffordable to the poor) [<xref ref-type="bibr" rid="pmed.1002997.ref012">12</xref>]. Our approach, using a group-based intervention, provides a novel, effective, and potentially cheaper and sustainable alternative to managing hypertension in disadvantaged and hard-to-reach settings.</p>
+<p>Our findings confirm and extend those from other task-sharing intervention programs of the effect of education programs in LMICs. He et al. reported a 6.6/5.4–mm Hg greater reduction in BP in participants exposed to a CHW-led multicomponent education and coaching program, home BP monitoring, text messaging, and better trained physicians than in those receiving UC [<xref ref-type="bibr" rid="pmed.1002997.ref012">12</xref>]. A similar decrease of 5 mm Hg of SBP was reported by Jafar et al. in Pakistan in a group exposed to home health education and upskilled general practitioners, compared to other groups [<xref ref-type="bibr" rid="pmed.1002997.ref017">17</xref>], and Neupane et al. reported a 4.9–mm Hg greater decrease in SBP in a group in Nepal with home-monitoring and education, compared to UC [<xref ref-type="bibr" rid="pmed.1002997.ref013">13</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref017">17</xref>]. However, all 3 studies were of individualised-care approaches, which are likely to be more resource-intensive than our group-based approach.</p>
+<p>Simple surveillance may be an incentive to patients to take steps to reduce their BP levels in regions with poor access to healthcare. There was a large improvement in SBP and DBP in the UC group in the Rishi Valley region, a decline of 9.5/6.8 mm Hg. Following the baseline community-based survey, participants who had BP levels of ≥140/90 mm Hg were informed that their BP was high and that this might put them at risk of other diseases, and were advised to visit a doctor. While some of the observed decline in BP could be regression to the mean, it might also suggest that BP surveillance itself can help control BP in regions with poor access to healthcare.</p>
+<p>It was notable that the effect of the intervention did not appear to be attributable to new prescription of antihypertensive medication at follow-up. Potentially, BP may have declined with the adoption of healthy lifestyle habits, with some evidence of reductions in alcohol consumption, an effect largely seen in men as few women consumed alcohol at baseline. There was some evidence that adding salt to food declined, but as most of the salt in the diet is added in the cooking process, it is unlikely that reducing salt at the table would explain the BP reductions observed.</p>
+<sec id="sec027">
+<title>Strengths and limitations of the study</title>
+<p>There were some limitations to our study that may influence the interpretation of our findings. Although the sample size was large overall, the number of participants in the Rishi Valley was less than half the number of participants in either of the other 2 regions. Of the individuals with hypertension identified in the baseline community-based survey in each region, we recruited approximately 20% to the intervention group and 40% to the UC group. However, the baseline prevalence of hypertension was the least in the Rishi Valley, and even though we surveyed a larger number of people, it was not sufficient to ensure similar group sizes. In addition, a total of 263 individuals dropped out of the study, most of whom were in the intervention group. This raises potential issues around the intention-to-treat approach, with subsequent potential biases, as discussed by Giraudeau and Ravaud [<xref ref-type="bibr" rid="pmed.1002997.ref033">33</xref>]. We minimised bias by randomising clusters after the baseline community-based survey was conducted, and so we had baseline data on all those who participated in the baseline survey. Although some people then dropped out, we included these individuals in a sensitivity analysis by imputing their outcome, thereby reducing the potential bias of excluding these individuals who dropped out. Of note, the findings for the 2 regions with a larger number of individuals who dropped out are consistent with those from the West Godavari region, where only 24 individuals dropped out, adding to the credence of our findings. There were also no empty clusters. We also acknowledge that both the 3-month intervention and the follow-up period of 6–8 weeks, between the last session of the program and assessment of outcomes, were relatively short. Because of this, we cannot determine whether there is a long-lasting improvement in controlling hypertension from our group-based education and monitoring program. It is also possible that there was some selection bias as the control of BP was relatively high at baseline, being approximately 50%. Indeed, in those who did not participate, only 19.9% had their BP controlled at baseline, indicating that extra efforts should be made to improve the reach of the intervention. There could potentially have been some post-randomisation selection bias as individuals were recruited following randomisation of their village. However, potential participants were blinded to the recruitment status of their village at the time that their eligibility was established and their recruitment sought, thereby reducing this potential bias. Another limitation of our study is that it was not possible to blind the outcome assessors to the treatment allocation of the individuals as the assessors were instrumental in observing the fidelity of the intervention. However, we reduced the impact of detection bias on our main outcome measures by using digital automated BP monitors, thereby limiting the influence of the perceptions of the outcome assessors that might have arisen with the use of auscultation. A further limitation is that, for logistic reasons, details about salt intake were asked of individuals only about salt added at the table. However, as most of the salt consumed is added during cooking, these details would have been better obtained from the person responsible for the cooking. Thus, the data we generated on salt consumption should be interpreted with caution. Some of the reduction in BP observed may be attributable to the Hawthorne effect, whereby participants alter behaviours just because they are being observed. However, this does not discount the difference that we observed between the UC and intervention groups, comprising a randomised comparison.</p>
+<p>There are several strengths to our study, including the cluster-randomised allocation of the PSUs to facilitate delivery of the group-based intervention, and the consistency in the delivery of the program in all 3 regions. The PSUs were geographically separated and had different CHWs, thereby minimising contamination between groups. Another major strength is our inclusion of 3 very diverse regions of rural India using the available workforce, so that our findings may be generalisable to a large portion of rural India. Additionally, the sample size of our project was large, thereby reducing the likelihood of a chance finding. Furthermore, our study included a UC comparator, which enabled us to minimise the effects of other variables. Only 4 prior trials of CHW-led task-shifting intervention programs to treat hypertension included a clearly defined UC group [<xref ref-type="bibr" rid="pmed.1002997.ref012">12</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref013">13</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref017">17</xref>,<xref ref-type="bibr" rid="pmed.1002997.ref018">18</xref>], so our study is one of the few to have a robust comparator to test the effectiveness of the intervention.</p>
+</sec>
+<sec id="sec028">
+<title>Conclusion</title>
+<p>Our program was effective in increasing the proportion who had control of hypertension, and in reducing both SBP and DBP. Simple surveillance also appeared to result in reduced BP in these rural settings. Our findings add to the limited research on task-shifting interventions for treating hypertension in LMICs. In particular, we have shown that this intervention is applicable across very diverse rural settings, so there is considerable potential to implement and scale up across rural India and potentially other resource-poor regions in other countries. Future programs incorporating comprehensive collection of data on changes in medication use, changes to lifestyle behaviours, and knowledge of hypertension may help tease out which factors are best targeted to improve the control of hypertension in these settings.</p>
+</sec>
+</sec>
+<sec id="sec029">
+<title>Supporting information</title>
+<supplementary-material id="pmed.1002997.s001" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s001" xlink:type="simple">
+<label>S1 CONSORT Checklist</label>
+<caption>
+<title>CONSORT checklist for cluster randomised trials.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s002" mimetype="image/tiff" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s002" xlink:type="simple">
+<label>S1 Fig</label>
+<caption>
+<title>Complete case analysis of BP outcomes between the intervention and UC groups, by site and overall.</title>
+<p>(A) Percent with controlled BP, (B) percent with BP-lowering medications, (C) mean SBP, (D) mean DBP, and (E) change in BP (mean change in mm Hg, and 95% confidence intervals). <italic>P</italic> values for categorical variables were generated using chi-squared tests (A and B) or linear regression for continuous variables (C–E), with Bonferroni correction for specific contrasts between each of the 3 regions. Error bars show 95% confidence limits.</p>
+<p>(TIF)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s003" mimetype="image/tiff" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s003" xlink:type="simple">
+<label>S2 Fig</label>
+<caption>
+<title>Distribution of change in SBP between baseline and follow-up, by intervention group and site (complete case analysis).</title>
+<p>(TIF)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s004" mimetype="image/tiff" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s004" xlink:type="simple">
+<label>S3 Fig</label>
+<caption>
+<title>Distribution of change in DBP between baseline and follow-up, by intervention group and site (complete case analysis).</title>
+<p>(TIF)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s005" mimetype="image/tiff" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s005" xlink:type="simple">
+<label>S4 Fig</label>
+<caption>
+<title>Forest plot of between-group differences in control of BP in women and men, according to different characteristics of the sample (complete case analysis).</title>
+<p>(A) Women; (B) men. The dashed line represents the line of no effect. Symbols show point estimates, and error bars show 95% confidence limits. <italic>P</italic> values indicate subgroup interactions (obtained using logistic regression).</p>
+<p>(TIF)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s006" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s006" xlink:type="simple">
+<label>S1 Table</label>
+<caption>
+<title>Socioeconomic characteristics of participants in the intervention and UC groups in the 3 regions.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s007" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s007" xlink:type="simple">
+<label>S2 Table</label>
+<caption>
+<title>Baseline characteristics of participants with hypertension in the intervention and UC groups.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s008" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s008" xlink:type="simple">
+<label>S3 Table</label>
+<caption>
+<title>Effects of the intervention on control of hypertension (primary outcome) and prescription of antihypertensive medication (secondary outcome) in people with hypertension: Imputation analysis using intention-to-treat principles.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s009" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s009" xlink:type="simple">
+<label>S4 Table</label>
+<caption>
+<title>Sensitivity analysis of the effects of the intervention on the primary outcome (control of hypertension) in people with hypertension, excluding those with controlled hypertension at baseline.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s010" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s010" xlink:type="simple">
+<label>S5 Table</label>
+<caption>
+<title>Changes in risk factors from baseline to follow-up in the intervention and UC groups (categorical variables).</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s011" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s011" xlink:type="simple">
+<label>S6 Table</label>
+<caption>
+<title>Changes in control of BP and use of antihypertensive medications from baseline to follow-up in women and men in the intervention and UC groups.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s012" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s012" xlink:type="simple">
+<label>S7 Table</label>
+<caption>
+<title>Effects of the intervention on secondary outcomes in people with hypertension: Imputation analysis using intention-to-treat principles.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s013" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s013" xlink:type="simple">
+<label>S8 Table</label>
+<caption>
+<title>Changes in risk factors from baseline to follow-up in the intervention and UC groups (continuous variables).</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+<supplementary-material id="pmed.1002997.s014" mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document" position="float" xlink:href="info:doi/10.1371/journal.pmed.1002997.s014" xlink:type="simple">
+<label>S9 Table</label>
+<caption>
+<title>Changes in BP from baseline to follow-up in women and men in the intervention and UC groups.</title>
+<p>(DOCX)</p>
+</caption>
+</supplementary-material>
+</sec>
+</body>
+<back>
+<ack>
+<p>The authors would like to acknowledge the contribution of the participants, healthcare workers, and staff involved in the study, as well as the external stakeholders who provided advice on how to ensure that the intervention was relevant to the Indian healthcare system.</p>
+</ack>
+<glossary>
+<title>Abbreviations</title>
+<def-list>
+<def-item><term>BMI</term>
+<def><p>body mass index</p></def>
+</def-item>
+<def-item><term>BP</term>
+<def><p>blood pressure</p></def>
+</def-item>
+<def-item><term>CHW</term>
+<def><p>community health worker</p></def>
+</def-item>
+<def-item><term>cRCT</term>
+<def><p>cluster randomised controlled trial</p></def>
+</def-item>
+<def-item><term>DBP</term>
+<def><p>diastolic blood pressure</p></def>
+</def-item>
+<def-item><term>LMICs</term>
+<def><p>low- and middle-income countries</p></def>
+</def-item>
+<def-item><term>PSU</term>
+<def><p>primary sampling unit</p></def>
+</def-item>
+<def-item><term>SBP</term>
+<def><p>systolic blood pressure</p></def>
+</def-item>
+<def-item><term>UC</term>
+<def><p>usual care</p></def>
+</def-item>
+<def-item><term>WHR</term>
+<def><p>waist–hip ratio</p></def>
+</def-item>
+</def-list>
+</glossary>
+<ref-list>
+<title>References</title>
+<ref id="pmed.1002997.ref001"><label>1</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Forouzanfar</surname> <given-names>MH</given-names></name>, <name name-style="western"><surname>Liu</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Roth</surname> <given-names>GA</given-names></name>, <name name-style="western"><surname>Ng</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Biryukov</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Marczak</surname> <given-names>L</given-names></name>, <etal>et al</etal>. <article-title>Global burden of hypertension and systolic blood pressure of at least 110 to 115 mm Hg, 1990–2015</article-title>. <source>JAMA</source>. <year>2017</year>;<volume>317</volume>(<issue>2</issue>):<fpage>165</fpage>–<lpage>82</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jama.2016.19043" xlink:type="simple">10.1001/jama.2016.19043</ext-link></comment> <object-id pub-id-type="pmid">28097354</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref002"><label>2</label><mixed-citation publication-type="journal" xlink:type="simple"><collab>NCD Risk Factor Collaboration</collab>. <article-title>Worldwide trends in blood pressure from 1975 to 2015: a pooled analysis of 1479 population-based measurement studies with 19.1 million participants</article-title>. <source>Lancet</source>. <year>2017</year>;<volume>389</volume>(<issue>10064</issue>):<fpage>37</fpage>–<lpage>55</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S0140-6736(16)31919-5" xlink:type="simple">10.1016/S0140-6736(16)31919-5</ext-link></comment> <object-id pub-id-type="pmid">27863813</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref003"><label>3</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Gupta</surname> <given-names>R.</given-names></name> <article-title>Convergence in urban-rural prevalence of hypertension in India</article-title>. <source>J Hum Hypertens</source>. <year>2016</year>;<volume>30</volume>(<issue>2</issue>):<fpage>79</fpage>–<lpage>82</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/jhh.2015.48" xlink:type="simple">10.1038/jhh.2015.48</ext-link></comment> <object-id pub-id-type="pmid">26108364</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref004"><label>4</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Joshi</surname> <given-names>SR</given-names></name>, <name name-style="western"><surname>Parikh</surname> <given-names>RM</given-names></name>. <article-title>India—diabetes capital of the world: now heading towards hypertension</article-title>. <source>J Assoc Physicians India</source>. <year>2007</year>;<volume>55</volume>:<fpage>323</fpage>–<lpage>4</lpage>. <object-id pub-id-type="pmid">17844690</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref005"><label>5</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Anchala</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Kannuri</surname> <given-names>NK</given-names></name>, <name name-style="western"><surname>Pant</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Khan</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Franco</surname> <given-names>OH</given-names></name>, <name name-style="western"><surname>Di Angelantonio</surname> <given-names>E</given-names></name>, <etal>et al</etal>. <article-title>Hypertension in India: a systematic review and meta-analysis of prevalence, awareness, and control of hypertension</article-title>. <source>J Hypertens</source>. <year>2014</year>;<volume>32</volume>(<issue>6</issue>):<fpage>1170</fpage>–<lpage>7</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/HJH.0000000000000146" xlink:type="simple">10.1097/HJH.0000000000000146</ext-link></comment> <object-id pub-id-type="pmid">24621804</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref006"><label>6</label><mixed-citation publication-type="other" xlink:type="simple">Central Bureau of Health Intelligence. National health profile 2015. New Delhi: Central Bureau of Health Intelligence; 2015 [cited 2018 Nov 9]. Available from: <ext-link ext-link-type="uri" xlink:href="https://www.thehinducentre.com/multimedia/archive/02557/National_Health_Pr_2557764a.pdf" xlink:type="simple">https://www.thehinducentre.com/multimedia/archive/02557/National_Health_Pr_2557764a.pdf</ext-link>.</mixed-citation></ref>
+<ref id="pmed.1002997.ref007"><label>7</label><mixed-citation publication-type="book" xlink:type="simple"><name name-style="western"><surname>Muralidharan</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Chaudhury</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Hammer</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Kremer</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Rogers</surname> <given-names>FH</given-names></name>. <source>Is there a doctor in the house? Medical worker absence in India</source>. <publisher-loc>San Diego</publisher-loc>: <publisher-name>University of California, San Diego, Department of Economics</publisher-name>; <year>2011</year> [cited 2018 Nov 9]. Available from: <ext-link ext-link-type="uri" xlink:href="http://econweb.ucsd.edu/~kamurali/papers/Working%20Papers/Is%20There%20a%20Doctor%20in%20the%20House%20-%2012%20April,%202011.pdf" xlink:type="simple">http://econweb.ucsd.edu/~kamurali/papers/Working%20Papers/Is%20There%20a%20Doctor%20in%20the%20House%20-%2012%20April,%202011.pdf</ext-link>.</mixed-citation></ref>
+<ref id="pmed.1002997.ref008"><label>8</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Busingye</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Arabshahi</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Evans</surname> <given-names>RG</given-names></name>, <name name-style="western"><surname>Srikanth</surname> <given-names>VK</given-names></name>, <name name-style="western"><surname>Kartik</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Kalyanram</surname> <given-names>K</given-names></name>, <etal>et al</etal>. <article-title>Factors associated with awareness, treatment and control of hypertension in a disadvantaged rural Indian population</article-title>. <source>J Hum Hypertens</source>. <year>2017</year>;<volume>31</volume>(<issue>5</issue>):<fpage>347</fpage>–<lpage>53</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/jhh.2016.85" xlink:type="simple">10.1038/jhh.2016.85</ext-link></comment> <object-id pub-id-type="pmid">28054571</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref009"><label>9</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Attaei</surname> <given-names>MW</given-names></name>, <name name-style="western"><surname>Khatib</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>McKee</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Lear</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Dagenais</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Igumbor</surname> <given-names>EU</given-names></name>, <etal>et al</etal>. <article-title>Availability and affordability of blood pressure-lowering medicines and the effect on blood pressure control in high-income, middle-income, and low-income countries: an analysis of the PURE study data</article-title>. <source>Lancet Public Health</source>. <year>2017</year>;<volume>2</volume>(<issue>9</issue>):<fpage>e411</fpage>–<lpage>9</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S2468-2667(17)30141-X" xlink:type="simple">10.1016/S2468-2667(17)30141-X</ext-link></comment> <object-id pub-id-type="pmid">29253412</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref010"><label>10</label><mixed-citation publication-type="book" xlink:type="simple"><collab>World Health Organization</collab>. <source>Taking stock: task shifting to tackle health worker shortages</source>. <publisher-loc>Geneva</publisher-loc>: <publisher-name>World Health Organization</publisher-name>; <year>2007</year> [cited 2018 Nov 9]. Available from: <ext-link ext-link-type="uri" xlink:href="http://www.who.int/healthsystems/task_shifting/TTR_tackle.pdf?ua=1" xlink:type="simple">http://www.who.int/healthsystems/task_shifting/TTR_tackle.pdf?ua=1</ext-link>.</mixed-citation></ref>
+<ref id="pmed.1002997.ref011"><label>11</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Joshi</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Alim</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Kengne</surname> <given-names>AP</given-names></name>, <name name-style="western"><surname>Jan</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Maulik</surname> <given-names>PK</given-names></name>, <name name-style="western"><surname>Peiris</surname> <given-names>D</given-names></name>, <etal>et al</etal>. <article-title>Task shifting for non-communicable disease management in low and middle income countries—a systematic review</article-title>. <source>PLoS ONE</source>. <year>2014</year>;<volume>9</volume>(<issue>8</issue>):<fpage>e103754</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0103754" xlink:type="simple">10.1371/journal.pone.0103754</ext-link></comment> <object-id pub-id-type="pmid">25121789</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref012"><label>12</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>He</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Irazola</surname> <given-names>V</given-names></name>, <name name-style="western"><surname>Mills</surname> <given-names>KT</given-names></name>, <name name-style="western"><surname>Poggio</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Beratarrechea</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Dolan</surname> <given-names>J</given-names></name>, <etal>et al</etal>. <article-title>Effect of a community health worker–led multicomponent intervention on blood pressure control in low-income patients in Argentina: a randomized clinical trial</article-title>. <source>JAMA</source>. <year>2017</year>;<volume>318</volume>(<issue>11</issue>):<fpage>1016</fpage>–<lpage>25</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1001/jama.2017.11358" xlink:type="simple">10.1001/jama.2017.11358</ext-link></comment> <object-id pub-id-type="pmid">28975305</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref013"><label>13</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Neupane</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>McLachlan</surname> <given-names>CS</given-names></name>, <name name-style="western"><surname>Mishra</surname> <given-names>SR</given-names></name>, <name name-style="western"><surname>Olsen</surname> <given-names>MH</given-names></name>, <name name-style="western"><surname>Perry</surname> <given-names>HB</given-names></name>, <name name-style="western"><surname>Karki</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Effectiveness of a lifestyle intervention led by female community health volunteers versus usual care in blood pressure reduction (COBIN): an open-label, cluster-randomised trial</article-title>. <source>Lancet Glob Health</source>. <year>2018</year>;<volume>6</volume>(<issue>1</issue>):<fpage>e66</fpage>–<lpage>73</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/S2214-109X(17)30411-4" xlink:type="simple">10.1016/S2214-109X(17)30411-4</ext-link></comment> <object-id pub-id-type="pmid">29241617</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref014"><label>14</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jafar</surname> <given-names>TH</given-names></name>, <name name-style="western"><surname>Silva</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Naheed</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Jehan</surname> <given-names>I</given-names></name>, <name name-style="western"><surname>Liang</surname> <given-names>F</given-names></name>, <name name-style="western"><surname>Assam</surname> <given-names>PN</given-names></name>, <etal>et al</etal>. <article-title>Control of blood pressure and risk attenuation: a public health intervention in rural Bangladesh, Pakistan, and Sri Lanka: feasibility trial results</article-title>. <source>J Hypertens</source>. <year>2016</year>;<volume>34</volume>(<issue>9</issue>):<fpage>1872</fpage>–<lpage>81</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/HJH.0000000000001014" xlink:type="simple">10.1097/HJH.0000000000001014</ext-link></comment> <object-id pub-id-type="pmid">27488552</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref015"><label>15</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Kar</surname> <given-names>SS</given-names></name>, <name name-style="western"><surname>Thakur</surname> <given-names>JS</given-names></name>, <name name-style="western"><surname>Jain</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Kumar</surname> <given-names>R</given-names></name>. <article-title>Cardiovascular disease risk management in a primary health care setting of north India</article-title>. <source>Indian Heart J</source>. <year>2008</year>;<volume>60</volume>(<issue>1</issue>):<fpage>19</fpage>–<lpage>25</lpage>. <object-id pub-id-type="pmid">19212017</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref016"><label>16</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Newman</surname> <given-names>PM</given-names></name>, <name name-style="western"><surname>Franke</surname> <given-names>MF</given-names></name>, <name name-style="western"><surname>Arrieta</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Carrasco</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Elliott</surname> <given-names>P</given-names></name>, <name name-style="western"><surname>Flores</surname> <given-names>H</given-names></name>, <etal>et al</etal>. <article-title>Community health workers improve disease control and medication adherence among patients with diabetes and/or hypertension in Chiapas, Mexico: an observational stepped-wedge study</article-title>. <source>BMJ Glob Health</source>. <year>2018</year>;<volume>3</volume>(<issue>1</issue>):<fpage>e000566</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1136/bmjgh-2017-000566" xlink:type="simple">10.1136/bmjgh-2017-000566</ext-link></comment> <object-id pub-id-type="pmid">29527344</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref017"><label>17</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Jafar</surname> <given-names>TH</given-names></name>, <name name-style="western"><surname>Hatcher</surname> <given-names>J</given-names></name>, <name name-style="western"><surname>Poulter</surname> <given-names>N</given-names></name>, <name name-style="western"><surname>Islam</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Hashmi</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Qadri</surname> <given-names>Z</given-names></name>, <etal>et al</etal>. <article-title>Community-based interventions to promote blood pressure control in a developing country: a cluster randomized trial</article-title>. <source>Ann Intern Med</source>. <year>2009</year>;<volume>151</volume>(<issue>9</issue>):<fpage>593</fpage>–<lpage>601</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.7326/0003-4819-151-9-200911030-00004" xlink:type="simple">10.7326/0003-4819-151-9-200911030-00004</ext-link></comment> <object-id pub-id-type="pmid">19884620</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref018"><label>18</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Peiris</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Praveen</surname> <given-names>D</given-names></name>, <name name-style="western"><surname>Mogulluru</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Ameer</surname> <given-names>MA</given-names></name>, <name name-style="western"><surname>Raghu</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Li</surname> <given-names>Q</given-names></name>, <etal>et al</etal>. <article-title>SMARThealth India: a stepped-wedge, cluster randomised controlled trial of a community health worker managed mobile health intervention for people assessed at high cardiovascular disease risk in rural India</article-title>. <source>PLoS ONE</source>. <year>2019</year>;<volume>14</volume>(<issue>3</issue>):<fpage>e0213708</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pone.0213708" xlink:type="simple">10.1371/journal.pone.0213708</ext-link></comment> <object-id pub-id-type="pmid">30913216</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref019"><label>19</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Mendis</surname> <given-names>S</given-names></name>, <name name-style="western"><surname>Johnston</surname> <given-names>SC</given-names></name>, <name name-style="western"><surname>Fan</surname> <given-names>W</given-names></name>, <name name-style="western"><surname>Oladapo</surname> <given-names>O</given-names></name>, <name name-style="western"><surname>Cameron</surname> <given-names>A</given-names></name>, <name name-style="western"><surname>Faramawi</surname> <given-names>MF</given-names></name>. <article-title>Cardiovascular risk management and its impact on hypertension control in primary care in low-resource settings: a cluster-randomized trial</article-title>. <source>Bull World Health Organ</source>. <year>2010</year>;<volume>88</volume>(<issue>6</issue>):<fpage>412</fpage>–<lpage>9</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2471/BLT.08.062364" xlink:type="simple">10.2471/BLT.08.062364</ext-link></comment> <object-id pub-id-type="pmid">20539854</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref020"><label>20</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Riley</surname> <given-names>SB</given-names></name>, <name name-style="western"><surname>Marshall</surname> <given-names>ES</given-names></name>. <article-title>Group visits in diabetes care: a systematic review</article-title>. <source>Diabetes Educ</source>. <year>2010</year>;<volume>36</volume>(<issue>6</issue>):<fpage>936</fpage>–<lpage>44</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1177/0145721710385013" xlink:type="simple">10.1177/0145721710385013</ext-link></comment> <object-id pub-id-type="pmid">20974905</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref021"><label>21</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Riddell</surname> <given-names>MA</given-names></name>, <name name-style="western"><surname>Joshi</surname> <given-names>R</given-names></name>, <name name-style="western"><surname>Oldenburg</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Chow</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Thankappan</surname> <given-names>KR</given-names></name>, <name name-style="western"><surname>Mahal</surname> <given-names>A</given-names></name>, <etal>et al</etal>. <article-title>Cluster randomised feasibility trial to improve the Control of Hypertension In Rural India (CHIRI): a study protocol</article-title>. <source>BMJ Open</source>. <year>2016</year>;<volume>6</volume>(<issue>10</issue>):<fpage>e012404</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1136/bmjopen-2016-012404" xlink:type="simple">10.1136/bmjopen-2016-012404</ext-link></comment> <object-id pub-id-type="pmid">27855099</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref022"><label>22</label><mixed-citation publication-type="book" xlink:type="simple"><collab>Government of Kerala State Planning Board</collab>. <source>Human development report 2005</source>. <publisher-loc>Thiruvananthapuram</publisher-loc>: <publisher-name>Government of Kerala State Planning Board</publisher-name>; <year>2005</year> [cited 2018 Nov 9]. Available from: <ext-link ext-link-type="uri" xlink:href="http://planningcommission.nic.in/plans/stateplan/sdr_pdf/shdr_kerala05.pdf" xlink:type="simple">http://planningcommission.nic.in/plans/stateplan/sdr_pdf/shdr_kerala05.pdf</ext-link>.</mixed-citation></ref>
+<ref id="pmed.1002997.ref023"><label>23</label><mixed-citation publication-type="other" xlink:type="simple">Government of India. District census 2011. Government of India; 2015 [cited 2018 Nov 9]. Available from: <ext-link ext-link-type="uri" xlink:href="http://www.census2011.co.in/district.php" xlink:type="simple">http://www.census2011.co.in/district.php</ext-link>.</mixed-citation></ref>
+<ref id="pmed.1002997.ref024"><label>24</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Thrift</surname> <given-names>AG</given-names></name>, <name name-style="western"><surname>Evans</surname> <given-names>RG</given-names></name>, <name name-style="western"><surname>Kalyanram</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Kartik</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Fitzgerald</surname> <given-names>SM</given-names></name>, <name name-style="western"><surname>Srikanth</surname> <given-names>V</given-names></name>. <article-title>Gender-specific effects of caste and salt on hypertension in poverty: a population-based study</article-title>. <source>J Hypertens</source>. <year>2011</year>;<volume>29</volume>(<issue>3</issue>):<fpage>443</fpage>–<lpage>50</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1097/HJH.0b013e328341888c" xlink:type="simple">10.1097/HJH.0b013e328341888c</ext-link></comment> <object-id pub-id-type="pmid">21119531</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref025"><label>25</label><mixed-citation publication-type="book" xlink:type="simple"><collab>World Health Organization</collab>. <source>WHO STEPS: surveillance manual: the WHO STEPwise approach to noncommunicable disease risk factor surveillance</source>. <publisher-loc>Geneva</publisher-loc>: <publisher-name>World Health Organization</publisher-name>; <year>2017</year> [cited 2018 Oct 10]. Available from: <ext-link ext-link-type="uri" xlink:href="http://www.who.int/ncds/surveillance/steps/STEPS_Manual.pdf" xlink:type="simple">http://www.who.int/ncds/surveillance/steps/STEPS_Manual.pdf</ext-link>.</mixed-citation></ref>
+<ref id="pmed.1002997.ref026"><label>26</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Abdel-All</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Thrift</surname> <given-names>AG</given-names></name>, <name name-style="western"><surname>Riddell</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Thankappan</surname> <given-names>KRT</given-names></name>, <name name-style="western"><surname>Mini</surname> <given-names>GK</given-names></name>, <name name-style="western"><surname>Chow</surname> <given-names>CK</given-names></name>, <etal>et al</etal>. <article-title>Evaluation of a training program of hypertension for accredited social health activists (ASHA) in rural India</article-title>. <source>BMC Health Serv Res</source>. <year>2018</year>;<volume>18</volume>(<issue>1</issue>):<fpage>320</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1186/s12913-018-3140-8" xlink:type="simple">10.1186/s12913-018-3140-8</ext-link></comment> <object-id pub-id-type="pmid">29720161</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref027"><label>27</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Råstam</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Berglund</surname> <given-names>G</given-names></name>, <name name-style="western"><surname>Isacsson</surname> <given-names>SO</given-names></name>, <name name-style="western"><surname>Rydén</surname> <given-names>L</given-names></name>. <article-title>The Skaraborg hypertension project. III. Influence on blood pressure of a medical care program for hypertension</article-title>. <source>Acta Med Scand</source>. <year>1986</year>;<volume>219</volume>(<issue>3</issue>):<fpage>261</fpage>–<lpage>9</lpage>. <object-id pub-id-type="pmid">3486551</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref028"><label>28</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Parker</surname> <given-names>DR</given-names></name>, <name name-style="western"><surname>Evangelou</surname> <given-names>E</given-names></name>, <name name-style="western"><surname>Eaton</surname> <given-names>CB</given-names></name>. <article-title>Intraclass correlation coefficients for cluster randomized trials in primary care: the cholesterol education and research trial (CEART)</article-title>. <source>Contemp Clin Trials</source>. <year>2005</year>;<volume>26</volume>(<issue>2</issue>):<fpage>260</fpage>–<lpage>7</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.cct.2005.01.002" xlink:type="simple">10.1016/j.cct.2005.01.002</ext-link></comment> <object-id pub-id-type="pmid">15837446</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref029"><label>29</label><mixed-citation publication-type="journal" xlink:type="simple"><collab>Blood Pressure Lowering Treatment Trialists’ Collaboration</collab>. <article-title>Effects of different blood-pressure-lowering regimens on major cardiovascular events: results of prospectively-designed overviews of randomised trials</article-title>. <source>Lancet</source>. <year>2003</year>;<volume>362</volume>(<issue>9395</issue>):<fpage>1527</fpage>–<lpage>35</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1016/s0140-6736(03)14739-3" xlink:type="simple">10.1016/s0140-6736(03)14739-3</ext-link></comment> <object-id pub-id-type="pmid">14615107</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref030"><label>30</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>White</surname> <given-names>ND</given-names></name>, <name name-style="western"><surname>Lenz</surname> <given-names>TL</given-names></name>, <name name-style="western"><surname>Smith</surname> <given-names>K</given-names></name>. <article-title>Tool guide for lifestyle behavior change in a cardiovascular risk reduction program</article-title>. <source>Psychol Res Behav Manag</source>. <year>2013</year>;<volume>6</volume>:<fpage>55</fpage>–<lpage>63</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.2147/PRBM.S40490" xlink:type="simple">10.2147/PRBM.S40490</ext-link></comment> <object-id pub-id-type="pmid">23983496</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref031"><label>31</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Matsumura</surname> <given-names>K</given-names></name>, <name name-style="western"><surname>Arima</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>Tominaga</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Ohtsubo</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Sasaguri</surname> <given-names>T</given-names></name>, <name name-style="western"><surname>Fujii</surname> <given-names>K</given-names></name>, <etal>et al</etal>. <article-title>Impact of antihypertensive medication adherence on blood pressure control in hypertension: the COMFORT study</article-title>. <source>QJM</source>. <year>2013</year>;<volume>106</volume>(<issue>10</issue>):<fpage>909</fpage>–<lpage>14</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1093/qjmed/hct121" xlink:type="simple">10.1093/qjmed/hct121</ext-link></comment> <object-id pub-id-type="pmid">23696676</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref032"><label>32</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Aucott</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Rothnie</surname> <given-names>H</given-names></name>, <name name-style="western"><surname>McIntyre</surname> <given-names>L</given-names></name>, <name name-style="western"><surname>Thapa</surname> <given-names>M</given-names></name>, <name name-style="western"><surname>Waweru</surname> <given-names>C</given-names></name>, <name name-style="western"><surname>Gray</surname> <given-names>D</given-names></name>. <article-title>Long-term weight loss from lifestyle intervention benefits blood pressure?: a systematic review</article-title>. <source>Hypertension</source>. <year>2009</year>;<volume>54</volume>(<issue>4</issue>):<fpage>756</fpage>–<lpage>62</lpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1161/HYPERTENSIONAHA.109.135178" xlink:type="simple">10.1161/HYPERTENSIONAHA.109.135178</ext-link></comment> <object-id pub-id-type="pmid">19704106</object-id></mixed-citation></ref>
+<ref id="pmed.1002997.ref033"><label>33</label><mixed-citation publication-type="journal" xlink:type="simple"><name name-style="western"><surname>Giraudeau</surname> <given-names>B</given-names></name>, <name name-style="western"><surname>Ravaud</surname> <given-names>P</given-names></name>. <article-title>Preventing bias in cluster randomised trials</article-title>. <source>PLoS Med</source>. <year>2009</year>;<volume>6</volume>(<issue>5</issue>):<fpage>e1000065</fpage>. <comment>doi: <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1371/journal.pmed.1000065" xlink:type="simple">10.1371/journal.pmed.1000065</ext-link></comment> <object-id pub-id-type="pmid">19536323</object-id></mixed-citation></ref>
+</ref-list>
+</back>
+</article>

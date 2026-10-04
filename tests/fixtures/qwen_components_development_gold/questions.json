@@ -1,0 +1,443 @@
+{
+  "questions": [
+    {
+      "answerable": true,
+      "category": "reference_and_diagnostic_performance",
+      "components": [
+        {
+          "id": "reference",
+          "query": "In the routine-clinical CT CAD validation, how was the nodule-composition reference standard established and which study groups supplied it?"
+        },
+        {
+          "id": "sensitivity_specificity",
+          "query": "In the routine-clinical CT CAD validation, what were CAD sensitivity and specificity for solid nodules and for sub-solid nodules?"
+        },
+        {
+          "id": "accuracy_agreement",
+          "query": "In the routine-clinical CT CAD validation, what were overall solid versus sub-solid composition accuracy and kappa?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "Composition reference: majority consensus of lesions from groups 1–3 and 5. Solid sensitivity/specificity: 98.8%/68.4%; sub-solid: 68.4%/98.8%; overall composition accuracy 94.2%, kappa 0.77.",
+      "id": "components-dev-lung-01",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the routine-clinical CT CAD validation, how was the nodule-composition reference standard established, and what were CAD sensitivity and specificity for solid and sub-solid nodules, overall composition accuracy and kappa?",
+      "source_id": "lung_ct",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+            "block_sha256": "fd32d7b48a85504d7c8be4e6a8aecbd723eb1af7615e8c78dee779b2c4348a8c",
+            "end": 683,
+            "quote": "The reference standard for composition was determined by majority consensus of lesions from groups 1–3 and 5.",
+            "source_id": "lung_ct",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+            "start": 574
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/p[2]",
+            "block_sha256": "96ad15c63f6884a600451ae789e447efb7deb76d9c32452976eda9435d25749d",
+            "end": 509,
+            "quote": "The composition of nodules within groups 1, 2, 3, and 5 totaled 325 solid nodules and 57 sub-solid nodules. The sensitivity, specificity, positive predictive value and negative predictive value of CAD for determining the composition of solid nodules in groups 1, 2, 3, and 5 was 98.8%, 68.4%, 90.7% and 94.7%, and was 68.4%, 98.8%, 94.7% and 90.7% for sub-solid nodules, respectively. The accuracy and kappa of CAD for determining the composition (solid or sub-solid) of a pulmonary nodule was 94.2% and 0.77.",
+            "source_id": "lung_ct",
+            "source_path": "/article[1]/body[1]/sec[3]/p[2]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": true,
+      "category": "cohort_measurement_and_segmentation",
+      "components": [
+        {
+          "id": "cohort",
+          "query": "In the routine-clinical CT CAD validation, what CT acquisition period and patient age inclusion criteria defined the eligible cohort?"
+        },
+        {
+          "id": "measurement",
+          "query": "In the routine-clinical CT CAD validation, how were inter-reader segmentation Dice and CAD segmentation Dice calculated?"
+        },
+        {
+          "id": "segmentation_results",
+          "query": "In the routine-clinical CT CAD validation, what percentage of pulmonary nodules CAD successfully segmented and what inter-reader and CAD Dice estimates with confidence intervals were reported?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "CTs were sought from January 2008 to December 2009 with age eligibility 50–74 years. Reader Dice averaged each reader segmentation comparison; CAD Dice averaged comparisons of CAD segmentation against each individual reader. CAD segmented 95% of nodules from groups 1–3 and 5. Inter-reader Dice 0.83 (95% CI 0.39–0.96), CAD 0.86 (95% CI 0.51–0.95).",
+      "id": "components-dev-lung-02",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "For segmentation in the routine-clinical CT CAD validation, what acquisition period and age criteria defined the eligible cohort, how were the inter-reader and CAD Dice measures calculated, and what percentage of nodules CAD segmented and Dice estimates with confidence intervals were reported?",
+      "source_id": "lung_ct",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "block_sha256": "e74ba9d468a0b15e9dab51296b30773ca4bbd97cdafa54763983135e30dbd4ea",
+            "end": 325,
+            "quote": "CT studies from a routine clinical population, in a single academic hospital, between January 2008 and December 2009 (9 years before start of this retrospective study), were searched for the following inclusion criteria: age 50–74 years, current smokers, a smoking history and/or radiological evidence of pulmonary emphysema.",
+            "source_id": "lung_ct",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[3]",
+            "block_sha256": "fca88557cca2672f51c87ac365b32f52229215b0a0f096ed4bfcfaebf18ec29a",
+            "end": 318,
+            "quote": "The segmentation accuracy of readers was calculated as the Dice coefficient between each reader’s segmentation and averaged (inter-reader dice coefficient). The segmentation accuracy of CAD alone was calculated as the Dice coefficient between each CAD segmentation and each individual reader segmentation and averaged.",
+            "source_id": "lung_ct",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[3]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/p[3]",
+            "block_sha256": "641bbf50e0bf227dde9ef61976645d30a3f867d233cffdbc53a99c271589261e",
+            "end": 216,
+            "quote": "The CAD software successfully segmented 95% of pulmonary nodules from groups 1–3 and 5. The average inter-reader Dice coefficient was 0.83 (95% CI: 0.39, 0.96) versus 0.86 (95% CI: 0.51, 0.95) for CAD alone (p<0.01).",
+            "source_id": "lung_ct",
+            "source_path": "/article[1]/body[1]/sec[3]/p[3]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": true,
+      "category": "longitudinal_definition_and_results",
+      "components": [
+        {
+          "id": "growth_definition",
+          "query": "In the routine-clinical CT CAD validation, how was nodule growth defined using baseline and follow-up scans and study groups?"
+        },
+        {
+          "id": "growth_results",
+          "query": "In the routine-clinical CT CAD validation, how many nodule pairs were assessed and what reader versus CAD mean growth-percentage discrepancies with confidence intervals were reported?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "Growth was relative volume difference between nodules on group 3 scans and their group 4 follow-up scans. There were 23 nodule pairs. Reader mean growth-percentage discrepancy 1.30 (95% CI 1.02–2.21), CAD alone 1.35 (95% CI 1.01–4.99); the reported difference was not statistically significant.",
+      "id": "components-dev-lung-03",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the routine-clinical CT CAD validation, how was nodule growth defined across baseline and follow-up scans, how many nodule pairs were assessed, and what reader and CAD mean growth-percentage discrepancies with confidence intervals were reported?",
+      "source_id": "lung_ct",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+            "block_sha256": "fd32d7b48a85504d7c8be4e6a8aecbd723eb1af7615e8c78dee779b2c4348a8c",
+            "end": 842,
+            "quote": "Finally, growth rate was determined as the relative volume difference between nodules visible on a study from group 3 and on its follow-up study from group 4.",
+            "source_id": "lung_ct",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+            "start": 684
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/p[4]",
+            "block_sha256": "67516b1ec4a2b3730bbaac9ea02614d910d8b8d9f17de7335bcd81a7dea879f8",
+            "end": 364,
+            "quote": "The total number of nodules in group 3 and 4 was 68 and 42, respectively. The total number of nodule-pairs in groups 3 and 4 was 23 and all nodules were successfully identified by CAD. The mean growth percentage discrepancy of readers and CAD alone was 1.30 (95% CI: 1.02, 2.21) and 1.35 (95% CI: 1.01, 4.99), respectively, which was not statistically significant.",
+            "source_id": "lung_ct",
+            "source_path": "/article[1]/body[1]/sec[3]/p[4]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": false,
+      "category": "source_scoped_null",
+      "components": [
+        {
+          "id": "malignancy_reference",
+          "query": "In the routine-clinical CT CAD validation cohort, what biopsy or histopathology reference was used for malignant-nodule diagnosis?"
+        },
+        {
+          "id": "malignancy_accuracy",
+          "query": "In that routine-clinical CT CAD validation cohort, what sensitivity and specificity for malignant-nodule diagnosis against biopsy or histopathology were measured?"
+        }
+      ],
+      "context_anchors": [
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+          "block_sha256": "fd32d7b48a85504d7c8be4e6a8aecbd723eb1af7615e8c78dee779b2c4348a8c",
+          "end": 842,
+          "quote": "The reference standard for actionable nodules consisted of lesions from groups 1 and 2 which were marked as a pulmonary nodule by the majority of the panel and met the size criteria of having a largest axial diameter between ≥5mm (or a volume of ≥80mm3) and ≤30mm. The majority consisted of consensus between reader 1 and 2 or, in the case of no consensus, the adjudication of reader 3. The location of an actionable nodule was defined by averaging the center of mass of all reader’s segmentations. Subsequently, the radius and volume were derived from these segmentations. The reference standard for composition was determined by majority consensus of lesions from groups 1–3 and 5. Finally, growth rate was determined as the relative volume difference between nodules visible on a study from group 3 and on its follow-up study from group 4.",
+          "source_id": "lung_ct",
+          "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+          "start": 0
+        },
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+          "block_sha256": "14b74a5cca1074759cd959971e01c171ae50d17997d1d0732ce9a2488b8a1468",
+          "end": 605,
+          "quote": "A more recent study [21] demonstrated moderately high sensitivity of 84% and a corresponding positive predictive value of 67% when tested in 100 patients with 106 biopsied lung nodules at a slice thickness of 3 mm.",
+          "source_id": "lung_ct",
+          "source_path": "/article[1]/body[1]/sec[4]/p[2]",
+          "start": 391
+        }
+      ],
+      "expected_answer": null,
+      "id": "components-dev-lung-null",
+      "necessary_and": false,
+      "null_reason": "The own study reference concerns consensus-detected actionable nodules, composition and growth; it does not provide a biopsy/histopathology-confirmed malignancy diagnostic evaluation. Discussion of a different biopsied-nodule study is contextual evidence only.",
+      "quantitative": false,
+      "query": "For the routine-clinical CT CAD validation cohort, what biopsy or histopathology reference was used to diagnose malignant nodules, and what sensitivity and specificity for malignancy against that reference were measured?",
+      "source_id": "lung_ct",
+      "support_sets": []
+    },
+    {
+      "answerable": true,
+      "category": "intervention_schedule_and_complete_case_control",
+      "components": [
+        {
+          "id": "intervention_schedule",
+          "query": "In the rural-India community-health-worker hypertension trial, what session number, spacing, approximate session length and total intervention duration were planned?"
+        },
+        {
+          "id": "control_effect",
+          "query": "In the rural-India community-health-worker hypertension trial, what arm-specific participant denominators and adjusted odds ratio with confidence interval were reported for the complete-case overall BP-control analysis?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "The program planned 6 fortnightly sessions of approximately 90 minutes over 3 months. Complete-case overall BP-control denominators were 459 intervention and 1,011 usual care, with adjusted OR 1.6 (95% CI 1.2–2.1). These are the BP-control denominators, distinct from the medication outcome denominators.",
+      "id": "components-dev-hypertension-01",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the rural-India community-health-worker hypertension trial, what session number, spacing, approximate session length and total intervention duration were planned, and in the complete-case overall BP-control analysis what arm-specific participant denominators and adjusted odds ratio with confidence interval were reported?",
+      "source_id": "hypertension",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+            "block_sha256": "c0aecbbc28d6dbf78862afae4046e88f889c4a460ceaed8021cc5fd310b02860",
+            "end": 168,
+            "quote": "The intervention consisted of 6 fortnightly sessions of ~90 minutes, held within the villages (clusters) in which the participants resided, and delivered over 3 months.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+            "block_sha256": "fcc134864536d501c73ad7abc8c4bd1903f515c4f3cf8b2737e7a984ee02db18",
+            "end": 1904,
+            "quote": "Table 2\nEffects of intervention on control of hypertension (primary outcome) and prescription of antihypertensive medication (secondary outcome) in people with hypertension: complete case analysis.\nOutcome\tNumber of participants\tChange from baseline to follow-up*\tP value\tAdjusted odds ratio (95% CI)†\tP value\nIntervention\tUC‡\tIntervention\tUC\nOverall\t\t\t\t\t\t\t\nControl of hypertension\t459\t1,011\t93 (20.3)\t96 (9.5)\t<0.001\t1.6 (1.2–2.1)\t0.001\nPrescribed antihypertensive medication\t459\t1,012\t57 (12.4)\t100 (9.9)\t0.14\t1.2 (0.8–1.9)\t0.34\nWomen\t\t\t\t\t\t\t\nControl of hypertension\t280\t596\t52 (18.6)\t49 (8.2)\t<0.001\t1.6 (1.1–2.2)\t0.01\nPrescribed antihypertensive medication\t280\t597\t38 (13.6)\t45 (7.5)\t0.004\t1.5 (0.9–2.2)\t0.09\nMen\t\t\t\t\t\t\t\nControl of hypertension\t178\t411\t41 (23.0)\t48 (11.7)\t<0.001\t1.6 (1.1–2.5)\t0.02\nPrescribed antihypertensive medication\t178\t411\t19 (10.7)\t54 (13.1)\t0.40\t0.9 (0.5–1.7)\t0.85\nThere are 4 missing observations for sex in the UC group and 1 in the intervention group. *Change in control of hypertension was obtained by subtracting the number of people with control of hypertension at baseline from the number with control at follow-up. The same approach was applied to prescription of antihypertensive medication. Positive number demonstrates improvement. †Odds ratios obtained using mixed effects logistic regression, clustered by village and study region. For control of hypertension, the dependent variable was control of hypertension at follow-up, with adjustment for control of hypertension at baseline (ICC: overall, 0.002; women, 0.003; men, 0.008). The same approach was applied to prescription of antihypertensive medication (ICC: overall, 0.04; women, 0.02; men, 0.09). ‡A person who did not have blood pressure measured at follow-up had details of medications, and so there is an extra observation for the latter analysis. ICC, intraclass correlation coefficient; UC, usual care.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": true,
+      "category": "measurement_timing_and_adjusted_bp",
+      "components": [
+        {
+          "id": "bp_measurement",
+          "query": "In the rural-India hypertension trial, what quiet-rest period, serial-reading intervals and averaging procedure determined baseline BP?"
+        },
+        {
+          "id": "follow_up_timing",
+          "query": "In the rural-India community-health-worker hypertension trial, when after the final intervention session were participant outcomes collected?"
+        },
+        {
+          "id": "adjusted_bp_effects",
+          "query": "In the rural-India hypertension trial, what adjusted net systolic and diastolic BP changes with confidence intervals were reported overall?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "BP followed at least 15 minutes quiet sitting, three measurements at 3-minute intervals, continued until two consecutive readings differed by less than 10 mm Hg systolic and 6 mm Hg diastolic, up to five readings; the last two consecutive readings were averaged. Outcomes were collected approximately 2 months after the final session. Overall adjusted net SBP change −5.0 mm Hg (95% CI −7.1 to −3.0); DBP −2.1 mm Hg (95% CI −3.6 to −0.6).",
+      "id": "components-dev-hypertension-02",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the rural-India hypertension trial, what quiet-rest and serial-reading procedure determined BP, when after the intervention were outcomes collected, and what adjusted net systolic and diastolic BP changes with confidence intervals were reported overall?",
+      "source_id": "hypertension",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+            "block_sha256": "d4ee1a551cced8a48b857799742e1884c97cb6dab4c2be7bb7554c5c748e5268",
+            "end": 997,
+            "quote": "Arterial BP was measured after the participant had been seated quietly for at least 15 minutes. Three measurements were taken at 3-minute intervals using the appropriate cuff size and a calibrated digital automatic BP monitor (OMRON HEM-907, OMRON Healthcare, Kyoto, Japan) according to the WHO STEPS protocol, modified only by using the right arm for all measurements [25]. Measurement continued until 2 consecutive readings differed by <10 mm Hg systolic and <6 mm Hg diastolic, with a maximum of 5 measurements. The mean of the last 2 consecutive measurements was considered the baseline BP level for each participant.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+            "start": 376
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+            "block_sha256": "be1c69994ff51119a42685e44921e2d4a94399966b5dfe4b65713d961e6b4c35",
+            "end": 550,
+            "quote": "Participant outcomes were collected at a follow-up visit occurring approximately 2 months after the final session of the group-based education and monitoring program. The primary outcome was a change from baseline in the proportion of people with controlled hypertension (BP < 140/90 mm Hg), as outlined in our clinical trial registration. Secondary BP outcomes, as listed in our published protocol [21], included change in SBP and DBP from baseline, measured in an identical way to the baseline survey in accordance with the WHO STEPS protocol [25].",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+            "block_sha256": "7d94ef13be59671394620def7c4bf56d83c0fc90997cc206f4f15f1e5052c2dd",
+            "end": 2484,
+            "quote": "Table 3\nEffects of intervention on secondary outcomes in people with hypertension: complete case analysis.\nOutcome\tNumber of participants\tUnadjusted mean change (95% CI)\tUnadjusted net mean change (95% CI)\tP value\tAdjusted net mean change (95% CI)\tP value\nIntervention\tUC\tInterventionn = 459\tUCn = 1,012\nOverall\t\t\t\t\t\t\t\t\nSBP (mm Hg)\t459\t1,011\t−8.2 (−10.0 to −6.3)\t−2.1 (−3.4 to −0.8)\t−6.1 (−8.4 to −3.8)\t<0.001\t−5.0 (−7.1 to −3.0)*\t<0.001\nDBP (mm Hg)\t459\t1,011\t−4.2 (−5.3 to −3.1)\t−2.2 (−3.0 to −1.4)\t−2.0 (−3.4 to 0.6)\t0.004\t−2.1 (−3.6 to −0.6)†\t<0.006\nWomen\t\t\t\t\t\t\t\t\nSBP (mm Hg)\t280\t596\t−6.7 (−8.8 to −4.6)\t−1.5 (−3.1 to 0.2)\t−5.2 (−8.0 to −2.4)\t<0.001\t−4.8 (−7.2 to −2.3)‡\t<0.001\nDBP (mm Hg)\t280\t596\t−2.6 (−3.9 to −1.3)\t−1.7 (−2.7 to 0.8)\t−0.9 (−2.5 to 0.7)\t0.29\t−1.3 (−2.7 to 0.0)§\t0.06\nMen\t\t\t\t\t\t\t\t\nSBP (mm Hg)\t178\t411\t−10.5 (−13.8 to −7.2)\t−3.1 (−5.2 to −1.0)\t−7.4 (−11.3 to −3.5)\t<0.001\t−6.3 (−10.3 to −2.2)‖\t0.002\nDBP (mm Hg)\t178\t411\t−6.8 (−8.8 to −4.8)\t−3.0 (−4.3 to −1.7)\t−3.8 (−6.2 to −1.4)\t0.002\t−3.9 (−7.0 to −0.8)¶\t0.014\nFor change values, negative number demonstrates improvement. Adjusted analyses were conducted using mixed effects linear regression, clustered by region and village. *Adjusted for age, sex, SBP at baseline, use of antihypertensive medications, change in body mass index, and alcohol use; 37 missing observations due to missing variables. ICC = 0.022. †Adjusted for age, sex, DBP at baseline, education, use of antihypertensive medications, change in body mass index, fruit per week, and alcohol use; 49 missing observations due to missing variables. ICC = 0.020. ‡Adjusted for age, SBP at baseline, regular visits to doctor, use of antihypertensive medications, change in body mass index, and adding salt to food; 32 missing observations due to missing variables. ICC < 0.001. §Adjusted for age, DBP at baseline, education, regular visits to doctor, use of antihypertensive medications, and change in body mass index; 13 missing observations due to missing variables. ICC = 0.010. ‖Adjusted for age, SBP at baseline, education, use of antihypertensive medications, and alcohol use; 15 missing observations due to missing variables. ICC = 0.021. ¶Adjusted for age, DBP at baseline, education, regular visits to doctor, use of antihypertensive medications, and alcohol use; 15 missing observations due to missing variables. ICC = 0.045. DBP, diastolic blood pressure; ICC, intraclass correlation coefficient; SBP, systolic blood pressure; UC, usual care.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+            "start": 0
+          }
+        ],
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+            "block_sha256": "d4ee1a551cced8a48b857799742e1884c97cb6dab4c2be7bb7554c5c748e5268",
+            "end": 997,
+            "quote": "Arterial BP was measured after the participant had been seated quietly for at least 15 minutes. Three measurements were taken at 3-minute intervals using the appropriate cuff size and a calibrated digital automatic BP monitor (OMRON HEM-907, OMRON Healthcare, Kyoto, Japan) according to the WHO STEPS protocol, modified only by using the right arm for all measurements [25]. Measurement continued until 2 consecutive readings differed by <10 mm Hg systolic and <6 mm Hg diastolic, with a maximum of 5 measurements. The mean of the last 2 consecutive measurements was considered the baseline BP level for each participant.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+            "start": 376
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[13]/p[6]",
+            "block_sha256": "e10b4633bf1a9a257bfafec28ce9ccfe4bd5714856c917aa5da43fe7963285f6",
+            "end": 224,
+            "quote": "Mixed effects linear regression analyses, adjusted for baseline control of BP and clustered by village within region, were used to determine the effectiveness of the intervention in reducing SBP and DBP (secondary analyses).",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[13]/p[6]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+            "block_sha256": "2d2e5846ebcc49d598314fa9fc49bf2c2430e73890432fcdb75ebd50d39c1ef9",
+            "end": 2138,
+            "quote": "We conducted a baseline community-based survey followed by a cluster randomised controlled trial of people with hypertension in 3 rural regions of South India, each at differing stages of epidemiological transition. Participants with hypertension, defined as BP ≥ 140/90 mm Hg or taking antihypertensive medication, were advised to visit a doctor. In each region, villages were randomly assigned to intervention or usual care (UC) in a 1:2 ratio. In intervention clusters, trained CHWs delivered a group-based intervention to people with hypertension. The program, conducted fortnightly for 3 months, included monitoring of BP, education about hypertension, and support for healthy lifestyle change. Outcomes were assessed approximately 2 months after completion of the intervention. The primary outcome was control of BP (BP < 140/90 mm Hg), analysed using mixed effects regression, clustered by village within region and adjusted for baseline control of hypertension (using intention-to-treat principles). Of 2,382 potentially eligible people, 637 from 5 intervention clusters and 1,097 from 10 UC clusters were recruited between November 2015 and April 2016, with follow-up occurring in 459 in the intervention group and 1,012 in UC. Mean age was 56.9 years (SD 13.7). Baseline BP was similar between groups. Control of BP improved from baseline to follow-up more in the intervention group (from 227 [49.5%] to 320 [69.7%] individuals) than in the UC group (from 528 [52.2%] to 624 [61.7%] individuals) (odds ratio [OR] 1.6, 95% CI 1.2–2.1; P = 0.001). In secondary outcome analyses, there was a greater decline in systolic BP in the intervention than UC group (−5.0 mm Hg, 95% CI −7.1 to −3.0; P < 0.001) and a greater decline in diastolic BP (−2.1 mm Hg, 95% CI −3.6 to −0.6; P < 0.006), but no detectable difference in the use of BP-lowering medications between groups (OR 1.2, 95% CI 0.8–1.9; P = 0.34). Similar results were found when using imputation analyses that included those lost to follow-up. Limitations include a relatively short follow-up period and use of outcome assessors who were not blinded to the group allocation.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": true,
+      "category": "outcome_definition_with_sufficient_summary_or_body",
+      "components": [
+        {
+          "id": "outcome_definition",
+          "query": "In the rural-India community-health-worker hypertension trial, what BP threshold defined controlled hypertension and when after the intervention was it assessed?"
+        },
+        {
+          "id": "control_odds_ratio",
+          "query": "In the rural-India community-health-worker hypertension trial, what overall intervention-versus-usual-care odds ratio with confidence interval was reported for control of BP?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "Controlled hypertension was BP <140/90 mm Hg, assessed approximately 2 months after the intervention; overall intervention-versus-usual-care OR 1.6 (95% CI 1.2–2.1).",
+      "id": "components-dev-hypertension-03",
+      "necessary_and": false,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the rural-India community-health-worker hypertension trial, what BP threshold defined controlled hypertension and when after the intervention was it assessed, and what overall intervention-versus-usual-care odds ratio with confidence interval was reported?",
+      "source_id": "hypertension",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+            "block_sha256": "2d2e5846ebcc49d598314fa9fc49bf2c2430e73890432fcdb75ebd50d39c1ef9",
+            "end": 2138,
+            "quote": "We conducted a baseline community-based survey followed by a cluster randomised controlled trial of people with hypertension in 3 rural regions of South India, each at differing stages of epidemiological transition. Participants with hypertension, defined as BP ≥ 140/90 mm Hg or taking antihypertensive medication, were advised to visit a doctor. In each region, villages were randomly assigned to intervention or usual care (UC) in a 1:2 ratio. In intervention clusters, trained CHWs delivered a group-based intervention to people with hypertension. The program, conducted fortnightly for 3 months, included monitoring of BP, education about hypertension, and support for healthy lifestyle change. Outcomes were assessed approximately 2 months after completion of the intervention. The primary outcome was control of BP (BP < 140/90 mm Hg), analysed using mixed effects regression, clustered by village within region and adjusted for baseline control of hypertension (using intention-to-treat principles). Of 2,382 potentially eligible people, 637 from 5 intervention clusters and 1,097 from 10 UC clusters were recruited between November 2015 and April 2016, with follow-up occurring in 459 in the intervention group and 1,012 in UC. Mean age was 56.9 years (SD 13.7). Baseline BP was similar between groups. Control of BP improved from baseline to follow-up more in the intervention group (from 227 [49.5%] to 320 [69.7%] individuals) than in the UC group (from 528 [52.2%] to 624 [61.7%] individuals) (odds ratio [OR] 1.6, 95% CI 1.2–2.1; P = 0.001). In secondary outcome analyses, there was a greater decline in systolic BP in the intervention than UC group (−5.0 mm Hg, 95% CI −7.1 to −3.0; P < 0.001) and a greater decline in diastolic BP (−2.1 mm Hg, 95% CI −3.6 to −0.6; P < 0.006), but no detectable difference in the use of BP-lowering medications between groups (OR 1.2, 95% CI 0.8–1.9; P = 0.34). Similar results were found when using imputation analyses that included those lost to follow-up. Limitations include a relatively short follow-up period and use of outcome assessors who were not blinded to the group allocation.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+            "start": 0
+          }
+        ],
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+            "block_sha256": "be1c69994ff51119a42685e44921e2d4a94399966b5dfe4b65713d961e6b4c35",
+            "end": 339,
+            "quote": "Participant outcomes were collected at a follow-up visit occurring approximately 2 months after the final session of the group-based education and monitoring program. The primary outcome was a change from baseline in the proportion of people with controlled hypertension (BP < 140/90 mm Hg), as outlined in our clinical trial registration.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+            "block_sha256": "a00eef0c4f6ddcf4b6662131826415f222b510824baabfe1c0aebb17a2e2bb93",
+            "end": 241,
+            "quote": "In the primary outcome analysis, which was clustered by village and study region, there was 1.6-fold (95% CI 1.2 to 2.1; P = 0.001) better control of hypertension in the intervention group than in the UC group at follow-up (Table 2; Fig 3E).",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+            "start": 0
+          }
+        ],
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+            "block_sha256": "be1c69994ff51119a42685e44921e2d4a94399966b5dfe4b65713d961e6b4c35",
+            "end": 339,
+            "quote": "Participant outcomes were collected at a follow-up visit occurring approximately 2 months after the final session of the group-based education and monitoring program. The primary outcome was a change from baseline in the proportion of people with controlled hypertension (BP < 140/90 mm Hg), as outlined in our clinical trial registration.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+            "block_sha256": "fcc134864536d501c73ad7abc8c4bd1903f515c4f3cf8b2737e7a984ee02db18",
+            "end": 1904,
+            "quote": "Table 2\nEffects of intervention on control of hypertension (primary outcome) and prescription of antihypertensive medication (secondary outcome) in people with hypertension: complete case analysis.\nOutcome\tNumber of participants\tChange from baseline to follow-up*\tP value\tAdjusted odds ratio (95% CI)†\tP value\nIntervention\tUC‡\tIntervention\tUC\nOverall\t\t\t\t\t\t\t\nControl of hypertension\t459\t1,011\t93 (20.3)\t96 (9.5)\t<0.001\t1.6 (1.2–2.1)\t0.001\nPrescribed antihypertensive medication\t459\t1,012\t57 (12.4)\t100 (9.9)\t0.14\t1.2 (0.8–1.9)\t0.34\nWomen\t\t\t\t\t\t\t\nControl of hypertension\t280\t596\t52 (18.6)\t49 (8.2)\t<0.001\t1.6 (1.1–2.2)\t0.01\nPrescribed antihypertensive medication\t280\t597\t38 (13.6)\t45 (7.5)\t0.004\t1.5 (0.9–2.2)\t0.09\nMen\t\t\t\t\t\t\t\nControl of hypertension\t178\t411\t41 (23.0)\t48 (11.7)\t<0.001\t1.6 (1.1–2.5)\t0.02\nPrescribed antihypertensive medication\t178\t411\t19 (10.7)\t54 (13.1)\t0.40\t0.9 (0.5–1.7)\t0.85\nThere are 4 missing observations for sex in the UC group and 1 in the intervention group. *Change in control of hypertension was obtained by subtracting the number of people with control of hypertension at baseline from the number with control at follow-up. The same approach was applied to prescription of antihypertensive medication. Positive number demonstrates improvement. †Odds ratios obtained using mixed effects logistic regression, clustered by village and study region. For control of hypertension, the dependent variable was control of hypertension at follow-up, with adjustment for control of hypertension at baseline (ICC: overall, 0.002; women, 0.003; men, 0.008). The same approach was applied to prescription of antihypertensive medication (ICC: overall, 0.04; women, 0.02; men, 0.09). ‡A person who did not have blood pressure measured at follow-up had details of medications, and so there is an extra observation for the latter analysis. ICC, intraclass correlation coefficient; UC, usual care.",
+            "source_id": "hypertension",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": false,
+      "category": "source_scoped_null",
+      "components": [
+        {
+          "id": "one_year_control",
+          "query": "In the rural-India community-health-worker hypertension trial, what intervention-versus-usual-care BP-control odds ratio was observed one year after the final intervention session?"
+        },
+        {
+          "id": "one_year_bp",
+          "query": "In the rural-India community-health-worker hypertension trial, what systolic and diastolic BP changes were observed one year after the final intervention session?"
+        }
+      ],
+      "context_anchors": [
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+          "block_sha256": "be1c69994ff51119a42685e44921e2d4a94399966b5dfe4b65713d961e6b4c35",
+          "end": 166,
+          "quote": "Participant outcomes were collected at a follow-up visit occurring approximately 2 months after the final session of the group-based education and monitoring program.",
+          "source_id": "hypertension",
+          "source_path": "/article[1]/body[1]/sec[2]/sec[11]/p[1]",
+          "start": 0
+        },
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+          "block_sha256": "3a8fbe01f04da9b7011427149f7278f4545742481e916d95d8645b1f0a606984",
+          "end": 1899,
+          "quote": "We also acknowledge that both the 3-month intervention and the follow-up period of 6–8 weeks, between the last session of the program and assessment of outcomes, were relatively short. Because of this, we cannot determine whether there is a long-lasting improvement in controlling hypertension from our group-based education and monitoring program.",
+          "source_id": "hypertension",
+          "source_path": "/article[1]/body[1]/sec[4]/sec[1]/p[1]",
+          "start": 1551
+        }
+      ],
+      "expected_answer": null,
+      "id": "components-dev-hypertension-null",
+      "necessary_and": false,
+      "null_reason": "The main article reports follow-up approximately two months after the final session, not one year. The limitation explicitly states that long-lasting improvement could not be determined; early follow-up outcomes are context, not answers to the requested one-year outcomes.",
+      "quantitative": false,
+      "query": "In the rural-India community-health-worker hypertension trial, what was the intervention-versus-usual-care BP-control odds ratio one year after the final intervention session, and what systolic and diastolic BP changes were observed at that one-year follow-up?",
+      "source_id": "hypertension",
+      "support_sets": []
+    }
+  ],
+  "schema_version": 1
+}

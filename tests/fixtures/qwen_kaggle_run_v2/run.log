@@ -1,0 +1,39 @@
+6.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.3s 3 0.00s - to python to disable frozen modules.
+6.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+6.9s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.9s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.9s 7 0.00s - to python to disable frozen modules.
+6.9s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+12.0s 9 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 35.3 MB/s eta 0:00:00
+12.1s 10 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 81.2 MB/s eta 0:00:00
+12.2s 11 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 471.6/471.6 kB 26.6 MB/s eta 0:00:00
+12.2s 12 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 35.3 MB/s eta 0:00:00
+12.2s 13 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 81.2 MB/s eta 0:00:00
+12.2s 14 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 471.6/471.6 kB 26.6 MB/s eta 0:00:00
+12.3s 15 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 481.4/481.4 kB 28.7 MB/s eta 0:00:00
+12.5s 16 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 481.4/481.4 kB 28.7 MB/s eta 0:00:00
+25.8s 17 ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+25.8s 18 gradio 6.26.0 requires huggingface-hub<2.0,>=1.16.0, but you have huggingface-hub 0.30.2 which is incompatible.
+25.8s 19 diffusers 0.40.0 requires huggingface-hub<2.0,>=1.23.0, but you have huggingface-hub 0.30.2 which is incompatible.
+25.8s 20 diffusers 0.40.0 requires safetensors>=0.8.0, but you have safetensors 0.5.3 which is incompatible.
+26.0s 21 ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+26.0s 22 gradio 6.26.0 requires huggingface-hub<2.0,>=1.16.0, but you have huggingface-hub 0.30.2 which is incompatible.
+26.0s 23 diffusers 0.40.0 requires huggingface-hub<2.0,>=1.23.0, but you have huggingface-hub 0.30.2 which is incompatible.
+26.0s 24 diffusers 0.40.0 requires safetensors>=0.8.0, but you have safetensors 0.5.3 which is incompatible.
+26.0s 25 
+26.0s 26 ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+26.0s 27 gradio 6.26.0 requires huggingface-hub<2.0,>=1.16.0, but you have huggingface-hub 0.30.2 which is incompatible.
+26.0s 28 diffusers 0.40.0 requires huggingface-hub<2.0,>=1.23.0, but you have huggingface-hub 0.30.2 which is incompatible.
+26.0s 29 diffusers 0.40.0 requires safetensors>=0.8.0, but you have safetensors 0.5.3 which is incompatible.
+31.5s 30 {'queries': 8, 'representations': 102, 'gpu': 'Tesla T4', 'torch': '2.11.0+cu128', 'embedding_revision': '5cf2132abc99cad020ac570b19d031efec650f2b', 'reranker_revision': '22e683669bc0f0bd69640a1354a6d0aebcfeede5'}
+428.3s 31 {"output_path":"/kaggle/working/results.json","results_sha256":"0f5aa688f5382ddbfae3260bc1d832ba6d81aa2222a716feae07395887ea42be","runtime":{"attention_implementation":"sdpa","backend":"kaggle-cuda-transformers","cuda_version":"12.8","device":"cuda:0","device_count":2,"dtype":"float16","elapsed_seconds":{"embedding_inference":10.209010915000249,"embedding_load":82.44907736799999,"reranker_inference":25.234583326000404,"reranker_load":69.06319146100003,"total":395.076408088},"gpu_name":"Tesla T4","max_input_tokens":726,"model_revisions":{"embedding":"5cf2132abc99cad020ac570b19d031efec650f2b","reranker":"22e683669bc0f0bd69640a1354a6d0aebcfeede5"},"packages":{"huggingface-hub":"0.30.2","python":"3.13.15","safetensors":"0.5.3","tokenizers":"0.21.1","torch":"2.11.0+cu128","transformers":"4.51.3"},"paid_inference_calls":0,"peak_vram_bytes":8167223296,"total_memory_bytes":15636037632,"truncated":false}}
+434.3s 32 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+434.3s 33 cells[i][c] = re.sub('\\\\\|', '|', cell)
+434.5s 34 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+434.5s 35 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+435.4s 36 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+435.5s 37 [NbConvertApp] Writing 279406 bytes to __notebook__.ipynb
+438.1s 38 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+438.8s 39 [NbConvertApp] Writing 501883 bytes to __results__.html

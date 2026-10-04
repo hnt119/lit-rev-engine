@@ -8,6 +8,8 @@ The implemented optional pair is **Qwen3-Embedding-4B and Qwen3-Reranker-4B**, u
 
 Author model-card benchmarks use other tasks and protocols. The engine's fresh v3 pilot already exposes incomplete multi-block support and misleading candidates on no-answer questions; relevance scores cannot establish an answer or verify a finding. The first actual [Qwen Kaggle evaluation](qwen-kaggle-run-v2.md) improves own-support coverage from 72.2% to 80.6% and complete positives from 2/6 to 4/6, but fails the fixed 85% gate. The 4B pair fits a Tesla T4 in this measured finite batch. Missing companion paragraphs occur both before and after reranking, so the next priority is component coverage, before a larger-model comparison. Any changed method needs fresh prospective confirmation. The user placed the [Qwen acceptance gate](qwen-kaggle-milestone.md) before the [human review pilot](pilot-milestone.md).
 
+The separate [component workflow](qwen-components-guide.md) now implements bounded companion selection and isolated package setup for the same pinned 4B pair. Its software release passes 1,771 tests and 31 subtests; original-source truth is independently accepted and development is frozen/prepared. Actual GPU compatibility and fresh retrieval quality remain pending. The [current run record](qwen-components-runs-v1.md) separates those facts from software acceptance. Retain the historical whole-query profile and all three matched comparators when assessing the new method.
+
 ## Current code and concrete integration gaps
 
 `src/settings.py` selects `BAAI/bge-small-en-v1.5` for the separate passage exploration pipeline. `src/embeddings/embedder.py` applies normalized `SentenceTransformer.encode()` to both queries and documents. `src/vectorstore/chroma_store.py` checks only the embedding model name in collection metadata. The new Qwen batch module provides stdlib source export and local result validation; they do not reuse or alter that Chroma collection. Agnes remains a separate generation transport.
@@ -46,18 +48,22 @@ flowchart LR
     Scope --> Encode[Versioned document encoding]
     Encode --> CloudEmbed[Kaggle embedding batch]
     CloudEmbed --> Index[Recorded source / query vectors]
-    Question[Reviewer question] --> QueryEmbed[Kaggle query embedding]
+    Question[Reviewer question / declared components] --> QueryEmbed[Kaggle query embedding]
     QueryEmbed --> Index
-    Index --> Pool[Recorded candidate union]
+    Index --> Pool[Recorded per-query hybrid pools]
     Lexical --> Pool
-    Pool --> CloudRank[Kaggle reranker batch]
-    CloudRank --> Validate[Local identity / anchor / scope validation]
+    Pool --> Allocation[Whole-query pool or bounded component reservations]
+    Allocation --> CloudRank[Kaggle reranker batch]
+    CloudRank --> Selection[Whole-score or component-aware five-block selection]
+    Selection --> Validate[Local identity / anchor / scope validation]
     Validate --> Human[Source inspection and manual proposal]
     Human --> Verify[Independent revision verification]
     Verify --> Export[Current verified evidence and audit exports]
 ```
 
 The retrieval stages are available through `review.py qwen-export`, the Kaggle notebook and `review.py qwen-import`; the final manual review/verification stages use the existing ledger commands. Local project state remains authoritative. Send the permitted query/candidate paper text to cloud inference; retain reviewer identities, adjudication and verification in the ledger. A model can rank existing candidates but cannot replace their text, invent block IDs, change screening decisions or confirm its own extraction.
+
+The new experiment uses `review_components.py components-export` and `components-import`, a separate hash-bound worker bundle and the new notebook. Its shared core reconstructs the fixed pool and component selection locally from saved numbers. The installer writes four packages only into temporary storage, while a fresh isolated worker verifies dependencies and reuses Kaggle CUDA Torch. See the [environment evidence](qwen-components-environment.md); successful CPU checks alone do not establish real cloud compatibility.
 
 Cloud latency should not hold a database write transaction open. Capture the source/eligibility manifest first, then validate that the same versions and states remain current when the response arrives. A changed source or scope invalidates that result. Record an unavailable endpoint explicitly; any lexical fallback must expose its actual method rather than masquerade as the selected cloud method.
 

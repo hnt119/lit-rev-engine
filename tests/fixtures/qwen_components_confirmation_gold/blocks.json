@@ -1,0 +1,1618 @@
+{
+  "blocks": [
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "kind": "article-title",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+        "tag": "article-title",
+        "type": "xml_element"
+      },
+      "ordinal": 1,
+      "section": "",
+      "sha256": "4ef252de93ea93d3d5e4aa92f6e0fe8a7f868995ff712d56fb89bc2bbc86802b",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "text": "Evaluating diagnostic accuracy and agreement of TI-RADS scoring in thyroid nodules: A comparative analysis between sonographers and radiologists"
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+        "section_title": "Objective",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 2,
+      "section": "Objective",
+      "sha256": "a1709a4b54547071836fede6eab203892732b58663e2155741bd805040becce0",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "text": "The Thyroid Imaging Reporting and Data System (TI-RADS) is an essential tool for assessing thyroid nodules, primarily used by radiologists. This study aimed to compare the agreement of TI-RADS scores between sonographers and radiologists and to assess the diagnostic performance of these scores against histological findings in suspicious thyroid nodules."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "section_title": "Methods",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 3,
+      "section": "Methods",
+      "sha256": "3c8160552054a6e69958af9ea7d600f356af74ab7f3ceb54600c6e54da503b27",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "text": "In a retrospective analysis, 168 patients with suspicious thyroid nodules classified as TR3 and above by the radiologists were included. Both sonographers and radiologists independently assigned the American College of Radiologists (ACR) TI-RADS scores, which were then compared for inter-reader agreement using Cohen’s Kappa statistic. The scores were also evaluated for diagnostic performance against histological results based on the Bethesda system."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 4,
+      "section": "Results",
+      "sha256": "fe984bb59f1e089c2695231600fd30b2aa85e81a22c97de949b7616b9844eb22",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "text": "The study revealed a moderate overall agreement between sonographers and radiologists in TI-RADS scoring (κ = 0.504; 95% CI: 0.409–0.599), with poor agreement noted specifically for nodule margin scores (κ = 0.102; 95% CI: -1.430–0.301). In terms of diagnostic performance against histological outcomes, sonographers’ TI-RADS scores showed a sensitivity of 100% and a specificity of 44.6%, while radiologists’ scores showed a sensitivity of 100% but a lower specificity of 29.3%."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+        "section_title": "Conclusion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 5,
+      "section": "Conclusion",
+      "sha256": "02cb9586245fab403579be1dea614df23b09d5fd26e4f54f1ffad11cd6ef3ab6",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "text": "The findings indicate moderate agreement in TI-RADS scoring between sonographers and radiologists, with reproducibility challenges especially in scoring nodule margins. The marginally superior diagnostic performance of sonographers’ scores suggests potential efficiency benefits in involving sonographers in preliminary assessments. Future research should aim to encompass a wider range of TI-RADS categories and focus on minimizing scoring variability to enhance the system’s clinical utility."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[1]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 6,
+      "section": "Introduction",
+      "sha256": "d7d770557a052f51de32fb32c68ac076f2457fb8e5d478fb4fb5d902e632565f",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[1]/p[1]",
+      "text": "Thyroid nodules are a common clinical finding, with a prevalence of 19–68% in the general population when assessed by ultrasound [1]. The majority of these nodules are benign, and only a small percentage are malignant [2]. Accurate identification of high-risk nodules is crucial for timely intervention and optimal patient management. The Thyroid Imaging Reporting and Data System (TI-RADS) is a widely used classification system for the risk stratification of thyroid nodules based on ultrasound features [3,4]. This system aims to standardize the reporting of thyroid ultrasound findings and improve the diagnostic accuracy of thyroid nodule evaluation [5,6]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[2]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 7,
+      "section": "Introduction",
+      "sha256": "53c65379a5f3b14471d49ea12436fee9265ad2365641ee2dfa437af0abb76206",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[1]/p[2]",
+      "text": "The rationale behind this study is rooted in the clinical need for accurate scoring of thyroid nodules to guide patient management. High-risk nodules may require fine needle aspiration (FNA) to rule out malignancy, whereas low-risk nodules can be managed conservatively without invasive procedures [7,8]. Accurate TI-RADS scoring is essential for identifying which patients require FNA and sparing those with low-risk nodules from unnecessary invasive procedures."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[3]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 8,
+      "section": "Introduction",
+      "sha256": "4664bccc511729b7afdb076cbac11a522700dbb552e2c8ffe6f563b0da13aa86",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[1]/p[3]",
+      "text": "Multiple previous studies have demonstrated a high accuracy of sonographers’ diagnostic opinion compared to radiologists in abdominal [9–16], obstetric [17], musculoskeletal [18], and emergency ultrasound [19]. However, no previous studies have directly compared the agreement of TI-RADS scores between sonographers and radiologists. Albeit previous studies have examined the agreement of TI-RADS scores between radiologists, with varying results [20–25]. Given the increasing demand for ultrasound examinations and the limited availability of radiologists, it is essential to determine if sonographers can accurately assess thyroid nodules using the TI-RADS scoring system [26,27]. Moreover, if sonographers can reliably and accurately score thyroid nodules, radiologists may be able to focus on more complicated tasks, improving overall efficiency and resource allocation within the radiology department [28,29]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[4]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 9,
+      "section": "Introduction",
+      "sha256": "20ff1c6d21a513436c7bd31becd0bfe7a5b4776cd074c9fe85d5ddd4667e40e8",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[1]/p[4]",
+      "text": "Despite the potential benefits of using TI-RADS in clinical practice, some concerns have been raised regarding the reproducibility and reliability of the classification system [30]. Inconsistencies in the application of TI-RADS criteria and interobserver variability may affect the accuracy of the scoring system, warranting further investigation to ensure its validity and reliability [31]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[5]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[5]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 10,
+      "section": "Introduction",
+      "sha256": "e719c44b1171215beb6b6ded15adcc5149bd9ff1dac6fc60584e553ec9872001",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[1]/p[5]",
+      "text": "The main objectives of this study are twofold. The first is to compare agreement of TI-RADS scores assigned by sonographers and radiologists. The second objective is to analyze the diagnostic accuracy of the TI-RADS scoring system. The underlying hypothesis is that the scores assigned by sonographers agree with those assigned by radiologists. If confirmed, this could have considerable implications for the allocation of resources within radiology."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "section_title": "Study design and case selection",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 11,
+      "section": "Study design and case selection",
+      "sha256": "7703f6f7e164a7e43e1df95cf5755e973d6193186b76170b729effbc16286e4f",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "text": "The study employed a retrospective design, covering the period from January 2021 to January 2022. The research data were accessed from the radiology department at King Fahad Medical City in Riyadh, Saudi Arabia, between July 2022 and January 2023 for research purposes. To minimize selection bias, we included all consecutive adult patients who met the inclusion criteria during the study period, ensuring a representative sample. The study was approved by the hospital’s IRB committee and a consent waiver was granted (NIH registration number: IRB00010471) to retrospectively collect this study data."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+        "section_title": "Study design and case selection",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 12,
+      "section": "Study design and case selection",
+      "sha256": "1e74b15db1bc17ad5d0859ed85ac5e026f839aed03c390759d0cdcdbdfb5d4c3",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+      "text": "During the study period, all patients with thyroid nodules received a TI-RADS score [according to the TI-RADS system developed by the American College of Radiologists (ACR) [8]] by the scanning sonographer and the reporting radiologist in real-time during the patient visits, which was documented on the radiology information system (RIS). Each case was scored based on two-plane grey-scale images of the thyroid nodule. When a patient has more than one nodule, the most suspicious one was scored and documented. The patients were considered eligible if they were an adult (18 years or older) and had a documented Bethesda score following an FNA biopsy done after the ultrasound scan. Patients who did not undergo thyroid sonography prior to the FNA or the duration between the scan and FNA was more than two weeks were excluded."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "section_title": "TI-RADS scoring",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 13,
+      "section": "TI-RADS scoring",
+      "sha256": "e792b65b7bf1e601b451c3aab195b61fdbb69bfff070d800e6c2e7197915b47e",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "text": "The thyroid ultrasound scans were performed using a linear array transducer (5–15 MHz) on a LOGIQ E9 ultrasound system (GE Healthcare, Milwaukee, WI, USA) by one of 11 accredited sonographers with ultrasound experiences ranging from 2 to 18 years. All sonographers were trained to interpret thyroid US images and assign ACR TI-RADS scores after receiving a focused training course by the chief consultant radiologist (12 years of experience). The training was done in July 2020, which included official educational materials developed by the ACR including the TI-RADS atlas and user guide [32]. This was followed by regular monitoring and feedback over 3 months. The retrospective data collected for this study was set after approximately 6-months of the sonographers’ training and practice. Hence, all sonographers had the same level of experience (6-months) in TI-RADS scoring. Following the sonographers TI-RADS scores, the images were reviewed by one of 5 accredited radiologists with experiences ranging from 5 to 12 years and a TI-RADS score was documented on the RIS system. The radiologists included in the study consisted of three neuroradiologists, one cardiothoracic radiologist, and one abdominal radiologist. While their primary subspecialties are varied, all radiologists are board-certified and routinely interpret thyroid ultrasound examinations as part of their clinical duties."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "section_title": "Bethesda scoring",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 14,
+      "section": "Bethesda scoring",
+      "sha256": "f942410748dd23b8c1320e93e39a8723b6f072977fdc30bab3dfee46223d7213",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "text": "After the ultrasound examinations, fine-needle aspiration (FNA) biopsies were performed on suspicious thyroid nodules (≥ TR3 score by the radiologist). The cytological results were reported according to the Bethesda System for Reporting Thyroid Cytopathology (TBSRTC) [33]. This standardized system categorizes thyroid FNA results into six diagnostic categories: Category I: Non-diagnostic or Unsatisfactory; Category II: Benign; Category III: Atypia of Undetermined Significance or Follicular Lesion of Undetermined Significance; Category IV: Follicular Neoplasm or Suspicious for a Follicular Neoplasm; Category V: Suspicious for Malignancy; Category VI: Malignant."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "section_title": "Bethesda scoring",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 15,
+      "section": "Bethesda scoring",
+      "sha256": "35e92712b88d7849b69140915c263deb5d52c6f6abfcf8a2cb6a65f2c178a4dc",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "text": "FNA procedures were conducted by experienced interventional radiologists under ultrasound guidance using a 25-gauge needle. The obtained samples were processed and evaluated by board-certified cytopathologists following the TBSRTC guidelines. For our analysis, we grouped the Bethesda categories as follows: Benign: Category II; Malignant or Suspicious for Malignancy: Categories V and VI; Indeterminate: Categories I, III, and IV [25,33]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "section_title": "Statistical analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 16,
+      "section": "Statistical analysis",
+      "sha256": "6d93a761d19c386a837a5ad45c3e3bcb8563df3c8bb73a4b828ddc06ff20b5ab",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "text": "All categorical variables are presented as frequencies and percentages while continuous variables are presented as mean ± SD. The Kolmogorov-Smirnov test was used to confirm the assumption of normal distribution. The Bethesda scores were used to categorize the nodules into benign (Bethesda II), suspicious or malignant (Bethesda V and VI), or indeterminate (Bethesda I, III, and IV) [25,33]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+        "section_title": "Statistical analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 17,
+      "section": "Statistical analysis",
+      "sha256": "2a706ff032ab4584dbc187a3299131f56803cd3d3c916f0ee84e92c7c6eb1e67",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+      "text": "Inter-reader reliability for TI-RADS scores were assessed using Cohen’s Kappa statistic. The Kappa scale was interpreted as follows: <0, poor agreement; 0.01–0.20, slight agreement; 0.21–0.40, fair agreement; 0.41–0.60, moderate agreement; 0.61–0.80, substantial agreement; and 0.81–1.00; almost perfect agreement. Diagnostic accuracy analysis was performed to determine the sensitivity and specificity analysis of TI-RADS by sonographer and radiologist. To simplify the analysis, TR1 and TR2 were categorized as “low suspicion of malignancy” and TR3, TR4, TR5 categorized as “high suspicion of malignancy” [34]. The indeterminate (Bethesda I, III, and IV) scores were excluded from the diagnostic accuracy analysis. Receiver Operating Characteristic (ROC) curve analyses were conducted to evaluate and compare the diagnostic performance of the sonographers and radiologists. The area under the curve (AUC) was calculated for each group to quantify their overall diagnostic accuracy. The association between TI-RADS scores and the histological outcomes was evaluated using the Chi-Square test. A two-sided p-value less than 0.05 was considered statistically significant. All data was entered and analyzed using the SPSS 25 Statistics Package (SPSS Inc., Chicago, Illinois, USA) and MEDCALC version 18.11.6 (Acacialaan 22 8400 Ostend Belgium)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 18,
+      "section": "Results",
+      "sha256": "3e215dc5a02cc85be4f9346b32c5d037ac7b24596791a82c9d67b73a139307f4",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/p[1]",
+      "text": "A total of 168 patients were eligible (adults with available TI-RADS and Bethesda scores) and included in the study, of which 18 (11.1%) were male and 150 (88.9%) were female. The mean age was 50.3 ± 13.7 years. The histological results of the nodules were as follows: malignant or suspicious nodule (n = 11), benign nodule (n = 92), and indeterminate nodule (n = 65). The distribution of TI-RADS scores and Bethesda scores is presented in Table 1 and Fig 1 respectively. The 9 patients scored by the sonographers as TR1 or TR2 had benign follicular nodules (Bethesda II). The detailed distribution of the TI-RADS features based on the Bethesda subcategories is available in the supplementary materials (S1 Table). All 11 patients with FNA results indicating malignancy (n = 8) or suspicion for malignancy (n = 3) underwent surgical excision and histopathological examination. The histopathological analysis confirmed malignancy in all cases, showing concordance with the FNA cytology results."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pone.0312121.t001",
+        "path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+        "section_title": "Results",
+        "table_label": "Table 1",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 19,
+      "section": "Results",
+      "sha256": "3f54ab424ff845f1baab033eb33321e9122ed926b9687cbf695b9ced4951de88",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "text": "Table 1\nDistribution of thyroid nodules based on the Bethesda results and TI-RADS scores.\n\tDescription\tNodules\nMalignant or Suspicious Nodule (n = 11)\tBenign Nodule(n = 92)\tIndeterminate Nodule (n = 65)\nFNA—Bethesda score\tI. Non-diagnostic or Unsatisfactory\t0\t0\t16 (24.6%)\nII. Benign\t0\t92 (100.0%)\t0\nIII. Atypia of Indeterminate Significance or Follicular Lesion of Indeterminate Significance\t0\t0\t43 (66.2%)\nIV. Follicular Neoplasm or Suspicious for a Follicular Neoplasm\t0\t0\t6 (9.2%)\nV. Suspicious for Malignancy\t3 (27.3%)\t0\t0\nVI. Malignant\t8 (72.7%)\t0\t0\nTI-RADS score (sonographer)\tTR1\t0\t2 (2.2%)\t0\nTR2\t0\t6 (6.5%)\t1 (1.5%)\nTR3\t0\t33 (35.9%)\t28 (43.1%)\nTR4\t6 (54.5%)\t39 (42.4%)\t29 (44.6%)\nTR5\t5 (45.5%)\t12 (13.0%)\t7 (10.8%)\nTI-RADS score (radiologist)\tTR1\t0\t0\t0\nTR2\t0\t0\t0\nTR3\t0\t27 (29.3%)\t24 (36.9%)\nTR4\t3 (27.3%)\t41 (44.6%)\t23 (35.4%)\nTR5\t8 (72.7%)\t24 (26.1%)\t18 (27.7%)\n* Categorical data presented as frequency (%)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "section_title": "Agreement results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 20,
+      "section": "Agreement results",
+      "sha256": "c53fa7d27a00e10c140e2e4579c13f0a823bccfda2b8a34722f030a4e8a36023",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "text": "Table 2 cross-tabulates the scores by the radiologists and sonographers’ readers per case. The scores are also visually presented in Fig 2. The results demonstrate good agreement overall, and few instances of substantial discrepancies in scoring between readers. For example, two cases where scored TR1 by the sonographer compared to TR3 by the radiologist."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/fig[1]/caption[1]/p[1]",
+        "section_title": "Agreement results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 21,
+      "section": "Agreement results",
+      "sha256": "26760b84efefbc63ef27c168b4a5a779cba5b69c7afe9d1e7151569fc7a05a3e",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/fig[1]/caption[1]/p[1]",
+      "text": "The Bubble labels represent the instances of matched scores."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pone.0312121.t002",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "section_title": "Agreement results",
+        "table_label": "Table 2",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 22,
+      "section": "Agreement results",
+      "sha256": "333151b85356ebe7d7a8ae3078edd0c40d1b4b284d7917e62be56b3aa1dd0bcf",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "text": "Table 2\nCross-tabulation of readers’ agreement on TI-RADS scores shown as count and frequency.\n\t\tSonographers TI-RADS\t\n\t\tTR1\tTR2\tTR3\tTR4\tTR5\tTotal\nRadiologists TI-RADS\tTR3\t2 (1.2%)\t4 (2.4%)\t39 (23.2%)\t4 (2.4%)\t2 (1.2%)\t51 (30%)\nTR4\t-\t3 (1.8%)\t17 (10.1%)\t46 (27.4%)\t1 (0.6%)\t67 (40%)\nTR5\t-\t-\t5 (3.0%)\t24 (14.3%)\t21 (12.5%)\t50 (30%)\n\tTotal\t2 (1.2%)\t7 (4%)\t61 (36%)\t74 (44%)\t24 (14%)\t168 (100%)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+        "section_title": "Agreement results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 23,
+      "section": "Agreement results",
+      "sha256": "98c2147439ea1c5ab43b8715910cac8a4559c6f8725aead7418ffb37ac95983f",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+      "text": "Inter-reader reliability was assessed using the Kappa statistic in Table 3. Moderate agreement was found between the sonographer and radiologist readers for TI-RADS (κ = 0.504), composition score (κ = 0.463), echogenicity score (κ = 0.584), shape score (Kappa = 0.462), and echogenic foci score (κ = 0.548) (Table 3). All p-values were significant at p < 0.001, indicating significant agreement among readers. The margin score, however, was not significant (p = 0.153) and the Kappa statistic of 0.102 indicated slight agreement."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pone.0312121.t003",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+        "section_title": "Agreement results",
+        "table_label": "Table 3",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 24,
+      "section": "Agreement results",
+      "sha256": "1434421a777cf392d80bed35110cf81379677ac981db79fc193d72f6f67687cd",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+      "text": "Table 3\nInter-reader reliability between sonographer and radiologist readers of Thyroid Imaging Reporting and Data System (TI-RADS) features.\nFeature\tKappa\tSE\t95% C.I\tP–value\nTI-RADS\t0.504\t0.049\t[0.409–0.599]\t*<0.001\nComposition score\t0.463\t0.091\t[0.283–0.642]\t*<0.001\nEchogenicity score\t0.584\t0.054\t[0.478–0.689]\t*<0.001\nShape score\t0.462\t0.131\t[0.204–0.719]\t*<0.001\nMargin score\t0.102\t0.102\t[-1.430–0.301]\t0.153\nEchogenic foci score\t0.548\t0.052\t[0.446–0.650]\t*<0.001\n* shows that P-value is significant at P<0.05 and agreement among participants, CI, confident Interval; SE, standard error."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "section_title": "Diagnostic accuracy results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 25,
+      "section": "Diagnostic accuracy results",
+      "sha256": "6a2a31b6ee16889cc42e18d93e3d4f11c1d402c565db0c5cab97ac8b6f362640",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "text": "In evaluating the diagnostic accuracy of TI-RADS scores in Tables 4 and 5, in which the indeterminate nodules were excluded, both sonographers and radiologists demonstrated high sensitivity but varied in specificity and positive likelihood ratios. The sonographers achieved a sensitivity of 100% (95% CI: 71.5–100.0), indicating accurate identification of all positive (suspicious or malignant) cases (11 out of 11). However, specificity was moderate at 44.6% (95% CI: 34.2–53.3), suggesting a higher rate of false-positive diagnoses compared to true negatives. The positive likelihood ratio was 1.80 (95% CI: 1.5–2.2), reinforcing the reliability of a positive test result in diagnosing the disease. The positive predictive value (PPV) was 17.7% (95% CI: 15.2–20.6), and the overall accuracy of the sonographer’s TI-RADS scoring was 50.5% (95% CI: 40.5–60.5)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pone.0312121.t004",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+        "section_title": "Diagnostic accuracy results",
+        "table_label": "Table 4",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 26,
+      "section": "Diagnostic accuracy results",
+      "sha256": "19e2d562813a557f3d58ff9a47a8994ce90069f7a106fa54eb7ede0cb63633dc",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[1]",
+      "text": "Table 4\nContingency tables for the diagnostic accuracy of Thyroid Imaging Reporting and Data System (TI-RADS) scores by sonographer and radiologist.\n\t\tNodule histology diagnosis\tP—value\nMalignant(n = 11)\tBenign(n = 92)\nTI-RADS (Sonographers)\tSuspicious scores (TR4, TR5)\t11 (100%)\t51 (55.4%)\t*0.003\nNegative or low suspicion scores (TR1, TR2, TR3)\t0 (0%)\t41 (44.6%)\nTI-RADS (Radiologists)\tSuspicious scores(TR4, TR5)\t11 (100%)\t65 (70.7%)\t*0.029\nNegative or low suspicion scores (TR1, TR2, TR3)\t0 (0%)\t27 (29.3%)\nNote: * shows that P-value is significant at P<0.05."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[2]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pone.0312121.t005",
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[2]",
+        "section_title": "Diagnostic accuracy results",
+        "table_label": "Table 5",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 27,
+      "section": "Diagnostic accuracy results",
+      "sha256": "f1f4f64caa0629c11b6b05e093a31baa42eae5f6246ee0d12053e60681e4040a",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[2]",
+      "text": "Table 5\nDiagnostic performance of Thyroid Imaging Reporting and Data System (TI-RADS) scores by sonographer and radiologist.\n\tSonographers\tRadiologist\nStatistic\tValue\t95% CI\tValue\t95% CI\nSensitivity\t100.0%\t[71.5–100.0]\t100.0%\t[71.5–100.0]\nSpecificity\t44.6%\t[34.2–53.3]\t29.3%\t[20.3–39.8]\nPositive Likelihood Ratio\t1.8\t[1.5–2.2]\t1.4\t[1.2–1.6]\nPositive Predictive Value\t17.7%\t[15.2–20.6]\t14.5%\t[12.9–16.2]\nNegative Predictive Value\t100.0%\t-\t100.0%\t-\nAccuracy\t50.5%\t[40.5–60.5]\t36.90%\t[27.6–47.0]"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+        "section_title": "Diagnostic accuracy results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 28,
+      "section": "Diagnostic accuracy results",
+      "sha256": "0ea14d166751a2e6d1869f24d072132046c9ba4a2f6213adbcb5bbe0d0c1b73a",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+      "text": "Similarly, the radiologist’s sensitivity was 100% (95% CI: 71.5–100.0). However, specificity was lower at 29.3% (95% CI: 20.3–39.8), indicating a greater tendency for false positives with only 27 of 92 non-malignant cases correctly identified. The positive likelihood ratio of 1.4 (95% CI: 1.2–1.6) was also lower compared to the sonographer, suggesting a slightly reduced diagnostic accuracy in positive test interpretation. The PPV was 14.5% (95% CI: 12.9–16.2), and the overall accuracy was 36.9% (95% CI: 27.6–47.0). The negative predictive value (NPV) was 100% for both sonographers and radiologists, indicating that all nodules with negative or low suspicion TI-RADS scores were confirmed to be benign on histology when tested."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+        "section_title": "Diagnostic accuracy results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 29,
+      "section": "Diagnostic accuracy results",
+      "sha256": "9bd274567c06e753ba619f22682a7c9f3fec3e54cc4ac38ab495e4d2e311c932",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[3]",
+      "text": "The ROC curves for sonographers and radiologists are presented in Fig 3. The AUC for sonographers was 0.723 (95% CI: 0.684–0.762), indicating acceptable diagnostic accuracy. For radiologists, the AUC was 0.662 (95% CI: 0.626–0.699). The difference between the two AUCs was statistically significant (p < 0.001), suggesting that sonographers had a slightly better diagnostic performance compared to radiologists."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[1]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 30,
+      "section": "Discussion",
+      "sha256": "730dbbcc92592330d949e87ee261eb074f322d5e82705635f1d80cf2e341afb2",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[4]/p[1]",
+      "text": "This study is the first, to our knowledge, that compared the agreement of TI-RADS scores in suspicious thyroid nodules between sonographers and radiologists. Our results highlighted an overall moderate agreement between the two groups of readers. This agrees with the published results on inter-reader reproducibility between radiologists in other studies. For example, Liu et al. [23] conducted a meta-analysis of seven studies investigating the agreement of TI-RADS scores between various groups of radiologists. They found an overall moderate agreement across the seven studies (κ = 0.54; 95% CI: 0.49−0.58). More recently, Li et al [35] conducted a similar meta-analysis, which yielded a total of 13 studies. The pooled inter-reader agreement for overall ACR TI-RADS system was also moderate (k = 0.51, 95% CI: 0.42–0.59). They reported no significant difference between experienced and inexperienced readers (p = 0.55). They also noted that agreements were usually higher in inexperienced readers, which could be explained by their likelihood to follow the ACR scoring lexicon more strictly than experienced readers. Indeed, a recent study by Daniels et al [36] reported the worst intra-reader agreement in the most experienced radiologists."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[2]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 31,
+      "section": "Discussion",
+      "sha256": "f53f23a21999afee722b118d4bec518b935b4993fa330c8743d9a659e2fc0d06",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[4]/p[2]",
+      "text": "Chung et al. [24] investigated the inter-reader agreement between three experienced and three inexperienced radiologists. They reported a moderate inter-reader agreement amongst experienced radiologists (κ = 0.47, 95% CI: 0.41–0.54) and inexperienced radiologists (κ = 0.53, 95% CI: 0.47–0.58), and between them (κ = 0.47, 95% CI: 0.44–0.49). More recently, Alyami et al. [37] conducted a similar study between two radiologists on a small sample of 39 patients and reported fair to substantial agreements (κ = 0.21–0.78) using an arbitrary scoring system of five characteristics (composition, margin, shape, calcification, and vasculitis)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[3]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 32,
+      "section": "Discussion",
+      "sha256": "d8660fd49b352fe03d56d82fe11bd8e98d072d4a08a7e64a189dce769f6cd18a",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[4]/p[3]",
+      "text": "A recent study by de Carlos et al. investigated interobserver variability in thyroid ultrasound assessments among four endocrinologists evaluating 100 thyroid nodules [38]. They assessed ultrasound features, risk stratification using various classification systems (ATA, EU-TIRADS, K-TIRADS, and ACR-TIRADS), and the indication for fine needle aspiration (FNA). Their findings showed acceptable interobserver agreement for identifying nodules requiring cytological study but limited concordance in risk stratification and ultrasonographic characteristics, especially for margins. The Krippendorff’s alpha coefficient for margins was 0.41, indicating moderate agreement, which aligns with our finding of poor agreement in nodule margin scores between sonographers and radiologists (κ = 0.102)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[4]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 33,
+      "section": "Discussion",
+      "sha256": "509e728c23ef2af59b24106f2d82e23300724641710cfe08d1c75178a34a4341",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[4]/p[4]",
+      "text": "Previously, only one study was found that evaluated the sonographers TI-RADS scores [39]. Fifteen sonographers were assigned to retrospectively score 100 nodules. They found fair to moderate agreement across most scores (κ = 0.21–0.52) but only slight agreement on margin (κ = 0.18, 95% CI: 0.16–0.20). The above studies underscore the inherent challenges in achieving uniformity in TI-RADS scoring, a factor that our study further elucidates by comparing different professional groups. Notably, while previous research focused on the variability among radiologists with various levels of experience and training, our study expands this understanding by including sonographers, highlighting the broader applicability of the TI-RADS system across different medical qualifications. The ROC analysis demonstrated that sonographers had a slightly higher AUC than radiologists, indicating marginally better diagnostic performance in distinguishing between benign and malignant nodules. This finding aligns with our earlier results showing higher specificity for sonographers."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[5]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 34,
+      "section": "Discussion",
+      "sha256": "28b32649c917787dd37d19777960f84e7021b02015ff89672779615366a41120",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[4]/p[5]",
+      "text": "Despite the good agreement noted between the sonographers and radiologists, the agreement for the nodule margin scores was poor. This finding also corresponds with the challenges noted in the literature with this score category between radiologists [23,35]. This is critical due to the importance of this category for predicting malignancy (PPV = 94%) [40]. Our study’s findings, supported by existing literature, indicate that distinguishing between ill-defined and irregular/lobulated margins can be challenging. Indeed, the ACR guidelines lack specific criteria regarding the number and extent of protrusions required to classify margins as lobulated or spiculated. Updating the ACR whitepaper [41], published in 2015, for the TI-RADS reporting lexicon of nodule characteristics to clarify any ambiguous definitions is warranted [42]. This may potentially improve the overall agreement of the TI-RADS score. Moreover, to improve the overall reproducibility within and between readers we recommend conducting practical training on the ACR TI-RADS user guide and lexicon to eliminate personal interpretation biases. This has demonstrated its effectiveness in previous studies [24,43]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[6]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[6]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 35,
+      "section": "Discussion",
+      "sha256": "ecfe796e33104ef18c835ce2a070d9694f802f00b64a44fcbbd0d928a794f831",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[4]/p[6]",
+      "text": "Unlike most previous agreement studies, which lack histological confirmation, the current study investigated the diagnostic performance of ACR TI-RADS scores between sonographers and radiologists. While the sonographers appear to have a better diagnostic performance, this should be cautiously interpreted for two reasons. Firstly, a key limitation of our study is that it only included nodules classified as TR3 and above by radiologists, as we focused on samples with available histological Bethesda data. This means that our findings might not fully represent the diagnostic performance across the entire spectrum of thyroid nodules, particularly those in the lower-risk categories (TR1 and TR2), which are often evaluated in clinical settings. Moreover, it is essential to note that TI-RADS is primarily a system for risk-stratification for further investigation, such as fine needle aspiration (FNA), rather than a direct diagnostic tool for thyroid malignancy. This context is crucial because it frames the system’s role in guiding clinical decisions about the need for more invasive procedures. Another limitation of our study is its retrospective design and relatively small sample size, which may introduce selection bias. By including all consecutive eligible patients and strictly defining our criteria, we attempted to mitigate this risk. Future prospective studies with larger cohorts are recommended."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[7]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[7]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 36,
+      "section": "Discussion",
+      "sha256": "3dc34190aa1c64119d261dfde325f2b7346522bce92eb13004b66cd22f2068ab",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[4]/p[7]",
+      "text": "Our study adds to the understanding of how TI-RADS is scored by sonographers and radiologists. The use of TI-RADS scoring by sonographers may offer several advantages, such as reducing the need for radiologist intervention in routine cases, optimizing the triage of patients requiring further evaluation, and potentially shortening the time to diagnosis and treatment [44]. Moreover, accurate TI-RADS scoring by sonographers could contribute to more cost-effective healthcare delivery, as well as reducing the overall burden on radiology departments [45]. Empowering sonographers to perform TI-RADS interpretation could enhance their job satisfaction by recognizing their expertise and expanding their professional roles. This practice also improves clinical care efficiency by streamlining workflows, reducing radiologists’ workload, and allowing for more timely patient management. Additionally, advances in artificial intelligence (AI) and deep learning have the potential to impact TI-RADS scoring. Recent studies suggest that AI algorithms can enhance diagnostic accuracy and consistency in thyroid imaging by providing objective assessments and reducing interobserver variability [46]. Incorporating AI into TI-RADS evaluation could further optimize workflow efficiency and support clinicians in decision-making."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[8]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[8]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 37,
+      "section": "Discussion",
+      "sha256": "1f890e4d80699cb6a1ddb7495b32c722d09d4fd2d23ac8feb7875c2521032961",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[4]/p[8]",
+      "text": "Future research should aim to include a wider range of TI-RADS categories and work on reducing the variability in interpretation to improve the system’s effectiveness in clinical decision-making. Finally, we recommend investigating the benefits and drawbacks of enabling conclusive sonographers’ TI-RADS scores in future research, which can yield valuable insights of the outcomes."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/p[1]",
+        "section_title": "Conclusions",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 38,
+      "section": "Conclusions",
+      "sha256": "ba4ac41389b77dec256d1f3c43d11b37433b3342a6c7b1f6b3ec7ea289125460",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[5]/p[1]",
+      "text": "Comparing ACR TI-RADS scoring between sonographers and radiologists revealed moderate agreement, highlighting some challenges in achieving inter-reader reproducibility in thyroid nodule assessment. The poor agreement in nodule margin scores emphasizes the need for clearer lexicon definitions and training. The diagnostic performance of the sonographers’ TI-RADS scores was marginally superior to that of the radiologists when evaluated against histological outcomes. Our research, centered on suspicious nodules, highlights the importance of sonographer involvement in preliminary assessments, potentially enhancing efficiency in clinical settings. Future studies should aim to encompass a broader range of TI-RADS categories and focus on minimizing scoring variability."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 39,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[6]/supplementary-material[1]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 40,
+      "section": "Supporting information",
+      "sha256": "f02332cfc667e04fc2f86d4cfa8e90407509809cd631d9ad2735a61b8f971523",
+      "source_id": "thyroid",
+      "source_path": "/article[1]/body[1]/sec[6]/supplementary-material[2]/caption[1]/p[1]",
+      "text": "(XLSX)"
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "kind": "article-title",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+        "tag": "article-title",
+        "type": "xml_element"
+      },
+      "ordinal": 1,
+      "section": "",
+      "sha256": "661942748c685f41af3adaa85cff73f4bd7a6fedb581bec307b465af78c04b79",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/title-group[1]/article-title[1]",
+      "text": "Evaluation of hydroxychloroquine or chloroquine for the prevention of COVID-19 (COPCOV): A double-blind, randomised, placebo-controlled trial"
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+        "section_title": "Background",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 2,
+      "section": "Background",
+      "sha256": "472fc8dbbbdab437e58051ed046a845c9af749e10e3c0d8470b0ed317e32435a",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[1]/p[1]",
+      "text": "Hydroxychloroquine (HCQ) has proved ineffective in treating patients hospitalised with Coronavirus Disease 2019 (COVID-19), but uncertainty remains over its safety and efficacy in chemoprevention. Previous chemoprevention randomised controlled trials (RCTs) did not individually show benefit of HCQ against COVID-19 and, although meta-analysis did suggest clinical benefit, guidelines recommend against its use."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+        "section_title": "Methods and findings",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 3,
+      "section": "Methods and findings",
+      "sha256": "b56e21c4dc87c6bb1577d8cbf518174bb884825c1124991bfdbcd96a7ca5f319",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[1]",
+      "text": "Healthy adult participants from the healthcare setting, and later from the community, were enrolled in 26 centres in 11 countries to a double-blind, placebo-controlled, randomised trial of COVID-19 chemoprevention. HCQ was evaluated in Europe and Africa, and chloroquine (CQ) was evaluated in Asia, (both base equivalent of 155 mg once daily). The primary endpoint was symptomatic COVID-19, confirmed by PCR or seroconversion during the 3-month follow-up period. The secondary and tertiary endpoints were: asymptomatic laboratory-confirmed Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2) infection; severity of COVID-19 symptoms; all-cause PCR-confirmed symptomatic acute respiratory illness (including SARS-CoV-2 infection); participant reported number of workdays lost; genetic and baseline biochemical markers associated with symptomatic COVID-19, respiratory illness and disease severity (not reported here); and health economic analyses of HCQ and CQ prophylaxis on costs and quality of life measures (not reported here)."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+        "section_title": "Methods and findings",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 4,
+      "section": "Methods and findings",
+      "sha256": "e473d7d40267aec21168c9f37bf7481c6899b6601b57b5c74a68f4d42692c21e",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[2]",
+      "text": "The primary and safety analyses were conducted in the intention-to-treat (ITT) population. Recruitment of 40,000 (20,000 HCQ arm, 20,000 CQ arm) participants was planned but was not possible because of protracted delays resulting from controversies over efficacy and adverse events with HCQ use, vaccine rollout in some countries, and other factors. Between 29 April 2020 and 10 March 2022, 4,652 participants (46% females) were enrolled (HCQ/CQ n = 2,320; placebo n = 2,332). The median (IQR) age was 29 (23 to 39) years. SARS-CoV-2 infections (symptomatic and asymptomatic) occurred in 1,071 (23%) participants. For the primary endpoint the incidence of symptomatic COVID-19 was 240/2,320 in the HCQ/CQ versus 284/2,332 in the placebo arms (risk ratio (RR) 0.85 [95% confidence interval, 0.72 to 1.00; p = 0.05])."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[3]",
+        "section_title": "Methods and findings",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 5,
+      "section": "Methods and findings",
+      "sha256": "e3234596be5e1cf0140493d9c4ada7cdf9f534a922bcaa938ff7c3d557feea00",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[2]/p[3]",
+      "text": "For the secondary and tertiary outcomes asymptomatic SARS-CoV-2 infections occurred in 11.5% of HCQ/CQ recipients and 12.0% of placebo recipients: RR: 0.96 (95% CI, 0.82 to 1.12; p = 0.6). There were no differences in the severity of symptoms between the groups and no severe illnesses. HCQ/CQ chemoprevention was associated with fewer PCR-confirmed all-cause respiratory infections (predominantly SARS-CoV-2): RR 0.61 (95% CI, 0.42 to 0.88; p = 0.009) and fewer days lost to work because of illness: 104 days per 1,000 participants over 90 days (95% CI, 12 to 199 days; p < 0.001). The prespecified meta-analysis of all published pre-exposure RCTs indicates that HCQ/CQ prophylaxis provided a moderate protective benefit against symptomatic COVID-19: RR 0.80 (95% CI, 0.71 to 0.91). Both drugs were well tolerated with no drug-related serious adverse events (SAEs). Study limitations include the smaller than planned study size, the relatively low number of PCR-confirmed infections, and the lower comparative accuracy of serology endpoints (in particular, the adapted dried blood spot method) compared to the PCR endpoint. The COPCOV trial was registered with ClinicalTrials.gov; number NCT04303507."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+        "section_title": "Interpretation",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 6,
+      "section": "Interpretation",
+      "sha256": "3e775c486a5a44328774f0898e06d9e014539239336903662dafaa600bcd3d63",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+      "text": "In this large placebo-controlled, double-blind randomised trial, HCQ and CQ were safe and well tolerated in COVID-19 chemoprevention, and there was evidence of moderate protective benefit in a meta-analysis including this trial and similar RCTs."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+        "section_title": "Trial registration",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 7,
+      "section": "Trial registration",
+      "sha256": "9e6034ab709c3cd068a71651696f0329e7d12753c5593d78a98cc7decb5130be",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[4]/p[1]",
+      "text": "ClinicalTrials.gov NCT04303507; ISRCTN Registry ISRCTN10207947."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[2]/p[1]",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 8,
+      "section": "",
+      "sha256": "808b369b377e92126aa4db879d808d83b2510fbc5e4b229d0623d684e258a988",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[2]/p[1]",
+      "text": "In a randomised controlled trial, William Schilling and co-workers investigate potential prevention of COVID-19 by chloroquine or hydroxychloroquine."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[1]/p[1]",
+        "section_title": "Why was this study done?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 9,
+      "section": "Why was this study done?",
+      "sha256": "7a9811f745b254d8e329d4604534e2124b762a75e0fe4fb66963e7ebc1e91e35",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[1]/p[1]",
+      "text": "At the beginning of the Coronavirus Disease 2019 (COVID-19) pandemic, there was an urgent need to find ways to prevent COVID-19."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[2]/p[1]",
+        "section_title": "Why was this study done?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 10,
+      "section": "Why was this study done?",
+      "sha256": "181e7a2afa39c429da178c4f9f714ebe2570fa9c2fd2c0b5f6c4e580deda8a5b",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[2]/p[1]",
+      "text": "Laboratory studies showed that the related 4-aminoquinolines, chloroquine (CQ), and hydroxychloroquine (HCQ), which had been used widely for over 50 years, had antiviral activity against Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2)."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[3]/p[1]",
+        "section_title": "Why was this study done?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 11,
+      "section": "Why was this study done?",
+      "sha256": "d706d0da8e514a0c2caeb2744b6308eefc961c9f5c76791adc612179aac4672a",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[3]/p[1]",
+      "text": "HCQ proved ineffective in the treatment of hospitalised patients, and individual RCTs testing COVID-19 prophylaxis did not show benefit of HCQ. However, a meta-analysis of trial data did suggest some efficacy in preventing COVID-19."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[4]/p[1]",
+        "section_title": "Why was this study done?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 12,
+      "section": "Why was this study done?",
+      "sha256": "d2da0b6385be7b2d19496779c530d9052db207f2a9bec5aa881d061cea2c8fd2",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[4]/p[1]",
+      "text": "Current evidence-based guidelines using data from the same studies recommend strongly against the use of HCQ for prophylaxis."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[5]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[5]/p[1]",
+        "section_title": "Why was this study done?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 13,
+      "section": "Why was this study done?",
+      "sha256": "fee6169023a4cf4a842fba80b9c13db649f614168224b8053d6ab201856ac49c",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[1]/list[1]/list-item[5]/p[1]",
+      "text": "This study aimed to provide a definitive answer whether or not pre-exposure use of these drugs could prevent COVID-19."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[1]/p[1]",
+        "section_title": "What did the researchers do and find?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 14,
+      "section": "What did the researchers do and find?",
+      "sha256": "80b8d8fa3dbefbb28c6dcaf25eaadea6ac8cc12f75d4be48801a45c403f8205b",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[1]/p[1]",
+      "text": "The COPCOV study was a double-blind placebo-controlled evaluation of CQ and HCQ COVID-19 chemoprevention. It was the largest pre-exposure prophylaxis study in COVID-19."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+        "section_title": "What did the researchers do and find?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 15,
+      "section": "What did the researchers do and find?",
+      "sha256": "20584d8eff0c31a20856a13f759b5b6625ba6258e272755a3b935f84ca5fe1b1",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[2]/p[1]",
+      "text": "We found that CQ and HCQ were well tolerated and safe in prophylaxis. There was some evidence for protection against symptomatic COVID-19, and a reduction in workdays lost to illness."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+        "section_title": "What did the researchers do and find?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 16,
+      "section": "What did the researchers do and find?",
+      "sha256": "3bce216c88c57e1ea52618a94df438e657bb6f874fd4774c5820d30e5b777268",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[2]/list[1]/list-item[3]/p[1]",
+      "text": "Our updated meta-analysis of all chemoprevention studies in COVID-19 confirms that chemoprophylaxis with CQ or HCQ is well tolerated, safe, and provides a moderate beneficial effect in preventing COVID-19."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[1]/p[1]",
+        "section_title": "What do these findings mean?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 17,
+      "section": "What do these findings mean?",
+      "sha256": "f6da1fdea59b461d277d07359c92dc724cc20656bf0a7f51836aedb135d1bd33",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[1]/p[1]",
+      "text": "Although CQ or HCQ are unlikely to be used in COVID-19 prevention at this stage, they could have been deployed with benefit earlier, and they might have value in future pandemics."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+        "section_title": "What do these findings mean?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 18,
+      "section": "What do these findings mean?",
+      "sha256": "404969234499e04dae4101e9b6d907a6c9769fb33434a2bc82427482d220b5a1",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[2]/p[1]",
+      "text": "Randomised controlled trial (RCT) evidence is essential in evaluating therapeutics in the context of a pandemic."
+    },
+    {
+      "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[3]/p[1]",
+        "section_title": "What do these findings mean?",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 19,
+      "section": "What do these findings mean?",
+      "sha256": "64b14e53728309e767be5743f73b51d4dc2079464c5209eb841d424fa398c45a",
+      "source_id": "copcov",
+      "source_path": "/article[1]/front[1]/article-meta[1]/abstract[3]/sec[3]/list[1]/list-item[3]/p[1]",
+      "text": "Trials should be facilitated and protected so that evidence is generated rapidly and evidence-based policies can be implemented without delay to allow timely interventions."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[1]/p[1]",
+        "section_title": "Introduction",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 20,
+      "section": "Introduction",
+      "sha256": "8d2ec04a3caffa85669d53bc5d98c8e3d3ae201bb0dcdc6ef8d7018252df6fcf",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[1]/p[1]",
+      "text": "In the 4 years since the start of the Coronavirus Disease 2019 (COVID-19) pandemic, the majority of the world’s population has been infected. It is estimated conservatively that over 6.9 million people have died from COVID-19 [1]. At the beginning of 2020, there were no vaccines and no specific treatments, and there was substantial global concern about the projected consequences of the developing pandemic. Many existing medicines were proposed as potential therapeutics (“repurposing”). Prominent among these were the 4-aminoquinolines, chloroquine (CQ), and hydroxychloroquine (HCQ), as they had been used widely for decades in the prevention and treatment of malaria and rheumatological conditions, and they had in vitro activity against both SARS-CoV-1 and SARS-CoV-2 (Severe Acute Respiratory Syndrome Coronavirus 2) [2,3]. After initial claims of benefit, their use rapidly became politicised and controversial. This unhelpful milieu was worsened in May 2020 by a prominent false claim of lethal cardiovascular toxicity [4]. The clinical trials evaluating the preventive and curative efficacy of the 4-aminoquinolines were caught, and in many cases damaged, by the controversies and regulatory decisions. Soon afterwards, large randomised controlled trials (RCTs) in patients hospitalised with COVID-19 showed definitively that HCQ treatment did not reduce mortality [5,6]. Although it has become clear that antivirals are most effective early in COVID-19, when viral burdens are highest, whereas anti-inflammatory drugs are beneficial in late disease (hospitalised patients), the negative results from the large RCTs in severe COVID-19 were extrapolated to indicate a lack of efficacy for HCQ in all stages of COVID-19 infection [7,8]. Nevertheless, HCQ was recommended widely as COVID-19 chemoprevention [9]. For the chemoprevention clinical trials attempting to provide definitive evidence the widely publicised controversies and negative regulatory responses adversely affected recruitment and study conduct. Despite this, some investigators did successfully complete their RCTs [10–23]. Taken together, these studies point towards moderate preventive efficacy even though individually most were underpowered to demonstrate benefit [24], but the evidence is far from conclusive. In contrast, most authorities recommend against HCQ [7,25]. As a result, there still remains substantial uncertainty regarding the true efficacy of HCQ in COVID-19 prophylaxis. This study’s aim was to characterise the efficacy, tolerability, and safety of HCQ/CQ pre-exposure prophylaxis in the prevention of COVID-19."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+        "section_title": "Study design",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 21,
+      "section": "Study design",
+      "sha256": "66cb7235333b5d3578a78b8d15c553967f27aefb2f3be84bb13e48c418f1f2e9",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "text": "COPCOV was a multinational double-blind, randomised, placebo-controlled trial of COVID-19 chemoprevention (Fig 1). Potential investigators in 76 countries across the world were contacted to seek their interest and ability to conduct the study and follow the protocol (Fig A1 in S1 Appendix). Hydroxychloroquine was evaluated in Africa and the United Kingdom (UK), and chloroquine was evaluated in Asia. As the drugs have comparable in vitro activities, mode of action, and pharmacokinetic properties, they were considered equivalent [26,27]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+        "section_title": "Participants",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 22,
+      "section": "Participants",
+      "sha256": "f96aebb1a4660a4106384c8489fa71f06b13be4c4872d4bd4b545af60554e1fd",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "text": "Initially, in the rapidly spreading pandemic, the focus was on protecting healthcare workers but, as the study progressed, the inclusion criteria were widened (S1 Appendix). The study recruited unvaccinated healthy, nonpregnant, adults aged between 17 and 70 years who were at risk of COVID-19, agreed to the study procedures, could be followed reliably for up to 5 months, and had ready access to an internet-enabled smartphone. Participants with any underlying disease or contraindication to taking 4-aminoquinolines were excluded."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+        "section_title": "Randomisation and masking",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 23,
+      "section": "Randomisation and masking",
+      "sha256": "f3cd58471264912b7bc3185a67e62aecb91396fb664008b87b45e9fad274bb27",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[1]",
+      "text": "The trial statistician (MM) generated 2 separate permuted-block randomisation sequences in blocks of 10 stratified in sets of 400 drug kits (each kit comprised 10 blister packs of 10 tablets containing either drug or identical placebo) packed into boxes of 50 (hydroxychloroquine and placebo: Accord Healthcare, London, UK) and 200 (chloroquine and placebo: Utopian Pharmaceutical Co., Bangkok, Thailand) kits by Piramal Healthcare (UK) and Utopian, respectively, according to company regulations. The assignments were concealed from investigators, research staff, and participants. Kits were in sequence of randomisation and allocation was by opening in sequential order. The Statistical Analysis Plan (SAP) was completed and signed before the database lock and subsequent unblinding (S1 Statistical Analysis Plan)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+        "section_title": "Randomisation and masking",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 24,
+      "section": "Randomisation and masking",
+      "sha256": "4398a5b3db4ada0844f300ff2ba2567b6db97f19f0734da06b27f84c89c3d5e5",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+      "text": "After education about the study and provision of voluntary written informed consent, participants were randomised to receive either CQ or HCQ (depending on study site) or identical matched placebos (1:1 randomisation). The tablets were film-coated to conceal the taste and prevent unblinding. A loading dose of 10 mg base/kg (four 155 mg tablets for a 60 kg subject) was followed by 155 mg daily (equivalent to 250 mg chloroquine phosphate or 200 mg hydroxychloroquine sulphate) for 3 months."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+        "section_title": "Procedures",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 25,
+      "section": "Procedures",
+      "sha256": "79304876755e4d344c07406febb59d8ae8dc770bad9abc93c0d6909b26d44ac1",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[1]",
+      "text": "At the initial visit, participants were examined and baseline screening blood samples were taken. Participants were instructed how to use the mobile ‘phone application (ePRO, Axiom Real-Time Metrics, ON, Canada) and were asked to record their temperature twice daily (an oral electronic thermometer was provided) and symptoms at least once daily. Thereafter, each participant was reviewed in person each month. Serology serum samples were taken on days 0 and 90, or at the last visit if the participant left the study earlier. Contingency dried blood spot samples (DBS) were taken for drug measurement on days 0, 30, 60, and 90 (the analysis of drug concentrations will be reported separately). If symptoms consistent with COVID-19 occurred, the participant was asked to alert the study team by ‘phone, so that nose and throat swabs could be taken. These were stored at −80°C. The methods for SARS-CoV-2 PCR diagnosis and serological quantification of SARS-CoV-2 spike protein IgG antibodies are described in the S1 Appendix. Vaccines were deployed increasingly during the trial. Vaccinated participants were reviewed and an “end of study” serum sample was taken before, or within 3 days, of their vaccination, and were censored from the trial on receiving the first dose of vaccine."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+        "section_title": "Procedures",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 26,
+      "section": "Procedures",
+      "sha256": "8750c5f46926b417a1f88d5c2b1802b955f9786c1c480186cca331fb995cd104",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+      "text": "Procedures for case identification, management, and subsequent isolation followed local and national guidelines. Continuation of the blinded study medication in confirmed COVID-19 cases was at the discretion of the attending health care professional. Overall trial monitoring was conducted by the Mahidol Oxford Tropical Medicine Research Unit Clinical Trials Support Group."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+        "section_title": "Outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 27,
+      "section": "Outcomes",
+      "sha256": "0c6dd8042097a818d2601dba418bc45f38f8f0478890ca17629c3e534dcc83b0",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+      "text": "The primary outcome was symptomatic laboratory-confirmed COVID-19 defined as symptoms consistent with COVID-19 and laboratory evidence of SARS-CoV-2 infection (S1 Appendix). Laboratory evidence was defined by a prespecified hierarchy: first by a nose and/or throat swab PCR positive for SARS-CoV-2; second, if the PCR was negative, failed, or not done, by seroconversion (S-protein IgG antibody) based on baseline and end of study paired sera [28]; and third, only if paired sera were unavailable or uninterpretable, by seroconversion from the contingency DBS in an adapted assay. The prespecified primary endpoint determination algorithm code is provided in the GitHub repository."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+        "section_title": "Outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 28,
+      "section": "Outcomes",
+      "sha256": "590dbacf954ca65cd58305d90aa8bb904eeb14664df88a2eace38c918717351a",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[2]",
+      "text": "A Serology Endpoint Assessment Committee (SEAC) comprising 2 external experts with extensive SARS-CoV-2 serology experience was convened to adjudicate on equivocal serology endpoints (SAP: S1 Appendix). Their judgements before trial unblinding were included in the database and regarded as final."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+        "section_title": "Secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 29,
+      "section": "Secondary outcomes",
+      "sha256": "5e781ee6aef4f6825e8693f69c77a0ace59eed53a45fc9d140c8559d71cd72fc",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+      "text": "There were 3 prespecified secondary outcomes: asymptomatic laboratory-confirmed SARS-CoV-2 infection; severity of COVID-19 symptoms; and all-cause PCR-confirmed symptomatic acute respiratory illness (including SARS-CoV-2 infection)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+        "section_title": "Tertiary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 30,
+      "section": "Tertiary outcomes",
+      "sha256": "7627c334312bc3a8600cb48b0da9e0468ae228d26c7f41bfcc0a2413e706292c",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+      "text": "There were 3 generic prespecified trial tertiary outcomes: the participant reported number of workdays lost; genetic and baseline biochemical markers associated with symptomatic COVID-19, respiratory illness, and disease severity (not reported here); and health economic analyses of HCQ and CQ prophylaxis on costs and quality of life measures (not reported here)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+        "section_title": "Tertiary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 31,
+      "section": "Tertiary outcomes",
+      "sha256": "9ae7017e98222d7c07d47410fbcd4f466053b245877d0320546f04b86115c8c1",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[2]",
+      "text": "In addition, we prespecified that a meta-analysis of previously published randomised hydroxychloroquine COVID-19 pre-exposure chemoprevention studies and the current study should be conducted (S1 Appendix and Methods A2 in S1 Appendix)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+        "section_title": "Statistical analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 32,
+      "section": "Statistical analysis",
+      "sha256": "c2ab35ef789312143df899ed2dbdda297706e76c0c75daa8a76aa26f002e2a16",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[8]/p[1]",
+      "text": "At the beginning of the pandemic, we did not know what would be the subsequent incidence of COVID-19, and estimated conservatively a 90-day incidence of 3%. We therefore planned to enrol 20,000 participants in Asia (chloroquine-based randomisation) and 20,000 in Europe/Africa (hydroxychloroquine-based randomisation). This sample size allowed for approximately 20% loss to follow-up, withdrawals, protocol deviations and non-adherence, and provided 80% power to detect a 23% reduction in symptomatic COVID-19 incidence for each drug individually with 95% confidence. Unfortunately, there were protracted delays and difficulties with recruitment as the study was starting in 2020. These were related to adverse publicity and withdrawal of regulatory approvals resulting from falsified claims of frequent serious cardiotoxicity [4,29]. The Data Safety and Monitoring Board (DSMB) then acknowledged that the original sample size would no longer be achievable, but recommended study continuation, with pooling of the HCQ and CQ results. The primary outcome was subsequently changed to include seroconversion. This resulted in a 4-fold higher event rate than initially forecasted (approximately 12%). Assuming a continued 12% event rate in the control arm a total sample size of 4,600 had >80% power to detect the previously targeted treatment effect (i.e., 23% reduction)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[8]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[8]/p[2]",
+        "section_title": "Statistical analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 33,
+      "section": "Statistical analysis",
+      "sha256": "5916cdc3ba7f99cdd17c37a8d984f2ee97395622c344d07379059bc72a3ea31d",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[8]/p[2]",
+      "text": "The primary outcome included all participants and was analysed using intention-to-treat (ITT) with a two-sided p-value <0.05 considered significant. A secondary per protocol (PP) analysis excluded participants as described in the CONSORT diagram (Fig 1) and in the SAP (S1 Appendix). Secondary and tertiary endpoints were analysed using the ITT population. Fisher’s exact test was used to compare treatment effects between groups. Risk ratios were obtained from a log-binomial model. Kaplan–Meier survival curves were estimated for the time to PCR-confirmed symptomatic COVID-19 and all-cause respiratory infection and were tested using the log-rank test. The number of workdays lost was analysed under a zero-inflated Poisson regression model. For convergence reasons, we fitted this model using a Bayesian framework in the brms R package (which uses stan to estimate posterior distributions under weakly informative priors). Data analysis was performed using Stata 17.0, StataCorp, College Station, Texas, United States of America and R version 4.2.2. All code and data required to reproduce the primary analysis are provided in https://github.com/jwatowatson/COPCOV. The study is reported according to the CONSORT guidelines for reporting of a randomised trial (S1 CONSORT Checklist)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[2]/sec[9]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[2]/sec[9]/p[1]",
+        "section_title": "Trial support and role of the funding source",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 34,
+      "section": "Trial support and role of the funding source",
+      "sha256": "efe18ac7807e202416a5ec4b7c2c7d541577484594938f18356af810d07fe5ce",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[2]/sec[9]/p[1]",
+      "text": "The COPCOV trial was approved by all local ethics committees and the Oxford Tropical Research Ethics Committee (OxTREC: 25–20) and was sponsored by the University of Oxford. The DSMB met before and during the trial and reviewed all serious adverse events (SAEs). The study sponsor, funder, and the drug manufacturers had no input into the study design, conduct, oversight, analysis, or reporting. The authors vouch for the completeness and accuracy of the data. After critical review all authors agreed to submit the manuscript for publication."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/p[1]",
+        "section_title": "Results",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 35,
+      "section": "Results",
+      "sha256": "51a4dd0dd8ec916f6611fcead54a9983dd6242b07a195941c4db3e0f596e1043",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/p[1]",
+      "text": "The COPCOV study was conducted in 26 sites in 11 countries (Benin, Côte d’Ivoire, Indonesia, Kenya, Mali, Nepal, Niger, Pakistan, Thailand, UK, and Zambia) (Table A1 and Fig A2 In S1 Appendix) and ran between 29 April 2020 and 10 March 2022 (Fig A3 in S1 Appendix). A total of 4,652 adult participants (Table 1) were randomised to hydroxychloroquine or chloroquine (HCQ: 1,299, CQ: 1,021: total: 2,320) or corresponding matched placebos (N = 2,332) (Fig 1). The median age of the participants was 29 years (interquartile range, 23 to 39). The population was generally healthy; 4.8% (225/4,652) reported having a chronic disease. There were no significant differences in tolerability, safety, or efficacy between chloroquine and hydroxychloroquine."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pmed.1004428.t001",
+        "path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+        "section_title": "Results",
+        "table_label": "Table 1",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 36,
+      "section": "Results",
+      "sha256": "ef3e305f81a04141b67c2f939075ae31b59e9949d6ceda8215430c6ec89e8d28",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/table-wrap[1]",
+      "text": "Table 1\nDemographic details of the COPCOV study participants.\n\tChloroquine/hydroxychloroquine\tPlacebo\tTotal\nN = 2,320\tN = 2,332\tN = 4,652\nAge (years), median (IQR)\t29 (23–39)\t29 (24–39)\t29 (23–39)\nSex, n (%)\t\t\t\nMale\t1,252 (54.0)\t1,267 (54.3)\t2,519 (54.1)\nFemale\t1,067 (46.0)\t1,064 (45.6)\t2,131 (45.8)\nNot specified\t1 (0)\t1 (0)\t2 (0)\nTemperature (°C), mean (SD)\t36.4 (0.4)\t36.4 (0.5)\t36.4 (0.5)\nWeight (kg), mean (SD)\t64.8 (14.2)\t65.3 (14.7)\t65.1 (14.4)\nHeight (cm), mean (SD)\t164 (9)\t164 (10)\t164 (9)\nBMI (kg/m2), median (IQR)\t23.1 (20.3–26.9)\t23.3 (20.5–26.9)\t23.2 (20.4–26.9)\nSmoking, n (%)\t\t\t\nYes\t374 (16.12)\t395 (16.94)\t769 (16.53)\nNever smoked\t1,789 (77.11)\t1,772 (75.99)\t3,561 (76.55)\nFormer smoker\t157 (6.77)\t165 (7.08)\t322 (6.92)\nCOVID-19 in household, n/N (%)\t263 (11.3)\t273 (11.7)\t536 (11.5)\nExisting comorbidities\t\t\t\nChronic pulmonary disease (not asthma), n/N (%)\t5 (0.2)\t0 (0)\t5 (0.1)\nAsthma (physician diagnosed), n/N (%)\t22 (0.9)\t18 (0.8)\t40 (0.9)\nChronic kidney disease, n/N (%)\t0 (0)\t0 (0)\t0 (0)\nLiver disease, n/N (%)\t1 (0.04)\t1 (0.04)\t2 (0.04)\nAIDS/HIV, n/N (%)\t37 (1.6)\t34 (1.5)\t71 (1.5)\nDiabetes, n/N (%)\t21 (0.9)\t15 (0.6)\t36 (0.8)\nHypertension, n/N (%)\t43 (1.9)\t41 (1.8)\t84 (1.8)\nCancer, n/N (%)\t1 (0.04)\t1 (0.04)\t2 (0.04)\nCondition requiring immunosuppressive drugs, n/N (%)\t1 (0.04)\t0 (0)\t1 (0.02)\nIschaemic heart disease, n/N (%)\t2 (0.09)\t0 (0)\t2 (0.04)\nHigh cholesterol, n/N (%)\t5 (0.2)\t7 (0.3)\t12 (0.3)\nAny chronic condition, n (%)\t118 (5.1)\t107 (4.6)\t225 (4.8)\nBaseline symptoms\t\t\t\nFever, n (%)\t0 (0)\t0 (0)\t0 (0)\nCough, n (%)\t5 (0.2)\t3 (0.1)\t8 (0.2)\nSore throat, n (%)\t0 (0)\t1 (0.04)\t1 (0.02)\nRunny nose (Rhinorrhoea), n (%)\t0 (0)\t1 (0.04)\t1 (0.02)\nWheezing, n (%)\t1 (0.04)\t0 (0)\t1 (0.02)\nAnosmia, n (%)\t0 (0)\t0 (0)\t0 (0)\nChest pain, n (%)\t0 (0)\t1 (0.04)\t1 (0.02)\nMuscle pain (myalgia), n (%)\t2 (0.09)\t5 (0.2)\t7 (0.2)\nJoint pain (Arthralgia), n (%)\t4 (0.2)\t4 (0.2)\t8 (0.2)\nShortness of breath on exertion, n (%)\t0 (0)\t3 (0.13)\t3 (0.06)\nShortness of breath at rest, n (%)\t0 (0)\t0 (0)\t0 (0)\nFatigue/malaise, n (%)\t0 (0)\t3 (0.13)\t3 (0.06)\nItching, n (%)\t0 (0)\t1 (0.04)\t1 (0.02)\nHeadache, n (%)\t1 (0.04)\t5 (0.2)\t6 (0.1)\nDizziness, n (%)\t2 (0.09)\t3 (0.1)\t5 (0.1)\nVisual disturbance, n (%)\t0 (0)\t1 (0.04)\t1 (0.02)\nAbdominal pain, n (%)\t0 (0)\t2 (0.09)\t2 (0.04)\nPoor appetite, n (%)\t1 (0.04)\t1 (0.04)\t2 (0.04)\nNausea, n (%)\t0 (0)\t2 (0.09)\t2 (0.04)\nVomiting, n (%)\t0 (0)\t1 (0.04)\t1 (0.02)\nDiarrhoea, n (%)\t1 (0.04)\t0 (0)\t1 (0.02)\nSkin rash, n (%)\t0 (0)\t2 (0.09)\t2 (0.04)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+        "section_title": "Primary outcome",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 37,
+      "section": "Primary outcome",
+      "sha256": "70ff626584f5f1679b02f14fefecb6fbdb955da760997bc99ec940f2fb97be5b",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+      "text": "Symptomatic, laboratory-confirmed COVID-19 during the 3-month follow-up period occurred in 524 participants (11.3%); 240/2,320 (10.3% [95% CI, 9.2 to 11.7]) received HCQ/CQ and 284/2,332 (12.3% [95% CI, 10.9 to 13.6]) received placebo (risk ratio (RR) 0.85 [95% CI, 0.72 to 1.00; p = 0.05]) (Table 2). Symptomatic COVID-19 was PCR-confirmed in 24/2,320 HCQ/CQ recipients (1.0% [95%CI, 0.7 to 1.5]) and 56/2,332 (2.4% [95% CI, 1.8 to 3.1]) placebo recipients (RR 0.43 [95% CI, 0.27 to 0.69; p < 0.001]) (Fig 3). Among those with paired sera, symptomatic COVID-19 was diagnosed by seroconversion in 211/1,462 (14.4% [95% CI, 12.7 to 16.3]) HCQ/CQ recipients and 245/1,498 (16.4% [95%CI, 14.5 to 18.3]) placebo recipients (RR 0.88 [95% CI, 0.74 to 1.05], p = 0.2) (Table 2). In the remaining cases analysed by DBS (i.e., without paired sera), symptomatic COVID-19 was diagnosed in 25/280 (8.9% [95% CI, 5.9 to 12.9]) HCQ/CQ recipients and 26/297 (8.8 [95% CI, 5.8 to 12.6]) placebo recipients (RR 1.02 [95% CI, 0.60 to 1.72; p = 0.9]). Primary outcome data were missing for 1,114 participants (24%) for the serology component, mainly because of loss to follow-up (Fig 2). Asymptomatic infection was also common, occurring in 524 participants, thus the overall proportion of SARS-CoV-2 infection within the 3-month study was 23% (1,071 of 4,652)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/fig[1]/caption[1]/p[1]",
+        "section_title": "Primary outcome",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 38,
+      "section": "Primary outcome",
+      "sha256": "9af723d4c33824df51ee1af7d5cdd6b0a62eecf26ec5bd8c34a572f2cd0722a3",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/fig[1]/caption[1]/p[1]",
+      "text": "Those with no serology data were either those who dropped out of the study before day 30, and had no end of study samples, or had missing end of study samples, or those judged unreliable by the serology endpoint assessment committee. This group differed from the PP population, with some overlap."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/fig[2]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/fig[2]/caption[1]/p[1]",
+        "section_title": "Primary outcome",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 39,
+      "section": "Primary outcome",
+      "sha256": "611edc726185616b41c03f55b67d1683e538e436b406fa61444ce0104816db13",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/fig[2]/caption[1]/p[1]",
+      "text": "All-cause PCR-confirmed respiratory infections (left) and PCR-confirmed COVID-19 (right) over time in the HCQ/CQ recipients (green) and placebo recipients (pink). All-cause respiratory infection was a secondary endpoint. The majority (68%, 80/117) of infections were SARS-CoV-2. Log-rank test p-values are shown. Patients are right censored at the date of last visit. COVID-19, Coronavirus Disease 2019; CQ, chloroquine; HCQ, hydroxychloroquine; SARS-CoV-2, Severe Acute Respiratory Syndrome Coronavirus 2."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pmed.1004428.t002",
+        "path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+        "section_title": "Primary outcome",
+        "table_label": "Table 2",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 40,
+      "section": "Primary outcome",
+      "sha256": "9cc001fde654f2f436a572e269f6241d0847398f2908cebf8f3543476e4043bf",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+      "text": "Table 2\nPrespecified endpoints of the COPCOV trial in the intention to treat population.\nOutcome\tChloroquine/hydroxychloroquine(N = 2,320)\tPlacebo(N = 2,332)\tRisk ratio (95% CI)\tFisher’s exact P-value\nTotal participant days\t181,263\t184,688\t\t\nPrimary endpoint: Symptomatic laboratory-confirmed COVID-19. n (%); 95% CI\t240/2,32010.3 (9.1 to 11.7)\t284/2,33212.2 (10.9 to 13.6)\t0.85(0.72 to 1.00)\t0.051\nPCR-confirmed diagnosis. n/N (%); 95% CI\t24/2,3201.0 (0.7 to 1.5)\t56/2,3322.4 (1.8 to 3.1)\t0.43(0.27 to 0.69)\t<0.001\nSerology confirmed diagnosis (serum). n (%); 95% CI\t211/1,46214.4 (12.7 to 16.3)\t245/1,49816.4 (14.5 to 18.3)\t0.88(0.74 to 1.05)\t0.154\nSerology confirmed diagnosis (DBS). n (%); 95% CI\t25/2808.9 (5.9–12.9)\t26/2978.8 (5.8 to 12.6)\t1.02(0.60 to 1.72)\t1.000\nSecondary endpoints:\t\t\t\t\nAsymptomatic SARS-CoV-2 infection. n (%); 95% CI\t267/2,32011.5 (10.2 to 12.9)\t280/2,33212.0 (10.7 to 13.4)\t0.96(0.82 to 1.12)\t0.617\nAll SARS-CoV-2 infection n (%); 95% CI\t507/2,32021.9 (20.2 to 23.6)\t564/2,33224.2 (22.5 to 26.0)\t0.90(0.81 to 1.00)\t0.060\nAll-cause respiratory illness*. n (%); 95% CI\t44/2,3201.9 (1.4 to 2.5)\t73/2,3323.1 (2.5 to 3.9)\t0.61(0.42 to 0.88)\t0.009\nSeverity score. Median (IQR)\t20.0(5–85)\t21.5(5–89)\tNA\t1.000\nTertiary endpoint:Participant reported workdays lost\t700/181,263\t932/184,688\tNA\t0.0002**\n*PCR-confirmed respiratory infection including COVID-19. **Assessed by a zero-inflated Poisson regression model. Missing outcomes in the primary endpoint ITT analysis were treated as not having had COVID-19 during the study period. See Fig 2 for Venn diagram depicting breakdown of numbers analysed."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+        "section_title": "Prespecified secondary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 41,
+      "section": "Prespecified secondary outcomes",
+      "sha256": "bbb77c49c18414240f6374e0113a9d5ab96ae12a3235b13a373e88498dd6441f",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+      "text": "Asymptomatic COVID-19 occurred in 267/2,320 (11.5% [95% CI, 10.2 to 12.9]), HCQ/CQ recipients and 280/2,332 (12.0% [95% CI, 10.7 to 13.4]) placebo recipients (RR: 0.96 [95% CI, 0.82 to 1.12; p = 0.6]). In symptomatic patients, there were no significant differences in symptom severity scores (20.0 (5–85) versus 21.5 (5–89)). All-cause respiratory illness (mainly COVID-19) occurred in 44/2,320 (1.9% [95% CI, 1.4 to 2.5]) HCQ/CQ recipients and 73/2,332 (3.1% [95% CI, 2.5 to 3.9]) placebo recipients (RR: 0.61 [95% CI, 0.42 to 0.88; p = 0.009]) (Fig 3 and Table A8 in S1 Appendix)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+        "section_title": "Prespecified tertiary outcomes",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 42,
+      "section": "Prespecified tertiary outcomes",
+      "sha256": "d672edead41d9315eb578644075cec4321d83f6266a7880376d51c6c4939ef98",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+      "text": "Under a zero-inflated Poisson regression model, the mean number of workdays lost over 90 days of chemoprophylaxis was 337 (95% CI, 279 to 398) per 1,000 participants in HCQ/CQ recipients and 441 (95% CI, 370 to 515) per 1,000 in placebo recipients; a mean difference of 104 days (95% CI, 12 to 199). Similar results were observed in the ITT and per protocol analyses for all comparisons (Tables A2–A3 in S1 Appendix). Tests for genetic and biochemical markers for symptomatic COVID-19, respiratory illness or disease severity, were not conducted, as suitable specific tests were not available. A health economic analysis will be reported separately."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+        "section_title": "Safety and tolerability",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 43,
+      "section": "Safety and tolerability",
+      "sha256": "83d3599a93bf42e7b8fac6b5c63e99140eea128c28927a46fdcfe91736a4eda6",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[4]/p[1]",
+      "text": "The study medications were well tolerated. One HCQ recipient was hospitalised with confirmed COVID-19. There were 10 SAEs in 9 HCQ/CQ recipients and 8 SAEs in 8 placebo recipients but none were considered drug-related (Table 3 and Table A4 in S1 Appendix) and no one died. Overall, 218/2,320 (9.4%) HCQ/CQ recipients had at least 1 adverse event (AE) compared to 242/2,332 (10.4%) placebo recipients (p = 0.3). Fewer HCQ/CQ recipients had severe AEs (31/2,320; 1.3%) than placebo recipients (58/2,332; 2.5%; p = 0.005). Twelve HCQ/CQ recipients (0.52%) discontinued chemoprophylaxis either because of side-effects (N = 10) or inability to comply with study procedures (N = 2), versus 4 (0.17%) in the placebo group (p = 0.05)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+      "kind": "table-wrap",
+      "locator": {
+        "element_id": "pmed.1004428.t003",
+        "path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+        "section_title": "Safety and tolerability",
+        "table_label": "Table 3",
+        "tag": "table-wrap",
+        "type": "xml_element"
+      },
+      "ordinal": 44,
+      "section": "Safety and tolerability",
+      "sha256": "b8eecf8d0fad40c64e6deabb39352f84b1a51268e41a9246f06ae1a162bb79ae",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[4]/table-wrap[1]",
+      "text": "Table 3\nSafety and tolerability of the COPCOV study medications.\nAdverse events\tChloroquine/hydroxychloroquine\tPlacebo\tFisher’s exact P-value\nNumber of subjects\tN = 2,320\tN = 2,332\t\nTotal participant days\t181,263\t184,688\t\nNumber of subjects with at least 1 AE, n (%)Total adverse events, nE (%)\t218 (9.4)578 (24.9)\t242 (10.4)656 (28.1)\t0.260\nParticipants with at least 1 SAE, n (%):Total events, nE (%):\t9 (0.4)10 (0.4)\t8(0.3)8 (0.3)\t\nDeaths, n/N, (%)\t0 (0)\t0 (0)\t\nPossible, probable, or definite drug related SAEs, n/N, (%)\t0 (0)\t0 (0)\t\nGrading of adverse events, nE/N, (%)\tModerate(grade 2)N = 2,320\tSevere(grade 3)N = 2,320\tModerate(grade 2)N = 2,332\tSevere(grade 3)N = 2,332\tP-value for total severe AEs between groups\nSymptoms\t\t\t\t\t\nNumber of adverse events**\t547 (23.6)\t31 (1.3)\t598 (25.6)\t58 (2.5)\t0.005\nItching\t7 (0.3)\t0 (0)\t11 (0.5)\t1 (0)\t\nHeadache\t85 (3.7)\t5 (0.2)\t85 (3.6)\t11 (0.5)\t\nDizziness\t30 (1.3)\t1 (0)\t20 (0.9)\t0 (0)\t\nVisual disturbance\t3 (0.1)\t0 (0)\t7 (0.3)\t0 (0)\t\nAbdominal pain\t22 (0.9)\t5 (0.2)\t19 (0.8)\t6 (0.3)\t\nPoor appetite\t3 (0.1)\t0 (0)\t5 (0.2)\t0 (0)\t\nNausea\t19 (0.8)\t0 (0)\t19 (0.8)\t2 (0.1)\t\nVomiting\t9 (0.4)\t1 (0)\t8 (0.3)\t1 (0)\t\nDiarrhoea\t22 (0.9)\t0 (0)\t17 (0.7)\t2 (0.1)\t\nSkin rash\t6 (0.3)\t0 (0)\t3 (0.1)\t1 (0)\t\nOther\t341 (14.7)\t19 (0.8)\t404 (17.3)\t34 (1.5)\t\n*There were no participants with grade 4 AEs. **SAEs are reported separately in the same table. SAE, serious adverse event."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[3]/sec[5]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[3]/sec[5]/p[1]",
+        "section_title": "Prespecified meta-analysis",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 45,
+      "section": "Prespecified meta-analysis",
+      "sha256": "394b695568f3e7d1689539cc5d5278747ca97e053a34a5ff474af80697c3908c",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[3]/sec[5]/p[1]",
+      "text": "Including this study and the 11 previously published randomised hydroxychloroquine COVID-19 pre-exposure chemoprevention studies (Fig 3), the prespecified meta-analysis showed an overall protective efficacy against symptomatic COVID-19 (RR 0.80 [95% CI, 0.71 to 0.91; p = < 0.001]) [11,12,15–23]. Although the studies reported slightly different outcomes, used different doses and for different durations, there was no clear between-study heterogeneity or evidence of publication bias (Fig A4 in S1 Appendix)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[1]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 46,
+      "section": "Discussion",
+      "sha256": "ec268d89df2e33040a86d6281d9bbef3bc0211946448ae1b0cec91c99b2e53c5",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[4]/p[1]",
+      "text": "This large multinational randomised double-blind COVID-19 chemoprevention trial provides strong evidence of the safety of hydroxychloroquine and chloroquine given daily for 3 months (average 2.4 mg base/kg/day). The trial ended below its original recruitment objective but, because of the higher than anticipated incidence of COVID-19, it was able to provide evidence relevant to protective efficacy. For the trial’s primary endpoint (incidence of symptomatic laboratory-confirmed COVID-19), the apparent benefit observed for HCQ/CQ treatment is consistent with the aggregated results of previous smaller studies [11,12,15–23], all but one of which had a lower incidence of symptomatic COVID-19 in the HCQ treatment arm (Fig 4). Incorporating the COPCOV trial data in a prespecified meta-analysis of pre-exposure RCTs, in which there was little heterogeneity across the studies and no evidence of publication bias, suggests a moderate protective benefit (RR 0.80 [95% CI 0.71 to 0.91]). In other prespecified comparisons in the COPCOV study, HCQ/CQ chemoprevention was associated with fewer adverse events, fewer all-cause PCR-confirmed respiratory infections (mostly COVID-19), and a reduction in workdays lost, but it did not affect the incidence of asymptomatic infections or the severity of respiratory illness (although no patients required hospitalisation for hypoxia)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/fig[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/fig[1]/caption[1]/p[1]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 47,
+      "section": "Discussion",
+      "sha256": "1a6714a9efd55e9db93a453b0dc5613aa2236f929656f2a6ad5c4c250b6043a4",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[4]/fig[1]/caption[1]/p[1]",
+      "text": "Schilling 2024 refers to the current study. The size of the grey squares centred at the treatment effect estimates are proportional to the study weight. Risk ratios were determined for all studies based on the reported data, apart from Seet and colleagues, which was cluster randomised and a recalculated adjusted RR was used. See Methods A2 in S1 Appendix for further details. CQ, chloroquine; HCQ, hydroxychloroquine; RCT, randomised controlled trial; RR, risk ratio."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[2]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 48,
+      "section": "Discussion",
+      "sha256": "fc8a07c4877377b5e3a63bbc7af5cc22aa8df67f2aca0a4b9425d6bcfb932937",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[4]/p[2]",
+      "text": "Despite this study’s size, and the combined evidence, there is still substantial uncertainty as to the true prophylactic benefit of these 4-aminoquinolines in COVID-19. The large difference between the groups in rates of PCR-confirmed diagnosis was not mirrored by a similar difference in seroconversion-based diagnosis. This could be a chance finding from PCR (as numbers were relatively small) or, more likely, results from imprecision of serodiagnosis diluting the power of the study. The DBS samples, used to determine seroconversion when paired sera were unavailable, may have provided unreliable results. The extraction of serum from DBS is variable and inefficient and, unlike the serum-based assays [28], the seroconversion thresholds have not been fully validated, although they have been used in other COVID-19 studies [30]. The absence of a significant protective effect against asymptomatic infection may indicate that protective benefit is proportional to the viral burden and thus disease severity, but it could also reflect the imprecision of the seroconversion-based endpoint."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[3]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[3]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 49,
+      "section": "Discussion",
+      "sha256": "db0cc72ff903cdc38f5656d4cdf34cb1802673cf7327bb9374d718d0d89e148f",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[4]/p[3]",
+      "text": "The tolerability and safety of these well-established 4-aminoquinoline medicines is further reinforced in this double-blind comparison [31]. This was a point of controversy early in the pandemic. Initial reports described a range of toxicities that created a climate of concern and adverse opinion. This trial provides no support for these claims, and it supports the generally good short-term safety profile of these drugs [31]. It challenges the World Health Organization “living” guidelines on COVID-19 chemoprevention which emphasised toxicity in recommending against hydroxychloroquine. The same guideline also stated that prophylactic use “probably has a small or no effect on laboratory-confirmed COVID-19” with “moderate certainty,” and has no effect on mortality with “high certainty” [27]. Yet, the meta-analysis reported here suggests significant benefit. No deaths have been reported in any of the pre-exposure prophylaxis studies, and the drugs have been well tolerated with very low rates of treatment discontinuation (Figs A5–A6 in S1 Appendix) [32]."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[4]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[4]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 50,
+      "section": "Discussion",
+      "sha256": "c929cfcfcf9fa2f2e606b177a0ff26b991eaec6d6a2544749f7c680579bc7832",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[4]/p[4]",
+      "text": "Few drugs have excited such controversy as hydroxychloroquine in COVID-19. Bureaucracy, politicisation, and polarised debate obstructed the undertaking of clinical trials needed to provide objective evidence early in the pandemic. Now, with increasing vaccine coverage, declining viral virulence and availability of effective medicines, there is little reason to recommend the 4-aminoquinolines for COVID-19 chemoprevention. But earlier in the pandemic mortality was much higher, there were no vaccines or drugs, and healthcare systems were under intense strain as their workforces were depleted by illness. If these results had been available then, a case could have been made to deploy these moderately effective, inexpensive, available, and safe 4-aminoquinolines more widely. To put the moderate prophylactic efficacy of HCQ/CQ in perspective, the WHO stated initially that COVID-19 vaccines with a protective efficacy of at least 30% would be considered [33]. In those early days, the rapid spread and the initial high mortality of COVID-19 in the absence of proven effective therapies or vaccines created global concern but, despite the seriousness of the pandemic, there were major obstacles to the conduct of urgently needed clinical research, particularly in low resource settings. In addition, the endorsement of unproven medicines and remedies (including hydroxychloroquine), and later warnings and revocations by regulatory authorities [29], the associated politicisation, and the intense media scrutiny excited controversy and polarised views. All of these factors compromised objective scientific evaluation."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[5]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[5]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 51,
+      "section": "Discussion",
+      "sha256": "0447d458dde05438fe483cfd0fd09cb25da181793ccc38e6ffcefbb9c023dca8",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[4]/p[5]",
+      "text": "There are significant limitations to this study. The final sample size was substantially smaller than intended which limits confidence in the preventive effect estimates. At the beginning of the pandemic we did not know what the incidence of COVID-19 would be, nor what magnitude of preventive benefit would be considered enough to warrant use of these medicines in prophylaxis. The trial was conducted in many resource-limited settings where collection of respiratory swab specimens and PCR diagnosis was difficult, so only a small proportion of cases could be confirmed by PCR. Seroconversion over 3 months is a less precise measure of symptomatic infection. In particular, the DBS method of assessment, although employed in other studies [30], was not validated and did not perform well in this study. A significant proportion of participants were lost to follow-up (Fig 1) although these were balanced across arms (Fig A7 in S1 Appendix) and the PP analysis corresponded well with that of the ITT population (Tables A2–A3 in S1 Appendix). In addition, some participant outcomes were not evaluable because the end-of-study results were either unavailable (early drop-out), or were considered to be unreliable by the independent Serology Endpoint Assessment Committee (Table 2 and Table A5 in S1 Appendix). Although the inclusion of the DBS assessment was prespecified in the composite endpoint, this likely reduced the precision of the endpoint ascertainment and thus the estimate of preventive efficacy (Table 2). The study primary endpoints evaluated in the meta-analysis were slightly different, but meta-analysis of the PCR-confirmed infections indicates consistent evidence of moderate protective benefit (Fig A6 in S1 Appendix)."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[4]/p[6]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[4]/p[6]",
+        "section_title": "Discussion",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 52,
+      "section": "Discussion",
+      "sha256": "771d75e32f7ff12a865a95cd27730e73603caffebbe18d1ad08eba066c15e048",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[4]/p[6]",
+      "text": "In summary, this large double-blind, placebo-controlled, trial showed that hydroxychloroquine and chloroquine prophylaxis was safe and well tolerated, and combined with data from other similar trials provided some evidence that laboratory-confirmed symptomatic COVID-19 might be reduced. The totality of evidence from this and other RCTs suggests a moderate preventive benefit. This knowledge could have proved beneficial earlier in the COVID-19 pandemic when vaccines and treatments were lacking, and mortality and morbidity were high. RCTs should be supported during pandemics."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 53,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[1]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 54,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[2]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[3]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[3]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 55,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[3]/caption[1]/p[1]",
+      "text": "(DOCX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[4]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[4]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 56,
+      "section": "Supporting information",
+      "sha256": "f02332cfc667e04fc2f86d4cfa8e90407509809cd631d9ad2735a61b8f971523",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[4]/caption[1]/p[1]",
+      "text": "(XLSX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 57,
+      "section": "Supporting information",
+      "sha256": "e5eeb53147d99008359c271b86262c617f187255271b00423206511fe4efa2ce",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[5]/caption[1]/p[1]",
+      "text": "(PDF)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[6]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[6]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 58,
+      "section": "Supporting information",
+      "sha256": "f02332cfc667e04fc2f86d4cfa8e90407509809cd631d9ad2735a61b8f971523",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[6]/caption[1]/p[1]",
+      "text": "(XLSX)"
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[1]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[1]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 59,
+      "section": "Supporting information",
+      "sha256": "787a0addb7b5fd2c12f41fd99df21c2f4a1db5a1f68b17a22991bd078fc27618",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[1]",
+      "text": "List of COPCOV study sites. Table A2. Baseline characteristics in the COPCOV trial (Per Protocol Analysis). Table A3. Outcomes of Chloroquine/Hydroxychloroquine and Placebo Pre-exposure Prophylaxis against COVID-19 in the COPCOV study (Per Protocol Analysis). Table A4. Summary of Serious Adverse Events in the COPCOV study. Table A5. Primary and secondary outcomes of Chloroquine/Hydroxychloroquine Therapy for Pre-exposure Prophylaxis against COVID-19 (missing outcomes treated as not having had COVID-19 during the study period) ITT–Results presented as “Risk differences.” Table A6. Outcomes of Chloroquine/Hydroxychloroquine and Placebo Pre-exposure Prophylaxis against COVID-19 in the COPCOV study (removing cases for which the SEAC judged that a study endpoint could not be determined). Table A7. Summary characteristics of previously published pre-exposure prophylaxis studies considered for meta-analysis. Table A8. Listing of causes of PCR-confirmed respiratory illness. Fig A1. Atlas showing those countries in which investigators were contacted to enquire whether they would be interested in, and able to join the COPCOV study. Fig A2. Atlas showing the location of the COPCOV trial sites which recruited participants, the 4-aminoquinoline tested, and the approximate numbers recruited. Fig A3. Graph showing cumulative enrollment over time (per week) by country. Fig A4. Funnel plot showing the 4-aminoquinoline COVID-19 pre-exposure chemoprevention RCTs included in the prespecified meta-analysis, and the relationship between point estimate risk ratios for the primary outcome and the corresponding standard errors. Fig A5. Meta-analysis of 4-aminoquinoline COVID-19 pre-exposure chemoprevention RCTs based on individual study primary endpoints using Risk Of Bias tool (RoB 2). Fig A6. Meta-analysis of the safety and tolerability outcomes in COVID-19 chemoprevention RCTs using the same methodology as reported in the WHO living guideline [24]. Fig A7. Meta-analysis of adverse events leading to treatment discontinuation reported in double-blind, placebo-controlled, 4-aminoquinoline COVID-19 pre-exposure chemoprevention RCTs. Fig A8. Graph showing cumulative loss to follow-up (LTFU) for Hydroxychloroquine/ Chloroquine arms and Placebo arm."
+    },
+    {
+      "block_id": "xml:/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[2]",
+      "kind": "p",
+      "locator": {
+        "path": "/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[2]",
+        "section_title": "Supporting information",
+        "tag": "p",
+        "type": "xml_element"
+      },
+      "ordinal": 60,
+      "section": "Supporting information",
+      "sha256": "344bbb1ea889b2323f7442b4c14fa618380c984d636a3d663269db6f5c9b5c38",
+      "source_id": "copcov",
+      "source_path": "/article[1]/body[1]/sec[5]/supplementary-material[7]/caption[1]/p[2]",
+      "text": "(DOCX)"
+    }
+  ],
+  "schema_version": 1
+}

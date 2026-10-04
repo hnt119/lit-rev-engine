@@ -16,9 +16,12 @@ Use **`review.py` for a reproducible medical review**. Begin with the [offline g
 | Associate reports, retain sources and verify findings | [Study links](docs/study-linkage.md), [Source versions](docs/source-documents.md), [Verified evidence](docs/verified-evidence.md) |
 | Retrieve exact passages from eligible project sources | [Project retrieval](docs/project-retrieval.md) |
 | Run Qwen on a free Kaggle GPU and inspect its acceptance gates | [Qwen workflow](docs/qwen-cloud.md), [model strategy](docs/model-strategy.md), [Kaggle milestone](docs/qwen-kaggle-milestone.md) |
+| Inspect the log repair and test companion evidence for compound questions | [Log diagnosis](docs/qwen-kaggle-log-review.md), [component workflow](docs/qwen-components-guide.md), [selected contract](docs/qwen-components-contract-v1.md) |
 | See accepted gates and the next human review pilot | [Pilot contract](docs/pilot-milestone.md), [coordinator roadmap](docs/review-roadmap.md) |
 
 `review.py qwen-export` prepares a source snapshot for the importable [Kaggle notebook](notebooks/qwen_kaggle.ipynb). It runs Qwen3-Embedding-4B / Qwen3-Reranker-4B on a free GPU; `qwen-import` validates returned vectors, ranks and exact source anchors locally. No inference API key or model weights are required on the Mac. Paid inference is disabled unless explicitly enabled. Preserve jobs/results/receipts alongside the ledger. The [software release](docs/qwen-kaggle-release.md) passed 1,545 tests and 31 subtests. The [first actual Kaggle run](docs/qwen-kaggle-run-v2.md) completed on a Tesla T4 with zero paid calls: **80.6% own-evidence coverage and 4/6 complete positives**, compared with lexical retrieval's 72.2% and 2/6. It **failed the fixed 85% coverage gate**. Qwen remains experimental; companion-evidence retrieval and fresh evaluation precede the human pilot.
+
+The [component experiment](docs/qwen-components-guide.md) adds reviewer-declared question parts, a shared twenty-candidate pool and five displayed own passages. It uses a temporary package overlay to address the shared-environment conflicts reported in the supplied Kaggle log. The reviewed checkout passed **1,771 tests and 31 subtests**, including 226 new independent checks. Development is frozen and prepared; actual cloud validation and blind confirmation remain pending. Read the [current run record](docs/qwen-components-runs-v1.md) for observed evidence. The earlier failed result remains available for exact replay.
 
 ## Current workflow
 

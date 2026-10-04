@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "selected_before_implementation",
+  "created_on": "2026-10-04 Asia/Singapore",
+  "contract": {
+    "path": "docs/qwen-components-contract-v1.md",
+    "sha256": "0287b6d93c01bfa9f60fe9b940b324fd30403d5b2143f04bf1d999b06009d3c2",
+    "size_bytes": 12303
+  },
+  "development_rankings_before_selection": 0,
+  "confirmation_rankings_before_selection": 0,
+  "confirmation_questions_seen_by_coordinator": false,
+  "historical_v2_decision": "failed_preserved",
+  "no_paid_inference": true
+}

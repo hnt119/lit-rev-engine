@@ -1,0 +1,481 @@
+{
+  "questions": [
+    {
+      "answerable": true,
+      "category": "cohort_eligibility_and_agreement",
+      "components": [
+        {
+          "id": "study_period",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS agreement study, what clinical study period defined the retrospective cohort?"
+        },
+        {
+          "id": "eligibility",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS agreement study, what patient age and ultrasound-to-FNA biopsy timing eligibility rules defined the cohort?"
+        },
+        {
+          "id": "overall_agreement",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS agreement study, what overall TI-RADS kappa with confidence interval was reported?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "The clinical study period was January 2021 to January 2022. Eligible patients were adults 18 years or older with documented Bethesda score after FNA; no prior sonography or an ultrasound-to-FNA interval greater than two weeks was excluded. Overall TI-RADS kappa 0.504 (95% CI 0.409–0.599). The later data-access period is not the clinical study period.",
+      "id": "components-confirm-thyroid-01",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "For the sonographer-versus-radiologist thyroid TI-RADS agreement study, what clinical study period and age/biopsy-timing eligibility rules defined the cohort, and what overall TI-RADS kappa with confidence interval was reported?",
+      "source_id": "thyroid",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "block_sha256": "7703f6f7e164a7e43e1df95cf5755e973d6193186b76170b729effbc16286e4f",
+            "end": 97,
+            "quote": "The study employed a retrospective design, covering the period from January 2021 to January 2022.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+            "block_sha256": "1e74b15db1bc17ad5d0859ed85ac5e026f839aed03c390759d0cdcdbdfb5d4c3",
+            "end": 829,
+            "quote": "The patients were considered eligible if they were an adult (18 years or older) and had a documented Bethesda score following an FNA biopsy done after the ultrasound scan. Patients who did not undergo thyroid sonography prior to the FNA or the duration between the scan and FNA was more than two weeks were excluded.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+            "start": 513
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+            "block_sha256": "1434421a777cf392d80bed35110cf81379677ac981db79fc193d72f6f67687cd",
+            "end": 592,
+            "quote": "Table 3\nInter-reader reliability between sonographer and radiologist readers of Thyroid Imaging Reporting and Data System (TI-RADS) features.\nFeature\tKappa\tSE\t95% C.I\tP–value\nTI-RADS\t0.504\t0.049\t[0.409–0.599]\t*<0.001\nComposition score\t0.463\t0.091\t[0.283–0.642]\t*<0.001\nEchogenicity score\t0.584\t0.054\t[0.478–0.689]\t*<0.001\nShape score\t0.462\t0.131\t[0.204–0.719]\t*<0.001\nMargin score\t0.102\t0.102\t[-1.430–0.301]\t0.153\nEchogenic foci score\t0.548\t0.052\t[0.446–0.650]\t*<0.001\n* shows that P-value is significant at P<0.05 and agreement among participants, CI, confident Interval; SE, standard error.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+            "start": 0
+          }
+        ],
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "block_sha256": "7703f6f7e164a7e43e1df95cf5755e973d6193186b76170b729effbc16286e4f",
+            "end": 97,
+            "quote": "The study employed a retrospective design, covering the period from January 2021 to January 2022.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+            "block_sha256": "1e74b15db1bc17ad5d0859ed85ac5e026f839aed03c390759d0cdcdbdfb5d4c3",
+            "end": 829,
+            "quote": "The patients were considered eligible if they were an adult (18 years or older) and had a documented Bethesda score following an FNA biopsy done after the ultrasound scan. Patients who did not undergo thyroid sonography prior to the FNA or the duration between the scan and FNA was more than two weeks were excluded.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+            "start": 513
+          },
+          {
+            "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+            "block_sha256": "fe984bb59f1e089c2695231600fd30b2aa85e81a22c97de949b7616b9844eb22",
+            "end": 237,
+            "quote": "The study revealed a moderate overall agreement between sonographers and radiologists in TI-RADS scoring (κ = 0.504; 95% CI: 0.409–0.599), with poor agreement noted specifically for nodule margin scores (κ = 0.102; 95% CI: -1.430–0.301).",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": true,
+      "category": "training_and_feature_agreement",
+      "components": [
+        {
+          "id": "sonographer_training",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS study, what training materials and period of monitoring and feedback followed the sonographers’ focused course?"
+        },
+        {
+          "id": "margin_agreement",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS study, what margin-score kappa, confidence interval and p-value were reported?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "The July 2020 focused course used official ACR materials including the TI-RADS atlas and user guide, followed by regular monitoring and feedback over 3 months. Margin kappa 0.102, 95% CI −1.430–0.301, p=0.153, preserved as printed rather than repaired.",
+      "id": "components-confirm-thyroid-02",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the sonographer-versus-radiologist thyroid TI-RADS study, what training materials and period of monitoring and feedback followed the sonographers’ focused course, and what margin-score kappa, confidence interval and p-value were reported?",
+      "source_id": "thyroid",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+            "block_sha256": "e792b65b7bf1e601b451c3aab195b61fdbb69bfff070d800e6c2e7197915b47e",
+            "end": 662,
+            "quote": "All sonographers were trained to interpret thyroid US images and assign ACR TI-RADS scores after receiving a focused training course by the chief consultant radiologist (12 years of experience). The training was done in July 2020, which included official educational materials developed by the ACR including the TI-RADS atlas and user guide [32]. This was followed by regular monitoring and feedback over 3 months.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+            "start": 248
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+            "block_sha256": "1434421a777cf392d80bed35110cf81379677ac981db79fc193d72f6f67687cd",
+            "end": 592,
+            "quote": "Table 3\nInter-reader reliability between sonographer and radiologist readers of Thyroid Imaging Reporting and Data System (TI-RADS) features.\nFeature\tKappa\tSE\t95% C.I\tP–value\nTI-RADS\t0.504\t0.049\t[0.409–0.599]\t*<0.001\nComposition score\t0.463\t0.091\t[0.283–0.642]\t*<0.001\nEchogenicity score\t0.584\t0.054\t[0.478–0.689]\t*<0.001\nShape score\t0.462\t0.131\t[0.204–0.719]\t*<0.001\nMargin score\t0.102\t0.102\t[-1.430–0.301]\t0.153\nEchogenic foci score\t0.548\t0.052\t[0.446–0.650]\t*<0.001\n* shows that P-value is significant at P<0.05 and agreement among participants, CI, confident Interval; SE, standard error.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[2]",
+            "start": 0
+          }
+        ],
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+            "block_sha256": "e792b65b7bf1e601b451c3aab195b61fdbb69bfff070d800e6c2e7197915b47e",
+            "end": 662,
+            "quote": "All sonographers were trained to interpret thyroid US images and assign ACR TI-RADS scores after receiving a focused training course by the chief consultant radiologist (12 years of experience). The training was done in July 2020, which included official educational materials developed by the ACR including the TI-RADS atlas and user guide [32]. This was followed by regular monitoring and feedback over 3 months.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+            "start": 248
+          },
+          {
+            "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+            "block_sha256": "fe984bb59f1e089c2695231600fd30b2aa85e81a22c97de949b7616b9844eb22",
+            "end": 237,
+            "quote": "The study revealed a moderate overall agreement between sonographers and radiologists in TI-RADS scoring (κ = 0.504; 95% CI: 0.409–0.599), with poor agreement noted specifically for nodule margin scores (κ = 0.102; 95% CI: -1.430–0.301).",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/front[1]/article-meta[1]/abstract[1]/sec[3]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+            "block_sha256": "98c2147439ea1c5ab43b8715910cac8a4559c6f8725aead7418ffb37ac95983f",
+            "end": 529,
+            "quote": "The margin score, however, was not significant (p = 0.153) and the Kappa statistic of 0.102 indicated slight agreement.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[1]/p[2]",
+            "start": 410
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": true,
+      "category": "reference_exclusion_and_diagnostic_accuracy",
+      "components": [
+        {
+          "id": "reference_exclusion",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS diagnostic-accuracy analysis, which Bethesda categories were excluded as indeterminate?"
+        },
+        {
+          "id": "reader_accuracy",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS diagnostic-accuracy analysis, what sensitivity and specificity with confidence intervals were reported for each reader group?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "Indeterminate Bethesda I, III and IV were excluded. Sonographer sensitivity 100.0% (95% CI 71.5–100.0), specificity 44.6% (34.2–53.3); radiologist sensitivity 100.0% (71.5–100.0), specificity 29.3% (20.3–39.8). These are the source-reported diagnostic estimates; the source’s threshold and pathology terminology discrepancies are retained separately.",
+      "id": "components-confirm-thyroid-03",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the sonographer-versus-radiologist thyroid TI-RADS diagnostic-accuracy analysis, which Bethesda categories were excluded as indeterminate, and what sensitivity and specificity with confidence intervals were reported for each reader group?",
+      "source_id": "thyroid",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+            "block_sha256": "2a706ff032ab4584dbc187a3299131f56803cd3d3c916f0ee84e92c7c6eb1e67",
+            "end": 716,
+            "quote": "The indeterminate (Bethesda I, III, and IV) scores were excluded from the diagnostic accuracy analysis.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+            "start": 613
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/table-wrap[2]",
+            "block_sha256": "f1f4f64caa0629c11b6b05e093a31baa42eae5f6246ee0d12053e60681e4040a",
+            "end": 492,
+            "quote": "Table 5\nDiagnostic performance of Thyroid Imaging Reporting and Data System (TI-RADS) scores by sonographer and radiologist.\n\tSonographers\tRadiologist\nStatistic\tValue\t95% CI\tValue\t95% CI\nSensitivity\t100.0%\t[71.5–100.0]\t100.0%\t[71.5–100.0]\nSpecificity\t44.6%\t[34.2–53.3]\t29.3%\t[20.3–39.8]\nPositive Likelihood Ratio\t1.8\t[1.5–2.2]\t1.4\t[1.2–1.6]\nPositive Predictive Value\t17.7%\t[15.2–20.6]\t14.5%\t[12.9–16.2]\nNegative Predictive Value\t100.0%\t-\t100.0%\t-\nAccuracy\t50.5%\t[40.5–60.5]\t36.90%\t[27.6–47.0]",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[2]/table-wrap[2]",
+            "start": 0
+          }
+        ],
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+            "block_sha256": "2a706ff032ab4584dbc187a3299131f56803cd3d3c916f0ee84e92c7c6eb1e67",
+            "end": 716,
+            "quote": "The indeterminate (Bethesda I, III, and IV) scores were excluded from the diagnostic accuracy analysis.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[4]/p[2]",
+            "start": 613
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+            "block_sha256": "6a2a31b6ee16889cc42e18d93e3d4f11c1d402c565db0c5cab97ac8b6f362640",
+            "end": 561,
+            "quote": "The sonographers achieved a sensitivity of 100% (95% CI: 71.5–100.0), indicating accurate identification of all positive (suspicious or malignant) cases (11 out of 11). However, specificity was moderate at 44.6% (95% CI: 34.2–53.3), suggesting a higher rate of false-positive diagnoses compared to true negatives.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+            "start": 248
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+            "block_sha256": "0ea14d166751a2e6d1869f24d072132046c9ba4a2f6213adbcb5bbe0d0c1b73a",
+            "end": 243,
+            "quote": "Similarly, the radiologist’s sensitivity was 100% (95% CI: 71.5–100.0). However, specificity was lower at 29.3% (95% CI: 20.3–39.8), indicating a greater tendency for false positives with only 27 of 92 non-malignant cases correctly identified.",
+            "source_id": "thyroid",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[2]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": false,
+      "category": "source_scoped_null",
+      "components": [
+        {
+          "id": "pediatric_population",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS study, what pediatric subgroup was evaluated?"
+        },
+        {
+          "id": "pediatric_accuracy",
+          "query": "In the sonographer-versus-radiologist thyroid TI-RADS study, what sensitivity and specificity were reported specifically for patients younger than eighteen years?"
+        }
+      ],
+      "context_anchors": [
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+          "block_sha256": "1e74b15db1bc17ad5d0859ed85ac5e026f839aed03c390759d0cdcdbdfb5d4c3",
+          "end": 684,
+          "quote": "The patients were considered eligible if they were an adult (18 years or older) and had a documented Bethesda score following an FNA biopsy done after the ultrasound scan.",
+          "source_id": "thyroid",
+          "source_path": "/article[1]/body[1]/sec[2]/sec[1]/p[2]",
+          "start": 513
+        },
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[3]/p[1]",
+          "block_sha256": "3e215dc5a02cc85be4f9346b32c5d037ac7b24596791a82c9d67b73a139307f4",
+          "end": 211,
+          "quote": "A total of 168 patients were eligible (adults with available TI-RADS and Bethesda scores) and included in the study, of which 18 (11.1%) were male and 150 (88.9%) were female. The mean age was 50.3 ± 13.7 years.",
+          "source_id": "thyroid",
+          "source_path": "/article[1]/body[1]/sec[3]/p[1]",
+          "start": 0
+        }
+      ],
+      "expected_answer": null,
+      "id": "components-confirm-thyroid-null",
+      "necessary_and": false,
+      "null_reason": "The own cohort eligibility requires adulthood at 18 years or older and the Results describe eligible adults. The main article gives no pediatric subgroup diagnostic estimates; adult overall accuracy and contextual external studies do not answer the pediatric question.",
+      "quantitative": false,
+      "query": "In the sonographer-versus-radiologist thyroid TI-RADS study, what pediatric subgroup was evaluated, and what sensitivity and specificity were reported specifically for patients younger than eighteen years?",
+      "source_id": "thyroid",
+      "support_sets": []
+    },
+    {
+      "answerable": true,
+      "category": "endpoint_hierarchy_missingness_and_effect",
+      "components": [
+        {
+          "id": "confirmation_hierarchy",
+          "query": "In the COPCOV trial, what ordered laboratory-confirmation hierarchy and fallback conditions defined symptomatic laboratory-confirmed COVID-19?"
+        },
+        {
+          "id": "missing_outcomes",
+          "query": "In the COPCOV trial’s primary intention-to-treat symptomatic COVID-19 analysis, how were missing outcomes handled?"
+        },
+        {
+          "id": "primary_risk_ratio",
+          "query": "In the COPCOV trial’s overall primary symptomatic COVID-19 comparison of hydroxychloroquine/chloroquine against placebo, what risk ratio with confidence interval was reported?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "The hierarchy was positive nose/throat swab PCR; if PCR was negative, failed or not done, paired baseline/end-study serum seroconversion; only if paired sera were unavailable or uninterpretable, adapted dried-blood-spot seroconversion. Missing primary ITT outcomes were treated as no COVID-19 during the study period. Overall trial RR 0.85 (95% CI 0.72–1.00), distinct from PCR-only RR and the prespecified meta-analysis.",
+      "id": "components-confirm-copcov-01",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the COPCOV trial’s primary symptomatic COVID-19 analysis, what ordered laboratory-confirmation hierarchy was used, how were missing outcomes handled in intention-to-treat analysis, and what overall treatment-versus-placebo risk ratio with confidence interval was reported?",
+      "source_id": "copcov",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+            "block_sha256": "0c6dd8042097a818d2601dba418bc45f38f8f0478890ca17629c3e534dcc83b0",
+            "end": 681,
+            "quote": "The primary outcome was symptomatic laboratory-confirmed COVID-19 defined as symptoms consistent with COVID-19 and laboratory evidence of SARS-CoV-2 infection (S1 Appendix). Laboratory evidence was defined by a prespecified hierarchy: first by a nose and/or throat swab PCR positive for SARS-CoV-2; second, if the PCR was negative, failed, or not done, by seroconversion (S-protein IgG antibody) based on baseline and end of study paired sera [28]; and third, only if paired sera were unavailable or uninterpretable, by seroconversion from the contingency DBS in an adapted assay. The prespecified primary endpoint determination algorithm code is provided in the GitHub repository.",
+            "source_id": "copcov",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[5]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+            "block_sha256": "9cc001fde654f2f436a572e269f6241d0847398f2908cebf8f3543476e4043bf",
+            "end": 1619,
+            "quote": "Table 2\nPrespecified endpoints of the COPCOV trial in the intention to treat population.\nOutcome\tChloroquine/hydroxychloroquine(N = 2,320)\tPlacebo(N = 2,332)\tRisk ratio (95% CI)\tFisher’s exact P-value\nTotal participant days\t181,263\t184,688\t\t\nPrimary endpoint: Symptomatic laboratory-confirmed COVID-19. n (%); 95% CI\t240/2,32010.3 (9.1 to 11.7)\t284/2,33212.2 (10.9 to 13.6)\t0.85(0.72 to 1.00)\t0.051\nPCR-confirmed diagnosis. n/N (%); 95% CI\t24/2,3201.0 (0.7 to 1.5)\t56/2,3322.4 (1.8 to 3.1)\t0.43(0.27 to 0.69)\t<0.001\nSerology confirmed diagnosis (serum). n (%); 95% CI\t211/1,46214.4 (12.7 to 16.3)\t245/1,49816.4 (14.5 to 18.3)\t0.88(0.74 to 1.05)\t0.154\nSerology confirmed diagnosis (DBS). n (%); 95% CI\t25/2808.9 (5.9–12.9)\t26/2978.8 (5.8 to 12.6)\t1.02(0.60 to 1.72)\t1.000\nSecondary endpoints:\t\t\t\t\nAsymptomatic SARS-CoV-2 infection. n (%); 95% CI\t267/2,32011.5 (10.2 to 12.9)\t280/2,33212.0 (10.7 to 13.4)\t0.96(0.82 to 1.12)\t0.617\nAll SARS-CoV-2 infection n (%); 95% CI\t507/2,32021.9 (20.2 to 23.6)\t564/2,33224.2 (22.5 to 26.0)\t0.90(0.81 to 1.00)\t0.060\nAll-cause respiratory illness*. n (%); 95% CI\t44/2,3201.9 (1.4 to 2.5)\t73/2,3323.1 (2.5 to 3.9)\t0.61(0.42 to 0.88)\t0.009\nSeverity score. Median (IQR)\t20.0(5–85)\t21.5(5–89)\tNA\t1.000\nTertiary endpoint:Participant reported workdays lost\t700/181,263\t932/184,688\tNA\t0.0002**\n*PCR-confirmed respiratory infection including COVID-19. **Assessed by a zero-inflated Poisson regression model. Missing outcomes in the primary endpoint ITT analysis were treated as not having had COVID-19 during the study period. See Fig 2 for Venn diagram depicting breakdown of numbers analysed.",
+            "source_id": "copcov",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": true,
+      "category": "assigned_regimen_and_workdays",
+      "components": [
+        {
+          "id": "assigned_regimen",
+          "query": "In the COPCOV trial, what loading and daily maintenance dose regimen and duration were assigned for hydroxychloroquine or chloroquine prophylaxis?"
+        },
+        {
+          "id": "workdays_model",
+          "query": "In the COPCOV trial, what model analysed participant-reported lost workdays?"
+        },
+        {
+          "id": "workdays_effect",
+          "query": "In the COPCOV trial, what arm-specific mean workdays lost per participants and between-arm mean difference with confidence intervals were reported?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "A loading dose of 10 mg base/kg was followed by 155 mg base daily for 3 months, equivalent to 250 mg chloroquine phosphate or 200 mg hydroxychloroquine sulphate daily. A zero-inflated Poisson model gave over 90 days 337 workdays lost (95% CI 279–398) per 1,000 HCQ/CQ participants and 441 (370–515) per 1,000 placebo participants, mean difference 104 days (12–199).",
+      "id": "components-confirm-copcov-02",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the COPCOV trial, what loading and daily maintenance regimen and duration were assigned, what model analysed lost workdays, and what arm-specific mean workdays lost and between-arm mean difference with confidence intervals were reported?",
+      "source_id": "copcov",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+            "block_sha256": "4398a5b3db4ada0844f300ff2ba2567b6db97f19f0734da06b27f84c89c3d5e5",
+            "end": 492,
+            "quote": "A loading dose of 10 mg base/kg (four 155 mg tablets for a 60 kg subject) was followed by 155 mg daily (equivalent to 250 mg chloroquine phosphate or 200 mg hydroxychloroquine sulphate) for 3 months.",
+            "source_id": "copcov",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[3]/p[2]",
+            "start": 293
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+            "block_sha256": "d672edead41d9315eb578644075cec4321d83f6266a7880376d51c6c4939ef98",
+            "end": 299,
+            "quote": "Under a zero-inflated Poisson regression model, the mean number of workdays lost over 90 days of chemoprophylaxis was 337 (95% CI, 279 to 398) per 1,000 participants in HCQ/CQ recipients and 441 (95% CI, 370 to 515) per 1,000 in placebo recipients; a mean difference of 104 days (95% CI, 12 to 199).",
+            "source_id": "copcov",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": true,
+      "category": "prespecified_endpoint_and_events",
+      "components": [
+        {
+          "id": "asymptomatic_definition",
+          "query": "In the COPCOV trial, how was the asymptomatic SARS-CoV-2 infection outcome specified?"
+        },
+        {
+          "id": "asymptomatic_results",
+          "query": "In the COPCOV trial, what treatment and placebo event counts with denominators and risk ratio with confidence interval were reported for asymptomatic SARS-CoV-2 infection?"
+        }
+      ],
+      "context_anchors": [],
+      "expected_answer": "Asymptomatic laboratory-confirmed SARS-CoV-2 infection was a prespecified secondary outcome. Events were 267/2,320 HCQ/CQ recipients and 280/2,332 placebo recipients, RR 0.96 (95% CI 0.82–1.12). These are asymptomatic events, distinct from symptomatic infection and all-infection combined totals.",
+      "id": "components-confirm-copcov-03",
+      "necessary_and": true,
+      "null_reason": null,
+      "quantitative": true,
+      "query": "In the COPCOV trial, how was the asymptomatic infection outcome specified, and what treatment and placebo event counts with denominators and risk ratio with confidence interval were reported for it?",
+      "source_id": "copcov",
+      "support_sets": [
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+            "block_sha256": "5e781ee6aef4f6825e8693f69c77a0ace59eed53a45fc9d140c8559d71cd72fc",
+            "end": 232,
+            "quote": "There were 3 prespecified secondary outcomes: asymptomatic laboratory-confirmed SARS-CoV-2 infection; severity of COVID-19 symptoms; and all-cause PCR-confirmed symptomatic acute respiratory illness (including SARS-CoV-2 infection).",
+            "source_id": "copcov",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+            "block_sha256": "bbb77c49c18414240f6374e0113a9d5ab96ae12a3235b13a373e88498dd6441f",
+            "end": 201,
+            "quote": "Asymptomatic COVID-19 occurred in 267/2,320 (11.5% [95% CI, 10.2 to 12.9]), HCQ/CQ recipients and 280/2,332 (12.0% [95% CI, 10.7 to 13.4]) placebo recipients (RR: 0.96 [95% CI, 0.82 to 1.12; p = 0.6]).",
+            "source_id": "copcov",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[2]/p[1]",
+            "start": 0
+          }
+        ],
+        [
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+            "block_sha256": "5e781ee6aef4f6825e8693f69c77a0ace59eed53a45fc9d140c8559d71cd72fc",
+            "end": 232,
+            "quote": "There were 3 prespecified secondary outcomes: asymptomatic laboratory-confirmed SARS-CoV-2 infection; severity of COVID-19 symptoms; and all-cause PCR-confirmed symptomatic acute respiratory illness (including SARS-CoV-2 infection).",
+            "source_id": "copcov",
+            "source_path": "/article[1]/body[1]/sec[2]/sec[6]/p[1]",
+            "start": 0
+          },
+          {
+            "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+            "block_sha256": "9cc001fde654f2f436a572e269f6241d0847398f2908cebf8f3543476e4043bf",
+            "end": 1619,
+            "quote": "Table 2\nPrespecified endpoints of the COPCOV trial in the intention to treat population.\nOutcome\tChloroquine/hydroxychloroquine(N = 2,320)\tPlacebo(N = 2,332)\tRisk ratio (95% CI)\tFisher’s exact P-value\nTotal participant days\t181,263\t184,688\t\t\nPrimary endpoint: Symptomatic laboratory-confirmed COVID-19. n (%); 95% CI\t240/2,32010.3 (9.1 to 11.7)\t284/2,33212.2 (10.9 to 13.6)\t0.85(0.72 to 1.00)\t0.051\nPCR-confirmed diagnosis. n/N (%); 95% CI\t24/2,3201.0 (0.7 to 1.5)\t56/2,3322.4 (1.8 to 3.1)\t0.43(0.27 to 0.69)\t<0.001\nSerology confirmed diagnosis (serum). n (%); 95% CI\t211/1,46214.4 (12.7 to 16.3)\t245/1,49816.4 (14.5 to 18.3)\t0.88(0.74 to 1.05)\t0.154\nSerology confirmed diagnosis (DBS). n (%); 95% CI\t25/2808.9 (5.9–12.9)\t26/2978.8 (5.8 to 12.6)\t1.02(0.60 to 1.72)\t1.000\nSecondary endpoints:\t\t\t\t\nAsymptomatic SARS-CoV-2 infection. n (%); 95% CI\t267/2,32011.5 (10.2 to 12.9)\t280/2,33212.0 (10.7 to 13.4)\t0.96(0.82 to 1.12)\t0.617\nAll SARS-CoV-2 infection n (%); 95% CI\t507/2,32021.9 (20.2 to 23.6)\t564/2,33224.2 (22.5 to 26.0)\t0.90(0.81 to 1.00)\t0.060\nAll-cause respiratory illness*. n (%); 95% CI\t44/2,3201.9 (1.4 to 2.5)\t73/2,3323.1 (2.5 to 3.9)\t0.61(0.42 to 0.88)\t0.009\nSeverity score. Median (IQR)\t20.0(5–85)\t21.5(5–89)\tNA\t1.000\nTertiary endpoint:Participant reported workdays lost\t700/181,263\t932/184,688\tNA\t0.0002**\n*PCR-confirmed respiratory infection including COVID-19. **Assessed by a zero-inflated Poisson regression model. Missing outcomes in the primary endpoint ITT analysis were treated as not having had COVID-19 during the study period. See Fig 2 for Venn diagram depicting breakdown of numbers analysed.",
+            "source_id": "copcov",
+            "source_path": "/article[1]/body[1]/sec[3]/sec[1]/table-wrap[1]",
+            "start": 0
+          }
+        ]
+      ]
+    },
+    {
+      "answerable": false,
+      "category": "source_scoped_null",
+      "components": [
+        {
+          "id": "costs_quality_of_life",
+          "query": "In the COPCOV trial, what incremental costs and quality-adjusted life-year gains were measured for hydroxychloroquine/chloroquine prophylaxis?"
+        },
+        {
+          "id": "cost_effectiveness",
+          "query": "In the COPCOV trial, what incremental cost-effectiveness ratio was reported for hydroxychloroquine/chloroquine prophylaxis?"
+        }
+      ],
+      "context_anchors": [
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+          "block_sha256": "7627c334312bc3a8600cb48b0da9e0468ae228d26c7f41bfcc0a2413e706292c",
+          "end": 364,
+          "quote": "There were 3 generic prespecified trial tertiary outcomes: the participant reported number of workdays lost; genetic and baseline biochemical markers associated with symptomatic COVID-19, respiratory illness, and disease severity (not reported here); and health economic analyses of HCQ and CQ prophylaxis on costs and quality of life measures (not reported here).",
+          "source_id": "copcov",
+          "source_path": "/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+          "start": 0
+        },
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+          "block_sha256": "d672edead41d9315eb578644075cec4321d83f6266a7880376d51c6c4939ef98",
+          "end": 649,
+          "quote": "A health economic analysis will be reported separately.",
+          "source_id": "copcov",
+          "source_path": "/article[1]/body[1]/sec[3]/sec[3]/p[1]",
+          "start": 594
+        }
+      ],
+      "expected_answer": null,
+      "id": "components-confirm-copcov-null",
+      "necessary_and": false,
+      "null_reason": "Health economic analysis was a planned tertiary outcome explicitly not reported in this main article and stated to be reported separately. Workdays lost and claims of inexpensive drugs are context, not measured incremental cost/QALY results or an ICER.",
+      "quantitative": false,
+      "query": "In the COPCOV trial, what incremental costs and quality-adjusted life-year gains were measured for hydroxychloroquine/chloroquine prophylaxis, and what incremental cost-effectiveness ratio was reported?",
+      "source_id": "copcov",
+      "support_sets": []
+    }
+  ],
+  "schema_version": 1
+}
