@@ -1,0 +1,49 @@
+{
+  "archive": {
+    "file": "kaggle-upload.zip",
+    "members": 4,
+    "sha256": "c5ad1ea40db7528ffcdf4b1c98fe936bcac8bbfb9a3a3df51bd64f6e27477a81",
+    "size_bytes": 80534,
+    "source_path": "data/qwen-components-development-v1/kaggle-upload.zip"
+  },
+  "contents": [
+    "Original frozen source snapshot and request/component texts",
+    "The exact three bound executable files"
+  ],
+  "excluded": [
+    "Gold answers and annotation files",
+    "Review database",
+    "Credentials and account/browser data",
+    "Inference results"
+  ],
+  "files": {
+    "component_core.py": {
+      "sha256": "e1d14b5749ea34ce2234a11472e63c1becf4e9f475425a5f97afe0ea4af59151",
+      "size_bytes": 21333
+    },
+    "job.json": {
+      "sha256": "4b32d55c6cad6e2534dab3804885b2238e6ada54c305d0adc68352ea3e6dea65",
+      "size_bytes": 316887
+    },
+    "qwen_components_kaggle_runner.py": {
+      "sha256": "dfed043674c90fe952ebd6d79ab9841103fc1c912fdc4017ff5a579751540f23",
+      "size_bytes": 13904
+    },
+    "qwen_kaggle_environment.py": {
+      "sha256": "6b63561e5b554b13d5bc78bc82d0e3c83c289a5aaae2df21a1d9dec3f5bf43ae",
+      "size_bytes": 10472
+    }
+  },
+  "freeze": {
+    "path": "docs/qwen-components-development-freeze-v1.json",
+    "sha256": "a70cfd4a4a1526e2e8da72f1b34ef1586ce6be430e9474892cf76a9b45d5ade0",
+    "size_bytes": 14755
+  },
+  "inference_runs": 0,
+  "job_payload_sha256": "4de843130af3727968e1a0f7bfd150c5743fcfb521d820a5c0fe0fd9c3bc3ce2",
+  "purpose": "Portable byte-exact upload of the already frozen public-source and synthetic-project development job.",
+  "result_exists": false,
+  "schema_version": 1,
+  "status": "prepared_development_job_before_inference",
+  "ticket": "KI6"
+}
