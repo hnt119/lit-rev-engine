@@ -1,0 +1,60 @@
+{
+  "archive": {
+    "file": "artifacts.tar.xz",
+    "format": "deterministic USTAR in solid XZ; originals byte-exact",
+    "sha256": "87c3dff55b968f4f91e9e8f5598854a4d8dd5418f9c134026953861f57e0f101",
+    "size_bytes": 2033240,
+    "uncompressed_tar_bytes": 12902400
+  },
+  "files": {
+    "job.json": {
+      "sha256": "e3121ebc9edae944ad4b522763ecd41dbf5eec6f27391746d05e59cb0eaf1635",
+      "size_bytes": 238789,
+      "source_path": "data/qwen-kaggle-pilot-v2/kaggle-upload/job.json"
+    },
+    "preparation.json": {
+      "sha256": "edd2d69f3806460c3f8610c73ee7ea3a0baeef1efa1bfd1dafa7eee8d487d810",
+      "size_bytes": 98794,
+      "source_path": "data/qwen-kaggle-pilot-v2/preparation.json"
+    },
+    "result.json": {
+      "sha256": "f6e77ccd61d6a0eb294f69061c9c72043a76a9118039888c1eb40b815aec968f",
+      "size_bytes": 101944,
+      "source_path": "data/qwen-kaggle-pilot-v2/result.json"
+    },
+    "results.json": {
+      "sha256": "5e6a7e5b3da9dc541298a2b409bdf3cd200440be85b190a598c37b29f30c1874",
+      "size_bytes": 6058684,
+      "source_path": "data/qwen-kaggle-pilot-v2/run-evidence/results.json"
+    },
+    "validation.receipt.json": {
+      "sha256": "5bb15a1a01ba878ec23a2172d31bc679716a5eba86917862cca4223389d583f5",
+      "size_bytes": 6397765,
+      "source_path": "data/qwen-kaggle-pilot-v2/validation.receipt.json"
+    }
+  },
+  "freeze": {
+    "path": "docs/qwen-kaggle-freeze-v2.json",
+    "sha256": "04f0a961eb0f7d91626a72e93f68c5d4f8cc77f4ff0f78fbb72063219d878b62"
+  },
+  "grade": {
+    "batch_seconds": 395.076408088,
+    "complete_positives": 4,
+    "mean_support_coverage": 0.8055555555555555,
+    "paid_inference_calls": 0,
+    "positive_questions": 6,
+    "status": "failed",
+    "support_coverage_gate": 0.85
+  },
+  "limits": [
+    "The first actual ranking failed the frozen coverage gate; it is not a pass after tuning.",
+    "GPU metadata is reported runtime evidence, not cryptographic attestation.",
+    "No review database, account data, browser logs, screenshots, or authentication is archived."
+  ],
+  "saved_script_version": 355104707,
+  "schema_version": 1,
+  "status": "preserved_first_actual_kaggle_failure",
+  "ticket": "K3A",
+  "trusted_job_payload_sha256": "ab6e06ca37d89f95800fc09100f2c8a41c595f3b76c0497fb9f2679850672a8f",
+  "trusted_results_payload_sha256": "0f5aa688f5382ddbfae3260bc1d832ba6d81aa2222a716feae07395887ea42be"
+}

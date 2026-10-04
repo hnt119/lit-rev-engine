@@ -1,31 +1,31 @@
 # Run Qwen on a free Kaggle GPU
 
-The recommended Qwen path is a finite **Kaggle batch notebook**. Your Mac keeps the review ledger and validates results; Kaggle runs Qwen3-Embedding-4B and Qwen3-Reranker-4B sequentially. No inference API key or paid calls are needed. Actual GPU/model quality remains pending until a saved Kaggle run passes the [prospective gate](qwen-kaggle-milestone.md). The existing offline ledger and lexical retrieval remain available.
+The recommended Qwen path is a finite **Kaggle batch notebook**. Your Mac keeps the review ledger and validates results; Kaggle runs Qwen3-Embedding-4B and Qwen3-Reranker-4B sequentially. No inference API key or paid calls are needed. The [first saved GPU run](qwen-kaggle-run-v2.md) completed successfully, but its 80.6% own-support coverage missed the fixed 85% quality gate. Qwen remains experimental and the human pilot remains gated. The existing offline ledger and lexical retrieval remain available.
 
 ## First run: the reproducible software pilot
 
-Prepare the licensed two-article/eight-question evaluation locally. This performs no inference and downloads no model weights:
+The original v2 run and first failed grade are preserved. To reproduce preparation, use a new output directory; existing preparations and grades are immutable. Preparation performs no inference and downloads no model weights:
 
 ```sh
-python tools/evaluate_qwen_kaggle.py prepare --output data/qwen-kaggle-pilot-v2
+python tools/evaluate_qwen_kaggle.py prepare --output data/qwen-kaggle-reproduction
 ```
 
-The command prints the absolute notebook path and the trusted `job_sha256`. Preserve that digest locally. In `data/qwen-kaggle-pilot-v2/kaggle-upload/`, `job.json` contains paper representations and questions; `qwen_kaggle_runner.py` contains the runtime; `qwen_kaggle.ipynb` is the notebook to import. The review ledger, gold quotations and expected answers remain on your Mac.
+The command prints the absolute notebook path and the trusted `job_sha256`. Preserve that digest locally. In `data/qwen-kaggle-reproduction/kaggle-upload/`, `job.json` contains paper representations and questions; `qwen_kaggle_runner.py` contains the runtime; `qwen_kaggle.ipynb` is the notebook to import. New project IDs produce a new job digest. The review ledger, gold quotations and expected answers remain on your Mac. Repeating this already-inspected set is reproduction, not fresh confirmation of a changed retrieval method.
 
 1. Sign in to Kaggle and import `notebooks/qwen_kaggle.ipynb` into a new notebook. Keep the notebook private.
 2. Create a private Kaggle dataset containing the prepared `job.json` and `qwen_kaggle_runner.py`, then attach that dataset to the notebook.
 3. Select an available GPU accelerator and enable Internet for model/package downloads. Check your account's remaining GPU allocation. The notebook targets a single GPU and loads the two models in sequence; hardware fit is checked by the actual run.
-4. Set the dataset file paths and the trusted job digest in the notebook's configuration cell. Run the cells, then save the notebook version with its output. Preserve the run log and resulting `results.json` plus its printed payload digest. Stop the GPU session when finished.
+4. Set the dataset file paths and the trusted job digest in the notebook's configuration cell. Keep the interactive draft session off, choose **Save Version → Save & Run All (Commit)**, and confirm **Run with GPU for this session** in the version settings. Inspect that saved version's logs and output after it finishes. Preserve the run log and resulting `results.json` plus its printed payload digest. If you instead use an interactive session, stop it when finished.
 5. Download the saved `results.json` to the Mac and grade it using the digest printed by that saved run:
 
 ```sh
 python tools/evaluate_qwen_kaggle.py grade \
-  --prepared data/qwen-kaggle-pilot-v2 \
+  --prepared data/qwen-kaggle-reproduction \
   --results /absolute/path/to/results.json \
   --results-sha256 REPLACE_WITH_SAVED_RUN_PAYLOAD_SHA256
 ```
 
-`result.json` reports own-support coverage, complete positives, the lexical comparison, null-context recovery and runtime checks. Preserve failed results as well as passed results. Preparing files or passing CPU tests does not establish Qwen pilot readiness. [Independent evaluation](qwen-kaggle-evaluation.md) records what has actually run.
+`result.json` reports own-support coverage, complete positives, the lexical comparison, null-context recovery and runtime checks. A completed grade that fails a gate exits with status 2 and still preserves its result and validation receipt. The printed `results_sha256` binds the canonical payload; the complete JSON envelope has a separate file digest. Preserve both and retain failed results as well as passed results. [Independent live evaluation](qwen-kaggle-live-evaluation.md) records the first model run; [CPU evaluation](qwen-kaggle-evaluation.md) records integration checks.
 
 ## Use an existing review project
 

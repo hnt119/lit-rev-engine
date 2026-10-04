@@ -6,7 +6,7 @@ Research checked **4 October 2026, Asia/Singapore**. The user wants compute-heav
 
 The implemented optional pair is **Qwen3-Embedding-4B and Qwen3-Reranker-4B**, using immutable batch source jobs, recorded vectors/scores and locally reconstructed candidate pools. Compare the 8B pair only if measured support completeness justifies its latency and cost. Keep the existing BGE-small passage pipeline and exact-anchor lexical project retrieval as explicit baselines.
 
-Author model-card benchmarks use other tasks and protocols. The engine's fresh v3 pilot already exposes incomplete multi-block support and misleading candidates on no-answer questions; relevance scores cannot establish an answer or verify a finding. The user placed the [Qwen acceptance gate](qwen-kaggle-milestone.md) before the [human review pilot](pilot-milestone.md); scripted responses alone cannot pass its live gate.
+Author model-card benchmarks use other tasks and protocols. The engine's fresh v3 pilot already exposes incomplete multi-block support and misleading candidates on no-answer questions; relevance scores cannot establish an answer or verify a finding. The first actual [Qwen Kaggle evaluation](qwen-kaggle-run-v2.md) improves own-support coverage from 72.2% to 80.6% and complete positives from 2/6 to 4/6, but fails the fixed 85% gate. The 4B pair fits a Tesla T4 in this measured finite batch. Missing companion paragraphs occur both before and after reranking, so the next priority is component coverage, before a larger-model comparison. Any changed method needs fresh prospective confirmation. The user placed the [Qwen acceptance gate](qwen-kaggle-milestone.md) before the [human review pilot](pilot-milestone.md).
 
 ## Current code and concrete integration gaps
 
