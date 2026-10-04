@@ -1,0 +1,55 @@
+{
+  "archive": {
+    "path": "tests/fixtures/qwen_components_development_job_v1/kaggle-upload.zip",
+    "sha256": "c5ad1ea40db7528ffcdf4b1c98fe936bcac8bbfb9a3a3df51bd64f6e27477a81",
+    "size_bytes": 80534
+  },
+  "cell_equivalence": {
+    "adapted_code_cell_sha256": [
+      "46c06a13f0c834280a127d9361376e97e3d34ea69aa4a70906e98f0a0df3d766",
+      "87ccf2993ab5fe3fa73d3bceca73e01d33fbc88bd943dfcbb79ab714a01c1563",
+      "b371add3e46a52a6820d1c8a814e2436e585d1256af2fd570453f4f8ee231261"
+    ],
+    "only_change": "Replace the BUNDLE placeholder with the two exact mount candidates and an unambiguous selection check.",
+    "original_code_cell_sha256": [
+      "0af293c9afa6224cc948ee53bae6c426d9383b8b69144da73f6d4566c5327d8f",
+      "87ccf2993ab5fe3fa73d3bceca73e01d33fbc88bd943dfcbb79ab714a01c1563",
+      "b371add3e46a52a6820d1c8a814e2436e585d1256af2fd570453f4f8ee231261"
+    ]
+  },
+  "configuration_adapter": {
+    "changed_code_cell": 1,
+    "dataset_mount_candidates": [
+      "/kaggle/input/datasets/yixuanhuangethan/qwen-components-development-v1",
+      "/kaggle/input/qwen-components-development-v1"
+    ],
+    "selection": "exactly one directory containing job.json; missing or ambiguous matches stop; print selected path",
+    "unchanged_code_cells": [
+      2,
+      3
+    ]
+  },
+  "freeze": {
+    "path": "docs/qwen-components-development-freeze-v1.json",
+    "sha256": "a70cfd4a4a1526e2e8da72f1b34ef1586ce6be430e9474892cf76a9b45d5ade0",
+    "size_bytes": 14755
+  },
+  "job_payload_sha256": "4de843130af3727968e1a0f7bfd150c5743fcfb521d820a5c0fe0fd9c3bc3ce2",
+  "notebook_source": {
+    "code_cells": 3,
+    "path": "data/qwen-components-development-v1/kaggle-upload/qwen_components_kaggle.ipynb",
+    "sha256": "644d271cf75e90c96d7a4f613b3da1c6438620666c8c8cad2774cae615af5581",
+    "size_bytes": 6618
+  },
+  "ranking_runs_before_submission": 0,
+  "rationale": "Use Kaggle Python import transport because the notebook editor iframe is blank; retain the exact prepared notebook execution cells and adapt only explicit dataset-mount selection.",
+  "same_method_and_gates": true,
+  "schema_version": 1,
+  "status": "prepared_before_first_gpu_invocation",
+  "submission": {
+    "path": "tests/fixtures/qwen_components_development_job_v1/submission.py",
+    "sha256": "22c46597f16381f190814e1ef861412e409bb59fed5b15d61d5ef52669fc0a7d",
+    "size_bytes": 3134
+  },
+  "ticket": "KI7"
+}
