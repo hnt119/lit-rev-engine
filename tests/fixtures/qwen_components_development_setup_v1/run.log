@@ -1,0 +1,60 @@
+7.9s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.9s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.9s 3 0.00s - to python to disable frozen modules.
+7.9s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.6s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.6s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.6s 7 0.00s - to python to disable frozen modules.
+8.6s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.8s 9 Selected dataset mount: /kaggle/input/datasets/yixuanhuangethan/qwen-components-development-v1
+9.8s 10 {'job_sha256': '4de843130af3727968e1a0f7bfd150c5743fcfb521d820a5c0fe0fd9c3bc3ce2', 'questions': 8, 'encoded_queries': 27}
+9.8s 11 Creating isolated installer; preserving Kaggle base packages and CUDA Torch
+10.0s 12 Error: Command '['/kaggle/temp/qwen-components-quevol98/installer/bin/python3.13', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+10.0s 13 Error: Command '['/kaggle/temp/qwen-components-quevol98/installer/bin/python3.13', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+10.0s 14 
+10.0s 15 Error: Command '['/kaggle/temp/qwen-components-quevol98/installer/bin/python3.13', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+10.2s 16 Traceback (most recent call last):
+10.2s 17 File "<string>", line 1, in <module>
+10.2s 18 import sys;import papermill as pm;pm.execute_notebook("__notebook__.ipynb","__notebook__.ipynb",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)
+10.2s 19 ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10.2s 20 File "/usr/local/lib/python3.13/dist-packages/papermill/execute.py", line 131, in execute_notebook
+10.2s 21 raise_for_execution_errors(nb, output_path)
+10.2s 22 ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+10.2s 23 File "/usr/local/lib/python3.13/dist-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+10.2s 24 raise error
+10.2s 25 papermill.exceptions.PapermillExecutionError:
+10.2s 26 ---------------------------------------------------------------------------
+10.2s 27 Exception encountered at "In [1]":
+10.2s 28 ---------------------------------------------------------------------------
+10.2s 29 CalledProcessError                        Traceback (most recent call last)
+10.2s 30 /tmp/ipykernel_23/2624242883.py in <cell line: 0>()
+10.2s 31 50 print({'job_sha256': JOB_SHA256, 'questions': len(envelope['payload']['questions']), 'encoded_queries': len(envelope['payload']['query_rows'])})
+10.2s 32 51
+10.2s 33 ---> 52 summary = helper.prepare_environment(JOB_PATH, JOB_SHA256, core_path=CORE_PATH, runner_path=RUNNER_PATH,
+10.2s 34 53                                      output_path=OUTPUT_PATH, checkpoint_path=CHECKPOINT_PATH,
+10.2s 35 54                                      audit_path=AUDIT_PATH, report_path=INSTALLER_REPORT_PATH)
+10.2s 36 
+10.2s 37 /kaggle/input/datasets/yixuanhuangethan/qwen-components-development-v1/qwen_kaggle_environment.py in prepare_environment(job_path, job_sha256, core_path, runner_path, output_path, checkpoint_path, audit_path, report_path, temporary_root, base_python)
+10.2s 38 79     overlay.mkdir()
+10.2s 39 80     print("Creating isolated installer; preserving Kaggle base packages and CUDA Torch", flush=True)
+10.2s 40 ---> 81     subprocess.run([base_python, "-I", "-m", "venv", str(installer)], check=True)
+10.2s 41 82     installer_python = installer / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
+10.2s 42 83     print("Installing four exact Qwen packages without dependencies into a private overlay", flush=True)
+10.2s 43 
+10.2s 44 /usr/lib/python3.13/subprocess.py in run(input, capture_output, timeout, check, *popenargs, **kwargs)
+10.2s 45 575         retcode = process.poll()
+10.2s 46 576         if check and retcode:
+10.2s 47 --> 577             raise CalledProcessError(retcode, process.args,
+10.2s 48 578                                      output=stdout, stderr=stderr)
+10.2s 49 579     return CompletedProcess(process.args, retcode, stdout, stderr)
+10.2s 50 
+10.2s 51 CalledProcessError: Command '['/usr/bin/python3.13', '-I', '-m', 'venv', '/kaggle/temp/qwen-components-quevol98/installer']' returned non-zero exit status 1.
+10.2s 52 
+12.4s 53 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+12.4s 54 cells[i][c] = re.sub('\\\\\|', '|', cell)
+12.6s 55 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+12.6s 56 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+13.4s 57 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+13.5s 58 [NbConvertApp] Writing 11854 bytes to __notebook__.ipynb
+16.0s 59 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+16.5s 60 [NbConvertApp] Writing 293995 bytes to __results__.html
