@@ -4,6 +4,8 @@ This new experimental workflow targets questions that need evidence from separat
 
 The supplied first-run [log review](qwen-kaggle-log-review.md) identified shared-environment package conflicts. The new notebook installs four pinned retrieval packages into a temporary overlay and runs them in a fresh worker process. It checks required dependencies and CUDA before downloading weights. Kaggle's shared tools and CUDA Torch are retained. Existing Qwen jobs, the first failed result and the old [reproduction guide](qwen-cloud.md) remain available.
 
+The [first actual component run](qwen-components-runs-v1.md) reached its trusted input but failed in Python 3.13's `ensurepip` while creating the installer. It produced no rankings or quality grade. A separately pinned bootstrap repair is being validated before another saved run. Use that run record to check the current cloud-validation status; the original notebook alone has not demonstrated compatibility with this Kaggle environment.
+
 ## Questions and original sources
 
 Use the normal [project guide](getting-started.md) to import, screen and attach source versions first. Write an original question and two or three short component requests. Each component retains the subject and relevant comparison, but contains no expected answer. For example:

@@ -1,0 +1,74 @@
+{
+  "adapter": {
+    "path": "tools/qwen_kaggle_bootstrap.py",
+    "sha256": "b81fcf821708b40ee5cce907858851595cc58df01a9f8a9e24c8d68b457ff41c",
+    "size_bytes": 16118
+  },
+  "archive": {
+    "path": "tests/fixtures/qwen_components_development_bootstrap_v2/kaggle-upload.zip",
+    "sha256": "a67c88766cd0f66e01181e7bf647d9bc4f1954172ae3eba7cb40b333887ca10c",
+    "size_bytes": 85747
+  },
+  "configuration_adapter": {
+    "bootstrap_sha256_checked_before_import": true,
+    "dataset_mount_candidates": [
+      "/kaggle/input/datasets/yixuanhuangethan/qwen-components-development-bootstrap-v2",
+      "/kaggle/input/qwen-components-development-bootstrap-v2"
+    ],
+    "selection": "exactly one directory containing job.json; stop on missing/ambiguous mount"
+  },
+  "created_at_utc": "2026-10-04T13:47:29.266529+00:00",
+  "execution_files": {
+    "component_core.py": {
+      "sha256": "e1d14b5749ea34ce2234a11472e63c1becf4e9f475425a5f97afe0ea4af59151",
+      "size_bytes": 21333
+    },
+    "qwen_components_kaggle_runner.py": {
+      "sha256": "dfed043674c90fe952ebd6d79ab9841103fc1c912fdc4017ff5a579751540f23",
+      "size_bytes": 13904
+    },
+    "qwen_kaggle_environment.py": {
+      "sha256": "6b63561e5b554b13d5bc78bc82d0e3c83c289a5aaae2df21a1d9dec3f5bf43ae",
+      "size_bytes": 10472
+    }
+  },
+  "freeze": {
+    "path": "docs/qwen-components-development-freeze-v1.json",
+    "sha256": "a70cfd4a4a1526e2e8da72f1b34ef1586ce6be430e9474892cf76a9b45d5ade0",
+    "size_bytes": 14755
+  },
+  "installer_recipe": "default no-system-site venv --without-pip; installer Python -I -S verified-wheel/pip --isolated; four exact no-deps wheel-only overlay packages; original base-Python -I worker/audit before weights",
+  "installer_wheel": {
+    "filename": "pip-25.2-py3-none-any.whl",
+    "sha256": "6d67a2b4e7f14d8b31b8b52648866fa717f45a1eb70e83002f4331d07e953717",
+    "size_bytes": 1752557,
+    "url": "https://files.pythonhosted.org/packages/b7/3f/945ef7ab14dc4f9d7f40288d2df998d1837ee0888ec3659c813487572faa/pip-25.2-py3-none-any.whl",
+    "version": "25.2"
+  },
+  "job_payload_sha256": "4de843130af3727968e1a0f7bfd150c5743fcfb521d820a5c0fe0fd9c3bc3ce2",
+  "original_frozen_files_unchanged": true,
+  "original_job_and_three_execution_files_unchanged": true,
+  "predecessor_setup_manifest": {
+    "path": "tests/fixtures/qwen_components_development_setup_v1/manifest.json",
+    "sha256": "300cbe40bb8e9667b4203848d3126a584f8cfe8fceafc963630a8fba8222ac2a",
+    "size_bytes": 2321
+  },
+  "predecessor_version_id": 355174136,
+  "ranking_runs_before_submission": 0,
+  "rationale": "Actual Kaggle Python3.13 default venv failed in ensurepip before installation or rankings. New separately pinned orchestration skips ensurepip and invokes the verified official pip wheel; original helper/worker/core and quality gates remain unchanged.",
+  "same_method_and_gates": true,
+  "schema_version": 1,
+  "setup_attempts_before_submission": 1,
+  "status": "prepared_before_bootstrap_retry",
+  "submission": {
+    "path": "tests/fixtures/qwen_components_development_bootstrap_v2/submission.py",
+    "sha256": "e1cbe73443944eac9170dd7dcaea6362bbcc0434d0e79eca605e40bb3d03a344",
+    "size_bytes": 3991
+  },
+  "tests": {
+    "path": "tests/test_qwen_components_bootstrap.py",
+    "sha256": "69cde9b822c656c1d6bff3fdb4629debf29cb316e37fad5c2c3e30abf9ff0468",
+    "size_bytes": 20184
+  },
+  "ticket": "KI8"
+}
