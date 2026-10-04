@@ -1,0 +1,19 @@
+{
+  "confirmation_questions_seen_by_coordinator": false,
+  "confirmation_rankings_before_selection": 0,
+  "development_freeze_pin": {
+    "sha256": "a70cfd4a4a1526e2e8da72f1b34ef1586ce6be430e9474892cf76a9b45d5ade0",
+    "size_bytes": 14755
+  },
+  "development_result_file": "tests/fixtures/qwen_components_development_run_v1/result.json",
+  "development_result_pin": {
+    "sha256": "fb1697b165c9a3d9323193a0bb233208b65363f24a1ba635afd063567c6a5043",
+    "size_bytes": 532051
+  },
+  "development_status": "passed",
+  "method_changed_after_development": false,
+  "profile_sha256": "f379e61b007801a9d97540bac7665b4ad0faeaab507a000e03daaf6541bdb632",
+  "schema_version": 1,
+  "selection_reason": "Retain the originally frozen component method without tuning. Independent Evaluation reconstructed all four methods, all 549 ordered rerank pairs, exact original XML support and every frozen gate. First development grade passed: 100% mean own-support coverage and six of six complete positives, versus whole-question Qwen 86.11111111111112% and four of six; both target and whole-question pools contained complete positive support, and component display recovered the two whole-question omissions. The bootstrap repair changed orchestration only and preserved all original method/job/helper pins. Two articles and six positives provide development evidence only; null candidates do not establish answerability or abstention. Confirmation questions have not been read by the coordinator, no confirmation ranking has occurred, and blind confirmation must pass the original gates before the protocol-defined human pilot.",
+  "status": "selected_after_development_before_confirmation"
+}

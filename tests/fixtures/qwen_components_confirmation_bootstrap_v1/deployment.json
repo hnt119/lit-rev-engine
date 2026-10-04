@@ -1,0 +1,131 @@
+{
+  "adapter": {
+    "path": "tools/qwen_kaggle_bootstrap.py",
+    "sha256": "b81fcf821708b40ee5cce907858851595cc58df01a9f8a9e24c8d68b457ff41c",
+    "size_bytes": 16118
+  },
+  "archive_members": {
+    "component_core.py": {
+      "sha256": "e1d14b5749ea34ce2234a11472e63c1becf4e9f475425a5f97afe0ea4af59151",
+      "size_bytes": 21333
+    },
+    "job.json": {
+      "sha256": "ccac1d0d94d0ac0577bb4a1c94d40711e9b8c7c4c2c5aeb5cab8277907d9d209",
+      "size_bytes": 268851
+    },
+    "qwen_components_kaggle_runner.py": {
+      "sha256": "dfed043674c90fe952ebd6d79ab9841103fc1c912fdc4017ff5a579751540f23",
+      "size_bytes": 13904
+    },
+    "qwen_kaggle_bootstrap.py": {
+      "sha256": "b81fcf821708b40ee5cce907858851595cc58df01a9f8a9e24c8d68b457ff41c",
+      "size_bytes": 16118
+    },
+    "qwen_kaggle_environment.py": {
+      "sha256": "6b63561e5b554b13d5bc78bc82d0e3c83c289a5aaae2df21a1d9dec3f5bf43ae",
+      "size_bytes": 10472
+    }
+  },
+  "configuration_adapter": {
+    "bootstrap_sha256_checked_before_import": true,
+    "code_cells": 3,
+    "dataset_mount_candidates": [
+      "/kaggle/input/datasets/yixuanhuangethan/qwen-components-confirmation-bootstrap-v1",
+      "/kaggle/input/qwen-components-confirmation-bootstrap-v1"
+    ],
+    "only_notebook_change": "replace the BUNDLE placeholder assignment with the two-mount selector",
+    "selection": "exactly one directory containing job.json; stop on missing/ambiguous mount",
+    "unchanged_code_cells": [
+      2,
+      3
+    ]
+  },
+  "confirmation_freeze": {
+    "path": "docs/qwen-components-confirmation-freeze-v1.json",
+    "sha256": "861258f245f9c854739ee40046194ec15c6658628c422f53bd7e836548628a97",
+    "size_bytes": 15431
+  },
+  "confirmation_quality": "not_run",
+  "created_at_utc": "2026-10-04T15:22:20.287796+00:00",
+  "development_freeze": {
+    "path": "docs/qwen-components-development-freeze-v1.json",
+    "sha256": "a70cfd4a4a1526e2e8da72f1b34ef1586ce6be430e9474892cf76a9b45d5ade0",
+    "size_bytes": 14755
+  },
+  "execution_files": {
+    "component_core.py": {
+      "sha256": "e1d14b5749ea34ce2234a11472e63c1becf4e9f475425a5f97afe0ea4af59151",
+      "size_bytes": 21333
+    },
+    "qwen_components_kaggle_runner.py": {
+      "sha256": "dfed043674c90fe952ebd6d79ab9841103fc1c912fdc4017ff5a579751540f23",
+      "size_bytes": 13904
+    },
+    "qwen_kaggle_environment.py": {
+      "sha256": "6b63561e5b554b13d5bc78bc82d0e3c83c289a5aaae2df21a1d9dec3f5bf43ae",
+      "size_bytes": 10472
+    }
+  },
+  "files": {
+    "bootstrap-preparation.json": {
+      "sha256": "fb8cdd0d85050b1bdb1fc853fa64c2aef48e4588151ba4223c93d293bdb03081",
+      "size_bytes": 3125
+    },
+    "configured-notebook.ipynb": {
+      "sha256": "7bc41fd2e79ff9c92871222cd841e72e4e4a53e598bff914fe2be4b9a65d3305",
+      "size_bytes": 7747
+    },
+    "generated-notebook.ipynb": {
+      "sha256": "fda25928354079ff42ed9ac9c835e08ef42c969a0321957897685234a0c989d9",
+      "size_bytes": 7195
+    },
+    "kaggle-upload.zip": {
+      "sha256": "4a2f1c9e4bcf4c8d620516233ffad857a052cdc4f3465920513c36ed6ce33096",
+      "size_bytes": 79268
+    },
+    "preparation.json": {
+      "sha256": "cf2e2d479a4ea1a2ec8d5ef5ddbe380b2607b9b75e72314a53b826a0b59eb6cd",
+      "size_bytes": 1239
+    },
+    "submission.py": {
+      "sha256": "019fc25bbb7b3426eba26efdb63e63f1790e528ebae7759a38c4dde92875d74c",
+      "size_bytes": 4619
+    }
+  },
+  "installer_wheel": {
+    "filename": "pip-25.2-py3-none-any.whl",
+    "sha256": "6d67a2b4e7f14d8b31b8b52648866fa717f45a1eb70e83002f4331d07e953717",
+    "size_bytes": 1752557,
+    "url": "https://files.pythonhosted.org/packages/b7/3f/945ef7ab14dc4f9d7f40288d2df998d1837ee0888ec3659c813487572faa/pip-25.2-py3-none-any.whl",
+    "version": "25.2"
+  },
+  "job_payload_sha256": "46cdb4be34507d170d656eeba19478bf493acdfe6315a352ae37bc941d0b19e5",
+  "method_selection": {
+    "path": "docs/qwen-components-method-selection-v1.json",
+    "sha256": "372183e2dd0492031196175bc1b014056e5dcb016ca8fe9a174bfb7c072931f1",
+    "size_bytes": 1677
+  },
+  "original_file_paths": {
+    "bootstrap-preparation.json": "data/qwen-components-confirmation-v1/bootstrap-v1/preparation.json",
+    "generated-notebook.ipynb": "data/qwen-components-confirmation-v1/bootstrap-v1/qwen_components_bootstrap_kaggle.ipynb",
+    "kaggle-upload.zip": "data/qwen-components-confirmation-v1/bootstrap-v1/kaggle-upload.zip",
+    "preparation.json": "data/qwen-components-confirmation-v1/preparation.json"
+  },
+  "original_frozen_files_unchanged": true,
+  "original_job_and_three_execution_files_unchanged": true,
+  "paid_inference_calls_performed_by_packaging": 0,
+  "preparer": {
+    "path": "tools/prepare_qwen_components_bootstrap.py",
+    "sha256": "5bf89c954037d74308bebcb140e4c90040d957c6e4e219fd631a91e3a1c43705",
+    "size_bytes": 13035
+  },
+  "profile_sha256": "f379e61b007801a9d97540bac7665b4ad0faeaab507a000e03daaf6541bdb632",
+  "ranking_runs_before_deployment": 0,
+  "ranking_runs_performed_by_packaging": 0,
+  "rationale": "Transport the already prepared confirmation job with the accepted separately pinned bootstrap. Configure only two explicit private dataset mounts; preserve the original job, three executables, generated notebook and both original preparation receipts. No confirmation result or quality claim exists.",
+  "same_method_and_gates": true,
+  "schema_version": 1,
+  "software_base_commit": "85b5df4",
+  "status": "prepared_before_first_confirmation_gpu_invocation",
+  "ticket": "KI11"
+}

@@ -4,7 +4,7 @@ This new experimental workflow targets questions that need evidence from separat
 
 The supplied first-run [log review](qwen-kaggle-log-review.md) identified shared-environment package conflicts. The new notebook installs four pinned retrieval packages into a temporary overlay and runs them in a fresh worker process. It checks required dependencies and CUDA before downloading weights. Kaggle's shared tools and CUDA Torch are retained. Existing Qwen jobs, the first failed result and the old [reproduction guide](qwen-cloud.md) remain available.
 
-The [first actual component run](qwen-components-runs-v1.md) reached its trusted input but failed in Python 3.13's `ensurepip` while creating the installer. It produced no rankings or quality grade. A separately pinned bootstrap repair is being validated before another saved run. Use that run record to check the current cloud-validation status; the original notebook alone has not demonstrated compatibility with this Kaggle environment.
+The [first actual component run](qwen-components-runs-v1.md) reached its trusted input but failed in Python 3.13's `ensurepip` while creating the installer. It produced no rankings or quality grade. The separately pinned bootstrap skips `ensurepip`, verifies an official pip wheel and retains the original worker. Use the run record for observed cloud compatibility and quality; software tests and preparation alone do not establish pilot readiness.
 
 ## Questions and original sources
 
@@ -39,11 +39,22 @@ python review_components.py --db "$REVIEW_DB" components-export "$REVIEW_PROJECT
   --job /absolute/path/to/new-component-job.json --scope included
 ```
 
-Preserve the returned job payload digest locally. The command returns an absolute `files_to_upload` list; copy each listed file using its declared filename into a new upload folder. In particular, `src/review_components/core.py` becomes `component_core.py`. The four-file bundle contains `job.json`, `component_core.py`, `qwen_kaggle_environment.py` and `qwen_components_kaggle_runner.py`; the job binds the three executable files' exact bytes. Import `notebooks/qwen_components_kaggle.ipynb` into a private notebook and attach the four files through a private dataset. Set `BUNDLE` to its actual Kaggle input directory and `JOB_SHA256` to the locally retained payload digest. The review ledger and gold answers remain on the Mac.
+Preserve the returned job payload digest locally. Package this exact job with the accepted bootstrap in a fresh directory:
+
+```sh
+python tools/prepare_qwen_components_bootstrap.py \
+  --job /absolute/path/to/new-component-job.json \
+  --job-sha256 REPLACE_WITH_LOCAL_JOB_PAYLOAD_DIGEST \
+  --output /absolute/path/to/new-kaggle-bundle
+```
+
+The preparer validates the trusted job and original three helper bindings before writing files. It returns absolute paths to `kaggle-upload.zip`, `qwen_components_bootstrap_kaggle.ipynb` and `preparation.json`, plus the five upload members. The archive contains the original job, `component_core.py`, `qwen_kaggle_environment.py`, `qwen_components_kaggle_runner.py` and the separately pinned `qwen_kaggle_bootstrap.py`. The original four files remain byte-exact; the bootstrap is bound separately from the job's three executable files. The receipt pins this transport before execution. Preparation performs no inference.
+
+Upload the ZIP as a private dataset, attach it, and import the generated notebook. Its trusted job digest is already filled in. Set `BUNDLE` to the exact attached directory containing all five files. The notebook verifies those files before importing the helper or bootstrap. The review ledger and gold answers remain on the Mac. The original four-file notebook remains a frozen historical artifact; the generated bootstrap notebook is the route for the observed Python 3.13 installer problem.
 
 Set the notebook's input paths and locally retained job digest. Select an available GPU and Internet access, keep the interactive draft off, and save **Save & Run All (Commit)** with GPU enabled. Inspect that saved version's preflight, progress and output. A missing dependency, mismatched helper hash, overlength input or oversized pair matrix stops explicitly; the worker does not truncate inputs, substitute another model or call a paid provider.
 
-Download the saved result and its printed payload hash. Retain the checkpoint, installer/environment audit and log with the job. Model weights and the temporary package overlay stay in Kaggle scratch rather than saved output.
+Download the saved result and its printed payload hash. Retain the checkpoint, installer report, worker environment audit, bootstrap audit, six bootstrap stage logs and saved-run log/version with the job and preparation receipt. The printed result hash identifies the canonical payload; the whole downloaded JSON file has a separate preservation hash. Model weights and the temporary package overlay stay in Kaggle scratch rather than saved output.
 
 ## Local import and review
 

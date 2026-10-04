@@ -1,0 +1,203 @@
+{
+  "archive": {
+    "filename": "artifacts.tar.xz",
+    "member_count": 14,
+    "sha256": "ff3e3ca5b8f54e5256066ae8db32e3c9986793dc89a2121cdbc9d07a3ed6d40d",
+    "size_bytes": 2618364,
+    "uncompressed_tar_bytes": 27412480
+  },
+  "archive_members": {
+    "components-bootstrap-audit.json": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-bootstrap-audit.json",
+      "sha256": "eb0e8d2bceb5b4f8f59715a24797e7efddcec7c4a212fb3976f043648664d906",
+      "size_bytes": 4990
+    },
+    "components-bootstrap-audit.json.installer_isolation.log": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-bootstrap-audit.json.installer_isolation.log",
+      "sha256": "972b6963911741189b75a0ad6367e1c40be60e4b7d1940d451326c8c31c5717a",
+      "size_bytes": 306
+    },
+    "components-bootstrap-audit.json.pip_install.log": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-bootstrap-audit.json.pip_install.log",
+      "sha256": "af189457b86babd53ae73f8cdaa1c0748b9c2e194f097cf79bd0b80c00ec95f8",
+      "size_bytes": 1656
+    },
+    "components-bootstrap-audit.json.pip_version.log": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-bootstrap-audit.json.pip_version.log",
+      "sha256": "da425fb6df238efd3f6c68591e1838f99ced23c05f737f845ddfc2e40d2b8f91",
+      "size_bytes": 106
+    },
+    "components-bootstrap-audit.json.venv.log": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-bootstrap-audit.json.venv.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "components-bootstrap-audit.json.wheel_download.log": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-bootstrap-audit.json.wheel_download.log",
+      "sha256": "578530e421cdb984571c63ae2b844fa4206dd93399c8edd1e645d0ff2b588700",
+      "size_bytes": 44
+    },
+    "components-bootstrap-audit.json.worker.log": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-bootstrap-audit.json.worker.log",
+      "sha256": "9fb30e7b7162a36bcd297b3b2f7a7232c5a1d5ee48b8ab91f2f02ebf0f4a26be",
+      "size_bytes": 3788
+    },
+    "components-checkpoint.json": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-checkpoint.json",
+      "sha256": "178b1f10e527662645d5f0505553c97310a51f1925b676f5100d6c31b8fad71f",
+      "size_bytes": 8494524
+    },
+    "components-environment-audit.json": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-environment-audit.json",
+      "sha256": "43a3fa14efc5e6e532ee6a614fd9f5c92595d4aea64d987f9a912a9648bf2579",
+      "size_bytes": 4017
+    },
+    "components-installer-report.json": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-installer-report.json",
+      "sha256": "96ab6618e5edb8d6f4ccbb27f78a99e21e33f31c1c279b3c621271eb5d250192",
+      "size_bytes": 67850
+    },
+    "components-results.json": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-output/components-results.json",
+      "sha256": "d7f0cf1aa5455977f54ed51d33640ba217246bff85383db168a2c44ffbea7a6c",
+      "size_bytes": 8499423
+    },
+    "job.json": {
+      "original_path": "data/qwen-components-development-v1/kaggle-upload/job.json",
+      "sha256": "4b32d55c6cad6e2534dab3804885b2238e6ada54c305d0adc68352ea3e6dea65",
+      "size_bytes": 316887
+    },
+    "preparation.json": {
+      "original_path": "data/qwen-components-development-v1/preparation.json",
+      "sha256": "6614816eb8a9ab623606c09366920704d7a845f0b9265befd575a9dd36fe7c50",
+      "size_bytes": 1244
+    },
+    "validation.receipt.json": {
+      "original_path": "data/qwen-components-development-v1/validation.receipt.json",
+      "sha256": "3c715d5f4422ea36ffcd55956a4742572b2aae4770325e2e69b5bc1a253c22a4",
+      "size_bytes": 9999175
+    }
+  },
+  "bootstrap_deployment": {
+    "path": "tests/fixtures/qwen_components_development_bootstrap_v2/deployment.json",
+    "sha256": "d0c6d84bb5943292243ba11ee22386f3c91d8d805f5a9c7873fb0b9bdd70c946",
+    "size_bytes": 3387
+  },
+  "created_at_utc": "2026-10-04T15:04:37.692014+00:00",
+  "development_freeze": {
+    "path": "docs/qwen-components-development-freeze-v1.json",
+    "sha256": "a70cfd4a4a1526e2e8da72f1b34ef1586ce6be430e9474892cf76a9b45d5ade0",
+    "size_bytes": 14755
+  },
+  "excluded": [
+    "review ledger",
+    "gold source files",
+    "model weights",
+    "pip wheel",
+    "model cache",
+    "environment variables",
+    "browser/account authentication",
+    "screenshots"
+  ],
+  "files": {
+    "imported-draft.ipynb": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-imported-draft.ipynb",
+      "sha256": "f549076ea345f86d1ebe6293b95d7bb3d9e377fa171563a3de7be9ea62bd2322",
+      "size_bytes": 4653
+    },
+    "result.json": {
+      "original_path": "data/qwen-components-development-v1/result.json",
+      "sha256": "fb1697b165c9a3d9323193a0bb233208b65363f24a1ba635afd063567c6a5043",
+      "size_bytes": 532051
+    },
+    "run.log": {
+      "original_path": "data/qwen-components-development-v1/run-evidence/bootstrap-v2-run.log",
+      "sha256": "72c43f42d4ffc211916465ee2f1243d16fda6a8d0cb14bc191acd7ba83d25e59",
+      "size_bytes": 8823
+    }
+  },
+  "grade": {
+    "candidate_nulls": [
+      {
+        "answerable": false,
+        "complete": null,
+        "context_covered": 0,
+        "context_total": 2,
+        "coverage": null,
+        "id": "components-dev-lung-null",
+        "returned_candidates": 5,
+        "source_scoped_hard_negative_candidates": 0
+      },
+      {
+        "answerable": false,
+        "complete": null,
+        "context_covered": 0,
+        "context_total": 2,
+        "coverage": null,
+        "id": "components-dev-hypertension-null",
+        "returned_candidates": 5,
+        "source_scoped_hard_negative_candidates": 0
+      }
+    ],
+    "checks": {
+      "batch_time": true,
+      "complete_positives": true,
+      "component_lexical_complete_nonregression": true,
+      "component_lexical_coverage_nonregression": true,
+      "exact_anchors_scope_replay_readonly": true,
+      "paid_inference_calls": true,
+      "support_coverage": true,
+      "whole_lexical_complete_nonregression": true,
+      "whole_lexical_coverage_nonregression": true,
+      "whole_qwen_complete_nonregression": true,
+      "whole_qwen_coverage_nonregression": true
+    },
+    "distinct_rerank_pairs": 549,
+    "methods": {
+      "candidate": {
+        "complete_positives": 6,
+        "mean_support_coverage": 1.0
+      },
+      "component_lexical": {
+        "complete_positives": 2,
+        "mean_support_coverage": 0.5555555555555556
+      },
+      "whole_lexical": {
+        "complete_positives": 1,
+        "mean_support_coverage": 0.4444444444444444
+      },
+      "whole_qwen": {
+        "complete_positives": 4,
+        "mean_support_coverage": 0.8611111111111112
+      }
+    },
+    "positive_pool_selection_losses": 0,
+    "status": "passed"
+  },
+  "job_payload_sha256": "4de843130af3727968e1a0f7bfd150c5743fcfb521d820a5c0fe0fd9c3bc3ce2",
+  "results_payload_sha256": "c823163facad5db6614d37e57b4845e92af252ff88bfb463895a489a6f7cc923",
+  "runtime": {
+    "bootstrap_seconds": 1085.841999744,
+    "bootstrap_setup_seconds": 10.548421308999991,
+    "max_input_tokens": 1138,
+    "paid_inference_calls": 0,
+    "peak_vram_bytes": 8202157056,
+    "worker_seconds": 1063.704828704
+  },
+  "saved_version": {
+    "accelerator": "T4x2",
+    "editor_environment_setting": "Pin to original environment (2026-10-03)",
+    "id": 355187018,
+    "image_link_claim": "Observed saved Logs page link; not cryptographic execution attestation.",
+    "interactive_draft_started": false,
+    "internet_enabled": true,
+    "number": 3,
+    "saved_at_utc": "2026-10-04T14:16:50Z",
+    "saved_page_image_link": "gcr.io/kaggle-gpu-images/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "ui_wall_seconds": 1108.3,
+    "visibility": "private"
+  },
+  "schema_version": 1,
+  "software_commit": "85b5df4",
+  "status": "preserved_first_components_development_grade"
+}

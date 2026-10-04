@@ -1,0 +1,87 @@
+10.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+10.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+10.3s 3 0.00s - to python to disable frozen modules.
+10.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+11.0s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+11.0s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+11.0s 7 0.00s - to python to disable frozen modules.
+11.0s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+12.4s 9 Selected dataset mount: /kaggle/input/datasets/yixuanhuangethan/qwen-components-development-bootstrap-v2
+12.4s 10 {'job_sha256': '4de843130af3727968e1a0f7bfd150c5743fcfb521d820a5c0fe0fd9c3bc3ce2', 'questions': 8, 'encoded_queries': 27}
+12.4s 11 Bootstrap stage: venv
+12.5s 12 Bootstrap stage: installer_isolation
+12.5s 13 {"base_prefix": "/usr", "executable": "/kaggle/temp/qwen-components-bootstrap-jrfig22o/installer/bin/python", "isolated": 1, "no_site": 1, "pip_present": false, "prefix": "/usr", "python_version": "3.13.15", "sys_path": ["/usr/lib/python313.zip", "/usr/lib/python3.13", "/usr/lib/python3.13/lib-dynload"]}
+12.5s 14 Bootstrap stage: wheel_download
+12.8s 15 Downloaded and verified fixed pip25.2 wheel
+12.8s 16 Bootstrap stage: pip_version
+13.4s 17 pip 25.2 from /kaggle/temp/qwen-components-bootstrap-jrfig22o/pip-25.2-py3-none-any.whl/pip (python 3.13)
+13.4s 18 Bootstrap stage: pip_install
+14.9s 19 Collecting transformers==4.51.3
+14.9s 20 Downloading transformers-4.51.3-py3-none-any.whl.metadata (38 kB)
+15.2s 21 Collecting tokenizers==0.21.1
+15.2s 22 Downloading tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+15.3s 23 Collecting safetensors==0.5.3
+15.4s 24 Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+15.4s 25 Collecting huggingface-hub==0.30.2
+15.4s 26 Downloading huggingface_hub-0.30.2-py3-none-any.whl.metadata (13 kB)
+15.4s 27 Downloading transformers-4.51.3-py3-none-any.whl (10.4 MB)
+15.7s 28 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 45.5 MB/s  0:00:00
+15.7s 29 Downloading tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+15.7s 30 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 121.7 MB/s  0:00:00
+15.7s 31 Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (471 kB)
+15.7s 32 Downloading huggingface_hub-0.30.2-py3-none-any.whl (481 kB)
+15.8s 33 Installing collected packages: transformers, tokenizers, safetensors, huggingface-hub
+22.9s 34 
+22.9s 35 Successfully installed huggingface-hub-0.30.2 safetensors-0.5.3 tokenizers-0.21.1 transformers-4.51.3
+22.9s 36 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+23.0s 37 Bootstrap stage: worker
+23.3s 38 Auditing pinned overlay, active dependencies and original CUDA Torch before model weights
+74.3s 39 Loading pinned embedding model on CUDA device zero
+107.4s 40 Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:26<00:26, 26.76s/it]Fetching 2 files: 100%|██████████| 2/2 [00:26<00:00, 13.38s/it]
+126.5s 41 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.41s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.51s/it]
+132.1s 42 Embedded sources 16/126; total seconds 109.046
+136.6s 43 Embedded sources 32/126; total seconds 113.606
+143.3s 44 Embedded sources 48/126; total seconds 120.26
+152.1s 45 Embedded sources 64/126; total seconds 129.088
+163.3s 46 Embedded sources 80/126; total seconds 140.263
+177.1s 47 Embedded sources 96/126; total seconds 154.074
+192.8s 48 Embedded sources 112/126; total seconds 169.776
+207.3s 49 Embedded sources 126/126; total seconds 184.246
+207.3s 50 Embedding original questions and declared components
+241.6s 51 Validated distinct rerank pairs before reranker load: 549
+242.9s 52 Loading pinned reranker after releasing embedding weights
+274.0s 53 Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:27<00:27, 27.89s/it]Fetching 2 files: 100%|██████████| 2/2 [00:28<00:00, 11.77s/it]Fetching 2 files: 100%|██████████| 2/2 [00:28<00:00, 14.18s/it]
+297.5s 54 Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.44s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.95s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.42s/it]
+335.4s 55 Reranked pairs 25/549; total seconds 312.331
+371.1s 56 Reranked pairs 50/549; total seconds 348.042
+406.7s 57 Reranked pairs 75/549; total seconds 383.641
+442.1s 58 Reranked pairs 100/549; total seconds 419.08
+477.7s 59 Reranked pairs 125/549; total seconds 454.617
+513.3s 60 Reranked pairs 150/549; total seconds 490.313
+548.9s 61 Reranked pairs 175/549; total seconds 525.91
+584.3s 62 Reranked pairs 200/549; total seconds 561.29
+619.8s 63 Reranked pairs 225/549; total seconds 596.735
+655.4s 64 Reranked pairs 250/549; total seconds 632.39
+690.6s 65 Reranked pairs 275/549; total seconds 667.548
+726.8s 66 Reranked pairs 300/549; total seconds 703.728
+763.1s 67 Reranked pairs 325/549; total seconds 740.014
+799.4s 68 Reranked pairs 350/549; total seconds 776.341
+835.6s 69 Reranked pairs 375/549; total seconds 812.531
+872.0s 70 Reranked pairs 400/549; total seconds 848.959
+908.1s 71 Reranked pairs 425/549; total seconds 885.087
+944.2s 72 Reranked pairs 450/549; total seconds 921.177
+979.8s 73 Reranked pairs 475/549; total seconds 956.785
+1015.8s 74 Reranked pairs 500/549; total seconds 992.729
+1051.7s 75 Reranked pairs 525/549; total seconds 1028.656
+1086.1s 76 Reranked pairs 549/549; total seconds 1063.057
+1089.5s 77 {"distinct_rerank_pairs":549,"results_sha256":"c823163facad5db6614d37e57b4845e92af252ff88bfb463895a489a6f7cc923","runtime":{"attention_implementation":"sdpa","backend":"kaggle-cuda-transformers","cuda_version":"12.8","device":"cuda:0","device_count":2,"dtype":"float16","elapsed_seconds":{"embedding_inference":14.292383096000549,"embedding_load":54.440828184,"reranker_inference":80.95329390199788,"reranker_load":56.92225030999998,"total":1063.704828704},"gpu_name":"Tesla T4","max_input_tokens":1138,"model_revisions":{"embedding":"5cf2132abc99cad020ac570b19d031efec650f2b","reranker":"22e683669bc0f0bd69640a1354a6d0aebcfeede5"},"packages":{"huggingface-hub":"0.30.2","python":"3.13.15","safetensors":"0.5.3","tokenizers":"0.21.1","torch":"2.11.0+cu128","transformers":"4.51.3"},"paid_inference_calls":0,"peak_vram_bytes":8202157056,"total_memory_bytes":15636037632,"truncated":false},"status":"completed"}
+1098.3s 78 Saved immutable bootstrap audit: /kaggle/working/components-bootstrap-audit.json
+1098.3s 79 {"audit_path": "/kaggle/working/components-environment-audit.json", "bootstrap_audit_path": "/kaggle/working/components-bootstrap-audit.json", "installer_report_path": "/kaggle/working/components-installer-report.json", "output_path": "/kaggle/working/components-results.json", "overlay_path": "/kaggle/temp/qwen-components-bootstrap-jrfig22o/overlay", "profile_sha256": "f379e61b007801a9d97540bac7665b4ad0faeaab507a000e03daaf6541bdb632"}
+1101.8s 80 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1101.8s 81 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1102.3s 82 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1102.3s 83 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1103.7s 84 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1103.8s 85 [NbConvertApp] Writing 13009 bytes to __notebook__.ipynb
+1106.2s 86 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1107.3s 87 [NbConvertApp] Writing 296369 bytes to __results__.html
