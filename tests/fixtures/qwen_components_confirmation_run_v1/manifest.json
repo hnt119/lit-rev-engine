@@ -1,0 +1,243 @@
+{
+  "archive": {
+    "filename": "artifacts.tar.xz",
+    "member_count": 14,
+    "sha256": "7756af917899a582ba2a9e9169620af113e8a6404f4f640d9652530670b77e22",
+    "size_bytes": 2272864,
+    "uncompressed_tar_bytes": 23111680
+  },
+  "archive_members": {
+    "components-bootstrap-audit.json": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-bootstrap-audit.json",
+      "sha256": "450d93c612d9179caacef66c6ec7c172b1a1879822cd24e0ea6dbf107f930b39",
+      "size_bytes": 4991
+    },
+    "components-bootstrap-audit.json.installer_isolation.log": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-bootstrap-audit.json.installer_isolation.log",
+      "sha256": "757781cfc9b9c2d3b929ad8f70992c070549c1f1fc6f1b61fbf501c8d332a73a",
+      "size_bytes": 306
+    },
+    "components-bootstrap-audit.json.pip_install.log": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-bootstrap-audit.json.pip_install.log",
+      "sha256": "e844f314302a00bc2082f6b978ae03f92e0056468c8b181bb9d4f1ca2e0b9449",
+      "size_bytes": 1657
+    },
+    "components-bootstrap-audit.json.pip_version.log": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-bootstrap-audit.json.pip_version.log",
+      "sha256": "a6e1942c37f9df732ee263bf1b00354eef0f83ced2dffb152ae98b3889c5994a",
+      "size_bytes": 106
+    },
+    "components-bootstrap-audit.json.venv.log": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-bootstrap-audit.json.venv.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    "components-bootstrap-audit.json.wheel_download.log": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-bootstrap-audit.json.wheel_download.log",
+      "sha256": "578530e421cdb984571c63ae2b844fa4206dd93399c8edd1e645d0ff2b588700",
+      "size_bytes": 44
+    },
+    "components-bootstrap-audit.json.worker.log": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-bootstrap-audit.json.worker.log",
+      "sha256": "7de79ccb35e012453932af0438067d4af0b4c083a24b6ec3d9040547e6434f02",
+      "size_bytes": 3659
+    },
+    "components-checkpoint.json": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-checkpoint.json",
+      "sha256": "1358ac7a7dd9e9d6d67d3e784f1f3e4676a394439c3e5cba51b72c5208d7f3be",
+      "size_bytes": 7071656
+    },
+    "components-environment-audit.json": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-environment-audit.json",
+      "sha256": "b6e21f07b797e9cfc7510c3e8f647c762c1dc240d8d5067bdf8abc021724380c",
+      "size_bytes": 4016
+    },
+    "components-installer-report.json": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-installer-report.json",
+      "sha256": "96ab6618e5edb8d6f4ccbb27f78a99e21e33f31c1c279b3c621271eb5d250192",
+      "size_bytes": 67850
+    },
+    "components-results.json": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/output/components-results.json",
+      "sha256": "02442e3b4bc8fd44c55d525415f4fab1e507ab995392fb431c80068841347747",
+      "size_bytes": 7076558
+    },
+    "job.json": {
+      "original_path": "data/qwen-components-confirmation-v1/kaggle-upload/job.json",
+      "sha256": "ccac1d0d94d0ac0577bb4a1c94d40711e9b8c7c4c2c5aeb5cab8277907d9d209",
+      "size_bytes": 268851
+    },
+    "preparation.json": {
+      "original_path": "data/qwen-components-confirmation-v1/preparation.json",
+      "sha256": "cf2e2d479a4ea1a2ec8d5ef5ddbe380b2607b9b75e72314a53b826a0b59eb6cd",
+      "size_bytes": 1239
+    },
+    "validation.receipt.json": {
+      "original_path": "data/qwen-components-confirmation-v1/validation.receipt.json",
+      "sha256": "3ba4da317d497cc021a90e9dcc9f88b3667bbdba85e7f94b633f7427dc7a9c80",
+      "size_bytes": 8597476
+    }
+  },
+  "bootstrap_deployment": {
+    "path": "tests/fixtures/qwen_components_confirmation_bootstrap_v1/deployment.json",
+    "sha256": "85f75c5dc2b5ea6d15401e5b8ea8c0e719194b37d884229b05083e2b38f2c882",
+    "size_bytes": 5451
+  },
+  "confirmation_freeze": {
+    "path": "docs/qwen-components-confirmation-freeze-v1.json",
+    "sha256": "861258f245f9c854739ee40046194ec15c6658628c422f53bd7e836548628a97",
+    "size_bytes": 15431
+  },
+  "created_at_utc": "2026-10-05T01:57:17.488383+00:00",
+  "development_freeze": {
+    "path": "docs/qwen-components-development-freeze-v1.json",
+    "sha256": "a70cfd4a4a1526e2e8da72f1b34ef1586ce6be430e9474892cf76a9b45d5ade0",
+    "size_bytes": 14755
+  },
+  "excluded": [
+    "review ledger",
+    "gold source files",
+    "model weights",
+    "pip wheel",
+    "model cache",
+    "environment variables",
+    "browser/account authentication",
+    "screenshots"
+  ],
+  "files": {
+    "imported-draft.ipynb": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/persisted-draft.ipynb",
+      "sha256": "739faadb208f31f71a2d7ce1d95ede5ff557e66e3e1ec7b6a6c98111de69c477",
+      "size_bytes": 5303
+    },
+    "result.json": {
+      "original_path": "data/qwen-components-confirmation-v1/result.json",
+      "sha256": "8f35e67859df014f2cf7cdf600faaa6c965568ddc5fe20fc703967ae62c2944d",
+      "size_bytes": 565658
+    },
+    "run.log": {
+      "original_path": "data/qwen-components-confirmation-v1/run-evidence/run.log",
+      "sha256": "078c2079b8e9602f4d8b467b7f979d286cab3476b1cc5200ba9baa57e63c20c2",
+      "size_bytes": 8661
+    }
+  },
+  "grade": {
+    "candidate_nulls": [
+      {
+        "answerable": false,
+        "complete": null,
+        "context_covered": 1,
+        "context_total": 2,
+        "coverage": null,
+        "id": "components-confirm-thyroid-null",
+        "returned_candidates": 5,
+        "source_scoped_hard_negative_candidates": 0
+      },
+      {
+        "answerable": false,
+        "complete": null,
+        "context_covered": 1,
+        "context_total": 2,
+        "coverage": null,
+        "id": "components-confirm-copcov-null",
+        "returned_candidates": 5,
+        "source_scoped_hard_negative_candidates": 0
+      }
+    ],
+    "checks": {
+      "batch_time": true,
+      "complete_positives": true,
+      "component_lexical_complete_nonregression": true,
+      "component_lexical_coverage_nonregression": true,
+      "exact_anchors_scope_replay_readonly": true,
+      "paid_inference_calls": true,
+      "support_coverage": true,
+      "whole_lexical_complete_nonregression": true,
+      "whole_lexical_coverage_nonregression": true,
+      "whole_qwen_complete_nonregression": true,
+      "whole_qwen_coverage_nonregression": true
+    },
+    "distinct_rerank_pairs": 549,
+    "methods": {
+      "candidate": {
+        "complete_positives": 5,
+        "mean_support_coverage": 0.9444444444444445
+      },
+      "component_lexical": {
+        "complete_positives": 3,
+        "mean_support_coverage": 0.7777777777777778
+      },
+      "whole_lexical": {
+        "complete_positives": 2,
+        "mean_support_coverage": 0.611111111111111
+      },
+      "whole_qwen": {
+        "complete_positives": 4,
+        "mean_support_coverage": 0.8611111111111112
+      }
+    },
+    "positive_pool_selection_losses": 0,
+    "status": "passed"
+  },
+  "job_payload_sha256": "46cdb4be34507d170d656eeba19478bf493acdfe6315a352ae37bc941d0b19e5",
+  "method_selection": {
+    "path": "docs/qwen-components-method-selection-v1.json",
+    "sha256": "372183e2dd0492031196175bc1b014056e5dcb016ca8fe9a174bfb7c072931f1",
+    "size_bytes": 1677
+  },
+  "quality_and_provenance_limits": {
+    "evidence_scope": "First frozen confirmation retrieval grade on two public articles; does not establish clinical validation or readiness of a specific human team protocol.",
+    "foreign_source_display": "Component Qwen and whole-question Qwen display zero foreign-source candidates; each lexical comparator displays one COPCOV abstract candidate for thyroid-01 without source support credit.",
+    "null_behavior": "Both nulls return five candidates and one of two annotated context anchors; answerability and abstention are not assessed.",
+    "positive_display_selection_losses": 0,
+    "remaining_positive": {
+      "canonical_block_index": 10,
+      "cause": "omitted from both the global component pool of 20 and original whole-question pool of 20",
+      "display_coverage": 0.6666666666666666,
+      "id": "components-confirm-thyroid-01",
+      "missing_support": "clinical study period January 2021 to January 2022",
+      "original_xml_locator": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+      "pool_coverage": 0.6666666666666666,
+      "selected_period_context": "July 2020 reader training at xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+      "study_period_component_hybrid_rank": 16,
+      "study_period_component_lexical_rank": 14
+    },
+    "remote_provenance": "Saved UI facts and original ledger-readonly evidence are preserved claims; image link is not cryptographic execution attestation."
+  },
+  "results_payload_sha256": "8867d3da507dd32802f083be963e4799eca101a2f4d8afa47cf22f95688d3fbc",
+  "runtime": {
+    "bootstrap_seconds": 963.5613002500002,
+    "bootstrap_setup_seconds": 11.66595941700001,
+    "max_input_tokens": 1607,
+    "paid_inference_calls": 0,
+    "peak_vram_bytes": 8237180928,
+    "worker_seconds": 942.759080032
+  },
+  "saved_version": {
+    "accelerator": "T4x2",
+    "editor_environment_setting": "Pin to original environment (2026-10-03)",
+    "first_observed_running_utc": "2026-10-05T01:27:52Z",
+    "id": 355309491,
+    "image_link_claim": "Observed saved Logs page link; not cryptographic execution attestation.",
+    "interactive_draft_started": false,
+    "internet_enabled": true,
+    "name": "Components confirmation v1 pinned bootstrap",
+    "number": 4,
+    "preceding_rejected_save": {
+      "grades": 0,
+      "ranking_runs": 0,
+      "reason": "UI concurrent save",
+      "saved_version_created": false
+    },
+    "saved_page_image_link": "gcr.io/kaggle-gpu-images/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "status": "succeeded",
+    "submission_time_utc": null,
+    "ui_wall_seconds": 983.1,
+    "url": "https://www.kaggle.com/code/yixuanhuangethan/qwen-kaggle?scriptVersionId=355309491",
+    "visibility": "private"
+  },
+  "schema_version": 1,
+  "software_base_commit": "85b5df4",
+  "status": "preserved_first_components_confirmation_grade",
+  "transport_published_commit": "74d8157756a7ee5a74b0e6af117e05a556b99e81"
+}

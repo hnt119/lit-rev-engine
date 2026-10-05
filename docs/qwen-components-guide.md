@@ -4,7 +4,7 @@ This new experimental workflow targets questions that need evidence from separat
 
 The supplied first-run [log review](qwen-kaggle-log-review.md) identified shared-environment package conflicts. The new notebook installs four pinned retrieval packages into a temporary overlay and runs them in a fresh worker process. It checks required dependencies and CUDA before downloading weights. Kaggle's shared tools and CUDA Torch are retained. Existing Qwen jobs, the first failed result and the old [reproduction guide](qwen-cloud.md) remain available.
 
-The [first actual component run](qwen-components-runs-v1.md) reached its trusted input but failed in Python 3.13's `ensurepip` while creating the installer. It produced no rankings or quality grade. The separately pinned bootstrap skips `ensurepip`, verifies an official pip wheel and retains the original worker. Use the run record for observed cloud compatibility and quality; software tests and preparation alone do not establish pilot readiness.
+The [first actual component run](qwen-components-runs-v1.md) reached its trusted input but failed in Python 3.13's `ensurepip` while creating the installer. It produced no rankings or quality grade. The separately pinned bootstrap skips `ensurepip`, verifies an official pip wheel and retains the original worker. The first saved development grade passed with 100% own-support coverage and 6/6 complete positives. After unchanged method selection, the first blind confirmation passed with 94.4% and 5/6; independent evaluation reproduced all eleven frozen gates. Both batches used zero paid calls. These bounded results support the [human pilot's protocol intake](pilot-milestone.md); they do not establish clinical validation or automatic extraction accuracy.
 
 ## Questions and original sources
 
@@ -54,6 +54,8 @@ Upload the ZIP as a private dataset, attach it, and import the generated noteboo
 
 Set the notebook's input paths and locally retained job digest. Select an available GPU and Internet access, keep the interactive draft off, and save **Save & Run All (Commit)** with GPU enabled. Inspect that saved version's preflight, progress and output. A missing dependency, mismatched helper hash, overlength input or oversized pair matrix stops explicitly; the worker does not truncate inputs, substitute another model or call a paid provider.
 
+Check that Kaggle reports **Draft saved** before submitting. If a save is rejected because the draft sequence is out of sync, refresh the editor and verify that the intended source persisted. **File → Download Notebook** exports the actual draft for comparison with the reviewed notebook or script. Restore the exact reviewed source and repeat this persistence check before retrying. A rejected save that creates no saved version supplies no GPU result or quality grade; retain the first actual saved run and its first grade.
+
 Download the saved result and its printed payload hash. Retain the checkpoint, installer report, worker environment audit, bootstrap audit, six bootstrap stage logs and saved-run log/version with the job and preparation receipt. The printed result hash identifies the canonical payload; the whole downloaded JSON file has a separate preservation hash. Model weights and the temporary package overlay stay in Kaggle scratch rather than saved output.
 
 ## Local import and review
@@ -77,4 +79,12 @@ Only reviewers enter findings, screening decisions, report/study associations an
 
 Prepare and grade development first. Preserve its first comparison and review any demonstrated defect. Select the method before inspecting confirmation questions, freeze confirmation inputs, then perform its first saved GPU comparison. Both splits contain six positives and two source-scoped nulls from different licensed papers. The fixed quality requirements include at least 85% own-support coverage, four complete positives, and nonregression against all three matched comparators at five own blocks. Operational integrity, exact source scope, read-only replay, zero paid calls and the 1,800-second batch ceiling are separate requirements.
 
-Human-pilot readiness must follow an observed accepted confirmation result. Software checks, model-card benchmarks and rerunning already-inspected questions cannot establish that result.
+The first saved component confirmation has met these requirements. Its missing companion is the thyroid study's clinical date range: the relevant source block is available in a component retrieval list but omitted from the final candidate pool. A selected passage instead describes reader-training dates. Both unsupported questions still return passages. Reviewers must inspect source meaning and scope; component reservations and relevance scores do not establish answerability, complete evidence or a verified finding.
+
+Keep the [first-run record](qwen-components-runs-v1.md) and prospective method/freeze bindings with the portable artifacts. The [confirmation archive](../tests/fixtures/qwen_components_confirmation_run_v1/README.md) preserves the first result for offline checking:
+
+```sh
+.venv/bin/python tests/fixtures/qwen_components_confirmation_run_v1/verify.py
+```
+
+This verifies preserved numeric evidence without a database connection, GPU or inference call. Move next to [one protocol-defined human review pilot](pilot-milestone.md), with actual eligibility criteria and reviewer roles. Software checks, model-card benchmarks and rerunning already-inspected questions cannot substitute for its human decisions and source review.
