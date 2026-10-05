@@ -8,6 +8,20 @@ The review ledger stores systematic or scoping review projects, bibliography imp
 
 Use **`review.py` for a reproducible medical review**. Begin with the [offline getting-started guide](docs/getting-started.md): it creates an isolated synthetic project, imports six occurrences into four records, records decisions and reproduces the exports without an API key or model download.
 
+Use `main` for the current accepted, runnable code. It already contains the review ledger, Qwen component workflow and Agnes/RAG passage pipeline. A working branch starts from `main`; Git does not give it a separate parent/child hierarchy or automatically enable experimental features.
+
+| Branch or tag | Purpose |
+| --- | --- |
+| [`main`](https://github.com/hnt119/lit-rev-engine/tree/main) | Default branch for accepted code and the usage guides below. |
+| [`codex/human-review-pilot`](https://github.com/hnt119/lit-rev-engine/tree/codex/human-review-pilot) | Prepared branch for the planned next workflow, starting at the same published `main` commit. Begin with team protocol intake, then one approximately 20–50-record [human review pilot](docs/pilot-milestone.md); no human pilot is completed. |
+| `codex/<ticket>` | Short-lived work for one focused change, opened from updated `main` and returned through a pull request after suitable checks and evaluation. |
+| [`archive/review-ledger-2026-10-05`](https://github.com/hnt119/lit-rev-engine/tree/archive/review-ledger-2026-10-05) | Annotated archive of completed `codex/review-ledger` at [`69d1767`](https://github.com/hnt119/lit-rev-engine/commit/69d17673f1286132a9614d2e2d81f65bdba26eec). |
+| [`archive/agnes-rag-2026-10-05`](https://github.com/hnt119/lit-rev-engine/tree/archive/agnes-rag-2026-10-05) | Annotated archive of the earlier `feature/agnes-rag` prototype at [`2d973c8`](https://github.com/hnt119/lit-rev-engine/commit/2d973c8db955970658849e8fc5ed664241d11f10), for historical inspection. Use `main` to run the current passage pipeline. |
+
+The completed work branches are retired after archiving. There is no permanent `dev` or algorithm-specific branch. On GitHub, use the branch/tag picker above the file list: select `main` under **Branches** for current instructions, or an `archive/…` entry under **Tags** to inspect a saved state. Branch selection changes the files you view; select a retrieval method explicitly in the relevant guide.
+
+To work on the planned pilot in a clean checkout, run `git fetch origin`, then `git switch codex/human-review-pilot`; follow its [protocol intake](docs/pilot-milestone.md#objective-and-starting-inputs) first.
+
 | What you need | Where to go |
 | --- | --- |
 | Understand the modules, stored data and current boundaries | [Architecture and repository map](docs/architecture.md) |
@@ -24,6 +38,36 @@ Use **`review.py` for a reproducible medical review**. Begin with the [offline g
 The [component experiment](docs/qwen-components-guide.md) adds reviewer-declared question parts, a shared twenty-candidate pool and five displayed own passages. It uses a temporary package overlay to address the shared-environment conflicts reported in the supplied Kaggle log. The reviewed checkout passed **1,771 tests and 31 subtests**, including 226 new independent checks. A pinned bootstrap repairs the observed Python 3.13 installer failure; its saved development retry completed on Kaggle with zero paid calls. The first frozen development grade **passed with 100% own-evidence support and 6/6 complete positives**, compared with matched whole-question Qwen's 86.1% and 4/6. The reusable [bundle preparer](tools/prepare_qwen_components_bootstrap.py) packages each original project export with that separately verified bootstrap; **96 focused checks passed**, including 36 tests from a clean checkout.
 
 The first saved blind confirmation passed all eleven frozen gates: **94.4% own-evidence support and 5/6 complete positives**, compared with whole-question Qwen's 86.1% and 4/6. Independent evaluation reproduced the grade and accepted its [portable archive](tests/fixtures/qwen_components_confirmation_run_v1/README.md): clean-checkout replay passed with network, writes and model execution blocked, and eighteen tamper probes were rejected. It took 942.76 seconds of worker time on a free Kaggle T4, with zero paid calls and no truncated inputs. The missing study-date companion and unsupported questions that still return passages remain review limitations. The next priority is [one protocol-defined human pilot](docs/pilot-milestone.md), using Qwen as retrieval assistance and human source checking. Read the [current run record](docs/qwen-components-runs-v1.md) for evidence and replay instructions; earlier failed results remain preserved.
+
+## Update main and contribute
+
+For a new checkout, use the installation commands below. To update an existing checkout, first run `git status --short`; continue here only if it prints nothing:
+
+```bash
+git fetch origin
+git switch main
+git pull --ff-only origin main
+```
+
+Keep local `data/` and `.env` files; do not add them to a commit. If your checkout has existing edits, create a separate workspace from remote `main` instead:
+
+```bash
+git fetch origin
+git worktree add -b codex/source-parser-fix ../lit-rev-engine-source-parser-fix origin/main
+cd ../lit-rev-engine-source-parser-fix
+```
+
+For a clean, updated `main` checkout, begin the same example ticket with `git switch -c codex/source-parser-fix`. Use a fresh ticket name for each change. After making the fix and installing [developer dependencies](#automated-tests), check and commit only the ticket's owned files:
+
+```bash
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python -m pytest -q tests/test_pdf_parser.py
+git diff -- src/parser/pdf_parser.py tests/test_pdf_parser.py
+git add -- src/parser/pdf_parser.py tests/test_pdf_parser.py
+git commit -m "Fix source parser handling"
+git push -u origin codex/source-parser-fix
+```
+
+Open a pull request targeting `main` using GitHub's **Compare & pull request**, or, if GitHub CLI is installed, `gh pr create --base main --head codex/source-parser-fix`. Describe the change, its checks and any evaluation limits. The team reviews suitable offline checks and independent evaluation before merging; documentation edits need link/content checks rather than a model run or the full software suite. Ordinary tests use temporary data and mocked services and require no GPU or paid model. Method changes require scoped evaluation: preserve frozen sources, thresholds, models and evaluation fixtures, and introduce a new version when changing the method or its evaluation contract.
 
 ## Current workflow
 
@@ -76,7 +120,7 @@ Embeddings run locally using `BAAI/bge-small-en-v1.5`. Ingestion and retrieval r
 Python 3.12 is recommended. The ledger, PubMed adapter and TXT/JATS evidence workflow require no third-party packages or paid API key. PDF source attachment uses PyMuPDF, included in the runtime dependencies below. Live PubMed requests require a contact email; an NCBI API key is optional. An internet connection is needed for PubMed/arXiv searches, PDF downloads, the first embedding-model download, and Agnes generation. Install the runtime dependencies below to use PDF parsing or the passage pipeline.
 
 ```bash
-git clone https://github.com/hnt119/lit-rev-engine.git
+git clone --branch main https://github.com/hnt119/lit-rev-engine.git
 cd lit-rev-engine
 python3 -m venv .venv
 source .venv/bin/activate
