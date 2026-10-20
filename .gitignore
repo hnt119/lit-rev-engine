@@ -26,3 +26,7 @@ htmlcov/
 .vscode/
 
 .DS_Store
+
+# Local MVP environment and private workspaces
+.venv-mvp/
+.mvp-state/

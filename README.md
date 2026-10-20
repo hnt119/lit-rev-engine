@@ -4,6 +4,22 @@ A Python engine for managing a reproducible review ledger and exploring locally 
 
 The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Project passage retrieval searches those retained sources and returns exact anchors for reviewer inspection. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
 
+## Web MVP v0.1
+
+Use [`codex/mvp-v0-1`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-1) for the web MVP; it has not been merged into `main`. Start from a clean checkout of that branch before following these commands.
+
+The [Streamlit MVP](docs/mvp.md) provides **discover → select → inspect source passages → save judgments → export CSV/JSON** through three browser screens. Install the focused CPU-only group in a separate environment:
+
+```bash
+python3.12 -m venv .venv-mvp
+.venv-mvp/bin/python -m pip install -r requirements-mvp.txt
+.venv-mvp/bin/python -m streamlit run apps/streamlit/app.py
+```
+
+The default is a clearly labeled offline example using a real CC BY article about diet, gut microbiota and gestational diabetes in Chinese women. For live PubMed, configure `NCBI_EMAIL` and choose live mode as described in [setup and walkthrough](docs/mvp.md). Discovery is an exploratory preview capped at 30 records by default (maximum 50); selected papers are not formal review inclusions. Permitted Europe PMC XML and explicit abstract fallbacks feed the existing lexical passage ranking. There is no generated scientific answer, paid inference or model download.
+
+Services, typed contracts and private SQLite state live in `src/mvp/`, separate from Streamlit and the frozen engine. The [headless smoke](scripts/mvp_smoke.py) runs the same service without a UI dependency. The evidence workspace pairs each passage with its judgment, keeps source context below, and opens each workflow screen at the top. Read the [evaluation evidence](docs/mvp_evaluation.md), [portable visual identity guide](docs/mvp_theme.md) and [frontend migration plan](docs/mvp_migration.md). No hosted deployment is created; the original CLI workflows below remain available.
+
 ## Start here
 
 Use **`review.py` for a reproducible medical review**. Begin with the [offline getting-started guide](docs/getting-started.md): it creates an isolated synthetic project, imports six occurrences into four records, records decisions and reproduces the exports without an API key or model download.
@@ -13,6 +29,7 @@ Use `main` for the current accepted, runnable code. It already contains the revi
 | Branch or tag | Purpose |
 | --- | --- |
 | [`main`](https://github.com/hnt119/lit-rev-engine/tree/main) | Default branch for accepted code and the usage guides below. |
+| [`codex/mvp-v0-1`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-1) | Web MVP review branch: Streamlit discovery, passage/source inspection, single-user judgments and CSV/JSON export. See the [MVP setup](docs/mvp.md); not yet merged into `main`. |
 | [`codex/human-review-pilot`](https://github.com/hnt119/lit-rev-engine/tree/codex/human-review-pilot) | Prepared branch for the planned next workflow, starting at the same published `main` commit. Begin with team protocol intake, then one approximately 20–50-record [human review pilot](docs/pilot-milestone.md); no human pilot is completed. |
 | `codex/<ticket>` | Short-lived work for one focused change, opened from updated `main` and returned through a pull request after suitable checks and evaluation. |
 | [`archive/review-ledger-2026-10-05`](https://github.com/hnt119/lit-rev-engine/tree/archive/review-ledger-2026-10-05) | Annotated archive of completed `codex/review-ledger` at [`69d1767`](https://github.com/hnt119/lit-rev-engine/commit/69d17673f1286132a9614d2e2d81f65bdba26eec). |

@@ -1,0 +1,304 @@
+{
+  "abstractText": "<h4>Background</h4>Lines of evidence indicate that microbiome and its derived metabolites are implicated in gestational diabetes mellitus (GDM) etiology through the regulation of insulin resistance and inflammatory responses, and pregnant women with GDM have significant gut dysbiosis and metabolic disturbance. Although the gut microbiota and gut metabolites in pregnant women with GDM are extensively studied, the trilateral relationship between diet, gut microbiota, and plasma metabolites in patients with GDM remains unclear. Therefore, the aim of this study was to systematically analyze the associations between diet, gut microbiome, and plasma metabolome among Chinese pregnant healthy controls and patients with GDM.<h4>Methods</h4>The study is a prospective cohort study conducted at two maternal and child hospitals in China from 8 October 2021 to 31 December 2022. We compared the daily dietary intake, microbial compositions, and plasma metabolic signatures of 173 patients with GDM and 47 pregnant healthy individuals. A food frequency questionnaire was used to investigate the dietary intake of pregnant healthy controls and patients with GDM. 16S rRNA sequencing and liquid chromatography-tandem mass spectrometry (LC-MS/MS) were used to sequence the gut microbiome and plasma metabolome, respectively.<h4>Results</h4>We found that women with GDM had higher intakes of whole grains, red meat, poultry, and eggs compared with normal pregnant women. Women with GDM had lower amounts of <i>Klebsiella</i>, <i>Lactiplantibacillus</i>, and <i>Sphingomonas</i>, and higher amounts of <i>Desulfovibrio</i>; they also had higher amounts of D-mannose, D-ribose, homo-L-arginine, and norophthalmic acid in plasma. Moreover, whole grains negatively influenced <i>Sphingomonas</i>, <i>Klebsiella</i>, and <i>Lactiplantibacillus</i>; red meat had a negative influence on <i>Sphingomonas</i>; and eggs had a positive impact on <i>Desulfovibrio</i>; these gut microbiota affected D-mannose, D-ribose, homo-L-arginine, and norophthalmic acid.<h4>Conclusion</h4>Overall, this study provided information about the influences of dietary intake on Chinese women with GDM by inhibiting gut microbiome on plasma metabolome, and their interactions play vital roles in GDM pathogenesis. These findings may be useful for patients with GDM in terms of dietary counseling and glucose control during pregnancy.",
+  "affiliation": "Fujian Maternity and Child Health Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0009-0008-3005-6132"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Fujian Maternity and Child Health Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            },
+            {
+              "affiliation": "Fujian Obstetrics and Gynecology Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            }
+          ]
+        },
+        "firstName": "Qing-Xiang",
+        "fullName": "Zheng QX",
+        "initials": "QX",
+        "lastName": "Zheng"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Fujian Maternity and Child Health Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            }
+          ]
+        },
+        "firstName": "Hai-Wei",
+        "fullName": "Wang HW",
+        "initials": "HW",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The School of Nursing, Fujian University of Traditional Chinese Medicine, Fuzhou, China."
+            }
+          ]
+        },
+        "firstName": "Li",
+        "fullName": "Ge L",
+        "initials": "L",
+        "lastName": "Ge"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Fujian Maternity and Child Health Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            },
+            {
+              "affiliation": "Fujian Obstetrics and Gynecology Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            }
+          ]
+        },
+        "firstName": "Yuzheng",
+        "fullName": "Lin Y",
+        "initials": "Y",
+        "lastName": "Lin"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Fujian Maternity and Child Health Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            }
+          ]
+        },
+        "firstName": "XiaoXia",
+        "fullName": "Gao X",
+        "initials": "X",
+        "lastName": "Gao"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Fujian Maternity and Child Health Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            }
+          ]
+        },
+        "firstName": "Yu",
+        "fullName": "Zhu Y",
+        "initials": "Y",
+        "lastName": "Zhu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Fujian Maternity and Child Health Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            }
+          ]
+        },
+        "firstName": "Ling",
+        "fullName": "Huang L",
+        "initials": "L",
+        "lastName": "Huang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Fujian Maternity and Child Health Hospital College of Clinical Medicine for Obstetrics and Gynecology and Pediatrics, Fujian Medical University, Fuzhou, Fujian, China."
+            }
+          ]
+        },
+        "firstName": "Xiu-Min",
+        "fullName": "Jiang XM",
+        "initials": "XM",
+        "lastName": "Jiang"
+      }
+    ]
+  },
+  "authorString": "Zheng QX, Wang HW, Ge L, Lin Y, Gao X, Zhu Y, Huang L, Jiang XM.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-07-15",
+  "dateOfCreation": "2026-04-29",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.3389/fimmu.2026.1745459",
+  "electronicPublicationDate": "2026-04-13",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-04-30",
+  "firstPublicationDate": "2026-04-13",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13110953"
+    ]
+  },
+  "fullTextReceivedDate": "2026-05-18",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/fimmu.2026.1745459"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13110953"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13110953?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42051515",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "journal": {
+      "essn": "1664-3224",
+      "isoabbreviation": "Front Immunol",
+      "issn": "1664-3224",
+      "medlineAbbreviation": "Front Immunol",
+      "nlmid": "101560960",
+      "title": "Frontiers in immunology"
+    },
+    "journalIssueId": 4103356,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "17",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "metabolome",
+      "Gestational Diabetes Mellitus",
+      "Microbial Metabolite",
+      "Dietary Intakes",
+      "Gut Microbiome"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Diabetes, Gestational",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "BL",
+              "majorTopic_YN": "N",
+              "qualifierName": "blood"
+            },
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Diet",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Prospective Studies",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Pregnancy",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "China",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Metabolome",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "East Asian People",
+        "majorTopic_YN": "N"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "1745459",
+  "pmcid": "PMC13110953",
+  "pmid": "42051515",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Influences of dietary intake on Chinese women with gestational diabetes mellitus by inhibiting gut microbiome on plasma metabolome.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "bioproject"
+    ]
+  }
+}

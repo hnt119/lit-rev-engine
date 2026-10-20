@@ -1,0 +1,12 @@
+/* Shared identity. Import this file unchanged in a future React/Next.js UI.
+   Reference: hnt119/hnt119.github.io, main 64f04ed5ff3186e6340fc381e95a60ea6830bc6a,
+   src/styles/global.css. Streamlit-specific rules live in streamlit.css. */
+:root {
+  --paper: #f7f6f2;
+  --ink: #272923;
+  --muted: #6b6e64;
+  --line: #e1e2da;
+  --accent: #667358;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-family: Arial, Helvetica, sans-serif;
+}

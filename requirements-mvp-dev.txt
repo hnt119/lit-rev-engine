@@ -1,0 +1,2 @@
+-r requirements-mvp.txt
+pytest==9.1.0
