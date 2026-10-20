@@ -10,7 +10,7 @@ from src.review.identity import normalize_doi, normalize_pmid
 
 from .adapters.retrieval import LexicalRetrieval
 from .contracts import (
-    Assessment, Block, ClearResult, CreateWorkspaceRequest, EvidenceRun, PassageJudgment,
+    Assessment, Block, BoundRetrieveEvidenceRequest, ClearResult, CreateWorkspaceRequest, EvidenceRun, PassageJudgment,
     PreparationResult, PreparedSource, QuerySuggestion, QuerySuggestionRequest,
     PrepareSourcesRequest, RetrieveEvidenceRequest, SaveAssessmentRequest, SearchPreview,
     SearchRequest, SourceContext, SourceContextRequest, StructuredError, WorkspaceExport,
@@ -150,6 +150,14 @@ class MVPService:
     def get_workspace(self, handle: WorkspaceHandle) -> WorkspaceSnapshot:
         return self._storage.read(handle)
 
+    def create_reserved_workspace(self, handle: WorkspaceHandle, request: CreateWorkspaceRequest) -> WorkspaceHandle:
+        """Complete a trusted server-side reservation without creating another ID."""
+        return self._storage.create_reserved(handle, request.question)
+
+    def with_workspace_state(self, handle, callback):
+        """Run a short auxiliary-state operation under the existing research lock."""
+        return self._storage.read_serialized(handle, callback)
+
     def suggest_query(self, handle: WorkspaceHandle, request: QuerySuggestionRequest) -> QuerySuggestion:
         self._storage.read(handle)
         words = {word.casefold() for word in re.findall(r"\w+", request.question)}
@@ -220,11 +228,24 @@ class MVPService:
         return result
 
     def retrieve_evidence(self, handle: WorkspaceHandle, request: RetrieveEvidenceRequest) -> EvidenceRun:
+        return self._retrieve_evidence(handle, request, "retrieve")
+
+    def retrieve_evidence_bound(self, handle: WorkspaceHandle, request: BoundRetrieveEvidenceRequest) -> EvidenceRun:
+        return self._retrieve_evidence(handle, request, "retrieve_bound_v1")
+
+    def _retrieve_evidence(self, handle, request, operation):
         def execute(state):
             if not state.preparations:
                 raise MvpError("sources_not_prepared", "Select and prepare sources before passage search.")
-            _assert_source_integrity(state.sources)
             preparation = state.preparations[-1]
+            # This executes under the same workspace lock as retrieval/commit,
+            # rather than an API preflight that could race with preparation.
+            if isinstance(request, BoundRetrieveEvidenceRequest) and (
+                request.expected_preparation_id != preparation.id
+                or request.expected_source_revision != state.source_revision
+            ):
+                raise MvpError("stale_preparation", "Prepared sources changed since this form was loaded. Keep your question and reload the current preparation.")
+            _assert_source_integrity(state.sources)
             run_id = new_id()
             passages, indexed, matched = self._retrieval.search(request.question, state.sources, run_id, request.top_k)
             result = EvidenceRun(id=run_id, search_id=preparation.search_id, preparation_id=preparation.id,
@@ -232,7 +253,7 @@ class MVPService:
                                  question=request.question, passages=passages, indexed_passages=indexed,
                                  matched_passages=matched, parameters=self._retrieval.parameters)
             return state.model_copy(update={"runs": [*state.runs, result], "current_run_id": result.id}), result
-        result = self._operate(handle, "retrieve", request, EvidenceRun, execute)
+        result = self._operate(handle, operation, request, EvidenceRun, execute)
         self._current_run(self._storage.read(handle), result.id)
         return result
 
@@ -251,11 +272,28 @@ class MVPService:
     def get_source_context(self, handle: WorkspaceHandle, request: SourceContextRequest) -> SourceContext:
         state = self._storage.read(handle)
         run = self._current_run(state, request.run_id)
-        passage = _find(run.passages, request.passage_id, "passage")
-        source = _find(state.sources, passage.source_id, "source")
+        return self._source_context(state, run, state.sources, request.passage_id)
+
+    def get_historical_source_context(self, handle: WorkspaceHandle, request: SourceContextRequest) -> SourceContext:
+        """Read an original run/preparation/search without relaxing current guards."""
+        state = self._storage.read(handle)
+        run = _find(state.runs, request.run_id, "run")
+        preparation = _find(state.preparations, run.preparation_id, "preparation")
+        if (preparation.search_id != run.search_id
+                or preparation.source_revision != run.source_revision
+                or digest(_manifest(preparation.sources)) != run.source_snapshot_sha256):
+            raise MvpError("source_integrity_error", "Archived run did not match its original preparation.")
+        _assert_source_integrity(preparation.sources)
+        return self._source_context(state, run, preparation.sources, request.passage_id)
+
+    @staticmethod
+    def _source_context(state, run, sources, passage_id):
+        passage = _find(run.passages, passage_id, "passage")
+        source = _find(sources, passage.source_id, "source")
         block = _find(source.blocks, passage.anchor.block_id, "block")
         anchor = passage.anchor
-        if (passage.source_version != source.version or passage.source_sha256 != source.source_sha256
+        if (passage.paper_id != source.paper_id
+                or passage.source_version != source.version or passage.source_sha256 != source.source_sha256
                 or passage.blocks_sha256 != source.blocks_sha256
                 or source.blocks_sha256 != digest([item.model_dump(mode="json") for item in source.blocks])
                 or not 0 <= anchor.start < anchor.end <= len(block.text)
@@ -336,4 +374,9 @@ class MVPService:
 
     def clear_workspace(self, handle: WorkspaceHandle) -> ClearResult:
         self._storage.clear(handle)
+        return ClearResult()
+
+    def clear_workspace_if_present(self, handle: WorkspaceHandle) -> ClearResult:
+        """For an authorized server-side deletion reservation, never UUID recovery."""
+        self._storage.clear_if_present(handle)
         return ClearResult()

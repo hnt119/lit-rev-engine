@@ -77,6 +77,23 @@ def choose_screen(screen):
     st.rerun()
 
 
+def retain_control_drafts():
+    """Keep session drafts independent of whether their widgets are rendered.
+
+    Incoming widget values take precedence. Explicit reassignment detaches the
+    keys from Streamlit's hidden-widget cleanup; the non-widget dictionary can
+    restore them if a screen has already removed its widget state. This does
+    not provide recovery after the anonymous Streamlit session ends.
+    """
+    drafts = dict(st.session_state.get("_control_drafts", {}))
+    for name in ("research_question", "pubmed_query", "passage_question"):
+        if name in st.session_state:
+            drafts[name] = st.session_state[name]
+        if name in drafts:
+            st.session_state[name] = drafts[name]
+    st.session_state["_control_drafts"] = drafts
+
+
 def finish_screen_navigation(screen):
     """Reset the browser viewport only when the workflow screen has changed."""
     previous = st.session_state.get("_rendered_workflow_screen")
@@ -398,6 +415,7 @@ def main():
     st.set_page_config(page_title="Literature Review Engine", layout="wide")
     st.markdown("<style>" + load_theme() + "</style>", unsafe_allow_html=True)
     info = public_runtime_info()
+    retain_control_drafts()
     if "navigate_to" in st.session_state:
         st.session_state["screen"] = st.session_state.pop("navigate_to")
     mode_default = os.environ.get("MVP_MODE", "saved_example")

@@ -199,6 +199,12 @@ class RetrieveEvidenceRequest(Model):
         return value
 
 
+class BoundRetrieveEvidenceRequest(RetrieveEvidenceRequest):
+    """Web submission bound to the preparation the researcher actually saw."""
+    expected_preparation_id: str = Field(min_length=1)
+    expected_source_revision: int = Field(ge=1, strict=True)
+
+
 class Anchor(Model):
     block_id: str
     start: int = Field(ge=0)

@@ -4,6 +4,12 @@ A Python engine for managing a reproducible review ledger and exploring locally 
 
 The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Project passage retrieval searches those retained sources and returns exact anchors for reviewer inspection. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
 
+## Local web MVP v0.2
+
+Use [`codex/mvp-v0-2`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-2) for MVP v0.2. It extends the actual MVP baseline `8df5993` with a Next.js/React interface and a thin FastAPI adapter over the existing `src/mvp` services. The branch remains separate from `main`; no hosted deployment is provided. Use the [v0.2 setup and workflow guide](docs/mvp_v0_2.md) and [executed checkpoint evidence](docs/mvp_v0_2_evaluation.md) for current status, optional local mapping setup, startup/shutdown, durable data and limitations.
+
+Workspaces reopen through a persistent local browser session. Versioned drafts remain separate from immutable assessments; historical evidence retains its original source binding. The new default `.mvp-web-state/` directory is separate from existing research data. The exploratory preview, formal review ledger and frozen Qwen workflows keep their existing boundaries.
+
 ## Web MVP v0.1
 
 Use [`codex/mvp-v0-1`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-1) for the web MVP; it has not been merged into `main`. Start from a clean checkout of that branch before following these commands.
@@ -30,6 +36,7 @@ Use `main` for the current accepted, runnable code. It already contains the revi
 | --- | --- |
 | [`main`](https://github.com/hnt119/lit-rev-engine/tree/main) | Default branch for accepted code and the usage guides below. |
 | [`codex/mvp-v0-1`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-1) | Web MVP review branch: Streamlit discovery, passage/source inspection, single-user judgments and CSV/JSON export. See the [MVP setup](docs/mvp.md); not yet merged into `main`. |
+| [`codex/mvp-v0-2`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-2) | MVP v0.2: reopenable React workspace and optional persisted paper maps, extending MVP baseline `8df5993`. See [v0.2 guide](docs/mvp_v0_2.md) and [checkpoint evidence](docs/mvp_v0_2_evaluation.md); separate from `main`. |
 | [`codex/human-review-pilot`](https://github.com/hnt119/lit-rev-engine/tree/codex/human-review-pilot) | Prepared branch for the planned next workflow, starting at the same published `main` commit. Begin with team protocol intake, then one approximately 20–50-record [human review pilot](docs/pilot-milestone.md); no human pilot is completed. |
 | `codex/<ticket>` | Short-lived work for one focused change, opened from updated `main` and returned through a pull request after suitable checks and evaluation. |
 | [`archive/review-ledger-2026-10-05`](https://github.com/hnt119/lit-rev-engine/tree/archive/review-ledger-2026-10-05) | Annotated archive of completed `codex/review-ledger` at [`69d1767`](https://github.com/hnt119/lit-rev-engine/commit/69d17673f1286132a9614d2e2d81f65bdba26eec). |

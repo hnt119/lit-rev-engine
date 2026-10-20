@@ -30,3 +30,11 @@ htmlcov/
 # Local MVP environment and private workspaces
 .venv-mvp/
 .mvp-state/
+
+# Optional local v0.2 web/model environments and private browser workspaces
+.venv-web/
+.venv-map/
+.mvp-web-state/
+apps/web/node_modules/
+apps/web/.next/
+apps/web/tsconfig.tsbuildinfo

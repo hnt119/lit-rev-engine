@@ -71,15 +71,36 @@ class SQLiteWorkspaceStorage:
 
     def create(self, question):
         handle = WorkspaceHandle(workspace_id=new_id(), token=secrets.token_urlsafe(32))
+        return self.create_reserved(handle, question)
+
+    def create_reserved(self, handle, question):
+        """Materialize an internal durable reservation, or reopen that exact ID."""
         state = WorkspaceSnapshot(id=handle.workspace_id, question=question)
         with self._connection() as connection:
-            connection.execute("INSERT INTO mvp_workspaces VALUES (?, ?, ?)",
-                               (handle.workspace_id, self._token_hash(handle), state.model_dump_json()))
+            connection.execute("BEGIN IMMEDIATE")
+            try:
+                prior = connection.execute("SELECT id FROM mvp_workspaces WHERE id=?", (handle.workspace_id,)).fetchone()
+                if prior:
+                    self._authorized(connection, handle)
+                else:
+                    connection.execute("INSERT INTO mvp_workspaces VALUES (?, ?, ?)",
+                                       (handle.workspace_id, self._token_hash(handle), state.model_dump_json()))
+                connection.execute("COMMIT")
+            except BaseException:
+                if connection.in_transaction:
+                    connection.execute("ROLLBACK")
+                raise
         return handle
 
     def read(self, handle):
         with self._connection() as connection:
             return self._authorized(connection, handle)
+
+    def read_serialized(self, handle, callback):
+        """Coordinate additive state with research writes without new history rows."""
+        self.read(handle)
+        with self._workspace_lock(handle), self._connection() as connection:
+            return callback(self._authorized(connection, handle))
 
     @contextmanager
     def _workspace_lock(self, handle):
@@ -131,10 +152,25 @@ class SQLiteWorkspaceStorage:
                 raise
 
     def clear(self, handle):
-        self.read(handle)
+        return self._clear(handle, missing_ok=False)
+
+    def clear_if_present(self, handle):
+        """Finish an internally authorized pending deletion after interruption."""
+        return self._clear(handle, missing_ok=True)
+
+    def _clear(self, handle, *, missing_ok):
+        with self._connection() as connection:
+            exists = connection.execute("SELECT id FROM mvp_workspaces WHERE id=?", (handle.workspace_id,)).fetchone()
+            if exists is None and missing_ok:
+                return
+            self._authorized(connection, handle)
         with self._workspace_lock(handle), self._connection() as connection:
             connection.execute("BEGIN IMMEDIATE")
             try:
+                exists = connection.execute("SELECT id FROM mvp_workspaces WHERE id=?", (handle.workspace_id,)).fetchone()
+                if exists is None and missing_ok:
+                    connection.execute("COMMIT")
+                    return
                 self._authorized(connection, handle)
                 connection.execute("DELETE FROM mvp_workspaces WHERE id=?", (handle.workspace_id,))
                 connection.execute("COMMIT")
