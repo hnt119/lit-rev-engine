@@ -6,8 +6,11 @@ selection bug. Subsequent corrections add the
 [30-paper offline example and saved map](offline_example.md),
 [compact PubMed keyword proposals](query_suggestions.md), and
 [nearest-paper targeting and background-only panning](map_interactions.md).
-The comparison board is the next checkpoint, described in the
-[board plan](mvp_v0_3_board_plan.md); it is not implemented in this checkpoint.
+The subsequent [manual comparison board](manual_comparison_board.md) and
+[optional AI cell proposals](cell_proposals.md) are now implemented on this
+feature branch. Generation remains disabled by default. Their separate
+evaluation records distinguish software/browser checks from real-model and
+human-usefulness validation.
 
 The existing React/FastAPI workflow, Streamlit application, SQLite research
 contracts, source permissions, passage retrieval, assessments, exports and
@@ -107,19 +110,27 @@ usefulness are separate evidence categories. The provisional workbook pilot
 does not supply a held-out relevance gold set. No human inclusion or support
 judgments have been manufactured.
 
-## Next checkpoint
+## Manual comparison checkpoint
 
-Build the manual comparison board over retained sources, beginning with strict
-contracts, small persistence and immutable definition revisions. Then add
-bounded retrieval per paper/field, exact source inspection, durable cell drafts,
-human submissions and separate board exports. See tickets B1–B6 in the board
-plan. Optional structured extraction remains gated on that working manual
-workflow and its independent evaluation.
+The manual comparison board is implemented over retained sources. It adds
+immutable definitions, bounded per-paper/per-field lexical retrieval, exact
+canonical source inspection, typed durable drafts, explicit submissions and
+revisions, and separate board CSV/JSON exports. The completed browser slice
+uses three retained reports and three editable fields, including abstract-only
+missing information. See the [user and service guide](manual_comparison_board.md)
+and [checkpoint evidence](manual_board_evaluation.md). Optional structured
+extraction was outside that manual checkpoint. The subsequent
+[optional cell-proposal checkpoint](cell_proposals.md) now adds separately
+stored, reviewable suggestions with generation disabled by default. It makes
+no real-model quality or human-usefulness claim; see its
+[evaluation record](cell_proposals_evaluation.md).
 
 This development checkpoint is maintained on
 [`codex/mvp-v0-3`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-3).
-The user authorized committing and pushing the reviewed implementation on
-21 October 2026. Main is unchanged. Private captures, contacts, credentials and
+The prior discovery checkpoint was committed and pushed with authorization.
+The manual board and optional proposal layer are versioned together on this
+feature branch with the user's publication authorization. Main is unchanged.
+Private captures, contacts, credentials and
 supplied research materials remain local; the public offline pack was captured
 separately from permitted sources. Historical evaluation sections describe their
 execution-time state. Merging or deploying is outside this publication scope.

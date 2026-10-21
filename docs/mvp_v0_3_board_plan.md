@@ -1,8 +1,8 @@
 # MVP v0.3 comparison board: implementation plan
 
-Prepared 21 October 2026. **Proposed interfaces and acceptance criteria; the board is not implemented.**
+Updated 21 October 2026. **The manual board checkpoint is implemented locally and evaluated.** The subsequent [optional cell-proposal checkpoint](cell_proposals.md) is implemented separately with generation disabled by default; its [evaluation](cell_proposals_evaluation.md) does not establish real-model quality or human usefulness.
 
-This extends the v0.2 implementation at `404b002` on the local `codex/mvp-v0-3` branch. The scope is [MVP_V0_3_CODEX_BRIEF.md](MVP_V0_3_CODEX_BRIEF.md). Checkpoint 0 real-case readiness must be evaluated before board implementation. Its provider/model/test results belong in the [evaluation record](mvp_v0_3_evaluation.md); this plan makes no live or model validation claim.
+This checkpoint extends the actual MVP at `60f8aa96a4e3ea6dcced805e2158bf5aeafa5923` on `codex/mvp-v0-3`. The discovery checkpoint already has recorded live multi-paper execution and a separately captured public thirty-paper example; it was not repeated. Its provider/model results remain in the [discovery evaluation](mvp_v0_3_evaluation.md). The [manual-board guide](manual_comparison_board.md) describes the delivered interface; [board evaluation](manual_board_evaluation.md) records software and browser evidence separately from human usefulness.
 
 ## Delivery gates
 
@@ -24,14 +24,14 @@ flowchart LR
     MVP --> SOURCES[Original saved search and preparation]
 ```
 
-| Path | Proposed responsibility |
+| Path | Implemented responsibility |
 | --- | --- |
 | `src/mvp/board_contracts.py` | Strict frozen contracts, validation and versioned board schemas |
 | `src/mvp/evidence_board.py` | One service for source/dependency validation and board operations |
 | `src/mvp/adapters/board_storage.py` | Private `evidence-boards.sqlite3`, idempotency, CAS and immutable history |
 | `src/web_api/board_routes.py` | Thin session-authorized routes, following `map_routes.py` |
 | `apps/web/components/compare.tsx` | Matrix, compact states, manual editor and canonical source inspector |
-| `tests/mvp/test_boards.py`, `tests/web_api/test_boards.py` | Domain, transport, lifecycle and regression evidence |
+| `tests/mvp/test_boards.py`, `tests/mvp/test_boards_independent.py`, `tests/web_api/test_boards_independent.py` | Implementation and independent domain, transport, lifecycle and regression evidence |
 
 Preserve `WorkspaceSnapshot`, existing evidence contracts and assessments, lexical passage retrieval, frozen Qwen profiles, map coordinates/jobs and `mvp.audit-bundle.v1`. Generate TypeScript contracts from Python/OpenAPI. Reuse the current paper/ink/olive theme and loopback session boundary.
 
@@ -39,9 +39,9 @@ Preserve `WorkspaceSnapshot`, existing evidence contracts and assessments, lexic
 
 A stable board ID has immutable definition revisions. Each `BoardRevision` records workspace ID, saved search ID and digest, question and digest, preparation ID, source revision and manifest digest, ordered paper IDs, field definitions, retrieval profile/digest, timestamp and explicit parent revision. Each field has a stable field ID and immutable field-revision ID, label and subquestion.
 
-Creation selects a unique subset of one preparation, up to the existing ten-source limit. The initial interface recommends three–five papers and offers the six editable biomedical fields in the brief. Question, field or source changes require a new definition revision with `expected_revision_id`. Old judgments remain historical; changed dependencies never silently inherit support. Resolve bibliography through the original saved search, including when later searches return the same PMID.
+Creation selects a unique subset of one preparation, up to the existing ten-source limit. The initial interface starts with three editable fields and supports up to six. The completed vertical slice uses three retained reports and three fields. Question, field or source changes require a new definition revision with `expected_revision_id`. Old judgments remain historical; changed dependencies never silently inherit support. Resolve bibliography through the original saved search, including when later searches return the same PMID.
 
-Proposed initial bounds: six fields, sixty cells per definition revision, ten boards per workspace, twenty definition revisions per board, fifty submitted revisions per cell, five references per cell, and a 32 MiB sidecar budget per workspace. Define these once, expose them as capabilities and test them. Revisit capacity only after measurement.
+Implemented bounds: six fields, sixty cells per definition revision, ten boards per workspace, twenty definition revisions per board, fifty submitted revisions per cell, five references and thirty inspected ranges per cell, and a 32 MiB sidecar payload budget per workspace. These are exposed as capabilities and tested. Revisit capacity only after measurement.
 
 Keep these dimensions separate in projections and exports:
 
@@ -83,7 +83,7 @@ registry.lifecycle_guard(workspace_id)
 
 Check tombstones and dependency/head CAS under that ordering. Do not acquire these locks in reverse. Any later slow generation runs outside locks and revalidates before publication. Extend workspace cleanup to both map and board sidecars; cleanup is idempotent and cannot recreate deleted data after interruption or a late write.
 
-## Proposed API and exports
+## API and exports
 
 All routes inherit exact Host/Origin, session authorization, CSRF and request-size protections:
 
@@ -100,7 +100,7 @@ GET      /workspaces/{w}/boards/{b}/references/{reference}/context
 GET      /workspaces/{w}/boards/{b}/exports?format=csv|json&history=false
 ```
 
-Normal projections contain compact bibliography and cell states/reference IDs, not all source blocks or history. History and inspector reads are paginated and read-only. New `mvp.board-table.v1` and `mvp.board-audit.v1` exports record original bibliography, bindings, states, exact anchors and ancestry without changing old exports. Apply existing formula-safe CSV handling; canonical JSON preserves original values. Source-linked exports remain local artifacts unless separately approved for publication.
+Normal projections contain compact bibliography and cell states/reference metadata, not source quotations or history. History and inspector reads are paginated and read-only. New `mvp.board-table.v1` and `mvp.board-audit.v1` exports record original bibliography, bindings, states, exact anchors and ancestry without changing old exports. CSV contains the selected definition's submitted heads; audit JSON always includes its immutable cell history and candidate audit. `history=true` additionally includes earlier definitions. Unsubmitted drafts are excluded. Existing formula-safe CSV handling applies; canonical JSON preserves original values. Source-linked exports remain local artifacts unless separately approved for publication.
 
 ## Small implementation tickets
 

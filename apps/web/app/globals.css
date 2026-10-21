@@ -112,3 +112,34 @@ footer { max-width: 1380px; margin: 0 auto; padding: 24px 36px; border-top: 1px 
 @media(max-width:900px) { .exploration-tabs { display: flex; position: sticky; top: 0; z-index: 2; gap: 12px; margin: 24px 0 0; padding: 8px 0; background: var(--paper); border-bottom: 1px solid var(--line); } .exploration-tabs button[aria-pressed=true] { color: var(--accent); border-color: var(--accent); text-decoration: underline; text-underline-offset: 5px; } .exploration-layout { grid-template-columns: minmax(0,1fr); gap: 24px; margin-top: 20px; } .exploration-panel { height: auto; overflow: visible; padding-right: 0; scrollbar-gutter: auto; } .exploration-panel, .exploration-panel .paper, .exploration-inspector .paper-inspector { scroll-margin-top: 80px; } .exploration-panel[data-active=false] { display: none; } }
 @media(max-width:520px) { .site-header { padding: 24px; align-items: start; flex-direction: column; gap: 8px; } .app-shell { padding: 32px 24px 64px; } h1 { font-size: 32px; letter-spacing: -1px; } h2 { font-size: 22px; } .source-text, .paper-inspector { padding: 16px; } dl { grid-template-columns: minmax(0,1fr); gap: 4px; } dd { margin-bottom: 12px; } footer { padding: 24px; } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
+/* Comparison boards reuse the editorial paper/ink/olive tokens. */
+.board-paper-choice { align-items: flex-start; }
+.board-field-editor { border-top: 1px solid var(--line); padding: 20px 0; }
+.board-table-scroll { width: 100%; overflow-x: auto; margin-top: 24px; }
+.board-table { border-collapse: collapse; width: 100%; min-width: 660px; font-size: 13px; table-layout: fixed; }
+.board-table th, .board-table td { text-align: left; vertical-align: top; padding: 14px 12px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); overflow-wrap: anywhere; }
+.board-table th:last-child, .board-table td:last-child { border-right: 0; }
+.board-table th { font-weight: 400; }
+.board-table thead th { font-size: 14px; border-top: 1px solid var(--line); }
+.board-table th > span { display: block; }
+.board-table th .meta { margin-top: 8px; }
+.board-table th:first-child { width: 27%; }
+.board-cell { width: 100%; min-height: 152px; border: 0; padding: 0; display: flex; align-items: flex-start; justify-content: flex-start; flex-direction: column; gap: 8px; text-align: left; }
+.board-cell[aria-pressed=true] { color: var(--accent); box-shadow: -2px 0 0 var(--accent); padding-left: 10px; }
+.board-cell-value { white-space: pre-wrap; font-size: 13px; line-height: 1.7; }
+.board-cell .meta { font-size: 9px; }
+.board-editor-anchor { scroll-margin-top: 24px; }
+.board-workspace-columns { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 36px; margin-top: 32px; }
+.board-workspace-columns > div { min-width: 0; }
+.board-candidate, .board-reference { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.board-candidate blockquote, .board-reference blockquote { font-size: 13px; }
+.board-inspector-heading { margin-top: 36px; }
+.board-reference button, .board-range button { font-size: 12px; margin: 6px 8px 0 0; }
+.board-range { border-bottom: 1px solid var(--line); padding: 12px 0; }
+.board-cell-editor h4 { font-size: 13px; font-weight: 500; margin-top: 24px; }
+@media(max-width:900px) { .board-workspace-columns { grid-template-columns: minmax(0,1fr); gap: 36px; } .board-judgment-column { border-top: 1px solid var(--line); padding-top: 28px; } .board-table { min-width: 620px; } }
+.proposal-controls > details > summary { font-size: 14px; }
+.proposal-card { padding: 24px 0; border-top: 1px solid var(--line); }
+.proposal-card .eyebrow { color: var(--accent); }
+.cell-proposals { padding-bottom: 24px; }
+.cell-proposals > h3 { margin-top: 0; }

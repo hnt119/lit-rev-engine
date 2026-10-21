@@ -45,7 +45,8 @@ def _loopback_configuration(allowed_host, allowed_origin):
 
 
 def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
-               allowed_origin="http://127.0.0.1:3000", services=None, ui_store=None, map_embedder=None):
+               allowed_origin="http://127.0.0.1:3000", services=None, ui_store=None, map_embedder=None,
+               proposal_adapter=None):
     _loopback_configuration(allowed_host, allowed_origin)
     directory = private_directory(Path(data_dir or os.environ.get("MVP_WEB_DATA_DIR") or ROOT / ".mvp-web-state"))
     registry = ui_store or WorkspaceUIStore(directory / "web-credentials.sqlite3")
@@ -263,12 +264,33 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
 
     @app.delete(PREFIX + "/workspaces/{workspace_id}", response_model=ClearResult, dependencies=dependencies)
     def delete(workspace_id: str, session=Depends(session_for)):
-        registry.delete_workspace(session["token_hash"], workspace_id, lambda mode, handle: service(mode).clear_workspace_if_present(handle), app.state.maps.delete_workspace)
+        def clear_sidecars(identifier):
+            app.state.maps.delete_workspace(identifier)
+            app.state.boards.delete_workspace(identifier)
+        registry.delete_workspace(session["token_hash"], workspace_id, lambda mode, handle: service(mode).clear_workspace_if_present(handle), clear_sidecars)
         return ClearResult()
 
     from .map_routes import install_map_routes
     install_map_routes(app, directory=directory, registry=registry, service=service, owned=owned,
                        session_for=session_for, dependencies=dependencies, embedder=map_embedder)
+    from .board_routes import install_board_routes
+    install_board_routes(app, directory=directory, registry=registry, service=service, owned=owned,
+                         session_for=session_for, dependencies=dependencies)
+    from src.mvp.adapters.cell_generation import ConfiguredCellGenerationAdapter
+    from src.mvp.cell_proposals import CellProposalService
+    from .proposal_routes import install_proposal_routes
+    app.state.proposal_configuration_error = None
+    if proposal_adapter is None:
+        try:
+            proposal_adapter = ConfiguredCellGenerationAdapter.from_environment()
+        except MvpError as error:
+            # Invalid optional configuration disables AI only. It must not take
+            # the existing manual research workflow offline or select a fallback.
+            app.state.proposal_configuration_error = error.message
+            proposal_adapter = ConfiguredCellGenerationAdapter()
+    proposals = CellProposalService(app.state.boards, proposal_adapter)
+    install_proposal_routes(app, proposals=proposals, owned=owned, session_for=session_for,
+                            dependencies=dependencies)
     return app
 
 

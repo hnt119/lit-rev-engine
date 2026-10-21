@@ -1,6 +1,7 @@
 """Small, versioned browser projections. Credentials never belong here."""
 from typing import Any, Literal
 from pydantic import Field
+from src.mvp.board_contracts import BoardLimits
 from src.mvp.contracts import (
     Model, Assessment, Block, EvidenceRun, Paper, Passage, StructuredError,
 )
@@ -138,3 +139,4 @@ class Capabilities(Model):
     saved_example: dict[str, Any]
     limits: dict[str, int] = Field(default_factory=lambda: {"default_results": 30, "max_results": 50, "max_sources": 10, "max_passages": 5})
     map: MapCapability = Field(default_factory=MapCapability)
+    boards: BoardLimits = Field(default_factory=BoardLimits)

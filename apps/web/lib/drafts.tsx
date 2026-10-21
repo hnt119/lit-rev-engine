@@ -5,6 +5,11 @@ import {api,APIError,workspacePath,type Schema} from "./api";
 type Cached={data:Record<string,unknown>;version:number;dirty:boolean;expected:string|null;failure?:Error|null};
 const memory=new Map<string,Cached>();
 const flushers=new Set<()=>Promise<void>>();
+/** Other typed draft scopes share navigation flushing without assessment fields. */
+export function registerDraftFlusher(flush:()=>Promise<void>) {
+  flushers.add(flush);
+  return ()=>{flushers.delete(flush);};
+}
 const navigationBarriers=new Set<Promise<void>>();
 /** An acknowledged assessment and its new draft baseline finish before leaving. */
 export async function navigationBarrier(operation:()=>Promise<void>) {

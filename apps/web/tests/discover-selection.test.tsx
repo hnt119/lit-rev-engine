@@ -13,7 +13,7 @@ async function renderSelection(workspaceId:string) {
   }));
   const search:Schema<"SearchPreview">={schema_version:"mvp.exploratory-preview.v1",id:"software-search",query:"software test",research_question:"Software test selection",query_translation:null,searched_at:"2026-10-21T00:00:00Z",sort:"relevance",date_from:null,date_to:null,total_reported:12,fetched_count:12,ordered_identifiers:papers.map(paper=>paper.id),papers,warnings:[],truncated:false,provider:"software-test",mode:"test",errors:[]};
   const workspace={id:workspaceId,question:"Software test selection",mode:"saved_example",created_at:search.searched_at,source_revision:0,current_preparation_id:null,selected_paper_ids:[],current_run_id:null,current_assessment_ids:{},searches:[{...search,distinct_count:12}],preparations:[],runs:[],assessments:[]} as Schema<"WorkspaceSummary">;
-  const capabilities={default_mode:"saved_example",live_available:false,saved_example:{question:"Software test selection",query:"software test"},limits:{},map:{ready:false,reason:"No model needed for selection tests"}} as Schema<"Capabilities">;
+  const capabilities={default_mode:"saved_example",live_available:false,saved_example:{question:"Software test selection",query:"software test"},limits:{},boards:{max_fields:6,max_cells:60,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,max_references:5,max_workspace_bytes:33554432,max_candidate_characters:1200,max_inspector_characters:4000},map:{ready:false,reason:"No model needed for selection tests"}} as Schema<"Capabilities">;
   globalThis.fetch=async(url,options)=>{
     assert.equal(options?.method??"GET","GET","selection must not prepare sources or call a provider");
     const path=String(url);

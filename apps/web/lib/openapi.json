@@ -177,6 +177,1718 @@
         "title": "Block",
         "type": "object"
       },
+      "BoardBlockChunk": {
+        "additionalProperties": false,
+        "properties": {
+          "block_id": {
+            "title": "Block Id",
+            "type": "string"
+          },
+          "end": {
+            "title": "End",
+            "type": "integer"
+          },
+          "locator": {
+            "additionalProperties": true,
+            "title": "Locator",
+            "type": "object"
+          },
+          "omitted_after": {
+            "title": "Omitted After",
+            "type": "integer"
+          },
+          "omitted_before": {
+            "title": "Omitted Before",
+            "type": "integer"
+          },
+          "ordinal": {
+            "title": "Ordinal",
+            "type": "integer"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/BoardReference"
+          },
+          "source_id": {
+            "title": "Source Id",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "integer"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "total_characters": {
+            "title": "Total Characters",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "source_id",
+          "paper_id",
+          "block_id",
+          "ordinal",
+          "locator",
+          "start",
+          "end",
+          "total_characters",
+          "text",
+          "omitted_before",
+          "omitted_after",
+          "reference"
+        ],
+        "title": "BoardBlockChunk",
+        "type": "object"
+      },
+      "BoardCandidate": {
+        "additionalProperties": false,
+        "properties": {
+          "omitted_characters": {
+            "title": "Omitted Characters",
+            "type": "integer"
+          },
+          "rank": {
+            "title": "Rank",
+            "type": "integer"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/BoardReference"
+          },
+          "score": {
+            "title": "Score",
+            "type": "number"
+          },
+          "total_block_characters": {
+            "title": "Total Block Characters",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "rank",
+          "score",
+          "reference",
+          "total_block_characters",
+          "omitted_characters"
+        ],
+        "title": "BoardCandidate",
+        "type": "object"
+      },
+      "BoardCandidates": {
+        "additionalProperties": false,
+        "properties": {
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "board_revision_id": {
+            "title": "Board Revision Id",
+            "type": "string"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/components/schemas/BoardCandidate"
+            },
+            "title": "Candidates",
+            "type": "array"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "field_id": {
+            "title": "Field Id",
+            "type": "string"
+          },
+          "field_revision_id": {
+            "title": "Field Revision Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "indexed_blocks": {
+            "title": "Indexed Blocks",
+            "type": "integer"
+          },
+          "matched_blocks": {
+            "title": "Matched Blocks",
+            "type": "integer"
+          },
+          "meaning": {
+            "const": "potential_relevance_not_inspected_support",
+            "default": "potential_relevance_not_inspected_support",
+            "title": "Meaning",
+            "type": "string"
+          },
+          "omitted_matched_blocks": {
+            "title": "Omitted Matched Blocks",
+            "type": "integer"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "preparation_id": {
+            "title": "Preparation Id",
+            "type": "string"
+          },
+          "retrieval_profile": {
+            "additionalProperties": true,
+            "title": "Retrieval Profile",
+            "type": "object"
+          },
+          "retrieval_profile_sha256": {
+            "title": "Retrieval Profile Sha256",
+            "type": "string"
+          },
+          "returned_count": {
+            "title": "Returned Count",
+            "type": "integer"
+          },
+          "schema_version": {
+            "const": "mvp.board-candidates.v1",
+            "default": "mvp.board-candidates.v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "source_manifest_sha256": {
+            "title": "Source Manifest Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "board_id",
+          "board_revision_id",
+          "paper_id",
+          "field_id",
+          "field_revision_id",
+          "preparation_id",
+          "source_manifest_sha256",
+          "retrieval_profile",
+          "retrieval_profile_sha256",
+          "indexed_blocks",
+          "matched_blocks",
+          "returned_count",
+          "omitted_matched_blocks",
+          "candidates"
+        ],
+        "title": "BoardCandidates",
+        "type": "object"
+      },
+      "BoardCandidatesRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id",
+            "type": "string"
+          },
+          "field_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Field Id",
+            "type": "string"
+          },
+          "paper_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "request_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id",
+            "type": "string"
+          },
+          "top_k": {
+            "default": 3,
+            "maximum": 3.0,
+            "minimum": 1.0,
+            "title": "Top K",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "request_id",
+          "expected_revision_id",
+          "paper_id",
+          "field_id"
+        ],
+        "title": "BoardCandidatesRequest",
+        "type": "object"
+      },
+      "BoardCellData": {
+        "additionalProperties": false,
+        "properties": {
+          "inspected_ranges": {
+            "items": {
+              "$ref": "#/components/schemas/BoardReferenceInput"
+            },
+            "maxItems": 30,
+            "title": "Inspected Ranges",
+            "type": "array"
+          },
+          "missing_information": {
+            "default": "",
+            "maxLength": 10000,
+            "title": "Missing Information",
+            "type": "string"
+          },
+          "producer": {
+            "const": "manual",
+            "default": "manual",
+            "title": "Producer",
+            "type": "string"
+          },
+          "reason": {
+            "default": "",
+            "maxLength": 10000,
+            "title": "Reason",
+            "type": "string"
+          },
+          "references": {
+            "items": {
+              "$ref": "#/components/schemas/BoardReferenceInput"
+            },
+            "maxItems": 5,
+            "title": "References",
+            "type": "array"
+          },
+          "scope_result": {
+            "default": "not_assessed",
+            "enum": [
+              "not_assessed",
+              "value_found",
+              "not_found_in_inspected_material"
+            ],
+            "title": "Scope Result",
+            "type": "string"
+          },
+          "semantic_assessment": {
+            "default": "unassessed",
+            "enum": [
+              "unassessed",
+              "human_supported",
+              "partial",
+              "unsupported"
+            ],
+            "title": "Semantic Assessment",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "title": "BoardCellData",
+        "type": "object"
+      },
+      "BoardCellDraft": {
+        "additionalProperties": false,
+        "properties": {
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "board_revision_id": {
+            "title": "Board Revision Id",
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/BoardCellData"
+          },
+          "expected_cell_head_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Cell Head Id"
+          },
+          "field_id": {
+            "title": "Field Id",
+            "type": "string"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          },
+          "version": {
+            "default": 0,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "board_id",
+          "board_revision_id",
+          "paper_id",
+          "field_id"
+        ],
+        "title": "BoardCellDraft",
+        "type": "object"
+      },
+      "BoardCellHead": {
+        "additionalProperties": false,
+        "properties": {
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "board_revision_id": {
+            "title": "Board Revision Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "field_id": {
+            "title": "Field Id",
+            "type": "string"
+          },
+          "field_revision_id": {
+            "title": "Field Revision Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "inspected_ranges": {
+            "items": {
+              "$ref": "#/components/schemas/BoardReferenceSummary"
+            },
+            "title": "Inspected Ranges",
+            "type": "array"
+          },
+          "missing_information": {
+            "title": "Missing Information",
+            "type": "string"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "producer": {
+            "const": "manual",
+            "default": "manual",
+            "title": "Producer",
+            "type": "string"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "reference_integrity": {
+            "enum": [
+              "checked",
+              "not_applicable"
+            ],
+            "title": "Reference Integrity",
+            "type": "string"
+          },
+          "references": {
+            "items": {
+              "$ref": "#/components/schemas/BoardReferenceSummary"
+            },
+            "title": "References",
+            "type": "array"
+          },
+          "review_state": {
+            "const": "single_human_self_declared_not_independently_verified",
+            "default": "single_human_self_declared_not_independently_verified",
+            "title": "Review State",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "mvp.board-cell.v1",
+            "default": "mvp.board-cell.v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "scope_result": {
+            "enum": [
+              "not_assessed",
+              "value_found",
+              "not_found_in_inspected_material"
+            ],
+            "title": "Scope Result",
+            "type": "string"
+          },
+          "semantic_assessment": {
+            "enum": [
+              "unassessed",
+              "human_supported",
+              "partial",
+              "unsupported"
+            ],
+            "title": "Semantic Assessment",
+            "type": "string"
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "board_id",
+          "board_revision_id",
+          "field_revision_id",
+          "paper_id",
+          "field_id",
+          "value",
+          "references",
+          "inspected_ranges",
+          "semantic_assessment",
+          "scope_result",
+          "missing_information",
+          "reason",
+          "reference_integrity"
+        ],
+        "title": "BoardCellHead",
+        "type": "object"
+      },
+      "BoardCellHistory": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/BoardCellRevision"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "title": "Offset",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "items",
+          "offset",
+          "limit",
+          "total"
+        ],
+        "title": "BoardCellHistory",
+        "type": "object"
+      },
+      "BoardCellRevision": {
+        "additionalProperties": false,
+        "properties": {
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "board_revision_id": {
+            "title": "Board Revision Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "field_id": {
+            "title": "Field Id",
+            "type": "string"
+          },
+          "field_revision_id": {
+            "title": "Field Revision Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "inspected_ranges": {
+            "items": {
+              "$ref": "#/components/schemas/BoardReference"
+            },
+            "title": "Inspected Ranges",
+            "type": "array"
+          },
+          "missing_information": {
+            "title": "Missing Information",
+            "type": "string"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "producer": {
+            "const": "manual",
+            "default": "manual",
+            "title": "Producer",
+            "type": "string"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "reference_integrity": {
+            "enum": [
+              "checked",
+              "not_applicable"
+            ],
+            "title": "Reference Integrity",
+            "type": "string"
+          },
+          "references": {
+            "items": {
+              "$ref": "#/components/schemas/BoardReference"
+            },
+            "title": "References",
+            "type": "array"
+          },
+          "review_state": {
+            "const": "single_human_self_declared_not_independently_verified",
+            "default": "single_human_self_declared_not_independently_verified",
+            "title": "Review State",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "mvp.board-cell.v1",
+            "default": "mvp.board-cell.v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "scope_result": {
+            "enum": [
+              "not_assessed",
+              "value_found",
+              "not_found_in_inspected_material"
+            ],
+            "title": "Scope Result",
+            "type": "string"
+          },
+          "semantic_assessment": {
+            "enum": [
+              "unassessed",
+              "human_supported",
+              "partial",
+              "unsupported"
+            ],
+            "title": "Semantic Assessment",
+            "type": "string"
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "board_id",
+          "board_revision_id",
+          "field_revision_id",
+          "paper_id",
+          "field_id",
+          "value",
+          "references",
+          "inspected_ranges",
+          "semantic_assessment",
+          "scope_result",
+          "missing_information",
+          "reason",
+          "reference_integrity"
+        ],
+        "title": "BoardCellRevision",
+        "type": "object"
+      },
+      "BoardCellSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "draft_version": {
+            "default": 0,
+            "title": "Draft Version",
+            "type": "integer"
+          },
+          "field_id": {
+            "title": "Field Id",
+            "type": "string"
+          },
+          "head": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardCellHead"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "paper_id",
+          "field_id"
+        ],
+        "title": "BoardCellSummary",
+        "type": "object"
+      },
+      "BoardCreateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/BoardFieldInput"
+            },
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Fields",
+            "type": "array"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "minItems": 1,
+            "title": "Paper Ids",
+            "type": "array"
+          },
+          "preparation_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Preparation Id",
+            "type": "string"
+          },
+          "question": {
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Question",
+            "type": "string"
+          },
+          "request_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "request_id",
+          "preparation_id",
+          "question",
+          "paper_ids",
+          "fields"
+        ],
+        "title": "BoardCreateRequest",
+        "type": "object"
+      },
+      "BoardDraftPutRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BoardCellData"
+          },
+          "expected_cell_head_id": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Cell Head Id"
+          },
+          "expected_revision_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id",
+            "type": "string"
+          },
+          "version": {
+            "minimum": 0.0,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "expected_revision_id",
+          "version",
+          "data"
+        ],
+        "title": "BoardDraftPutRequest",
+        "type": "object"
+      },
+      "BoardField": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Label",
+            "type": "string"
+          },
+          "revision_id": {
+            "title": "Revision Id",
+            "type": "string"
+          },
+          "subquestion": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Subquestion",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "subquestion"
+        ],
+        "title": "BoardField",
+        "type": "object"
+      },
+      "BoardFieldInput": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Label",
+            "type": "string"
+          },
+          "subquestion": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Subquestion",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "subquestion"
+        ],
+        "title": "BoardFieldInput",
+        "type": "object"
+      },
+      "BoardLimits": {
+        "additionalProperties": false,
+        "properties": {
+          "max_boards": {
+            "default": 10,
+            "title": "Max Boards",
+            "type": "integer"
+          },
+          "max_candidate_characters": {
+            "default": 1200,
+            "title": "Max Candidate Characters",
+            "type": "integer"
+          },
+          "max_cell_revisions": {
+            "default": 50,
+            "title": "Max Cell Revisions",
+            "type": "integer"
+          },
+          "max_cells": {
+            "default": 60,
+            "title": "Max Cells",
+            "type": "integer"
+          },
+          "max_definition_revisions": {
+            "default": 20,
+            "title": "Max Definition Revisions",
+            "type": "integer"
+          },
+          "max_fields": {
+            "default": 6,
+            "title": "Max Fields",
+            "type": "integer"
+          },
+          "max_inspector_characters": {
+            "default": 4000,
+            "title": "Max Inspector Characters",
+            "type": "integer"
+          },
+          "max_references": {
+            "default": 5,
+            "title": "Max References",
+            "type": "integer"
+          },
+          "max_workspace_bytes": {
+            "default": 33554432,
+            "title": "Max Workspace Bytes",
+            "type": "integer"
+          }
+        },
+        "title": "BoardLimits",
+        "type": "object"
+      },
+      "BoardListing": {
+        "additionalProperties": false,
+        "properties": {
+          "boards": {
+            "items": {
+              "$ref": "#/components/schemas/BoardSummary"
+            },
+            "title": "Boards",
+            "type": "array"
+          },
+          "limits": {
+            "$ref": "#/components/schemas/BoardLimits"
+          }
+        },
+        "required": [
+          "boards"
+        ],
+        "title": "BoardListing",
+        "type": "object"
+      },
+      "BoardPaper": {
+        "additionalProperties": false,
+        "properties": {
+          "authors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Authors",
+            "type": "array"
+          },
+          "doi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doi"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "pmcid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pmcid"
+          },
+          "pmid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pmid"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "year": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "authors",
+          "url"
+        ],
+        "title": "BoardPaper",
+        "type": "object"
+      },
+      "BoardReference": {
+        "additionalProperties": false,
+        "properties": {
+          "block_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Block Id",
+            "type": "string"
+          },
+          "blocks_sha256": {
+            "maxLength": 64,
+            "title": "Blocks Sha256",
+            "type": "string"
+          },
+          "end": {
+            "minimum": 1.0,
+            "title": "End",
+            "type": "integer"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "integrity": {
+            "const": "checked",
+            "default": "checked",
+            "title": "Integrity",
+            "type": "string"
+          },
+          "locator": {
+            "additionalProperties": true,
+            "title": "Locator",
+            "type": "object"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "source_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_sha256": {
+            "maxLength": 64,
+            "title": "Source Sha256",
+            "type": "string"
+          },
+          "source_version": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Version",
+            "type": "string"
+          },
+          "start": {
+            "minimum": 0.0,
+            "title": "Start",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_version",
+          "source_sha256",
+          "blocks_sha256",
+          "block_id",
+          "start",
+          "end",
+          "id",
+          "paper_id",
+          "quote",
+          "locator"
+        ],
+        "title": "BoardReference",
+        "type": "object"
+      },
+      "BoardReferenceContext": {
+        "additionalProperties": false,
+        "properties": {
+          "block": {
+            "$ref": "#/components/schemas/BoardBlockChunk"
+          },
+          "freshness": {
+            "enum": [
+              "current",
+              "historical"
+            ],
+            "title": "Freshness",
+            "type": "string"
+          },
+          "paper": {
+            "$ref": "#/components/schemas/BoardPaper"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/BoardReference"
+          },
+          "source": {
+            "$ref": "#/components/schemas/BoardSourceBinding"
+          }
+        },
+        "required": [
+          "reference",
+          "paper",
+          "source",
+          "freshness",
+          "block"
+        ],
+        "title": "BoardReferenceContext",
+        "type": "object"
+      },
+      "BoardReferenceInput": {
+        "additionalProperties": false,
+        "properties": {
+          "block_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Block Id",
+            "type": "string"
+          },
+          "blocks_sha256": {
+            "maxLength": 64,
+            "title": "Blocks Sha256",
+            "type": "string"
+          },
+          "end": {
+            "minimum": 1.0,
+            "title": "End",
+            "type": "integer"
+          },
+          "source_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_sha256": {
+            "maxLength": 64,
+            "title": "Source Sha256",
+            "type": "string"
+          },
+          "source_version": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Version",
+            "type": "string"
+          },
+          "start": {
+            "minimum": 0.0,
+            "title": "Start",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_version",
+          "source_sha256",
+          "blocks_sha256",
+          "block_id",
+          "start",
+          "end"
+        ],
+        "title": "BoardReferenceInput",
+        "type": "object"
+      },
+      "BoardReferenceSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "block_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Block Id",
+            "type": "string"
+          },
+          "blocks_sha256": {
+            "maxLength": 64,
+            "title": "Blocks Sha256",
+            "type": "string"
+          },
+          "end": {
+            "minimum": 1.0,
+            "title": "End",
+            "type": "integer"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "integrity": {
+            "const": "checked",
+            "default": "checked",
+            "title": "Integrity",
+            "type": "string"
+          },
+          "locator": {
+            "additionalProperties": true,
+            "title": "Locator",
+            "type": "object"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "source_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_sha256": {
+            "maxLength": 64,
+            "title": "Source Sha256",
+            "type": "string"
+          },
+          "source_version": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Version",
+            "type": "string"
+          },
+          "start": {
+            "minimum": 0.0,
+            "title": "Start",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_version",
+          "source_sha256",
+          "blocks_sha256",
+          "block_id",
+          "start",
+          "end",
+          "id",
+          "paper_id",
+          "locator"
+        ],
+        "title": "BoardReferenceSummary",
+        "type": "object"
+      },
+      "BoardReviseRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id",
+            "type": "string"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/BoardFieldInput"
+            },
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Fields",
+            "type": "array"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "minItems": 1,
+            "title": "Paper Ids",
+            "type": "array"
+          },
+          "preparation_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Preparation Id",
+            "type": "string"
+          },
+          "question": {
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Question",
+            "type": "string"
+          },
+          "request_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "request_id",
+          "preparation_id",
+          "question",
+          "paper_ids",
+          "fields",
+          "expected_revision_id"
+        ],
+        "title": "BoardReviseRequest",
+        "type": "object"
+      },
+      "BoardRevision": {
+        "additionalProperties": false,
+        "properties": {
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/BoardField"
+            },
+            "title": "Fields",
+            "type": "array"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Paper Ids",
+            "type": "array"
+          },
+          "papers": {
+            "items": {
+              "$ref": "#/components/schemas/BoardPaper"
+            },
+            "title": "Papers",
+            "type": "array"
+          },
+          "parent_revision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Revision Id"
+          },
+          "preparation_id": {
+            "title": "Preparation Id",
+            "type": "string"
+          },
+          "question": {
+            "title": "Question",
+            "type": "string"
+          },
+          "question_sha256": {
+            "title": "Question Sha256",
+            "type": "string"
+          },
+          "retrieval_profile": {
+            "additionalProperties": true,
+            "title": "Retrieval Profile",
+            "type": "object"
+          },
+          "retrieval_profile_sha256": {
+            "title": "Retrieval Profile Sha256",
+            "type": "string"
+          },
+          "revision_id": {
+            "title": "Revision Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "mvp.board-definition.v1",
+            "default": "mvp.board-definition.v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "search_id": {
+            "title": "Search Id",
+            "type": "string"
+          },
+          "search_sha256": {
+            "title": "Search Sha256",
+            "type": "string"
+          },
+          "source_manifest_sha256": {
+            "title": "Source Manifest Sha256",
+            "type": "string"
+          },
+          "source_revision": {
+            "title": "Source Revision",
+            "type": "integer"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/BoardSourceBinding"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "workspace_id": {
+            "title": "Workspace Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "board_id",
+          "workspace_id",
+          "search_id",
+          "search_sha256",
+          "question",
+          "question_sha256",
+          "preparation_id",
+          "source_revision",
+          "source_manifest_sha256",
+          "sources",
+          "papers",
+          "paper_ids",
+          "fields",
+          "retrieval_profile",
+          "retrieval_profile_sha256"
+        ],
+        "title": "BoardRevision",
+        "type": "object"
+      },
+      "BoardSourceBinding": {
+        "additionalProperties": false,
+        "properties": {
+          "block_count": {
+            "title": "Block Count",
+            "type": "integer"
+          },
+          "blocks_sha256": {
+            "title": "Blocks Sha256",
+            "type": "string"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "parser_id": {
+            "title": "Parser Id",
+            "type": "string"
+          },
+          "source_id": {
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_sha256": {
+            "title": "Source Sha256",
+            "type": "string"
+          },
+          "source_type": {
+            "enum": [
+              "full_text",
+              "abstract",
+              "none"
+            ],
+            "title": "Source Type",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "paper_id",
+          "version",
+          "source_sha256",
+          "blocks_sha256",
+          "parser_id",
+          "source_type",
+          "status",
+          "block_count"
+        ],
+        "title": "BoardSourceBinding",
+        "type": "object"
+      },
+      "BoardSourceInspection": {
+        "additionalProperties": false,
+        "properties": {
+          "blocks": {
+            "items": {
+              "$ref": "#/components/schemas/BoardBlockChunk"
+            },
+            "title": "Blocks",
+            "type": "array"
+          },
+          "board_revision_id": {
+            "title": "Board Revision Id",
+            "type": "string"
+          },
+          "freshness": {
+            "enum": [
+              "current",
+              "historical"
+            ],
+            "title": "Freshness",
+            "type": "string"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "title": "Offset",
+            "type": "integer"
+          },
+          "offset_convention": {
+            "const": "half-open-unicode-codepoints",
+            "default": "half-open-unicode-codepoints",
+            "title": "Offset Convention",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/BoardSourceBinding"
+          },
+          "total_blocks": {
+            "title": "Total Blocks",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "board_revision_id",
+          "source",
+          "freshness",
+          "blocks",
+          "offset",
+          "limit",
+          "total_blocks"
+        ],
+        "title": "BoardSourceInspection",
+        "type": "object"
+      },
+      "BoardSubmitRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "draft_version": {
+            "minimum": 1.0,
+            "title": "Draft Version",
+            "type": "integer"
+          },
+          "expected_revision_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id",
+            "type": "string"
+          },
+          "field_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Field Id",
+            "type": "string"
+          },
+          "paper_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "request_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id",
+            "type": "string"
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id"
+          }
+        },
+        "required": [
+          "request_id",
+          "expected_revision_id",
+          "paper_id",
+          "field_id",
+          "draft_version"
+        ],
+        "title": "BoardSubmitRequest",
+        "type": "object"
+      },
+      "BoardSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "field_count": {
+            "title": "Field Count",
+            "type": "integer"
+          },
+          "paper_count": {
+            "title": "Paper Count",
+            "type": "integer"
+          },
+          "question": {
+            "title": "Question",
+            "type": "string"
+          },
+          "revision_id": {
+            "title": "Revision Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "board_id",
+          "revision_id",
+          "question",
+          "paper_count",
+          "field_count",
+          "created_at"
+        ],
+        "title": "BoardSummary",
+        "type": "object"
+      },
+      "BoardView": {
+        "additionalProperties": false,
+        "properties": {
+          "cells": {
+            "items": {
+              "$ref": "#/components/schemas/BoardCellSummary"
+            },
+            "title": "Cells",
+            "type": "array"
+          },
+          "current_revision_id": {
+            "title": "Current Revision Id",
+            "type": "string"
+          },
+          "definition": {
+            "$ref": "#/components/schemas/BoardRevision"
+          },
+          "definitions": {
+            "items": {
+              "$ref": "#/components/schemas/BoardSummary"
+            },
+            "title": "Definitions",
+            "type": "array"
+          },
+          "freshness": {
+            "enum": [
+              "current",
+              "historical"
+            ],
+            "title": "Freshness",
+            "type": "string"
+          },
+          "freshness_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Freshness Reasons",
+            "type": "array"
+          },
+          "limits": {
+            "$ref": "#/components/schemas/BoardLimits"
+          }
+        },
+        "required": [
+          "definition",
+          "current_revision_id",
+          "freshness",
+          "cells",
+          "definitions"
+        ],
+        "title": "BoardView",
+        "type": "object"
+      },
       "BoundRetrieveEvidenceRequest": {
         "additionalProperties": false,
         "description": "Web submission bound to the preparation the researcher actually saw.",
@@ -266,6 +1978,9 @@
       "Capabilities": {
         "additionalProperties": false,
         "properties": {
+          "boards": {
+            "$ref": "#/components/schemas/BoardLimits"
+          },
           "default_mode": {
             "const": "saved_example",
             "default": "saved_example",
@@ -297,6 +2012,181 @@
           "saved_example"
         ],
         "title": "Capabilities",
+        "type": "object"
+      },
+      "CellProposal": {
+        "additionalProperties": false,
+        "properties": {
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "board_revision_id": {
+            "title": "Board Revision Id",
+            "type": "string"
+          },
+          "candidate_run_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Candidate Run Ids",
+            "type": "array"
+          },
+          "context_scope": {
+            "const": "retrieved_context_only",
+            "default": "retrieved_context_only",
+            "title": "Context Scope",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "field_id": {
+            "title": "Field Id",
+            "type": "string"
+          },
+          "field_revision_id": {
+            "title": "Field Revision Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "latest_event": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ProposalEvent"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "missing_information": {
+            "title": "Missing Information",
+            "type": "string"
+          },
+          "model_profile": {
+            "additionalProperties": true,
+            "title": "Model Profile",
+            "type": "object"
+          },
+          "model_profile_sha256": {
+            "title": "Model Profile Sha256",
+            "type": "string"
+          },
+          "packet_sha256": {
+            "title": "Packet Sha256",
+            "type": "string"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "producer": {
+            "const": "ai_proposal",
+            "default": "ai_proposal",
+            "title": "Producer",
+            "type": "string"
+          },
+          "prompt_version": {
+            "title": "Prompt Version",
+            "type": "string"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "references": {
+            "items": {
+              "$ref": "#/components/schemas/BoardReference"
+            },
+            "title": "References",
+            "type": "array"
+          },
+          "retrieval_input_sha256": {
+            "title": "Retrieval Input Sha256",
+            "type": "string"
+          },
+          "review_state": {
+            "const": "ai_suggestion_needs_review_not_independently_verified",
+            "default": "ai_suggestion_needs_review_not_independently_verified",
+            "title": "Review State",
+            "type": "string"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "mvp.cell-proposal.v1",
+            "default": "mvp.cell-proposal.v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "semantic_assessment": {
+            "const": "unassessed",
+            "default": "unassessed",
+            "title": "Semantic Assessment",
+            "type": "string"
+          },
+          "source_bindings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Source Bindings",
+            "type": "array"
+          },
+          "source_manifest_sha256": {
+            "title": "Source Manifest Sha256",
+            "type": "string"
+          },
+          "status": {
+            "default": "pending",
+            "enum": [
+              "pending",
+              "adopted",
+              "dismissed"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "run_id",
+          "board_id",
+          "board_revision_id",
+          "field_id",
+          "field_revision_id",
+          "paper_id",
+          "source_manifest_sha256",
+          "source_bindings",
+          "retrieval_input_sha256",
+          "candidate_run_ids",
+          "packet_sha256",
+          "prompt_version",
+          "model_profile",
+          "model_profile_sha256",
+          "value",
+          "references",
+          "reason",
+          "missing_information"
+        ],
+        "title": "CellProposal",
         "type": "object"
       },
       "ClearResult": {
@@ -1495,6 +3385,956 @@
         "title": "PrepareSourcesRequest",
         "type": "object"
       },
+      "ProposalAdoptRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "draft_version": {
+            "minimum": 0.0,
+            "title": "Draft Version",
+            "type": "integer"
+          },
+          "expected_cell_head_id": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Cell Head Id"
+          },
+          "expected_revision_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id",
+            "type": "string"
+          },
+          "missing_information": {
+            "default": "",
+            "maxLength": 10000,
+            "title": "Missing Information",
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Reason",
+            "type": "string"
+          },
+          "request_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "request_id",
+          "expected_revision_id",
+          "draft_version",
+          "value",
+          "reason"
+        ],
+        "title": "ProposalAdoptRequest",
+        "type": "object"
+      },
+      "ProposalCallReceipt": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "default": 0,
+            "minimum": 0.0,
+            "title": "Elapsed Seconds",
+            "type": "number"
+          },
+          "outcome": {
+            "default": "not_started",
+            "enum": [
+              "not_started",
+              "running",
+              "succeeded",
+              "invalid_output",
+              "provider_failure",
+              "timeout"
+            ],
+            "title": "Outcome",
+            "type": "string"
+          },
+          "output_bytes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Bytes"
+          },
+          "output_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Sha256"
+          },
+          "packet_sha256": {
+            "title": "Packet Sha256",
+            "type": "string"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "request_sha256": {
+            "title": "Request Sha256",
+            "type": "string"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/ProposalUsage"
+          }
+        },
+        "required": [
+          "paper_id",
+          "packet_sha256",
+          "request_sha256"
+        ],
+        "title": "ProposalCallReceipt",
+        "type": "object"
+      },
+      "ProposalCapability": {
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "default": false,
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "max_calls": {
+            "default": 3,
+            "title": "Max Calls",
+            "type": "integer"
+          },
+          "max_cells": {
+            "default": 9,
+            "title": "Max Cells",
+            "type": "integer"
+          },
+          "max_fields": {
+            "default": 6,
+            "title": "Max Fields",
+            "type": "integer"
+          },
+          "max_output_bytes": {
+            "default": 32768,
+            "title": "Max Output Bytes",
+            "type": "integer"
+          },
+          "max_packet_bytes": {
+            "default": 20000,
+            "title": "Max Packet Bytes",
+            "type": "integer"
+          },
+          "max_packet_characters": {
+            "default": 12000,
+            "title": "Max Packet Characters",
+            "type": "integer"
+          },
+          "max_papers": {
+            "default": 3,
+            "title": "Max Papers",
+            "type": "integer"
+          },
+          "max_runs_per_workspace": {
+            "default": 20,
+            "title": "Max Runs Per Workspace",
+            "type": "integer"
+          },
+          "max_runtime_seconds": {
+            "default": 35,
+            "title": "Max Runtime Seconds",
+            "type": "number"
+          },
+          "model_profile": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Profile"
+          },
+          "paid_calls": {
+            "const": false,
+            "default": false,
+            "title": "Paid Calls",
+            "type": "boolean"
+          },
+          "prompt_version": {
+            "default": "mvp.cell-proposals.context-only.v1",
+            "title": "Prompt Version",
+            "type": "string"
+          },
+          "reason": {
+            "default": "Generation is disabled. Configure one explicit local generation adapter to enable it.",
+            "title": "Reason",
+            "type": "string"
+          },
+          "retries": {
+            "default": 0,
+            "title": "Retries",
+            "type": "integer"
+          }
+        },
+        "title": "ProposalCapability",
+        "type": "object"
+      },
+      "ProposalCellBaseline": {
+        "additionalProperties": false,
+        "properties": {
+          "draft_sha256": {
+            "title": "Draft Sha256",
+            "type": "string"
+          },
+          "draft_version": {
+            "title": "Draft Version",
+            "type": "integer"
+          },
+          "field_id": {
+            "title": "Field Id",
+            "type": "string"
+          },
+          "head_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Head Id"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "paper_id",
+          "field_id",
+          "head_id",
+          "draft_version",
+          "draft_sha256"
+        ],
+        "title": "ProposalCellBaseline",
+        "type": "object"
+      },
+      "ProposalDismissRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id",
+            "type": "string"
+          },
+          "reason": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Reason",
+            "type": "string"
+          },
+          "request_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "request_id",
+          "expected_revision_id"
+        ],
+        "title": "ProposalDismissRequest",
+        "type": "object"
+      },
+      "ProposalEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "enum": [
+              "adopted",
+              "dismissed"
+            ],
+            "title": "Action",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "draft_version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Draft Version"
+          },
+          "edited_value_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edited Value Sha256"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "proposal_id": {
+            "title": "Proposal Id",
+            "type": "string"
+          },
+          "reason": {
+            "default": "",
+            "title": "Reason",
+            "type": "string"
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "proposal_id",
+          "action",
+          "request_id"
+        ],
+        "title": "ProposalEvent",
+        "type": "object"
+      },
+      "ProposalEvidence": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_id": {
+            "title": "Evidence Id",
+            "type": "string"
+          },
+          "field_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Field Ids",
+            "type": "array"
+          },
+          "omitted_characters": {
+            "minimum": 0.0,
+            "title": "Omitted Characters",
+            "type": "integer"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/BoardReference"
+          },
+          "total_block_characters": {
+            "minimum": 1.0,
+            "title": "Total Block Characters",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "evidence_id",
+          "reference",
+          "total_block_characters",
+          "omitted_characters",
+          "field_ids"
+        ],
+        "title": "ProposalEvidence",
+        "type": "object"
+      },
+      "ProposalGenerateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id",
+            "type": "string"
+          },
+          "field_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Field Ids",
+            "type": "array"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Paper Ids",
+            "type": "array"
+          },
+          "request_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "request_id",
+          "expected_revision_id",
+          "paper_ids",
+          "field_ids"
+        ],
+        "title": "ProposalGenerateRequest",
+        "type": "object"
+      },
+      "ProposalListing": {
+        "additionalProperties": false,
+        "properties": {
+          "capability": {
+            "$ref": "#/components/schemas/ProposalCapability"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CellProposal"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "title": "Offset",
+            "type": "integer"
+          },
+          "runs": {
+            "items": {
+              "$ref": "#/components/schemas/ProposalRunSummary"
+            },
+            "title": "Runs",
+            "type": "array"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "items",
+          "offset",
+          "limit",
+          "total",
+          "capability"
+        ],
+        "title": "ProposalListing",
+        "type": "object"
+      },
+      "ProposalPacket": {
+        "additionalProperties": false,
+        "properties": {
+          "context_scope": {
+            "const": "retrieved_context_only",
+            "default": "retrieved_context_only",
+            "title": "Context Scope",
+            "type": "string"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/ProposalEvidence"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
+          "evidence_characters": {
+            "title": "Evidence Characters",
+            "type": "integer"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/ProposalPacketField"
+            },
+            "title": "Fields",
+            "type": "array"
+          },
+          "omitted_evidence": {
+            "title": "Omitted Evidence",
+            "type": "integer"
+          },
+          "paper_id": {
+            "title": "Paper Id",
+            "type": "string"
+          },
+          "question": {
+            "title": "Question",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "mvp.proposal-packet.v1",
+            "default": "mvp.proposal-packet.v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "source_status": {
+            "title": "Source Status",
+            "type": "string"
+          },
+          "source_type": {
+            "enum": [
+              "full_text",
+              "abstract",
+              "none"
+            ],
+            "title": "Source Type",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "paper_id",
+          "title",
+          "question",
+          "source_type",
+          "source_status",
+          "fields",
+          "evidence",
+          "evidence_characters",
+          "omitted_evidence"
+        ],
+        "title": "ProposalPacket",
+        "type": "object"
+      },
+      "ProposalPacketField": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_run_id": {
+            "title": "Candidate Run Id",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "field_id": {
+            "title": "Field Id",
+            "type": "string"
+          },
+          "field_revision_id": {
+            "title": "Field Revision Id",
+            "type": "string"
+          },
+          "indexed_blocks": {
+            "title": "Indexed Blocks",
+            "type": "integer"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "matched_blocks": {
+            "title": "Matched Blocks",
+            "type": "integer"
+          },
+          "omitted_evidence": {
+            "default": 0,
+            "title": "Omitted Evidence",
+            "type": "integer"
+          },
+          "omitted_matched_blocks": {
+            "title": "Omitted Matched Blocks",
+            "type": "integer"
+          },
+          "subquestion": {
+            "title": "Subquestion",
+            "type": "string"
+          }
+        },
+        "required": [
+          "field_id",
+          "field_revision_id",
+          "label",
+          "subquestion",
+          "evidence_ids",
+          "candidate_run_id",
+          "indexed_blocks",
+          "matched_blocks",
+          "omitted_matched_blocks"
+        ],
+        "title": "ProposalPacketField",
+        "type": "object"
+      },
+      "ProposalRun": {
+        "additionalProperties": false,
+        "properties": {
+          "baselines": {
+            "items": {
+              "$ref": "#/components/schemas/ProposalCellBaseline"
+            },
+            "title": "Baselines",
+            "type": "array"
+          },
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "board_revision_id": {
+            "title": "Board Revision Id",
+            "type": "string"
+          },
+          "calls": {
+            "items": {
+              "$ref": "#/components/schemas/ProposalCallReceipt"
+            },
+            "title": "Calls",
+            "type": "array"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "failure_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Code"
+          },
+          "failure_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Message"
+          },
+          "field_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Field Ids",
+            "type": "array"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "model_profile": {
+            "additionalProperties": true,
+            "title": "Model Profile",
+            "type": "object"
+          },
+          "model_profile_sha256": {
+            "title": "Model Profile Sha256",
+            "type": "string"
+          },
+          "packets": {
+            "items": {
+              "$ref": "#/components/schemas/ProposalPacket"
+            },
+            "title": "Packets",
+            "type": "array"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Paper Ids",
+            "type": "array"
+          },
+          "prompt_version": {
+            "title": "Prompt Version",
+            "type": "string"
+          },
+          "proposals": {
+            "items": {
+              "$ref": "#/components/schemas/CellProposal"
+            },
+            "title": "Proposals",
+            "type": "array"
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string"
+          },
+          "request_sha256": {
+            "title": "Request Sha256",
+            "type": "string"
+          },
+          "retrieval_profile_sha256": {
+            "title": "Retrieval Profile Sha256",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "mvp.proposal-run.v1",
+            "default": "mvp.proposal-run.v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "source_manifest_sha256": {
+            "title": "Source Manifest Sha256",
+            "type": "string"
+          },
+          "state": {
+            "default": "running",
+            "enum": [
+              "running",
+              "succeeded",
+              "failed"
+            ],
+            "title": "State",
+            "type": "string"
+          }
+        },
+        "required": [
+          "board_id",
+          "board_revision_id",
+          "request_id",
+          "request_sha256",
+          "paper_ids",
+          "field_ids",
+          "source_manifest_sha256",
+          "retrieval_profile_sha256",
+          "prompt_version",
+          "model_profile",
+          "model_profile_sha256",
+          "baselines"
+        ],
+        "title": "ProposalRun",
+        "type": "object"
+      },
+      "ProposalRunSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "board_id": {
+            "title": "Board Id",
+            "type": "string"
+          },
+          "board_revision_id": {
+            "title": "Board Revision Id",
+            "type": "string"
+          },
+          "calls": {
+            "items": {
+              "$ref": "#/components/schemas/ProposalCallReceipt"
+            },
+            "title": "Calls",
+            "type": "array"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "failure_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Code"
+          },
+          "failure_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Failure Message"
+          },
+          "field_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Field Ids",
+            "type": "array"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Paper Ids",
+            "type": "array"
+          },
+          "proposal_count": {
+            "title": "Proposal Count",
+            "type": "integer"
+          },
+          "recovery_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recovery Note"
+          },
+          "state": {
+            "enum": [
+              "running",
+              "succeeded",
+              "failed"
+            ],
+            "title": "State",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "board_id",
+          "board_revision_id",
+          "paper_ids",
+          "field_ids",
+          "state",
+          "calls",
+          "proposal_count",
+          "created_at"
+        ],
+        "title": "ProposalRunSummary",
+        "type": "object"
+      },
+      "ProposalUsage": {
+        "additionalProperties": false,
+        "properties": {
+          "cost_usd": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost Usd"
+          },
+          "input_tokens": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Input Tokens"
+          },
+          "measured": {
+            "default": false,
+            "title": "Measured",
+            "type": "boolean"
+          },
+          "output_tokens": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Output Tokens"
+          },
+          "total_tokens": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Tokens"
+          }
+        },
+        "title": "ProposalUsage",
+        "type": "object"
+      },
       "QuerySuggestion": {
         "additionalProperties": false,
         "properties": {
@@ -2539,6 +5379,1403 @@
           }
         },
         "summary": "Assess"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards": {
+      "get": {
+        "operationId": "listing_api_v1_workspaces__workspace_id__boards_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardListing"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Listing"
+      },
+      "post": {
+        "operationId": "create_api_v1_workspaces__workspace_id__boards_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BoardCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}": {
+      "get": {
+        "operationId": "view_api_v1_workspaces__workspace_id__boards__board_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "View"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/candidates": {
+      "post": {
+        "operationId": "candidates_api_v1_workspaces__workspace_id__boards__board_id__candidates_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BoardCandidatesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardCandidates"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Candidates"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/cell-revisions": {
+      "post": {
+        "operationId": "submit_api_v1_workspaces__workspace_id__boards__board_id__cell_revisions_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BoardSubmitRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardCellRevision"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Submit"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/cells/{paper_id}/{field_id}/history": {
+      "get": {
+        "operationId": "history_api_v1_workspaces__workspace_id__boards__board_id__cells__paper_id___field_id__history_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "paper_id",
+            "required": true,
+            "schema": {
+              "title": "Paper Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "field_id",
+            "required": true,
+            "schema": {
+              "title": "Field Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Revision Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardCellHistory"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "History"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/drafts/{paper_id}/{field_id}": {
+      "get": {
+        "operationId": "get_draft_api_v1_workspaces__workspace_id__boards__board_id__drafts__paper_id___field_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "paper_id",
+            "required": true,
+            "schema": {
+              "title": "Paper Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "field_id",
+            "required": true,
+            "schema": {
+              "title": "Field Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardCellDraft"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Draft"
+      },
+      "put": {
+        "operationId": "put_draft_api_v1_workspaces__workspace_id__boards__board_id__drafts__paper_id___field_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "paper_id",
+            "required": true,
+            "schema": {
+              "title": "Paper Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "field_id",
+            "required": true,
+            "schema": {
+              "title": "Field Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BoardDraftPutRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardCellDraft"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Draft"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/exports": {
+      "get": {
+        "operationId": "export_api_v1_workspaces__workspace_id__boards__board_id__exports_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "default": "csv",
+              "enum": [
+                "csv",
+                "json"
+              ],
+              "title": "Format",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Revision Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "history",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "History",
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Export"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposal-audit": {
+      "get": {
+        "operationId": "export_api_v1_workspaces__workspace_id__boards__board_id__proposal_audit_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision_id",
+            "required": true,
+            "schema": {
+              "title": "Revision Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Export"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposal-capabilities": {
+      "get": {
+        "operationId": "capabilities_api_v1_workspaces__workspace_id__boards__board_id__proposal_capabilities_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalCapability"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Capabilities"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposal-runs": {
+      "post": {
+        "operationId": "generate_api_v1_workspaces__workspace_id__boards__board_id__proposal_runs_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProposalGenerateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalRun"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Generate"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposal-runs/{run_id}": {
+      "get": {
+        "operationId": "run_api_v1_workspaces__workspace_id__boards__board_id__proposal_runs__run_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalRun"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Run"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposals": {
+      "get": {
+        "operationId": "listing_api_v1_workspaces__workspace_id__boards__board_id__proposals_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision_id",
+            "required": true,
+            "schema": {
+              "title": "Revision Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "paper_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "field_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Field Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 20,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalListing"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Listing"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposals/{proposal_id}/adopt": {
+      "post": {
+        "operationId": "adopt_api_v1_workspaces__workspace_id__boards__board_id__proposals__proposal_id__adopt_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "proposal_id",
+            "required": true,
+            "schema": {
+              "title": "Proposal Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProposalAdoptRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardCellDraft"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Adopt"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposals/{proposal_id}/dismiss": {
+      "post": {
+        "operationId": "dismiss_api_v1_workspaces__workspace_id__boards__board_id__proposals__proposal_id__dismiss_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "proposal_id",
+            "required": true,
+            "schema": {
+              "title": "Proposal Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProposalDismissRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CellProposal"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Dismiss"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposals/{proposal_id}/references/{reference_id}/context": {
+      "get": {
+        "operationId": "context_api_v1_workspaces__workspace_id__boards__board_id__proposals__proposal_id__references__reference_id__context_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "proposal_id",
+            "required": true,
+            "schema": {
+              "title": "Proposal Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "reference_id",
+            "required": true,
+            "schema": {
+              "title": "Reference Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardReferenceContext"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Context"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/references/{reference_id}/context": {
+      "get": {
+        "operationId": "reference_context_api_v1_workspaces__workspace_id__boards__board_id__references__reference_id__context_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "reference_id",
+            "required": true,
+            "schema": {
+              "title": "Reference Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardReferenceContext"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Reference Context"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/revisions": {
+      "post": {
+        "operationId": "revise_api_v1_workspaces__workspace_id__boards__board_id__revisions_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BoardReviseRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardView"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Revise"
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/sources/{source_id}/blocks": {
+      "get": {
+        "operationId": "blocks_api_v1_workspaces__workspace_id__boards__board_id__sources__source_id__blocks_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "required": true,
+            "schema": {
+              "title": "Workspace Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "schema": {
+              "title": "Board Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "source_id",
+            "required": true,
+            "schema": {
+              "title": "Source Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Revision Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "maximum": 3,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "block_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Block Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Start",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardSourceInspection"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Blocks"
       }
     },
     "/api/v1/workspaces/{workspace_id}/drafts/{scope}": {
