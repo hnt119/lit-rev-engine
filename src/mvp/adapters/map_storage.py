@@ -306,6 +306,74 @@ class MapStore:
             self._limits(db, artifact.workspace_id)
             db.execute("UPDATE paper_map_jobs SET status='succeeded',progress_completed=progress_total,error_json=NULL,lease_owner=NULL,lease_expires=NULL,updated_at=? WHERE id=?", (now(), job["id"]))
 
+    def import_artifact(self, search, artifact, embedded):
+        """Atomically retain one verified bundled map, without inventing a job.
+
+        The caller owns the existing lifecycle/research locks. These auxiliary
+        rows use the same artifact, cache, vector, quota and deletion contracts
+        as worker publication; no search/source/reviewer record is changed.
+        """
+        try:
+            artifact = PaperMap.model_validate(artifact.model_dump(mode="json"))
+            embedded = [EmbeddedPaper.model_validate(item.model_dump(mode="json")) for item in embedded]
+            validate_artifact(artifact, search, artifact.embedding_profile, embedded)
+            origin = artifact.projection_parameters["saved_example_bundle"]
+            if (not isinstance(origin, dict) or not origin.get("bundle_id")
+                    or not artifact.workspace_id or not artifact.map_id):
+                raise ValueError()
+            for item in embedded:
+                if (validate_vector(item.vector, artifact.embedding_profile.dimension) != item.vector
+                        or any(weight > artifact.embedding_profile.content_window_tokens for weight in item.window_token_weights)):
+                    raise ValueError()
+        except (ValueError, TypeError, KeyError, AttributeError):
+            raise MvpError("map_integrity", "Bundled map fields failed import validation.") from None
+        map_counts = counts(search, artifact)
+        profile = artifact.embedding_profile
+        with self.transaction() as db:
+            self._alive(db, artifact.workspace_id)
+            for row in db.execute("SELECT * FROM paper_maps WHERE workspace_id=? AND search_id=? ORDER BY rowid DESC", (artifact.workspace_id, search.id)):
+                prior = self._artifact(row)
+                prior_origin = prior.projection_parameters.get("saved_example_bundle", {})
+                if not isinstance(prior_origin, dict) or prior_origin.get("bundle_id") != origin["bundle_id"]:
+                    continue
+                validate_artifact(prior, search, profile, embedded)
+                prior_counts = MapCounts.model_validate_json(row["counts_json"])
+                if (prior_origin != origin or prior.coordinate_sha256 != artifact.coordinate_sha256
+                        or prior.embedding_set_sha256 != artifact.embedding_set_sha256
+                        or prior_counts != map_counts):
+                    raise MvpError("map_integrity", "The retained bundled map differs from its original import binding.")
+                links = {entry["paper_id"]: entry for entry in db.execute(
+                    "SELECT v.paper_id,v.cache_key,e.payload_json,e.payload_sha256 FROM paper_map_vectors v "
+                    "JOIN paper_embeddings e ON e.workspace_id=? AND e.cache_key=v.cache_key WHERE v.map_id=?",
+                    (artifact.workspace_id, prior.map_id))}
+                if set(links) != {item.paper_id for item in embedded}:
+                    raise MvpError("map_integrity", "The retained bundled map is missing an embedding link.")
+                for item in embedded:
+                    link = links[item.paper_id]
+                    retained = self._embedding(link, profile)
+                    if (link["cache_key"] != self.cache_key(profile, item.input_sha256)
+                            or retained.input_sha256 != item.input_sha256 or retained.representation != item.representation
+                            or retained.vector != item.vector or retained.window_token_weights != item.window_token_weights
+                            or retained.token_count != item.token_count):
+                        raise MvpError("map_integrity", "The retained bundled embedding differs from its original import binding.")
+                return MapView(artifact=prior, counts=prior_counts)
+            for item in embedded:
+                key = self.cache_key(profile, item.input_sha256)
+                cached = db.execute("SELECT * FROM paper_embeddings WHERE workspace_id=? AND cache_key=?", (artifact.workspace_id, key)).fetchone()
+                if cached is not None:
+                    retained = self._embedding(cached, profile)
+                    if (retained.input_sha256 != item.input_sha256 or retained.representation != item.representation
+                            or retained.vector != item.vector or retained.window_token_weights != item.window_token_weights
+                            or retained.token_count != item.token_count):
+                        raise MvpError("map_integrity", "Bundled map vectors differ from their retained input/profile cache binding.")
+                else:
+                    db.execute("INSERT INTO paper_embeddings VALUES(?,?,?,?)", (artifact.workspace_id, key, item.model_dump_json(), digest(item.model_dump(mode="json"))))
+                db.execute("INSERT INTO paper_map_vectors VALUES(?,?,?)", (artifact.map_id, item.paper_id, key))
+            db.execute("INSERT INTO paper_maps VALUES(?,?,?,?,?,?)", (artifact.map_id, artifact.workspace_id, artifact.search_id,
+                artifact.model_dump_json(), digest(artifact.model_dump(mode="json")), map_counts.model_dump_json()))
+            self._limits(db, artifact.workspace_id)
+        return MapView(artifact=artifact, counts=map_counts)
+
     def vectors(self, workspace_id, map_id):
         artifact = self.map(workspace_id, map_id).artifact
         with self.connection() as db:

@@ -4,6 +4,14 @@ A Python engine for managing a reproducible review ledger and exploring locally 
 
 The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Project passage retrieval searches those retained sources and returns exact anchors for reviewer inspection. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
 
+## Local web MVP v0.3 checkpoint
+
+Use [`codex/mvp-v0-3`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-3) for the current development checkpoint, extending v0.2 at `404b002`. It adds a reproducible research-case audit, compact editable PubMed keyword proposals, and improved linked map/paper interactions. Read the [v0.3 setup and status guide](docs/mvp_v0_3.md), [query proposal guide](docs/query_suggestions.md), and [map interaction checks](docs/map_interactions.md). The question-linked comparison board and optional structured extraction remain **planned, not implemented**. This branch is separate from `main` and runs locally.
+
+### Thirty-paper offline example
+
+Choose **Saved example · offline**, create or reopen a workspace, then click **Open saved example**. The bundle contains **30 distinct real papers with checked CC BY full text** and a precomputed semantic map. Opening, reopening, filtering and selecting papers need no contact email, provider request, model weights or inference call. Local model setup is only needed to calculate new maps. Earlier one-paper captures remain in history; opening the current bundle adds a new capture. Read the [offline example guide and validation](docs/offline_example.md) and [public source attribution](examples/mvp/offline_microbiome_30_v1/README.md). The collection is a curated demonstration, not 30 formally included studies or a comprehensive search.
+
 ## Local web MVP v0.2
 
 Use [`codex/mvp-v0-2`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-2) for MVP v0.2. It extends the actual MVP baseline `8df5993` with a Next.js/React interface and a thin FastAPI adapter over the existing `src/mvp` services. The branch remains separate from `main`; no hosted deployment is provided. Use the [v0.2 setup and workflow guide](docs/mvp_v0_2.md) and [executed checkpoint evidence](docs/mvp_v0_2_evaluation.md) for current status, optional local mapping setup, startup/shutdown, durable data and limitations.

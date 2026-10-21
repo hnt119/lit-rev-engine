@@ -1,0 +1,270 @@
+{
+  "abstractText": "BACKGROUND: In developing countries, a significant number of women of reproductive age fail to meet their required intake of essential micronutrients through diet alone. Although nutrient supplementation is a common approach, it may not offer a sustainable solution, particularly in Asian countries like Sri Lanka, where healthcare is provided free from womb to tomb. Therefore, it is timely to explore nutritious and affordable local food options to enhance nutrition. Diyabath, a traditional meal prepared from overnight fermentation of cooked rice, is often used as a dietary therapy by indigenous medical practitioners in Sri Lanka. While the benefits of fermented foods in improving nutritional status and gut microbiome across all ages are well-known, the specific advantages of fermented cooked rice, such as diyabath, remain largely unexplored. This trial aims to evaluate the effects of diyabath on the gut microbiome, as well as on nutritional, health and immune parameters among young women of reproductive age in Sri Lanka. METHODS: This is a single arm, non-randomized controlled trial among 45 women aged 20–35 years, purposively selected from a residential hostel in Colombo District, Sri Lanka. The primary outcomes: gut microbiome composition, nutritional status, and health and immune markers will be assessed before and after a 10-week control phase, during which participants will follow their usual dietary habits (control). In the subsequent 10-week intervention phase, the same participants will consume diyabath daily as a pre-breakfast meal (intervention). The diyabath will be prepared according to an optimal recipe identified through a comprehensive evaluation of traditional recipes during the intervention development phase. Outcomes will be reassessed immediately and one month after completing the intervention. Changes in outcomes between the control and intervention phases will be compared. DISCUSSION: This study intends to evaluate the impact of introducing diyabath as a pre-breakfast meal on changes in host gut microbiome, nutritional status, and health and immune markers in young women in reproductive age. The findings may support the promotion of affordable indigenous dietary solutions, particularly in low-resourced rice-growing countries, to mitigate nutritional deficiencies and provide a basis for future research on traditional food. TRIAL REGISTRATION: This protocol is registered in the Sri Lanka Clinical Trials Registry (SLCTR). Clinical trial number: SLCTR/2024/032 (Registration date: 09/10/2024).",
+  "affiliation": "Department of Biochemistry & Molecular Biology, Faculty of Medicine, University of Colombo, 25, Kynsey Road, Colombo, 00800, Sri Lanka. shanika.udari@gmail.com.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Biochemistry & Molecular Biology, Faculty of Medicine, University of Colombo, 25, Kynsey Road, Colombo, 00800, Sri Lanka. shanika.udari@gmail.com."
+            }
+          ]
+        },
+        "firstName": "Ahgs",
+        "fullName": "Udari A",
+        "initials": "A",
+        "lastName": "Udari"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Community Medicine, Faculty of Medicine, University of Colombo, Colombo, 00800, Sri Lanka."
+            }
+          ]
+        },
+        "firstName": "Carukshi",
+        "fullName": "Arambepola C",
+        "initials": "C",
+        "lastName": "Arambepola"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Biochemistry & Molecular Biology, Faculty of Medicine, University of Colombo, 25, Kynsey Road, Colombo, 00800, Sri Lanka."
+            }
+          ]
+        },
+        "firstName": "Tharanga",
+        "fullName": "Thoradeniya T",
+        "initials": "T",
+        "lastName": "Thoradeniya"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Biochemistry & Molecular Biology, Faculty of Medicine, University of Colombo, 25, Kynsey Road, Colombo, 00800, Sri Lanka."
+            }
+          ]
+        },
+        "firstName": "Sharmila",
+        "fullName": "Jayasena S",
+        "initials": "S",
+        "lastName": "Jayasena"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Faculty of Indigenous Medicine, University of Colombo, Rajagiriya, Sri Lanka."
+            }
+          ]
+        },
+        "firstName": "Rhsk",
+        "fullName": "de Silva R",
+        "initials": "R",
+        "lastName": "de Silva"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of History, Faculty of Arts, University of Colombo, Colombo, 00800, Sri Lanka."
+            }
+          ]
+        },
+        "firstName": "Darshi",
+        "fullName": "Thoradeniya D",
+        "initials": "D",
+        "lastName": "Thoradeniya"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Paediatrics, Faculty of Medicine, University of Colombo, Colombo, 00800, Sri Lanka."
+            }
+          ]
+        },
+        "firstName": "Vithanage Pujitha",
+        "fullName": "Wickramasinghe VP",
+        "initials": "VP",
+        "lastName": "Wickramasinghe"
+      }
+    ]
+  },
+  "authorString": "Udari A, Arambepola C, Thoradeniya T, Jayasena S, de Silva R, Thoradeniya D, Wickramasinghe VP.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "altmetrics",
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-06-27",
+  "dateOfCreation": "2026-02-24",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.1186/s12906-026-05301-w",
+  "electronicPublicationDate": "2026-02-24",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-02-25",
+  "firstPublicationDate": "2026-02-24",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13041206"
+    ]
+  },
+  "fullTextReceivedDate": "2026-04-02",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1186/s12906-026-05301-w"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13041206"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13041206?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "National Science Foundation of Sri Lanka",
+        "grantId": "NSF/SCH/2025/05",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "41735946",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 Feb",
+    "issue": "1",
+    "journal": {
+      "essn": "2662-7671",
+      "isoabbreviation": "BMC Complement Med Ther",
+      "issn": "2662-7671",
+      "medlineAbbreviation": "BMC Complement Med Ther",
+      "nlmid": "101761232",
+      "title": "BMC complementary medicine and therapies"
+    },
+    "journalIssueId": 4127639,
+    "monthOfPublication": 2,
+    "printPublicationDate": "2026-02-01",
+    "volume": "26",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Health Status",
+      "Gut Microbiome",
+      "Women Of Reproductive Age",
+      "Diyabath",
+      "Fermented Cooked Rice"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Nutritional Status",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Sri Lanka",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Young Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Cooking",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Oryza",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Fermented Foods",
+        "majorTopic_YN": "Y"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "121",
+  "pmcid": "PMC13041206",
+  "pmid": "41735946",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Traditional diyabath (fermented cooked rice) as a pre-breakfast meal versus none (breakfast only) in improving gut microbiome and nutritional, health and immune parameters of young women in Sri Lanka: study protocol for a controlled trial.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

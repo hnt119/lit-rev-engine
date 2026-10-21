@@ -1,0 +1,435 @@
+{
+  "abstractText": "<h4>Background</h4>Accumulating evidence suggests that additional dietary fiber supplements may significantly improve glycolipid metabolism and pregnancy outcomes in individuals with gestational diabetes mellitus (GDM). However, the therapeutic effects of xylose oligosaccharides and inulin (XOS inulin) in pregnant women have not been investigated. Moreover, the underlying mechanism behind the therapeutic effects of this type of dietary fiber is not clear. Our study aims to assess the effects of daily XOS inulin supplementation on glycolipid metabolism and elucidate the therapeutic mechanism through gut microbiota analysis.<h4>Methods</h4>This study is an 8-week, parallel-design, open-label, three-arm, single-center randomized controlled trial. Eligible participants were pregnant women between 24 and 28 weeks of gestation, and they were diagnosed with GDM through an oral glucose tolerance test (OGTT). The participants in the three groups will receive nutrition education alone, nutrition education plus XOS inulin (XOS 2 g and inulin 10 g) 12 g/day, or nutrition education plus XOS inulin 24 g/day. Measurements will be taken at baseline, week 4, and week 8. The primary outcome will be the change in glycosylated serum protein (GSP), and the key secondary outcomes include changes in fasting glucose, fasting insulin (FINS), 2-h postprandial plasma glucose (2 h-PPG), HbA1c, total cholesterol (TC), triglycerides (TG), LDL cholesterol (LDL-C), HDL cholesterol (HDL-C), and changes in the gut microbiota.<h4>Discussion</h4>This study will evaluate the therapeutic effects of XOS inulin supplementation on glycemic control, lipid metabolism, gastrointestinal function, and perinatal outcomes in GDM patients and their offspring. It also provides insight into the potential role of the gut microbiome as a target for enhancing the therapeutic efficacy of emerging treatments for GDM. All participants will receive comprehensive GDM nutrition education, promoting sustainable dietary modifications that optimize maternal metabolic health and fetal outcomes.<h4>Trial registration</h4>Chinese Clinical Trial registry ChiCTR2200060117. Registered on 19 May, 2022.",
+  "affiliation": "School of Public Health, Qingdao University, Qingdao, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0002-0250-1322"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Public Health, Qingdao University, Qingdao, China."
+            },
+            {
+              "affiliation": "Department of Clinical Nutrition, Qingdao Municipal Hospital, Qingdao, China."
+            }
+          ]
+        },
+        "firstName": "Yiming",
+        "fullName": "Wang Y",
+        "initials": "Y",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Qingdao Municipal Hospital, Qingdao, China."
+            }
+          ]
+        },
+        "firstName": "Huacai",
+        "fullName": "Yuan H",
+        "initials": "H",
+        "lastName": "Yuan"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Qingdao Municipal Hospital, Qingdao, China."
+            }
+          ]
+        },
+        "firstName": "Ruyue",
+        "fullName": "Jiang R",
+        "initials": "R",
+        "lastName": "Jiang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Qingdao Municipal Hospital, Qingdao, China."
+            }
+          ]
+        },
+        "firstName": "Keqing",
+        "fullName": "Jia K",
+        "initials": "K",
+        "lastName": "Jia"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Qingdao Municipal Hospital, Qingdao, China."
+            }
+          ]
+        },
+        "firstName": "Xiaoping",
+        "fullName": "Ding X",
+        "initials": "X",
+        "lastName": "Ding"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Qingdao Municipal Hospital, Qingdao, China. 13954278272@163.com."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-0250-1322"
+        },
+        "firstName": "Ping",
+        "fullName": "Gu P",
+        "initials": "P",
+        "lastName": "Gu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Public Health, Qingdao University, Qingdao, China. qdcdcsjp@126.com."
+            }
+          ]
+        },
+        "firstName": "Jianping",
+        "fullName": "Sun J",
+        "initials": "J",
+        "lastName": "Sun"
+      }
+    ]
+  },
+  "authorString": "Wang Y, Yuan H, Jiang R, Jia K, Ding X, Gu P, Sun J.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "Blood Glucose",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Inulin",
+        "registryNumber": "9005-80-5"
+      },
+      {
+        "name": "Glycolipids",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Oligosaccharides",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Xylose",
+        "registryNumber": "A1TA934AKO"
+      },
+      {
+        "name": "Dietary Fiber",
+        "registryNumber": "0"
+      }
+    ]
+  },
+  "citedByCount": 2,
+  "commentCorrectionList": {
+    "commentCorrection": [
+      {
+        "id": "PPR988605",
+        "note": "CrossRef Pre-print loader",
+        "orderIn": 10002,
+        "source": "PPR",
+        "type": "Preprint in"
+      }
+    ]
+  },
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2025-09-25",
+  "dateOfCreation": "2025-09-24",
+  "dateOfRevision": "2025-09-27",
+  "doi": "10.1186/s13063-025-09080-6",
+  "electronicPublicationDate": "2025-09-24",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2025-09-25",
+  "firstPublicationDate": "2025-09-24",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12462350"
+    ]
+  },
+  "fullTextReceivedDate": "2025-11-18",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1186/s13063-025-09080-6"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12462350"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12462350?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "40993726",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 Sep",
+    "issue": "1",
+    "journal": {
+      "essn": "1745-6215",
+      "isoabbreviation": "Trials",
+      "issn": "1745-6215",
+      "medlineAbbreviation": "Trials",
+      "nlmid": "101263253",
+      "title": "Trials"
+    },
+    "journalIssueId": 4008149,
+    "monthOfPublication": 9,
+    "printPublicationDate": "2025-09-01",
+    "volume": "26",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "dietary fiber",
+      "inulin",
+      "Clinical Trial",
+      "Gestational Diabetes Mellitus",
+      "Xylose Oligosaccharides"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Diabetes, Gestational",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "BL",
+              "majorTopic_YN": "N",
+              "qualifierName": "blood"
+            },
+            {
+              "abbreviation": "DI",
+              "majorTopic_YN": "N",
+              "qualifierName": "diagnosis"
+            },
+            {
+              "abbreviation": "DH",
+              "majorTopic_YN": "N",
+              "qualifierName": "diet therapy"
+            },
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            },
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Inulin",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "AD",
+              "majorTopic_YN": "N",
+              "qualifierName": "administration & dosage"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Glycolipids",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Blood Glucose",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Xylose",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "AD",
+              "majorTopic_YN": "N",
+              "qualifierName": "administration & dosage"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Oligosaccharides",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "AD",
+              "majorTopic_YN": "N",
+              "qualifierName": "administration & dosage"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Glucose Tolerance Test",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Treatment Outcome",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Pregnancy",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Dietary Fiber",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "AD",
+              "majorTopic_YN": "N",
+              "qualifierName": "administration & dosage"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Dietary Supplements",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Randomized Controlled Trials as Topic",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Young Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "349",
+  "pmcid": "PMC12462350",
+  "pmid": "40993726",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "Clinical Trial Protocol",
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Effects of soluble dietary fiber on glycolipid metabolism in gestational diabetes mellitus: study protocol for a randomized controlled clinical trial.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

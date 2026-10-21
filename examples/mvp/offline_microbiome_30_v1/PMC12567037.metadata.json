@@ -1,0 +1,339 @@
+{
+  "abstractText": "<b>Background and Aim:</b> Underweight young adult women are vulnerable to health risks such as menstrual disorders and vitamin deficiencies. Because few seek medical care for low body weight, the underlying causes remain unclear. This study aimed to examine the associations of body type with dietary patterns and gut microbiota diversity in young women. <b>Methods:</b> We enrolled 40 women aged 20-39 years who visited a nutrition evaluation clinic with a BMI < 17.5 at their first consultation (underweight group) and 40 age-matched women with 18.5 ≤ BMI < 25 (control group). Some women in the underweight group were no longer underweight at the time of analysis but were classified based on their initial BMI. Dietary patterns were assessed based on ten major food categories (meat, fish, eggs, dairy products, soybeans, green and yellow vegetables, seaweed, fruit, tubers, and fats and oil) based on the Food Frequency Questionnaire based on Food Groups. Gut microbiota α-diversity was evaluated using the Shannon, Simpson, and Pielou indices, while β-diversity was analyzed by nonmetric multidimensional scaling (NMDS) and redundancy analysis (RDA). Genera contributing to group differences were identified by RDA and ANOVA-Like Differential Expression tool (ALDEx2). <b>Results:</b> Underweight women had significantly lower gut microbiota α-diversity, while no difference was observed in dietary patterns. NMDS revealed significant β-diversity differences in gut microbiota (PERMANOVA: R<sup>2</sup> = 0.064, F = 5.31, <i>p</i> = 0.0001) but not in dietary patterns (<i>p</i> = 0.99). RDA showed that body type explained 4.5% of variance (adjusted R<sup>2</sup> = 0.032, F = 3.65, <i>p</i> = 0.0005). <i>Bacteroides</i>, <i>Bifidobacterium</i>, <i>Enterocloster</i>, and <i>Erysipelatoclostridium</i> were enriched in underweight women, whereas <i>Fusicatenibacter</i>, <i>Agathobacter</i>, <i>Dorea</i>, and <i>Prevotella</i> were enriched in controls. AldEx2 confirmed increases in <i>Bacteroides</i>, <i>Enterocloster</i>, and <i>Erysipelatoclostridium</i> and a decrease in Dorea. <b>Conclusions:</b> Underweight women demonstrated reduced gut microbiota diversity and enrichment of taxa associated with inflammatory tendencies. Dietary therapies involving not only prebiotics but also probiotics may beneficially modulate gut microbiota and contribute to the management of low body weight.",
+  "affiliation": "Department of Clinical Nutrition, Fujita Health University, Toyoake 470-1192, Japan.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-9425-0278"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-6547-9732"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-9837-6238"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-1699-5447"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Fujita Health University, Toyoake 470-1192, Japan."
+            }
+          ]
+        },
+        "firstName": "Risako",
+        "fullName": "Yamamoto-Wada R",
+        "initials": "R",
+        "lastName": "Yamamoto-Wada"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Fujita Health University, Toyoake 470-1192, Japan."
+            },
+            {
+              "affiliation": "Faculty of Medicine, Fujita Health University, Toyoake 470-1192, Japan."
+            }
+          ]
+        },
+        "firstName": "Eri",
+        "fullName": "Hiraiwa E",
+        "initials": "E",
+        "lastName": "Hiraiwa"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-1699-5447"
+        },
+        "firstName": "Kana",
+        "fullName": "Okuma K",
+        "initials": "K",
+        "lastName": "Okuma"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "firstName": "Masako",
+        "fullName": "Yamada M",
+        "initials": "M",
+        "lastName": "Yamada"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Fujita Health University, Toyoake 470-1192, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-6547-9732"
+        },
+        "firstName": "Chihiro",
+        "fullName": "Ushiroda C",
+        "initials": "C",
+        "lastName": "Ushiroda"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Fujita Health University, Toyoake 470-1192, Japan."
+            }
+          ]
+        },
+        "firstName": "Kanako",
+        "fullName": "Deguchi K",
+        "initials": "K",
+        "lastName": "Deguchi"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Health Management Center, Fujita Health University, Toyoake 470-1192, Japan."
+            }
+          ]
+        },
+        "firstName": "Hiroyuki",
+        "fullName": "Naruse H",
+        "initials": "H",
+        "lastName": "Naruse"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-9425-0278"
+        },
+        "firstName": "Hiroaki",
+        "fullName": "Masuyama H",
+        "initials": "H",
+        "lastName": "Masuyama"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Clinical Nutrition, Fujita Health University, Toyoake 470-1192, Japan."
+            },
+            {
+              "affiliation": "Food and Nutrition Service Department, Fujita Health University Hospital, Toyoake 470-1192, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-9837-6238"
+        },
+        "firstName": "Katsumi",
+        "fullName": "Iizuka K",
+        "initials": "K",
+        "lastName": "Iizuka"
+      }
+    ]
+  },
+  "authorString": "Yamamoto-Wada R, Hiraiwa E, Okuma K, Yamada M, Ushiroda C, Deguchi K, Naruse H, Masuyama H, Iizuka K.",
+  "citedByCount": 6,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "altmetrics",
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2025-10-29",
+  "dateOfCreation": "2025-10-29",
+  "dateOfRevision": "2025-11-19",
+  "doi": "10.3390/nu17203265",
+  "electronicPublicationDate": "2025-10-17",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2025-10-29",
+  "firstPublicationDate": "2025-10-17",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12567037"
+    ]
+  },
+  "fullTextReceivedDate": "2025-11-29",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/nu17203265"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12567037"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12567037?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "41156517",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 Oct",
+    "issue": "20",
+    "journal": {
+      "essn": "2072-6643",
+      "isoabbreviation": "Nutrients",
+      "issn": "2072-6643",
+      "medlineAbbreviation": "Nutrients",
+      "nlmid": "101521595",
+      "title": "Nutrients"
+    },
+    "journalIssueId": 4038832,
+    "monthOfPublication": 10,
+    "printPublicationDate": "2025-10-01",
+    "volume": "17",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "α-diversity",
+      "dietary pattern",
+      "Gut Microbiota",
+      "Underweight",
+      "Β-diversity"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Thinness",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Body Mass Index",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Diet",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Feeding Behavior",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Japan",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Young Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "3265",
+  "pmcid": "PMC12567037",
+  "pmid": "41156517",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article",
+      "Observational Study"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Gut Microbiota α- and β-Diversity, but Not Dietary Patterns, Differ Between Underweight and Normal-Weight Japanese Women Aged 20-39 Years.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

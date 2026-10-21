@@ -11,7 +11,7 @@ from pathlib import Path
 import secrets
 import threading
 
-from .contracts import SearchPreview, digest
+from .contracts import SearchPreview, digest, new_id
 from .mapping import (EmbeddingProfile, ExcludedPaper, Neighbor, Neighbors,
                       build_artifact, counts, representations, validate_vector)
 from .ports import MvpError
@@ -31,6 +31,30 @@ class PaperMapService:
 
     def readiness(self):
         return self.embedder.readiness()
+
+    def install_saved_example(self, mode, handle, search_id):
+        """Attach the exact public map after an explicit full offline capture.
+
+        Legacy/subset/custom previews are untouched. A saved map import needs
+        neither optional numerical libraries nor local-model readiness.
+        """
+        if mode != "saved_example":
+            return None
+        def install(state):
+            if self.registry.is_deleted(state.id):
+                raise unavailable("workspace")
+            search = find_search(state, search_id)
+            if (search.mode != "saved_example" or search.provider != "europe_pmc_saved_example"
+                    or len(search.papers) != 30 or search.fetched_count != 30):
+                return None
+            from .adapters.saved_example_map import SavedExampleMap
+            bundle = SavedExampleMap()
+            if not bundle.matches(search):
+                return None
+            artifact, embedded = bundle.rebind(handle.workspace_id, search, new_id())
+            return self.store.import_artifact(search, artifact, embedded)
+        with self.registry.lifecycle_guard(handle.workspace_id):
+            return self.service_for(mode).with_workspace_state(handle, install)
 
     def submit(self, mode, handle, request):
         ready, reason = self.readiness()

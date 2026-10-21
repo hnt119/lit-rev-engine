@@ -41,7 +41,7 @@ def search(client, workspace, request_id="search"):
 
 
 def prepared(client, workspace, preview, request_id="prepare"):
-    result = client.post(f'{P}/workspaces/{workspace["id"]}/source-preparations', json={"request_id": request_id, "search_id": preview["id"], "paper_ids": [item["id"] for item in preview["papers"]]})
+    result = client.post(f'{P}/workspaces/{workspace["id"]}/source-preparations', json={"request_id": request_id, "search_id": preview["id"], "paper_ids": [item["id"] for item in preview["papers"][:10]]})
     assert result.status_code == 200, result.text
     return result.json()
 
@@ -233,7 +233,9 @@ def test_source_history_and_stale_preparation(tmp_path):
     historical = client.get(path + "?archived=true&offset=2&limit=2")
     assert historical.status_code == 200
     assert historical.json()["archived"] and not historical.json()["current"]
-    assert historical.json()["source"]["source_sha256"] == first["sources"][0]["source_sha256"]
+    expected_source = next(source for source in first["sources"] if source["paper_id"] == run["passages"][0]["paper_id"])
+    assert historical.json()["paper"]["id"] == expected_source["paper_id"]
+    assert historical.json()["source"]["source_sha256"] == expected_source["source_sha256"]
     assert client.post(base + "/assessments", json={"request_id": "stale assessment", "run_id": run["id"]}).status_code == 409
 
 

@@ -1,0 +1,416 @@
+{
+  "abstractText": "<h4>Background</h4>Prior research has demonstrated sex-specific differences in hypertension (HTN). The gut microbiota (GM) and its metabolic functions have emerged as key players in the development of HTN. To explore potential sex-based heterogeneity in gut bacteria among hypertensive patients, we conducted this study with the aim of validating sex differences in the gut flora associated with HTN.<h4>Methods</h4>Here, we leveraged a metagenomic dataset comprising 106 fecal samples from a Chinese cohort of individuals with essential HTN to systematically analyze and compare alterations in the gut microbiome between male and female patients, as well as relative to a healthy control group.<h4>Results</h4>Our study confirmed a statistically significant difference in the β-diversity of GM between hypertensive patients and healthy controls. When the subjects were further stratified by sex, significant differences in the distribution of gut flora were observed exclusively in females, whereas none was noted between groups in males. It was observed that certain genera of GM exhibit negative correlations with blood pressure. Notably, the relative abundance of these bacterial genera, including Lachnospira, Faecalibacterium, and Roseburia, was significantly diminished in female hypertensive patients. These organisms are primarily involved in the biosynthesis of short-chain fatty acids (SCFAs), with a notable emphasis on butyrate production. Ruminococcus gnavus was specifically enriched in hypertensive males, whereas certain bacteria, such as Lactobacillus, were notably depleted. The abnormality of the SCFAs-producing flora in female hypertensive patients may be related to that women are more likely to develop hypertensive organ damage.<h4>Conclusions</h4>The findings of our study indicate that GM dysbiosis is more significantly associated with HTN in females. Consequently, sex constitutes a critical factor in evaluating the role of intestinal flora in the pathogenesis of HTN.",
+  "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            },
+            {
+              "affiliation": "Department of Cardiology, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            }
+          ]
+        },
+        "firstName": "Pan",
+        "fullName": "Wang P",
+        "initials": "P",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            },
+            {
+              "affiliation": "Department of Cardiology, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            }
+          ]
+        },
+        "firstName": "Yaxuan",
+        "fullName": "Yao Y",
+        "initials": "Y",
+        "lastName": "Yao"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            },
+            {
+              "affiliation": "Department of Cardiology, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            }
+          ]
+        },
+        "firstName": "Kaixin",
+        "fullName": "Yan K",
+        "initials": "K",
+        "lastName": "Yan"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            },
+            {
+              "affiliation": "Department of Cardiology, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            }
+          ]
+        },
+        "firstName": "Siyuan",
+        "fullName": "Wang S",
+        "initials": "S",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            },
+            {
+              "affiliation": "Department of Cardiology, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            }
+          ]
+        },
+        "firstName": "Minjie",
+        "fullName": "Wang M",
+        "initials": "M",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            },
+            {
+              "affiliation": "Department of Cardiology, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China."
+            }
+          ]
+        },
+        "firstName": "Xiaoyan",
+        "fullName": "Liu X",
+        "initials": "X",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Beijing Anzhen Hospital, Capital Medical University, Beijing Institute of Heart, Lung and Blood Vessel Diseases, Beijing, 100029, China. chaowei_hu@126.com."
+            }
+          ]
+        },
+        "firstName": "Chaowei",
+        "fullName": "Hu C",
+        "initials": "C",
+        "lastName": "Hu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China. dongying91@foxmail.com."
+            },
+            {
+              "affiliation": "Department of Cardiology, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China. dongying91@foxmail.com."
+            }
+          ]
+        },
+        "firstName": "Ying",
+        "fullName": "Dong Y",
+        "initials": "Y",
+        "lastName": "Dong"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Heart Center and Beijing Key Laboratory of Hypertension, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China. lijing11999@163.com."
+            },
+            {
+              "affiliation": "Department of Cardiology, Beijing Chaoyang Hospital, Capital Medical University, Beijing, 100020, China. lijing11999@163.com."
+            }
+          ]
+        },
+        "firstName": "Jing",
+        "fullName": "Li J",
+        "initials": "J",
+        "lastName": "Li"
+      }
+    ]
+  },
+  "authorString": "Wang P, Yao Y, Yan K, Wang S, Wang M, Liu X, Hu C, Dong Y, Li J.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "Fatty Acids, Volatile",
+        "registryNumber": "0"
+      }
+    ]
+  },
+  "citedByCount": 1,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "altmetrics",
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-07-07",
+  "dateOfCreation": "2026-02-07",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.1186/s12866-025-04500-8",
+  "electronicPublicationDate": "2026-02-07",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-02-10",
+  "firstPublicationDate": "2026-02-07",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13001194"
+    ]
+  },
+  "fullTextReceivedDate": "2026-03-20",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1186/s12866-025-04500-8"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13001194"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13001194?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "41654729",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 Feb",
+    "issue": "1",
+    "journal": {
+      "essn": "1471-2180",
+      "isoabbreviation": "BMC Microbiol",
+      "issn": "1471-2180",
+      "medlineAbbreviation": "BMC Microbiol",
+      "nlmid": "100966981",
+      "title": "BMC microbiology"
+    },
+    "journalIssueId": 4119870,
+    "monthOfPublication": 2,
+    "printPublicationDate": "2026-02-01",
+    "volume": "26",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Hypertension",
+      "Sex",
+      "Gut",
+      "Microbiome"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Feces",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Bacteria",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "CL",
+              "majorTopic_YN": "N",
+              "qualifierName": "classification"
+            },
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            },
+            {
+              "abbreviation": "IP",
+              "majorTopic_YN": "N",
+              "qualifierName": "isolation & purification"
+            },
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Hypertension",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Fatty Acids, Volatile",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Cohort Studies",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Sex Factors",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Sex Characteristics",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Aged",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Middle Aged",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "China",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Male",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Metagenomics",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Essential Hypertension",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Eubacteriales",
+        "majorTopic_YN": "N"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "255",
+  "pmcid": "PMC13001194",
+  "pmid": "41654729",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "A validation for sex differences in gut microbiome of essential hypertension based on cohort analysis.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "gen",
+      "doi"
+    ]
+  }
+}

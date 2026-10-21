@@ -17,6 +17,7 @@ from .contracts import (
     WorkspaceHandle, WorkspaceSnapshot, digest, new_id, now,
 )
 from .ports import DiscoveryProvider, MvpError, ProviderFailure, SourceProvider, WorkspaceStorage
+from .query_suggestions import suggest_pubmed_query
 
 
 def _find(items, identifier, kind):
@@ -160,16 +161,7 @@ class MVPService:
 
     def suggest_query(self, handle: WorkspaceHandle, request: QuerySuggestionRequest) -> QuerySuggestion:
         self._storage.read(handle)
-        words = {word.casefold() for word in re.findall(r"\w+", request.question)}
-        if {"gut", "microbiome", "asian", "women"}.issubset(words):
-            query = '("gut microbiome"[Title/Abstract] OR "gut microbiota"[Title/Abstract]) AND (women[Title/Abstract] OR female[MeSH Terms]) AND (Asia[MeSH Terms] OR Asian[Title/Abstract])'
-            explanation = "Editable sample concept groups for microbiome, women, and Asia. Search terms do not establish a paper's population or findings."
-        else:
-            stop = {"a", "an", "and", "are", "do", "does", "how", "in", "is", "of", "on", "or", "the", "to", "what", "which", "with"}
-            terms = list(dict.fromkeys(word for word in re.findall(r"\w+", request.question) if word.casefold() not in stop))
-            query = " AND ".join('"' + term + '"[Title/Abstract]' for term in terms[:12]) or request.question
-            explanation = "Transparent starting template: the first twelve distinct non-stop words, each searched in title/abstract and joined by AND. Edit concepts and synonyms before searching. No filters are relaxed automatically."
-        return QuerySuggestion(query=query, explanation=explanation)
+        return suggest_pubmed_query(request.question)
 
     def _operate(self, handle, operation, request, result_model, callback):
         def execute(state):

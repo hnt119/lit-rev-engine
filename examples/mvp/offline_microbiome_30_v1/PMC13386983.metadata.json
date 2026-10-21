@@ -1,0 +1,482 @@
+{
+  "abstractText": "Polycystic ovary syndrome (PCOS) is a chronic inflammatory disease caused by a combination of genetic, environmental, and gut microbiota factors. Western medicines can improve ovulation rates, but are linked with reduced pregnancy success and side effects. <i>Scutellaria baicalensis</i> (<i>BAL</i>) is a famous anti-inflammatory Chinese herb, which has therapeutic effects for PCOS; however, the mechanism remains unclear. This study integrated network pharmacology, molecular docking, and animal experiments to investigate the mechanisms by which <i>BAL</i> improves gut microbiota and intestinal inflammation in a rat PCOS model. We identified 36 active components of <i>BAL</i>, including <i>wogonin</i>, <i>baicalein</i>, and <i>oroxylin A</i>, along with 145 potential targets, such as <i>TNF</i>, <i>IL-6</i>, and <i>AKT1</i>, and network analysis revealed that <i>TNF</i>, <i>IL-6</i>, and <i>AKT1</i> occupied central positions. Enrichment analyses indicated that <i>BAL</i> may exert its therapeutic effects by modulating the <i>NF-κB</i> and Toll-like receptor signaling pathways. Molecular docking results demonstrated strong binding affinities between <i>BAL</i>'s primary active components and the core targets <i>TNF</i>, <i>AKT1</i>, and <i>IL-6. BAL</i> experiments in PCOS rats showed that it restored gut microbiota balance. These results showed that <i>BAL</i> inhibits the <i>LPS/TLR4/NF-κB</i> pathway and downregulates PI3K and p-Akt/Akt protein expression in ovarian tissue. <i>BAL</i> also improved reproductive metabolic abnormalities, intestinal inflammation, and dysbiosis. Our study suggests that <i>BAL</i> inhibits the <i>LPS/TLR4/NF-κB</i> pathway via the gut-ovarian axis, regulating gut microbial composition and alleviating inflammatory states. This may be a mechanism for the therapeutic efficacy of <i>BAL</i> for PCOS and a novel therapeutic strategy for the clinical management of polycystic ovary syndrome.IMPORTANCEPCOS affects women of reproductive age. Current clinical treatment strategies still face limitations in efficacy and long-term side effects. This study employs network pharmacology, molecular docking, and experimental validation to elucidate the mechanism by which the traditional Chinese medicine <i>BAL</i> improves PCOS. We found that <i>BAL</i> modulates gut microbiota in a PCOS rat model, significantly increasing the probiotic genus <i>Phocaeicola</i>. This change correlates with reduced serum LPS levels and alleviated ovarian inflammation. Experiments confirm that <i>BAL</i> alleviates local ovarian inflammation and insulin resistance by inhibiting the <i>LPS/TLR4/NF-κB</i> signaling pathway, thereby improving PCOS pathological manifestations. This study reveals new mechanisms of <i>BAL</i> in treating PCOS and highlights the potential bridging role of probiotics like <i>Phocaeicola</i>. It also provides experimental evidence and theoretical support for integrated Chinese and Western medicine treatment strategies based on regulating gut microbiota.",
+  "affiliation": "Department of Endocrinology and Metabolism, The First Affiliated Hospital of Anhui Medical University, Hefei, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0002-0175-8337"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-5958-1941"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0007-2442-0279"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0009-2430-1928"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Endocrinology and Metabolism, The First Affiliated Hospital of Anhui Medical University, Hefei, China."
+            },
+            {
+              "affiliation": "Endocrinology Department of He County Traditional Chinese Medicine Hospital, Ma'anshan, Anhui, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0007-2442-0279"
+        },
+        "firstName": "Zhengxiu",
+        "fullName": "Pan Z",
+        "initials": "Z",
+        "lastName": "Pan"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Sciences, Anhui Medical University, Hefei, China."
+            }
+          ]
+        },
+        "firstName": "Caili",
+        "fullName": "Zhang C",
+        "initials": "C",
+        "lastName": "Zhang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Anhui Tongling Bionic Technology Co., Ltd., Hefei, China."
+            }
+          ]
+        },
+        "firstName": "Qiangqiang",
+        "fullName": "Chu Q",
+        "initials": "Q",
+        "lastName": "Chu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Endocrinology and Metabolism, The First Affiliated Hospital of Anhui Medical University, Hefei, China."
+            }
+          ]
+        },
+        "firstName": "Mingwei",
+        "fullName": "Chen M",
+        "initials": "M",
+        "lastName": "Chen"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Geriatric Endocrinology, The First Affiliated Hospital of Anhui Medical University, Hefei, China."
+            }
+          ]
+        },
+        "firstName": "Cancan",
+        "fullName": "Hui C",
+        "initials": "C",
+        "lastName": "Hui"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Reproductive Medicine, The First Affiliated Hospital of Anhui Medical University, Hefei, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-0175-8337"
+        },
+        "firstName": "Tianjuan",
+        "fullName": "Wang T",
+        "initials": "T",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Sciences, Anhui Medical University, Hefei, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-5958-1941"
+        },
+        "firstName": "Maozhen",
+        "fullName": "Han M",
+        "initials": "M",
+        "lastName": "Han"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Endocrinology and Metabolism, The First Affiliated Hospital of Anhui Medical University, Hefei, China."
+            },
+            {
+              "affiliation": "Anhui Medical University, Institute of Endocrinology and Metabolism, Hefei, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0009-2430-1928"
+        },
+        "firstName": "Datong",
+        "fullName": "Deng D",
+        "initials": "D",
+        "lastName": "Deng"
+      }
+    ]
+  },
+  "authorString": "Pan Z, Zhang C, Chu Q, Chen M, Hui C, Wang T, Han M, Deng D.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "Plant Extracts",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Lipopolysaccharides",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Drugs, Chinese Herbal",
+        "registryNumber": "0"
+      },
+      {
+        "name": "NF-kappa B",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Scutellaria baicalensis extract",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Toll-Like Receptor 4",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Tlr4 protein, rat",
+        "registryNumber": "0"
+      }
+    ]
+  },
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-07-21",
+  "dateOfCreation": "2026-06-15",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.1128/msystems.01825-25",
+  "electronicPublicationDate": "2026-06-15",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-06-16",
+  "firstPublicationDate": "2026-06-15",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13386983"
+    ]
+  },
+  "fullTextReceivedDate": "2026-09-03",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1128/msystems.01825-25"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13386983"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13386983?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42294648",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 Jul",
+    "issue": "7",
+    "journal": {
+      "essn": "2379-5077",
+      "isoabbreviation": "mSystems",
+      "issn": "2379-5077",
+      "medlineAbbreviation": "mSystems",
+      "nlmid": "101680636",
+      "title": "mSystems"
+    },
+    "journalIssueId": 4231664,
+    "monthOfPublication": 7,
+    "printPublicationDate": "2026-07-01",
+    "volume": "11",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Scutellaria baicalensis",
+      "Molecular docking",
+      "Polycystic ovary syndrome",
+      "Gut Microbiota",
+      "Network Pharmacology"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Ovary",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            },
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Animals",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Rats",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Rats, Sprague-Dawley",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Scutellaria baicalensis",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "CH",
+              "majorTopic_YN": "N",
+              "qualifierName": "chemistry"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Polycystic Ovary Syndrome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DT",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug therapy"
+            },
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            },
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Disease Models, Animal",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Lipopolysaccharides",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "NF-kappa B",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Plant Extracts",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "PD",
+              "majorTopic_YN": "N",
+              "qualifierName": "pharmacology"
+            },
+            {
+              "abbreviation": "CH",
+              "majorTopic_YN": "N",
+              "qualifierName": "chemistry"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Drugs, Chinese Herbal",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "PD",
+              "majorTopic_YN": "N",
+              "qualifierName": "pharmacology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Signal Transduction",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Toll-Like Receptor 4",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Molecular Docking Simulation",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "e0182525",
+  "pmcid": "PMC13386983",
+  "pmid": "42294648",
+  "pubModel": "Print-Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "ppublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Targeting the gut-ovarian axis: &lt;i&gt;Scutellaria baicalensis&lt;/i&gt; improves polycystic ovary syndrome by modulating gut microbiota composition and inhibiting the &lt;i&gt;LPS/TLR4/NF-κB&lt;/i&gt; signaling pathway.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "gen",
+      "doi"
+    ]
+  }
+}

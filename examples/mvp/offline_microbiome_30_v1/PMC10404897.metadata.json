@@ -1,0 +1,229 @@
+{
+  "abstractText": "Gut microbiota are closely related to health, and the β2-adrenergic receptor (<i>ADRB2</i>) gene is associated with gastrointestinal diseases. However, little is known about the relationship between <i>ADRB2</i> gene polymorphisms and intestinal microbiota. In the present study, we aimed to explore the relationship between <i>ADRB2</i> gene polymorphisms and gut microbiota in Chinese Han adolescents. Data analysis showed that the relative abundance, PICRUSt function prediction, and Chao1 and ACE indices of gut microbiota were significantly different between males and females (<i>P</i> < 0.05). The rs1042711 was positively associated with the relative abundance of Actinobacteria, Coriobacteriia, Bifidobacteriales, Erysipelotrichi, and Erysipelotrichales. The rs12654778 was negatively associated with Bacilli, Lactobacillales, Bacteroidaceae, and <i>Bacteroides</i>. rs1042713 was positively associated with Lactobacillales and Bifidobacteriales. The rs1042717 was positively associated with Bifidobacteriales and negatively associated with Veillonellaceae. The rs1042719 was negatively associated with Erysipelotrichi and Erysipelotrichales and positively associated with Erysipelotrichi, Erysipelotrichales, Bifidobacteriales, and Ruminococcaceae in females. The rs1801704 was positively associated with Erysipelotrichi, Erysipelotrichales, Bifidobacteriales, Actinobacteria, Coriobacteriia, and Bifidobacteriales. The rs2053044 was positively associated with Ruminococcaceae, <i>Dialister</i>, Firmicutes, Clostridia, Clostridiales, Bifidobacteriales, and <i>Faecalibacterium</i> and negatively associated with Bacilli, Lactobacillales, Lachnospiraceae, and Porphyromonadaceae (<i>P</i> < 0.05). These results suggested that the relative abundance, diversity, and PICRUSt function predictions of male and female gut microbiomes differ significantly and that <i>ADRB2</i> gene polymorphisms were associated with gut microbiome abundance in Chinese Han adolescents.",
+  "affiliation": "College of Life Science, Anqing Normal University, Anqing, 246133, P. R. China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Science, Anqing Normal University, Anqing, 246133, P. R. China."
+            },
+            {
+              "affiliation": "Department of Clinical Laboratory, Chongqing General Hospital, Chongqing, 400014, P. R. China."
+            }
+          ]
+        },
+        "firstName": "Shanrong",
+        "fullName": "Xu S",
+        "initials": "S",
+        "lastName": "Xu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Science, Anqing Normal University, Anqing, 246133, P. R. China."
+            }
+          ]
+        },
+        "firstName": "Wenqi",
+        "fullName": "Liu W",
+        "initials": "W",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Science, Anqing Normal University, Anqing, 246133, P. R. China."
+            }
+          ]
+        },
+        "firstName": "Li",
+        "fullName": "Gong L",
+        "initials": "L",
+        "lastName": "Gong"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Chongqing Traditional Chinese Medicine Hospital, Chongqing, 400021, P. R. China."
+            }
+          ]
+        },
+        "firstName": "Xinyang",
+        "fullName": "Li X",
+        "initials": "X",
+        "lastName": "Li"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Science, Anqing Normal University, Anqing, 246133, P. R. China."
+            }
+          ]
+        },
+        "firstName": "Wenwen",
+        "fullName": "Chu W",
+        "initials": "W",
+        "lastName": "Chu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Science, Anqing Normal University, Anqing, 246133, P. R. China."
+            }
+          ]
+        },
+        "firstName": "Meng",
+        "fullName": "Han M",
+        "initials": "M",
+        "lastName": "Han"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Science, Anqing Normal University, 1318 North Jixian Road, Anqing, 246133, P. R. China."
+            }
+          ]
+        },
+        "firstName": "Shuiqin",
+        "fullName": "Shi S",
+        "initials": "S",
+        "lastName": "Shi"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Life Science, Anqing Normal University, 1318 North Jixian Road, Anqing, 246133, P. R. China."
+            }
+          ]
+        },
+        "firstName": "Duoqi",
+        "fullName": "Zhou D",
+        "initials": "D",
+        "lastName": "Zhou"
+      }
+    ]
+  },
+  "authorString": "Xu S, Liu W, Gong L, Li X, Chu W, Han M, Shi S, Zhou D.",
+  "citedByCount": 1,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCreation": "2023-08-09",
+  "dateOfRevision": "2023-08-10",
+  "doi": "10.1515/biol-2022-0646",
+  "electronicPublicationDate": "2023-08-01",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2023-08-11",
+  "firstPublicationDate": "2023-08-01",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC10404897"
+    ]
+  },
+  "fullTextReceivedDate": "2023-08-20",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Unpaywall",
+        "url": "https://www.degruyter.com/document/doi/10.1515/biol-2022-0646/pdf"
+      },
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1515/biol-2022-0646"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC10404897"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC10404897?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "37554965",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2023 ",
+    "issue": "1",
+    "journal": {
+      "essn": "2391-5412",
+      "isoabbreviation": "Open Life Sci",
+      "issn": "2391-5412",
+      "medlineAbbreviation": "Open Life Sci",
+      "nlmid": "101669614",
+      "title": "Open life sciences"
+    },
+    "journalIssueId": 3492476,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2023-01-01",
+    "volume": "18",
+    "yearOfPublication": 2023
+  },
+  "keywordList": {
+    "keyword": [
+      "Correlation analysis",
+      "Intestinal Microbiota",
+      "Adrb2 Gene Polymorphisms",
+      "Chinese Han Adolescents"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "20220646",
+  "pmcid": "PMC10404897",
+  "pmid": "37554965",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2023",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Association of <i>ADRB2</i> gene polymorphisms and intestinal microbiota in Chinese Han adolescents.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "refsnp"
+    ]
+  }
+}

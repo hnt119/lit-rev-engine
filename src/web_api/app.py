@@ -168,8 +168,10 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
 
     @app.post(PREFIX + "/workspaces/{workspace_id}/searches", response_model=SearchPreview, dependencies=dependencies)
     def search(workspace_id: str, request: SearchRequest, session=Depends(session_for)):
-        _, handle, engine = owned(workspace_id, session)
-        return engine.search_literature(handle, request)
+        mode, handle, engine = owned(workspace_id, session)
+        preview = engine.search_literature(handle, request)
+        app.state.maps.install_saved_example(mode, handle, preview.id)
+        return preview
 
     @app.get(PREFIX + "/workspaces/{workspace_id}/searches/{search_id}/papers", response_model=SearchPreview, dependencies=dependencies)
     def papers(workspace_id: str, search_id: str, session=Depends(session_for)):

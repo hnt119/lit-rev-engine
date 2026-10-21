@@ -1,0 +1,196 @@
+{
+  "abstractText": "<h4>Introduction</h4>Although the gut microbiome is involved in the pathogenesis of knee osteoarthritis (OA), the effects of dietary supplementation remain controversial. Probiotics are a promising option for lifestyle management of inflammatory diseases. This study aimed to investigate the effects of dietary supplementation with probiotics on subjective symptoms and the gut microbiome in adults with knee pre-OA.<h4>Methods</h4>For the <i>in vitro</i> laboratory selection of probiotic strains, 110 strains of lactic acid bacteria and bifidobacteria were serially examined for expression profiles of OA-related genes in interleukin-1β-stimulated SW982 cells. The clinical trial was a double-blind, placebo-controlled, randomized clinical trial of Japanese adults with knee pre-OA based on Kellgren-Lawrence grade 0 or 1 and subjective symptoms. Probiotics or a placebo were administered during a 12-week intervention from January to April 2024. The primary outcomes were pain, stiffness, and discomfort in both knees, assessed using the visual analog scale (VAS). Secondary outcomes included subjective assessments, gut microbiome, blood biochemistry, and safety profiles, including adverse events.<h4>Results</h4><i>Ligilactobacillus salivarius</i> SBT2687 (LS2687) was identified in the analysis of gene expression profiles of SW982 cells. For the clinical trial, 108 participants (median age 52.0 years [IQR 47.0-57.0], 65.7% female) were included in the study. A greater reduction was observed in VAS scores for all symptoms in the LS2687 group than in the placebo group at 12 weeks (pain: -2.9 ± 6.1 vs. -1.7 ± 4.8, <i>P</i> = 0.048; stiffness: -3.6 ± 7.1 vs. -1.3 ± 5.1, <i>P</i> = 0.014; discomfort: -3.8 ± 7.5 vs. -1.7 ± 5.3, <i>P</i> = 0.016), although the between-group improvements did not survive baseline adjustment (ANCOVA <i>P</i> = 0.14-0.24). The species-level relative abundance of <i>Lactobacillus salivarius</i> increased in the LS2687 group (from 3.63% to 35.49%; <i>P</i> < 0.001 and 0.005 in within- and between-group comparisons, respectively). No adverse events were associated with this intervention throughout the study.<h4>Discussion</h4>LS2687 supplementation was well-tolerated and provided new insights into the probiotic management of knee pre-OA. The gut-knee axis should be considered in the management of symptoms with knee pre-OA.<h4>Clinical trial registration</h4>https://center6.umin.ac.jp/cgi-open-bin/ctr/ctr_view.cgi?recptno=R000059864, identifier [R000059864].",
+  "affiliation": "Milk Science Research Institute, Megmilk Snow Brand Co., Ltd., Kawagoe, Japan.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Milk Science Research Institute, Megmilk Snow Brand Co., Ltd., Kawagoe, Japan."
+            }
+          ]
+        },
+        "firstName": "Erina",
+        "fullName": "Ushizawa E",
+        "initials": "E",
+        "lastName": "Ushizawa"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Milk Science Research Institute, Megmilk Snow Brand Co., Ltd., Kawagoe, Japan."
+            }
+          ]
+        },
+        "firstName": "Takehiko",
+        "fullName": "Yasueda T",
+        "initials": "T",
+        "lastName": "Yasueda"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Milk Science Research Institute, Megmilk Snow Brand Co., Ltd., Kawagoe, Japan."
+            }
+          ]
+        },
+        "firstName": "Ayatake",
+        "fullName": "Nakano A",
+        "initials": "A",
+        "lastName": "Nakano"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Soiken Inc., Toyonaka, Japan."
+            }
+          ]
+        },
+        "firstName": "Tomohiro",
+        "fullName": "Sugino T",
+        "initials": "T",
+        "lastName": "Sugino"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Fukuda Clinic, Osaka, Japan."
+            }
+          ]
+        },
+        "firstName": "Masahiro",
+        "fullName": "Fukuda M",
+        "initials": "M",
+        "lastName": "Fukuda"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Milk Science Research Institute, Megmilk Snow Brand Co., Ltd., Kawagoe, Japan."
+            }
+          ]
+        },
+        "firstName": "Hiroshi M",
+        "fullName": "Ueno HM",
+        "initials": "HM",
+        "lastName": "Ueno"
+      }
+    ]
+  },
+  "authorString": "Ushizawa E, Yasueda T, Nakano A, Sugino T, Fukuda M, Ueno HM.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-08-19",
+  "dateOfCreation": "2026-08-19",
+  "dateOfRevision": "2026-08-20",
+  "doi": "10.3389/fnut.2026.1863405",
+  "electronicPublicationDate": "2026-08-04",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-08-22",
+  "firstPublicationDate": "2026-08-04",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13481194"
+    ]
+  },
+  "fullTextReceivedDate": "2026-09-09",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/fnut.2026.1863405"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13481194"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13481194?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42614183",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "journal": {
+      "essn": "2296-861X",
+      "isoabbreviation": "Front Nutr",
+      "issn": "2296-861X",
+      "medlineAbbreviation": "Front Nutr",
+      "nlmid": "101642264",
+      "title": "Frontiers in nutrition"
+    },
+    "journalIssueId": 4110713,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "13",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Probiotics",
+      "Randomized controlled trial",
+      "Knee Osteoarthritis",
+      "Gut Microbiome",
+      "Pre-osteoarthritis",
+      "Ligilactobacillus Salivarius"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "1863405",
+  "pmcid": "PMC13481194",
+  "pmid": "42614183",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "Clinical Trial",
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Laboratory-selected, probiotic &lt;i&gt;Ligilactobacillus salivarius&lt;/i&gt; SBT2687 supplementation is associated with subjective knee symptoms and the gut microbiome in adults with pre-osteoarthritis: a randomized controlled trial in Japanese.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

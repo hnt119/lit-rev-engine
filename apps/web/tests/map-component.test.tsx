@@ -11,6 +11,24 @@ Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true});
 const papers:Schema<"Paper">[]=["a","b","c"].map(id=>({id,title:"SOFTWARE TEST PAPER "+id,authors:["Synthetic test author"],year:2020,abstract:"Synthetic software test metadata, not a demonstration corpus.",pmid:null,pmcid:null,doi:null,url:""}));
 const coordinates={a:[0,0] as [number,number],b:[1,1] as [number,number],c:[100,100] as [number,number]};
 
+test("complete hover metadata stays in a named keyboard-focusable region after point blur",async()=>{
+  const authors=Array.from({length:100},(_,index)=>`SOFTWARE TEST Author ${index}`);
+  const longPapers=[{...papers[0],authors},...papers.slice(1)];
+  const props={coordinates,papers:longPapers,visibleIds:new Set(["a","b","c"]),selectedIds:new Set<string>(),inspectedId:null,hoveredId:"a",onInspect:()=>{},onHover:()=>{}};
+  let renderer!:ReactTestRenderer;
+  await act(async()=>{renderer=create(<SemanticMap {...props}/>);});
+  try {
+    const region=()=>renderer.root.findByProps({"aria-label":"Most recently highlighted paper metadata"});
+    assert.equal(region().props.role,"region");assert.equal(region().props.tabIndex,0);
+    assert.equal(region().props["aria-live"],"polite");
+    assert.equal(region().findByType("span").children.join(""),authors.join(", "));
+    await act(async()=>renderer.update(<SemanticMap {...props} hoveredId={null}/>));
+    assert.equal(region().findByType("strong").children.join(""),papers[0].title);
+    assert.equal(region().findByType("span").children.join(""),authors.join(", "),"all authors remain available while focus moves to the scroll region");
+    assert.equal(renderer.root.findAllByType("circle").some(circle=>circle.props.className.includes("hovered")),false,"retaining metadata must not retain a hover marker");
+  } finally {await act(async()=>renderer.unmount());}
+});
+
 test("SVG inspection and pan/zoom are keyboard operable without changing saved positions",async()=>{
   const before=JSON.stringify(coordinates);const inspected:string[]=[];
   const props={coordinates,papers,visibleIds:new Set(["a","b","c"]),selectedIds:new Set(["b"]),inspectedId:null,hoveredId:null,onInspect:(id:string)=>inspected.push(id),onHover:()=>{}};
@@ -51,10 +69,17 @@ test("opening/filtering/reopening a persisted map uses GET only and never builds
   await act(async()=>renderer.unmount());
 });
 
-test("map computation and cooperative cancellation require explicit buttons",async()=>{
+test("map computation and cooperative cancellation require explicit buttons",{timeout:5000},async context=>{
   const requests:{method:string;url:string;body:Record<string,unknown>}[]=[];
+  const originalFetch=globalThis.fetch,originalStorage=Object.getOwnPropertyDescriptor(globalThis,"sessionStorage");
   const storage=new Map<string,string>();
   Object.defineProperty(globalThis,"sessionStorage",{configurable:true,value:{getItem:(key:string)=>storage.get(key)??null,setItem:(key:string,value:string)=>storage.set(key,value)}});
+  const receipts=new Map<string,()=>void>();
+  function waitForPost(operation:string){return new Promise<void>((resolve,reject)=>{
+    const aborted=()=>{receipts.delete(operation);reject(context.signal.reason);};
+    context.signal.addEventListener("abort",aborted,{once:true});
+    receipts.set(operation,()=>{context.signal.removeEventListener("abort",aborted);receipts.delete(operation);resolve();});
+  });}
   const job={id:"job",workspace_id:"workspace",search_id:"search",map_id:"map",status:"queued",attempt:0,max_attempts:2,progress_completed:0,progress_total:3,interrupted_count:0,created_at:"2026-01-01T00:00:00Z",updated_at:"2026-01-01T00:00:00Z",error:null};
   let submitted=false;
   globalThis.fetch=async(url,options)=>{
@@ -62,21 +87,28 @@ test("map computation and cooperative cancellation require explicit buttons",asy
     let value:unknown;
     if(path.endsWith("/session"))value={csrf_token:"test"};
     else if(path.includes("/maps?"))value={maps:[],jobs:submitted?[job]:[]};
-    else if(path.endsWith("/maps")&&method==="POST"){submitted=true;value={job,map_id:null,reused:false};}
-    else if(path.endsWith("/jobs/job/cancel"))value={...job,status:"cancel_requested"};
+    else if(path.endsWith("/maps")&&method==="POST"){submitted=true;value={job,map_id:null,reused:false};receipts.get("build")?.();}
+    else if(path.endsWith("/jobs/job/cancel")){value={...job,status:"cancel_requested"};receipts.get("cancel")?.();}
     else value=job;
     return new Response(JSON.stringify(value),{headers:{"Content-Type":"application/json"}});
   };
   const props={workspaceId:"workspace",search:{id:"search",papers} as Schema<"SearchPreview">,capability:{ready:true,reason:"Configured optional local weights"},visibleIds:new Set(["a","b","c"]),selectedIds:new Set<string>(),inspectedId:null,hoveredId:null,onInspect:()=>{},onHover:()=>{},onChooseMap:()=>{}};
-  let renderer!:ReactTestRenderer;await act(async()=>{renderer=create(<MapExplorer {...props}/>);});
-  assert.equal(requests.filter(request=>request.method==="POST").length,0);
-  const button=(label:string)=>renderer.root.findAllByType("button").find(item=>item.children.join("")===label)!;
-  await act(async()=>button("Build map of this saved search").props.onClick());
-  const build=requests.find(request=>request.method==="POST"&&request.url.endsWith("/maps"))!;
-  assert.equal(build.body.search_id,"search");assert.equal(build.body.profile_id,"paper_bge_v1");assert.equal(build.body.rebuild,false);assert.equal(typeof build.body.request_id,"string");
-  await act(async()=>button("Cancel map build").props.onClick());
-  assert.equal(requests.filter(request=>request.method==="POST").length,2);assert.equal(requests.some(request=>request.url.includes("source-preparations")||request.url.includes("evidence-runs")),false);
-  await act(async()=>renderer.unmount());
+  let renderer!:ReactTestRenderer;
+  try {
+    await act(async()=>{renderer=create(<MapExplorer {...props}/>);});
+    assert.equal(requests.filter(request=>request.method==="POST").length,0);
+    const button=(label:string)=>renderer.root.findAllByType("button").find(item=>item.children.join("")===label)!;
+    // The click callback returns void; observe completion of async requestId work explicitly.
+    await act(async()=>{const posted=waitForPost("build");button("Build map of this saved search").props.onClick();await posted;});
+    const build=requests.find(request=>request.method==="POST"&&request.url.endsWith("/maps"))!;
+    assert.equal(build.body.search_id,"search");assert.equal(build.body.profile_id,"paper_bge_v1");assert.equal(build.body.rebuild,false);assert.equal(typeof build.body.request_id,"string");
+    await act(async()=>{const posted=waitForPost("cancel");button("Cancel map build").props.onClick();await posted;});
+    assert.equal(requests.filter(request=>request.method==="POST").length,2);assert.equal(requests.some(request=>request.url.includes("source-preparations")||request.url.includes("evidence-runs")),false);
+  } finally {
+    if(renderer)await act(async()=>renderer.unmount());
+    globalThis.fetch=originalFetch;
+    if(originalStorage)Object.defineProperty(globalThis,"sessionStorage",originalStorage);else Reflect.deleteProperty(globalThis,"sessionStorage");
+  }
 });
 
 test("mobile Map/Papers switching retains mounted map state and keeps the inspector outside both panels",async()=>{

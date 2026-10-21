@@ -1,0 +1,202 @@
+{
+  "abstractText": "<i>Salvia sclarea</i> L. extract contains various bioactive components such as flavonoids and fatty acids, exhibiting anti-inflammatory, antioxidant, and antibacterial properties. This study aimed to investigate the effects of <i>Salvia sclarea</i> L. extract on the gut microbiota and serum metabolome in lambs. Sixty 2-month-old Chinese Merino female lambs (body weight 20 ± 2 kg) were randomly assigned to five groups. The control (CK) group received the basal diet only, while the treatment groups received the basal diet supplemented with 0.04 mL/kg (CL1), 0.08 mL/kg (CL2), 0.12 mL/kg (CL3), and 0.16 mL/kg (CL4) of <i>Salvia sclarea</i> L. extract, respectively. The results showed that Firmicutes, Bacteroidetes, Spirochaetes, and Proteobacteria were identified as the dominant phyla across all groups (>90%). Compared with the CK group, CL1 and CL2 groups significantly reduced the relative abundance of Tenericutes (decreased by 38.2% and 32.9%, respectively, <i>p</i> < 0.05); the relative abundance of Patescibacteria in the CL1 group was significantly lower (decreased by 55.2%, <i>p</i> < 0.05). At the genus level, <i>Ruminococcaceae</i> constituted a substantial proportion, including <i>Ruminococcaceae UCG-005</i>, <i>UCG-010</i>, <i>UCG-014</i>, and <i>NK4A214 group</i>. STAMP analysis revealed that <i>Klebsiella</i> was significantly enriched in CL2, CL3, and CL4 groups compared to the CK group (<i>p</i> < 0.05). Correlation analysis between microbiota and immune indices showed that <i>Christensenellaceae R-7 group</i> was significantly negatively correlated with TNF-α (<i>p</i> < 0.05); <i>Ruminococcaceae UCG-005</i> was significantly negatively correlated with IFN-γ (<i>p</i> < 0.05) and showed a negative correlation trend with immunoglobulins (IgA, IgG, IgM). Conversely, <i>Ruminococcaceae UCG-014</i> was significantly positively correlated with IL-4 (<i>p</i> < 0.05) but showed a negative correlation trend with IgM. Untargeted metabolomics analysis identified 8, 18, 25, and 20 differential metabolites in CL1, CL2, CL3, and CL4 groups, respectively. Notably, 3-hydroxy-7-methoxyflavone and Gamma-Glu-Cys were significantly upregulated across all treatment groups. KEGG pathway enrichment analysis indicated that these differential metabolites were primarily involved in nucleotide metabolism, fatty acid biosynthesis, and oxidative stress-related pathways. Further Spearman correlation analysis revealed significant associations between gut microbiota and differential metabolites. Specifically, <i>g_Klebsiella</i> was significantly positively correlated with 3-Hydroxycapric acid and 3-hydroxy-7-methoxyflavone (<i>p</i> < 0.05). In conclusion, <i>Salvia sclarea</i> L. extract modulates host energy metabolism by regulating nucleotide metabolism and fatty acid biosynthesis, and enhances immune function by alleviating oxidative stress, through the remodeling of gut microbiota and serum metabolome.",
+  "affiliation": "College of Animal Science and Technology, Shihezi University, Shihezi 832000, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-9213-2753"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-5314-9904"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-9552-3116"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Animal Science and Technology, Shihezi University, Shihezi 832000, China."
+            },
+            {
+              "affiliation": "Analysis and Testing Center, Shihezi University, Shihezi 832000, China."
+            }
+          ]
+        },
+        "firstName": "Xiaoling",
+        "fullName": "Ma X",
+        "initials": "X",
+        "lastName": "Ma"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Animal Science and Technology, Shihezi University, Shihezi 832000, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-9213-2753"
+        },
+        "firstName": "Shanshan",
+        "fullName": "Nan S",
+        "initials": "S",
+        "lastName": "Nan"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Animal Science and Technology, Shihezi University, Shihezi 832000, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-9552-3116"
+        },
+        "firstName": "Li",
+        "fullName": "Zhang L",
+        "initials": "L",
+        "lastName": "Zhang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Animal Science and Technology, Shihezi University, Shihezi 832000, China."
+            }
+          ]
+        },
+        "firstName": "Yuyang",
+        "fullName": "Xue Y",
+        "initials": "Y",
+        "lastName": "Xue"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "College of Animal Science and Technology, Shihezi University, Shihezi 832000, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-5314-9904"
+        },
+        "firstName": "Wenju",
+        "fullName": "Zhang W",
+        "initials": "W",
+        "lastName": "Zhang"
+      }
+    ]
+  },
+  "authorString": "Ma X, Nan S, Zhang L, Xue Y, Zhang W.",
+  "citedByCount": 0,
+  "dateOfCompletion": "2026-05-27",
+  "dateOfCreation": "2026-05-27",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.3390/microorganisms14051163",
+  "electronicPublicationDate": "2026-05-21",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-05-28",
+  "firstPublicationDate": "2026-05-21",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13210186"
+    ]
+  },
+  "fullTextReceivedDate": "2026-05-27",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/microorganisms14051163"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13210186"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13210186?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "N",
+  "hasTextMinedTerms": "Y",
+  "id": "42197548",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 May",
+    "issue": "5",
+    "journal": {
+      "essn": "2076-2607",
+      "isoabbreviation": "Microorganisms",
+      "issn": "2076-2607",
+      "medlineAbbreviation": "Microorganisms",
+      "nlmid": "101625893",
+      "title": "Microorganisms"
+    },
+    "journalIssueId": 4201735,
+    "monthOfPublication": 5,
+    "printPublicationDate": "2026-05-01",
+    "volume": "14",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Lambs",
+      "metabolome",
+      "Gut Microbiota",
+      "Salvia Sclarea L. Extract"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "1163",
+  "pmcid": "PMC13210186",
+  "pmid": "42197548",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Effects of Dietary &lt;i&gt;Salvia sclarea&lt;/i&gt; L. Extract Supplementation on the Gut Microbiota, and Serum Metabolome in Lambs."
+}

@@ -1,0 +1,276 @@
+{
+  "abstractText": "Invasive pulmonary aspergillosis (IPA) poses a serious threat to immunocompromised hosts, with limited therapeutic options highlighting the need for novel strategies. <i>Coptis chinensis</i> Franch. (CCF), a traditional Chinese herb containing antimicrobial alkaloids like berberine, was investigated for its therapeutic efficacy and immunological effects in a murine IPA model. Immunosuppressed female KM mice infected with <i>Aspergillus fumigatus</i> AF293 were treated with CCF or amphotericin B (AmB). CCF significantly improved survival, reduced fungal burden, and alleviated lung pathology, without inducing hepatotoxicity or nephrotoxicity. Transcriptomic profiling revealed a time-dependent immune response. Complement-related pathways were enriched at 2 days post-infection, whereas neutrophil recruitment and NET-related pathways became more prominent by day 4. Hub gene analysis identified Syk, Rac2, Ncf1, and Cybb as key nodes associated with the NADPH oxidase complex. Western blot and inhibitor experiments further supported the involvement of this pathway in CCF-mediated protection. Additionally, 16S rDNA sequencing indicated enrichment of <i>Clostridium</i> species in the gut microbiota of CCF-treated mice, which was positively correlated with the expression of NADPH oxidase-related genes, suggesting a potential gut-lung association. In conclusion, these findings support the antifungal efficacy of CCF in IPA and suggest that its protective effects may involve coordinated changes in complement-related responses, NADPH oxidase-associated neutrophil activity, and gut microbiota composition.",
+  "affiliation": "Guangdong Provincial Key Laboratory of Pharmaceutical Bioactive Substances, School of Basic Medical Sciences, Guangdong Pharmaceutical University, Guangzhou 510006, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-9981-0270"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-3596-7337"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0009-1172-2205"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Guangdong Provincial Key Laboratory of Pharmaceutical Bioactive Substances, School of Basic Medical Sciences, Guangdong Pharmaceutical University, Guangzhou 510006, China."
+            }
+          ]
+        },
+        "firstName": "Zhuqiao",
+        "fullName": "Jiang Z",
+        "initials": "Z",
+        "lastName": "Jiang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Guangdong Provincial Key Laboratory of Pharmaceutical Bioactive Substances, School of Basic Medical Sciences, Guangdong Pharmaceutical University, Guangzhou 510006, China."
+            }
+          ]
+        },
+        "firstName": "Lingmei",
+        "fullName": "Zhou L",
+        "initials": "L",
+        "lastName": "Zhou"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Guangdong Provincial Key Laboratory of Pharmaceutical Bioactive Substances, School of Basic Medical Sciences, Guangdong Pharmaceutical University, Guangzhou 510006, China."
+            }
+          ]
+        },
+        "firstName": "Jinping",
+        "fullName": "Wang J",
+        "initials": "J",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Guangdong Provincial Key Laboratory of Pharmaceutical Bioactive Substances, School of Basic Medical Sciences, Guangdong Pharmaceutical University, Guangzhou 510006, China."
+            }
+          ]
+        },
+        "firstName": "Hao",
+        "fullName": "Sun H",
+        "initials": "H",
+        "lastName": "Sun"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Guangdong Provincial Key Laboratory of Pharmaceutical Bioactive Substances, School of Basic Medical Sciences, Guangdong Pharmaceutical University, Guangzhou 510006, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0009-1172-2205"
+        },
+        "firstName": "Liwen",
+        "fullName": "Cai L",
+        "initials": "L",
+        "lastName": "Cai"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "South China Institute of Biomedicine, Guangzhou 510535, China."
+            }
+          ]
+        },
+        "firstName": "Hanqi",
+        "fullName": "Yin H",
+        "initials": "H",
+        "lastName": "Yin"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The First Affiliated Hospital, Guangdong Pharmaceutical University, Guangzhou 510080, China."
+            }
+          ]
+        },
+        "firstName": "Hui",
+        "fullName": "Zhu H",
+        "initials": "H",
+        "lastName": "Zhu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Guangdong Provincial Key Laboratory of Pharmaceutical Bioactive Substances, School of Basic Medical Sciences, Guangdong Pharmaceutical University, Guangzhou 510006, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-9981-0270"
+        },
+        "firstName": "Ming",
+        "fullName": "Li M",
+        "initials": "M",
+        "lastName": "Li"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Guangdong Provincial Key Laboratory of Pharmaceutical Bioactive Substances, School of Basic Medical Sciences, Guangdong Pharmaceutical University, Guangzhou 510006, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-3596-7337"
+        },
+        "firstName": "Zhuoya",
+        "fullName": "Wang Z",
+        "initials": "Z",
+        "lastName": "Wang"
+      }
+    ]
+  },
+  "authorString": "Jiang Z, Zhou L, Wang J, Sun H, Cai L, Yin H, Zhu H, Li M, Wang Z.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-04-27",
+  "dateOfCreation": "2026-04-27",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.3390/cimb48040424",
+  "electronicPublicationDate": "2026-04-20",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-04-27",
+  "firstPublicationDate": "2026-04-20",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13115011"
+    ]
+  },
+  "fullTextReceivedDate": "2026-05-18",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/cimb48040424"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13115011"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13115011?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "Scientific Research Project of the Guangdong Provincial Bureau of Traditional Chinese Medicine",
+        "grantId": "20251223",
+        "orderIn": 0
+      },
+      {
+        "agency": "National Natural Science Foundation of China",
+        "grantId": "82004035",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42042084",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 Apr",
+    "issue": "4",
+    "journal": {
+      "essn": "1467-3045",
+      "isoabbreviation": "Curr Issues Mol Biol",
+      "issn": "1467-3037",
+      "medlineAbbreviation": "Curr Issues Mol Biol",
+      "nlmid": "100931761",
+      "title": "Current issues in molecular biology"
+    },
+    "journalIssueId": 4186051,
+    "monthOfPublication": 4,
+    "printPublicationDate": "2026-04-01",
+    "volume": "48",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "NADPH oxidase",
+      "Complement activation",
+      "Invasive Pulmonary Aspergillosis",
+      "Coptis Chinensis Franch.",
+      "Neutrophil Extracellular Traps"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "424",
+  "pmcid": "PMC13115011",
+  "pmid": "42042084",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "&lt;i&gt;Coptis chinensis&lt;/i&gt; Franch. Suppresses Invasive Pulmonary Aspergillosis by Augmenting NADPH-Dependent Neutrophil Extracellular Traps via Dual Modulation of Complement Activation and Gut Microbiota.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

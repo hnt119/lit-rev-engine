@@ -1,0 +1,226 @@
+{
+  "abstractText": "This study investigated the influence of two distinct aquaculture systems, namely, the wheat-crab model (WCM) and pond culture (PC) model, on the growth, physiological well-being, and gut microbial structure of Chinese mitten crabs (<i>Eriocheir sinensis</i>). A total of 120 adult crabs were randomly selected from the two systems: 60 crabs from the WCM, including 30 females and 30 males, and 60 crabs from the PC model, also including 30 females and 30 males. The gonadosomatic index of female crabs in the WCM was notably higher than that of the other groups, while the hepatopancreatic index was significantly lower. Significant variations were not observed in final weight, fullness, or muscle yield between the WCM and PC groups. Biochemical evaluations indicated no substantial differences in antioxidant capabilities between the two systems; however, female crabs demonstrated increased critical antioxidant enzyme activity, such as for catalase and superoxide dismutase, and significantly elevated cholesterol levels. Additionally, the expression of the genes <i>IL</i>, <i>ProPO</i>, and <i>Keap1</i> was significantly higher in the WCM group than the PC group, whereas the expression of <i>ALF2</i>, <i>Myd88</i>, and <i>CncC</i> did not significantly differ between the two cultivation methods. Non-targeted metabolomics analysis revealed notable distinctions in metabolite profiles between the two systems. Moreover, the WCM facilitated an increase in beneficial Firmicutes bacteria while reducing potentially harmful microorganisms, suggesting improved immune function in crabs raised under the WCM. In summary, female crabs reared in the WCM matured earlier and exhibited slightly better health conditions compared to those grown in the PC model.",
+  "affiliation": "Anhui Key Laboratory of Aquaculture and Stock Enhancement, Fishery Institute of Anhui Academy of Agricultural Sciences, Hefei 230041, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0003-1525-8971"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Anhui Key Laboratory of Aquaculture and Stock Enhancement, Fishery Institute of Anhui Academy of Agricultural Sciences, Hefei 230041, China."
+            }
+          ]
+        },
+        "firstName": "Min",
+        "fullName": "Yang M",
+        "initials": "M",
+        "lastName": "Yang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Anhui Key Laboratory of Aquaculture and Stock Enhancement, Fishery Institute of Anhui Academy of Agricultural Sciences, Hefei 230041, China."
+            }
+          ]
+        },
+        "firstName": "Jun",
+        "fullName": "Ling J",
+        "initials": "J",
+        "lastName": "Ling"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Anhui Key Laboratory of Aquaculture and Stock Enhancement, Fishery Institute of Anhui Academy of Agricultural Sciences, Hefei 230041, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-1525-8971"
+        },
+        "firstName": "Tong",
+        "fullName": "Li T",
+        "initials": "T",
+        "lastName": "Li"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Anhui Key Laboratory of Aquaculture and Stock Enhancement, Fishery Institute of Anhui Academy of Agricultural Sciences, Hefei 230041, China."
+            }
+          ]
+        },
+        "firstName": "Chengchen",
+        "fullName": "Yu C",
+        "initials": "C",
+        "lastName": "Yu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Anhui Key Laboratory of Aquaculture and Stock Enhancement, Fishery Institute of Anhui Academy of Agricultural Sciences, Hefei 230041, China."
+            }
+          ]
+        },
+        "firstName": "He",
+        "fullName": "Jiang H",
+        "initials": "H",
+        "lastName": "Jiang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Anhui Key Laboratory of Aquaculture and Stock Enhancement, Fishery Institute of Anhui Academy of Agricultural Sciences, Hefei 230041, China."
+            }
+          ]
+        },
+        "firstName": "Tingshuang",
+        "fullName": "Pan T",
+        "initials": "T",
+        "lastName": "Pan"
+      }
+    ]
+  },
+  "authorString": "Yang M, Ling J, Li T, Yu C, Jiang H, Pan T.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2025-10-29",
+  "dateOfCreation": "2025-10-29",
+  "dateOfRevision": "2025-11-01",
+  "doi": "10.3390/microorganisms13102396",
+  "electronicPublicationDate": "2025-10-19",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2025-10-29",
+  "firstPublicationDate": "2025-10-19",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12566014"
+    ]
+  },
+  "fullTextReceivedDate": "2025-11-29",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/microorganisms13102396"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12566014"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12566014?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "China Agriculture Research System",
+        "grantId": "CARS-48",
+        "orderIn": 0
+      },
+      {
+        "agency": "Anhui Provincial Modern Agri-industry Technology Research System",
+        "grantId": "AHCYJSTX-08",
+        "orderIn": 0
+      },
+      {
+        "agency": "Anhui Province innovation platform of major science and technology projects",
+        "grantId": "S202305a12020001",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "41156855",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 Oct",
+    "issue": "10",
+    "journal": {
+      "essn": "2076-2607",
+      "isoabbreviation": "Microorganisms",
+      "issn": "2076-2607",
+      "medlineAbbreviation": "Microorganisms",
+      "nlmid": "101625893",
+      "title": "Microorganisms"
+    },
+    "journalIssueId": 4038836,
+    "monthOfPublication": 10,
+    "printPublicationDate": "2025-10-01",
+    "volume": "13",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "Growth",
+      "Metabolism",
+      "intestinal microflora",
+      "Chinese Mitten Crab",
+      "Wheat-crab Model"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "2396",
+  "pmcid": "PMC12566014",
+  "pmid": "41156855",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Effects of the Wheat Crab Model and the Pond Culture Model on the Growth, Metabolism and Intestinal Microbiota of the Chinese Mitten Crab (&lt;i&gt;Eriocheir sinensis&lt;/i&gt;).",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "bioproject"
+    ]
+  }
+}

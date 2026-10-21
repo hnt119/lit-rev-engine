@@ -178,8 +178,10 @@ def test_long_retry_after_ends_operation_instead_of_unbounded_wait():
 
 
 def test_real_saved_example_integrity_provenance_and_no_query_substitution():
-    provider = SavedExampleProvider()
-    info = saved_example_info()
+    # Keep this historical one-paper capture and its exact provenance immutable.
+    historical = Path(__file__).resolve().parents[1] / "fixtures" / "mvp"
+    provider = SavedExampleProvider(fixture_dir=historical)
+    info = saved_example_info(fixture_dir=historical)
     preview = provider.search(SearchRequest(request_id="offline", query="ARBITRARY NOT EXECUTED",
                                             date_from="1900-01-01", date_to="1901-01-01"))
     assert preview.mode == "saved_example" and preview.provider == "europe_pmc_saved_example"

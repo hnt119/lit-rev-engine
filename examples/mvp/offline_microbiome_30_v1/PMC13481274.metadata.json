@@ -1,0 +1,241 @@
+{
+  "abstractText": "<h4>Objective</h4>To review and summarize research on stroke-related sarcopenia, identify its associated factors, and provide a theoretical foundation for further research and interventions.<h4>Methods</h4>A systematic search was conducted in Chinese National Knowledge Infrastructure (CNKI), Wanfang, VIP, SinoMed, PubMed, Web of Science, CINAHL, Embase, and the Cochrane Library for Chinese and English literature on stroke-related sarcopenia. The search covered publications from the inception of each database through March 4, 2026. The study analyzed and summarized the literature by defining the research topic, screening studies, and conducting methodological evaluations, thereby identifying and summarizing the associated factors associated with stroke-related sarcopenia.<h4>Results</h4>This study included a total of 32 studies, comprising 28 original studies and 4 meta-analyses. Based on the 28 original studies, a total of 32 associated factors for stroke-related sarcopenia were identified, specifically: low BMI, advanced age, low phase angle, reduced calf circumference, low SMI (skeletal muscle index), waist circumference, nutritional status, smoking, low quality of life, decreased activities of daily living, more than three comorbidities, high stroke severity, stroke duration, dysphagia, diabetes, abnormal biochemical markers, tube feeding, length of ICU stay, osteoporosis, number of strokes, cognitive impairment, weight loss, low food texture level, cardiovascular disease, female gender, physical activity level, high risk of falls, oral health issues, pneumonia, speech disorders, gut microbiota diversity, and frailty.<h4>Conclusion</h4>The associated factors for stroke-related sarcopenia are multifaceted. Healthcare professionals need to conduct comprehensive assessments of patients to screen for potential factors associated with stroke-related sarcopenia, thereby providing a basis for clinical intervention.",
+  "affiliation": "School of Nursing, Zhejiang Chinese Medical University, Hangzhou, China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Nursing, Zhejiang Chinese Medical University, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Fanchi",
+        "fullName": "Xu F",
+        "initials": "F",
+        "lastName": "Xu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Nursing, Zhejiang Chinese Medical University, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Yaqin",
+        "fullName": "You Y",
+        "initials": "Y",
+        "lastName": "You"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Nursing, Zhejiang Chinese Medical University, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Yijing",
+        "fullName": "Ling Y",
+        "initials": "Y",
+        "lastName": "Ling"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The Second Affiliated Hospital of Zhejiang Chinese Medical University, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Yehong",
+        "fullName": "Wei Y",
+        "initials": "Y",
+        "lastName": "Wei"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The Second Affiliated Hospital of Zhejiang Chinese Medical University, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Meng",
+        "fullName": "Hu M",
+        "initials": "M",
+        "lastName": "Hu"
+      }
+    ]
+  },
+  "authorString": "Xu F, You Y, Ling Y, Wei Y, Hu M.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-08-19",
+  "dateOfCreation": "2026-08-19",
+  "dateOfRevision": "2026-09-09",
+  "doi": "10.3389/fneur.2026.1860091",
+  "electronicPublicationDate": "2026-08-04",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-08-22",
+  "firstPublicationDate": "2026-08-04",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13481274"
+    ]
+  },
+  "fullTextReceivedDate": "2026-09-09",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/fneur.2026.1860091"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13481274"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13481274?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42614262",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "journal": {
+      "essn": "1664-2295",
+      "isoabbreviation": "Front Neurol",
+      "issn": "1664-2295",
+      "medlineAbbreviation": "Front Neurol",
+      "nlmid": "101546899",
+      "title": "Frontiers in neurology"
+    },
+    "journalIssueId": 4110737,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "17",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Rehabilitation",
+      "Stroke",
+      "Associated Factors",
+      "Sarcopenia",
+      "Scoping Review"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Activities of Daily Living",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Risk Factors",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Quality of Life",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Stroke",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "CO",
+              "majorTopic_YN": "N",
+              "qualifierName": "complications"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Sarcopenia",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ET",
+              "majorTopic_YN": "N",
+              "qualifierName": "etiology"
+            },
+            {
+              "abbreviation": "EP",
+              "majorTopic_YN": "N",
+              "qualifierName": "epidemiology"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "1860091",
+  "pmcid": "PMC13481274",
+  "pmid": "42614262",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "Scoping Review",
+      "review-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Associated factors for stroke-related sarcopenia: a scoping review.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}
