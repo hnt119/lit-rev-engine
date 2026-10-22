@@ -1,4 +1,4 @@
-import {allowedRoute, browserBoundary, localOrigin,allowedQuery,boundedBody} from "../../../../lib/bridge";
+import {allowedRoute, browserBoundary, localOrigin,allowedQuery,boundedBody,requestByteLimit} from "../../../../lib/bridge";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -20,11 +20,11 @@ async function forward(request: Request, context: {params: Promise<{path:string[
   const target = new URL("/api/v1/"+path.map(encodeURIComponent).join("/"),api);
   target.search = new URL(request.url).search;
   const headers = new Headers();
-  for (const name of ["cookie","origin","x-csrf-token","content-type","accept"]) {
+  for (const name of ["cookie","origin","x-csrf-token","content-type","accept","x-request-id","x-import-filename"]) {
     const value=request.headers.get(name);if(value)headers.set(name,value);
   }
   try {
-    const body=mutation?await boundedBody(request):undefined;
+    const body=mutation?await boundedBody(request,requestByteLimit(request.method,route,request.headers.get('content-type'))):undefined;
     const upstream=await fetch(target,{method:request.method,headers,body,
       cache:"no-store",redirect:"error",signal:AbortSignal.timeout(120000)});
     const responseHeaders=new Headers({"Cache-Control":"no-store","X-Content-Type-Options":"nosniff"});

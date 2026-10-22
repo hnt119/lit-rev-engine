@@ -125,13 +125,16 @@ class CellProposalService:
                 return run
             try:
                 from .adapters.cell_generation import build_packet
+                from .adapters.span_packets import build_span_packet
+                from .span_board_contracts import SPAN_BOARD_PROFILE
+                packet_builder = build_span_packet if definition.retrieval_profile.get('profile_id') == SPAN_BOARD_PROFILE else build_packet
                 packets = []
                 for paper_id in request.paper_ids:
                     self._deadline(started)
                     candidates = [self.boards.candidates(mode, handle, board_id, BoardCandidatesRequest(
                         request_id=f'proposal:{run.id}:{index}:{len(packets)}', expected_revision_id=definition.revision_id,
                         paper_id=paper_id, field_id=field_id)) for index, field_id in enumerate(request.field_ids)]
-                    packets.append(build_packet(definition, paper_id, candidates))
+                    packets.append(packet_builder(definition, paper_id, candidates))
                 run = run.model_copy(update={'packets': packets, 'calls': [ProposalCallReceipt(paper_id=p.paper_id,
                     packet_sha256=digest(p.model_dump(mode='json')), request_sha256=digest({'packet': p.model_dump(mode='json'),
                         'prompt_version': run.prompt_version, 'model_profile_sha256': run.model_profile_sha256})) for p in packets]})

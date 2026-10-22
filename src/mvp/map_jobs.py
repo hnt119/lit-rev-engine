@@ -105,12 +105,50 @@ class PaperMapService:
     def delete_workspace(self, workspace_id):
         self.store.delete_workspace(workspace_id)
 
+    def input_for_job(self, engine, handle, job):
+        search = SearchPreview.model_validate_json(job['search_json'])
+        actual = find_search(engine.get_workspace(handle), job['search_id'])
+        if digest(actual.model_dump(mode='json')) != digest(search.model_dump(mode='json')):
+            raise MvpError('map_integrity', 'Saved search no longer matches this map job.')
+        return search
+
+    @staticmethod
+    def representations_for_job(captured):
+        return representations(captured)
+
+    @staticmethod
+    def build_for_job(workspace_id, captured, profile, embedded, excluded, map_id):
+        return build_artifact(workspace_id, captured, profile, embedded, excluded, map_id)
+
+    def publish_job(self, engine, handle, job, captured, artifact, embedded):
+        def publish(state):
+            if self.registry.is_deleted(state.id):
+                raise unavailable('workspace')
+            retained = find_search(state, captured.id)
+            if digest(retained.model_dump(mode='json')) != artifact.search_snapshot_sha256:
+                raise MvpError('map_integrity', 'Map search binding changed before publication.')
+            self.store.publish(job, artifact, embedded, counts(captured, artifact))
+        engine.with_workspace_state(handle, publish)
+
 
 class MapWorker:
-    def __init__(self, maps: PaperMapService, *, poll_seconds=0.5, heartbeat_seconds=10, lease_seconds=120):
+    def __init__(self, maps: PaperMapService, *, poll_seconds=0.5, heartbeat_seconds=10, lease_seconds=120, additional_domains=()):
         self.maps = maps
+        self.domains = [maps]
+        for domain in additional_domains:
+            self.add_domain(domain)
         self.poll_seconds, self.heartbeat_seconds, self.lease_seconds = poll_seconds, heartbeat_seconds, lease_seconds
         self._stop, self._thread, self._descriptor = threading.Event(), None, None
+        self._queue_cursor = 0
+
+    def add_domain(self, domain):
+        if getattr(self, '_thread', None) and self._thread.is_alive():
+            raise ValueError('Map domains must be registered before the shared worker starts')
+        if (domain.registry is not self.maps.registry or domain.embedder is not self.maps.embedder
+                or domain.store.path.absolute() != self.maps.store.path.absolute()):
+            raise ValueError('Map domains must share registry, exact embedder and map database')
+        if domain not in self.domains:
+            self.domains.append(domain)
 
     def _acquire(self):
         path = self.maps.store.path.parent / "paper-map-worker.lock"
@@ -121,7 +159,16 @@ class MapWorker:
             os.close(descriptor)
             return False
         self._descriptor = descriptor
-        self.maps.store.recover()
+        try:
+            seen = set()
+            for domain in self.domains:
+                identity = domain.store.job_table
+                if identity not in seen:
+                    domain.store.recover()
+                    seen.add(identity)
+        except BaseException:
+            self._release()
+            raise
         return True
 
     def _release(self):
@@ -170,22 +217,27 @@ class MapWorker:
 
     def run_once(self):
         """One deterministic worker step; production launch owns the OS lock."""
-        job = self.maps.store.claim(secrets.token_urlsafe(24), self.lease_seconds)
-        if job is None:
-            return False
-        self._process(job)
-        return True
+        for offset in range(len(self.domains)):
+            index = (self._queue_cursor + offset) % len(self.domains)
+            domain = self.domains[index]
+            job = domain.store.claim(secrets.token_urlsafe(24), self.lease_seconds)
+            if job is not None:
+                self._queue_cursor = (index + 1) % len(self.domains)
+                self._process(job, domain)
+                return True
+        return False
 
-    def _process(self, job):
+    def _process(self, job, domain=None):
+        maps = domain or self.maps
         finished, heartbeat_errors = threading.Event(), []
         def checkpoint(completed=None):
             if self._stop.is_set():
                 raise MvpError("map_worker_interrupted", "The local map worker is stopping. This attempt can be recovered after restart.", True)
             if heartbeat_errors:
                 raise heartbeat_errors[0]
-            if self.maps.registry.is_deleted(job["workspace_id"]):
+            if maps.registry.is_deleted(job["workspace_id"]):
                 raise unavailable("workspace")
-            self.maps.store.checkpoint(job, completed=completed, lease_seconds=self.lease_seconds)
+            maps.store.checkpoint(job, completed=completed, lease_seconds=self.lease_seconds)
         def heartbeat():
             while not finished.wait(self.heartbeat_seconds):
                 try:
@@ -196,26 +248,24 @@ class MapWorker:
         pulse = threading.Thread(target=heartbeat, name="paper-map-lease", daemon=True)
         pulse.start()
         try:
-            mode, handle = self.maps.registry.get_bound_handle_for_worker(job["workspace_id"])
-            engine = self.maps.service_for(mode)
-            search = SearchPreview.model_validate_json(job["search_json"])
+            mode, handle = maps.registry.get_bound_handle_for_worker(job["workspace_id"])
+            engine = maps.service_for(mode)
+            captured = maps.input_for_job(engine, handle, job)
             profile = EmbeddingProfile.model_validate_json(job["profile_json"])
-            actual = find_search(engine.get_workspace(handle), job["search_id"])
-            if digest(actual.model_dump(mode="json")) != digest(search.model_dump(mode="json")):
-                raise MvpError("map_integrity", "Saved search no longer matches this map job.")
-            if self.maps.embedder.profile != profile:
+            if maps.embedder.profile != profile:
                 raise MvpError("embedding_profile_changed", "Configured local embedding profile changed; explicitly build a new map.")
             embedded, excluded = [], []
-            for index, representation in enumerate(representations(search)):
+            inputs = maps.representations_for_job(captured)
+            for index, representation in enumerate(inputs):
                 checkpoint(index)
                 try:
-                    item = self.maps.store.embedding(handle.workspace_id, profile, representation)
+                    item = maps.store.embedding(handle.workspace_id, profile, representation)
                     if item is None:
-                        item = self.maps.embedder.embed(representation, checkpoint)
+                        item = maps.embedder.embed(representation, checkpoint)
                         if item.paper_id != representation.paper_id or item.input_sha256 != representation.input_sha256 or item.representation != representation.representation:
                             raise MvpError("embedding_identity", "Embedding output did not match its exact paper input.")
                         validate_vector(item.vector, profile.dimension)
-                        item = self.maps.store.put_embedding(handle.workspace_id, profile, item)
+                        item = maps.store.put_embedding(handle.workspace_id, profile, item)
                     embedded.append(item)
                 except MvpError as error:
                     if error.code in {"map_cancelled", "map_attempt_lost", "unknown_workspace", "map_worker_interrupted", "map_storage_limit", "map_integrity", "embedding_profile_changed", "embedding_profile_mismatch", "map_setup_required"}:
@@ -224,26 +274,19 @@ class MapWorker:
                 except Exception:
                     excluded.append(ExcludedPaper(paper_id=representation.paper_id, code="embedding_failed", reason="This paper's embedding failed validation or local calculation; no position was invented."))
                 checkpoint(index + 1)
-            artifact, embedded = build_artifact(handle.workspace_id, search, profile, embedded, excluded, job["map_id"])
-            checkpoint(len(search.papers))
-            def publish(state):
-                if self.maps.registry.is_deleted(state.id):
-                    raise unavailable("workspace")
-                retained = find_search(state, search.id)
-                if digest(retained.model_dump(mode="json")) != artifact.search_snapshot_sha256:
-                    raise MvpError("map_integrity", "Map search binding changed before publication.")
-                self.maps.store.publish(job, artifact, embedded, counts(search, artifact))
+            artifact, embedded = maps.build_for_job(handle.workspace_id, captured, profile, embedded, excluded, job["map_id"])
+            checkpoint(len(inputs))
             # Match deletion's lifecycle -> research-lock order. Publication
             # linearizes before deletion, or observes its persistent tombstone.
-            with self.maps.registry.lifecycle_guard(handle.workspace_id):
-                engine.with_workspace_state(handle, publish)
+            with maps.registry.lifecycle_guard(handle.workspace_id):
+                maps.publish_job(engine, handle, job, captured, artifact, embedded)
         except MvpError as error:
             if error.code == "map_worker_interrupted":
                 # Keep running/lease evidence for bounded restart recovery.
                 return
-            self.maps.store.finish_failure(job, error)
+            maps.store.finish_failure(job, error)
         except Exception:
-            self.maps.store.finish_failure(job, MvpError("map_build_failed", "The local map calculation failed. Existing evidence and drafts are unchanged."))
+            maps.store.finish_failure(job, MvpError("map_build_failed", "The local map calculation failed. Existing evidence and drafts are unchanged."))
         finally:
             finished.set()
             pulse.join(timeout=1)

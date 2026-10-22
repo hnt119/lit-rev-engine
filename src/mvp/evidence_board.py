@@ -5,19 +5,36 @@ Mutation lock order is lifecycle -> research snapshot -> short sidecar transacti
 """
 from __future__ import annotations
 import json
+from dataclasses import dataclass
+from pydantic import ValidationError
 from .board_contracts import *
 from .contracts import digest, new_id, now
 from .adapters.board_storage import BoardStore, unavailable
 from .adapters.retrieval import LexicalRetrieval
 from .ports import MvpError
 from .service import _assert_source_integrity, _manifest, _find
+from .origin_resolver import resolve_preparation
 from src.review.exporters import _csv
+from .span_board_contracts import (ProfiledBoardCreateRequest, LEGACY_BOARD_PROFILE, SPAN_BOARD_PROFILE,
+    SpanBoardCandidate, SpanBoardCandidates, SpanRequirementMatch)
+from .span_retrieval_contracts import SpanRequirement, SpanRetrievalResult
+
+
+@dataclass(frozen=True)
+class _SpanWork:
+    definition: object
+    source: object
+    field: BoardField
+    request: BoardCandidatesRequest
+    fingerprint: str
+    run_id: str
 
 
 class EvidenceBoardService:
     def __init__(self, registry, service_for, store: BoardStore):
         self.registry, self.service_for, self.store = registry, service_for, store
         self.ranker = LexicalRetrieval()
+        self.span_ranker = None
 
     def _with(self, mode, handle, callback, *, write=False):
         def guarded(state):
@@ -30,7 +47,23 @@ class EvidenceBoardService:
         with self.registry.lifecycle_guard(handle.workspace_id):
             return self.service_for(mode).with_workspace_state(handle, guarded)
 
-    def _profile(self):
+    def _span(self):
+        if self.span_ranker is None:
+            from .adapters.span_retrieval import LexicalSpanRetrieval
+            self.span_ranker = LexicalSpanRetrieval()
+        return self.span_ranker
+
+    def _profile(self, request=None):
+        if isinstance(request, ProfiledBoardCreateRequest) and request.retrieval_profile_id == SPAN_BOARD_PROFILE:
+            explicit = {value.field_id: value.requirements for value in request.field_requirements}
+            profile = self._span().profile()
+            profile.update({'profile_id': SPAN_BOARD_PROFILE, 'scope': 'one-paper-one-field',
+                'candidate_text_limit': MAX_CANDIDATE_CHARACTERS,
+                'requirements_by_field': {field.id: [value.model_dump(mode='json') for value in explicit.get(field.id,
+                    [SpanRequirement(id='field', label=field.label, query=field.subquestion)])] for field in request.fields},
+                'explicit_requirement_field_ids': [value.field_id for value in request.field_requirements],
+                'packet_policy': 'primary-spans-round-robin.v1'})
+            return profile
         return {'method': self.ranker.method, 'method_version': 'lit-rev-engine.project-retrieval.v3.bm25_context_blocks',
                 'parameters': self.ranker.parameters, 'scope': 'one-paper-one-field', 'candidate_text_limit': MAX_CANDIDATE_CHARACTERS}
 
@@ -49,18 +82,30 @@ class EvidenceBoardService:
         return field
 
     def _dependencies(self, state, definition):
-        search = _find(state.searches, definition.search_id, 'search')
         preparation = _find(state.preparations, definition.preparation_id, 'preparation')
-        if (digest(search.model_dump(mode='json')) != definition.search_sha256 or preparation.search_id != definition.search_id
-                or preparation.source_revision != definition.source_revision):
-            raise MvpError('board_integrity', 'The board original search or preparation binding changed.')
+        bibliography = resolve_preparation(state, preparation)
+        if isinstance(definition, CollectionBoardRevision):
+            valid_origin = (bibliography.origin.kind == 'collection' and bibliography.origin == definition.collection_ref
+                and getattr(preparation, 'member_snapshot_sha256', None) == definition.member_snapshot_sha256)
+        else:
+            valid_origin = (bibliography.origin.kind == 'search' and bibliography.origin.search_id == definition.search_id
+                and bibliography.origin.search_snapshot_sha256 == definition.search_sha256)
+        if not valid_origin or preparation.source_revision != definition.source_revision:
+            raise MvpError('board_integrity', 'The board original bibliography or preparation binding changed.')
         sources = [_find(preparation.sources, source.source_id, 'source') for source in definition.sources]
         _assert_source_integrity(sources)
         if digest(_manifest(sources)) != definition.source_manifest_sha256:
             raise MvpError('board_integrity', 'The board retained source manifest changed.')
         if [source.paper_id for source in sources] != definition.paper_ids:
             raise MvpError('board_integrity', 'The board source ownership changed.')
-        return search, preparation, sources
+        indexed = {paper.id: paper for paper in bibliography.papers}
+        if (len(set(definition.paper_ids)) != len(definition.paper_ids)
+                or any(identifier not in indexed for identifier in definition.paper_ids)
+                or definition.papers != [BoardPaper.model_validate(indexed[identifier].model_dump(exclude={'abstract'})) for identifier in definition.paper_ids]
+                or digest(definition.question) != definition.question_sha256
+                or digest(definition.retrieval_profile) != definition.retrieval_profile_sha256):
+            raise MvpError('board_integrity', 'The board retained papers, question or retrieval-profile binding changed.')
+        return bibliography, preparation, sources
 
     def _freshness(self, state, db, definition):
         self._dependencies(state, definition)
@@ -82,12 +127,12 @@ class EvidenceBoardService:
         preparation = _find(state.preparations, request.preparation_id, 'preparation')
         if not state.preparations or state.preparations[-1].id != preparation.id or state.source_revision != preparation.source_revision:
             raise MvpError('stale_source_revision', 'Select the current retained preparation for a new board definition.')
-        search = _find(state.searches, preparation.search_id, 'search')
+        bibliography = resolve_preparation(state, preparation)
         sources, papers = [], []
         for paper_id in request.paper_ids:
             if paper_id not in preparation.selected_paper_ids:
                 raise unavailable('prepared_paper')
-            paper = _find(search.papers, paper_id, 'paper')
+            paper = _find(bibliography.papers, paper_id, 'paper')
             source = next((source for source in preparation.sources if source.paper_id == paper_id), None)
             if source is None:
                 raise unavailable('prepared_source')
@@ -97,14 +142,18 @@ class EvidenceBoardService:
         bindings = [BoardSourceBinding(source_id=s.id, paper_id=s.paper_id, version=s.version,
                     source_sha256=s.source_sha256, blocks_sha256=s.blocks_sha256, parser_id=s.parser_id,
                     source_type=s.source_type, status=s.status, block_count=len(s.blocks)) for s in sources]
-        profile = self._profile()
-        return BoardRevision(board_id=board_id or new_id(), workspace_id=state.id,
-                parent_revision_id=parent, search_id=search.id, search_sha256=digest(search.model_dump(mode='json')),
+        profile = self._profile(request)
+        common = dict(board_id=board_id or new_id(), workspace_id=state.id, parent_revision_id=parent,
                 question=request.question, question_sha256=digest(request.question), preparation_id=preparation.id,
                 source_revision=preparation.source_revision, source_manifest_sha256=digest(_manifest(sources)),
                 sources=bindings, papers=papers, paper_ids=request.paper_ids,
                 fields=[BoardField(**f.model_dump()) for f in request.fields], retrieval_profile=profile,
                 retrieval_profile_sha256=digest(profile))
+        if bibliography.origin.kind == 'collection':
+            return CollectionBoardRevision(**common, collection_ref=bibliography.origin,
+                member_snapshot_sha256=preparation.member_snapshot_sha256)
+        return BoardRevision(**common, search_id=bibliography.origin.search_id,
+            search_sha256=bibliography.origin.search_snapshot_sha256)
 
     def _view(self, state, db, definition):
         freshness, reasons = self._freshness(state, db, definition)
@@ -160,6 +209,9 @@ class EvidenceBoardService:
                 return self._view(state, db, self.store.definition(db, state.id, board_id, prior.definition.revision_id))
             if self.store.board_head(db, state.id, board_id) != request.expected_revision_id:
                 raise MvpError('stale_board_revision', 'A newer board definition exists. Your inputs were not overwritten.')
+            original = self.store.definition(db, state.id, board_id, request.expected_revision_id)
+            if original.retrieval_profile.get('profile_id') == SPAN_BOARD_PROFILE and not isinstance(request, ProfiledBoardCreateRequest):
+                raise MvpError('explicit_board_profile_required', 'Choose an explicit retrieval profile for this definition revision; a legacy request cannot downgrade a span-profile board.')
             definition = self._definition(state, request, board_id=board_id, parent=request.expected_revision_id)
             self.store.add_definition(db, definition)
             result = self._view(state, db, definition)
@@ -196,11 +248,20 @@ class EvidenceBoardService:
             fingerprint = digest({'operation': 'candidates', 'board_id': board_id, 'request': request.model_dump(mode='json')})
             prior = self.store.prior(db, state.id, request.request_id, fingerprint, BoardCandidates)
             if prior is not None:
-                self._dependencies(state, self.store.definition(db, state.id, board_id, request.expected_revision_id))
+                definition = self.store.definition(db, state.id, board_id, request.expected_revision_id)
+                self._dependencies(state, definition)
+                if isinstance(prior, SpanBoardCandidates):
+                    self._check_span_replay(state, db, definition, request, prior)
                 return prior
             definition = self._writable(state, db, board_id, request.expected_revision_id)
             field = self._cell(definition, request.paper_id, request.field_id)
             source = self._source(state, definition, next(s.source_id for s in definition.sources if s.paper_id == request.paper_id))
+            profile_id = definition.retrieval_profile.get('profile_id', LEGACY_BOARD_PROFILE)
+            if profile_id == SPAN_BOARD_PROFILE:
+                return _SpanWork(definition.model_copy(deep=True), source.model_copy(deep=True), field.model_copy(deep=True),
+                    request.model_copy(deep=True), fingerprint, new_id())
+            if profile_id != LEGACY_BOARD_PROFILE:
+                raise MvpError('unsupported_board_profile', 'This retained retrieval profile is not executable by this engine version.')
             identifier = new_id()
             passages, indexed, matched = self.ranker.search(field.subquestion, [source], identifier, request.top_k)
             candidates = []
@@ -220,7 +281,147 @@ class EvidenceBoardService:
                         result.id, result.model_dump_json(), digest(result.model_dump(mode='json'))))
             self.store.record_request(db, state.id, request.request_id, fingerprint, result)
             return result
-        return self._with(mode, handle, run, write=True)
+        result = self._with(mode, handle, run, write=True)
+        if isinstance(result, _SpanWork):
+            return self._span_candidates(mode, handle, board_id, result)
+        return result
+
+    def _check_span_replay(self, state, db, definition, request, result):
+        row = db.execute('SELECT * FROM board_candidates WHERE workspace_id=? AND board_id=? AND definition_id=? AND id=?',
+            (state.id, definition.board_id, definition.revision_id, result.id)).fetchone()
+        if row is None or self.store.decode(row, BoardCandidates) != result:
+            raise MvpError('board_integrity', 'The span replay does not match its immutable retrieval receipt.')
+        field = self._cell(definition, request.paper_id, request.field_id)
+        if (result.board_id != definition.board_id or result.board_revision_id != definition.revision_id
+                or result.paper_id != request.paper_id or result.field_id != field.id or result.field_revision_id != field.revision_id
+                or result.preparation_id != definition.preparation_id
+                or result.retrieval_profile_sha256 != definition.retrieval_profile_sha256
+                or result.source_manifest_sha256 != definition.source_manifest_sha256):
+            raise MvpError('board_integrity', 'The saved span receipt belongs to different board dependencies.')
+        for candidate in result.candidates:
+            canonical = self._reference(state, definition, request.paper_id,
+                BoardReferenceInput.model_validate(candidate.reference.model_dump(include=set(BoardReferenceInput.model_fields))))
+            if candidate.reference != canonical:
+                raise MvpError('board_integrity', 'The saved span quotation or locator no longer matches the retained canonical source.')
+
+    def _span_candidates(self, mode, handle, board_id, work):
+        """Rank immutable copies outside lifecycle, research and SQLite guards."""
+        profile = work.definition.retrieval_profile
+        from .adapters.span_retrieval import INDEX_LIMIT_CODES
+        ranker = self._span()
+        actual = ranker.profile()
+        if any(profile.get(key) != value for key, value in actual.items()):
+            raise MvpError('unsupported_board_profile', 'The retained span method or parameters do not match this installed version.')
+        try:
+            saved = profile['requirements_by_field']
+            if set(saved) != {field.id for field in work.definition.fields}:
+                raise ValueError('Missing field requirements')
+            requirements = [SpanRequirement.model_validate(value) for value in saved[work.field.id]]
+            if not 1 <= len(requirements) <= 3 or len({value.id for value in requirements}) != len(requirements):
+                raise ValueError('Invalid requirement count')
+        except (KeyError, TypeError, ValueError):
+            raise MvpError('board_integrity', 'The saved span requirements do not match this board field.') from None
+        try:
+            raw = ranker.search(work.field.subquestion, [work.source.model_copy(deep=True)], work.run_id, work.request.top_k,
+                requirements=[value.model_copy(deep=True) for value in requirements])
+            # A constructed/model_copy object can bypass Pydantic validation.
+            # Re-parse the complete returned tree before accepting its metadata.
+            ranked = SpanRetrievalResult.model_validate(raw.model_dump(mode='python') if isinstance(raw, SpanRetrievalResult) else raw)
+        except MvpError:
+            raise
+        except (ValidationError, ValueError, TypeError):
+            raise MvpError('board_integrity', 'Span retrieval returned invalid bounded quotation or metadata output.') from None
+        blocks = work.source.blocks
+        block_ids = {block.id for block in blocks}
+        total_characters = sum(len(block.text) for block in blocks)
+        parameters = profile['parameters']
+        codes = {value.code for value in ranked.messages}
+        incomplete = bool(ranked.unindexed_characters or INDEX_LIMIT_CODES.intersection(codes))
+        if (len(block_ids) != len(blocks)
+                or ranked.total_source_blocks != len(blocks) or ranked.total_source_characters != total_characters
+                or ranked.indexed_blocks > min(len(blocks), parameters['max_source_blocks'])
+                or ranked.unindexed_blocks != len(blocks)-ranked.indexed_blocks
+                or ranked.indexed_windows > parameters['max_windows']
+                or ranked.indexed_blocks > ranked.indexed_windows
+                or ranked.matched_windows > ranked.indexed_windows
+                or ranked.matched_blocks > min(ranked.indexed_blocks, ranked.matched_windows)
+                or not 0 <= ranked.unindexed_characters <= total_characters
+                or total_characters-ranked.unindexed_characters > parameters['max_source_characters']
+                or ranked.partially_indexed_blocks > ranked.indexed_blocks
+                or ranked.skipped_blank_blocks > sum(not block.text.strip() for block in blocks)
+                or len(ranked.matched_block_ids) != ranked.matched_blocks
+                or len(set(ranked.matched_block_ids)) != ranked.matched_blocks
+                or not set(ranked.matched_block_ids) <= block_ids
+                or any(value.block_id not in ranked.matched_block_ids for value in ranked.selections)
+                or any(value.index_incomplete != incomplete for value in ranked.requirement_statuses)
+                or len(ranked.messages) > parameters['max_messages']):
+            raise MvpError('board_integrity', 'Span retrieval scope statistics do not match the captured canonical source and index bounds.')
+
+        def publish(state, db):
+            prior = self.store.prior(db, state.id, work.request.request_id, work.fingerprint, BoardCandidates)
+            if prior is not None:
+                original = self.store.definition(db, state.id, board_id, work.request.expected_revision_id)
+                self._dependencies(state, original)
+                self._check_span_replay(state, db, original, work.request, prior)
+                return prior
+            definition = self._writable(state, db, board_id, work.request.expected_revision_id)
+            if definition != work.definition:
+                raise MvpError('stale_board_revision', 'The captured definition changed before span publication.')
+            field = self._cell(definition, work.request.paper_id, work.request.field_id)
+            source = self._source(state, definition, work.source.id, work.request.paper_id)
+            if source != work.source or ranked.run_id != work.run_id or ranked.profile_id != SPAN_BOARD_PROFILE:
+                raise MvpError('board_integrity', 'Span retrieval does not match the exact captured source or profile.')
+            if [value.requirement for value in ranked.requirement_statuses] != requirements or len(ranked.selections) > work.request.top_k:
+                raise MvpError('board_integrity', 'Span retrieval changed the explicit field requirements or candidate budget.')
+            candidates, identities = [], set()
+            for rank, selection in enumerate(ranked.selections, 1):
+                if selection.source_id != source.id or selection.paper_id != work.request.paper_id:
+                    raise MvpError('invalid_board_reference', 'A retrieved span must belong to this exact report and source.')
+                block = _find(source.blocks, selection.block_id, 'source_block')
+                reference = self._reference(state, definition, work.request.paper_id,
+                    self._input(source, block, selection.start, selection.end))
+                if reference.quote != selection.quote or reference.id in identities:
+                    raise MvpError('invalid_board_reference', 'The retrieved quotation must match one unique canonical source range.')
+                identities.add(reference.id)
+                candidates.append(SpanBoardCandidate(rank=rank, score=selection.score, reference=reference,
+                    total_block_characters=len(block.text), omitted_characters=len(block.text)-len(reference.quote),
+                    omitted_before=reference.start, omitted_after=len(block.text)-reference.end,
+                    matched_requirement_ids=selection.matched_requirement_ids, budget_tokens=selection.budget_tokens,
+                    hard_boundary_clipped=selection.hard_boundary_clipped))
+            statuses = {'selected_lexical_match': 'candidates_selected', 'matched_but_not_selected': 'candidates_not_selected',
+                        'no_lexical_match_in_indexed_text': 'no_lexical_match', 'no_query_tokens': 'no_query_tokens'}
+            result = SpanBoardCandidates(id=work.run_id, board_id=board_id, board_revision_id=definition.revision_id,
+                paper_id=work.request.paper_id, field_id=field.id, field_revision_id=field.revision_id,
+                preparation_id=definition.preparation_id, source_manifest_sha256=definition.source_manifest_sha256,
+                retrieval_profile=profile, retrieval_profile_sha256=definition.retrieval_profile_sha256,
+                indexed_blocks=ranked.indexed_blocks, matched_blocks=ranked.matched_blocks,
+                returned_count=len(candidates), omitted_matched_blocks=max(0, ranked.matched_blocks-len({value.reference.block_id for value in candidates})),
+                candidates=candidates, requirements=requirements,
+                requirement_matches=[SpanRequirementMatch(requirement_id=value.requirement.id,
+                    matched_windows=value.matched_windows, selected_windows=value.selected_spans,
+                    state=statuses[value.status], index_incomplete=value.index_incomplete) for value in ranked.requirement_statuses],
+                indexed_windows=ranked.indexed_windows, matched_windows=ranked.matched_windows,
+                omitted_matched_windows=ranked.matched_windows-len(candidates), total_source_blocks=ranked.total_source_blocks,
+                unindexed_source_blocks=ranked.total_source_blocks-ranked.indexed_blocks,
+                partially_indexed_blocks=ranked.partially_indexed_blocks, skipped_blank_blocks=ranked.skipped_blank_blocks,
+                total_source_characters=ranked.total_source_characters,
+                indexed_source_characters=ranked.total_source_characters-ranked.unindexed_characters,
+                unindexed_source_characters=ranked.unindexed_characters, delivered_characters=ranked.delivered_characters,
+                delivered_budget_tokens=ranked.delivered_tokens, budget_tokenizer_id=profile['parameters']['budget_tokenizer_id'],
+                index_limits=[value.code for value in ranked.messages if value.code in INDEX_LIMIT_CODES],
+                warnings=[value.message for value in ranked.messages], elapsed_seconds=ranked.elapsed_seconds)
+            db.execute('INSERT INTO board_candidates VALUES(?,?,?,?,?,?)', (state.id, board_id, definition.revision_id,
+                result.id, result.model_dump_json(), digest(result.model_dump(mode='json'))))
+            self.store.record_request(db, state.id, work.request.request_id, work.fingerprint, result)
+            return result
+        try:
+            return self._with(mode, handle, publish, write=True)
+        except MvpError:
+            raise
+        except (ValidationError, ValueError, TypeError):
+            # The sidecar transaction has rolled back before translating this
+            # invalid internal result into the safe domain/API failure contract.
+            raise MvpError('board_integrity', 'Span retrieval metadata does not describe valid exact canonical candidates.') from None
 
     def get_draft(self, mode, handle, board_id, paper_id, field_id, revision_id=None):
         def run(state, db):
@@ -366,13 +567,17 @@ class EvidenceBoardService:
         def run(state, db):
             definition = self.store.definition(db, state.id, board_id, revision_id)
             view = self._view(state, db, definition)
+            all_definitions = [self.store.decode(row, BoardRevision) for row in db.execute(
+                'SELECT * FROM board_definitions WHERE workspace_id=? AND board_id=? ORDER BY rowid', (state.id, board_id))]
+            collection_board = any(isinstance(item, CollectionBoardRevision) for item in all_definitions)
+            table_schema = 'mvp.collection-board-table.v2' if collection_board else 'mvp.board-table.v1'
             rows = []
             for item in view.cells:
                 paper = next(p for p in definition.papers if p.id == item.paper_id)
                 field = next(f for f in definition.fields if f.id == item.field_id)
                 source = next(s for s in definition.sources if s.paper_id == item.paper_id)
                 cell = self.store.decode(db.execute('SELECT * FROM board_cells WHERE workspace_id=? AND id=?', (state.id, item.head.id)).fetchone(), BoardCellRevision) if item.head else None
-                rows.append({'schema_version': 'mvp.board-table.v1', 'board_id': board_id, 'board_revision_id': definition.revision_id,
+                rows.append({'schema_version': table_schema, 'board_id': board_id, 'board_revision_id': definition.revision_id,
                     'search_id': definition.search_id, 'search_sha256': definition.search_sha256, 'question': definition.question,
                     'preparation_id': definition.preparation_id, 'source_manifest_sha256': definition.source_manifest_sha256,
                     'paper_id': paper.id, 'paper_title': paper.title, 'pmid': paper.pmid, 'doi': paper.doi,
@@ -387,22 +592,27 @@ class EvidenceBoardService:
                     'inspected_ranges': [ref.model_dump(mode='json') for ref in cell.inspected_ranges] if cell else [],
                     'freshness': view.freshness, 'review_state': cell.review_state if cell else 'not_assessed',
                     'producer': cell.producer if cell else None, 'created_at': cell.created_at if cell else None})
+                if collection_board:
+                    rows[-1].update({
+                        'collection_ref': definition.collection_ref.model_dump(mode='json') if isinstance(definition, CollectionBoardRevision) else None,
+                        'member_snapshot_sha256': definition.member_snapshot_sha256 if isinstance(definition, CollectionBoardRevision) else None})
             definitions = [definition]
             if history:
-                definitions = [self.store.decode(row, BoardRevision) for row in db.execute('SELECT * FROM board_definitions WHERE workspace_id=? AND board_id=? ORDER BY rowid', (state.id, board_id))]
+                definitions = all_definitions
                 for old in definitions:
                     self._dependencies(state, old)
             included = {item.revision_id for item in definitions}
             cells = [self.store.decode(row, BoardCellRevision) for row in db.execute('SELECT * FROM board_cells WHERE workspace_id=? AND board_id=? ORDER BY rowid', (state.id, board_id)) if row['definition_id'] in included]
             candidate_runs = [self.store.decode(row, BoardCandidates) for row in db.execute('SELECT * FROM board_candidates WHERE workspace_id=? AND board_id=? ORDER BY rowid', (state.id, board_id)) if row['definition_id'] in included]
-            audit = {'schema_version': 'mvp.board-audit.v1', 'table_schema_version': 'mvp.board-table.v1',
+            audit = {'schema_version': 'mvp.collection-board-audit.v2' if collection_board else 'mvp.board-audit.v1', 'table_schema_version': table_schema,
                      'board_id': board_id, 'selected_revision_id': definition.revision_id, 'freshness': view.freshness,
                      'definitions': [item.model_dump(mode='json') for item in definitions], 'table': rows,
                      'cell_revisions': [item.model_dump(mode='json') for item in cells],
                      'candidate_runs': [item.model_dump(mode='json') for item in candidate_runs],
                      'history_included': history, 'offset_convention': 'half-open-unicode-codepoints',
                      'review_state': 'single_human_self_declared_not_independently_verified'}
-            return BoardExport(csv_text=_csv(rows, list(rows[0]) if rows else []), json_text=json.dumps(audit, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False) + '\n')
+            export_model = CollectionBoardExport if collection_board else BoardExport
+            return export_model(csv_text=_csv(rows, list(rows[0]) if rows else []), json_text=json.dumps(audit, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False) + '\n')
         return self._with(mode, handle, run)
 
     def delete_workspace(self, workspace_id):

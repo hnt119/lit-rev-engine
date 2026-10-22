@@ -6,7 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from src.mvp.contracts import Paper, SearchPreview, SearchRequest
+from src.mvp.contracts import Paper, SearchPreview, SearchRequest, new_id
 from src.mvp.ports import ProviderFailure
 
 from .europe_pmc import _child, _children, _text, fallback_source, prepare_permitted_xml
@@ -133,3 +133,29 @@ class SavedExampleProvider:
             return fallback_source(paper, "identity_mismatch", "This paper is not part of the checked offline saved example.",
                                    provider="europe_pmc_saved_example")
         return self._sources[paper.id].model_copy(deep=True)
+
+    def prepare_collection_paper(self, paper: Paper):
+        """Reuse checked public content only for an unambiguous exact identity.
+
+        Imported report-occurrence IDs are intentionally different from saved
+        discovery IDs. Every supplied identifier must agree with one checked
+        corpus entry; titles never participate. Return a fresh source identity
+        so distinct retained occurrences cannot create ambiguous citations.
+        """
+        supplied = {key: getattr(paper, key) for key in ('doi', 'pmid', 'pmcid') if getattr(paper, key)}
+        if not supplied:
+            return fallback_source(paper, 'abstract_only' if paper.abstract.strip() else 'no_usable_text',
+                'No explicit DOI, PMID or PMCID was supplied for exact checked-corpus resolution; retained citation text only.',
+                provider='europe_pmc_saved_example')
+        candidates = [candidate for candidate in self._papers
+                      if any(getattr(candidate, key) == value for key, value in supplied.items())]
+        if len(candidates) != 1 or any(getattr(candidates[0], key) != value for key, value in supplied.items()):
+            return fallback_source(paper, 'identity_mismatch',
+                'The supplied identifiers do not identify one matching paper in the checked public corpus; no saved full text was used.',
+                provider='europe_pmc_saved_example')
+        actual = candidates[0]
+        source = self._sources[actual.id]
+        return source.model_copy(deep=True, update={'id': new_id(), 'paper_id': paper.id,
+            'parser_metadata': {**source.parser_metadata,
+                'collection_identity_adapter': 'saved-example-exact-identity.v1',
+                'saved_example_paper_id': actual.id, 'requested_identifiers': supplied}})

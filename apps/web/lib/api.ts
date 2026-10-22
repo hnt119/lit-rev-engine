@@ -28,6 +28,21 @@ export async function api<T>(path:string,method="GET",body?:unknown):Promise<T> 
   if(response.status===204)return undefined as T;
   return await response.json();
 }
+/** Raw citation uploads alone have their own bounded route and media type. */
+export async function apiUpload<T>(path:string,body:Blob|ArrayBuffer,requestKey:string,filename?:string,contentType="application/octet-stream"):Promise<T> {
+  if(!/^workspaces\/[^/]+\/imports\/(csv|ris|identifiers)$/.test(path)
+      || !["application/octet-stream","text/csv","text/plain","application/x-research-info-systems"].includes(contentType))
+    throw new Error("Choose a supported raw citation upload route.");
+  await initializeSession();
+  const headers:Record<string,string>={Accept:"application/json","X-CSRF-Token":csrf!,"Content-Type":contentType,"X-Request-ID":requestKey};
+  if(filename)headers["X-Import-Filename"]=encodeURIComponent(filename);
+  const response=await fetch("/api/v1/"+path,{method:"POST",headers,credentials:"same-origin",cache:"no-store",body});
+  if(!response.ok){
+    const value=await response.json().catch(()=>({}));const detail=value.detail??value.error??value;
+    throw new APIError(response.status,detail.code??"request_failed",typeof detail.message==="string"?detail.message:`Upload failed (${response.status}). Your existing records are unchanged.`);
+  }
+  return await response.json();
+}
 /** Only opaque request IDs and one-way payload hashes are kept in browser storage. */
 export async function requestId(operation:string,payload:unknown,fresh=false):Promise<string> {
   const hash=await fingerprint(payload), key="mvp.pending."+operation;

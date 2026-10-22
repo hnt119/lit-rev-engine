@@ -67,7 +67,8 @@ class SQLiteWorkspaceStorage:
         row = connection.execute("SELECT token_hash, snapshot FROM mvp_workspaces WHERE id=?", (handle.workspace_id,)).fetchone()
         if row is None or not hmac.compare_digest(row["token_hash"], self._token_hash(handle)):
             raise MvpError("workspace_access_denied", "Workspace is unavailable or its handle is invalid.")
-        return WorkspaceSnapshot.model_validate_json(row["snapshot"])
+        from ..workspace_versions import decode_workspace
+        return decode_workspace(row["snapshot"])
 
     def create(self, question):
         handle = WorkspaceHandle(workspace_id=new_id(), token=secrets.token_urlsafe(32))
@@ -115,6 +116,35 @@ class SQLiteWorkspaceStorage:
             os.close(descriptor)
 
     def transact(self, handle, operation, request_id, fingerprint, callback):
+        return self._transact(handle, operation, request_id, fingerprint, callback)
+
+    def transact_guarded(self, handle, operation, request_id, fingerprint, callback, commit_guard):
+        """Publish auxiliary job state and research state in the same DB commit.
+
+        The callback must do no provider work. The guard receives the actual
+        SQLite write transaction, the result and whether this is an exact replay.
+        Cancellation either precedes this transaction or observes its result.
+        """
+        return self._transact(handle, operation, request_id, fingerprint, callback, commit_guard)
+
+    @staticmethod
+    def _auxiliary_bytes(connection, workspace_id):
+        tables = {row[0] for row in connection.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        total = 0
+        if {'preparation_jobs', 'collection_preparation_jobs'} & tables:
+            from .preparation_storage import preparation_auxiliary_bytes
+            total += preparation_auxiliary_bytes(connection, workspace_id)
+        if 'mvp_ingestion_imports' in tables:
+            from .collection_storage import ingestion_auxiliary_bytes
+            total += ingestion_auxiliary_bytes(connection, workspace_id)
+        if 'mvp_workspace_compatibility_backups' in tables:
+            from ..workspace_versions import compatibility_backup_bytes
+            total += compatibility_backup_bytes(connection, workspace_id)
+        from .search_plan_storage import search_plan_auxiliary_bytes
+        total += search_plan_auxiliary_bytes(connection, workspace_id)
+        return total
+
+    def _transact(self, handle, operation, request_id, fingerprint, callback, commit_guard=None):
         import json
 
         # Validate capability before creating a lock file for an arbitrary ID.
@@ -128,19 +158,31 @@ class SQLiteWorkspaceStorage:
                 if prior is not None:
                     if not hmac.compare_digest(prior["fingerprint"], fingerprint):
                         raise MvpError("idempotency_conflict", "This request key was already used with different input. Submit a new request.")
-                    return json.loads(prior["result"])
+                    result = json.loads(prior["result"])
+                    if commit_guard is not None:
+                        connection.execute("BEGIN IMMEDIATE")
+                        self._authorized(connection, handle)
+                        commit_guard(connection, result, True)
+                        connection.execute("COMMIT")
+                    return result
                 updated, result = callback(state)
                 if updated.id != handle.workspace_id:
                     raise MvpError("workspace_conflict", "Workspace update did not match the active workspace.")
                 encoded = canonical(result)
                 encoded_snapshot = updated.model_dump_json()
+                connection.execute("BEGIN IMMEDIATE")
+                self._authorized(connection, handle)
+                if commit_guard is not None:
+                    commit_guard(connection, result, False)
+                from ..workspace_versions import retain_original_workspace
+                retain_original_workspace(connection, handle.workspace_id, updated)
                 prior_bytes = connection.execute(
                     "SELECT COALESCE(SUM(length(CAST(result AS BLOB))), 0) FROM mvp_requests WHERE workspace_id=?",
                     (handle.workspace_id,)).fetchone()[0]
-                if len(encoded_snapshot.encode("utf-8")) + len(encoded.encode("utf-8")) + prior_bytes > self._max_workspace_bytes:
+                total_bytes = (len(encoded_snapshot.encode("utf-8")) + len(encoded.encode("utf-8"))
+                               + prior_bytes + self._auxiliary_bytes(connection, handle.workspace_id))
+                if total_bytes > self._max_workspace_bytes:
                     raise MvpError("workspace_limit", "This local workspace reached its storage limit. Export it, then clear the session or start a new workspace.")
-                connection.execute("BEGIN IMMEDIATE")
-                self._authorized(connection, handle)
                 connection.execute("UPDATE mvp_workspaces SET snapshot=? WHERE id=?", (encoded_snapshot, handle.workspace_id))
                 connection.execute("INSERT INTO mvp_requests VALUES (?, ?, ?, ?, ?)",
                                    (handle.workspace_id, operation, request_id, fingerprint, encoded))

@@ -1,7 +1,11 @@
 """Small, versioned browser projections. Credentials never belong here."""
 from typing import Any, Literal
 from pydantic import Field
-from src.mvp.board_contracts import BoardLimits
+from src.mvp.board_contracts import BoardLimits, BoardPaper
+from src.mvp.span_board_contracts import BoardSpanCapability
+from src.mvp.collection_contracts import CollectionInputRef, PaperInputRef
+from src.mvp.workspace_versions import CollectionEvidenceRun
+from src.mvp.limits import public_limits
 from src.mvp.contracts import (
     Model, Assessment, Block, EvidenceRun, Paper, Passage, StructuredError,
 )
@@ -35,6 +39,10 @@ class PreparationSummary(Model):
     selected_paper_ids: list[str]
     prepared_at: str
 
+class CollectionPreparationSummary(PreparationSummary):
+    search_id: None = None
+    collection_ref: CollectionInputRef
+
 class RunSummary(Model):
     id: str
     search_id: str
@@ -44,6 +52,10 @@ class RunSummary(Model):
     created_at: str
     passage_count: int
     current: bool
+
+class CollectionRunSummary(RunSummary):
+    search_id: None = None
+    collection_ref: CollectionInputRef
 
 class AssessmentSummary(Model):
     id: str
@@ -63,8 +75,8 @@ class WorkspaceSummary(Model):
     current_run_id: str | None
     current_assessment_ids: dict[str, str]
     searches: list[SearchSummary]
-    preparations: list[PreparationSummary]
-    runs: list[RunSummary]
+    preparations: list[PreparationSummary | CollectionPreparationSummary]
+    runs: list[RunSummary | CollectionRunSummary]
     assessments: list[AssessmentSummary]
 
 class WorkspaceList(Model):
@@ -95,8 +107,23 @@ class PreparationView(PreparationSummary):
     sources: list[SourceMetadata]
     errors: list[StructuredError]
 
+class CollectionPreparationView(CollectionPreparationSummary):
+    selection_state: Literal["selected_for_exploration"]
+    sources: list[SourceMetadata]
+    errors: list[StructuredError]
+
+class PreparationPapers(Model):
+    preparation_id: str
+    origin: PaperInputRef
+    papers: list[BoardPaper]
+
+class RunPapers(Model):
+    run_id: str
+    origin: PaperInputRef
+    papers: list[BoardPaper]
+
 class RunView(Model):
-    run: EvidenceRun
+    run: EvidenceRun | CollectionEvidenceRun
     current: bool
     assessment_head: Assessment | None
     assessment_history: list[Assessment]
@@ -137,6 +164,9 @@ class Capabilities(Model):
     default_mode: Literal["saved_example"] = "saved_example"
     live_available: bool
     saved_example: dict[str, Any]
-    limits: dict[str, int] = Field(default_factory=lambda: {"default_results": 30, "max_results": 50, "max_sources": 10, "max_passages": 5})
+    limits: dict[str, int] = Field(default_factory=public_limits)
+    preparation_jobs_ready: bool = False
+    search_plans_ready: bool = False
+    board_span_profiles: BoardSpanCapability | None = None
     map: MapCapability = Field(default_factory=MapCapability)
     boards: BoardLimits = Field(default_factory=BoardLimits)

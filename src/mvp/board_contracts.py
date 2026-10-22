@@ -3,10 +3,11 @@
 Offsets use half-open Unicode code points. Mechanical quote integrity and
 single-human support judgments are deliberately separate dimensions.
 """
-from typing import Any, Literal
+from typing import Annotated, Any, Literal
 import re
 from pydantic import Field, model_validator
 from .contracts import Model, new_id, now
+from .collection_contracts import CollectionInputRef
 
 MAX_FIELDS = 6
 MAX_CELLS = 60
@@ -104,6 +105,32 @@ class BoardRevision(Model):
     retrieval_profile: dict[str, Any]
     retrieval_profile_sha256: str
     created_at: str = Field(default_factory=now)
+
+class CollectionBoardRevision(Model):
+    """New origin contract; legacy BoardRevision serialization is unchanged."""
+    schema_version: Literal['mvp.collection-board-definition.v2'] = 'mvp.collection-board-definition.v2'
+    board_id: str
+    revision_id: str = Field(default_factory=new_id)
+    workspace_id: str
+    parent_revision_id: str | None = None
+    search_id: None = None
+    search_sha256: None = None
+    collection_ref: CollectionInputRef
+    member_snapshot_sha256: str
+    question: str
+    question_sha256: str
+    preparation_id: str
+    source_revision: int
+    source_manifest_sha256: str
+    sources: list[BoardSourceBinding]
+    papers: list[BoardPaper]
+    paper_ids: list[str]
+    fields: list[BoardField]
+    retrieval_profile: dict[str, Any]
+    retrieval_profile_sha256: str
+    created_at: str = Field(default_factory=now)
+
+BoardDefinition = Annotated[BoardRevision | CollectionBoardRevision, Field(discriminator='schema_version')]
 
 class BoardReferenceInput(Model):
     source_id: str = Field(min_length=1, max_length=200)
@@ -211,7 +238,7 @@ class BoardListing(Model):
     limits: BoardLimits = Field(default_factory=BoardLimits)
 
 class BoardView(Model):
-    definition: BoardRevision
+    definition: BoardDefinition
     current_revision_id: str
     freshness: Literal['current', 'historical']
     freshness_reasons: list[str] = Field(default_factory=list)
@@ -292,5 +319,10 @@ class BoardReferenceContext(Model):
 
 class BoardExport(Model):
     schema_version: Literal['mvp.board-export.v1'] = 'mvp.board-export.v1'
+    csv_text: str
+    json_text: str
+
+class CollectionBoardExport(Model):
+    schema_version: Literal['mvp.collection-board-export.v2'] = 'mvp.collection-board-export.v2'
     csv_text: str
     json_text: str

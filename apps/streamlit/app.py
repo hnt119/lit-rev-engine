@@ -22,6 +22,7 @@ from src.mvp.contracts import (
     SearchRequest, SourceContextRequest, WorkspaceHandle,
 )
 from src.mvp.ports import MvpError
+from src.mvp.limits import MAX_PREPARED_SOURCES, MAX_SYNCHRONOUS_PREPARED_SOURCES
 from apps.streamlit.navigation import scroll_reset_html
 from apps.streamlit.theme import load_theme
 
@@ -193,7 +194,8 @@ def discover(service, handle, snapshot, mode, info):
 
 def prepare(service, handle, snapshot):
     st.header("2. Select and prepare sources")
-    st.caption("Select up to 10 papers for exploration. Selection is not a screening decision, formal inclusion or independent verification.")
+    st.caption(f"Select up to {MAX_PREPARED_SOURCES} papers for exploration. Selection is not a screening decision, formal inclusion or independent verification.")
+    st.caption(f"Up to {MAX_SYNCHRONOUS_PREPARED_SOURCES} sources can use the existing synchronous path; larger selections use a saved background job. Boards remain limited to ten papers and 60 cells; proposal budgets are separate.")
     if not snapshot.searches:
         st.info("Discover publications first.")
         return
@@ -207,7 +209,7 @@ def prepare(service, handle, snapshot):
     search = next(item for item in snapshot.searches if item.id == search_id)
     papers = {paper.id: paper for paper in search.papers}
     with st.form("prepare_form", clear_on_submit=False, border=False):
-        selected = st.multiselect("Papers for exploration (maximum 10)", list(papers), default=[item for item in snapshot.selected_paper_ids if item in papers], max_selections=10,
+        selected = st.multiselect(f"Papers for exploration (maximum {MAX_PREPARED_SOURCES})", list(papers), default=[item for item in snapshot.selected_paper_ids if item in papers], max_selections=MAX_PREPARED_SOURCES,
                                   format_func=lambda value: papers[value].title, key="paper_selection_" + search_id)
         refresh = st.checkbox("Refresh sources — create a new source revision", help="Changed selections or source refresh invalidate the current evidence run.")
         submitted = st.form_submit_button("Prepare selected papers", type="primary", disabled=not papers)
@@ -216,10 +218,57 @@ def prepare(service, handle, snapshot):
         if refresh:
             st.session_state.pop("pending_prepare", None)
         try:
-            with st.spinner("Checking permitted open-access XML; preparing explicit abstract fallbacks…"):
-                result = service.prepare_sources(handle, PrepareSourcesRequest(request_id=key_for("prepare", payload), **payload))
-            st.success(f"Prepared {len(result.sources)} sources. Evidence will use source revision {result.source_revision}.")
-            snapshot = service.get_workspace(handle)
+            if len(selected) > MAX_SYNCHRONOUS_PREPARED_SOURCES:
+                from src.mvp.preparation_contracts import PreparationJobRequest
+                runtime = standalone_preparation_runtime(str(service._storage._path))
+                mode = st.session_state.get("_effective_provider_mode", "saved_example")
+                runtime.bind(mode, handle, service)
+                st.session_state["_preparation_runtime"] = runtime
+                job_payload = {**payload, "expected_source_revision": snapshot.source_revision,
+                               "expected_preparation_id": snapshot.preparations[-1].id if snapshot.preparations else None}
+                if refresh:
+                    st.session_state.pop("pending_prepare_job", None)
+                submission = runtime.jobs.submit(mode, handle, PreparationJobRequest(request_id=key_for("prepare_job", job_payload), **job_payload))
+                st.session_state["_preparation_job_id"] = submission.job.id
+                st.info(f"Saved preparation job for {len(selected)} papers. Previously current sources stay usable until publication. Update progress below; no selection edits retarget this job.")
+            else:
+                with st.spinner("Checking permitted open-access XML; preparing explicit abstract fallbacks…"):
+                    result = service.prepare_sources(handle, PrepareSourcesRequest(request_id=key_for("prepare", payload), **payload))
+                st.success(f"Processed {len(result.sources)} sources. Inspect each source status; evidence will use source revision {result.source_revision}.")
+                snapshot = service.get_workspace(handle)
+        except (MvpError, ValidationError) as error:
+            show_error(error)
+    runtime = st.session_state.get("_preparation_runtime")
+    if runtime is not None:
+        mode = st.session_state.get("_effective_provider_mode", "saved_example")
+        try:
+            jobs = runtime.jobs.listing(mode, handle, search_id).jobs
+            if jobs:
+                st.subheader("Saved preparation progress")
+                job = next((item for item in jobs if item.id == st.session_state.get("_preparation_job_id")), jobs[0])
+                st.caption(f"{job.status.replace('_', ' ')} · {job.progress_completed}/{job.progress_total} processed · attempt {job.attempt}/{job.max_attempts}")
+                st.progress(job.progress_completed / job.progress_total if job.progress_total else 0)
+                counts = {kind: sum(item.outcome == kind for item in job.outcomes)
+                          for kind in ("full_text", "abstract_only", "unavailable", "failed", "cancelled")}
+                st.caption(" · ".join(f"{count} {kind.replace('_', ' ')}" for kind, count in counts.items()))
+                if job.error:
+                    st.warning(job.error.message)
+                with st.expander("Exact saved job input and per-paper outcomes"):
+                    st.caption(f"Job {job.id} · expected source revision {job.expected_source_revision} · search snapshot {job.search_snapshot_sha256}")
+                    for outcome in job.outcomes:
+                        st.text(papers[outcome.paper_id].title if outcome.paper_id in papers else outcome.paper_id)
+                        st.caption(f"{outcome.outcome} · {outcome.source_type or 'not prepared'} · {outcome.source_status or ''}")
+                        if outcome.error:
+                            st.warning(outcome.error.message)
+                if job.status in {"queued", "running", "cancel_requested"}:
+                    if st.button("Cancel preparation job", disabled=job.status == "cancel_requested"):
+                        runtime.jobs.cancel(mode, handle, job.id)
+                        st.rerun()
+                if st.button("Update preparation progress"):
+                    runtime.bind(mode, handle, service)
+                    st.rerun()
+                if job.status == "succeeded":
+                    st.success("This job published a source revision. Completion includes its recorded missing/failed outcomes; it does not mean every paper has full text.")
         except (MvpError, ValidationError) as error:
             show_error(error)
     if snapshot.sources:
@@ -411,6 +460,12 @@ def exports(service, handle):
         show_error(error)
 
 
+@st.cache_resource
+def standalone_preparation_runtime(storage_path):
+    from src.mvp.local_preparation import LocalPreparationRuntime
+    return LocalPreparationRuntime(storage_path)
+
+
 def main():
     st.set_page_config(page_title="Literature Review Engine", layout="wide")
     st.markdown("<style>" + load_theme() + "</style>", unsafe_allow_html=True)
@@ -429,6 +484,7 @@ def main():
         if effective_mode == "live" and not info["live_available"]:
             effective_mode = "saved_example"  # Storage remains available; live search stays disabled.
         service = build_service(mode=effective_mode)
+        st.session_state["_effective_provider_mode"] = effective_mode
         if "workspace_handle" not in st.session_state:
             handle = service.create_workspace(CreateWorkspaceRequest(question=st.session_state["research_question"]))
             st.session_state["workspace_handle"] = handle.model_dump()
@@ -453,7 +509,11 @@ def main():
         confirm = st.checkbox("I have exported anything I want to keep")
         if st.button("Clear session and local workspace", disabled=not confirm):
             try:
-                service.clear_workspace(handle)
+                runtime = st.session_state.get("_preparation_runtime")
+                if runtime is None:
+                    service.clear_workspace(handle)
+                else:
+                    runtime.clear(effective_mode, handle, service)
                 st.session_state.clear()
                 st.rerun()
             except MvpError as error:

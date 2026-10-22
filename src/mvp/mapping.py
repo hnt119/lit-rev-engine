@@ -145,8 +145,13 @@ class PaperEmbeddingPort(Protocol):
 
 
 def representations(search: SearchPreview):
+    return representations_for_papers(search.papers)
+
+
+def representations_for_papers(papers):
+    """The existing exact representation policy, independent of input origin."""
     result = []
-    for paper in search.papers:
+    for paper in papers:
         abstract = paper.abstract.strip()
         text = "title: " + paper.title.strip() + "\nabstract: " + abstract
         result.append(PaperRepresentation(paper_id=paper.id, input_text=text,

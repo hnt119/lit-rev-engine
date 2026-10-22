@@ -8,16 +8,16 @@ Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true});
 
 /** Synthetic metadata exercises UI coordination; it is not a retrieval/model evaluation. */
 async function renderSavedMap(workspaceId:string) {
-  const papers:Schema<"Paper">[]=Array.from({length:12},(_,index)=>({
+  const papers:Schema<"Paper">[]=Array.from({length:32},(_,index)=>({
     id:`software-map:${index}`,title:`SOFTWARE MAP PAPER ${index}`,authors:["Synthetic test author"],
     year:2020,abstract:`Synthetic selection software fixture ${index}.`,pmid:null,doi:null,pmcid:null,url:"",
   }));
-  const search:Schema<"SearchPreview">={schema_version:"mvp.exploratory-preview.v1",id:"software-map-search",query:"software test",research_question:"Software test linked selection",query_translation:null,searched_at:"2026-10-21T00:00:00Z",sort:"relevance",date_from:null,date_to:null,total_reported:512,fetched_count:12,ordered_identifiers:papers.map(paper=>paper.id),papers,warnings:[],truncated:true,provider:"software-test",mode:"test",errors:[]};
-  const workspace={id:workspaceId,question:search.research_question,mode:"saved_example",created_at:search.searched_at,source_revision:0,current_preparation_id:null,selected_paper_ids:[],current_run_id:null,current_assessment_ids:{},searches:[{...search,distinct_count:12}],preparations:[],runs:[],assessments:[]} as Schema<"WorkspaceSummary">;
-  const capabilities={default_mode:"saved_example",live_available:false,saved_example:{question:search.research_question,query:"software test"},limits:{},boards:{max_fields:6,max_cells:60,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,max_references:5,max_workspace_bytes:33554432,max_candidate_characters:1200,max_inspector_characters:4000},map:{ready:false,reason:"No model runs in this software fixture"}} as Schema<"Capabilities">;
+  const search:Schema<"SearchPreview">={schema_version:"mvp.exploratory-preview.v1",id:"software-map-search",query:"software test",research_question:"Software test linked selection",query_translation:null,searched_at:"2026-10-21T00:00:00Z",sort:"relevance",date_from:null,date_to:null,total_reported:512,fetched_count:32,ordered_identifiers:papers.map(paper=>paper.id),papers,warnings:[],truncated:true,provider:"software-test",mode:"test",errors:[]};
+  const workspace={id:workspaceId,question:search.research_question,mode:"saved_example",created_at:search.searched_at,source_revision:0,current_preparation_id:null,selected_paper_ids:[],current_run_id:null,current_assessment_ids:{},searches:[{...search,distinct_count:32}],preparations:[],runs:[],assessments:[]} as Schema<"WorkspaceSummary">;
+  const capabilities={default_mode:"saved_example",live_available:false,saved_example:{question:search.research_question,query:"software test"},limits:{max_prepared_sources:30,max_sources:30,max_synchronous_prepared_sources:10},preparation_jobs_ready:false,search_plans_ready:false,board_span_profiles:null,boards:{max_fields:6,max_cells:60,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,max_references:5,max_workspace_bytes:33554432,max_candidate_characters:1200,max_inspector_characters:4000},map:{ready:false,reason:"No model runs in this software fixture"}} as Schema<"Capabilities">;
   const coordinates=Object.freeze(Object.fromEntries(papers.map((paper,index)=>[paper.id,Object.freeze([index,index%3])])));
   const artifact={map_id:"software-persisted-map",search_id:search.id,coordinates_by_paper_id:coordinates,projection_method:"pca_small_corpus_v1",created_at:search.searched_at,status:"ready",representation_by_paper_id:Object.fromEntries(papers.map(paper=>[paper.id,"title_abstract"])),excluded_papers_with_reasons:[],coordinate_sha256:"software-persisted-checksum"};
-  const listing={maps:[{map_id:artifact.map_id,search_id:search.id,created_at:artifact.created_at,status:artifact.status,projection_method:artifact.projection_method,embedded_count:12,excluded_count:0,paper_count:12}],jobs:[]};
+  const listing={maps:[{map_id:artifact.map_id,search_id:search.id,created_at:artifact.created_at,status:artifact.status,projection_method:artifact.projection_method,embedded_count:32,excluded_count:0,paper_count:32}],jobs:[]};
   const requests:{method:string;url:string;body:unknown}[]=[];
   const savedDrafts=new Map<string,{version:number;data:Record<string,unknown>}>();
   globalThis.fetch=async(url,options)=>{
@@ -27,7 +27,7 @@ async function renderSavedMap(workspaceId:string) {
     if(path.endsWith("/session"))value={csrf_token:"software-test"};
     else if(path.endsWith("/papers"))value=search;
     else if(path.includes("/maps?"))value=listing;
-    else if(path.endsWith("/maps/"+artifact.map_id))value={artifact,counts:{provider_reported:512,fetched_records:12,distinct_records:12,embedded_papers:12,excluded_papers:0,map_points:12}};
+    else if(path.endsWith("/maps/"+artifact.map_id))value={artifact,counts:{provider_reported:512,fetched_records:12,distinct_records:12,embedded_papers:32,excluded_papers:0,map_points:32}};
     else if(path.includes("/drafts/")){
       const scope=decodeURIComponent(path.split("/").at(-1)!);
       if(method==="PUT")savedDrafts.set(scope,{version:body.version+1,data:body.data});
@@ -95,12 +95,12 @@ test("rapid capped checkbox changes stay linked to the map across mobile panel s
     assert.equal(renderer.root.findByProps({"data-exploration-panel":"map"}).props["data-active"],false);
     const handlers=checkboxes(renderer).map(input=>input.props.onChange);
     await act(async()=>{for(const change of handlers)change();});
-    assert.equal(checkboxes(renderer).filter(input=>input.props.checked).length,10);
-    for(let index=0;index<12;index++)assertSelected(renderer,papers[index].id,index<10);
-    assert.match(text(renderer.root.findByProps({"aria-label":"Semantic exploration"})),/10 selected for exploration/);
-    await act(async()=>{handlers[0]();handlers[10]();handlers[11]();});
-    assertSelected(renderer,papers[0].id,false);assertSelected(renderer,papers[10].id,true);assertSelected(renderer,papers[11].id,false);
-    assert.equal(checkboxes(renderer).filter(input=>input.props.checked).length,10);
+    assert.equal(checkboxes(renderer).filter(input=>input.props.checked).length,30);
+    for(let index=0;index<32;index++)assertSelected(renderer,papers[index].id,index<30);
+    assert.match(text(renderer.root.findByProps({"aria-label":"Semantic exploration"})),/30 selected for exploration/);
+    await act(async()=>{handlers[0]();handlers[30]();handlers[31]();});
+    assertSelected(renderer,papers[0].id,false);assertSelected(renderer,papers[30].id,true);assertSelected(renderer,papers[31].id,false);
+    assert.equal(checkboxes(renderer).filter(input=>input.props.checked).length,30);
     await act(async()=>tabs[0].props.onClick());
     assert.equal(renderer.root.findByProps({"data-exploration-panel":"map"}).props["data-active"],true);
     assert.equal(renderer.root.findByType("svg"),map,"switching panels preserves the mounted map");

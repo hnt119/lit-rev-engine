@@ -11,6 +11,9 @@ from src.mvp.board_contracts import (
     BoardSubmitRequest, BoardView,
 )
 from src.mvp.evidence_board import EvidenceBoardService
+from src.mvp.span_board_contracts import (
+    ProfiledBoardCreateRequest, ProfiledBoardReviseRequest, BoardCandidatesResult,
+)
 
 
 def install_board_routes(app, *, directory, registry, service, owned, session_for, dependencies):
@@ -24,7 +27,7 @@ def install_board_routes(app, *, directory, registry, service, owned, session_fo
         return boards.listing(mode, handle)
 
     @app.post(prefix, response_model=BoardView, dependencies=dependencies)
-    def create(workspace_id: str, request: BoardCreateRequest, session=Depends(session_for)):
+    def create(workspace_id: str, request: BoardCreateRequest | ProfiledBoardCreateRequest, session=Depends(session_for)):
         mode, handle, _ = owned(workspace_id, session)
         return boards.create(mode, handle, request)
 
@@ -34,11 +37,11 @@ def install_board_routes(app, *, directory, registry, service, owned, session_fo
         return boards.view(mode, handle, board_id, revision_id=revision_id)
 
     @app.post(prefix + "/{board_id}/revisions", response_model=BoardView, dependencies=dependencies)
-    def revise(workspace_id: str, board_id: str, request: BoardReviseRequest, session=Depends(session_for)):
+    def revise(workspace_id: str, board_id: str, request: BoardReviseRequest | ProfiledBoardReviseRequest, session=Depends(session_for)):
         mode, handle, _ = owned(workspace_id, session)
         return boards.revise(mode, handle, board_id, request)
 
-    @app.post(prefix + "/{board_id}/candidates", response_model=BoardCandidates, dependencies=dependencies)
+    @app.post(prefix + "/{board_id}/candidates", response_model=BoardCandidatesResult, dependencies=dependencies)
     def candidates(workspace_id: str, board_id: str, request: BoardCandidatesRequest, session=Depends(session_for)):
         mode, handle, _ = owned(workspace_id, session)
         return boards.candidates(mode, handle, board_id, request)

@@ -7,13 +7,13 @@ import type {Schema} from "../lib/api.ts";
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true});
 
 async function renderSelection(workspaceId:string) {
-  const papers:Schema<"Paper">[]=Array.from({length:12},(_,index)=>({
+  const papers:Schema<"Paper">[]=Array.from({length:32},(_,index)=>({
     id:`software-test:${index}`,title:`SOFTWARE TEST PAPER ${index}`,authors:[],
     year:2020,abstract:"Synthetic metadata for selection software tests only.",pmid:null,doi:null,pmcid:null,url:"",
   }));
-  const search:Schema<"SearchPreview">={schema_version:"mvp.exploratory-preview.v1",id:"software-search",query:"software test",research_question:"Software test selection",query_translation:null,searched_at:"2026-10-21T00:00:00Z",sort:"relevance",date_from:null,date_to:null,total_reported:12,fetched_count:12,ordered_identifiers:papers.map(paper=>paper.id),papers,warnings:[],truncated:false,provider:"software-test",mode:"test",errors:[]};
-  const workspace={id:workspaceId,question:"Software test selection",mode:"saved_example",created_at:search.searched_at,source_revision:0,current_preparation_id:null,selected_paper_ids:[],current_run_id:null,current_assessment_ids:{},searches:[{...search,distinct_count:12}],preparations:[],runs:[],assessments:[]} as Schema<"WorkspaceSummary">;
-  const capabilities={default_mode:"saved_example",live_available:false,saved_example:{question:"Software test selection",query:"software test"},limits:{},boards:{max_fields:6,max_cells:60,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,max_references:5,max_workspace_bytes:33554432,max_candidate_characters:1200,max_inspector_characters:4000},map:{ready:false,reason:"No model needed for selection tests"}} as Schema<"Capabilities">;
+  const search:Schema<"SearchPreview">={schema_version:"mvp.exploratory-preview.v1",id:"software-search",query:"software test",research_question:"Software test selection",query_translation:null,searched_at:"2026-10-21T00:00:00Z",sort:"relevance",date_from:null,date_to:null,total_reported:32,fetched_count:32,ordered_identifiers:papers.map(paper=>paper.id),papers,warnings:[],truncated:false,provider:"software-test",mode:"test",errors:[]};
+  const workspace={id:workspaceId,question:"Software test selection",mode:"saved_example",created_at:search.searched_at,source_revision:0,current_preparation_id:null,selected_paper_ids:[],current_run_id:null,current_assessment_ids:{},searches:[{...search,distinct_count:32}],preparations:[],runs:[],assessments:[]} as Schema<"WorkspaceSummary">;
+  const capabilities={default_mode:"saved_example",live_available:false,saved_example:{question:"Software test selection",query:"software test"},limits:{max_prepared_sources:30,max_sources:30,max_synchronous_prepared_sources:10},preparation_jobs_ready:false,search_plans_ready:false,board_span_profiles:null,boards:{max_fields:6,max_cells:60,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,max_references:5,max_workspace_bytes:33554432,max_candidate_characters:1200,max_inspector_characters:4000},map:{ready:false,reason:"No model needed for selection tests"}} as Schema<"Capabilities">;
   globalThis.fetch=async(url,options)=>{
     assert.equal(options?.method??"GET","GET","selection must not prepare sources or call a provider");
     const path=String(url);
@@ -34,30 +34,48 @@ const checked=(renderer:ReactTestRenderer)=>checkboxes(renderer).filter(input=>i
 test("rapid paper selections from one rendered handler batch retain every choice",async()=>{
   const renderer=await renderSelection("software-rapid-selection");
   try {
-    const inputs=checkboxes(renderer);assert.equal(inputs.length,12);
+    const inputs=checkboxes(renderer);assert.equal(inputs.length,32);
     assert.equal(inputs.every(input=>!input.props.disabled),true);
     // Capture handlers from one render, then batch changes before React rerenders.
     const handlers=inputs.map(input=>input.props.onChange);
     await act(async()=>{for(const change of handlers.slice(0,7))change();});
     assert.equal(checked(renderer).length,7);
-    assert.deepEqual(checkboxes(renderer).map(input=>input.props.checked),Array.from({length:12},(_,index)=>index<7));
+    assert.deepEqual(checkboxes(renderer).map(input=>input.props.checked),Array.from({length:32},(_,index)=>index<7));
   } finally {await act(async()=>renderer.unmount());}
 });
 
-test("rapid selection preserves the ten-paper cap and deselection frees one slot within the same batch",async()=>{
+test("rapid selection preserves the thirty-paper cap and deselection frees one slot within the same batch",async()=>{
   const renderer=await renderSelection("software-selection-cap");
   try {
     const handlers=checkboxes(renderer).map(input=>input.props.onChange);
     await act(async()=>{for(const change of handlers)change();});
-    assert.equal(checked(renderer).length,10);
-    assert.equal(checkboxes(renderer)[10].props.disabled,true);
-    assert.equal(checkboxes(renderer)[11].props.disabled,true);
+    assert.equal(checked(renderer).length,30);
+    assert.equal(checkboxes(renderer)[30].props.disabled,true);
+    assert.equal(checkboxes(renderer)[31].props.disabled,true);
     // A still-mounted handler must read the latest draft, including the removal.
-    await act(async()=>{handlers[0]();handlers[10]();handlers[11]();});
-    assert.equal(checked(renderer).length,10);
+    await act(async()=>{handlers[0]();handlers[30]();handlers[31]();});
+    assert.equal(checked(renderer).length,30);
     assert.equal(checkboxes(renderer)[0].props.checked,false);
-    assert.equal(checkboxes(renderer)[10].props.checked,true);
-    assert.equal(checkboxes(renderer)[11].props.checked,false);
-    assert.equal(checkboxes(renderer)[10].props.disabled,false,"a selected paper remains deselectable at the cap");
+    assert.equal(checkboxes(renderer)[30].props.checked,true);
+    assert.equal(checkboxes(renderer)[31].props.checked,false);
+    assert.equal(checkboxes(renderer)[30].props.disabled,false,"a selected paper remains deselectable at the cap");
   } finally {await act(async()=>renderer.unmount());}
+});
+
+test("eleven selected sources remain editable while unsafe synchronous preparation stays gated",async()=>{
+  const renderer=await renderSelection("software-selection-execution-gate");
+  try {
+    const prepare=()=>renderer.root.findAllByType("button").find(button=>button.children.join("")==="Prepare selected sources")!;
+    assert.equal(prepare().props.disabled,true);
+    const handlers=checkboxes(renderer).map(input=>input.props.onChange);
+    await act(async()=>{for(const change of handlers.slice(0,10))change();});
+    assert.equal(prepare().props.disabled,false);
+    await act(async()=>handlers[10]());
+    assert.equal(checked(renderer).length,11);
+    assert.equal(prepare().props.disabled,true);
+    await act(async()=>prepare().props.onClick());
+    assert.equal(checked(renderer).length,11,"gated preparation does not replace or clear selection");
+    await act(async()=>handlers[10]());
+    assert.equal(prepare().props.disabled,false);
+  }finally{await act(async()=>renderer.unmount());}
 });

@@ -7,6 +7,7 @@ The Next.js bridge forwards only this API and preserves the original Origin.
 from datetime import datetime, timezone
 import os
 from pathlib import Path
+import re
 from threading import BoundedSemaphore
 from typing import Literal
 from urllib.parse import urlsplit
@@ -14,18 +15,20 @@ from urllib.parse import urlsplit
 from fastapi import Depends, FastAPI, Query, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from pydantic import ValidationError
 
 from src.mvp.bootstrap import ROOT, build_service, public_runtime_info
 from src.mvp.contracts import (
     Assessment, BoundRetrieveEvidenceRequest, ClearResult, CreateWorkspaceRequest,
     EvidenceRun, PrepareSourcesRequest, QuerySuggestion, QuerySuggestionRequest,
-    SaveAssessmentRequest, SearchPreview, SearchRequest, SourceContextRequest,
+    SaveAssessmentRequest, SearchPreview, SearchRequest, SelectionDraft, SourceContextRequest,
 )
 from src.mvp.ports import MvpError
+from src.mvp.workspace_versions import CollectionEvidenceRun
 from src.mvp.workspace_ui import WorkspaceUIStore, private_directory
 from .contracts import (
     Capabilities, ContextView, CreateWebWorkspace, DraftRecord, DraftUpdate,
-    PreparationView, RunView, SessionInfo, WorkspaceList, WorkspaceSummary,
+    CollectionPreparationView, PreparationPapers, PreparationView, RunPapers, RunView, SessionInfo, WorkspaceList, WorkspaceSummary,
 )
 from .projections import preparation_view, source_metadata, workspace_summary
 
@@ -46,7 +49,7 @@ def _loopback_configuration(allowed_host, allowed_origin):
 
 def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
                allowed_origin="http://127.0.0.1:3000", services=None, ui_store=None, map_embedder=None,
-               proposal_adapter=None):
+               proposal_adapter=None, metadata_resolver=None, search_diagnostics=None, search_planner=None):
     _loopback_configuration(allowed_host, allowed_origin)
     directory = private_directory(Path(data_dir or os.environ.get("MVP_WEB_DATA_DIR") or ROOT / ".mvp-web-state"))
     registry = ui_store or WorkspaceUIStore(directory / "web-credentials.sqlite3")
@@ -78,18 +81,25 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         if (origin is not None and origin != allowed_origin) or (request.method not in {"GET", "HEAD"} and origin != allowed_origin):
             return JSONResponse({"error": {"code": "invalid_origin", "message": "Mutation requires the configured local application origin.", "retryable": False}}, 403)
         content_length = request.headers.get("content-length")
+        from src.mvp.limits import MAX_IMPORT_BYTES
+        upload = request.method == 'POST' and re.fullmatch(r'/api/v1/workspaces/[^/]+/imports/(csv|ris|identifiers)', request.url.path)
+        limit = MAX_IMPORT_BYTES if upload else MAX_REQUEST_BYTES
+        if upload:
+            media = request.headers.get('content-type', '').split(';', 1)[0].strip().lower()
+            if media not in {'application/octet-stream', 'text/csv', 'text/plain', 'application/x-research-info-systems'}:
+                return JSONResponse({'error': {'code': 'invalid_upload_type', 'message': 'Use a raw citation file or identifier text upload.', 'retryable': False}}, 415)
         try:
-            oversized = content_length is not None and (int(content_length) < 0 or int(content_length) > MAX_REQUEST_BYTES)
+            oversized = content_length is not None and (int(content_length) < 0 or int(content_length) > limit)
         except ValueError:
             oversized = True
         if oversized:
-            return JSONResponse({"error": {"code": "request_limit", "message": "Request exceeds the local JSON size limit.", "retryable": False}}, 413)
+            return JSONResponse({"error": {"code": "request_limit", "message": "Request exceeds this local route's size limit.", "retryable": False}}, 413)
         if request.method not in {"GET", "HEAD"}:
             body = bytearray()
             async for chunk in request.stream():
+                if len(body) + len(chunk) > limit:
+                    return JSONResponse({"error": {"code": "request_limit", "message": "Request exceeds this local route's size limit.", "retryable": False}}, 413)
                 body.extend(chunk)
-                if len(body) > MAX_REQUEST_BYTES:
-                    return JSONResponse({"error": {"code": "request_limit", "message": "Request exceeds the local JSON size limit.", "retryable": False}}, 413)
             request._body = bytes(body)
         response = await call_next(request)
         response.headers["Cache-Control"] = "no-store"
@@ -141,8 +151,12 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.get(PREFIX + "/capabilities", response_model=Capabilities, dependencies=dependencies)
     def capabilities():
         from .contracts import MapCapability
+        from src.mvp.span_board_contracts import BoardSpanCapability
         ready, reason = app.state.maps.readiness()
-        return Capabilities(**public_runtime_info(), map=MapCapability(ready=ready, reason=reason))
+        return Capabilities(**public_runtime_info(), map=MapCapability(ready=ready, reason=reason),
+                            preparation_jobs_ready=app.state.preparation_jobs_ready,
+                            search_plans_ready=app.state.search_plans_ready,
+                            board_span_profiles=BoardSpanCapability())
 
     @app.get(PREFIX + "/workspaces", response_model=WorkspaceList, dependencies=dependencies)
     def list_workspaces(session=Depends(session_for)):
@@ -184,12 +198,32 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         _, handle, engine = owned(workspace_id, session)
         return preparation_view(engine.prepare_sources(handle, request))
 
-    @app.get(PREFIX + "/workspaces/{workspace_id}/source-preparations/{preparation_id}", response_model=PreparationView, dependencies=dependencies)
+    @app.get(PREFIX + "/workspaces/{workspace_id}/source-preparations/{preparation_id}", response_model=PreparationView | CollectionPreparationView, dependencies=dependencies)
     def preparation(workspace_id: str, preparation_id: str, session=Depends(session_for)):
         _, handle, engine = owned(workspace_id, session)
         return preparation_view(find(engine.get_workspace(handle).preparations, preparation_id, "preparation"))
 
-    @app.post(PREFIX + "/workspaces/{workspace_id}/evidence-runs", response_model=EvidenceRun, dependencies=dependencies)
+    @app.get(PREFIX + '/workspaces/{workspace_id}/source-preparations/{preparation_id}/papers', response_model=PreparationPapers, dependencies=dependencies)
+    def preparation_papers(workspace_id: str, preparation_id: str, session=Depends(session_for)):
+        from src.mvp.board_contracts import BoardPaper
+        from src.mvp.origin_resolver import resolve_preparation
+        _, handle, engine = owned(workspace_id, session)
+        state = engine.get_workspace(handle)
+        resolved = resolve_preparation(state, find(state.preparations, preparation_id, 'preparation'))
+        return PreparationPapers(preparation_id=preparation_id, origin=resolved.origin,
+            papers=[BoardPaper(**paper.model_dump(include=set(BoardPaper.model_fields))) for paper in resolved.papers])
+
+    @app.get(PREFIX + '/workspaces/{workspace_id}/runs/{run_id}/papers', response_model=RunPapers, dependencies=dependencies)
+    def run_papers(workspace_id: str, run_id: str, session=Depends(session_for)):
+        from src.mvp.board_contracts import BoardPaper
+        from src.mvp.origin_resolver import resolve_run
+        _, handle, engine = owned(workspace_id, session)
+        state = engine.get_workspace(handle)
+        _, resolved = resolve_run(state, find(state.runs, run_id, 'run'))
+        return RunPapers(run_id=run_id, origin=resolved.origin,
+            papers=[BoardPaper(**paper.model_dump(include=set(BoardPaper.model_fields))) for paper in resolved.papers])
+
+    @app.post(PREFIX + "/workspaces/{workspace_id}/evidence-runs", response_model=EvidenceRun | CollectionEvidenceRun, dependencies=dependencies)
     def retrieve(workspace_id: str, request: BoundRetrieveEvidenceRequest, session=Depends(session_for)):
         _, handle, engine = owned(workspace_id, session)
         return engine.retrieve_evidence_bound(handle, request)
@@ -221,11 +255,25 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
                            blocks=blocks, offset=offset, total_blocks=total, next_offset=offset + limit if offset + limit < total else None,
                            archived=archived, current=current)
 
-    def validate_scope(state, scope, expected_head=None, writing=False):
+    def validate_scope(state, scope, expected_head=None, writing=False, data=None):
         if scope in {"discover", "evidence"}:
             return
         if scope.startswith("selection:"):
-            find(state.searches, scope.removeprefix("selection:"), "search")
+            search = find(state.searches, scope.removeprefix("selection:"), "search")
+            if writing:
+                try:
+                    selection = SelectionDraft.model_validate(data)
+                except ValidationError:
+                    raise MvpError("invalid_selection_draft", "Choose at most thirty distinct paper IDs from this saved preview. Existing drafts are unchanged.") from None
+                if set(selection.selected_paper_ids) - {paper.id for paper in search.papers}:
+                    raise MvpError("invalid_selection_draft", "Selected papers must belong to this saved preview. Existing drafts are unchanged.")
+            return
+        if scope.startswith('collection-selection:'):
+            identifier = scope.removeprefix('collection-selection:')
+            # The route resolves the owning engine/handle before entering this
+            # common validator; see the explicit collection guard below.
+            if not identifier:
+                raise MvpError('invalid_draft_scope', 'Choose a saved collection.')
             return
         if scope.startswith("assessment:"):
             run_id = scope.removeprefix("assessment:")
@@ -238,15 +286,28 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
 
     @app.get(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def get_draft(workspace_id: str, scope: str, session=Depends(session_for)):
-        _, handle, engine = owned(workspace_id, session)
+        mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('collection-selection:'):
+            app.state.collections_for(mode).collection(handle, scope.removeprefix('collection-selection:'))
         validate_scope(engine.get_workspace(handle), scope)
         return DraftRecord(**registry.draft(workspace_id, scope))
 
     @app.put(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def put_draft(workspace_id: str, scope: str, request: DraftUpdate, session=Depends(session_for)):
-        _, handle, engine = owned(workspace_id, session)
+        mode, handle, engine = owned(workspace_id, session)
         def save_under_guard(state):
-            validate_scope(state, scope, request.expected_assessment_head, writing=True)
+            if scope.startswith('collection-selection:'):
+                collections = app.state.collections_for(mode)
+                identifier = scope.removeprefix('collection-selection:')
+                summary = collections.collection(handle, identifier)
+                try:
+                    selection = SelectionDraft.model_validate(request.data)
+                except ValidationError:
+                    raise MvpError('invalid_selection_draft', 'Choose at most thirty distinct owned collection papers.') from None
+                resolved = collections.resolve_collection(handle, summary.origin)
+                if set(selection.selected_paper_ids) - {item.paper.id for item in resolved.members}:
+                    raise MvpError('invalid_selection_draft', 'Selected papers must belong to this saved collection.')
+            validate_scope(state, scope, request.expected_assessment_head, writing=True, data=request.data)
             return DraftRecord(**registry.put_draft(workspace_id, scope, **request.model_dump(mode="json")))
         return engine.with_workspace_state(handle, save_under_guard)
 
@@ -267,12 +328,23 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         def clear_sidecars(identifier):
             app.state.maps.delete_workspace(identifier)
             app.state.boards.delete_workspace(identifier)
+            app.state.preparation_jobs.delete_workspace(identifier)
+            app.state.collection_preparation_jobs.delete_workspace(identifier)
         registry.delete_workspace(session["token_hash"], workspace_id, lambda mode, handle: service(mode).clear_workspace_if_present(handle), clear_sidecars)
         return ClearResult()
 
+    from .collection_routes import install_collection_routes
+    install_collection_routes(app, service=service, owned=owned, session_for=session_for,
+                              dependencies=dependencies, metadata_resolver=metadata_resolver)
+    from .search_plan_routes import install_search_plan_routes
+    install_search_plan_routes(app, service=service, owned=owned, session_for=session_for,
+        dependencies=dependencies, diagnostics=search_diagnostics, planner=search_planner, registry=registry)
     from .map_routes import install_map_routes
     install_map_routes(app, directory=directory, registry=registry, service=service, owned=owned,
                        session_for=session_for, dependencies=dependencies, embedder=map_embedder)
+    from .collection_map_routes import install_collection_map_routes
+    install_collection_map_routes(app, registry=registry, service=service, owned=owned,
+        session_for=session_for, dependencies=dependencies)
     from .board_routes import install_board_routes
     install_board_routes(app, directory=directory, registry=registry, service=service, owned=owned,
                          session_for=session_for, dependencies=dependencies)
@@ -291,6 +363,12 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     proposals = CellProposalService(app.state.boards, proposal_adapter)
     install_proposal_routes(app, proposals=proposals, owned=owned, session_for=session_for,
                             dependencies=dependencies)
+    from .collection_preparation_routes import install_collection_preparation_routes
+    collection_jobs = install_collection_preparation_routes(app, registry=registry, service=service, owned=owned,
+        session_for=session_for, dependencies=dependencies)
+    from .preparation_routes import install_preparation_routes
+    install_preparation_routes(app, registry=registry, service=service, owned=owned,
+                               session_for=session_for, dependencies=dependencies, additional_domains=(collection_jobs,))
     return app
 
 

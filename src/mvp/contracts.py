@@ -13,6 +13,7 @@ from uuid import uuid4
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from src.review.identity import normalize_doi, normalize_pmid
+from .limits import DEFAULT_DISCOVERY_RESULTS, MAX_DISCOVERY_RESULTS, MAX_PREPARED_SOURCES
 
 
 def now() -> str:
@@ -65,7 +66,7 @@ class SearchRequest(Model):
     request_id: str = Field(min_length=1, max_length=200)
     query: str = Field(min_length=1, max_length=20000)
     research_question: str | None = Field(default=None, min_length=1, max_length=10000)
-    max_results: int = Field(default=30, ge=1, le=50, strict=True)
+    max_results: int = Field(default=DEFAULT_DISCOVERY_RESULTS, ge=1, le=MAX_DISCOVERY_RESULTS, strict=True)
     sort: Literal["relevance", "pub_date"] = "relevance"
     date_from: str | None = None
     date_to: str | None = None
@@ -165,9 +166,22 @@ class PreparedSource(Model):
 class PrepareSourcesRequest(Model):
     request_id: str = Field(min_length=1, max_length=200)
     search_id: str
-    paper_ids: list[str] = Field(min_length=1, max_length=10)
+    paper_ids: list[str] = Field(min_length=1, max_length=MAX_PREPARED_SOURCES)
 
     @field_validator("paper_ids")
+    @classmethod
+    def unique(cls, value):
+        if len(value) != len(set(value)):
+            raise ValueError("Select each paper only once")
+        return value
+
+
+class SelectionDraft(Model):
+    """Empty selection is valid; writes are bounded and ownership-checked."""
+
+    selected_paper_ids: list[str] = Field(default_factory=list, max_length=MAX_PREPARED_SOURCES)
+
+    @field_validator("selected_paper_ids")
     @classmethod
     def unique(cls, value):
         if len(value) != len(set(value)):

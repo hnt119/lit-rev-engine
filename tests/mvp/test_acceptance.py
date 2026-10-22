@@ -574,7 +574,7 @@ def test_search_and_selection_caps_are_validated_before_provider_calls():
         with pytest.raises(ValidationError):
             SearchRequest(request_id="bound", query="software", max_results=value)
     with pytest.raises(ValidationError):
-        PrepareSourcesRequest(request_id="bound", search_id="x", paper_ids=[str(i) for i in range(11)])
+        PrepareSourcesRequest(request_id="bound", search_id="x", paper_ids=[str(i) for i in range(31)])
 
 
 def europe_metadata(**changes):
@@ -723,7 +723,7 @@ def test_streamlit_saved_example_workflow_reruns_do_not_repeat_or_lose_assessmen
     search = service.get_workspace(handle).searches[-1]
     assert search.mode == "saved_example" and search.papers
     widget("radio", "Workflow").set_value("Prepare sources").run()
-    widget("multiselect", "Papers for exploration (maximum 10)").set_value([search.papers[0].id])
+    widget("multiselect", "Papers for exploration (maximum 30)").set_value([search.papers[0].id])
     widget("button", "Prepare selected papers").click().run()
     assert not app.exception and example.preparations == 1
     widget("radio", "Workflow").set_value("Evidence & export").run()

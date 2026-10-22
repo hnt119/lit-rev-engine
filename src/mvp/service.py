@@ -17,6 +17,7 @@ from .contracts import (
     WorkspaceHandle, WorkspaceSnapshot, digest, new_id, now,
 )
 from .ports import DiscoveryProvider, MvpError, ProviderFailure, SourceProvider, WorkspaceStorage
+from .limits import MAX_SYNCHRONOUS_PREPARED_SOURCES
 from .query_suggestions import suggest_pubmed_query
 
 
@@ -192,6 +193,11 @@ class MVPService:
         return self._operate(handle, "search", request, SearchPreview, execute)
 
     def prepare_sources(self, handle: WorkspaceHandle, request: PrepareSourcesRequest) -> PreparationResult:
+        # Never expand the old workspace-locked provider loop to thirty. Larger
+        # selections require the independently persisted preparation job route.
+        if len(request.paper_ids) > MAX_SYNCHRONOUS_PREPARED_SOURCES:
+            self._storage.read(handle)
+            raise MvpError("preparation_job_required", "Use a durable preparation job for more than ten papers. Your selection and existing sources are unchanged.")
         def execute(state):
             search = _find(state.searches, request.search_id, "search")
             papers = [_find(search.papers, identifier, "paper") for identifier in request.paper_ids]
@@ -219,13 +225,129 @@ class MVPService:
         self._ensure_current_revision(handle, result.source_revision)
         return result
 
+    def publish_planned_search(self, handle, request, preview, *, plan_id, fingerprint, commit_guard):
+        """Publish an already fetched preview and its approval link atomically.
+
+        The planning service performs provider I/O before this method. Existing
+        direct-search behavior and SearchPreview serialization stay unchanged.
+        """
+        preview = SearchPreview.model_validate(preview)
+        if (preview.query != request.query or preview.sort != request.sort
+                or preview.date_from != request.date_from or preview.date_to != request.date_to
+                or preview.mode == 'saved_example'):
+            raise MvpError('planned_search_mismatch', 'The provider result did not match the exact approved query, filters and sort.')
+        if len(preview.papers) > request.max_results or preview.fetched_count > request.max_results:
+            raise MvpError('discovery_limit_exceeded', 'Discovery exceeded the approved exploratory sample limit.')
+        preview = _deduplicate(preview)
+
+        def execute(state):
+            question = request.research_question if request.research_question is not None else state.question
+            result = preview.model_copy(update={'research_question': question})
+            if any(item.id == result.id for item in state.searches):
+                result = result.model_copy(update={'id': new_id()})
+            return state.model_copy(update={'question': question, 'searches': [*state.searches, result]}), result.model_dump(mode='json')
+
+        result = self._storage.transact_guarded(handle, 'planned_search_v2:' + plan_id,
+            request.request_id, fingerprint, execute, commit_guard)
+        return SearchPreview.model_validate(result)
+
     def retrieve_evidence(self, handle: WorkspaceHandle, request: RetrieveEvidenceRequest) -> EvidenceRun:
         return self._retrieve_evidence(handle, request, "retrieve")
+
+    def publish_preparation_job(self, handle, job_id, expected_source_revision, search_id,
+                                search_snapshot_sha256, paper_ids, sources, commit_guard,
+                                expected_preparation_id=None):
+        """Short atomic publication of already fetched, parsed and staged sources.
+
+        Provider work belongs to the durable worker, outside both this workspace
+        lock and any SQLite write transaction. Historical preparations remain.
+        """
+        from .limits import MAX_PREPARED_SOURCES
+        if not paper_ids or len(paper_ids) > MAX_PREPARED_SOURCES or len(set(paper_ids)) != len(paper_ids):
+            raise MvpError("invalid_preparation_job", "Preparation requires a bounded distinct source selection.")
+        if [source.paper_id for source in sources] != list(paper_ids):
+            raise MvpError("source_integrity_error", "Staged sources do not match the ordered paper selection.")
+        # Exact block/byte checks are local validation, performed before taking
+        # the mutation lock. The worker already validated identity and license.
+        _assert_source_integrity(sources)
+        fingerprint = digest({"job_id": job_id, "expected_source_revision": expected_source_revision,
+                              "expected_preparation_id": expected_preparation_id, "search_id": search_id,
+                              "search_snapshot_sha256": search_snapshot_sha256,
+                              "paper_ids": paper_ids, "source_manifest": _manifest(sources)})
+
+        def publish(state):
+            current = state.preparations[-1].id if state.preparations else None
+            if state.source_revision != expected_source_revision or current != expected_preparation_id:
+                raise MvpError("stale_preparation_job", "Sources changed while this job ran. The staged result cannot replace the current preparation.")
+            search = _find(state.searches, search_id, "search")
+            if digest(search.model_dump(mode="json")) != search_snapshot_sha256:
+                raise MvpError("stale_preparation_job", "The retained search no longer matches this job's exact input.")
+            for identifier in paper_ids:
+                _find(search.papers, identifier, "paper")
+            result = PreparationResult(search_id=search_id, source_revision=state.source_revision + 1,
+                                       selected_paper_ids=list(paper_ids), sources=list(sources),
+                                       errors=[source.error for source in sources if source.error is not None])
+            updated = state.model_copy(update={"source_revision": result.source_revision,
+                                              "selected_paper_ids": list(paper_ids), "sources": list(sources),
+                                              "preparations": [*state.preparations, result], "current_run_id": None,
+                                              "current_assessment_ids": {}})
+            return updated, result.model_dump(mode="json")
+
+        result = self._storage.transact_guarded(handle, "prepare_job_v1", job_id, fingerprint, publish, commit_guard)
+        return PreparationResult.model_validate(result)
 
     def retrieve_evidence_bound(self, handle: WorkspaceHandle, request: BoundRetrieveEvidenceRequest) -> EvidenceRun:
         return self._retrieve_evidence(handle, request, "retrieve_bound_v1")
 
+    def publish_collection_preparation_job(self, handle, job_id, expected_source_revision, collection_ref,
+                                           paper_ids, sources, commit_guard, expected_preparation_id=None):
+        """Publish already staged collection sources with an atomic origin/source CAS."""
+        from .adapters.collection_storage import CollectionStore
+        from .collections import CollectionService
+        from .collection_preparation_contracts import CollectionPreparationResult
+        from .limits import MAX_PREPARED_SOURCES
+        from .workspace_versions import collection_workspace
+        if not paper_ids or len(paper_ids) > MAX_PREPARED_SOURCES or len(set(paper_ids)) != len(paper_ids):
+            raise MvpError('invalid_preparation_job', 'Choose a bounded distinct collection source selection.')
+        if [source.paper_id for source in sources] != list(paper_ids):
+            raise MvpError('source_integrity_error', 'Staged sources do not match the exact ordered collection papers.')
+        _assert_source_integrity(sources)
+        collections = CollectionService(self, CollectionStore(self._storage))
+        captured = collections.resolve_collection(handle, collection_ref)
+        captured_members = {member.paper.id: member for member in captured.members}
+        if any(identifier not in captured_members for identifier in paper_ids):
+            raise MvpError('source_integrity_error', 'Staged papers do not belong to the exact collection.')
+        for source in sources:
+            if _validated_source(source, captured_members[source.paper_id].paper) != source:
+                raise MvpError('source_integrity_error', 'Staged source identity or rights changed.')
+        fingerprint = digest({'job_id': job_id, 'expected_source_revision': expected_source_revision,
+            'expected_preparation_id': expected_preparation_id, 'collection_ref': collection_ref.model_dump(mode='json'),
+            'paper_ids': paper_ids, 'source_manifest': _manifest(sources)})
+        def publish(state):
+            current = state.preparations[-1].id if state.preparations else None
+            if state.source_revision != expected_source_revision or current != expected_preparation_id:
+                raise MvpError('stale_preparation_job', 'Current sources changed; this collection job cannot replace them.')
+            resolved = collections.resolve_collection(handle, collection_ref)
+            members = {member.paper.id: member for member in resolved.members}
+            if any(identifier not in members for identifier in paper_ids):
+                raise MvpError('source_integrity_error', 'Staged papers no longer belong to the bound collection.')
+            if any(members[identifier] != captured_members[identifier] for identifier in paper_ids):
+                raise MvpError('source_integrity_error', 'The immutable source member metadata changed.')
+            result = CollectionPreparationResult(collection_ref=collection_ref, source_revision=state.source_revision + 1,
+                selected_paper_ids=list(paper_ids), member_snapshots=[members[identifier] for identifier in paper_ids],
+                member_snapshot_sha256=digest([members[identifier].model_dump(mode='json') for identifier in paper_ids]),
+                sources=list(sources), errors=[source.error for source in sources if source.error])
+            updated = collection_workspace(state).model_copy(update={'source_revision': result.source_revision,
+                'selected_paper_ids': list(paper_ids), 'sources': list(sources),
+                'preparations': [*state.preparations, result], 'current_run_id': None, 'current_assessment_ids': {}})
+            return updated, result.model_dump(mode='json')
+        result = self._storage.transact_guarded(handle, 'prepare_collection_job_v2', job_id, fingerprint, publish, commit_guard)
+        return CollectionPreparationResult.model_validate(result)
+
     def _retrieve_evidence(self, handle, request, operation):
+        from .collection_preparation_contracts import CollectionPreparationResult
+        from .origin_resolver import resolve_preparation
+        from .workspace_versions import CollectionEvidenceRun, EvidenceRunReader
         def execute(state):
             if not state.preparations:
                 raise MvpError("sources_not_prepared", "Select and prepare sources before passage search.")
@@ -238,14 +360,17 @@ class MVPService:
             ):
                 raise MvpError("stale_preparation", "Prepared sources changed since this form was loaded. Keep your question and reload the current preparation.")
             _assert_source_integrity(state.sources)
+            resolve_preparation(state, preparation)
             run_id = new_id()
             passages, indexed, matched = self._retrieval.search(request.question, state.sources, run_id, request.top_k)
-            result = EvidenceRun(id=run_id, search_id=preparation.search_id, preparation_id=preparation.id,
+            model = CollectionEvidenceRun if isinstance(preparation, CollectionPreparationResult) else EvidenceRun
+            origin = {'collection_ref': preparation.collection_ref, 'member_snapshot_sha256': preparation.member_snapshot_sha256} if isinstance(preparation, CollectionPreparationResult) else {}
+            result = model(id=run_id, search_id=preparation.search_id, preparation_id=preparation.id,
                                  source_revision=state.source_revision, source_snapshot_sha256=digest(_manifest(state.sources)),
                                  question=request.question, passages=passages, indexed_passages=indexed,
-                                 matched_passages=matched, parameters=self._retrieval.parameters)
+                                 matched_passages=matched, parameters=self._retrieval.parameters, **origin)
             return state.model_copy(update={"runs": [*state.runs, result], "current_run_id": result.id}), result
-        result = self._operate(handle, operation, request, EvidenceRun, execute)
+        result = self._operate(handle, operation, request, EvidenceRunReader, execute)
         self._current_run(self._storage.read(handle), result.id)
         return result
 
@@ -255,9 +380,12 @@ class MVPService:
 
     @staticmethod
     def _current_run(state, run_id):
+        from .origin_resolver import resolve_run
         run = _find(state.runs, run_id, "run")
+        preparation, _ = resolve_run(state, run)
         _assert_source_integrity(state.sources)
-        if run.source_revision != state.source_revision or run.source_snapshot_sha256 != digest(_manifest(state.sources)):
+        if (run.source_revision != state.source_revision or run.source_snapshot_sha256 != digest(_manifest(state.sources))
+                or not state.preparations or state.preparations[-1].id != preparation.id):
             raise MvpError("stale_source_revision", "Selected or prepared sources changed. Run passage search again; your existing judgments remain in history.")
         return run
 
@@ -270,7 +398,8 @@ class MVPService:
         """Read an original run/preparation/search without relaxing current guards."""
         state = self._storage.read(handle)
         run = _find(state.runs, request.run_id, "run")
-        preparation = _find(state.preparations, run.preparation_id, "preparation")
+        from .origin_resolver import resolve_run
+        preparation, _ = resolve_run(state, run)
         if (preparation.search_id != run.search_id
                 or preparation.source_revision != run.source_revision
                 or digest(_manifest(preparation.sources)) != run.source_snapshot_sha256):
@@ -280,6 +409,7 @@ class MVPService:
 
     @staticmethod
     def _source_context(state, run, sources, passage_id):
+        from .origin_resolver import resolve_run
         passage = _find(run.passages, passage_id, "passage")
         source = _find(sources, passage.source_id, "source")
         block = _find(source.blocks, passage.anchor.block_id, "block")
@@ -291,7 +421,8 @@ class MVPService:
                 or not 0 <= anchor.start < anchor.end <= len(block.text)
                 or block.text[anchor.start:anchor.end] != anchor.quote):
             raise MvpError("source_integrity_error", "Retained quotation did not match its canonical source snapshot.")
-        paper = _find(_find(state.searches, run.search_id, "search").papers, passage.paper_id, "paper")
+        _, bibliography = resolve_run(state, run)
+        paper = _find(bibliography.papers, passage.paper_id, "paper")
         return SourceContext(run_id=run.id, passage=passage, source=source, paper=paper, block=block)
 
     def save_assessment(self, handle: WorkspaceHandle, request: SaveAssessmentRequest) -> Assessment:
@@ -319,23 +450,23 @@ class MVPService:
             raise MvpError("stale_assessment", "This request returned a superseded assessment. Reload the current committed assessment and keep your draft for comparison.")
         return result
 
-    def export_workspace(self, handle: WorkspaceHandle) -> WorkspaceExport:
-        state = self._storage.read(handle)
+    def _evidence_export_rows(self, state, with_collections=False):
+        from .origin_resolver import resolve_run
         rows = []
         for run in state.runs:
-            search = _find(state.searches, run.search_id, "search")
-            preparation = _find(state.preparations, run.preparation_id, "preparation")
+            preparation, bibliography = resolve_run(state, run)
+            search = _find(state.searches, run.search_id, 'search') if bibliography.origin.kind == 'search' else None
             # Old assessments remain exportable after source changes clear the current pointers.
             assessment_id = next((item.id for item in reversed(state.assessments) if item.run_id == run.id), None)
             assessment = _find(state.assessments, assessment_id, "assessment") if assessment_id else None
             judgments = {judgment.passage_id: judgment for judgment in assessment.passages} if assessment else {}
             for passage in run.passages:
-                paper = _find(search.papers, passage.paper_id, "paper")
+                paper = _find(bibliography.papers, passage.paper_id, "paper")
                 source = _find(preparation.sources, passage.source_id, "source")
                 judgment = judgments.get(passage.id, PassageJudgment(passage_id=passage.id))
-                rows.append({
-                    "workspace_id": state.id, "question": run.question, "search_id": search.id, "search_query": search.query,
-                    "search_mode": search.mode, "run_id": run.id, "passage_id": passage.id,
+                row = {
+                    "workspace_id": state.id, "question": run.question, "search_id": search.id if search else None, "search_query": search.query if search else None,
+                    "search_mode": search.mode if search else 'retained_collection', "run_id": run.id, "passage_id": passage.id,
                     "citation": "; ".join(paper.authors) + (f" ({paper.year}) " if paper.year else " ") + paper.title,
                     "title": paper.title, "pmid": paper.pmid, "doi": paper.doi, "pmcid": paper.pmcid,
                     "source_type": passage.source_type, "source_status": source.status, "source_url": source.source_url,
@@ -348,9 +479,25 @@ class MVPService:
                     "missing_information": assessment.bundle.missing_information if assessment else "", "contradiction": assessment.bundle.contradiction if assessment else False,
                     "review_state": assessment.review_state if assessment else "unreviewed", "feedback": assessment.feedback if assessment else "",
                     "source_revision": run.source_revision, "source_binding_current": run.source_revision == state.source_revision,
-                    "searched_at": search.searched_at, "retrieved_at": source.retrieved_at, "run_created_at": run.created_at,
+                    "searched_at": search.searched_at if search else None, "retrieved_at": source.retrieved_at, "run_created_at": run.created_at,
                     "assessed_at": assessment.created_at if assessment else "",
-                })
+                }
+                if with_collections:
+                    self._source_context(state, run, preparation.sources, passage.id)
+                    row.update(input_kind=bibliography.origin.kind,
+                        collection_ref=json.dumps(bibliography.origin.model_dump(mode='json'), sort_keys=True) if bibliography.origin.kind == 'collection' else '',
+                        member_snapshot_sha256=getattr(preparation, 'member_snapshot_sha256', ''),
+                        member_origins=json.dumps(next(member.origins for member in preparation.member_snapshots if member.paper.id == paper.id), default=lambda value: value.model_dump(mode='json'), ensure_ascii=False, sort_keys=True) if bibliography.origin.kind == 'collection' else '')
+                rows.append(row)
+        return rows
+
+    def export_workspace(self, handle: WorkspaceHandle) -> WorkspaceExport:
+        state = self._storage.read(handle)
+        from .collection_exports import export_collection_workspace, has_ingestion
+        from .planning_exports import has_search_plans
+        if state.schema_version == 'mvp.workspace.v2' or has_ingestion(self._storage, state.id) or has_search_plans(self._storage, state.id):
+            return export_collection_workspace(self, handle, state)
+        rows = self._evidence_export_rows(state)
         fields = list(rows[0]) if rows else ["workspace_id", "question", "search_id", "run_id", "passage_id", "citation", "pmid", "doi", "source_type", "quotation", "locator", "source_version", "source_sha256", "method", "decision", "notes", "assessed_at"]
         audit = {"schema_version": "mvp.audit-bundle.v1", "exported_at": now(),
                  "offset_convention": "half-open-unicode-codepoints", "workspace": state.model_dump(mode="json"),

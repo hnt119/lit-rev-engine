@@ -3,6 +3,7 @@ import {useCallback,useEffect,useRef,useState} from "react";
 import {api,requestId,workspacePath,type Schema} from "../lib/api";
 import {DraftStatus,navigationBarrier,useDraft} from "../lib/drafts";
 import {highlightParts} from "../lib/helpers";
+import {matchesPaperOrigin} from "../lib/paper-origin";
 import {Citation,Failure,Notice,SourceMetadata,Time} from "./ui";
 import type {Navigate} from "./workspace-app";
 
@@ -10,28 +11,38 @@ export default function Evidence({workspace,requestedRun,refresh,navigate}:{work
   const question=useDraft(workspace.id,"evidence",{question:workspace.question});
   const runId=requestedRun??workspace.current_run_id;
   const [view,setView]=useState<Schema<"RunView">|null>(null);
-  const [search,setSearch]=useState<Schema<"SearchPreview">|null>(null);
+  const [bibliography,setBibliography]=useState<Schema<"RunPapers">|null>(null);
+  const readGeneration=useRef(0);
   const [error,setError]=useState("");const [busy,setBusy]=useState(false);
-  const load=useCallback(async()=>{if(runId){const result=await api<Schema<"RunView">>(workspacePath(workspace.id)+"/runs/"+encodeURIComponent(runId));setView(result);setSearch(await api<Schema<"SearchPreview">>(workspacePath(workspace.id)+"/searches/"+encodeURIComponent(result.run.search_id)+"/papers"));}},[workspace.id,runId]);
-  useEffect(()=>{void load().catch(error=>setError(error.message));},[load]);
+  const load=useCallback(async()=>{
+    const token=++readGeneration.current;setView(previous=>previous?.run.id===runId?previous:null);setBibliography(previous=>previous?.run_id===runId?previous:null);
+    if(!runId)return;
+    try{
+      const base=workspacePath(workspace.id)+"/runs/"+encodeURIComponent(runId),[result,papers]=await Promise.all([api<Schema<"RunView">>(base),api<Schema<"RunPapers">>(base+"/papers")]);
+      if(token!==readGeneration.current)return;
+      if(result.run.id!==runId||papers.run_id!==runId||!matchesPaperOrigin(papers.origin,result.run))throw new Error("The bibliography does not match this retained evidence run.");
+      setView(result);setBibliography(papers);setError("");
+    }catch(error){if(token===readGeneration.current){setError((error as Error).message);throw error;}}
+  },[workspace.id,runId]);
+  useEffect(()=>{void load().catch(()=>{});return()=>{readGeneration.current++;};},[load]);
   async function retrieve(fresh=false){setBusy(true);setError("");try{
     await question.save();const payload={question:question.data.question,top_k:5,expected_preparation_id:workspace.current_preparation_id,expected_source_revision:workspace.source_revision};
-    const result=await api<Schema<"EvidenceRun">>(workspacePath(workspace.id)+"/evidence-runs","POST",{...payload,request_id:await requestId(workspace.id+":retrieve",payload,fresh)});
+    const result=await api<Schema<"RunView">["run"]>(workspacePath(workspace.id)+"/evidence-runs","POST",{...payload,request_id:await requestId(workspace.id+":retrieve",payload,fresh)});
     await refresh();await navigate({page:"evidence",workspace:workspace.id,run:result.id});
   }catch(error){setError((error as Error).message);}finally{setBusy(false);}}
   return <><h1>Evidence</h1><p>Retrieve exact source passages, inspect their context, and record your own judgments.</p><Failure message={error}/>
     {!workspace.current_preparation_id?<Notice>Prepare selected sources in Discover & explore before retrieving passages. <button onClick={()=>void navigate({page:"discover",workspace:workspace.id})}>Choose sources</button></Notice>:<section><h2>Passage search</h2><DraftStatus draft={question}/><form onSubmit={event=>{event.preventDefault();void retrieve();}}><label>Evidence question<textarea rows={3} maxLength={10000} disabled={!question.ready} value={question.data.question} onChange={event=>question.setData({question:event.target.value})}/></label><p className="meta">LEXICAL BM25 + CONTEXT BLOCKS · AT MOST 5 PASSAGES · SOURCE REVISION {workspace.source_revision}</p><div className="actions"><button className="primary" disabled={!question.ready||busy||!question.data.question.trim()}>{busy?"Retrieving…":"Retrieve passages"}</button>{workspace.current_run_id&&<button type="button" disabled={busy} onClick={()=>void retrieve(true)}>Explicitly refresh passages</button>}</div></form></section>}
-    {view&&search&&<EvidenceReview key={view.run.id} workspace={workspace} view={{...view,current:view.current&&view.run.id===workspace.current_run_id}} search={search} reload={load} refresh={refresh}/>}
+    {view&&bibliography&&view.run.id===runId&&bibliography.run_id===runId&&<EvidenceReview key={view.run.id} workspace={workspace} view={{...view,current:view.current&&view.run.id===workspace.current_run_id}} papers={bibliography.papers} reload={load} refresh={refresh}/>}
   </>;
 }
 
 type Judgment=Schema<"PassageJudgment">;
 type Bundle=Schema<"BundleJudgment">;
 type FormDraft={passages:Judgment[];bundle:Bundle;feedback:string;supersedes_id:string|null;editing:boolean};
-function initialForm(run:Schema<"EvidenceRun">,head:Schema<"Assessment">|null):FormDraft {
+function initialForm(run:Schema<"RunView">["run"],head:Schema<"Assessment">|null):FormDraft {
   return {passages:head?.passages??run.passages.map(p=>({passage_id:p.id,decision:"unreviewed",notes:""})),bundle:head?.bundle??{status:"not_assessed",reason:"",missing_information:"",supporting_passage_ids:[],contradiction:false},feedback:head?.feedback??"",supersedes_id:head?.id??null,editing:!head};
 }
-function EvidenceReview({workspace,view,search,reload,refresh}:{workspace:Schema<"WorkspaceSummary">;view:Schema<"RunView">;search:Schema<"SearchPreview">;reload:()=>Promise<void>;refresh:()=>Promise<void>}) {
+function EvidenceReview({workspace,view,papers,reload,refresh}:{workspace:Schema<"WorkspaceSummary">;view:Schema<"RunView">;papers:Schema<"BoardPaper">[];reload:()=>Promise<void>;refresh:()=>Promise<void>}) {
   const run=view.run;
   const draft=useDraft<FormDraft>(workspace.id,"assessment:"+run.id,initialForm(run,view.assessment_head),view.assessment_head?.id??null);
   const [inspected,setInspected]=useState<string|null>(null);const [busy,setBusy]=useState(false);const [error,setError]=useState("");
@@ -61,11 +72,11 @@ function EvidenceReview({workspace,view,search,reload,refresh}:{workspace:Schema
   }catch(error){setError((error as Error).message);}finally{setBusy(false);}}
   return <><section><p className="eyebrow">{view.current?"CURRENT EVIDENCE":"HISTORICAL EVIDENCE · READ ONLY"}</p><h2>{run.question}</h2><p className="meta">{run.passages.length} displayed · {run.matched_passages} matched · {run.indexed_passages} indexed · <Time value={run.created_at}/></p>
     {!view.current&&<Notice>This run uses its original preparation, source versions, and bibliography. It cannot be assessed as current.</Notice>}
-    <details><summary>Retrieval method and source binding</summary><pre>{JSON.stringify({run_id:run.id,search_id:run.search_id,preparation_id:run.preparation_id,source_revision:run.source_revision,source_snapshot_sha256:run.source_snapshot_sha256,method:run.method,method_version:run.method_version,parameters:run.parameters},null,2)}</pre></details>
+    <details><summary>Retrieval method and source binding</summary><pre>{JSON.stringify({run_id:run.id,search_id:run.search_id,...("collection_ref" in run?{collection_ref:run.collection_ref,member_snapshot_sha256:run.member_snapshot_sha256}:{}),preparation_id:run.preparation_id,source_revision:run.source_revision,source_snapshot_sha256:run.source_snapshot_sha256,method:run.method,method_version:run.method_version,parameters:run.parameters},null,2)}</pre></details>
   </section>
   {!run.passages.length?<Notice>No relevant passages matched this question. The engine does not fill an empty result with unrelated source text.</Notice>:<>
     <div className="evidence-headings"><h2>Retrieved passages</h2><div><h2>Record your judgments</h2><DraftStatus draft={draft}/>{view.assessment_head&&(!draft.data.editing||draft.state==="conflict")&&view.current&&<button onClick={()=>draft.replace({...initialForm(run,view.assessment_head),editing:true},view.assessment_head!.id)}>Revise saved assessment</button>}</div></div>
-    {run.passages.map(passage=>{const paper=search.papers.find(item=>item.id===passage.paper_id);const item=judgment(passage.id);return <div className="evidence-pair" key={passage.id}>
+    {run.passages.map(passage=>{const paper=papers.find(item=>item.id===passage.paper_id);const item=judgment(passage.id);return <div className="evidence-pair" key={passage.id}>
       <article className="passage" aria-label={`Passage ${passage.rank}`}><p className="eyebrow">PASSAGE {passage.rank} · {passage.source_type.replaceAll("_"," ")}</p>{paper&&<Citation paper={paper}/>}<blockquote>{passage.anchor.quote}</blockquote><p className="meta">{JSON.stringify(passage.locator)} · VERSION {passage.source_version}</p><button type="button" onClick={()=>{setInspected(passage.id);setTimeout(()=>document.getElementById("source-context")?.scrollIntoView({behavior:"instant",block:"start"}),0);}}>Inspect source for passage {passage.rank} ↓</button></article>
       <div className="judgment" aria-label={`Judgment for passage ${passage.rank}`}><h3>Passage {passage.rank}</h3><label>Decision · passage {passage.rank}<select disabled={!editable||!draft.ready} value={item.decision} onChange={event=>update(passage.id,{decision:event.target.value as Judgment["decision"]})}><option value="unreviewed">Unreviewed</option><option value="useful">Useful</option><option value="not_useful">Not useful</option><option value="uncertain">Uncertain</option></select></label><label>Notes · passage {passage.rank}<textarea rows={5} maxLength={20000} disabled={!editable||!draft.ready} value={item.notes} onChange={event=>update(passage.id,{notes:event.target.value})}/></label></div>
     </div>;})}

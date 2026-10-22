@@ -22,6 +22,13 @@ def later(seconds):
 
 
 class MapStore:
+    job_table = 'paper_map_jobs'
+    artifact_table = 'paper_maps'
+    vector_table = 'paper_map_vectors'
+    artifact_model = PaperMap
+    counts_model = MapCounts
+    view_model = MapView
+
     def __init__(self, path, *, max_workspace_bytes=32 * 1024 * 1024, max_jobs=200, max_maps=100, max_embeddings=5000, max_requests=1000):
         self.path = Path(path)
         private_directory(self.path.parent)
@@ -97,16 +104,27 @@ class MapStore:
             "paper_maps": "map_id workspace_id search_id artifact_json artifact_sha256 counts_json",
             "paper_embeddings": "workspace_id cache_key payload_json payload_sha256",
             "paper_map_requests": "workspace_id request_id fingerprint job_id",
+            "collection_map_jobs": "id workspace_id collection_id collection_snapshot_sha256 map_id logical_key input_json input_sha256 profile_json status attempt max_attempts lease_owner lease_expires progress_completed progress_total interrupted_count error_json created_at updated_at",
+            "collection_maps": "map_id workspace_id collection_id artifact_json artifact_sha256 counts_json",
+            "collection_map_requests": "workspace_id request_id fingerprint job_id",
         }
+        existing = {row[0] for row in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
         sizes, numbers = {}, {}
         for table, names in tables.items():
+            if table not in existing:
+                numbers[table], sizes[table] = 0, 0
+                continue
             expression = "+".join("COALESCE(length(CAST(" + name + " AS BLOB)),0)" for name in names.split())
             row = db.execute("SELECT COUNT(*),COALESCE(SUM(" + expression + "),0) FROM " + table + " WHERE workspace_id=?", (workspace_id,)).fetchone()
             numbers[table], sizes[table] = row
-        links = db.execute("SELECT COALESCE(SUM(length(CAST(v.map_id AS BLOB))+length(CAST(v.paper_id AS BLOB))+length(CAST(v.cache_key AS BLOB))),0) FROM paper_map_vectors v JOIN paper_maps m ON m.map_id=v.map_id WHERE m.workspace_id=?", (workspace_id,)).fetchone()[0]
-        payload_bytes = sum(sizes.values()) + links + numbers["paper_map_jobs"] * 2048
-        if (numbers["paper_map_jobs"] > self.max_jobs or numbers["paper_maps"] > self.max_maps
-                or numbers["paper_embeddings"] > self.max_embeddings or numbers["paper_map_requests"] > self.max_requests
+        links = 0
+        for vectors, artifacts in (('paper_map_vectors', 'paper_maps'), ('collection_map_vectors', 'collection_maps')):
+            if vectors in existing and artifacts in existing:
+                links += db.execute(f"SELECT COALESCE(SUM(length(CAST(v.map_id AS BLOB))+length(CAST(v.paper_id AS BLOB))+length(CAST(v.cache_key AS BLOB))),0) FROM {vectors} v JOIN {artifacts} m ON m.map_id=v.map_id WHERE m.workspace_id=?", (workspace_id,)).fetchone()[0]
+        jobs = numbers['paper_map_jobs'] + numbers['collection_map_jobs']
+        payload_bytes = sum(sizes.values()) + links + jobs * 2048
+        if (jobs > self.max_jobs or numbers["paper_maps"] + numbers['collection_maps'] > self.max_maps
+                or numbers["paper_embeddings"] > self.max_embeddings or numbers["paper_map_requests"] + numbers['collection_map_requests'] > self.max_requests
                 or payload_bytes > self.max_workspace_bytes):
             raise MvpError("map_storage_limit", "This workspace reached its auxiliary map storage limit. Existing research and exports remain available.")
 
@@ -144,7 +162,7 @@ class MapStore:
     def job(self, workspace_id, job_id):
         with self.connection() as db:
             self._alive(db, workspace_id)
-            row = db.execute("SELECT * FROM paper_map_jobs WHERE id=? AND workspace_id=?", (job_id, workspace_id)).fetchone()
+            row = db.execute(f"SELECT * FROM {self.job_table} WHERE id=? AND workspace_id=?", (job_id, workspace_id)).fetchone()
             if row is None:
                 raise unavailable("job")
             return self.view(row)
@@ -161,9 +179,9 @@ class MapStore:
                     embedded_count=len(artifact.coordinates_by_paper_id), excluded_count=len(artifact.excluded_papers_with_reasons), paper_count=len(artifact.ordered_paper_ids)))
             return MapListing(maps=maps, jobs=jobs)
 
-    @staticmethod
-    def _artifact(row):
-        artifact = PaperMap.model_validate_json(row["artifact_json"])
+    @classmethod
+    def _artifact(cls, row):
+        artifact = cls.artifact_model.model_validate_json(row["artifact_json"])
         if (digest(artifact.model_dump(mode="json")) != row["artifact_sha256"]
                 or digest(artifact.coordinates_by_paper_id) != artifact.coordinate_sha256
                 or digest(artifact.embedding_profile.model_dump(mode="json")) != artifact.embedding_profile_sha256):
@@ -173,10 +191,10 @@ class MapStore:
     def map(self, workspace_id, map_id):
         with self.connection() as db:
             self._alive(db, workspace_id)
-            row = db.execute("SELECT * FROM paper_maps WHERE map_id=? AND workspace_id=?", (map_id, workspace_id)).fetchone()
+            row = db.execute(f"SELECT * FROM {self.artifact_table} WHERE map_id=? AND workspace_id=?", (map_id, workspace_id)).fetchone()
             if row is None:
                 raise unavailable()
-            return MapView(artifact=self._artifact(row), counts=MapCounts.model_validate_json(row["counts_json"]))
+            return self.view_model(artifact=self._artifact(row), counts=self.counts_model.model_validate_json(row["counts_json"]))
 
     @staticmethod
     def cache_key(profile, input_sha256):
@@ -221,53 +239,53 @@ class MapStore:
     def recover(self):
         """Call only after acquiring the single-worker OS lock."""
         with self.transaction() as db:
-            rows = db.execute("SELECT * FROM paper_map_jobs WHERE status IN ('running','cancel_requested')").fetchall()
+            rows = db.execute(f"SELECT * FROM {self.job_table} WHERE status IN ('running','cancel_requested')").fetchall()
             for row in rows:
                 status = "cancelled" if row["status"] == "cancel_requested" else "failed" if row["attempt"] >= row["max_attempts"] else "queued"
                 error = StructuredError(code="map_interrupted", message="A local worker was interrupted; its recorded attempt was recovered.", retryable=status == "queued").model_dump_json()
-                db.execute("UPDATE paper_map_jobs SET status=?,lease_owner=NULL,lease_expires=NULL,interrupted_count=interrupted_count+1,error_json=?,updated_at=? WHERE id=?", (status, error, now(), row["id"]))
+                db.execute(f"UPDATE {self.job_table} SET status=?,lease_owner=NULL,lease_expires=NULL,interrupted_count=interrupted_count+1,error_json=?,updated_at=? WHERE id=?", (status, error, now(), row["id"]))
 
     def claim(self, owner, lease_seconds=120):
         with self.transaction() as db:
             # An expired lease is never allowed to publish. Recovery is bounded.
-            for row in db.execute("SELECT * FROM paper_map_jobs WHERE status IN ('running','cancel_requested') AND lease_expires<?", (now(),)).fetchall():
+            for row in db.execute(f"SELECT * FROM {self.job_table} WHERE status IN ('running','cancel_requested') AND lease_expires<?", (now(),)).fetchall():
                 status = "cancelled" if row["status"] == "cancel_requested" else "failed" if row["attempt"] >= row["max_attempts"] else "queued"
                 error = StructuredError(code="map_interrupted", message="A local worker lease expired; the attempt was recovered with a bounded retry policy.", retryable=status == "queued").model_dump_json()
-                db.execute("UPDATE paper_map_jobs SET status=?,lease_owner=NULL,lease_expires=NULL,interrupted_count=interrupted_count+1,error_json=?,updated_at=? WHERE id=?", (status, error, now(), row["id"]))
-            row = db.execute("SELECT * FROM paper_map_jobs WHERE status='queued' AND attempt<max_attempts AND workspace_id NOT IN (SELECT workspace_id FROM paper_map_deleted) ORDER BY created_at,id LIMIT 1").fetchone()
+                db.execute(f"UPDATE {self.job_table} SET status=?,lease_owner=NULL,lease_expires=NULL,interrupted_count=interrupted_count+1,error_json=?,updated_at=? WHERE id=?", (status, error, now(), row["id"]))
+            row = db.execute(f"SELECT * FROM {self.job_table} WHERE status='queued' AND attempt<max_attempts AND workspace_id NOT IN (SELECT workspace_id FROM paper_map_deleted) ORDER BY created_at,id LIMIT 1").fetchone()
             if row is None:
                 return None
-            db.execute("UPDATE paper_map_jobs SET status='running',attempt=attempt+1,lease_owner=?,lease_expires=?,updated_at=? WHERE id=?", (owner, later(lease_seconds), now(), row["id"]))
-            return dict(db.execute("SELECT * FROM paper_map_jobs WHERE id=?", (row["id"],)).fetchone())
+            db.execute(f"UPDATE {self.job_table} SET status='running',attempt=attempt+1,lease_owner=?,lease_expires=?,updated_at=? WHERE id=?", (owner, later(lease_seconds), now(), row["id"]))
+            return dict(db.execute(f"SELECT * FROM {self.job_table} WHERE id=?", (row["id"],)).fetchone())
 
     def checkpoint(self, job, *, completed=None, lease_seconds=120):
         with self.transaction() as db:
             self._alive(db, job["workspace_id"])
-            row = db.execute("SELECT * FROM paper_map_jobs WHERE id=?", (job["id"],)).fetchone()
+            row = db.execute(f"SELECT * FROM {self.job_table} WHERE id=?", (job["id"],)).fetchone()
             if row is None or row["lease_owner"] != job["lease_owner"] or row["attempt"] != job["attempt"] or row["lease_expires"] < now() or row["status"] not in {"running", "cancel_requested"}:
                 raise MvpError("map_attempt_lost", "This map worker attempt no longer owns publication.")
             if row["status"] == "cancel_requested":
                 raise MvpError("map_cancelled", "Map cancellation was requested.")
-            db.execute("UPDATE paper_map_jobs SET lease_expires=?,updated_at=?,progress_completed=? WHERE id=?", (later(lease_seconds), now(), completed if completed is not None else row["progress_completed"], job["id"]))
+            db.execute(f"UPDATE {self.job_table} SET lease_expires=?,updated_at=?,progress_completed=? WHERE id=?", (later(lease_seconds), now(), completed if completed is not None else row["progress_completed"], job["id"]))
 
     def finish_failure(self, job, error):
         with self.transaction() as db:
-            row = db.execute("SELECT status,lease_expires FROM paper_map_jobs WHERE id=? AND lease_owner=? AND attempt=?", (job["id"], job["lease_owner"], job["attempt"])).fetchone()
+            row = db.execute(f"SELECT status,lease_expires FROM {self.job_table} WHERE id=? AND lease_owner=? AND attempt=?", (job["id"], job["lease_owner"], job["attempt"])).fetchone()
             if row is None or row["lease_expires"] is None or row["lease_expires"] < now():
                 return
             status = "cancelled" if error.code == "map_cancelled" or row["status"] == "cancel_requested" else "failed"
-            db.execute("UPDATE paper_map_jobs SET status=?,error_json=?,lease_owner=NULL,lease_expires=NULL,updated_at=? WHERE id=? AND lease_owner=? AND attempt=? AND status IN ('running','cancel_requested')",
+            db.execute(f"UPDATE {self.job_table} SET status=?,error_json=?,lease_owner=NULL,lease_expires=NULL,updated_at=? WHERE id=? AND lease_owner=? AND attempt=? AND status IN ('running','cancel_requested')",
                        (status, StructuredError(code=error.code[:96], message=error.message[:500], retryable=error.retryable).model_dump_json(), now(), job["id"], job["lease_owner"], job["attempt"]))
 
     def cancel(self, workspace_id, job_id):
         with self.transaction() as db:
             self._alive(db, workspace_id)
-            row = db.execute("SELECT * FROM paper_map_jobs WHERE id=? AND workspace_id=?", (job_id, workspace_id)).fetchone()
+            row = db.execute(f"SELECT * FROM {self.job_table} WHERE id=? AND workspace_id=?", (job_id, workspace_id)).fetchone()
             if row is None:
                 raise unavailable("job")
             status = "cancelled" if row["status"] == "queued" else "cancel_requested" if row["status"] == "running" else row["status"]
-            db.execute("UPDATE paper_map_jobs SET status=?,updated_at=? WHERE id=?", (status, now(), job_id))
-            return self.view(db.execute("SELECT * FROM paper_map_jobs WHERE id=?", (job_id,)).fetchone())
+            db.execute(f"UPDATE {self.job_table} SET status=?,updated_at=? WHERE id=?", (status, now(), job_id))
+            return self.view(db.execute(f"SELECT * FROM {self.job_table} WHERE id=?", (job_id,)).fetchone())
 
     def publish(self, job, artifact, embedded, map_counts):
         try:
@@ -286,25 +304,34 @@ class MapStore:
             raise MvpError("map_integrity", "Map publication did not match its immutable job input.")
         with self.transaction() as db:
             self._alive(db, job["workspace_id"])
-            row = db.execute("SELECT * FROM paper_map_jobs WHERE id=?", (job["id"],)).fetchone()
-            if row is None or row["status"] != "running" or row["lease_owner"] != job["lease_owner"] or row["attempt"] != job["attempt"] or row["lease_expires"] < now():
-                raise MvpError("map_attempt_lost", "Only the active non-cancelled map attempt may publish.")
-            vector_manifest = []
-            for item in embedded:
-                key = self.cache_key(profile, item.input_sha256)
-                cached = db.execute("SELECT * FROM paper_embeddings WHERE workspace_id=? AND cache_key=?", (job["workspace_id"], key)).fetchone()
-                if cached is None:
-                    raise MvpError("map_integrity", "Map publication is missing its retained embedding.")
-                retained = self._embedding(cached, profile)
-                if retained.vector != item.vector:
-                    raise MvpError("map_integrity", "Map publication vector differs from its cache binding.")
-                vector_manifest.append({"paper_id": item.paper_id, "input_sha256": item.input_sha256, "vector_sha256": digest(item.vector)})
-                db.execute("INSERT INTO paper_map_vectors VALUES(?,?,?)", (artifact.map_id, item.paper_id, key))
-            if digest(vector_manifest) != artifact.embedding_set_sha256:
-                raise MvpError("map_integrity", "Map embedding set failed its publication hash check.")
+            self._active_publication(db, job)
+            self._write_vectors(db, job, artifact, embedded, profile)
             db.execute("INSERT INTO paper_maps VALUES(?,?,?,?,?,?)", (artifact.map_id, artifact.workspace_id, artifact.search_id, artifact.model_dump_json(), digest(artifact.model_dump(mode="json")), map_counts.model_dump_json()))
             self._limits(db, artifact.workspace_id)
             db.execute("UPDATE paper_map_jobs SET status='succeeded',progress_completed=progress_total,error_json=NULL,lease_owner=NULL,lease_expires=NULL,updated_at=? WHERE id=?", (now(), job["id"]))
+
+    def _active_publication(self, db, job):
+        row = db.execute(f'SELECT * FROM {self.job_table} WHERE id=?', (job['id'],)).fetchone()
+        if (row is None or row['workspace_id'] != job['workspace_id'] or row['status'] != 'running'
+                or row['lease_owner'] != job['lease_owner'] or row['attempt'] != job['attempt']
+                or not row['lease_expires'] or row['lease_expires'] < now()):
+            raise MvpError('map_attempt_lost', 'Only the active non-cancelled map attempt may publish.')
+        return row
+
+    def _write_vectors(self, db, job, artifact, embedded, profile):
+        manifest = []
+        for item in embedded:
+            key = self.cache_key(profile, item.input_sha256)
+            cached = db.execute('SELECT * FROM paper_embeddings WHERE workspace_id=? AND cache_key=?', (job['workspace_id'], key)).fetchone()
+            if cached is None:
+                raise MvpError('map_integrity', 'Map publication is missing its retained embedding.')
+            retained = self._embedding(cached, profile)
+            if retained.vector != item.vector or retained.input_sha256 != item.input_sha256 or retained.representation != item.representation:
+                raise MvpError('map_integrity', 'Map publication vector differs from its cache binding.')
+            manifest.append({'paper_id': item.paper_id, 'input_sha256': item.input_sha256, 'vector_sha256': digest(item.vector)})
+            db.execute(f'INSERT INTO {self.vector_table} VALUES(?,?,?)', (artifact.map_id, item.paper_id, key))
+        if digest(manifest) != artifact.embedding_set_sha256:
+            raise MvpError('map_integrity', 'Map embedding set failed its publication hash check.')
 
     def import_artifact(self, search, artifact, embedded):
         """Atomically retain one verified bundled map, without inventing a job.
@@ -378,7 +405,7 @@ class MapStore:
         artifact = self.map(workspace_id, map_id).artifact
         with self.connection() as db:
             result = {}
-            for row in db.execute("SELECT v.paper_id,e.payload_json,e.payload_sha256 FROM paper_map_vectors v JOIN paper_embeddings e ON e.workspace_id=? AND e.cache_key=v.cache_key WHERE v.map_id=?", (workspace_id, map_id)):
+            for row in db.execute(f"SELECT v.paper_id,e.payload_json,e.payload_sha256 FROM {self.vector_table} v JOIN paper_embeddings e ON e.workspace_id=? AND e.cache_key=v.cache_key WHERE v.map_id=?", (workspace_id, map_id)):
                 result[row["paper_id"]] = self._embedding(row, artifact.embedding_profile).vector
         if result.keys() != artifact.coordinates_by_paper_id.keys():
             raise MvpError("map_integrity", "Saved map vector identities did not reconcile.")
@@ -390,6 +417,11 @@ class MapStore:
     def delete_workspace(self, workspace_id):
         with self.transaction() as db:
             db.execute("INSERT OR IGNORE INTO paper_map_deleted VALUES(?)", (workspace_id,))
-            db.execute("DELETE FROM paper_map_vectors WHERE map_id IN (SELECT map_id FROM paper_maps WHERE workspace_id=?)", (workspace_id,))
-            for table in ("paper_maps", "paper_embeddings", "paper_map_requests", "paper_map_jobs"):
-                db.execute("DELETE FROM " + table + " WHERE workspace_id=?", (workspace_id,))
+            existing = {row[0] for row in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+            for vectors, artifacts in (('paper_map_vectors', 'paper_maps'), ('collection_map_vectors', 'collection_maps')):
+                if vectors in existing and artifacts in existing:
+                    db.execute(f'DELETE FROM {vectors} WHERE map_id IN (SELECT map_id FROM {artifacts} WHERE workspace_id=?)', (workspace_id,))
+            for table in ('paper_maps', 'paper_embeddings', 'paper_map_requests', 'paper_map_jobs',
+                          'collection_maps', 'collection_map_requests', 'collection_map_jobs'):
+                if table in existing:
+                    db.execute('DELETE FROM ' + table + ' WHERE workspace_id=?', (workspace_id,))

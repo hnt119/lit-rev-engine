@@ -117,7 +117,7 @@ def test_map_requests_are_idempotent_and_selection_drafts_do_not_submit(tmp_path
     first = submit(client, base, search)
     assert submit(client, base, search)["job"]["id"] == first["job"]["id"]
     assert client.post(base + "/maps", json={"request_id": "map", "search_id": search["id"], "rebuild": True}).status_code == 409
-    client.put(base + "/drafts/selection:" + search["id"], json={"version": 0, "data": {"paper_ids": ["pmid:1001"]}}).raise_for_status()
+    client.put(base + "/drafts/selection:" + search["id"], json={"version": 0, "data": {"selected_paper_ids": ["pmid:1001"]}}).raise_for_status()
     state = client.get(base).json()
     assert state["source_revision"] == 0 and not state["preparations"] and not state["runs"]
     assert provider.calls == 1 and len(client.get(base + "/maps?search_id=" + search["id"]).json()["jobs"]) == 1

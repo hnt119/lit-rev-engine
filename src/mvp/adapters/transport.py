@@ -1,8 +1,8 @@
-"""Small, bounded HTTP transport restricted to the two literature providers.
+"""Small, bounded HTTP transport restricted to fixed literature providers.
 
-The host gates are process global: every Streamlit session and every provider
-instance in one Python process shares them. Deploy exactly one server process
-per outbound IP, or supply an external shared rate gate before scaling out.
+Default live HTTP additionally shares same-user host gates across local
+processes. Web preparation remains in the provider-owning API process. Custom
+test openers retain the deterministic in-process clock gates.
 No request URL or exception body is exposed to callers (URLs may carry keys).
 """
 
@@ -16,13 +16,13 @@ import threading
 import time
 import xml.etree.ElementTree as ET
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode
 from urllib.request import HTTPSHandler, HTTPRedirectHandler, Request, build_opener
 
 from src.mvp.ports import ProviderFailure
 
 MAX_RESPONSE_BYTES = 8 * 1024 * 1024
-_HOST_INTERVALS = {"eutils.ncbi.nlm.nih.gov": 0.4, "www.ebi.ac.uk": 0.25}
+_HOST_INTERVALS = {"eutils.ncbi.nlm.nih.gov": 0.4, "www.ebi.ac.uk": 0.25, "api.crossref.org": 1.0}
 _HOST_LOCKS = {host: threading.Lock() for host in _HOST_INTERVALS}
 _HOST_LAST: dict[str, float] = {}
 
@@ -39,6 +39,14 @@ def endpoint_url(endpoint: str, params: dict) -> tuple[str, dict, str]:
         return "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/" + name, dict(params), "eutils.ncbi.nlm.nih.gov"
     if endpoint == "europe_search":
         return "https://www.ebi.ac.uk/europepmc/webservices/rest/search", dict(params), "www.ebi.ac.uk"
+    if endpoint == "crossref_work" and set(params) == {"doi"}:
+        from ..import_contracts import normalize_citation_doi
+        try:
+            doi = normalize_citation_doi(params["doi"])
+            if doi and len(doi) <= 4096:
+                return "https://api.crossref.org/works/" + quote(doi, safe=""), {}, "api.crossref.org"
+        except (TypeError, ValueError):
+            pass
     if endpoint == "europe_fulltext" and set(params) == {"pmcid"}:
         pmcid = params["pmcid"]
         if isinstance(pmcid, str) and re.fullmatch(r"PMC[1-9][0-9]*", pmcid):
@@ -79,6 +87,7 @@ class BoundedTransport:
             raise ValueError("Provider response limit must be at most 8 MiB")
         self.timeout, self.max_attempts, self.max_response_bytes = timeout, max_attempts, max_response_bytes
         self._sleep, self._monotonic = sleep, monotonic
+        self._shared_gate = opener is None
         if opener is None:
             # macOS framework Python may have no default CA bundle installed.
             # certifi is a small CPU-only MVP dependency, with verified TLS kept on.
@@ -92,6 +101,11 @@ class BoundedTransport:
 
     def _gate(self, host):
         with _HOST_LOCKS[host]:
+            if self._shared_gate:
+                from .provider_rate_gate import wait_for_provider
+                wait_for_provider(host, _HOST_INTERVALS[host])
+                _HOST_LAST[host] = self._monotonic()
+                return
             current = self._monotonic()
             remaining = _HOST_INTERVALS[host] - (current - _HOST_LAST.get(host, float("-inf")))
             if remaining > 0:

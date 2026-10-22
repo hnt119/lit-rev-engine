@@ -3,7 +3,7 @@ import type {Schema} from "../lib/api";
 export function ExternalLink({href,children}:{href:string;children:React.ReactNode}) {
   const safe=safeExternal(href);return safe?<a href={safe} target="_blank" rel="noopener noreferrer">{children}</a>:<span>{children}</span>;
 }
-export function Citation({paper}:{paper:Schema<"Paper">}) {
+export function Citation({paper}:{paper:Pick<Schema<"Paper">,"id"|"title"|"authors"|"year"|"pmid"|"doi">}) {
   return <div className="citation"><h3>{paper.title}</h3><p>{paper.authors.join(", ")}{paper.year?` · ${paper.year}`:""}</p>
     <p className="meta">{paper.pmid&&<ExternalLink href={`https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(paper.pmid)}/`}>PMID {paper.pmid}</ExternalLink>}{paper.doi&&<> · <ExternalLink href={`https://doi.org/${paper.doi}`}>DOI {paper.doi}</ExternalLink></>}</p></div>;
 }

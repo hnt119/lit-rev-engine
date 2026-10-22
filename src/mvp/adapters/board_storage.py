@@ -76,7 +76,29 @@ class BoardStore:
 
     @staticmethod
     def decode(row, model):
-        result = model.model_validate_json(row['payload'])
+        from ..board_contracts import BoardCandidates, BoardRevision, CollectionBoardRevision
+        from ..span_board_contracts import SpanBoardCandidates
+        try:
+            payload = json.loads(row['payload'])
+            if model in (BoardRevision, CollectionBoardRevision):
+                version = payload.get('schema_version') if isinstance(payload, dict) else None
+                if version == 'mvp.collection-board-definition.v2':
+                    model = CollectionBoardRevision
+                elif version == 'mvp.board-definition.v1':
+                    model = BoardRevision
+                else:
+                    raise ValueError('Unsupported board definition version')
+            if model in (BoardCandidates, SpanBoardCandidates):
+                version = payload.get('schema_version') if isinstance(payload, dict) else None
+                if version == 'mvp.board-candidates.spans.v2':
+                    model = SpanBoardCandidates
+                elif version == 'mvp.board-candidates.v1':
+                    model = BoardCandidates
+                else:
+                    raise ValueError('Unsupported board retrieval version')
+            result = model.model_validate(payload)
+        except (ValueError, TypeError):
+            raise MvpError('board_integrity', 'Saved comparison data has an unsupported or invalid schema.') from None
         if 'sha256' in row.keys() and digest(result.model_dump(mode='json')) != row['sha256']:
             raise MvpError('board_integrity', 'Saved comparison data failed its integrity check.')
         return result
@@ -95,6 +117,9 @@ class BoardStore:
             return None
         if row['fingerprint'] != fingerprint:
             raise MvpError('idempotency_conflict', 'This comparison request key was used with different input.')
+        from ..board_contracts import BoardCandidates
+        if model is BoardCandidates:
+            return self.decode({'payload': row['result']}, model)
         return model.model_validate_json(row['result'])
 
     def record_request(self, db, workspace_id, request_id, fingerprint, result):

@@ -288,6 +288,41 @@ class WorkspaceUIStore:
         with self.connection() as db:
             return db.execute("SELECT 1 FROM web_tombstones WHERE workspace_id=?", (workspace_id,)).fetchone() is not None
 
+    def register_local_handle_for_worker(self, mode, handle, validate):
+        """Bind an already-authorized standalone local UI handle, never via HTTP.
+
+        This private vault is the same credential pattern used by the web UI.
+        The caller must possess a valid capability; UUID-only recovery and
+        deleted workspace resurrection remain impossible. No browser session is
+        issued for this internal worker binding.
+        """
+        if mode not in {"saved_example", "live"}:
+            raise _unavailable()
+        validate(handle)
+        with self.lifecycle_guard(handle.workspace_id):
+            if self.is_deleted(handle.workspace_id):
+                raise _unavailable()
+            validate(handle)
+            with self.connection() as db:
+                db.execute("BEGIN IMMEDIATE")
+                try:
+                    old = db.execute("SELECT * FROM web_workspaces WHERE workspace_id=?", (handle.workspace_id,)).fetchone()
+                    if old is not None:
+                        if old["mode"] != mode or not hmac.compare_digest(old["capability"], handle.token) or not old["ready"]:
+                            raise _unavailable()
+                    else:
+                        owner = "local-worker:" + hashlib.sha256((handle.workspace_id + ":" + handle.token).encode()).hexdigest()
+                        request_id = "worker-binding:" + handle.workspace_id
+                        fingerprint = digest({"mode": mode, "workspace_id": handle.workspace_id, "kind": "local-worker-binding.v1"})
+                        db.execute("INSERT INTO web_workspaces(workspace_id,session_hash,capability,mode,create_request_id,create_fingerprint,ready) VALUES(?,?,?,?,?,?,1)",
+                                   (handle.workspace_id, owner, handle.token, mode, request_id, fingerprint))
+                        db.execute("INSERT INTO web_create_requests VALUES(?,?,?,?)", (owner, request_id, fingerprint, handle.workspace_id))
+                    db.execute("COMMIT")
+                except BaseException:
+                    if db.in_transaction:
+                        db.execute("ROLLBACK")
+                    raise
+
     def get_bound_handle_for_worker(self, workspace_id):
         """Internal worker access only; never expose this capability in HTTP."""
         with self.connection() as db:
