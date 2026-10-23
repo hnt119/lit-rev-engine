@@ -31,7 +31,10 @@ COPY --from=web-build /app/apps/web/.next ./apps/web/.next
 COPY --from=web-build /app/apps/web/node_modules ./apps/web/node_modules
 COPY --from=web-build /app/apps/web/package.json /app/apps/web/next.config.ts ./apps/web/
 COPY apps/streamlit/theme/tokens.css ./apps/streamlit/theme/tokens.css
-RUN groupadd --gid 10001 litrev && useradd --uid 10001 --gid 10001 --no-create-home litrev \
+RUN groupadd --gid 10001 litrev \
+    && useradd --uid 10001 --gid 10001 --create-home --home-dir /home/litrev --shell /bin/sh litrev \
+    && chmod 0700 /home/litrev \
+    && install -d -o litrev -g litrev -m 0700 /home/litrev/.ssh \
     && mkdir -p /var/data && chown litrev:litrev /var/data
 USER 10001:10001
 EXPOSE 10000
