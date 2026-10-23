@@ -12,6 +12,7 @@ type Draft=ReturnType<typeof useBoardDraft>;
 const encoded=encodeURIComponent;
 
 export function ProposalControls({endpoint,view,changed}:{endpoint:string;view:View;changed:()=>void}) {
+  const [activated,setActivated]=useState(false);
   const [capability,setCapability]=useState<Schema<"ProposalCapability">|null>(null);
   const [papers,setPapers]=useState(view.definition.paper_ids.slice(0,3));
   const [fields,setFields]=useState(view.definition.fields.slice(0,3).map(field=>field.id));
@@ -26,7 +27,7 @@ export function ProposalControls({endpoint,view,changed}:{endpoint:string;view:V
     ]);
     if(alive.current&&current===generation.current){setCapability(capability);setRuns(listing.runs);}
   },[endpoint,view.definition.revision_id]);
-  useEffect(()=>{alive.current=true;void load().catch(error=>{if(alive.current)setError(error.message);});return()=>{alive.current=false;generation.current++;};},[load]);
+  useEffect(()=>{alive.current=true;if(activated)void load().catch(error=>{if(alive.current)setError(error.message);});return()=>{alive.current=false;generation.current++;};},[load,activated]);
   async function generate(){
     setBusy(true);setError("");
     try{
@@ -42,7 +43,7 @@ export function ProposalControls({endpoint,view,changed}:{endpoint:string;view:V
   }
   function toggle(values:string[],id:string,checked:boolean){return checked?[...values,id]:values.filter(value=>value!==id);}
   const cells=papers.length*fields.length;
-  return <section className="proposal-controls"><details><summary>Optional AI suggestions</summary>
+  return <section className="proposal-controls"><details onToggle={event=>{if(event.currentTarget.open)setActivated(true);}}><summary>Optional AI suggestions</summary>
     <p>Propose values from bounded retrieved context, then inspect and review each cell. Generation does not submit values, declare inspection or change human support. Editing selected cells while generation runs can reject publication.</p>
     <Failure message={error}/>
     {!capability?<p role="status">Checking generation configuration…</p>:<>
@@ -64,6 +65,7 @@ export function ProposalControls({endpoint,view,changed}:{endpoint:string;view:V
 }
 
 export function CellProposals({endpoint,view,paperId,fieldId,draft,editable,refresh,inspect,adopted,busyChanged}:{endpoint:string;view:View;paperId:string;fieldId:string;draft:Draft;editable:boolean;refresh:number;inspect:(proposal:Proposal,reference:Schema<"BoardReference">)=>Promise<void>;adopted:()=>Promise<void>;busyChanged?:(busy:boolean)=>void}) {
+  const [activated,setActivated]=useState(false);
   const [listing,setListing]=useState<Schema<"ProposalListing">|null>(null),[error,setError]=useState("");
   const [busy,setBusy]=useState(false),[offset,setOffset]=useState(0);
   const alive=useRef(true),generation=useRef(0);
@@ -72,7 +74,7 @@ export function CellProposals({endpoint,view,paperId,fieldId,draft,editable,refr
     const value=await api<Schema<"ProposalListing">>(endpoint+"/proposals?"+new URLSearchParams({revision_id:view.definition.revision_id,paper_id:paperId,field_id:fieldId,offset:String(offset),limit:"5"}));
     if(alive.current&&current===generation.current)setListing(value);
   },[endpoint,view.definition.revision_id,paperId,fieldId,offset]);
-  useEffect(()=>{alive.current=true;setError("");void load().catch(error=>{if(alive.current)setError(error.message);});return()=>{alive.current=false;generation.current++;};},[load,refresh]);
+  useEffect(()=>{alive.current=true;setError("");if(activated)void load().catch(error=>{if(alive.current)setError(error.message);});return()=>{alive.current=false;generation.current++;};},[load,refresh,activated]);
   async function act(operation:()=>Promise<void>){setBusy(true);busyChanged?.(true);setError("");try{await operation();}catch(error){if(alive.current)setError((error as Error).message);}finally{if(alive.current){setBusy(false);busyChanged?.(false);}}}
   const empty=canonical(draft.data)===canonical(emptyCell());
   async function adopt(proposal:Proposal,value:string|null,reason:string,missing:string){await act(()=>navigationBarrier(async()=>{
@@ -88,11 +90,11 @@ export function CellProposals({endpoint,view,paperId,fieldId,draft,editable,refr
     await api<Proposal>(endpoint+"/proposals/"+encoded(proposal.id)+"/dismiss","POST",{...payload,request_id:await requestId(operation,payload)});
     acknowledgeRequest(operation);if(alive.current)await load();
   });}
-  return <section className="cell-proposals" aria-label="AI suggestions for this cell"><h3>AI suggestions for this cell</h3><Failure message={error}/>
+  return <section className="cell-proposals" aria-label="AI suggestions for this cell"><details onToggle={event=>{if(event.currentTarget.open)setActivated(true);}}><summary>Optional AI suggestions for this cell</summary><Failure message={error}/>
     {!listing?<p role="status">Loading saved suggestions…</p>:<>{!listing.items.length?<p className="muted">No saved AI suggestions for this cell. The manual workflow remains available.</p>:listing.items.map(proposal=><ProposalCard key={proposal.id} endpoint={endpoint} proposal={proposal} readOnly={view.freshness!=="current"} busy={busy} canAdopt={editable&&empty&&!["error","conflict"].includes(draft.state)} inspect={reference=>act(()=>inspect(proposal,reference))} adopt={adopt} dismiss={dismiss}/>)}
       <p className="meta">{listing.total?offset+1:0}–{offset+listing.items.length} of {listing.total} saved suggestions</p><div className="actions">{offset>0&&<button disabled={busy} onClick={()=>setOffset(Math.max(0,offset-5))}>Newer suggestions</button>}{offset+listing.items.length<listing.total&&<button disabled={busy} onClick={()=>setOffset(offset+5)}>Earlier suggestions</button>}</div>
     </>}
-  </section>;
+  </details></section>;
 }
 
 function ProposalCard({endpoint,proposal,readOnly,busy,canAdopt,inspect,adopt,dismiss}:{endpoint:string;proposal:Proposal;readOnly:boolean;busy:boolean;canAdopt:boolean;inspect:(reference:Schema<"BoardReference">)=>Promise<void>;adopt:(proposal:Proposal,value:string|null,reason:string,missing:string)=>Promise<void>;dismiss:(proposal:Proposal,reason:string)=>Promise<void>}) {

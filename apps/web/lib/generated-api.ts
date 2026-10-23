@@ -1694,13 +1694,18 @@ export interface components {
         /** BoardLimits */
         BoardLimits: {
             /**
+             * Max Papers
+             * @default 30
+             */
+            max_papers: number;
+            /**
              * Max Fields
              * @default 6
              */
             max_fields: number;
             /**
              * Max Cells
-             * @default 60
+             * @default 180
              */
             max_cells: number;
             /**
@@ -2078,6 +2083,10 @@ export interface components {
             field_count: number;
             /** Created At */
             created_at: string;
+            /** Preparation Id */
+            preparation_id?: string | null;
+            /** Paper Ids */
+            paper_ids?: string[];
         };
         /** BoardView */
         BoardView: {

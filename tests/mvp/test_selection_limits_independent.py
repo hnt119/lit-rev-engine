@@ -75,11 +75,12 @@ def test_discovery_board_and_generation_limits_are_independent():
         SearchRequest(request_id="search", query="synthetic", max_results=51)
     field = BoardFieldInput(id="field", label="Field", subquestion="What is reported?")
     assert len(BoardCreateRequest(request_id="board", preparation_id="prepared", question="Synthetic?",
-        paper_ids=[str(index) for index in range(10)], fields=[field]).paper_ids) == 10
+        paper_ids=[str(index) for index in range(30)], fields=[field]).paper_ids) == 30
     with pytest.raises(ValidationError):
         BoardCreateRequest(request_id="board", preparation_id="prepared", question="Synthetic?",
-            paper_ids=[str(index) for index in range(11)], fields=[field])
-    assert BoardLimits().max_cells == 60
+            paper_ids=[str(index) for index in range(31)], fields=[field])
+    assert BoardLimits().max_papers == 30
+    assert BoardLimits().max_cells == 180
     assert ProposalCapability().max_papers == ProposalCapability().max_calls == 3
     with pytest.raises(ValidationError):
         ProposalGenerateRequest(request_id="proposal", expected_revision_id="revision",

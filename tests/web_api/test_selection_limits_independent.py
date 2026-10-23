@@ -53,7 +53,9 @@ def test_capability_reports_distinct_selection_sync_and_board_limits(selection_c
     assert data["limits"]["max_sources"] == data["limits"]["max_prepared_sources"] == 30
     assert data["limits"]["max_synchronous_prepared_sources"] == 10
     assert data["limits"]["max_results"] == 50
-    assert data["boards"]["max_cells"] == 60
+    assert data["boards"]["max_papers"] == data["limits"]["max_board_papers"] == 30
+    assert data["boards"]["max_fields"] == data["limits"]["max_board_fields"] == 6
+    assert data["boards"]["max_cells"] == data["limits"]["max_board_cells"] == 180
     assert isinstance(data["preparation_jobs_ready"], bool)
 
 

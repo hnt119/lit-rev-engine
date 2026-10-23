@@ -13,13 +13,13 @@ const button=(renderer:ReactTestRenderer,label:string)=>renderer.root.findAllByT
 const field=(renderer:ReactTestRenderer,name:string)=>renderer.root.findAllByType("label").find(item=>item.children[0]===name)!.findAll(item=>["select","input","textarea"].includes(String(item.type)))[0];
 const capability:Schema<"BoardSpanCapability">={enabled:true,profile_ids:["legacy_block_prefix_v1","lexical_spans_v1"],default_profile_id:"legacy_block_prefix_v1",max_requirements_per_field:3,max_candidates_per_field:3,max_candidate_characters:1200,max_candidate_budget_tokens:400,max_delivered_characters:3600,max_delivered_budget_tokens:1200,max_indexed_blocks:2048,max_indexed_windows:8192,max_indexed_characters:4000000,max_search_seconds:8,budget_tokenizer_id:"unicode-word-or-nonspace-punctuation-v1",meaning:"Software fixture"};
 
-test("new enabled board definitions require an explicit profile and retain explicit per-field component queries in the v2 request",async()=>{
+test("new boards disclose a pinned default profile and retain explicit per-field component queries in the v2 request",async()=>{
   const f=research("span-create"),calls:{path:string;method:string;body:any}[]=[],destinations:any[]=[];Object.assign(globalThis,{sessionStorage:storage()});
   globalThis.fetch=async(input,options)=>{const path=String(input),method=options?.method??"GET",body=options?.body?JSON.parse(String(options.body)):undefined;calls.push({path,method,body});if(path.endsWith("/session"))return response({csrf_token:"software"});if(path.endsWith("/boards"))return response(method==="GET"?{boards:[],limits:f.capability.boards}:{definition:{board_id:"software-new-board"}});if(path.endsWith("/papers"))return response(f.preparationPapers);if(path.endsWith("/source-preparations/"+f.preparation.id))return response(f.preparation);throw new Error("No hidden provider/map call "+path);};
   let renderer!:ReactTestRenderer;await act(async()=>{renderer=create(<Compare workspace={f.state} retrievalCapability={capability} navigate={async value=>{destinations.push(value);}}/>);});
   try{
-    await act(async()=>button(renderer,"Create comparison board").props.onClick());assert.equal(button(renderer,"Create manual comparison board").props.disabled,true);
-    await act(async()=>renderer.root.findByType("form").props.onSubmit({preventDefault(){}}));assert.equal(calls.filter(call=>call.method!=="GET").length,0);
+    await act(async()=>button(renderer,"Create comparison board").props.onClick());assert.equal(button(renderer,"Create comparison board").props.disabled,false);
+    assert.equal(field(renderer,"Retrieval profile for this definition").props.value,"lexical_spans_v1");assert.equal(calls.filter(call=>call.method!=="GET").length,0);
     await act(async()=>field(renderer,"Retrieval profile for this definition").props.onChange({target:{value:"lexical_spans_v1"}}));
     await act(async()=>button(renderer,"Add component to Population").props.onClick());
     const labels=renderer.root.findAllByType("label");await act(async()=>labels.find(item=>item.children[0]==="Component ")!.findByType("input").props.onChange({target:{value:"Participant origin"}}));
@@ -48,6 +48,6 @@ test("span candidate display distinguishes exact ranges, omitted context and lex
   const before=JSON.stringify(result),inspected:Schema<"BoardReference">[]=[];let renderer!:ReactTestRenderer;await act(async()=>{renderer=create(<BoardCandidates result={result} busy={false} onInspect={async value=>{inspected.push(value);}}/>);});
   try{
     assert.match(text(renderer.root),new RegExp("EXACT CODE POINTS 2000–"+reference.end));assert.match(text(renderer.root),/2000 omitted before/);assert.match(text(renderer.root),/Participant origin · candidates selected/);assert.match(text(renderer.root),/Validation population · no lexical match/);assert.match(text(renderer.root),/not measured model tokens/);assert.match(text(renderer.root),/NOT INSPECTED SUPPORT/);assert.equal(inspected.length,0);
-    await act(async()=>button(renderer,"Inspect candidate 1 in exact source").props.onClick());assert.deepEqual(inspected,[reference]);assert.equal(JSON.stringify(result),before);assert.deepEqual(reference.locator,{section:"Results"});
+    await act(async()=>button(renderer,"Read in source · passage 1").props.onClick());assert.deepEqual(inspected,[reference]);assert.equal(JSON.stringify(result),before);assert.deepEqual(reference.locator,{section:"Results"});
   }finally{await act(async()=>renderer.unmount());}
 });

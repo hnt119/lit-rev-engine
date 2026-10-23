@@ -15,7 +15,8 @@ def main():
     with TemporaryDirectory(prefix="lre-openapi-") as directory:
         schema = create_app(Path(directory).resolve()).openapi()
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(json.dumps(schema, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+    # Preserve FastAPI/Pydantic declaration order, matching the checked-in client.
+    destination.write_text(json.dumps(schema, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(destination)
 
 

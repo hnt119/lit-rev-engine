@@ -1,7 +1,7 @@
 "use client";
 import {useCallback,useEffect,useRef,useState} from "react";
 import {api,APIError,type Schema} from "./api";
-import {registerDraftFlusher} from "./drafts";
+import {registerDraftFlusher,registerDraftRecovery,registerUnloadGuard} from "./drafts";
 
 export type CellData=Schema<"BoardCellData">;
 type Record=Schema<"BoardCellDraft">;
@@ -14,6 +14,7 @@ export function useBoardDraft(endpoint:string,revision:string,head:string|null,r
   const previous=memory.get(key);
   const current=useRef<Cached>(previous??{data:emptyCell(),version:0,expected:null,dirty:false,edit:0,failure:null});
   const alive=useRef(true),flight=useRef<Promise<void>|null>(null);
+  useEffect(()=>readOnly?undefined:registerUnloadGuard(()=>current.current.dirty||!!current.current.failure||!!flight.current),[readOnly]);
   const [data,setValue]=useState(current.current.data),[version,setVersion]=useState(current.current.version);
   const [ready,setReady]=useState(false),[state,setState]=useState("loading"),[error,setError]=useState("");
   const remember=useCallback(()=>memory.set(key,{...current.current}),[key]);
@@ -57,18 +58,25 @@ export function useBoardDraft(endpoint:string,revision:string,head:string|null,r
     const value=typeof next==="function"?next(current.current.data):next;
     current.current={...current.current,data:value,dirty:true,edit:current.current.edit+1};remember();setValue(value);if(!current.current.failure){setState("unsaved");setError("");}
   },[remember]);
-  const retry=useCallback(async()=>{
+  const retryOrThrow=useCallback(async()=>{
     try{const record=await api<Record>(key);
       if(!ready&&!current.current.dirty){adopt(record);if(!readOnly&&record.version>0&&record.expected_cell_head_id!==head)throw new APIError(409,"board_cell_head_changed","This draft belongs to an older cell head. Explicitly revise or rebase while retaining these restored edits.");return;}
       if(record.version!==current.current.version||record.expected_cell_head_id!==current.current.expected)throw new APIError(409,"board_draft_conflict","The server draft or saved cell changed. Explicitly rebase retained edits; retry never overwrites another draft.");
       current.current.failure=null;remember();setError("");setReady(true);setState(current.current.dirty?"unsaved":"saved");await save();
-    }catch(failure){fail(failure as Error);}
+    }catch(failure){fail(failure as Error);throw failure;}
   },[key,save,remember,fail,ready,readOnly,head,adopt]);
+  const retry=useCallback(async()=>{await retryOrThrow().catch(()=>{});},[retryOrThrow]);
   /** Only an explicit UI revision/rebase action may change the expected cell head. */
   const rebase=useCallback(async(next:CellData,newHead:string|null)=>{
     const record=await api<Record>(key);
     current.current.version=record.version;current.current.expected=newHead;current.current.failure=null;setVersion(record.version);setReady(true);setData(next);setError("");setState("unsaved");
   },[key,setData]);
   const reload=useCallback(async()=>{adopt(await api<Record>(key));},[key,adopt]);
+  const restore=useCallback(async()=>{
+    const record=await api<Record>(key);
+    if(record.version>0&&record.expected_cell_head_id!==head)throw new APIError(409,"board_cell_head_changed","This saved draft belongs to an older cell head. Explicitly revise or rebase it before leaving.");
+    adopt(record);
+  },[key,head,adopt]);
+  useEffect(()=>readOnly?undefined:registerDraftRecovery({retry:retryOrThrow,restore}),[readOnly,retryOrThrow,restore]);
   return {data,setData,ready,state,error,version,save,retry,rebase,reload,snapshot:()=>({version:current.current.version,expectedHead:current.current.expected,data:current.current.data}),expectedHead:current.current.expected};
 }

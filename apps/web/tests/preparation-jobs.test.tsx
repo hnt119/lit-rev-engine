@@ -193,7 +193,7 @@ test("a late previous-preparation read cannot overwrite a newly published thirty
   const f=fixtures("discover-publication"),older=deferred<Schema<"PreparationView">>();
   const previous={...f.preparation,id:"old-preparation",source_revision:1,selected_paper_ids:[f.papers[0].id]};
   const workspace={...f.workspace,preparations:[previous],searches:[{...f.search,distinct_count:32}]};
-  const capabilities={default_mode:"saved_example",live_available:false,saved_example:{query:f.search.query,question:f.search.research_question},limits:{max_prepared_sources:30,max_sources:30,max_synchronous_prepared_sources:10},preparation_jobs_ready:true,search_plans_ready:false,board_span_profiles:null,boards:{max_fields:6,max_cells:60,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,max_references:5,max_workspace_bytes:33554432,max_candidate_characters:1200,max_inspector_characters:4000},map:{ready:false,reason:"SOFTWARE TEST no embeddings"}} as Schema<"Capabilities">;
+  const capabilities={default_mode:"saved_example",live_available:false,saved_example:{query:f.search.query,question:f.search.research_question},limits:{max_prepared_sources:30,max_sources:30,max_synchronous_prepared_sources:10},preparation_jobs_ready:true,search_plans_ready:false,board_span_profiles:null,boards:{max_papers:30,max_fields:6,max_cells:180,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,max_references:5,max_workspace_bytes:33554432,max_candidate_characters:1200,max_inspector_characters:4000},map:{ready:false,reason:"SOFTWARE TEST no embeddings"}} as Schema<"Capabilities">;
   const original=globalThis.fetch;
   globalThis.fetch=async(url,options)=>{
     assert.equal(options?.method??"GET","GET");const path=String(url);

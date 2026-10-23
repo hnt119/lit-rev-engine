@@ -368,7 +368,8 @@ class MVPService:
             result = model(id=run_id, search_id=preparation.search_id, preparation_id=preparation.id,
                                  source_revision=state.source_revision, source_snapshot_sha256=digest(_manifest(state.sources)),
                                  question=request.question, passages=passages, indexed_passages=indexed,
-                                 matched_passages=matched, parameters=self._retrieval.parameters, **origin)
+                                 matched_passages=matched, parameters={**self._retrieval.parameters,
+                                     'top_k': request.top_k, 'returned_count': len(passages)}, **origin)
             return state.model_copy(update={"runs": [*state.runs, result], "current_run_id": result.id}), result
         result = self._operate(handle, operation, request, EvidenceRunReader, execute)
         self._current_run(self._storage.read(handle), result.id)

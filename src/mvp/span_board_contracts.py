@@ -6,6 +6,7 @@ from pydantic import Field, model_validator
 
 from .board_contracts import BoardCandidate, BoardCandidates, BoardCreateRequest
 from .contracts import Model
+from .limits import MAX_BOARD_FIELDS
 from .span_budget import budget_token_count
 from .span_retrieval_contracts import (
     SpanRequirement, MAX_SPAN_REQUIREMENTS, MAX_SPAN_CHARACTERS, MAX_SPAN_BUDGET_TOKENS,
@@ -34,7 +35,7 @@ class FieldSpanRequirements(Model):
 class ProfiledBoardCreateRequest(BoardCreateRequest):
     schema_version: Literal['mvp.board-profile-request.v2'] = 'mvp.board-profile-request.v2'
     retrieval_profile_id: BoardProfileId
-    field_requirements: list[FieldSpanRequirements] = Field(default_factory=list, max_length=6)
+    field_requirements: list[FieldSpanRequirements] = Field(default_factory=list, max_length=MAX_BOARD_FIELDS)
 
     @model_validator(mode='after')
     def component_ownership(self):

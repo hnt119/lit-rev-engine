@@ -21,7 +21,7 @@ export default function ExplorationPanels({map,papers,inspector,revealPaper}:{ma
     revealedRequest.current=revealPaper;
     row.focus({preventScroll:true});
     if(window.matchMedia("(max-width: 900px)").matches)row.scrollIntoView({behavior:"instant",block:"start"});
-    else panel.scrollTo({top:Math.max(0,panel.scrollTop+row.getBoundingClientRect().top-panel.getBoundingClientRect().top-panel.clientTop-16),behavior:"instant"});
+    else panel.scrollTo({top:Math.max(0,panel.scrollTop+row.getBoundingClientRect().top-panel.getBoundingClientRect().top-panel.clientTop-(panel.querySelector<HTMLElement>(".exploration-heading-sticky")?.getBoundingClientRect().height??0)-16),behavior:"instant"});
   },[revealPaper,active]);
   return <>
     <div className="exploration-tabs" role="group" aria-label="Mobile exploration view">

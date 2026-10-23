@@ -17,6 +17,7 @@ async function render(s:Schema<"ImportSummary">,rows:Schema<"ReviewedImportRow">
     const path=String(input),method=options?.method??"GET",body=typeof options?.body==="string"?JSON.parse(options.body):options?.body;
     const call={path,method,body,options};calls.push(call);
     if(path.endsWith("/session"))return response({csrf_token:"software-test"});
+    if(path.includes("/drafts/"))return response({scope:decodeURIComponent(path.split("/").at(-1)!),version:0,data:{},expected_assessment_head:null,updated_at:null});
     if(method!=="GET"){if(mutation)return mutation(call);throw new Error("Unexpected software-test mutation "+path);}
     if(path.endsWith("/imports"))return response({imports:[current]});
     if(path.includes("/rows?")){const url=new URL(path,"http://software.test"),offset=Number(url.searchParams.get("offset")),limit=Number(url.searchParams.get("limit"));return response({import_id:current.id,revision:current.revision,rows:currentRows.slice(offset,offset+limit),offset,total:currentRows.length,next_offset:offset+limit<currentRows.length?offset+limit:null});}

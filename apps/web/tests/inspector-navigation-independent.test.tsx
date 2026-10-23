@@ -25,8 +25,8 @@ async function fixture(mobile=false,count=4) {
     created_at:search.searched_at,source_revision:0,current_preparation_id:null,selected_paper_ids:[],current_run_id:null,
     current_assessment_ids:{},searches:[{...search,distinct_count:count}],preparations:[],runs:[],assessments:[]} as Schema<"WorkspaceSummary">;
   const capabilities={default_mode:"saved_example",live_available:false,saved_example:{question:search.research_question,query:search.query},
-    limits:{max_sources:30,max_prepared_sources:30,max_synchronous_prepared_sources:10,max_results:50,default_results:30,max_passages:5},
-    preparation_jobs_ready:false,search_plans_ready:false,board_span_profiles:null,boards:{max_fields:6,max_cells:60,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,
+    limits:{max_sources:30,max_prepared_sources:30,max_synchronous_prepared_sources:10,max_results:50,default_results:30,default_passages:5,max_passages:30},
+    preparation_jobs_ready:false,search_plans_ready:false,board_span_profiles:null,boards:{max_papers:30,max_fields:6,max_cells:180,max_boards:10,max_definition_revisions:20,max_cell_revisions:50,
       max_references:5,max_workspace_bytes:33554432,max_candidate_characters:1200,max_inspector_characters:4000},
     map:{ready:false,reason:"No model calls in this fixture"}} as Schema<"Capabilities">;
   const artifact={map_id:"independent-inspector-map",search_id:search.id,coordinates_by_paper_id:Object.fromEntries(papers.map((paper,index)=>[paper.id,[index,index%2]])),

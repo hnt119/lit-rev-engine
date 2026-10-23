@@ -26,6 +26,10 @@ from src.mvp.contracts import (
 from src.mvp.ports import MvpError
 from src.mvp.workspace_versions import CollectionEvidenceRun
 from src.mvp.workspace_ui import WorkspaceUIStore, private_directory
+from src.mvp.usability_draft_contracts import (
+    ComparisonHandoffDraft, ImportIntakeDraft, SearchPlanEditorDraft, usability_scope,
+    validate_handoff_state, validate_handoff_update,
+)
 from .contracts import (
     Capabilities, ContextView, CreateWebWorkspace, DraftRecord, DraftUpdate,
     CollectionPreparationView, PreparationPapers, PreparationView, RunPapers, RunView, SessionInfo, WorkspaceList, WorkspaceSummary,
@@ -284,9 +288,84 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
             return
         raise MvpError("invalid_draft_scope", "Choose a supported workspace screen or saved search/run draft scope.")
 
+    def usability_draft(mode, handle, engine, workspace_id, scope, scope_parts, request=None):
+        kind, identifier = scope_parts
+        model = {'search-plan-editor': SearchPlanEditorDraft, 'comparison-handoff': ComparisonHandoffDraft,
+                 'import-intake': ImportIntakeDraft}[kind]
+
+        def parse(data):
+            try:
+                return model.model_validate(data)
+            except ValidationError:
+                raise MvpError('invalid_comparison_handoff' if kind == 'comparison-handoff' else 'invalid_editor_draft',
+                    'Keep bounded editable inputs and exact owned references. Existing drafts are unchanged.') from None
+
+        value = parse(request.data) if request is not None else None
+        # Initialize sidecars before acquiring lifecycle/research locks. These
+        # stores read retained local records only; no compiler/provider/model runs.
+        planning = app.state.search_plans_for(mode) if kind == 'search-plan-editor' and identifier != 'new' else None
+        collections = app.state.collections_for(mode) if kind == 'comparison-handoff' else None
+        job_stores = ({'search': app.state.preparation_jobs.store_for(mode),
+                       'collection': app.state.collection_preparation_jobs.store_for(mode)}
+                      if kind == 'comparison-handoff' else {})
+        with registry.lifecycle_guard(workspace_id):
+            if registry.is_deleted(workspace_id):
+                raise MvpError('unknown_workspace', 'This workspace is unavailable.')
+            engine.get_workspace(handle)
+            prior = registry.draft(workspace_id, scope)
+            if value is None and prior['version']:
+                value = parse(prior['data'])
+            if kind == 'import-intake':
+                if request is None:
+                    return DraftRecord(**prior)
+                return DraftRecord(**registry.put_draft(workspace_id, scope, **request.model_dump(mode='json')))
+            if kind == 'search-plan-editor':
+                if value is not None and (value.plan_id != (None if identifier == 'new' else identifier) or
+                        identifier == 'new' and value.base_revision_id is not None):
+                    raise MvpError('invalid_editor_draft', 'The editable draft must retain its owning plan scope and revision.')
+                if planning is not None:
+                    with planning.store.connection() as db:
+                        planning.store.revision(db, workspace_id, identifier, value.base_revision_id if value else None)
+                if request is None:
+                    return DraftRecord(**prior)
+                return DraftRecord(**registry.put_draft(workspace_id, scope, **request.model_dump(mode='json')))
+
+            if value is None:
+                return DraftRecord(**prior)
+            # Collection snapshots and job input projections are bounded,
+            # immutable references. Resolve them before the short mutation lock.
+            collection_ids = None
+            if value.origin.kind == 'collection':
+                resolved = collections.resolve_collection(handle, value.origin)
+                collection_ids = [member.paper.id for member in resolved.members]
+            job = job_stores[value.origin.kind].job(workspace_id, value.job_id) if value.job_id is not None else None
+
+            def finish(state):
+                # Check CAS before immutable-click checks, so competing tabs get
+                # the same actionable stale-draft response as existing scopes.
+                current = registry.draft(workspace_id, scope) if request is not None else prior
+                if request is not None and current['version'] != request.version:
+                    raise MvpError('stale_draft', 'A newer saved draft exists. Your local edits were not overwritten; reload for comparison.')
+                retained = parse(current['data']) if current['version'] else None
+                if request is not None and retained is not None:
+                    validate_handoff_update(retained, value)
+                # A synchronous publication must be current when first attached.
+                # Once acknowledged it remains recoverable historical input.
+                retained_sync = retained is not None and value.preparation_id is not None and retained.preparation_id == value.preparation_id
+                validate_handoff_state(state, value, collection_paper_ids=collection_ids, job=job,
+                    retained_sync_acknowledgement=retained_sync)
+                if request is None:
+                    return DraftRecord(**prior)
+                return DraftRecord(**registry.put_draft(workspace_id, scope, **request.model_dump(mode='json')))
+
+            return engine.with_workspace_state(handle, finish) if request is not None else finish(engine.get_workspace(handle))
+
     @app.get(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def get_draft(workspace_id: str, scope: str, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        scope_parts = usability_scope(scope)
+        if scope_parts is not None:
+            return usability_draft(mode, handle, engine, workspace_id, scope, scope_parts)
         if scope.startswith('collection-selection:'):
             app.state.collections_for(mode).collection(handle, scope.removeprefix('collection-selection:'))
         validate_scope(engine.get_workspace(handle), scope)
@@ -295,6 +374,9 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.put(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def put_draft(workspace_id: str, scope: str, request: DraftUpdate, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        scope_parts = usability_scope(scope)
+        if scope_parts is not None:
+            return usability_draft(mode, handle, engine, workspace_id, scope, scope_parts, request)
         def save_under_guard(state):
             if scope.startswith('collection-selection:'):
                 collections = app.state.collections_for(mode)

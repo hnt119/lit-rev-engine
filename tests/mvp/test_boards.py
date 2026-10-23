@@ -11,7 +11,7 @@ from pydantic import ValidationError
 from src.mvp.adapters.board_storage import BoardStore
 from src.mvp.adapters.storage import SQLiteWorkspaceStorage
 from src.mvp.board_contracts import (BoardCreateRequest, BoardFieldInput, BoardCandidatesRequest,
-    BoardCellData, BoardDraftPutRequest, BoardSubmitRequest, BoardReferenceInput, BoardReviseRequest)
+    BoardCellData, BoardDraftPutRequest, BoardSubmitRequest, BoardReferenceInput, BoardReviseRequest, BoardView)
 from src.mvp.contracts import Paper, Block, PreparedSource, SearchPreview, SearchRequest, PrepareSourcesRequest, digest
 from src.mvp.evidence_board import EvidenceBoardService
 from src.mvp.ports import MvpError
@@ -70,6 +70,40 @@ def test_three_by_three_empty_reopening_is_additive_and_no_read_mutations(case):
         assert db.execute('SELECT COUNT(*) FROM board_requests').fetchone()[0] == count
     assert boards.create('test', handle, request).definition == board.definition
     assert os.stat(store.path).st_mode & 0o777 == 0o600
+
+
+def test_summary_matches_preparation_and_order_without_loading_board_cells(case):
+    boards, handle, _, store, _, _, board = case
+    summary = boards.listing('test', handle).boards[0]
+    assert summary.preparation_id == board.definition.preparation_id
+    assert summary.paper_ids == board.definition.paper_ids
+    assert board.definitions[0].preparation_id == summary.preparation_id
+    original = store.draft
+    store.draft = lambda *args: pytest.fail('Board listing must not load every cell draft')
+    try:
+        assert boards.listing('test', handle).boards == [summary]
+    finally:
+        store.draft = original
+
+
+def test_legacy_cached_board_view_replays_with_additive_summary_defaults(case):
+    boards, handle, _, store, _, request, board = case
+    legacy = board.model_dump(mode='json')
+    legacy['limits'].pop('max_papers')
+    for summary in legacy['definitions']:
+        summary.pop('preparation_id')
+        summary.pop('paper_ids')
+    parsed = BoardView.model_validate(legacy)
+    assert parsed.definition == board.definition
+    assert parsed.definitions[0].preparation_id is None and parsed.definitions[0].paper_ids == []
+    with store.connection() as db:
+        db.execute('UPDATE board_requests SET result=? WHERE workspace_id=? AND request_id=?',
+            (json.dumps(legacy), handle.workspace_id, request.request_id))
+    replay = boards.create('test', handle, request)
+    assert replay.definition == board.definition
+    assert replay.definitions[0].preparation_id == board.definition.preparation_id
+    assert replay.definitions[0].paper_ids == board.definition.paper_ids
+    assert replay.limits.max_papers == 30 and replay.limits.max_cells == 180
 
 
 def test_candidates_bounded_exact_unicode_and_context_paginated(case):

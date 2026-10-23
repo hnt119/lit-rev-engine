@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {act,create,type ReactTestRenderer} from "react-test-renderer";
-import {flushDrafts,navigationBarrier,useDraft} from "../lib/drafts.tsx";
+import {flushDrafts,navigationBarrier,recoverDrafts,useDraft} from "../lib/drafts.tsx";
 
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true});
 const response=(value:unknown,status=200)=>new Response(JSON.stringify(value),{status,headers:{"Content-Type":"application/json"}});
@@ -46,7 +46,9 @@ test("409 conflict retains edits, blocks navigation flush and does not automatic
   assert.equal(current.state,"conflict");assert.equal(current.data.question,"my notes");
   await act(async()=>current.setData({question:"my notes extended"}));
   await assert.rejects(flushDrafts(),/Newer draft/);assert.equal(puts,1);
-  forceConflict=false;await act(async()=>current.retry());assert.equal(current.state,"saved");assert.equal(record.data.question,"my notes extended");
+  forceConflict=false;await act(async()=>{await assert.rejects(current.retry(),/does not overwrite another tab/);});
+  assert.equal(current.state,"conflict");assert.equal(current.data.question,"my notes extended");assert.equal(puts,1);
+  await act(async()=>recoverDrafts("restore"));assert.equal(current.state,"saved");assert.equal(current.data.question,"other tab");assert.equal(puts,1);
   await act(async()=>renderer.unmount());
 });
 

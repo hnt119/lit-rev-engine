@@ -8,9 +8,11 @@ import re
 from pydantic import Field, model_validator
 from .contracts import Model, new_id, now
 from .collection_contracts import CollectionInputRef
+from .limits import MAX_BOARD_PAPERS, MAX_BOARD_FIELDS, MAX_BOARD_CELLS
 
-MAX_FIELDS = 6
-MAX_CELLS = 60
+# Keep existing imports compatible while the selection policy has one source.
+MAX_FIELDS = MAX_BOARD_FIELDS
+MAX_CELLS = MAX_BOARD_CELLS
 MAX_BOARDS = 10
 MAX_DEFINITIONS = 20
 MAX_CELL_REVISIONS = 50
@@ -20,6 +22,7 @@ MAX_CANDIDATE_CHARACTERS = 1200
 MAX_INSPECTOR_CHARACTERS = 4000
 
 class BoardLimits(Model):
+    max_papers: int = MAX_BOARD_PAPERS
     max_fields: int = MAX_FIELDS
     max_cells: int = MAX_CELLS
     max_boards: int = MAX_BOARDS
@@ -50,7 +53,7 @@ class BoardCreateRequest(Model):
     request_id: str = Field(min_length=1, max_length=200)
     preparation_id: str = Field(min_length=1, max_length=200)
     question: str = Field(min_length=1, max_length=10000)
-    paper_ids: list[str] = Field(min_length=1, max_length=10)
+    paper_ids: list[str] = Field(min_length=1, max_length=MAX_BOARD_PAPERS)
     fields: list[BoardFieldInput] = Field(min_length=1, max_length=MAX_FIELDS)
 
     @model_validator(mode='after')
@@ -232,6 +235,8 @@ class BoardSummary(Model):
     paper_count: int
     field_count: int
     created_at: str
+    preparation_id: str | None = None
+    paper_ids: list[str] = Field(default_factory=list)
 
 class BoardListing(Model):
     boards: list[BoardSummary]

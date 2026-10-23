@@ -70,7 +70,8 @@ class EvidenceBoardService:
     @staticmethod
     def _summary(definition):
         return BoardSummary(board_id=definition.board_id, revision_id=definition.revision_id, question=definition.question,
-                            paper_count=len(definition.paper_ids), field_count=len(definition.fields), created_at=definition.created_at)
+                            paper_count=len(definition.paper_ids), field_count=len(definition.fields), created_at=definition.created_at,
+                            preparation_id=definition.preparation_id, paper_ids=definition.paper_ids)
 
     @staticmethod
     def _cell(definition, paper_id, field_id):

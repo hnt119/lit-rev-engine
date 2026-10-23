@@ -22,7 +22,7 @@ from src.mvp.contracts import (
     SearchRequest, SourceContextRequest, WorkspaceHandle,
 )
 from src.mvp.ports import MvpError
-from src.mvp.limits import MAX_PREPARED_SOURCES, MAX_SYNCHRONOUS_PREPARED_SOURCES
+from src.mvp.limits import MAX_BOARD_PAPERS, MAX_BOARD_CELLS, MAX_PREPARED_SOURCES, MAX_SYNCHRONOUS_PREPARED_SOURCES
 from apps.streamlit.navigation import scroll_reset_html
 from apps.streamlit.theme import load_theme
 
@@ -195,7 +195,7 @@ def discover(service, handle, snapshot, mode, info):
 def prepare(service, handle, snapshot):
     st.header("2. Select and prepare sources")
     st.caption(f"Select up to {MAX_PREPARED_SOURCES} papers for exploration. Selection is not a screening decision, formal inclusion or independent verification.")
-    st.caption(f"Up to {MAX_SYNCHRONOUS_PREPARED_SOURCES} sources can use the existing synchronous path; larger selections use a saved background job. Boards remain limited to ten papers and 60 cells; proposal budgets are separate.")
+    st.caption(f"Up to {MAX_SYNCHRONOUS_PREPARED_SOURCES} sources can use the existing synchronous path; larger selections use a saved background job. Comparison boards support up to {MAX_BOARD_PAPERS} papers and {MAX_BOARD_CELLS} cells; proposal budgets are separate.")
     if not snapshot.searches:
         st.info("Discover publications first.")
         return

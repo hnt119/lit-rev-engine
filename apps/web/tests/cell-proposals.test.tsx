@@ -31,9 +31,11 @@ test("disabled proposals remain read-only and enabled generation requires an exp
   };
   let renderer!:ReactTestRenderer;
   await act(async()=>{renderer=create(<ProposalControls endpoint="test/boards/b" view={view} changed={()=>{}}/>);});
+  await act(async()=>renderer.root.findAllByType("details")[0].props.onToggle({currentTarget:{open:true}}));
   assert.equal(writes.length,0);assert.equal(disabled(button(renderer,"Generate proposals for selected cells")),true);
   await act(async()=>renderer.unmount());enabled=true;
   await act(async()=>{renderer=create(<ProposalControls endpoint="test/boards/b" view={view} changed={()=>{}}/>);});
+  await act(async()=>renderer.root.findAllByType("details")[0].props.onToggle({currentTarget:{open:true}}));
   assert.equal(writes.length,0);assert.equal(disabled(button(renderer,"Generate proposals for selected cells")),false);
   await act(async()=>button(renderer,"Generate proposals for selected cells").props.onClick());
   assert.equal(writes.length,1);assert.deepEqual(writes[0].body.paper_ids,["p1","p2","p3"]);assert.deepEqual(writes[0].body.field_ids,["f"]);
@@ -57,6 +59,7 @@ async function cellFixture({historical=false,existing=false,conflict=false,nullV
   };
   let renderer!:ReactTestRenderer;
   await act(async()=>{renderer=create(<CellProposals endpoint="test/boards/b" view={{...view,freshness:historical?"historical":"current"}} paperId="p1" fieldId="f" draft={draft} editable={!historical} refresh={0} inspect={async()=>{inspections++;}} adopted={async()=>{adoptions++;}}/>);});
+  await act(async()=>renderer.root.findAllByType("details")[0].props.onToggle({currentTarget:{open:true}}));
   return {renderer,writes,counts:()=>({reloads,inspections,adoptions})};
 }
 

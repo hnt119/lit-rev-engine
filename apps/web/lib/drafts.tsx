@@ -5,6 +5,25 @@ import {api,APIError,workspacePath,type Schema} from "./api";
 type Cached={data:Record<string,unknown>;version:number;dirty:boolean;expected:string|null;failure?:Error|null};
 const memory=new Map<string,Cached>();
 const flushers=new Set<()=>Promise<void>>();
+const unloadGuards=new Set<()=>boolean>();
+function beforeUnload(event:BeforeUnloadEvent){
+  if([...unloadGuards].some(unsafe=>unsafe())){event.preventDefault();event.returnValue="";}
+}
+/** Browser reload/close cannot await CAS saves; request a native leave confirmation. */
+export function registerUnloadGuard(unsafe:()=>boolean){
+  unloadGuards.add(unsafe);
+  if(unloadGuards.size===1&&typeof window!=="undefined")window.addEventListener?.("beforeunload",beforeUnload);
+  return()=>{unloadGuards.delete(unsafe);if(!unloadGuards.size&&typeof window!=="undefined")window.removeEventListener?.("beforeunload",beforeUnload);};
+}
+const recoveries=new Set<{retry:()=>Promise<void>;restore:()=>Promise<void>}>();
+export function registerDraftRecovery(recovery:{retry:()=>Promise<void>;restore:()=>Promise<void>}){
+  recoveries.add(recovery);return()=>{recoveries.delete(recovery);};
+}
+/** Restore is invoked only after an explicit discard confirmation in the UI. */
+export async function recoverDrafts(mode:"retry"|"restore"){
+  await Promise.all([...navigationBarriers]);
+  for(const recovery of [...recoveries])await recovery[mode]();
+}
 /** Other typed draft scopes share navigation flushing without assessment fields. */
 export function registerDraftFlusher(flush:()=>Promise<void>) {
   flushers.add(flush);
@@ -32,6 +51,7 @@ export function useDraft<T extends Record<string,unknown>>(workspace:string,scop
   const [error,setError]=useState("");
   const current=useRef({data:(saved?.data??initial) as T,version:saved?.version??0,dirty:saved?.dirty??false,expected:saved?saved.expected:expectedHead,revision:0,failure:saved?.failure??null as Error|null});
   const inFlight=useRef<Promise<void>|null>(null);
+  useEffect(()=>registerUnloadGuard(()=>current.current.dirty||!!current.current.failure||!!inFlight.current),[]);
   const alive=useRef(true);
   const endpoint=workspacePath(workspace)+"/drafts/"+encodeURIComponent(scope);
   const remember=useCallback(()=>memory.set(key,{...current.current}),[key]);
@@ -92,23 +112,35 @@ export function useDraft<T extends Record<string,unknown>>(workspace:string,scop
       const record=await api<Schema<"DraftRecord">>(endpoint);
       if(record.expected_assessment_head!==current.current.expected && record.version!==0)
         throw new Error("The saved assessment head changed. Open the latest assessment and explicitly revise it; your edits remain here.");
+      if(current.current.dirty&&current.current.version!==record.version)
+        throw new APIError(409,"draft_conflict","A newer saved draft exists. Your edits are retained. Review it or explicitly restore the saved draft; retry does not overwrite another tab.");
       current.current.version=record.version;current.current.failure=null;setVersion(record.version);
-      if(!ready&&!current.current.dirty){
+      if(!current.current.dirty){
         const restored=Object.keys(record.data).length?{...initial,...record.data}:initial;
         current.current.data=restored as T;setValue(restored as T);remember();setState("saved");setError("");
       }
       setReady(true);await save();
-    }catch(error){setError((error as Error).message);setState("conflict");}
+    }catch(error){current.current.failure=error as Error;remember();setError((error as Error).message);setState("conflict");throw error;}
   },[endpoint,save,ready,initial,remember]);
+  const restore=useCallback(async()=>{
+    if(inFlight.current)await inFlight.current.catch(()=>{});
+    const record=await api<Schema<"DraftRecord">>(endpoint);
+    if(record.version!==0&&record.expected_assessment_head!==expectedHead)
+      throw new APIError(409,"stale_draft_head","The saved draft belongs to an older assessment. Open the current assessment and explicitly revise it.");
+    const restored=(Object.keys(record.data).length?{...initial,...record.data}:initial) as T;
+    current.current={data:restored,version:record.version,dirty:false,expected:record.version===0?expectedHead:record.expected_assessment_head,revision:current.current.revision+1,failure:null};
+    remember();setValue(restored);setVersion(record.version);setReady(true);setError("");setState("saved");
+  },[endpoint,expectedHead,initial,remember]);
+  useEffect(()=>registerDraftRecovery({retry,restore}),[retry,restore]);
   const replace=useCallback((next:T,head:string|null)=>{
     current.current.expected=head;current.current.failure=null;setData(next);
   },[setData]);
-  return {data,setData,ready,state,error,save,retry,replace,version};
+  return {data,setData,ready,state,error,save,retry,restore,replace,version};
 }
 
 export function DraftStatus({draft}:{draft:{state:string,error:string,retry:()=>Promise<void>}}) {
   return <div className="draft-status" role="status" aria-live="polite">
     <span>Draft: {draft.state}</span>{draft.error&&<span> · {draft.error}</span>}
-    {(draft.state==="error"||draft.state==="conflict")&&<button type="button" onClick={()=>void draft.retry()}>Retry keeping my edits</button>}
+    {(draft.state==="error"||draft.state==="conflict")&&<button type="button" onClick={()=>void draft.retry().catch(()=>{})}>Retry keeping my edits</button>}
   </div>;
 }

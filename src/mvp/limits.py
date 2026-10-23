@@ -6,6 +6,11 @@ must use the durable preparation worker, once its capability is available.
 
 MAX_PREPARED_SOURCES = 30
 MAX_SYNCHRONOUS_PREPARED_SOURCES = 10
+MAX_BOARD_PAPERS = 30
+MAX_BOARD_FIELDS = 6
+MAX_BOARD_CELLS = MAX_BOARD_PAPERS * MAX_BOARD_FIELDS
+DEFAULT_PASSAGES = 5
+MAX_PASSAGES = 30
 MAX_DISCOVERY_RESULTS = 50
 DEFAULT_DISCOVERY_RESULTS = 30
 MAX_IMPORT_ROWS = 500
@@ -21,9 +26,11 @@ def public_limits():
         "max_sources": MAX_PREPARED_SOURCES,  # Existing clients' selection key.
         "max_prepared_sources": MAX_PREPARED_SOURCES,
         "max_synchronous_prepared_sources": MAX_SYNCHRONOUS_PREPARED_SOURCES,
-        "max_passages": 5,
-        "max_board_papers": 10,
-        "max_board_cells": 60,
+        "default_passages": DEFAULT_PASSAGES,
+        "max_passages": MAX_PASSAGES,
+        "max_board_papers": MAX_BOARD_PAPERS,
+        "max_board_fields": MAX_BOARD_FIELDS,
+        "max_board_cells": MAX_BOARD_CELLS,
         "max_proposal_cells": 9,
         "max_proposal_calls": 3,
         "max_import_rows": MAX_IMPORT_ROWS,

@@ -7,8 +7,8 @@ import {matchesPaperOrigin} from "../lib/paper-origin";
 import {Citation,Failure,Notice,SourceMetadata,Time} from "./ui";
 import type {Navigate} from "./workspace-app";
 
-export default function Evidence({workspace,requestedRun,refresh,navigate}:{workspace:Schema<"WorkspaceSummary">;requestedRun?:string;refresh:()=>Promise<void>;navigate:Navigate}) {
-  const question=useDraft(workspace.id,"evidence",{question:workspace.question});
+export default function Evidence({workspace,requestedRun,refresh,navigate,maxPassages=30}:{workspace:Schema<"WorkspaceSummary">;requestedRun?:string;maxPassages?:number;refresh:()=>Promise<void>;navigate:Navigate}) {
+  const question=useDraft(workspace.id,"evidence",{question:workspace.question,top_k:5});
   const runId=requestedRun??workspace.current_run_id;
   const [view,setView]=useState<Schema<"RunView">|null>(null);
   const [bibliography,setBibliography]=useState<Schema<"RunPapers">|null>(null);
@@ -25,13 +25,15 @@ export default function Evidence({workspace,requestedRun,refresh,navigate}:{work
     }catch(error){if(token===readGeneration.current){setError((error as Error).message);throw error;}}
   },[workspace.id,runId]);
   useEffect(()=>{void load().catch(()=>{});return()=>{readGeneration.current++;};},[load]);
+  const validLimit=Number.isSafeInteger(question.data.top_k)&&question.data.top_k>=5&&question.data.top_k<=maxPassages;
   async function retrieve(fresh=false){setBusy(true);setError("");try{
-    await question.save();const payload={question:question.data.question,top_k:5,expected_preparation_id:workspace.current_preparation_id,expected_source_revision:workspace.source_revision};
+    if(!validLimit)throw new Error(`Choose a whole number from 5 to ${maxPassages} for the next passage search.`);
+    await question.save();const payload={question:question.data.question,top_k:question.data.top_k,expected_preparation_id:workspace.current_preparation_id,expected_source_revision:workspace.source_revision};
     const result=await api<Schema<"RunView">["run"]>(workspacePath(workspace.id)+"/evidence-runs","POST",{...payload,request_id:await requestId(workspace.id+":retrieve",payload,fresh)});
     await refresh();await navigate({page:"evidence",workspace:workspace.id,run:result.id});
   }catch(error){setError((error as Error).message);}finally{setBusy(false);}}
-  return <><h1>Evidence</h1><p>Retrieve exact source passages, inspect their context, and record your own judgments.</p><Failure message={error}/>
-    {!workspace.current_preparation_id?<Notice>Prepare selected sources in Discover & explore before retrieving passages. <button onClick={()=>void navigate({page:"discover",workspace:workspace.id})}>Choose sources</button></Notice>:<section><h2>Passage search</h2><DraftStatus draft={question}/><form onSubmit={event=>{event.preventDefault();void retrieve();}}><label>Evidence question<textarea rows={3} maxLength={10000} disabled={!question.ready} value={question.data.question} onChange={event=>question.setData({question:event.target.value})}/></label><p className="meta">LEXICAL BM25 + CONTEXT BLOCKS · AT MOST 5 PASSAGES · SOURCE REVISION {workspace.source_revision}</p><div className="actions"><button className="primary" disabled={!question.ready||busy||!question.data.question.trim()}>{busy?"Retrieving…":"Retrieve passages"}</button>{workspace.current_run_id&&<button type="button" disabled={busy} onClick={()=>void retrieve(true)}>Explicitly refresh passages</button>}</div></form></section>}
+  return <><h1>Passage search</h1><p>Retrieve exact source passages, inspect their context, and record your own judgments.</p><Failure message={error}/>
+    {!workspace.current_preparation_id?<Notice>Prepare selected sources in Discover & explore before retrieving passages. <button onClick={()=>void navigate({page:"discover",workspace:workspace.id})}>Choose sources</button></Notice>:<section><h2>Passage search</h2><DraftStatus draft={question}/><form onSubmit={event=>{event.preventDefault();void retrieve();}}><label>Evidence question<textarea rows={3} maxLength={10000} disabled={!question.ready} value={question.data.question} onChange={event=>question.setData(previous=>({...previous,question:event.target.value}))}/></label><div className="control-row"><label>Maximum passages for next search<input type="number" min={5} max={maxPassages} step={1} value={question.data.top_k} disabled={!question.ready||busy} onChange={event=>question.setData(previous=>({...previous,top_k:Number(event.target.value)}))}/></label><div className="actions" aria-label="Passage count presets">{[5,10,20,30].filter(count=>count<=maxPassages).map(count=><button key={count} type="button" disabled={!question.ready||busy} aria-pressed={question.data.top_k===count} onClick={()=>question.setData(previous=>({...previous,top_k:count}))}>{count}</button>)}</div></div>{!validLimit&&<p role="status" className="notice">Choose a whole number from 5 to {maxPassages}.</p>}<p className="meta">LEXICAL BM25 + CONTEXT BLOCKS · REQUEST UP TO {question.data.top_k} PASSAGES · SOURCE REVISION {workspace.source_revision}</p><p className="muted">Fewer matches return fewer passages. This limit changes the next run; saved runs, board candidates and AI context budgets keep their original limits.</p><div className="actions"><button className="primary" disabled={!question.ready||busy||!validLimit||!question.data.question.trim()}>{busy?"Retrieving…":"Retrieve passages"}</button>{workspace.current_run_id&&<button type="button" disabled={busy||!validLimit} onClick={()=>void retrieve(true)}>Explicitly refresh passages</button>}</div></form></section>}
     {view&&bibliography&&view.run.id===runId&&bibliography.run_id===runId&&<EvidenceReview key={view.run.id} workspace={workspace} view={{...view,current:view.current&&view.run.id===workspace.current_run_id}} papers={bibliography.papers} reload={load} refresh={refresh}/>}
   </>;
 }
@@ -70,7 +72,7 @@ function EvidenceReview({workspace,view,papers,reload,refresh}:{workspace:Schema
       await draft.save();await reload();await refresh();
     });
   }catch(error){setError((error as Error).message);}finally{setBusy(false);}}
-  return <><section><p className="eyebrow">{view.current?"CURRENT EVIDENCE":"HISTORICAL EVIDENCE · READ ONLY"}</p><h2>{run.question}</h2><p className="meta">{run.passages.length} displayed · {run.matched_passages} matched · {run.indexed_passages} indexed · <Time value={run.created_at}/></p>
+  return <><section><p className="eyebrow">{view.current?"CURRENT EVIDENCE":"HISTORICAL EVIDENCE · READ ONLY"}</p><h2>{run.question}</h2><p className="meta">{typeof run.parameters.top_k==="number"?`${run.parameters.top_k} requested · `:"Requested count not recorded in this historical run · "}{run.passages.length} returned · {run.matched_passages} matched · {run.indexed_passages} indexed · <Time value={run.created_at}/></p>
     {!view.current&&<Notice>This run uses its original preparation, source versions, and bibliography. It cannot be assessed as current.</Notice>}
     <details><summary>Retrieval method and source binding</summary><pre>{JSON.stringify({run_id:run.id,search_id:run.search_id,...("collection_ref" in run?{collection_ref:run.collection_ref,member_snapshot_sha256:run.member_snapshot_sha256}:{}),preparation_id:run.preparation_id,source_revision:run.source_revision,source_snapshot_sha256:run.source_snapshot_sha256,method:run.method,method_version:run.method_version,parameters:run.parameters},null,2)}</pre></details>
   </section>

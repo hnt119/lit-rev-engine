@@ -3,9 +3,10 @@ import {useCallback,useEffect,useRef,useState} from "react";
 import {api,requestId,workspacePath,type Schema} from "../lib/api";
 import {Failure,Notice,Time} from "./ui";
 import SemanticMap from "./semantic-map";
+import ExplorationHeading from "./exploration-heading";
 import type {Coordinate} from "../lib/map-view";
 
-type Props={workspaceId:string;search:Schema<"SearchPreview">;capability:Schema<"MapCapability">;requestedMap?:string;visibleIds:Set<string>;selectedIds:Set<string>;inspectedId:string|null;hoveredId:string|null;onInspect:(id:string)=>void;onHover:(id:string|null)=>void;onChooseMap:(id:string)=>void};
+type Props={workspaceId:string;search:Schema<"SearchPreview">;capability:Schema<"MapCapability">;requestedMap?:string;visibleIds:Set<string>;selectedIds:Set<string>;selectionLimit?:number;inspectedId:string|null;hoveredId:string|null;onInspect:(id:string)=>void;onHover:(id:string|null)=>void;onChooseMap:(id:string)=>void};
 type SharedProps=Omit<Props,"search">;
 type Origin={kind:"search";search_id:string}|Schema<"CollectionInputRef">;
 type MapJob=Schema<"MapJobView">|Schema<"CollectionMapJobView">;
@@ -16,7 +17,7 @@ const active=(job:MapJob|null)=>!!job&&["queued","running","cancel_requested"].i
 export default function MapExplorer({search,...props}:Props){return <MapManager key={search.id} {...props} origin={{kind:"search",search_id:search.id}} papers={search.papers}/>;}
 export function CollectionMapExplorer({collectionRef,...props}:SharedProps&{collectionRef:Schema<"CollectionInputRef">;papers:Schema<"Paper">[]}){return <MapManager key={collectionRef.collection_id+":"+collectionRef.collection_snapshot_sha256} {...props} origin={collectionRef}/>;}
 
-function MapManager({workspaceId,origin,papers,capability,requestedMap,visibleIds,selectedIds,inspectedId,hoveredId,onInspect,onHover,onChooseMap}:SharedProps&{origin:Origin;papers:Schema<"Paper">[]}) {
+function MapManager({workspaceId,origin,papers,capability,requestedMap,visibleIds,selectedIds,selectionLimit=30,inspectedId,hoveredId,onInspect,onHover,onChooseMap}:SharedProps&{origin:Origin;papers:Schema<"Paper">[]}) {
   const root=workspacePath(workspaceId);
   const collection=origin.kind==="collection",scopeId=collection?origin.collection_id:origin.search_id,scopeHash=collection?origin.collection_snapshot_sha256:"";
   const mapsEndpoint=root+(collection?"/collection-maps":"/maps"),jobsEndpoint=root+(collection?"/collection-map-jobs":"/jobs");
@@ -92,7 +93,7 @@ function MapManager({workspaceId,origin,papers,capability,requestedMap,visibleId
   const needsJobAttention=!!job&&(active(job)||["failed","cancelled"].includes(job.status));
   const buildActions=<div className="actions"><button className="primary" disabled={!capability.ready||busy||active(job)} onClick={()=>build()}>{busy?"Submitting…":maps.length?"Create or reuse map":collection?"Build map of this saved collection":"Build map of this saved search"}</button>{!!maps.length&&<button disabled={!capability.ready||busy||active(job)} onClick={()=>build(true)}>Explicitly rebuild as a new map</button>}</div>;
   const jobStatus=job&&<div className="map-job" role="status"><p className="meta">MAP JOB {job.id} · {job.status.replaceAll("_"," ")} · ATTEMPT {job.attempt}/{job.max_attempts}{job.interrupted_count?` · ${job.interrupted_count} interrupted attempt(s) recovered`:""}</p><p>{job.progress_completed} of {job.progress_total} papers processed</p>{job.progress_total>0&&<progress max={job.progress_total} value={job.progress_completed}>{job.progress_completed}/{job.progress_total}</progress>}{job.error&&<Failure message={job.error.message}/>}<div className="actions">{active(job)&&job.status!=="cancel_requested"&&<button disabled={busy} onClick={()=>cancel()}>Cancel map build</button>}{job.status==="cancel_requested"&&<p>Cancellation requested; completed work may already have finished.</p>}{["failed","cancelled"].includes(job.status)&&<button disabled={!capability.ready||busy} onClick={()=>build(true)}>Retry map build as a new artifact</button>}</div></div>;
-  return <section className="map-section" aria-label="Semantic exploration"><h2>Semantic map</h2><Notice>Approximate semantic layout of this {collection?"explicit saved collection":"search preview"}; not all literature and not evidence quality.</Notice><Failure message={error}/>
+  return <section className="map-section" aria-label="Semantic exploration"><ExplorationHeading title="Semantic map" selectedIds={[...selectedIds]} maxSources={selectionLimit} visibleIds={visibleIds} sticky/><Notice>Approximate semantic layout of this {collection?"explicit saved collection":"search preview"}; not all literature and not evidence quality.</Notice><Failure message={error}/>
     {!capability.ready&&!maps.length&&<Notice>New map calculation is not configured. {capability.reason} Saved maps can still be inspected without model weights.</Notice>}
     {!maps.length&&buildActions}
     {(!maps.length||needsJobAttention)&&jobStatus}

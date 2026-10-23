@@ -14,12 +14,12 @@ function control(renderer:ReactTestRenderer,label:string,type:"textarea"|"select
 const text="女性😀 participants were Chinese women. Diet was assessed using a questionnaire.";
 const fieldList=[{id:"population",revision_id:"fp",label:"Population",subquestion:"What participants were studied?"},{id:"design",revision_id:"fd",label:"Design",subquestion:"What design was used?"},{id:"exposure",revision_id:"fe",label:"Exposure",subquestion:"What diet was measured?"}];
 
-async function fixture(id:string,{historical=false}={}){
-  const papers=[1,2,3].map(i=>({id:"p"+i,title:`SOFTWARE TEST Report ${i}`,authors:["Fixture author"],year:2026,pmid:String(i),doi:null,pmcid:null,url:"https://pubmed.ncbi.nlm.nih.gov/"+i+"/"}));
+async function fixture(id:string,{historical=false,count=3,columns=fieldList}={}){
+  const papers=Array.from({length:count},(_,index)=>index+1).map(i=>({id:"p"+i,title:`SOFTWARE TEST Report ${i}`,authors:["Fixture author"],year:2026,pmid:String(i),doi:null,pmcid:null,url:"https://pubmed.ncbi.nlm.nih.gov/"+i+"/"}));
   const sources=papers.map((paper,i)=>({source_id:"s"+(i+1),paper_id:paper.id,version:"v1",source_sha256:"a".repeat(64),blocks_sha256:"b".repeat(64),parser_id:"fixture",source_type:i===2?"abstract":"full_text",status:i===2?"abstract_only":"full_text_available",block_count:1}));
-  const definition={board_id:"b",revision_id:"r",workspace_id:id,parent_revision_id:null,search_id:"search",search_sha256:"c".repeat(64),question:"SOFTWARE TEST question",question_sha256:"d".repeat(64),preparation_id:"prep",source_revision:1,source_manifest_sha256:"e".repeat(64),papers,paper_ids:papers.map(p=>p.id),sources,fields:fieldList,retrieval_profile:{method:"lexical"},retrieval_profile_sha256:"f".repeat(64),created_at:"2026-10-21T00:00:00Z"};
-  const summary={board_id:"b",revision_id:"r",question:definition.question,paper_count:3,field_count:3,created_at:definition.created_at};
-  const view={definition,current_revision_id:"r",freshness:historical?"historical":"current",freshness_reasons:historical?["Definition is historical."]:[],cells:papers.flatMap(paper=>fieldList.map(field=>({paper_id:paper.id,field_id:field.id,head:null as unknown,draft_version:0}))),definitions:[summary],limits:{max_fields:6}};
+  const definition={board_id:"b",revision_id:"r",workspace_id:id,parent_revision_id:null,search_id:"search",search_sha256:"c".repeat(64),question:"SOFTWARE TEST question",question_sha256:"d".repeat(64),preparation_id:"prep",source_revision:1,source_manifest_sha256:"e".repeat(64),papers,paper_ids:papers.map(p=>p.id),sources,fields:columns,retrieval_profile:{method:"lexical"},retrieval_profile_sha256:"f".repeat(64),created_at:"2026-10-21T00:00:00Z"};
+  const summary={board_id:"b",revision_id:"r",question:definition.question,paper_count:papers.length,field_count:columns.length,created_at:definition.created_at};
+  const view={definition,current_revision_id:"r",freshness:historical?"historical":"current",freshness_reasons:historical?["Definition is historical."]:[],cells:papers.flatMap(paper=>columns.map(field=>({paper_id:paper.id,field_id:field.id,head:null as unknown,draft_version:0}))),definitions:[summary],limits:{max_fields:6}};
   const workspace={id,question:definition.question,mode:"live",created_at:definition.created_at,source_revision:1,current_preparation_id:"prep",selected_paper_ids:papers.map(p=>p.id),current_run_id:null,current_assessment_ids:{},searches:[{id:"search"}],preparations:[{id:"prep",search_id:"search",selected_paper_ids:papers.map(p=>p.id),source_revision:1,prepared_at:definition.created_at}],runs:[],assessments:[]} as unknown as Schema<"WorkspaceSummary">;
   const drafts=new Map<string,{board_id:string;board_revision_id:string;paper_id:string;field_id:string;version:number;expected_cell_head_id:string|null;data:ReturnType<typeof emptyCell>;updated_at:null}>();
   const revisions:Record<string,unknown>[]=[];const requests:{path:string;method:string;body:Record<string,unknown>|null}[]=[];
@@ -64,14 +64,14 @@ test("nine-cell board performs only explicit per-cell retrieval, inspection, man
     assert.equal(requests.some(request=>request.method!=="GET"),false,"opening a board is read-only");
     await act(async()=>renderer.root.findByProps({"aria-label":"Exposure for SOFTWARE TEST Report 3"}).props.onClick());
     assert.ok(JSON.stringify(renderer.toJSON()).includes("Only the retained abstract is available"));
-    await act(async()=>button(renderer,"Retrieve candidates for this cell").props.onClick());
+    await act(async()=>button(renderer,"Find relevant passages").props.onClick());
     const retrieval=requests.find(request=>request.path.endsWith("/candidates"))!;assert.equal(retrieval.body?.paper_id,"p3");assert.equal(retrieval.body?.field_id,"exposure");assert.equal(retrieval.body?.top_k,3);
     assert.equal(drafts.size,0,"candidate retrieval does not create an inspection or judgment");
-    await act(async()=>button(renderer,"Inspect candidate 1 in exact source").props.onClick());
+    await act(async()=>button(renderer,"Read in source · passage 1").props.onClick());
     assert.equal(drafts.size,0,"opening canonical source does not declare inspection");
     assert.equal(renderer.root.findByType("mark").children.join(""),text,"Unicode code points highlight the exact canonical range");
-    await act(async()=>button(renderer,"Mark selected range as inspected").props.onClick());
-    await act(async()=>button(renderer,"Add selected range as reference").props.onClick());
+    await act(async()=>button(renderer,"I have read this excerpt — attach as evidence").props.onClick());
+    assert.equal(control(renderer,"Human support judgment","select").props.value,"unassessed","attaching evidence never auto-sets human support");
     await act(async()=>control(renderer,"Manual cell value").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: diet questionnaire"}}));
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: inspected exact abstract range; support remains unassessed"}}));
     await act(async()=>control(renderer,"Inspected scope result","select").props.onChange({target:{value:"value_found"}}));
@@ -79,8 +79,8 @@ test("nine-cell board performs only explicit per-cell retrieval, inspection, man
     await act(async()=>form.props.onSubmit({preventDefault(){}}));
     assert.equal(revisions.length,1);assert.equal(revisions[0].semantic_assessment,"unassessed");assert.equal((revisions[0].references as unknown[]).length,1);assert.equal(drafts.size,0,"submission consumes acknowledged draft");
     assert.equal(control(renderer,"Manual cell value").parent?.props.disabled,undefined);
-    assert.equal(disabled(button(renderer,"Submit revised cell")),true,"submitted cell stays read-only until explicit revision");
-    await act(async()=>button(renderer,"Revise saved cell").props.onClick());
+    assert.equal(disabled(button(renderer,"Save revision")),true,"submitted cell stays read-only until explicit revision");
+    await act(async()=>button(renderer,"Edit saved cell").props.onClick());
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: explicit second revision"}}));
     await act(async()=>renderer.root.findAllByType("form").at(-1)!.props.onSubmit({preventDefault(){}}));
     assert.equal(revisions.length,2);assert.equal(revisions[1].supersedes_id,"cell-1");
@@ -99,7 +99,7 @@ test("abstract-only missing information stays null and does not become an unsupp
   try{
     await act(async()=>renderer.root.findByProps({"aria-label":"Design for SOFTWARE TEST Report 3"}).props.onClick());
     await act(async()=>button(renderer,"Browse retained source").props.onClick());
-    await act(async()=>button(renderer,"Mark selected range as inspected").props.onClick());
+    await act(async()=>button(renderer,"Mark inspected without attaching").props.onClick());
     await act(async()=>control(renderer,"Inspected scope result","select").props.onChange({target:{value:"not_found_in_inspected_material"}}));
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: no allocation detail in the inspected abstract range"}}));
     await act(async()=>control(renderer,"Missing information").props.onChange({target:{value:"Allocation method; full text not retained"}}));
@@ -113,9 +113,9 @@ test("historical definitions permit inspection and exports while edits and retri
   const {renderer,requests}=await fixture("board-historical-workflow",{historical:true});
   try{
     await act(async()=>renderer.root.findByProps({"aria-label":"Population for SOFTWARE TEST Report 1"}).props.onClick());
-    assert.equal(button(renderer,"Retrieve candidates for this cell").props.disabled,true);
+    assert.equal(button(renderer,"Find relevant passages").props.disabled,true);
     await act(async()=>button(renderer,"Browse retained source").props.onClick());
-    assert.ok(renderer.root.findByType("mark"));assert.equal(disabled(button(renderer,"Mark selected range as inspected")),true);assert.equal(requests.some(request=>request.method!=="GET"),false);
+    assert.ok(renderer.root.findByType("mark"));assert.equal(disabled(button(renderer,"Mark inspected without attaching")),true);assert.equal(requests.some(request=>request.method!=="GET"),false);
   }finally{await act(async()=>renderer.unmount());}
 });
 
@@ -161,5 +161,30 @@ test("historical definitions expose retained unsubmitted drafts separately from 
     await act(async()=>renderer.root.findByProps({"aria-label":"Exposure for SOFTWARE TEST Report 3"}).props.onClick());
     const retained=renderer.root.findByProps({className:"board-historical-draft"});assert.ok(content(retained).includes("RETAINED UNSUBMITTED DRAFT VALUE"));assert.ok(content(retained).includes("DRAFT VERSION 2"));assert.ok(content(retained).includes("not submitted"));
     assert.equal(control(renderer,"Manual cell value").props.value,"","historical draft does not replace a submitted or neutral cell value");assert.equal(disabled(control(renderer,"Manual cell value")),true);assert.equal(requests.some(request=>request.method!=="GET"),false);
+  }finally{await act(async()=>renderer.unmount());}
+});
+
+
+test("a 30 by 6 table mounts one guided editor and performs no per-cell retrieval fan-out",async()=>{
+  const columns=[...fieldList,...[4,5,6].map(index=>({id:"extra"+index,revision_id:"extra-r"+index,label:"Field "+index,subquestion:"What is recorded?"}))];
+  const {renderer,requests}=await fixture("populated-ui-capacity",{count:30,columns});
+  try{
+    assert.equal(renderer.root.findAllByProps({className:"board-cell"}).length,180);
+    assert.equal(renderer.root.findAllByProps({className:"board-cell-editor"}).length,0);
+    assert.equal(requests.filter(request=>request.method!=="GET").length,0);
+    await act(async()=>renderer.root.findByProps({"aria-label":"Field 6 for SOFTWARE TEST Report 30"}).props.onClick());
+    assert.equal(renderer.root.findAllByProps({className:"board-cell-editor"}).length,1);
+    assert.equal(requests.filter(request=>request.path.includes("/drafts/")).length,1);
+    assert.equal(requests.some(request=>/candidates|sources|proposals/.test(request.path)),false);
+    assert.match(content(renderer.root),/0 \/ 180 cells saved to the table/);
+    assert.equal(disabled(button(renderer,"Save cell to table")),true,"missing null-value explanation is guided before submission");
+    await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"Source has no usable answer for this field"}}));
+    await act(async()=>control(renderer,"Missing information").props.onChange({target:{value:"Field details are not provided in retained material"}}));
+    await act(async()=>renderer.root.findAllByType("form").at(-1)!.props.onSubmit({preventDefault(){}}));
+    assert.match(content(renderer.root),/Saved to comparison/);
+    assert.match(content(renderer.root),/1 \/ 180 cells saved to the table/);
+    await act(async()=>button(renderer,"Next incomplete cell").props.onClick());
+    assert.equal(renderer.root.findAllByProps({className:"board-cell-editor"}).length,1);
+    assert.equal(control(renderer,"Manual cell value").props.value,"");
   }finally{await act(async()=>renderer.unmount());}
 });

@@ -5664,7 +5664,7 @@
               "type": "string"
             },
             "type": "array",
-            "maxItems": 10,
+            "maxItems": 30,
             "minItems": 1,
             "title": "Paper Ids"
           },
@@ -5793,6 +5793,11 @@
       },
       "BoardLimits": {
         "properties": {
+          "max_papers": {
+            "type": "integer",
+            "title": "Max Papers",
+            "default": 30
+          },
           "max_fields": {
             "type": "integer",
             "title": "Max Fields",
@@ -5801,7 +5806,7 @@
           "max_cells": {
             "type": "integer",
             "title": "Max Cells",
-            "default": 60
+            "default": 180
           },
           "max_boards": {
             "type": "integer",
@@ -6209,7 +6214,7 @@
               "type": "string"
             },
             "type": "array",
-            "maxItems": 10,
+            "maxItems": 30,
             "minItems": 1,
             "title": "Paper Ids"
           },
@@ -6654,6 +6659,24 @@
           "created_at": {
             "type": "string",
             "title": "Created At"
+          },
+          "preparation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preparation Id"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Paper Ids"
           }
         },
         "additionalProperties": false,
@@ -6752,7 +6775,7 @@
           },
           "top_k": {
             "type": "integer",
-            "maximum": 5.0,
+            "maximum": 30.0,
             "minimum": 1.0,
             "title": "Top K",
             "default": 5
@@ -11577,7 +11600,7 @@
               "type": "string"
             },
             "type": "array",
-            "maxItems": 10,
+            "maxItems": 30,
             "minItems": 1,
             "title": "Paper Ids"
           },
@@ -11650,7 +11673,7 @@
               "type": "string"
             },
             "type": "array",
-            "maxItems": 10,
+            "maxItems": 30,
             "minItems": 1,
             "title": "Paper Ids"
           },

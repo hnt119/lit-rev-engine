@@ -15,14 +15,14 @@ test("new comparison definitions use small preparation bibliography projections 
   const f=research("board-origin"),calls:{path:string;method:string;body:any}[]=[];Object.assign(globalThis,{sessionStorage:storage()});
   globalThis.fetch=async(input,options)=>{const path=String(input),method=options?.method??"GET",body=options?.body?JSON.parse(String(options.body)):undefined;calls.push({path,method,body});assert.equal(method,"GET");if(path.endsWith("/session"))return response({csrf_token:"software"});if(path.endsWith("/boards"))return response({boards:[],limits:f.capability.boards});if(path.endsWith("/source-preparations/"+f.preparation.id+"/papers"))return response(f.preparationPapers);if(path.endsWith("/source-preparations/"+f.preparation.id))return response(f.preparation);throw new Error("Unexpected software-test request "+path);};
   let renderer!:ReactTestRenderer;await act(async()=>{renderer=create(<Compare workspace={f.state} navigate={async()=>{}}/>);});
-  try{await act(async()=>button(renderer,"Create comparison board").props.onClick());const form=renderer.root.findByProps({"aria-label":"New comparison board"});assert.equal(form.findAllByProps({className:"check board-paper-choice"}).length,3);assert.match(text(form),/Abstract only/);assert.equal(button(renderer,"Create manual comparison board").props.disabled,false);assert.equal(calls.some(call=>call.path.includes("/searches/")),false);assert.equal(calls.filter(call=>call.path.endsWith("/papers")).length,1);}
+  try{await act(async()=>button(renderer,"Create comparison board").props.onClick());const form=renderer.root.findByProps({"aria-label":"New comparison board"});assert.equal(form.findAllByProps({className:"check board-paper-choice"}).length,3);assert.match(text(form),/Abstract only/);assert.equal(button(renderer,"Create comparison board").props.disabled,false);assert.equal(calls.some(call=>call.path.includes("/searches/")),false);assert.equal(calls.filter(call=>call.path.endsWith("/papers")).length,1);}
   finally{await act(async()=>renderer.unmount());}
 });
 
 test("a mismatched preparation projection blocks definition creation and preserves the actual binding",async()=>{
   const f=research("wrong-board-origin");globalThis.fetch=async(input,options)=>{const path=String(input);assert.equal(options?.method??"GET","GET");if(path.endsWith("/session"))return response({csrf_token:"software"});if(path.endsWith("/boards"))return response({boards:[],limits:f.capability.boards});if(path.endsWith("/papers"))return response({...f.preparationPapers,origin:{...f.collectionRef,collection_snapshot_sha256:"0".repeat(64)}});return response(f.preparation);};
   let renderer!:ReactTestRenderer;await act(async()=>{renderer=create(<Compare workspace={f.state} navigate={async()=>{}}/>);});
-  try{await act(async()=>button(renderer,"Create comparison board").props.onClick());assert.match(text(renderer.root),/bibliography does not match/);assert.equal(button(renderer,"Create manual comparison board").props.disabled,true);}
+  try{await act(async()=>button(renderer,"Create comparison board").props.onClick());assert.match(text(renderer.root),/bibliography does not match/);assert.equal(button(renderer,"Create comparison board").props.disabled,true);}
   finally{await act(async()=>renderer.unmount());}
 });
 

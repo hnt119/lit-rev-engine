@@ -13,7 +13,7 @@ from uuid import uuid4
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from src.review.identity import normalize_doi, normalize_pmid
-from .limits import DEFAULT_DISCOVERY_RESULTS, MAX_DISCOVERY_RESULTS, MAX_PREPARED_SOURCES
+from .limits import DEFAULT_DISCOVERY_RESULTS, MAX_DISCOVERY_RESULTS, MAX_PREPARED_SOURCES, DEFAULT_PASSAGES, MAX_PASSAGES
 
 
 def now() -> str:
@@ -203,7 +203,7 @@ class PreparationResult(Model):
 class RetrieveEvidenceRequest(Model):
     request_id: str = Field(min_length=1, max_length=200)
     question: str = Field(min_length=1, max_length=10000)
-    top_k: int = Field(default=5, ge=1, le=5, strict=True)
+    top_k: int = Field(default=DEFAULT_PASSAGES, ge=1, le=MAX_PASSAGES, strict=True)
 
     @field_validator("question")
     @classmethod
