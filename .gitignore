@@ -5,6 +5,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
+!.env.hosted.example
 
 .ipynb_checkpoints/
 
@@ -38,3 +39,35 @@ htmlcov/
 apps/web/node_modules/
 apps/web/.next/
 apps/web/tsconfig.tsbuildinfo
+
+# Hosted credentials, durable state and private runtime artifacts.
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.sqlite*
+*.db
+*.db-*
+*.tar
+*.tar.gz
+*.tgz
+*.bak
+/backups/
+/private-exports/
+/browser-state/
+/model-cache/
+/.hosted-state/
+
+# Model caches and browser session exports must stay local.
+**/.cache/huggingface/
+.huggingface/
+*.safetensors
+*.gguf
+*.pt
+*.pth
+browser-state.json
+storage-state.json
+cookies.json
+*cookie*jar*

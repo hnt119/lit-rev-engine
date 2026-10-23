@@ -12,6 +12,11 @@ def install_proposal_routes(app, *, proposals, owned, session_for, dependencies)
     app.state.proposals = proposals
     prefix = "/api/v1/workspaces/{workspace_id}/boards/{board_id}"
 
+    def hosted_capability(capability):
+        if getattr(getattr(app.state, "deployment", None), "hosted", False):
+            return capability.model_copy(update={"reason": "AI cell proposals are unavailable in this hosted release. A local laptop model is not part of this deployment; manual comparison remains available."})
+        return capability
+
     @app.get(prefix + "/proposal-capabilities", response_model=ProposalCapability, dependencies=dependencies)
     def capabilities(workspace_id: str, board_id: str, session=Depends(session_for)):
         mode, handle, _ = owned(workspace_id, session)
@@ -19,7 +24,7 @@ def install_proposal_routes(app, *, proposals, owned, session_for, dependencies)
         result = proposals.capabilities()
         if app.state.proposal_configuration_error:
             result = result.model_copy(update={"reason": "Invalid generation configuration: " + app.state.proposal_configuration_error})
-        return result
+        return hosted_capability(result)
 
     @app.post(prefix + "/proposal-runs", response_model=ProposalRun, dependencies=dependencies)
     def generate(workspace_id: str, board_id: str, request: ProposalGenerateRequest, session=Depends(session_for)):
@@ -37,8 +42,9 @@ def install_proposal_routes(app, *, proposals, owned, session_for, dependencies)
                 offset: int = Query(default=0, ge=0), limit: int = Query(default=10, ge=1, le=20),
                 session=Depends(session_for)):
         mode, handle, _ = owned(workspace_id, session)
-        return proposals.listing(mode, handle, board_id, revision_id, paper_id=paper_id,
-                                 field_id=field_id, offset=offset, limit=limit)
+        result = proposals.listing(mode, handle, board_id, revision_id, paper_id=paper_id,
+                                   field_id=field_id, offset=offset, limit=limit)
+        return result.model_copy(update={"capability": hosted_capability(result.capability)})
 
     @app.post(prefix + "/proposals/{proposal_id}/dismiss", response_model=CellProposal, dependencies=dependencies)
     def dismiss(workspace_id: str, board_id: str, proposal_id: str, request: ProposalDismissRequest,

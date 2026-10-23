@@ -13,6 +13,7 @@ Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true});
 const text=(node:ReactTestInstance):string=>node.children.map(child=>typeof child==="string"?child:text(child)).join("");
 const button=(r:ReactTestRenderer,name:string)=>r.root.findAllByType("button").find(node=>text(node)===name)!;
 const deferred=<T,>()=>{let resolve!:(value:T)=>void;const promise=new Promise<T>(done=>resolve=done);return {promise,resolve};};
+async function observed(check:()=>boolean){const deadline=Date.now()+5000;while(!check()){assert.ok(Date.now()<deadline,"expected acknowledged UI state was not observed");await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});}}
 function savedSearch(id:string):Schema<"SearchPreview">{const papers=[paper(1),paper(2),paper(3)];return {schema_version:"mvp.exploratory-preview.v1",id,query:"software test",research_question:"SOFTWARE TEST",query_translation:null,searched_at:stamp,sort:"relevance",date_from:null,date_to:null,total_reported:3,fetched_count:3,ordered_identifiers:papers.map(item=>item.id),papers,warnings:[],truncated:false,provider:"software-fixture",mode:"test",errors:[]};}
 function draftStore(){const records=new Map<string,any>();return (path:string,method:string,body:any)=>{const scope=decodeURIComponent(path.split("/").at(-1)!);if(method==="PUT"){const record={scope,version:body.version+1,data:body.data,expected_assessment_head:null,updated_at:stamp};records.set(scope,record);return record;}return records.get(scope)??{scope,version:0,data:{},expected_assessment_head:null,updated_at:null};};}
 
@@ -73,7 +74,7 @@ test("executing a search keeps its focused heading mounted through the matching 
   const navigate:Navigate=async next=>{await flushDrafts();location=next;renderer.update(view());return {status:"success"};};
   const view=()=> <Discover workspace={state} capabilities={capabilities} refresh={refresh} navigate={navigate} requestedSearch={location.search} requestedFocusResult={location.focusResult}/>;
   await act(async()=>{renderer=create(view(),{createNodeMock:(element:any)=>{if(!element.props["data-result-id"])return null;headingMounts++;return {focus:()=>focuses++,scrollIntoView:()=>scrolls++};}});});
-  try{await act(async()=>renderer.root.findByType("form").props.onSubmit({preventDefault(){}}));assert.equal(posts,1);assert.equal(focuses,1);assert.equal(headingMounts,1);await act(async()=>loaded.resolve(result));assert.equal(focuses,1);assert.equal(scrolls,1);assert.equal(headingMounts,1,"a route-bound result read cannot replace the heading after consuming focus");}
+  try{await act(async()=>renderer.root.findByType("form").props.onSubmit({preventDefault(){}}));await observed(()=>posts===1&&focuses===1);assert.equal(posts,1);assert.equal(focuses,1);assert.equal(headingMounts,1);await act(async()=>loaded.resolve(result));assert.equal(focuses,1);assert.equal(scrolls,1);assert.equal(headingMounts,1,"a route-bound result read cannot replace the heading after consuming focus");}
   finally{await act(async()=>renderer.unmount());}
 });
 

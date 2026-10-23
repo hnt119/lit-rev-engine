@@ -21,7 +21,7 @@ function locationURL(next:LocationState) {
   for(const key of ["workspace","search","collection","plan","planRevision","run","map","board","revision","paper","field","intake","preparation","handoff","setup","focusResult"] as const)if(next[key])p.set(key,next[key]!);
   return "/?"+p;
 }
-export default function WorkspaceApp() {
+export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
   const [location,setLocation]=useState<LocationState>({page:"workspaces"});
   const currentLocation=useRef(location);currentLocation.current=location;
   const [capabilities,setCapabilities]=useState<Schema<"Capabilities">|null>(null);
@@ -93,7 +93,7 @@ export default function WorkspaceApp() {
   if(location.page==="compare")origin=location.board?(boardOrigin?.scope===boardScope?(boardOrigin.collection?"collection":"legacy"):"loading"):collectionPreparation?"collection":"legacy";
   if(location.page==="history"&&(active?.preparations.some(item=>"collection_ref" in item)||active?.runs.some(item=>"collection_ref" in item)))origin="mixed";
   return <><a className="skip-link" href="#main">Skip to workspace</a>
-    <header className="site-header"><a className="wordmark" href="/?page=workspaces" onClick={event=>{event.preventDefault();void navigate({page:"workspaces"});}}>LITERATURE REVIEW ENGINE</a><span className="meta">LOCAL WORKSPACE · v0.3</span></header>
+    <header className="site-header"><a className="wordmark" href="/?page=workspaces" onClick={event=>{event.preventDefault();void navigate({page:"workspaces"});}}>LITERATURE REVIEW ENGINE</a><span className="meta">{hosted?"HOSTED BETA":"LOCAL WORKSPACE"} · v0.3</span></header>
     <div className={location.page==="workspaces"?"app-shell landing":"app-shell"}>
       <nav aria-label="Research workflow"><button aria-current={location.page==="workspaces"?"page":undefined} onClick={()=>void navigate({page:"workspaces"})}>Workspaces</button>
         {([["discover","Discover & explore"],["compare","Comparison board"],["evidence","Passage search"],["history","History & export"]] as const).map(([page,label])=><button key={page} disabled={!location.workspace} aria-current={location.page===page?"page":undefined} onClick={()=>void navigate({page,workspace:location.workspace})}>{label}</button>)}</nav>

@@ -31,7 +31,11 @@ def install_search_plan_routes(app, *, service, owned, session_for, dependencies
     @app.get(prefix+'/search-plan-capabilities', response_model=SearchPlanCapabilities, dependencies=dependencies)
     def capabilities(workspace_id: str, session=Depends(session_for)):
         mode, handle, _ = owned(workspace_id, session)
-        return planning(mode).capabilities(handle)
+        result = planning(mode).capabilities(handle)
+        if getattr(getattr(app.state, "deployment", None), "hosted", False):
+            result = result.model_copy(update={"planner": result.planner.model_copy(update={
+                "reason": "AI search planning is unavailable in this hosted release. A local laptop model is not part of this deployment; manual search editing remains available."})})
+        return result
 
     @app.get(prefix+'/search-plans', response_model=SearchPlanListing, dependencies=dependencies)
     def listing(workspace_id: str, session=Depends(session_for)):

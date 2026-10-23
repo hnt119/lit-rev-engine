@@ -9,7 +9,11 @@ from src.mvp.mapping import CreateMapRequest, MapJobView, MapListing, MapSubmiss
 
 
 def install_map_routes(app, *, directory, registry, service, owned, session_for, dependencies, embedder=None):
-    embedding = embedder or LocalPaperEmbedder(enabled=os.environ.get("MVP_MAP_ENABLED") == "1")
+    hosted = getattr(getattr(app.state, "deployment", None), "hosted", False)
+    class HostedDisabledEmbedder(LocalPaperEmbedder):
+        def readiness(self):
+            return False, "Hosted map computation is disabled. Saved example maps remain available."
+    embedding = HostedDisabledEmbedder(enabled=False) if hosted else embedder or LocalPaperEmbedder(enabled=os.environ.get("MVP_MAP_ENABLED") == "1")
     maps = PaperMapService(registry, service, MapStore(directory / "paper-maps.sqlite3"), embedding)
     worker = MapWorker(maps)
     app.state.maps, app.state.map_worker = maps, worker
@@ -17,11 +21,13 @@ def install_map_routes(app, *, directory, registry, service, owned, session_for,
     @asynccontextmanager
     async def lifespan(application):
         async with previous_lifespan(application):
-            worker.start()
+            if not hosted:
+                worker.start()
             try:
                 yield
             finally:
-                worker.stop()
+                if not hosted:
+                    worker.stop()
     app.router.lifespan_context = lifespan
     prefix = "/api/v1/workspaces/{workspace_id}"
 

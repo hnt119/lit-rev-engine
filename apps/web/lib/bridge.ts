@@ -4,7 +4,7 @@ export function allowedRoute(method: string, path: string): boolean {
   const w = `workspaces/${id}`;
   const b = `${w}/boards/${id}`;
   const rules: Record<string, RegExp[]> = {
-    GET: [ /^session$/, /^capabilities$/, /^workspaces$/, new RegExp(`^${w}$`),
+    GET: [ /^admission\/status$/, /^session$/, /^capabilities$/, /^workspaces$/, new RegExp(`^${w}$`),
       new RegExp(`^${w}/searches/${id}/papers$`), new RegExp(`^${w}/source-preparations/${id}$`),
       new RegExp(`^${w}/source-preparations/${id}/papers$`),new RegExp(`^${w}/runs/${id}/papers$`),
       new RegExp(`^${w}/runs/${id}$`), new RegExp(`^${w}/runs/${id}/passages/${id}/context$`),
@@ -22,7 +22,7 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${b}/sources/${id}/blocks$`),new RegExp(`^${b}/references/${id}/context$`),new RegExp(`^${b}/exports$`),
       new RegExp(`^${b}/(proposal-capabilities|proposals|proposal-audit)$`),new RegExp(`^${b}/proposal-runs/${id}$`),
       new RegExp(`^${b}/proposals/${id}/references/${id}/context$`) ],
-    POST: [ /^workspaces$/, new RegExp(`^${w}/(query-suggestions|searches|source-preparations|preparation-jobs|evidence-runs|assessments|maps)$`),
+    POST: [ /^admission\/(login|logout)$/, /^workspaces$/, new RegExp(`^${w}/(query-suggestions|searches|source-preparations|preparation-jobs|evidence-runs|assessments|maps)$`),
       new RegExp(`^${w}/preparation-jobs/${id}/cancel$`),
       new RegExp(`^${w}/(collection-preparation-jobs|collection-maps)$`),new RegExp(`^${w}/collection-preparation-jobs/${id}/cancel$`),new RegExp(`^${w}/collection-map-jobs/${id}/cancel$`),
       new RegExp(`^${w}/search-plans$`),new RegExp(`^${w}/search-plans/${id}/(approve|diagnose|execute|propose)$`),
@@ -71,17 +71,27 @@ export function allowedQuery(path:string,query:URLSearchParams,method="GET"):boo
 }
 export const MAX_REQUEST_BYTES=1024*1024;
 export const MAX_IMPORT_BYTES=5*1024*1024;
+export const MAX_BODY_READ_MS=15000;
+export class BodyReadTimeout extends Error {}
 export function requestByteLimit(method:string,path:string,contentType:string|null):number {
   const media=(contentType??'').split(';',1)[0].trim().toLowerCase();
   return method==='POST'&&/^workspaces\/[^/]+\/imports\/(csv|ris|identifiers)$/.test(path)
     &&['application/octet-stream','text/csv','text/plain','application/x-research-info-systems'].includes(media)?MAX_IMPORT_BYTES:MAX_REQUEST_BYTES;
 }
-export async function boundedBody(request:Request,limit=MAX_REQUEST_BYTES):Promise<ArrayBuffer> {
+export async function boundedBody(request:Request,limit=MAX_REQUEST_BYTES,readTimeoutMs=MAX_BODY_READ_MS):Promise<ArrayBuffer> {
   if(![MAX_REQUEST_BYTES,MAX_IMPORT_BYTES].includes(limit))throw new RangeError('Unsupported local route size limit.');
+  if(!Number.isInteger(readTimeoutMs)||readTimeoutMs<1||readTimeoutMs>MAX_BODY_READ_MS)throw new RangeError('Unsupported body read deadline.');
   const declared=request.headers.get("content-length");
   if(declared!==null&&(!/^\d+$/.test(declared)||Number(declared)>limit))throw new RangeError("Request exceeds the local API size limit.");
   if(!request.body)return new ArrayBuffer(0);
   const reader=request.body.getReader();const chunks:Uint8Array[]=[];let size=0;
-  for(;;){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>limit){await reader.cancel();throw new RangeError("Request exceeds the local API size limit.");}chunks.push(value);}
+  let timer:ReturnType<typeof setTimeout>;
+  const deadline=new Promise<never>((_,reject)=>{timer=setTimeout(()=>{
+    reject(new BodyReadTimeout("Request body read deadline exceeded."));
+    void reader.cancel().catch(()=>{});
+  },readTimeoutMs);});
+  try{
+    for(;;){const {done,value}=await Promise.race([reader.read(),deadline]);if(done)break;size+=value.byteLength;if(size>limit){void reader.cancel().catch(()=>{});throw new RangeError("Request exceeds the local API size limit.");}chunks.push(value);}
+  }finally{clearTimeout(timer!);reader.releaseLock();}
   const merged=new Uint8Array(size);let offset=0;for(const chunk of chunks){merged.set(chunk,offset);offset+=chunk.length;}return merged.buffer;
 }

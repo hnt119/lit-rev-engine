@@ -11,7 +11,7 @@ let sessionPromise:Promise<void>|undefined;
 export async function initializeSession() {
   if(!sessionPromise)sessionPromise=(async()=>{
     const response=await fetch("/api/v1/session",{credentials:"same-origin",cache:"no-store"});
-    if(!response.ok)throw new Error("The local API did not start a browser session.");
+    if(!response.ok)throw new Error("The API did not start a browser session.");
     csrf=(await response.json()).csrf_token;
   })().catch(error=>{sessionPromise=undefined;throw error;});
   await sessionPromise;

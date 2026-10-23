@@ -9,6 +9,7 @@ import {response,storage} from "./import-collection-fixtures";
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true});
 const text=(node:ReactTestInstance):string=>node.children.map(child=>typeof child==="string"?child:text(child)).join("");
 const field=(renderer:ReactTestRenderer,label:string)=>renderer.root.findAllByType("label").find(node=>node.children[0]===label)!.findAll(node=>node.type==="input"||node.type==="textarea")[0];
+async function observed(check:()=>boolean){const deadline=Date.now()+5000;while(!check()){assert.ok(Date.now()<deadline,"expected acknowledged retrieval state was not observed");await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});}}
 
 test("passage counts 5,7,10,20,30 are explicit requests, persist across question edits/reopen, and leave old runs immutable",async()=>{
   const f=research("passage-count"),old=JSON.stringify(f.run),calls:{path:string;method:string;body:any}[]=[];
@@ -31,6 +32,7 @@ test("passage counts 5,7,10,20,30 are explicit requests, persist across question
       await act(async()=>field(renderer,"Evidence question").props.onChange({target:{value:"Question for "+count}}));
       assert.equal(field(renderer,"Maximum passages for next search").props.value,count);
       await act(async()=>renderer.root.findByType("form").props.onSubmit({preventDefault(){}}));
+      await observed(()=>calls.some(call=>call.path.endsWith("/evidence-runs")&&call.body.top_k===count)&&!renderer.root.findByType("form").findByProps({className:"primary"}).props.disabled);
     }
     assert.deepEqual(calls.filter(call=>call.path.endsWith("/evidence-runs")).map(call=>call.body.top_k),[5,7,10,20,30]);
     assert.equal(JSON.stringify(f.run),old);

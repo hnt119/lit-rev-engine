@@ -6,7 +6,9 @@ The review ledger stores systematic or scoping review projects, bibliography imp
 
 ## Local web MVP v0.3 checkpoint
 
-Use [`codex/mvp-v0-3`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-3) for the current development checkpoint, extending v0.2 at `404b002`. It adds a reproducible research-case audit, compact editable PubMed keyword proposals, and improved linked map/paper interactions. Read the [v0.3 setup and status guide](docs/mvp_v0_3.md), [query proposal guide](docs/query_suggestions.md), and [map interaction checks](docs/map_interactions.md). The question-linked comparison board and optional structured extraction remain **planned, not implemented**. This branch is separate from `main` and runs locally.
+Use [`codex/mvp-v0-3`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-3) for the current development checkpoint. The working application supports imports and exploratory PubMed discovery, linked saved maps, preparation of up to 30 papers, a source-linked manual comparison board with up to six fields, durable drafts/revisions and CSV/JSON exports. Optional AI cell proposals remain separate from human submission. Read the [current workflow guide](docs/usability_consolidation.md), [manual board guide](docs/manual_comparison_board.md), [proposal guide](docs/cell_proposals.md), and [executed usability evidence](docs/usability_consolidation_evaluation.md). This branch is separate from `main`; local mode remains the default.
+
+The [single-instance hosted package](docs/deployment.md) adds explicit invite admission, production Docker supervision, mounted private SQLite state and stopped-app backup/restore. It is deployment preparation, **not a published service**. Generation and new-map fitting are disabled in the initial hosted release. See [deployment checks and remaining gates](docs/deployment_evaluation.md). The portfolio stays on GitHub Pages; no live application link is inserted before an actual HTTPS deployment is verified.
 
 ### Thirty-paper offline example
 
