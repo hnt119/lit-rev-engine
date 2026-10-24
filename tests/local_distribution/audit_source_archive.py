@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+import runpy
 import stat
 import subprocess
 import zipfile
@@ -84,7 +85,8 @@ def audit(archive, expected_source_commit, source_checkout):
     assert release['source_commit'] == expected_source_commit and release['source_state'] == 'clean committed checkout'
     assert release['label'] == 'Local beta — setup required'
     assert release['product_track'] == 'A' and release['spdx_license'] == 'MIT'
-    from scripts.license_policy import MIT_LICENSE_TEXT, MIT_LICENSE_SHA256, THIRD_PARTY_BOUNDARY
+    policy = runpy.run_path(str(source_checkout / "scripts/license_policy.py"))
+    MIT_LICENSE_TEXT, MIT_LICENSE_SHA256, THIRD_PARTY_BOUNDARY = (policy[key] for key in ("MIT_LICENSE_TEXT", "MIT_LICENSE_SHA256", "THIRD_PARTY_BOUNDARY"))
     assert payload['LICENSE'] == MIT_LICENSE_TEXT.encode()
     assert release['license_sha256'] == MIT_LICENSE_SHA256
     assert THIRD_PARTY_BOUNDARY in payload['THIRD_PARTY_NOTICES.md'].decode()
