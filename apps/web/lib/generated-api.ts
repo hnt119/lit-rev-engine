@@ -1118,6 +1118,194 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/workspaces/{workspace_id}/review-pilot": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** View */
+        get: operations["view_api_v1_workspaces__workspace_id__review_pilot_get"];
+        put?: never;
+        /** Initialize */
+        post: operations["initialize_api_v1_workspaces__workspace_id__review_pilot_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/protocols": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Protocols */
+        post: operations["protocols_api_v1_workspaces__workspace_id__review_pilot_protocols_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/intakes/public-example": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Public Example */
+        post: operations["public_example_api_v1_workspaces__workspace_id__review_pilot_intakes_public_example_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/intakes/file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** File */
+        post: operations["file_api_v1_workspaces__workspace_id__review_pilot_intakes_file_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/intakes/pubmed-capture": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Capture */
+        post: operations["capture_api_v1_workspaces__workspace_id__review_pilot_intakes_pubmed_capture_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/decisions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Decision */
+        post: operations["decision_api_v1_workspaces__workspace_id__review_pilot_decisions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/retrieval-status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Retrieval Status */
+        post: operations["retrieval_status_api_v1_workspaces__workspace_id__review_pilot_retrieval_status_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/sources": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Attach */
+        post: operations["attach_api_v1_workspaces__workspace_id__review_pilot_sources_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/sources/{document_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Source */
+        get: operations["source_api_v1_workspaces__workspace_id__review_pilot_sources__document_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/handoffs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Handoff */
+        post: operations["handoff_api_v1_workspaces__workspace_id__review_pilot_handoffs_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/review-pilot/exports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export */
+        get: operations["export_api_v1_workspaces__workspace_id__review_pilot_exports_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposal-capabilities": {
         parameters: {
             query?: never;
@@ -3890,6 +4078,257 @@ export interface components {
              * @default
              */
             notes: string;
+        };
+        /** PilotCaptureRequest */
+        PilotCaptureRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Protocol Id */
+            expected_protocol_id: string;
+            /** Expected Ledger Digest */
+            expected_ledger_digest: string;
+            /** Reviewer */
+            reviewer: string;
+            /** Reason */
+            reason: string;
+            /** Artifacts */
+            artifacts: {
+                [key: string]: string;
+            };
+        };
+        /** PilotCreateRequest */
+        PilotCreateRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Title */
+            title: string;
+            /** Question */
+            question: string;
+            /**
+             * Review Type
+             * @default systematic
+             * @enum {string}
+             */
+            review_type: "systematic" | "scoping";
+            /**
+             * Purpose
+             * @default research_pilot
+             * @enum {string}
+             */
+            purpose: "research_pilot" | "software_usability";
+            /** Protocol */
+            protocol?: {
+                [key: string]: unknown;
+            };
+            /**
+             * Reviewer
+             * @default
+             */
+            reviewer: string;
+            /**
+             * Reason
+             * @default
+             */
+            reason: string;
+        };
+        /** PilotDecisionRequest */
+        PilotDecisionRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Protocol Id */
+            expected_protocol_id: string;
+            /** Expected Ledger Digest */
+            expected_ledger_digest: string;
+            /** Reviewer */
+            reviewer: string;
+            /** Reason */
+            reason: string;
+            /** Record Id */
+            record_id: string;
+            /**
+             * Stage
+             * @enum {string}
+             */
+            stage: "title_abstract" | "full_text";
+            /**
+             * Decision
+             * @enum {string}
+             */
+            decision: "include" | "exclude" | "uncertain";
+            /**
+             * Adjudication
+             * @default false
+             */
+            adjudication: boolean;
+        };
+        /** PilotFileRequest */
+        PilotFileRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Protocol Id */
+            expected_protocol_id: string;
+            /** Expected Ledger Digest */
+            expected_ledger_digest: string;
+            /** Reviewer */
+            reviewer: string;
+            /** Reason */
+            reason: string;
+            /** Filename */
+            filename: string;
+            /** Content Utf8 */
+            content_utf8: string;
+            /**
+             * Format
+             * @enum {string}
+             */
+            format: "json" | "ris" | "pubmed_xml";
+            /** Source */
+            source: string;
+            /** Query */
+            query?: string | null;
+            /** Searched At */
+            searched_at?: string | null;
+            /** Filters */
+            filters?: {
+                [key: string]: unknown;
+            };
+            /** Reported Count */
+            reported_count?: number | null;
+            /**
+             * Scope
+             * @default supplied_file
+             * @enum {string}
+             */
+            scope: "supplied_file" | "exploratory_subset";
+        };
+        /** PilotHandoffRequest */
+        PilotHandoffRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Protocol Id */
+            expected_protocol_id: string;
+            /** Expected Ledger Digest */
+            expected_ledger_digest: string;
+            /** Reviewer */
+            reviewer: string;
+            /** Reason */
+            reason: string;
+            /** Sources */
+            sources: components["schemas"]["PilotHandoffSource"][];
+            /** Question */
+            question: string;
+            /** Fields */
+            fields: components["schemas"]["BoardFieldInput"][];
+            /**
+             * Acknowledge Provisional
+             * @default false
+             */
+            acknowledge_provisional: boolean;
+            /** Expected Source Revision */
+            expected_source_revision: number;
+            /** Expected Preparation Id */
+            expected_preparation_id?: string | null;
+        };
+        /** PilotHandoffSource */
+        PilotHandoffSource: {
+            /** Record Id */
+            record_id: string;
+            /** Document Id */
+            document_id: string;
+            /** Source Sha256 */
+            source_sha256: string;
+        };
+        /** PilotMutation */
+        PilotMutation: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Protocol Id */
+            expected_protocol_id: string;
+            /** Expected Ledger Digest */
+            expected_ledger_digest: string;
+            /** Reviewer */
+            reviewer: string;
+            /** Reason */
+            reason: string;
+        };
+        /** PilotProtocolRequest */
+        PilotProtocolRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Protocol Id */
+            expected_protocol_id: string;
+            /** Expected Ledger Digest */
+            expected_ledger_digest: string;
+            /** Reviewer */
+            reviewer: string;
+            /** Reason */
+            reason: string;
+            /** Content */
+            content: {
+                [key: string]: unknown;
+            };
+        };
+        /** PilotRetrievalRequest */
+        PilotRetrievalRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Protocol Id */
+            expected_protocol_id: string;
+            /** Expected Ledger Digest */
+            expected_ledger_digest: string;
+            /** Reviewer */
+            reviewer: string;
+            /** Reason */
+            reason: string;
+            /** Record Id */
+            record_id: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "requested" | "retrieved" | "not_retrieved";
+        };
+        /** PilotSourceRequest */
+        PilotSourceRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Protocol Id */
+            expected_protocol_id: string;
+            /** Expected Ledger Digest */
+            expected_ledger_digest: string;
+            /** Reviewer */
+            reviewer: string;
+            /** Reason */
+            reason: string;
+            /** Record Id */
+            record_id: string;
+            /**
+             * Kind
+             * @enum {string}
+             */
+            kind: "public_jats" | "supplied_jats" | "abstract";
+            /** Content Utf8 */
+            content_utf8?: string | null;
+            /**
+             * License
+             * @default
+             */
+            license: string;
+            /**
+             * Attribution
+             * @default
+             */
+            attribution: string;
+            /**
+             * Source Url
+             * @default
+             */
+            source_url: string;
+            /**
+             * Permission Note
+             * @default
+             */
+            permission_note: string;
         };
         /** PlanAmbiguity */
         PlanAmbiguity: {
@@ -8182,6 +8621,421 @@ export interface operations {
             path: {
                 workspace_id: string;
                 board_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    view_api_v1_workspaces__workspace_id__review_pilot_get: {
+        parameters: {
+            query?: {
+                offset?: number;
+                limit?: number;
+            };
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    initialize_api_v1_workspaces__workspace_id__review_pilot_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotCreateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    protocols_api_v1_workspaces__workspace_id__review_pilot_protocols_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotProtocolRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    public_example_api_v1_workspaces__workspace_id__review_pilot_intakes_public_example_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotMutation"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    file_api_v1_workspaces__workspace_id__review_pilot_intakes_file_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotFileRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    capture_api_v1_workspaces__workspace_id__review_pilot_intakes_pubmed_capture_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotCaptureRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    decision_api_v1_workspaces__workspace_id__review_pilot_decisions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotDecisionRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    retrieval_status_api_v1_workspaces__workspace_id__review_pilot_retrieval_status_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotRetrievalRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    attach_api_v1_workspaces__workspace_id__review_pilot_sources_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotSourceRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    source_api_v1_workspaces__workspace_id__review_pilot_sources__document_id__get: {
+        parameters: {
+            query?: {
+                offset?: number;
+                limit?: number;
+            };
+            header?: never;
+            path: {
+                workspace_id: string;
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    handoff_api_v1_workspaces__workspace_id__review_pilot_handoffs_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PilotHandoffRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    export_api_v1_workspaces__workspace_id__review_pilot_exports_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
             };
             cookie?: never;
         };

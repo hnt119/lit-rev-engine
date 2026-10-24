@@ -227,8 +227,7 @@ class DocumentLedger:
         parsed = parse_source_bytes(content, format)
         filename = _filename(_DEFAULT_NAMES[format] if filename is None else filename)
         blocks_json = _canonical_json(parsed["blocks"])
-        with self.store._connection:
-            self.store._connection.execute("BEGIN IMMEDIATE")
+        with self.store._write_transaction():
             canonical = self.store._record(project_id, record_id)
             for identifier, value in parsed["source_identifiers"].items():
                 if canonical[identifier] is not None and canonical[identifier] != value:

@@ -1,5 +1,12 @@
 # Next milestone: one protocol-defined human review pilot
 
+2026-10-24 integration checkpoint: the separate, unreleased Track B adapter and
+30-record **scripted software usability sample** are documented in the
+[integration plan](protocol_pilot_integration.md), [guide](protocol_pilot_guide.md)
+and [evaluation](protocol_pilot_evaluation.md). Actual methodological protocol
+approval and the proposed sole reviewer's session remain **NOT_RUN**; this does
+not supersede the historical Qwen evidence or establish completed human review.
+
 Status: **Qwen confirmation prerequisite passed; team protocol intake is next**. The accepted foundation release is `69e7a6b`; its software and bounded retrieval evidence are preserved. The user requested [free GPU Qwen integration and evaluation](qwen-kaggle-milestone.md) before this human milestone. The [first component confirmation](qwen-components-runs-v1.md) passed all eleven frozen gates with 94.4% own-support coverage and 5/6 complete positive questions, independently reproduced. This supports a bounded pilot with Qwen as retrieval assistance. The actual review still requires the team's topic and protocol; no real review search, screening or medical conclusion is assumed by software/model evaluations.
 
 ## Objective and starting inputs

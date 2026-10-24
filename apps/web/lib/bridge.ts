@@ -3,8 +3,9 @@ export function allowedRoute(method: string, path: string): boolean {
   const id = "[^/]+";
   const w = `workspaces/${id}`;
   const b = `${w}/boards/${id}`;
+  const pilot = `${w}/review-pilot`;
   const rules: Record<string, RegExp[]> = {
-    GET: [ /^admission\/status$/, /^session$/, /^capabilities$/, /^workspaces$/, new RegExp(`^${w}$`),
+    GET: [ new RegExp(`^${pilot}$`),new RegExp(`^${pilot}/sources/${id}$`),new RegExp(`^${pilot}/exports$`), /^admission\/status$/, /^session$/, /^capabilities$/, /^workspaces$/, new RegExp(`^${w}$`),
       new RegExp(`^${w}/searches/${id}/papers$`), new RegExp(`^${w}/source-preparations/${id}$`),
       new RegExp(`^${w}/source-preparations/${id}/papers$`),new RegExp(`^${w}/runs/${id}/papers$`),
       new RegExp(`^${w}/runs/${id}$`), new RegExp(`^${w}/runs/${id}/passages/${id}/context$`),
@@ -23,7 +24,7 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${b}/sources/${id}/blocks$`),new RegExp(`^${b}/references/${id}/context$`),new RegExp(`^${b}/exports$`),
       new RegExp(`^${b}/(proposal-capabilities|proposals|proposal-audit)$`),new RegExp(`^${b}/proposal-runs/${id}$`),
       new RegExp(`^${b}/proposals/${id}/references/${id}/context$`) ],
-    POST: [ /^admission\/(login|logout)$/, /^workspaces$/, new RegExp(`^${w}/(query-suggestions|searches|source-preparations|preparation-jobs|evidence-runs|assessments|maps)$`),
+    POST: [ new RegExp(`^${pilot}$`),new RegExp(`^${pilot}/(protocols|decisions|retrieval-status|sources|handoffs)$`),new RegExp(`^${pilot}/intakes/(public-example|file|pubmed-capture)$`), /^admission\/(login|logout)$/, /^workspaces$/, new RegExp(`^${w}/(query-suggestions|searches|source-preparations|preparation-jobs|evidence-runs|assessments|maps)$`),
       new RegExp(`^${w}/preparation-jobs/${id}/cancel$`),
       new RegExp(`^${w}/(collection-preparation-jobs|collection-maps)$`),new RegExp(`^${w}/collection-preparation-jobs/${id}/cancel$`),new RegExp(`^${w}/collection-map-jobs/${id}/cancel$`),
       new RegExp(`^${w}/search-plans$`),new RegExp(`^${w}/search-plans/${id}/(approve|diagnose|execute|propose)$`),
@@ -49,6 +50,8 @@ export function browserBoundary(host: string | null, origin: string | null, expe
 }
 export function allowedQuery(path:string,query:URLSearchParams,method="GET"):boolean {
   if(method!=="GET")return [...query.keys()].length===0;
+  if(/\/review-pilot(?:\/sources\/[^/]+)?$/.test(path))return [...query.keys()].every((key,index,keys)=>['offset','limit'].includes(key)&&keys.indexOf(key)===index&&/^\d+$/.test(query.get(key)??'')&&(key!=='limit'||Number(query.get(key))>=1&&Number(query.get(key))<=50));
+  if(path.endsWith('/review-pilot/exports'))return [...query.keys()].length===0;
   if(/\/search-plans\/[^/]+$/.test(path))return [...query.keys()].every((key,index,keys)=>key==='revision_id'&&keys.indexOf(key)===index);
   if(/\/imports\/[^/]+\/rows$/.test(path))return [...query.keys()].every((key,index,keys)=>['offset','limit'].includes(key)&&keys.indexOf(key)===index);
   if(/\/collections\/[^/]+\/papers$/.test(path))return [...query.keys()].every((key,index,keys)=>['offset','limit','filter'].includes(key)&&keys.indexOf(key)===index);
@@ -82,13 +85,15 @@ export const MAX_REQUEST_BYTES=1024*1024;
 export const MAX_IMPORT_BYTES=5*1024*1024;
 export const MAX_BODY_READ_MS=15000;
 export class BodyReadTimeout extends Error {}
+export const MAX_PILOT_REQUEST_BYTES=16*1024*1024;
 export function requestByteLimit(method:string,path:string,contentType:string|null):number {
   const media=(contentType??'').split(';',1)[0].trim().toLowerCase();
+  if(method==='POST'&&/^workspaces\/[^/]+\/review-pilot\/(intakes\/(file|pubmed-capture)|sources)$/.test(path)&&media==='application/json')return MAX_PILOT_REQUEST_BYTES;
   return method==='POST'&&/^workspaces\/[^/]+\/imports\/(csv|ris|identifiers)$/.test(path)
     &&['application/octet-stream','text/csv','text/plain','application/x-research-info-systems'].includes(media)?MAX_IMPORT_BYTES:MAX_REQUEST_BYTES;
 }
 export async function boundedBody(request:Request,limit=MAX_REQUEST_BYTES,readTimeoutMs=MAX_BODY_READ_MS):Promise<ArrayBuffer> {
-  if(![MAX_REQUEST_BYTES,MAX_IMPORT_BYTES].includes(limit))throw new RangeError('Unsupported local route size limit.');
+  if(![MAX_REQUEST_BYTES,MAX_IMPORT_BYTES,MAX_PILOT_REQUEST_BYTES].includes(limit))throw new RangeError('Unsupported local route size limit.');
   if(!Number.isInteger(readTimeoutMs)||readTimeoutMs<1||readTimeoutMs>MAX_BODY_READ_MS)throw new RangeError('Unsupported body read deadline.');
   const declared=request.headers.get("content-length");
   if(declared!==null&&(!/^\d+$/.test(declared)||Number(declared)>limit))throw new RangeError("Request exceeds the local API size limit.");

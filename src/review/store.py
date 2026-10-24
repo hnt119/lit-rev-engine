@@ -126,6 +126,21 @@ class ReviewStore:
         else:
             self._connection.commit()
 
+    @contextmanager
+    def _write_transaction(self):
+        """Join a caller-owned transaction, otherwise start one serialized write.
+
+        Additive pilot operations bind metadata and existing ledger events in
+        one transaction. Standalone legacy operations keep the same commit and
+        rollback behavior.
+        """
+        if self._connection.in_transaction:
+            yield
+            return
+        with self._connection:
+            self._connection.execute("BEGIN IMMEDIATE")
+            yield
+
     def _record(self, project_id, record_id):
         self._project(project_id)
         row = self._connection.execute(
@@ -154,7 +169,7 @@ class ReviewStore:
             raise ValueError("Project protocol must be a string")
         eligibility_json = _json(eligibility)
         project_id, created_at = str(uuid4()), _now()
-        with self._connection:
+        with self._write_transaction():
             self._connection.execute(
                 "INSERT INTO projects VALUES (?, ?, ?, ?, ?, ?, ?)",
                 (project_id, title, review_type, question, protocol, eligibility_json, created_at),
@@ -283,9 +298,8 @@ class ReviewStore:
         if artifact_hashes:
             fingerprint_payload["artifacts"] = artifact_hashes
         fingerprint = hashlib.sha256(_json(fingerprint_payload).encode("utf-8")).hexdigest()
-        with self._connection:
+        with self._write_transaction():
             # Serialize identity/idempotency reads with subsequent writes across clients.
-            self._connection.execute("BEGIN IMMEDIATE")
             if idempotency_key is not None:
                 existing = self._connection.execute(
                     "SELECT * FROM search_runs WHERE project_id = ? AND idempotency_key = ?",
@@ -602,8 +616,7 @@ class ReviewStore:
         self._validate_reviewer_reason(reviewer, reason)
         if (decision == "exclude" or kind == "adjudication") and not reason.strip():
             raise ValueError("Exclusions and adjudications require a reason")
-        with self._connection:
-            self._connection.execute("BEGIN IMMEDIATE")
+        with self._write_transaction():
             events = self._screening_rows(project_id, record_id)
             retrievals = self._retrieval_rows(project_id, record_id)
             if kind == "adjudication" and not any(event["stage"] == stage and event["kind"] == "review" for event in events):
@@ -636,8 +649,7 @@ class ReviewStore:
         self._validate_reviewer_reason(reviewer, reason)
         if status == "not_retrieved" and not reason.strip():
             raise ValueError("Full text not retrieved requires a reason")
-        with self._connection:
-            self._connection.execute("BEGIN IMMEDIATE")
+        with self._write_transaction():
             if self._screening_state(self._screening_rows(project_id, record_id), "title_abstract") != "include":
                 raise ValueError("Full-text retrieval requires title/abstract inclusion")
             retrievals = self._retrieval_rows(project_id, record_id)

@@ -1,5 +1,12 @@
 # Architecture and repository map
 
+Current unreleased Track B integration: [protocol pilot scope](protocol_pilot_integration.md),
+[usage](protocol_pilot_guide.md) and [evaluation](protocol_pilot_evaluation.md).
+The local web adapter delegates screening/intake/counts to the existing
+`ReviewStore` through opt-in `PilotLedger` metadata; it does not establish a
+second review authority. Immutable collection/preparation handoffs feed the
+existing comparison engine. The frozen local-preview `.2` remains separate.
+
 This guide describes the current code. The [Qwen workflow](qwen-cloud.md) adds optional free Kaggle batch retrieval with [separate acceptance gates](qwen-kaggle-milestone.md). The user placed this integration before the small protocol-defined human review; see the [roadmap](review-roadmap.md).
 
 ## Choose the right entry point

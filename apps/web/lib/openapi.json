@@ -4047,6 +4047,593 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/review-pilot": {
+      "get": {
+        "summary": "View",
+        "operationId": "view_api_v1_workspaces__workspace_id__review_pilot_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 50,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Initialize",
+        "operationId": "initialize_api_v1_workspaces__workspace_id__review_pilot_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/protocols": {
+      "post": {
+        "summary": "Protocols",
+        "operationId": "protocols_api_v1_workspaces__workspace_id__review_pilot_protocols_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotProtocolRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/intakes/public-example": {
+      "post": {
+        "summary": "Public Example",
+        "operationId": "public_example_api_v1_workspaces__workspace_id__review_pilot_intakes_public_example_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotMutation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/intakes/file": {
+      "post": {
+        "summary": "File",
+        "operationId": "file_api_v1_workspaces__workspace_id__review_pilot_intakes_file_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotFileRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/intakes/pubmed-capture": {
+      "post": {
+        "summary": "Capture",
+        "operationId": "capture_api_v1_workspaces__workspace_id__review_pilot_intakes_pubmed_capture_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotCaptureRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/decisions": {
+      "post": {
+        "summary": "Decision",
+        "operationId": "decision_api_v1_workspaces__workspace_id__review_pilot_decisions_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotDecisionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/retrieval-status": {
+      "post": {
+        "summary": "Retrieval Status",
+        "operationId": "retrieval_status_api_v1_workspaces__workspace_id__review_pilot_retrieval_status_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotRetrievalRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/sources": {
+      "post": {
+        "summary": "Attach",
+        "operationId": "attach_api_v1_workspaces__workspace_id__review_pilot_sources_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotSourceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/sources/{document_id}": {
+      "get": {
+        "summary": "Source",
+        "operationId": "source_api_v1_workspaces__workspace_id__review_pilot_sources__document_id__get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Document Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 50,
+              "minimum": 1,
+              "default": 10,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/handoffs": {
+      "post": {
+        "summary": "Handoff",
+        "operationId": "handoff_api_v1_workspaces__workspace_id__review_pilot_handoffs_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PilotHandoffRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/review-pilot/exports": {
+      "get": {
+        "summary": "Export",
+        "operationId": "export_api_v1_workspaces__workspace_id__review_pilot_exports_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposal-capabilities": {
       "get": {
         "summary": "Capabilities",
@@ -11450,6 +12037,692 @@
           "passage_id"
         ],
         "title": "PassageJudgment"
+      },
+      "PilotCaptureRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_protocol_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Protocol Id"
+          },
+          "expected_ledger_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Expected Ledger Digest"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "artifacts": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "maxProperties": 100,
+            "minProperties": 1,
+            "title": "Artifacts"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_protocol_id",
+          "expected_ledger_digest",
+          "reviewer",
+          "reason",
+          "artifacts"
+        ],
+        "title": "PilotCaptureRequest"
+      },
+      "PilotCreateRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "question": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Question"
+          },
+          "review_type": {
+            "type": "string",
+            "enum": [
+              "systematic",
+              "scoping"
+            ],
+            "title": "Review Type",
+            "default": "systematic"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "research_pilot",
+              "software_usability"
+            ],
+            "title": "Purpose",
+            "default": "research_pilot"
+          },
+          "protocol": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Protocol"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Reviewer",
+            "default": ""
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Reason",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "title",
+          "question"
+        ],
+        "title": "PilotCreateRequest"
+      },
+      "PilotDecisionRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_protocol_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Protocol Id"
+          },
+          "expected_ledger_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Expected Ledger Digest"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "record_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id"
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "title_abstract",
+              "full_text"
+            ],
+            "title": "Stage"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "include",
+              "exclude",
+              "uncertain"
+            ],
+            "title": "Decision"
+          },
+          "adjudication": {
+            "type": "boolean",
+            "title": "Adjudication",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_protocol_id",
+          "expected_ledger_digest",
+          "reviewer",
+          "reason",
+          "record_id",
+          "stage",
+          "decision"
+        ],
+        "title": "PilotDecisionRequest"
+      },
+      "PilotFileRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_protocol_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Protocol Id"
+          },
+          "expected_ledger_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Expected Ledger Digest"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "filename": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Filename"
+          },
+          "content_utf8": {
+            "type": "string",
+            "maxLength": 8388608,
+            "title": "Content Utf8"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "ris",
+              "pubmed_xml"
+            ],
+            "title": "Format"
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Source"
+          },
+          "query": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 30000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Query"
+          },
+          "searched_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Searched At"
+          },
+          "filters": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Filters"
+          },
+          "reported_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reported Count"
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "supplied_file",
+              "exploratory_subset"
+            ],
+            "title": "Scope",
+            "default": "supplied_file"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_protocol_id",
+          "expected_ledger_digest",
+          "reviewer",
+          "reason",
+          "filename",
+          "content_utf8",
+          "format",
+          "source"
+        ],
+        "title": "PilotFileRequest"
+      },
+      "PilotHandoffRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_protocol_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Protocol Id"
+          },
+          "expected_ledger_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Expected Ledger Digest"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/PilotHandoffSource"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "minItems": 1,
+            "title": "Sources"
+          },
+          "question": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Question"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/BoardFieldInput"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Fields"
+          },
+          "acknowledge_provisional": {
+            "type": "boolean",
+            "title": "Acknowledge Provisional",
+            "default": false
+          },
+          "expected_source_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Source Revision"
+          },
+          "expected_preparation_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Preparation Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_protocol_id",
+          "expected_ledger_digest",
+          "reviewer",
+          "reason",
+          "sources",
+          "question",
+          "fields",
+          "expected_source_revision"
+        ],
+        "title": "PilotHandoffRequest"
+      },
+      "PilotHandoffSource": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id"
+          },
+          "document_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Document Id"
+          },
+          "source_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Source Sha256"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "record_id",
+          "document_id",
+          "source_sha256"
+        ],
+        "title": "PilotHandoffSource"
+      },
+      "PilotMutation": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_protocol_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Protocol Id"
+          },
+          "expected_ledger_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Expected Ledger Digest"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_protocol_id",
+          "expected_ledger_digest",
+          "reviewer",
+          "reason"
+        ],
+        "title": "PilotMutation"
+      },
+      "PilotProtocolRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_protocol_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Protocol Id"
+          },
+          "expected_ledger_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Expected Ledger Digest"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "content": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Content"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_protocol_id",
+          "expected_ledger_digest",
+          "reviewer",
+          "reason",
+          "content"
+        ],
+        "title": "PilotProtocolRequest"
+      },
+      "PilotRetrievalRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_protocol_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Protocol Id"
+          },
+          "expected_ledger_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Expected Ledger Digest"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "record_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "requested",
+              "retrieved",
+              "not_retrieved"
+            ],
+            "title": "Status"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_protocol_id",
+          "expected_ledger_digest",
+          "reviewer",
+          "reason",
+          "record_id",
+          "status"
+        ],
+        "title": "PilotRetrievalRequest"
+      },
+      "PilotSourceRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_protocol_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Protocol Id"
+          },
+          "expected_ledger_digest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Expected Ledger Digest"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "record_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "public_jats",
+              "supplied_jats",
+              "abstract"
+            ],
+            "title": "Kind"
+          },
+          "content_utf8": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 8388608
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Utf8"
+          },
+          "license": {
+            "type": "string",
+            "maxLength": 1000,
+            "title": "License",
+            "default": ""
+          },
+          "attribution": {
+            "type": "string",
+            "maxLength": 4000,
+            "title": "Attribution",
+            "default": ""
+          },
+          "source_url": {
+            "type": "string",
+            "maxLength": 4096,
+            "title": "Source Url",
+            "default": ""
+          },
+          "permission_note": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Permission Note",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_protocol_id",
+          "expected_ledger_digest",
+          "reviewer",
+          "reason",
+          "record_id",
+          "kind"
+        ],
+        "title": "PilotSourceRequest"
       },
       "PlanAmbiguity": {
         "properties": {

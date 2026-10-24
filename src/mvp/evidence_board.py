@@ -13,6 +13,8 @@ from .adapters.board_storage import BoardStore, unavailable
 from .adapters.retrieval import LexicalRetrieval
 from .ports import MvpError
 from .service import _assert_source_integrity, _manifest, _find
+from contextlib import nullcontext
+
 from .origin_resolver import resolve_preparation
 from src.review.exporters import _csv
 from .span_board_contracts import (ProfiledBoardCreateRequest, LEGACY_BOARD_PROFILE, SPAN_BOARD_PROFILE,
@@ -36,7 +38,7 @@ class EvidenceBoardService:
         self.ranker = LexicalRetrieval()
         self.span_ranker = None
 
-    def _with(self, mode, handle, callback, *, write=False):
+    def _with(self, mode, handle, callback, *, write=False, lifecycle_held=False):
         def guarded(state):
             if self.registry.is_deleted(state.id):
                 raise unavailable('workspace')
@@ -44,7 +46,8 @@ class EvidenceBoardService:
             with manager() as db:
                 self.store.alive(db, state.id)
                 return callback(state, db)
-        with self.registry.lifecycle_guard(handle.workspace_id):
+        guard = nullcontext() if lifecycle_held else self.registry.lifecycle_guard(handle.workspace_id)
+        with guard:
             return self.service_for(mode).with_workspace_state(handle, guarded)
 
     def _span(self):
@@ -299,6 +302,13 @@ class EvidenceBoardService:
                          freshness=freshness, freshness_reasons=reasons, cells=cells, definitions=definitions)
 
     def create(self, mode, handle, request: BoardCreateRequest):
+        return self._create(mode, handle, request)
+
+    def _create_under_lifecycle_guard(self, mode, handle, request: BoardCreateRequest):
+        """Trusted pilot adapter only: caller holds the owning lifecycle guard."""
+        return self._create(mode, handle, request, lifecycle_held=True)
+
+    def _create(self, mode, handle, request, *, lifecycle_held=False):
         def run(state, db):
             fingerprint = digest({'operation': 'create', 'request': request.model_dump(mode='json')})
             prior = self.store.prior(db, state.id, request.request_id, fingerprint, BoardView)
@@ -312,7 +322,7 @@ class EvidenceBoardService:
             result = self._view(state, db, definition)
             self.store.record_request(db, state.id, request.request_id, fingerprint, result)
             return result
-        return self._with(mode, handle, run, write=True)
+        return self._with(mode, handle, run, write=True, lifecycle_held=lifecycle_held)
 
     def listing(self, mode, handle):
         def run(state, db):
@@ -687,6 +697,13 @@ class EvidenceBoardService:
         return self._with(mode, handle, run)
 
     def export(self, mode, handle, board_id, revision_id=None, history=False):
+        return self._export(mode, handle, board_id, revision_id, history)
+
+    def _export_under_lifecycle_guard(self, mode, handle, board_id, revision_id=None, history=False):
+        """Trusted pilot export only: caller holds the owning lifecycle guard."""
+        return self._export(mode, handle, board_id, revision_id, history, lifecycle_held=True)
+
+    def _export(self, mode, handle, board_id, revision_id=None, history=False, *, lifecycle_held=False):
         def run(state, db):
             definition = self.store.definition(db, state.id, board_id, revision_id)
             view = self._view(state, db, definition)
@@ -736,7 +753,7 @@ class EvidenceBoardService:
                      'review_state': 'single_human_self_declared_not_independently_verified'}
             export_model = CollectionBoardExport if collection_board else BoardExport
             return export_model(csv_text=_csv(rows, list(rows[0]) if rows else []), json_text=json.dumps(audit, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False) + '\n')
-        return self._with(mode, handle, run)
+        return self._with(mode, handle, run, lifecycle_held=lifecycle_held)
 
     def delete_workspace(self, workspace_id):
         self.store.delete_workspace(workspace_id)

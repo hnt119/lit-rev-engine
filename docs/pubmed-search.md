@@ -1,5 +1,11 @@
 # Capturing, verifying, and replaying a PubMed search
 
+The unreleased [local protocol pilot](protocol_pilot_guide.md) can import a saved
+complete capture through these same validation/retention APIs. Its supplied-file
+and public-example intakes stay separately labelled: importing every supplied
+record does not assert complete query membership. No live search runs from pilot
+navigation or intake of saved artifacts. Existing limits below are unchanged.
+
 The PubMed adapter captures a search's exact result membership and citation XML, verifies saved captures offline, and imports their records and source artifacts into the review ledger. It uses NCBI ESearch for discovery and EFetch for bibliography records. It does not download full text, load an embedding model, or screen records automatically. The first version supports **at most 10,000 matches** and publishes only a complete validated capture; partial imports, automatic segmentation, and automatic resume are outside this version.
 
 ## Standalone API

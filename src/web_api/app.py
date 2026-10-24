@@ -35,6 +35,7 @@ from .contracts import (
     CollectionPreparationView, PreparationPapers, PreparationView, RunPapers, RunView, SessionInfo, WorkspaceList, WorkspaceSummary,
 )
 from .projections import preparation_view, source_metadata, workspace_summary
+from .pilot_contracts import MAX_PILOT_REQUEST_BYTES, PilotEditorDraft
 from .deployment import DeploymentConfig, validate_local
 from .hosted_admission import (
     ADMISSION_COOKIE, ADMISSION_SECONDS, HOSTED_SESSION_COOKIE, AdmissionDenied,
@@ -121,7 +122,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         content_length = request.headers.get("content-length")
         from src.mvp.limits import MAX_IMPORT_BYTES
         upload = request.method == 'POST' and re.fullmatch(r'/api/v1/workspaces/[^/]+/imports/(csv|ris|identifiers)', request.url.path)
-        limit = MAX_IMPORT_BYTES if upload else MAX_REQUEST_BYTES
+        pilot_upload = not deployment.hosted and request.method == 'POST' and re.fullmatch(r'/api/v1/workspaces/[^/]+/review-pilot/(intakes/(file|pubmed-capture)|sources)', request.url.path)
+        limit = MAX_PILOT_REQUEST_BYTES if pilot_upload else MAX_IMPORT_BYTES if upload else MAX_REQUEST_BYTES
         if upload:
             media = request.headers.get('content-type', '').split(';', 1)[0].strip().lower()
             if media not in {'application/octet-stream', 'text/csv', 'text/plain', 'application/x-research-info-systems'}:
@@ -360,6 +362,15 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
                            archived=archived, current=current)
 
     def validate_scope(state, scope, expected_head=None, writing=False, data=None):
+        if scope == "review-pilot":
+            if expected_head is not None:
+                raise MvpError("invalid_editor_draft", "Pilot drafts do not set an assessment head.")
+            if writing:
+                try:
+                    PilotEditorDraft.model_validate(data)
+                except ValidationError:
+                    raise MvpError("invalid_editor_draft", "Keep bounded pilot editor inputs. Existing drafts are unchanged.") from None
+            return
         if scope in {"discover", "evidence"}:
             return
         if scope.startswith("selection:"):
@@ -516,6 +527,7 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
             app.state.boards.delete_workspace(identifier)
             app.state.preparation_jobs.delete_workspace(identifier)
             app.state.collection_preparation_jobs.delete_workspace(identifier)
+            app.state.review_pilots.delete_workspace(identifier)
         registry.delete_workspace(session["token_hash"], workspace_id, lambda mode, handle: service(mode).clear_workspace_if_present(handle), clear_sidecars)
         return ClearResult()
 
@@ -533,6 +545,9 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         session_for=session_for, dependencies=dependencies)
     from .board_routes import install_board_routes
     install_board_routes(app, directory=directory, registry=registry, service=service, owned=owned,
+                         session_for=session_for, dependencies=dependencies)
+    from .pilot_routes import install_pilot_routes
+    install_pilot_routes(app, directory=directory, registry=registry, service=service, owned=owned,
                          session_for=session_for, dependencies=dependencies)
     from src.mvp.adapters.cell_generation import ConfiguredCellGenerationAdapter
     from src.mvp.cell_proposals import CellProposalService

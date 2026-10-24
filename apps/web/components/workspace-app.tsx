@@ -7,14 +7,15 @@ import Discover from "./discover";
 import Evidence from "./evidence";
 import History from "./history";
 import Compare from "./compare";
+import ReviewPilot from "./review-pilot";
 
-export type Destination="workspaces"|"discover"|"compare"|"evidence"|"history";
+export type Destination="workspaces"|"discover"|"compare"|"evidence"|"history"|"pilot";
 export type LocationState={page:Destination;workspace?:string;search?:string;collection?:string;plan?:string;planRevision?:string;run?:string;map?:string;board?:string;revision?:string;paper?:string;field?:string;intake?:"search"|"import"|"collections";preparation?:string;handoff?:string;setup?:"new";focusResult?:string;passage?:string;returnTo?:"cell"|"comparison"};
 export type NavigationOutcome={status:"success"}|{status:"blocked";message:string};
 export type Navigate=(next:LocationState)=>Promise<NavigationOutcome|void>;
 function locationState():LocationState {
   const p=new URLSearchParams(window.location.search),value=p.get("page");
-  return {page:["workspaces","discover","compare","evidence","history"].includes(value??"")?value as Destination:"workspaces",workspace:p.get("workspace")??undefined,search:p.get("search")??undefined,collection:p.get("collection")??undefined,plan:p.get("plan")??undefined,planRevision:p.get("planRevision")??undefined,run:p.get("run")??undefined,map:p.get("map")??undefined,board:p.get("board")??undefined,revision:p.get("revision")??undefined,paper:p.get("paper")??undefined,field:p.get("field")??undefined,intake:["search","import","collections"].includes(p.get("intake")??"")?p.get("intake") as LocationState["intake"]:undefined,preparation:p.get("preparation")??undefined,handoff:p.get("handoff")??undefined,setup:p.get("setup")==="new"?"new":undefined,focusResult:p.get("focusResult")??undefined,passage:p.get("passage")??undefined,returnTo:["cell","comparison"].includes(p.get("returnTo")??"")?p.get("returnTo") as LocationState["returnTo"]:undefined};
+  return {page:["workspaces","discover","compare","evidence","history","pilot"].includes(value??"")?value as Destination:"workspaces",workspace:p.get("workspace")??undefined,search:p.get("search")??undefined,collection:p.get("collection")??undefined,plan:p.get("plan")??undefined,planRevision:p.get("planRevision")??undefined,run:p.get("run")??undefined,map:p.get("map")??undefined,board:p.get("board")??undefined,revision:p.get("revision")??undefined,paper:p.get("paper")??undefined,field:p.get("field")??undefined,intake:["search","import","collections"].includes(p.get("intake")??"")?p.get("intake") as LocationState["intake"]:undefined,preparation:p.get("preparation")??undefined,handoff:p.get("handoff")??undefined,setup:p.get("setup")==="new"?"new":undefined,focusResult:p.get("focusResult")??undefined,passage:p.get("passage")??undefined,returnTo:["cell","comparison"].includes(p.get("returnTo")??"")?p.get("returnTo") as LocationState["returnTo"]:undefined};
 }
 function locationURL(next:LocationState) {
   const p=new URLSearchParams({page:next.page});
@@ -76,12 +77,12 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
     return()=>window.removeEventListener("popstate",back);
   },[]);
   useEffect(()=>{if(ready)refresh().catch(error=>{setError(error.message);setWorkspace(null);});},[ready,refresh]);
-  async function create() {
+  async function create(destination:Destination="discover") {
     setBusy(true);setError("");try {
-      const payload={question:newQuestion,mode:newMode};
+      const payload={question:newQuestion,mode:destination==="pilot"?"saved_example":newMode};
       const created=await api<Schema<"WorkspaceSummary">>("workspaces","POST",{...payload,request_id:await requestId("create",payload)});
       acknowledgeRequest("create");
-      setWorkspace(created);setNewQuestion("");await navigate({page:"discover",workspace:created.id});
+      setWorkspace(created);setNewQuestion("");await navigate({page:destination,workspace:created.id});
     }catch(error){setError((error as Error).message);}finally{setBusy(false);}
   }
   const active=workspace?.id===location.workspace?workspace:null;
@@ -96,20 +97,21 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
     <header className="site-header"><a className="wordmark" href="/?page=workspaces" onClick={event=>{event.preventDefault();void navigate({page:"workspaces"});}}>LITERATURE REVIEW ENGINE</a><span className="meta">{hosted?"HOSTED BETA":"LOCAL WORKSPACE"} · v0.3</span></header>
     <div className={location.page==="workspaces"?"app-shell landing":"app-shell"}>
       <nav aria-label="Research workflow"><button aria-current={location.page==="workspaces"?"page":undefined} onClick={()=>void navigate({page:"workspaces"})}>Workspaces</button>
-        {([["discover","Discover & explore"],["compare","Comparison board"],["evidence","Passage search"],["history","History & export"]] as const).map(([page,label])=><button key={page} disabled={!location.workspace} aria-current={location.page===page?"page":undefined} onClick={()=>void navigate({page,workspace:location.workspace})}>{label}</button>)}</nav>
+        {([["discover","Discover & explore"],["compare","Comparison board"],["evidence","Passage search"],["history","History & export"]] as const).map(([page,label])=><button key={page} disabled={!location.workspace} aria-current={location.page===page?"page":undefined} onClick={()=>void navigate({page,workspace:location.workspace})}>{label}</button>)}{!hosted&&<button disabled={!location.workspace} aria-current={location.page==="pilot"?"page":undefined} onClick={()=>void navigate({page:"pilot",workspace:location.workspace})}>Review pilot</button>}</nav>
       <main id="main">{blocked&&<aside className="notice error" role="alert" aria-label="Navigation needs draft recovery"><p>Your draft could not be saved. You are still on the current page. {blocked.message}</p><div className="actions"><button disabled={recovering} onClick={()=>void recoverNavigation("retry")}>Retry and continue</button><button disabled={recovering} onClick={()=>setBlocked(null)}>Stay here</button><button disabled={recovering} onClick={()=>void recoverNavigation("restore")}>Restore saved drafts and continue…</button></div></aside>}<Failure message={error}/>{!ready?<><h1>Follow the evidence.</h1><p>Connecting to the local Python service…</p>{error&&<button onClick={()=>window.location.reload()}>Retry connection</button>}</>:location.page==="workspaces"?<>
         <p className="eyebrow">EVIDENCE YOU CAN INSPECT</p><h1>Follow the evidence.</h1><p className="intro">Ask a research question, explore a bounded search preview, and inspect the source behind every passage.</p>
         <section><h2>Create a workspace</h2><form onSubmit={event=>{event.preventDefault();void create();}}>
           <label>Research question<textarea value={newQuestion} onChange={event=>setNewQuestion(event.target.value)} rows={3} maxLength={10000} placeholder="How does diet relate to the gut microbiome in Asian women?"/></label>
           <label>Discovery mode<select value={newMode} onChange={event=>setNewMode(event.target.value as "live"|"saved_example")}><option value="saved_example">Saved example · offline</option><option value="live" disabled={!capabilities?.live_available}>Live PubMed{!capabilities?.live_available?" · contact configuration required":""}</option></select></label>
-          <button className="primary" disabled={busy}>{busy?"Creating…":"Create workspace"}</button></form></section>
+          <button className="primary" disabled={busy}>{busy?"Creating…":"Create workspace"}</button>{!hosted&&<button type="button" disabled={busy} onClick={()=>void create("pilot")}>Start an isolated review pilot</button>}</form></section>
         <section><h2>Reopen your work</h2><p className="muted">Available to this browser profile while its persistent local session remains valid. Clearing cookies loses this access; this is not a named researcher account.</p>
           {!workspaces.length?<p>No workspaces in this browser session yet.</p>:workspaces.map(item=><article className="workspace-entry" key={item.id}><h3><button className="text-button" onClick={()=>void navigate({page:"discover",workspace:item.id})}>{item.question||"Untitled research workspace"}</button></h3><p className="meta">{item.mode.replaceAll("_"," ")} · <Time value={item.created_at}/> · {item.searches.length} saved searches · {item.runs.length} evidence runs</p></article>)}</section>
-      </>:!active?<p role="status">Loading the authorized workspace…</p>:<><div className="workspace-heading"><p className="eyebrow">{origin==="collection"?"SAVED PAPER COLLECTION":origin==="mixed"?"RETAINED RESEARCH HISTORY":origin==="loading"?"RETAINED RESEARCH WORKSPACE":active.mode==="saved_example"?"SAVED EXAMPLE · OFFLINE":"EXPLORATORY PUBMED PREVIEW"}</p><p className="workspace-question">{active.question||"Untitled research workspace"}</p><span className="meta">WORKSPACE {active.id}</span></div>
-        {active.mode==="saved_example"&&origin==="legacy"&&<Notice>This is a curated saved example, not a live search, complete capture, or scientific conclusion.</Notice>}
+      </>:!active?<p role="status">Loading the authorized workspace…</p>:<><div className="workspace-heading"><p className="eyebrow">{location.page==="pilot"?"ISOLATED PROTOCOL REVIEW PILOT":origin==="collection"?"SAVED PAPER COLLECTION":origin==="mixed"?"RETAINED RESEARCH HISTORY":origin==="loading"?"RETAINED RESEARCH WORKSPACE":active.mode==="saved_example"?"SAVED EXAMPLE · OFFLINE":"EXPLORATORY PUBMED PREVIEW"}</p><p className="workspace-question">{active.question||"Untitled research workspace"}</p><span className="meta">WORKSPACE {active.id}</span></div>
+        {active.mode==="saved_example"&&origin==="legacy"&&location.page!=="pilot"&&<Notice>This is a curated saved example, not a live search, complete capture, or scientific conclusion.</Notice>}
         {location.page==="discover"&&<Discover key={active.id} workspace={active} capabilities={capabilities!} requestedSearch={location.search} requestedMap={location.map} requestedCollection={location.collection} requestedPlan={location.plan} requestedPlanRevision={location.planRevision} requestedIntake={location.intake} requestedFocusResult={location.focusResult} refresh={refresh} navigate={navigate}/>}
         {location.page==="compare"&&<Compare key={active.id} workspace={active} requestedBoard={location.board} requestedRevision={location.revision} requestedPaper={location.paper} requestedField={location.field} requestedRun={location.run} requestedPassage={location.passage} requestedReturn={location.returnTo} requestedPreparation={location.preparation} requestedHandoff={location.handoff} requestedSetup={location.setup} navigate={navigate} onOriginChange={reportBoardOrigin} retrievalCapability={capabilities!.board_span_profiles??undefined}/>}
         {location.page==="evidence"&&<Evidence key={[active.id,location.board,location.revision,location.paper,location.field].join(":")} workspace={active} requestedRun={location.run} comparison={location.board?{board_id:location.board,board_revision_id:location.revision??"",paper_id:location.paper,field_id:location.field}:undefined} maxPassages={capabilities!.limits.max_passages??5} refresh={refresh} navigate={navigate}/>}
+        {location.page==="pilot"&&!hosted&&<ReviewPilot key={active.id} workspace={active} refresh={refresh} navigate={navigate}/>}
         {location.page==="history"&&<History workspace={active} refresh={refresh} navigate={navigate}/>}
       </>}</main></div><footer>Exploratory evidence workspace · Human judgments are self-declared and are not independent verification.</footer></>;
 }

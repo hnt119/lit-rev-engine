@@ -15,6 +15,8 @@ async function forward(request: Request, context: {params: Promise<{path:string[
   try {
     policy=deploymentPolicy();
   } catch {return safeError("Invalid server deployment configuration.",503);}
+  if(policy.mode==="hosted"&&/^workspaces\/[^/]+\/review-pilot(?:\/|$)/.test(route))
+    return safeError("The protocol pilot is available in local mode only.",404);
   const mutation = !["GET","HEAD"].includes(request.method);
   if (!deploymentBoundary(request.headers,policy,mutation)) return safeError("Host or Origin rejected.",403);
   const target = new URL("/api/v1/"+path.map(encodeURIComponent).join("/"),policy.api);
