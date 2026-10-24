@@ -64,3 +64,35 @@ def test_mock_rejects_unexpected_protocol_without_calling_any_service(change):
     if change == 'too_many_tokens': request['max_tokens'] = 4096
     with pytest.raises(AssertionError):
         runner.mock_output(request)
+
+
+def test_mock_transport_is_http11_with_finite_body_and_live_socket():
+    """Mirror bounded adapter reads over the actual fixture transport, no model."""
+    import http.client
+    import threading
+    server = runner.MockServer(0)
+    worker = threading.Thread(target=server.serve_forever, daemon=True)
+    worker.start()
+    connection = http.client.HTTPConnection('127.0.0.1', server.server_port, timeout=2)
+    try:
+        request = body(runner.PLANNER, {'original_question': 'Software fixture only'})
+        connection.request('POST', '/v1/chat/completions', json.dumps(request),
+            headers={'Content-Type': 'application/json'})
+        transport = connection.sock
+        response = connection.getresponse()
+        assert response.version == 11 and response.status == 200 and not response.will_close
+        pieces = []
+        while True:
+            # This must remain an open socket for the installed bounded reader,
+            # even when read1 has consumed the exact declared body length.
+            transport.settimeout(2)
+            piece = response.read1(4096)
+            if not piece: break
+            pieces.append(piece)
+        raw = b''.join(pieces)
+        assert len(raw) == int(response.getheader('Content-Length'))
+        assert content(json.loads(raw))['original_question'] == 'Software fixture only'
+        assert server.counts() == {runner.PLANNER: 1} and server.errors == []
+    finally:
+        connection.close()
+        server.shutdown(); server.server_close()

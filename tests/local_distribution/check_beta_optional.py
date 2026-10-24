@@ -87,6 +87,11 @@ class MockServer(ThreadingHTTPServer):
         self.call_lock = threading.Lock()
         owner = self
         class Handler(BaseHTTPRequestHandler):
+            # Existing bounded adapters retain their transport socket while
+            # checking the finite response. Keep this explicit fixture HTTP/1.1
+            # with Content-Length instead of BaseHTTPRequestHandler's HTTP/1.0.
+            protocol_version = 'HTTP/1.1'
+
             def log_message(self, *_):
                 pass  # Never log source packets, credentials or cookies.
 
@@ -285,6 +290,7 @@ def check(browser, server, endpoint, real_map, map_timeout):
             'model_files_sha256': profile['files_sha256'], 'runtime_versions': profile['runtime_versions'],
             'elapsed_seconds': round(time.monotonic()-start, 3), 'map_id': job['map_id'],
             'local_files_only': True, 'scientific_quality': 'NOT_EVALUATED'}
+    result['api_requests'] = browser.requests + reopened.requests
     return result, browser.saved()
 
 
