@@ -6,7 +6,7 @@ single-human support judgments are deliberately separate dimensions.
 from typing import Annotated, Any, Literal
 import re
 from pydantic import Field, model_validator
-from .contracts import Model, new_id, now
+from .contracts import Model, BoardPassageScope, new_id, now
 from .collection_contracts import CollectionInputRef
 from .limits import MAX_BOARD_PAPERS, MAX_BOARD_FIELDS, MAX_BOARD_CELLS
 
@@ -87,6 +87,26 @@ class BoardPaper(Model):
     doi: str | None = None
     pmcid: str | None = None
     url: str
+
+
+class BoardPassageSearchContext(BoardPassageScope):
+    preparation_id: str
+    source_revision: int
+    source_manifest_sha256: str
+    board_paper_ids: list[str]
+    paper_ids: list[str]
+    sources: list[BoardSourceBinding]
+    papers: list[BoardPaper]
+    board_question: str
+    question: str
+    field_revision_id: str | None = None
+    field_label: str | None = None
+
+
+class BoardPassageSearchDraft(Model):
+    question: str = Field(max_length=10000, strict=True)
+    top_k: int = Field(ge=5, le=30, strict=True)
+    selected_run_id: str | None = Field(default=None, min_length=1, max_length=200)
 
 class BoardRevision(Model):
     schema_version: Literal['mvp.board-definition.v1'] = 'mvp.board-definition.v1'
@@ -321,6 +341,13 @@ class BoardReferenceContext(Model):
     source: BoardSourceBinding
     freshness: Literal['current', 'historical']
     block: BoardBlockChunk
+
+class BoardPassageSourceContext(BoardReferenceContext):
+    run_id: str
+    passage_id: str
+    passage_start: int
+    passage_end: int
+    passage_omitted_after: int
 
 class BoardExport(Model):
     schema_version: Literal['mvp.board-export.v1'] = 'mvp.board-export.v1'

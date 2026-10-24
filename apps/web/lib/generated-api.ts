@@ -912,6 +912,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/passage-search-context": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Passage Search Context */
+        get: operations["passage_search_context_api_v1_workspaces__workspace_id__boards__board_id__passage_search_context_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/passage-source-context": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Passage Source Context */
+        get: operations["passage_source_context_api_v1_workspaces__workspace_id__boards__board_id__passage_source_context_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/workspaces/{workspace_id}/boards": {
         parameters: {
             query?: never;
@@ -1859,6 +1893,75 @@ export interface components {
             /** Url */
             url: string;
         };
+        /**
+         * BoardPassageScope
+         * @description An owned board revision, optionally narrowed to one exact cell.
+         */
+        BoardPassageScope: {
+            /** Board Id */
+            board_id: string;
+            /** Board Revision Id */
+            board_revision_id: string;
+            /** Paper Id */
+            paper_id?: string | null;
+            /** Field Id */
+            field_id?: string | null;
+        };
+        /** BoardPassageSearchContext */
+        BoardPassageSearchContext: {
+            /** Board Id */
+            board_id: string;
+            /** Board Revision Id */
+            board_revision_id: string;
+            /** Paper Id */
+            paper_id?: string | null;
+            /** Field Id */
+            field_id?: string | null;
+            /** Preparation Id */
+            preparation_id: string;
+            /** Source Revision */
+            source_revision: number;
+            /** Source Manifest Sha256 */
+            source_manifest_sha256: string;
+            /** Board Paper Ids */
+            board_paper_ids: string[];
+            /** Paper Ids */
+            paper_ids: string[];
+            /** Sources */
+            sources: components["schemas"]["BoardSourceBinding"][];
+            /** Papers */
+            papers: components["schemas"]["BoardPaper"][];
+            /** Board Question */
+            board_question: string;
+            /** Question */
+            question: string;
+            /** Field Revision Id */
+            field_revision_id?: string | null;
+            /** Field Label */
+            field_label?: string | null;
+        };
+        /** BoardPassageSourceContext */
+        BoardPassageSourceContext: {
+            reference: components["schemas"]["BoardReference"];
+            paper: components["schemas"]["BoardPaper"];
+            source: components["schemas"]["BoardSourceBinding"];
+            /**
+             * Freshness
+             * @enum {string}
+             */
+            freshness: "current" | "historical";
+            block: components["schemas"]["BoardBlockChunk"];
+            /** Run Id */
+            run_id: string;
+            /** Passage Id */
+            passage_id: string;
+            /** Passage Start */
+            passage_start: number;
+            /** Passage End */
+            passage_end: number;
+            /** Passage Omitted After */
+            passage_omitted_after: number;
+        };
         /** BoardReference */
         BoardReference: {
             /** Source Id */
@@ -2215,6 +2318,7 @@ export interface components {
             expected_preparation_id: string;
             /** Expected Source Revision */
             expected_source_revision: number;
+            board_context?: components["schemas"]["BoardPassageScope"] | null;
         };
         /** BundleJudgment */
         BundleJudgment: {
@@ -2843,6 +2947,7 @@ export interface components {
             passage_count: number;
             /** Current */
             current: boolean;
+            board_context?: components["schemas"]["BoardPassageScope"] | null;
             collection_ref: components["schemas"]["CollectionInputRef"];
         };
         /** CollectionSourceSelection */
@@ -4667,6 +4772,7 @@ export interface components {
             passage_count: number;
             /** Current */
             current: boolean;
+            board_context?: components["schemas"]["BoardPassageScope"] | null;
         };
         /** RunView */
         RunView: {
@@ -7584,6 +7690,80 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["CollectionMapJobView"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    passage_search_context_api_v1_workspaces__workspace_id__boards__board_id__passage_search_context_get: {
+        parameters: {
+            query: {
+                revision_id: string;
+                paper_id?: string | null;
+                field_id?: string | null;
+            };
+            header?: never;
+            path: {
+                workspace_id: string;
+                board_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BoardPassageSearchContext"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    passage_source_context_api_v1_workspaces__workspace_id__boards__board_id__passage_source_context_get: {
+        parameters: {
+            query: {
+                revision_id: string;
+                paper_id: string;
+                field_id: string;
+                run_id: string;
+                passage_id: string;
+            };
+            header?: never;
+            path: {
+                workspace_id: string;
+                board_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BoardPassageSourceContext"];
                 };
             };
             /** @description Validation Error */

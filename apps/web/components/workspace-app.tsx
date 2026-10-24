@@ -9,16 +9,16 @@ import History from "./history";
 import Compare from "./compare";
 
 export type Destination="workspaces"|"discover"|"compare"|"evidence"|"history";
-export type LocationState={page:Destination;workspace?:string;search?:string;collection?:string;plan?:string;planRevision?:string;run?:string;map?:string;board?:string;revision?:string;paper?:string;field?:string;intake?:"search"|"import"|"collections";preparation?:string;handoff?:string;setup?:"new";focusResult?:string};
+export type LocationState={page:Destination;workspace?:string;search?:string;collection?:string;plan?:string;planRevision?:string;run?:string;map?:string;board?:string;revision?:string;paper?:string;field?:string;intake?:"search"|"import"|"collections";preparation?:string;handoff?:string;setup?:"new";focusResult?:string;passage?:string;returnTo?:"cell"|"comparison"};
 export type NavigationOutcome={status:"success"}|{status:"blocked";message:string};
 export type Navigate=(next:LocationState)=>Promise<NavigationOutcome|void>;
 function locationState():LocationState {
   const p=new URLSearchParams(window.location.search),value=p.get("page");
-  return {page:["workspaces","discover","compare","evidence","history"].includes(value??"")?value as Destination:"workspaces",workspace:p.get("workspace")??undefined,search:p.get("search")??undefined,collection:p.get("collection")??undefined,plan:p.get("plan")??undefined,planRevision:p.get("planRevision")??undefined,run:p.get("run")??undefined,map:p.get("map")??undefined,board:p.get("board")??undefined,revision:p.get("revision")??undefined,paper:p.get("paper")??undefined,field:p.get("field")??undefined,intake:["search","import","collections"].includes(p.get("intake")??"")?p.get("intake") as LocationState["intake"]:undefined,preparation:p.get("preparation")??undefined,handoff:p.get("handoff")??undefined,setup:p.get("setup")==="new"?"new":undefined,focusResult:p.get("focusResult")??undefined};
+  return {page:["workspaces","discover","compare","evidence","history"].includes(value??"")?value as Destination:"workspaces",workspace:p.get("workspace")??undefined,search:p.get("search")??undefined,collection:p.get("collection")??undefined,plan:p.get("plan")??undefined,planRevision:p.get("planRevision")??undefined,run:p.get("run")??undefined,map:p.get("map")??undefined,board:p.get("board")??undefined,revision:p.get("revision")??undefined,paper:p.get("paper")??undefined,field:p.get("field")??undefined,intake:["search","import","collections"].includes(p.get("intake")??"")?p.get("intake") as LocationState["intake"]:undefined,preparation:p.get("preparation")??undefined,handoff:p.get("handoff")??undefined,setup:p.get("setup")==="new"?"new":undefined,focusResult:p.get("focusResult")??undefined,passage:p.get("passage")??undefined,returnTo:["cell","comparison"].includes(p.get("returnTo")??"")?p.get("returnTo") as LocationState["returnTo"]:undefined};
 }
 function locationURL(next:LocationState) {
   const p=new URLSearchParams({page:next.page});
-  for(const key of ["workspace","search","collection","plan","planRevision","run","map","board","revision","paper","field","intake","preparation","handoff","setup","focusResult"] as const)if(next[key])p.set(key,next[key]!);
+  for(const key of ["workspace","search","collection","plan","planRevision","run","map","board","revision","paper","field","intake","preparation","handoff","setup","focusResult","passage","returnTo"] as const)if(next[key])p.set(key,next[key]!);
   return "/?"+p;
 }
 export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
@@ -43,7 +43,7 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
     setError("");setBlocked(null);
     window.history.replaceState({...window.history.state,index:historyIndex.current,scrollY:window.scrollY},"",window.location.href);
     historyIndex.current++;
-    window.history.pushState({index:historyIndex.current,scrollY:0},"",locationURL(next));
+    window.history.pushState({index:historyIndex.current,scrollY:0,comparisonPosition:window.history.state?.comparisonPosition},"",locationURL(next));
     const sameBoard=next.page==="compare"&&next.board&&currentLocation.current.page==="compare"&&next.board===currentLocation.current.board;
     if(!next.map&&!next.focusResult&&!sameBoard)window.scrollTo({top:0,behavior:"instant"});
     setLocation(next);return {status:"success"};
@@ -108,8 +108,8 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
       </>:!active?<p role="status">Loading the authorized workspace…</p>:<><div className="workspace-heading"><p className="eyebrow">{origin==="collection"?"SAVED PAPER COLLECTION":origin==="mixed"?"RETAINED RESEARCH HISTORY":origin==="loading"?"RETAINED RESEARCH WORKSPACE":active.mode==="saved_example"?"SAVED EXAMPLE · OFFLINE":"EXPLORATORY PUBMED PREVIEW"}</p><p className="workspace-question">{active.question||"Untitled research workspace"}</p><span className="meta">WORKSPACE {active.id}</span></div>
         {active.mode==="saved_example"&&origin==="legacy"&&<Notice>This is a curated saved example, not a live search, complete capture, or scientific conclusion.</Notice>}
         {location.page==="discover"&&<Discover key={active.id} workspace={active} capabilities={capabilities!} requestedSearch={location.search} requestedMap={location.map} requestedCollection={location.collection} requestedPlan={location.plan} requestedPlanRevision={location.planRevision} requestedIntake={location.intake} requestedFocusResult={location.focusResult} refresh={refresh} navigate={navigate}/>}
-        {location.page==="compare"&&<Compare key={active.id} workspace={active} requestedBoard={location.board} requestedRevision={location.revision} requestedPaper={location.paper} requestedField={location.field} requestedPreparation={location.preparation} requestedHandoff={location.handoff} requestedSetup={location.setup} navigate={navigate} onOriginChange={reportBoardOrigin} retrievalCapability={capabilities!.board_span_profiles??undefined}/>}
-        {location.page==="evidence"&&<Evidence key={active.id+":"+(location.run??"current")} workspace={active} requestedRun={location.run} maxPassages={capabilities!.limits.max_passages??5} refresh={refresh} navigate={navigate}/>}
+        {location.page==="compare"&&<Compare key={active.id} workspace={active} requestedBoard={location.board} requestedRevision={location.revision} requestedPaper={location.paper} requestedField={location.field} requestedRun={location.run} requestedPassage={location.passage} requestedReturn={location.returnTo} requestedPreparation={location.preparation} requestedHandoff={location.handoff} requestedSetup={location.setup} navigate={navigate} onOriginChange={reportBoardOrigin} retrievalCapability={capabilities!.board_span_profiles??undefined}/>}
+        {location.page==="evidence"&&<Evidence key={[active.id,location.board,location.revision,location.paper,location.field].join(":")} workspace={active} requestedRun={location.run} comparison={location.board?{board_id:location.board,board_revision_id:location.revision??"",paper_id:location.paper,field_id:location.field}:undefined} maxPassages={capabilities!.limits.max_passages??5} refresh={refresh} navigate={navigate}/>}
         {location.page==="history"&&<History workspace={active} refresh={refresh} navigate={navigate}/>}
       </>}</main></div><footer>Exploratory evidence workspace · Human judgments are self-declared and are not independent verification.</footer></>;
 }

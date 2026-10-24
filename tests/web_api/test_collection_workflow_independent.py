@@ -119,6 +119,33 @@ def make_board(case, preparation, key="board"):
     return case.root + "/boards/" + view["definition"]["board_id"], view
 
 
+def test_collection_board_passage_search_retains_origin_and_returns_exact_cell_source(workflow):
+    case = workflow
+    prepared = finish_preparation(case, collection_job(case))
+    board, view = make_board(case, prepared)
+    definition = view['definition']
+    scope = {'board_id': definition['board_id'], 'board_revision_id': definition['revision_id'],
+             'paper_id': definition['paper_ids'][0], 'field_id': 'microbiome'}
+    params = {'revision_id': scope['board_revision_id'], 'paper_id': scope['paper_id'], 'field_id': scope['field_id']}
+    context = case.client.get(board + '/passage-search-context', params=params)
+    assert context.status_code == 200, context.text
+    assert context.json()['paper_ids'] == [scope['paper_id']]
+    response = case.client.post(case.root + '/evidence-runs', json={'request_id': 'collection-board-passages',
+        'question': context.json()['question'], 'top_k': 10, 'expected_preparation_id': prepared['id'],
+        'expected_source_revision': prepared['source_revision'], 'board_context': scope})
+    assert response.status_code == 200, response.text
+    run = response.json()
+    assert run['schema_version'] == 'mvp.collection-lexical-evidence.v2'
+    assert run['collection_ref'] == case.collection['origin'] and run['search_id'] is None
+    assert run['passages'] and {passage['paper_id'] for passage in run['passages']} == {scope['paper_id']}
+    before = case.client.get(board + '/exports?format=json').json()
+    opened = case.client.get(board + '/passage-source-context', params={**params, 'run_id': run['id'],
+        'passage_id': run['passages'][0]['id']})
+    assert opened.status_code == 200, opened.text
+    assert opened.json()['reference']['quote'] == run['passages'][0]['anchor']['quote'][:4000]
+    assert case.client.get(board + '/exports?format=json').json() == before
+
+
 def save_and_submit(case, board, view, paper_id, field_id, data, key):
     draft_url = board + "/drafts/" + quote(paper_id, safe="") + "/" + field_id
     draft = case.client.put(draft_url, json={"expected_revision_id": view["definition"]["revision_id"], "version": 0,

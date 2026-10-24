@@ -213,10 +213,31 @@ class RetrieveEvidenceRequest(Model):
         return value
 
 
+class BoardPassageScope(Model):
+    """An owned board revision, optionally narrowed to one exact cell."""
+    board_id: str = Field(min_length=1, max_length=200)
+    board_revision_id: str = Field(min_length=1, max_length=200)
+    paper_id: str | None = Field(default=None, min_length=1, max_length=200)
+    field_id: str | None = Field(default=None, min_length=1, max_length=100)
+
+    @model_validator(mode="after")
+    def exact_cell(self):
+        if (self.paper_id is None) != (self.field_id is None):
+            raise ValueError("A cell search requires both the paper and field")
+        return self
+
+
 class BoundRetrieveEvidenceRequest(RetrieveEvidenceRequest):
     """Web submission bound to the preparation the researcher actually saw."""
     expected_preparation_id: str = Field(min_length=1)
     expected_source_revision: int = Field(ge=1, strict=True)
+    board_context: BoardPassageScope | None = None
+
+    @model_validator(mode="after")
+    def board_passage_limit(self):
+        if self.board_context is not None and self.top_k < 5:
+            raise ValueError("Comparison passage searches request from 5 to 30 passages")
+        return self
 
 
 class Anchor(Model):

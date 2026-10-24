@@ -7,7 +7,7 @@ from src.mvp.collection_contracts import CollectionInputRef, PaperInputRef
 from src.mvp.workspace_versions import CollectionEvidenceRun
 from src.mvp.limits import public_limits
 from src.mvp.contracts import (
-    Model, Assessment, Block, EvidenceRun, Paper, Passage, StructuredError,
+    Model, Assessment, Block, BoardPassageScope, EvidenceRun, Paper, Passage, StructuredError,
 )
 
 class SessionInfo(Model):
@@ -52,6 +52,7 @@ class RunSummary(Model):
     created_at: str
     passage_count: int
     current: bool
+    board_context: BoardPassageScope | None = None
 
 class CollectionRunSummary(RunSummary):
     search_id: None = None

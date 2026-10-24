@@ -71,3 +71,9 @@ browser-state.json
 storage-state.json
 cookies.json
 *cookie*jar*
+
+# Generated local-preview setup and publication assets are not source inputs.
+.venv-preview/
+.local-preview-setup.json
+.local-preview-install.lock
+/showcase/portfolio/public/downloads/

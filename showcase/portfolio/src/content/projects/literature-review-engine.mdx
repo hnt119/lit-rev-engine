@@ -1,0 +1,29 @@
+import LiteratureShowcase from '@/components/LiteratureShowcase';
+
+export const entry = {
+  "title": "Literature review engine",
+  "description": "Compare papers and inspect the exact passages behind a research note.",
+  "category": "Research tools",
+  "status": "Local prototype · public offline demo",
+  "order": 1,
+  "source": "https://github.com/hnt119/lit-rev-engine",
+  "sourceLabel": "View the public repository"
+};
+
+A question can lead to many papers and several plausible interpretations. This local research tool keeps retained sources, comparison notes, exact quotation anchors and explicit review decisions together, so a researcher can return to the evidence behind a value.
+
+[Try the saved-paper demo](#literature-saved-demo) below. It runs entirely in this page using public, licensed excerpts. The downloadable local application is separate; this website does not host a research workspace.
+
+<LiteratureShowcase />
+
+## What the local engine does
+
+The existing Next.js and FastAPI application supports exploratory paper discovery, source preparation, a saved semantic map, source-linked comparison boards, manual cell revisions and CSV/JSON exports. Sources and review history stay in local storage. Optional model features remain separately configured; this demonstration makes no API or model calls.
+
+The [manual comparison-board guide](https://github.com/hnt119/lit-rev-engine/blob/9891ac352d39c66395e21af2e9732a76b076d002/docs/manual_comparison_board.md) explains the review workflow. The [public source bundle](https://github.com/hnt119/lit-rev-engine/tree/9891ac352d39c66395e21af2e9732a76b076d002/examples/mvp/offline_microbiome_30_v1) records capture provenance, licenses, attribution and source hashes for the saved 30-paper example.
+
+## What this demonstration establishes
+
+The three displayed papers are real retained CC BY sources. Their quotation text and code-point offsets are checked against the engine’s existing canonical JATS parser. The comparison values are illustrative notes created for this page, not submitted judgments from a human review. A cell opens one curated saved passage result, then its exact source; explicit return actions bring you back to that cell. This is saved example retrieval, not a newly executed query or a recall benchmark. Filtering only changes this saved list; it does not run a search, rank papers or refit a map.
+
+Exact text and checksums establish source identity and location. They do not establish scientific support, clinical validity, study eligibility or independent verification. The displayed context is partial, and an unresolved field does not prove whole-paper absence. This is a software demonstration; researcher usefulness and review quality require separate evaluation.

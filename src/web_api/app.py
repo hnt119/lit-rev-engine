@@ -327,7 +327,9 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
 
     @app.post(PREFIX + "/workspaces/{workspace_id}/evidence-runs", response_model=EvidenceRun | CollectionEvidenceRun, dependencies=dependencies)
     def retrieve(workspace_id: str, request: BoundRetrieveEvidenceRequest, session=Depends(session_for)):
-        _, handle, engine = owned(workspace_id, session)
+        mode, handle, engine = owned(workspace_id, session)
+        if request.board_context is not None:
+            return app.state.boards.retrieve_passages(mode, handle, request)
         return engine.retrieve_evidence_bound(handle, request)
 
     @app.get(PREFIX + "/workspaces/{workspace_id}/runs/{run_id}", response_model=RunView, dependencies=dependencies)
@@ -461,6 +463,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.get(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def get_draft(workspace_id: str, scope: str, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('board-evidence:'):
+            return DraftRecord(**app.state.boards.passage_draft(mode, handle, scope))
         scope_parts = usability_scope(scope)
         if scope_parts is not None:
             return usability_draft(mode, handle, engine, workspace_id, scope, scope_parts)
@@ -472,6 +476,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.put(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def put_draft(workspace_id: str, scope: str, request: DraftUpdate, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('board-evidence:'):
+            return DraftRecord(**app.state.boards.passage_draft(mode, handle, scope, request))
         scope_parts = usability_scope(scope)
         if scope_parts is not None:
             return usability_draft(mode, handle, engine, workspace_id, scope, scope_parts, request)

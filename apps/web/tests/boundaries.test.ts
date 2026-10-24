@@ -19,7 +19,11 @@ test("Host, Origin and fixed loopback upstream are enforced",()=>{
   assert.equal(browserBoundary("127.0.0.1:3000",null,origin,true),false);
   assert.equal(browserBoundary("evil.example",origin.origin,origin,false),false);
   assert.equal(browserBoundary(origin.host,"https://evil.example",origin,false),false);
-  for(const value of ["http://example.com:8765","http://localhost:8765","http://127.0.0.1:8765/path","http://user:secret@127.0.0.1:8765"])assert.throws(()=>localOrigin(value));
+  const named=localOrigin("http://localhost:3088");
+  assert.equal(browserBoundary("localhost:3088",named.origin,named,true),true);
+  assert.equal(browserBoundary("127.0.0.1:3088",named.origin,named,true),false);
+  assert.equal(browserBoundary(named.host,"http://127.0.0.1:3088",named,true),false);
+  for(const value of ["http://example.com:8765","http://localhost.evil.example:8765","http://127.0.0.2:8765","http://127.0.0.1:8765/path","http://user:secret@127.0.0.1:8765"])assert.throws(()=>localOrigin(value));
 });
 test("query allowlist rejects duplicates and arbitrary proxy destinations",()=>{
   assert.equal(allowedQuery("workspaces/a/exports",new URLSearchParams("format=csv")),true);
@@ -29,6 +33,27 @@ test("query allowlist rejects duplicates and arbitrary proxy destinations",()=>{
   assert.equal(allowedQuery("workspaces/a/maps",new URLSearchParams("search_id=s")),true);
   assert.equal(allowedQuery("workspaces/a/maps",new URLSearchParams()),false);
   assert.equal(allowedQuery("workspaces/a/maps",new URLSearchParams(),"POST"),true);
+});
+test("comparison passage bridge admits only read-only implemented context routes",()=>{
+  const board="workspaces/w/boards/b";
+  for(const suffix of ["passage-search-context","passage-source-context"]){
+    const path=`${board}/${suffix}`;
+    assert.equal(allowedRoute("GET",path),true,path);
+    for(const method of ["POST","PUT","DELETE","PATCH"])assert.equal(allowedRoute(method,path),false,method+" "+path);
+    for(const other of [path+"/raw",path+"/",`workspaces/w/${suffix}`,`${board}/other-${suffix}`])assert.equal(allowedRoute("GET",other),false,other);
+    assert.equal(allowedQuery(path,new URLSearchParams("revision_id=r"),"POST"),false);
+  }
+});
+test("comparison passage queries carry exact bounded identifiers and reject ambiguous or unsupported inputs",()=>{
+  const search="workspaces/w/boards/b/passage-search-context",source="workspaces/w/boards/b/passage-source-context";
+  const cell="revision_id=r&paper_id=pmid%3A1&field_id=diet%3Afield";
+  assert.equal(allowedQuery(search,new URLSearchParams("revision_id=r")),true);
+  assert.equal(allowedQuery(search,new URLSearchParams(cell)),true);
+  assert.equal(allowedQuery(source,new URLSearchParams(cell+"&run_id=run&passage_id=passage")),true);
+  for(const query of ["","paper_id=p&field_id=f","revision_id=","revision_id=r&paper_id=p","revision_id=r&field_id=f",cell+"&revision_id=other",cell+"&field_id=other",cell+"&question=private",cell+"&quote=private",cell+"&url=https://other.example",cell+"&run_id=run","revision_id="+"x".repeat(201)])
+    assert.equal(allowedQuery(search,new URLSearchParams(query)),false,query);
+  for(const query of ["",cell,cell+"&run_id=run",cell+"&passage_id=passage",cell+"&run_id=run&passage_id=",cell+"&run_id=run&passage_id=passage&run_id=other",cell+"&run_id=run&passage_id=passage&archived=true",cell+"&run_id=run&passage_id=passage&source_id=other"])
+    assert.equal(allowedQuery(source,new URLSearchParams(query)),false,query);
 });
 test("bridge bounds both declared and streamed bodies before upstream buffering",async()=>{
   assert.equal(new TextDecoder().decode(await boundedBody(new Request("http://127.0.0.1",{method:"POST",body:"{}"}))),"{}");

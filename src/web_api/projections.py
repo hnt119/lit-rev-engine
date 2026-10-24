@@ -21,9 +21,20 @@ def preparation_summary(preparation):
 
 
 def run_summary(run, state, current_preparation):
+    from src.mvp.contracts import BoardPassageScope
+    from src.mvp.ports import MvpError
+    from pydantic import ValidationError
     model = CollectionRunSummary if hasattr(run, 'collection_ref') else RunSummary
+    context = run.parameters.get('board_passage_context')
+    try:
+        scope = (BoardPassageScope.model_validate({key: context[key] for key in BoardPassageScope.model_fields})
+                 if isinstance(context, dict) else None)
+        if context is not None and scope is None:
+            raise ValueError('Invalid retained scope')
+    except (ValidationError, ValueError, KeyError):
+        raise MvpError('source_integrity_error', 'The retained comparison passage scope is unsupported or invalid.') from None
     return model(**run.model_dump(include={'id', 'search_id', 'collection_ref', 'preparation_id', 'source_revision', 'question', 'created_at'}),
-        passage_count=len(run.passages), current=run.source_revision == state.source_revision and current_preparation is not None and run.preparation_id == current_preparation.id)
+        board_context=scope, passage_count=len(run.passages), current=run.source_revision == state.source_revision and current_preparation is not None and run.preparation_id == current_preparation.id)
 
 
 def workspace_summary(state, mode):

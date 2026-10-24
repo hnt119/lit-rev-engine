@@ -8,7 +8,7 @@ import json
 from dataclasses import dataclass
 from pydantic import ValidationError
 from .board_contracts import *
-from .contracts import digest, new_id, now
+from .contracts import BoardPassageScope, digest, new_id, now
 from .adapters.board_storage import BoardStore, unavailable
 from .adapters.retrieval import LexicalRetrieval
 from .ports import MvpError
@@ -123,6 +123,128 @@ class EvidenceBoardService:
         if freshness != 'current':
             raise MvpError('stale_board_revision', 'Board definition or prepared sources changed. Create an explicit definition revision before editing; historical judgments remain readable.')
         return definition
+
+    def _passage_search_context(self, state, db, scope, *, require_current=True):
+        definition = (self._writable(state, db, scope.board_id, scope.board_revision_id)
+                      if require_current else self.store.definition(db, state.id, scope.board_id, scope.board_revision_id))
+        _, _, sources = self._dependencies(state, definition)
+        if definition.retrieval_profile.get('profile_id', LEGACY_BOARD_PROFILE) not in {LEGACY_BOARD_PROFILE, SPAN_BOARD_PROFILE}:
+            raise MvpError('unsupported_board_profile', 'This comparison retains an unsupported profile. Its sources were not silently replaced.')
+        field = self._cell(definition, scope.paper_id, scope.field_id) if scope.paper_id is not None else None
+        paper_ids = [scope.paper_id] if field is not None else definition.paper_ids
+        selected = [source for source in sources if source.paper_id in paper_ids]
+        context = BoardPassageSearchContext(**scope.model_dump(), preparation_id=definition.preparation_id,
+            source_revision=definition.source_revision, source_manifest_sha256=definition.source_manifest_sha256,
+            board_paper_ids=definition.paper_ids, paper_ids=paper_ids,
+            sources=[source for source in definition.sources if source.paper_id in paper_ids],
+            papers=[paper for paper in definition.papers if paper.id in paper_ids], board_question=definition.question,
+            question=field.subquestion if field else definition.question,
+            field_revision_id=field.revision_id if field else None, field_label=field.label if field else None)
+        return context, selected
+
+    def passage_search_context(self, mode, handle, scope):
+        return self._with(mode, handle, lambda state, db: self._passage_search_context(state, db, scope)[0])
+
+    @staticmethod
+    def _matching_passage_run(state, context, run_id):
+        from .origin_resolver import resolve_run
+        run = _find(state.runs, run_id, 'run')
+        if run.parameters.get('board_passage_context') != context.model_dump(mode='json'):
+            raise MvpError('unrelated_comparison_run', 'This saved passage run does not belong to the exact comparison, paper scope and field.')
+        if run.preparation_id != context.preparation_id or run.source_revision != context.source_revision:
+            raise MvpError('board_integrity', 'The saved passage run preparation does not match this comparison.')
+        preparation, _ = resolve_run(state, run)
+        _assert_source_integrity(preparation.sources)
+        if run.source_snapshot_sha256 != digest(_manifest(preparation.sources)):
+            raise MvpError('source_integrity_error', 'The saved passage run manifest does not match its original preparation.')
+        if any(passage.paper_id not in context.paper_ids for passage in run.passages):
+            raise MvpError('board_integrity', 'The saved passage run contains a paper outside this comparison scope.')
+        return run
+
+    def retrieve_passages(self, mode, handle, request):
+        """Delegate to the existing ranker under its original publication lock."""
+        def resolve(state, scope):
+            with self.store.connection() as db:
+                self.store.alive(db, state.id)
+                return self._passage_search_context(state, db, scope)
+        with self.registry.lifecycle_guard(handle.workspace_id):
+            if self.registry.is_deleted(handle.workspace_id):
+                raise unavailable('workspace')
+            result = self.service_for(mode).retrieve_evidence_bound(handle, request, board_resolver=resolve)
+            # Idempotent receipt replay must also revalidate the board head.
+            def check(state):
+                context, _ = resolve(state, request.board_context)
+                self._matching_passage_run(state, context, result.id)
+            self.service_for(mode).with_workspace_state(handle, check)
+            return result
+
+    @staticmethod
+    def passage_draft_scope(scope):
+        """Decode bounded IDs, never query text, without nested URL escaping."""
+        if not scope.startswith('board-evidence:'):
+            return None
+        parts = scope.removeprefix('board-evidence:').split(':')
+        if len(parts) not in {2, 4} or any(not value or len(value) > 1600 for value in parts):
+            raise MvpError('invalid_draft_scope', 'Use an exact comparison revision and optional paper/field draft scope.')
+        try:
+            decoded = parts[:2] + [bytes.fromhex(value).decode('utf-8') for value in parts[2:]]
+            if any(value.encode('utf-8').hex() != encoded for value, encoded in zip(decoded[2:], parts[2:])):
+                raise ValueError('Use canonical lowercase UTF-8 hex cell identifiers')
+            return BoardPassageScope(board_id=decoded[0], board_revision_id=decoded[1],
+                paper_id=decoded[2] if len(parts) == 4 else None, field_id=decoded[3] if len(parts) == 4 else None)
+        except (ValueError, UnicodeError):
+            raise MvpError('invalid_draft_scope', 'Use bounded comparison identifiers for this search draft.') from None
+
+    def passage_draft(self, mode, handle, scope, request=None):
+        identity = self.passage_draft_scope(scope)
+        def validate(state, db):
+            # Retain historical query edits, but retrieval remains current-only.
+            context, _ = self._passage_search_context(state, db, identity, require_current=False)
+            prior = self.registry.draft(state.id, scope)
+            if request is not None and prior['version'] != request.version:
+                raise MvpError('stale_draft', 'A newer saved draft exists. Your local edits were not overwritten; reload for comparison.')
+            data = request.data if request is not None else prior['data']
+            if request is not None or prior['version']:
+                try:
+                    parsed = BoardPassageSearchDraft.model_validate(data)
+                except ValidationError:
+                    raise MvpError('invalid_comparison_search_draft', 'Keep a bounded query, passage count from 5 to 30, and an optional matching saved run.') from None
+                if parsed.selected_run_id is not None:
+                    self._matching_passage_run(state, context, parsed.selected_run_id)
+            if request is None:
+                return prior
+            if request.expected_assessment_head is not None:
+                raise MvpError('invalid_comparison_search_draft', 'Comparison search drafts do not set an assessment head.')
+            return self.registry.put_draft(state.id, scope, **request.model_dump(mode='json'))
+        return self._with(mode, handle, validate)
+
+    def passage_source_context(self, mode, handle, scope, run_id, passage_id):
+        if scope.paper_id is None:
+            raise MvpError('invalid_board_reference', 'Choose an exact comparison cell before opening a passage in its inspector.')
+        def inspect(state, db):
+            context, _ = self._passage_search_context(state, db, scope)
+            run = self._matching_passage_run(state, context, run_id)
+            # Existing exact source checks validate retained hashes, version,
+            # quotation and Unicode range; no client quotation is accepted.
+            source_context = self.service_for(mode)._source_context(state, run,
+                _find(state.preparations, run.preparation_id, 'preparation').sources, passage_id)
+            passage = source_context.passage
+            if passage.paper_id != scope.paper_id:
+                raise MvpError('invalid_board_reference', 'A passage from another paper cannot be opened in this cell.')
+            definition = self._writable(state, db, scope.board_id, scope.board_revision_id)
+            reference = self._reference(state, definition, scope.paper_id, BoardReferenceInput(
+                source_id=passage.source_id, source_version=passage.source_version,
+                source_sha256=passage.source_sha256, blocks_sha256=passage.blocks_sha256,
+                block_id=passage.anchor.block_id, start=passage.anchor.start,
+                end=min(passage.anchor.end, passage.anchor.start + MAX_INSPECTOR_CHARACTERS)))
+            return BoardPassageSourceContext(reference=reference,
+                paper=next(paper for paper in definition.papers if paper.id == scope.paper_id),
+                source=next(source for source in definition.sources if source.source_id == passage.source_id),
+                freshness='current', block=self._chunk(state, definition, source_context.source,
+                    source_context.block, passage.anchor.start), run_id=run.id, passage_id=passage.id,
+                passage_start=passage.anchor.start, passage_end=passage.anchor.end,
+                passage_omitted_after=passage.anchor.end-reference.end)
+        return self._with(mode, handle, inspect)
 
     def _definition(self, state, request, *, board_id=None, parent=None):
         preparation = _find(state.preparations, request.preparation_id, 'preparation')

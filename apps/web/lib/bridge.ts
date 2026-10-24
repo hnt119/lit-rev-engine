@@ -18,6 +18,7 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${w}/collections$`),new RegExp(`^${w}/collections/${id}$`),new RegExp(`^${w}/collections/${id}/(papers|paper)$`),
       new RegExp(`^${w}/maps/${id}$`), new RegExp(`^${w}/maps/${id}/neighbors/${id}$`), new RegExp(`^${w}/jobs/${id}$`),
       new RegExp(`^${w}/boards$`),new RegExp(`^${b}$`),
+      new RegExp(`^${b}/passage-(search|source)-context$`),
       new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${b}/cells/${id}/${id}/history$`),
       new RegExp(`^${b}/sources/${id}/blocks$`),new RegExp(`^${b}/references/${id}/context$`),new RegExp(`^${b}/exports$`),
       new RegExp(`^${b}/(proposal-capabilities|proposals|proposal-audit)$`),new RegExp(`^${b}/proposal-runs/${id}$`),
@@ -38,8 +39,8 @@ export function allowedRoute(method: string, path: string): boolean {
 
 export function localOrigin(value: string): URL {
   const url = new URL(value);
-  if (url.protocol !== "http:" || url.hostname !== "127.0.0.1" || url.username || url.password || url.pathname !== "/" || url.search || url.hash)
-    throw new Error("The local web adapter requires a fixed HTTP 127.0.0.1 origin.");
+  if (url.protocol !== "http:" || !["127.0.0.1", "localhost"].includes(url.hostname) || url.username || url.password || url.pathname !== "/" || url.search || url.hash)
+    throw new Error("The local web adapter requires a fixed HTTP loopback origin.");
   return url;
 }
 
@@ -56,6 +57,14 @@ export function allowedQuery(path:string,query:URLSearchParams,method="GET"):boo
   if(path.endsWith('/collection-preparation-jobs'))return [...query.keys()].every((key,index,keys)=>key==='collection_id'&&keys.indexOf(key)===index);
   if(path.endsWith('/collection-maps'))return query.has('collection_id')&&[...query.keys()].every((key,index,keys)=>key==='collection_id'&&keys.indexOf(key)===index);
   if(/\/boards\/[^/]+/.test(path)){
+    if(/\/passage-(search|source)-context$/.test(path)){
+      const source=path.endsWith('/passage-source-context');
+      const allowed=source?['revision_id','paper_id','field_id','run_id','passage_id']:['revision_id','paper_id','field_id'];
+      const required=source?allowed:['revision_id'];
+      const keys=[...query.keys()];
+      return required.every(key=>query.has(key))&&query.has('paper_id')===query.has('field_id')&&
+        keys.every((key,index)=>allowed.includes(key)&&keys.indexOf(key)===index&&query.get(key)!.length>0&&query.get(key)!.length<=200);
+    }
     if(path.endsWith('/proposals')){
       const keys=[...query.keys()];
       return query.has('revision_id')&&keys.every((key,index)=>['revision_id','paper_id','field_id','offset','limit'].includes(key)&&keys.indexOf(key)===index);

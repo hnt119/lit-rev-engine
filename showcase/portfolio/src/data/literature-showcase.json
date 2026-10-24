@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "websiteBaseSha": "3a03ea54b84d2658901522613641c054e5096637",
+  "sourceCommit": "9891ac352d39c66395e21af2e9732a76b076d002",
+  "bundleId": "offline-microbiome-30-v1",
+  "bundleManifestSha256": "d0b3aab04e11cc735b52c25a7eebbe6eaa755925b880dd3e8bd75a0dfeb8ecae",
+  "capturedAt": "2026-10-21T02:55:39.612270+00:00",
+  "provider": "europe_pmc",
+  "question": "How do dietary exposures relate to gut microbiome findings in Asian women?",
+  "notice": "Three curated papers from a saved 30-paper public collection. Illustrative comparison notes are not submitted researcher judgments, independent verification or review inclusion decisions.",
+  "fields": [
+    {
+      "id": "population",
+      "label": "Population / design"
+    },
+    {
+      "id": "diet",
+      "label": "Diet / exposure"
+    },
+    {
+      "id": "longevity",
+      "label": "Reproductive lifespan"
+    }
+  ],
+  "papers": [
+    {
+      "id": "PMC11058859",
+      "label": "Singapore pregnancy cohort",
+      "title": "Gestational diabetes-related gut microbiome dysbiosis is not influenced by different Asian ethnicities and dietary interventions: a pilot study.",
+      "tags": [
+        "Singapore",
+        "pregnancy",
+        "cohort",
+        "diet"
+      ],
+      "year": "2024",
+      "citation": "Gupta A, Chan SY, Toh R, Low JM, Liu IMZ, Lim SL, Lee LY, Swarup S. Gestational diabetes-related gut microbiome dysbiosis is not influenced by different Asian ethnicities and dietary interventions: a pilot study. Scientific reports. 2024. DOI: 10.1038/s41598-024-60386-y",
+      "pmid": "38684759",
+      "doi": "10.1038/s41598-024-60386-y",
+      "sourceUrl": "https://europepmc.org/articles/PMC11058859",
+      "retainedXmlUrl": "https://github.com/hnt119/lit-rev-engine/blob/9891ac352d39c66395e21af2e9732a76b076d002/examples/mvp/offline_microbiome_30_v1/PMC11058859.xml",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "© The Author(s) 2024 Gupta A; Chan SY; Toh R; Low JM; Liu IMZ; Lim SL; Lee LY; Swarup S. Gestational diabetes-related gut microbiome dysbiosis is not influenced by different Asian ethnicities and dietary interventions: a pilot study. DOI: 10.1038/s41598-024-60386-y",
+      "sourceSha256": "fc00181532963154df388353a51a68827a147024b5d518af663f538f82a81095",
+      "metadataSha256": "dc095b18ba66dd1b9141001cce3bdc3a644ec37f3a0afb9e0de2c79f7c809030",
+      "parserId": "lit-rev-engine.source.v1.jats_xml",
+      "cells": [
+        {
+          "fieldId": "population",
+          "excerptId": "PMC11058859-population",
+          "value": "53 women with GDM; 16 without. Pilot cohort in Singapore.",
+          "state": "illustrative_note"
+        },
+        {
+          "fieldId": "diet",
+          "excerptId": "PMC11058859-diet",
+          "value": "Dietary counselling and lifestyle modifications following GDM diagnosis.",
+          "state": "illustrative_note"
+        },
+        {
+          "fieldId": "longevity",
+          "excerptId": "PMC11058859-longevity",
+          "value": null,
+          "state": "not_established"
+        }
+      ],
+      "excerpts": [
+        {
+          "id": "PMC11058859-population",
+          "fieldId": "population",
+          "quote": "This pilot prospective cohort study examined the impact of ethnicity on gut dysbiosis in GDM among three Asian ethnic groups (Chinese, Malay, Indian) living in Singapore, and investigated the potential modulatory roles of diet and lifestyle modifications on gut microbiome post-GDM diagnosis. Women with GDM (n = 53) and without GDM (n = 16) were recruited.",
+          "blockId": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/p[1]",
+          "section": "Abstract",
+          "sourceType": "abstract",
+          "quoteStart": 389,
+          "quoteEnd": 746,
+          "contextStart": 229,
+          "contextEnd": 926,
+          "blockLength": 2242,
+          "context": "among different ethnic groups, limited information is available about the influence of ethnicity on gut microbiome dysbiosis in pregnancies complicated by GDM. This pilot prospective cohort study examined the impact of ethnicity on gut dysbiosis in GDM among three Asian ethnic groups (Chinese, Malay, Indian) living in Singapore, and investigated the potential modulatory roles of diet and lifestyle modifications on gut microbiome post-GDM diagnosis. Women with GDM (n = 53) and without GDM (n = 16) were recruited. Fecal samples were collected at 24–28- and 36–40-weeks’ gestation and analyzed by targeted 16S rRNA gene-based amplicon sequencing. Permutational multivariate analysis of variance"
+        },
+        {
+          "id": "PMC11058859-diet",
+          "fieldId": "diet",
+          "quote": "All women with GDM underwent dietary counselling and lifestyle modifications to control glucose levels during pregnancy.",
+          "blockId": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+          "section": "Dietary intervention and gut microbiome profile in women with GDM",
+          "sourceType": "full_text",
+          "quoteStart": 0,
+          "quoteEnd": 120,
+          "contextStart": 0,
+          "contextEnd": 300,
+          "blockLength": 1187,
+          "context": "All women with GDM underwent dietary counselling and lifestyle modifications to control glucose levels during pregnancy. In most cases, lifestyle interventions were deemed adequate. Analyses here were restricted to the 39 (72%) women with GDM who provided paired samples across both time points: at 2"
+        },
+        {
+          "id": "PMC11058859-longevity",
+          "fieldId": "longevity",
+          "quote": "Analyses here were restricted to the 39 (72%) women with GDM who provided paired samples across both time points: at 24–28 weeks soon after GDM diagnosis, and at 36–40 weeks after dietary modification for 2–3 months.",
+          "blockId": "xml:/article[1]/body[1]/sec[2]/sec[7]/p[1]",
+          "section": "Dietary intervention and gut microbiome profile in women with GDM",
+          "sourceType": "full_text",
+          "quoteStart": 182,
+          "quoteEnd": 398,
+          "contextStart": 22,
+          "contextEnd": 578,
+          "blockLength": 1187,
+          "context": "erwent dietary counselling and lifestyle modifications to control glucose levels during pregnancy. In most cases, lifestyle interventions were deemed adequate. Analyses here were restricted to the 39 (72%) women with GDM who provided paired samples across both time points: at 24–28 weeks soon after GDM diagnosis, and at 36–40 weeks after dietary modification for 2–3 months. Overall, the microbiome profiles showed no significant differences between the two time points (PERMANOVA, p > 0.05) (Fig. 7a). Similar results were observed when women who underw"
+        }
+      ]
+    },
+    {
+      "id": "PMC11820775",
+      "label": "Cheonggukjang trial",
+      "title": "The Efficacy of Cheonggukjang in Alleviating Menopausal Syndrome and Its Effects on the Gut Microbiome: A Randomized, Double-Blind Trial.",
+      "tags": [
+        "menopause",
+        "fermented soybeans",
+        "randomized trial",
+        "diet"
+      ],
+      "year": "2025",
+      "citation": "Han AL, Ryu MS, Yang HJ, Jeong DY, Choi KH. The Efficacy of Cheonggukjang in Alleviating Menopausal Syndrome and Its Effects on the Gut Microbiome: A Randomized, Double-Blind Trial. Nutrients. 2025. DOI: 10.3390/nu17030505",
+      "pmid": "39940363",
+      "doi": "10.3390/nu17030505",
+      "sourceUrl": "https://europepmc.org/articles/PMC11820775",
+      "retainedXmlUrl": "https://github.com/hnt119/lit-rev-engine/blob/9891ac352d39c66395e21af2e9732a76b076d002/examples/mvp/offline_microbiome_30_v1/PMC11820775.xml",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "© 2025 by the authors. Han AL; Ryu MS; Yang HJ; Jeong DY; Choi KH. The Efficacy of Cheonggukjang in Alleviating Menopausal Syndrome and Its Effects on the Gut Microbiome: A Randomized, Double-Blind Trial. DOI: 10.3390/nu17030505",
+      "sourceSha256": "a734f911fd243db53fe6f64b425619c8d64ddd4299c99f3c993ee4cd6eff1b10",
+      "metadataSha256": "85b55bb833cea52366fc721339e83c5fd4ad4e32c1653168d44867e151be105c",
+      "parserId": "lit-rev-engine.source.v1.jats_xml",
+      "cells": [
+        {
+          "fieldId": "population",
+          "excerptId": "PMC11820775-population",
+          "value": "60 postmenopausal women; randomized, double-blind trial.",
+          "state": "illustrative_note"
+        },
+        {
+          "fieldId": "diet",
+          "excerptId": "PMC11820775-diet",
+          "value": "3.3 g/day of Cheonggukjang tablets for 8 weeks.",
+          "state": "illustrative_note"
+        },
+        {
+          "fieldId": "longevity",
+          "excerptId": "PMC11820775-longevity",
+          "value": null,
+          "state": "not_established"
+        }
+      ],
+      "excerpts": [
+        {
+          "id": "PMC11820775-population",
+          "fieldId": "population",
+          "quote": "In this randomized, double-blind clinical trial, 60 postmenopausal women were assigned to three groups: high-beneficial-microorganism content Cheonggukjang (HTC), low-beneficial-microorganism content Cheonggukjang (LTC), and commercially available Cheonggukjang (CC).",
+          "blockId": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/p[1]",
+          "section": "Abstract",
+          "sourceType": "abstract",
+          "quoteStart": 541,
+          "quoteEnd": 808,
+          "contextStart": 381,
+          "contextEnd": 988,
+          "blockLength": 1945,
+          "context": "oving metabolic parameters in postmenopausal women. Additionally, the effect of Cheonggukjang on the gut microbiome was assessed using stool analysis. Methods: In this randomized, double-blind clinical trial, 60 postmenopausal women were assigned to three groups: high-beneficial-microorganism content Cheonggukjang (HTC), low-beneficial-microorganism content Cheonggukjang (LTC), and commercially available Cheonggukjang (CC). Participants consumed 3.3 g of Cheonggukjang tablets daily for 8 weeks. We assessed menopausal symptom relief using the Kupperman index, metabolic parameters, and changes in the g"
+        },
+        {
+          "id": "PMC11820775-diet",
+          "fieldId": "diet",
+          "quote": "Participants consumed 3.3 g of Cheonggukjang tablets daily for 8 weeks.",
+          "blockId": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/p[1]",
+          "section": "Abstract",
+          "sourceType": "abstract",
+          "quoteStart": 809,
+          "quoteEnd": 880,
+          "contextStart": 649,
+          "contextEnd": 1060,
+          "blockLength": 1945,
+          "context": "-beneficial-microorganism content Cheonggukjang (HTC), low-beneficial-microorganism content Cheonggukjang (LTC), and commercially available Cheonggukjang (CC). Participants consumed 3.3 g of Cheonggukjang tablets daily for 8 weeks. We assessed menopausal symptom relief using the Kupperman index, metabolic parameters, and changes in the gut microbiome using stool analysis. Results: The Kupperman index scores "
+        },
+        {
+          "id": "PMC11820775-longevity",
+          "fieldId": "longevity",
+          "quote": "This study was designed as a randomized, double-blind clinical trial conducted over an 8-week period (Registration Number KCT 0010017).",
+          "blockId": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+          "section": "2.2. Study Design",
+          "sourceType": "full_text",
+          "quoteStart": 0,
+          "quoteEnd": 135,
+          "contextStart": 0,
+          "contextEnd": 315,
+          "blockLength": 750,
+          "context": "This study was designed as a randomized, double-blind clinical trial conducted over an 8-week period (Registration Number KCT 0010017). The participants visited the research center three times during the course of the trial. After 8 weeks of Cheonggukjang supplementation, participants returned for evaluation of vi"
+        }
+      ]
+    },
+    {
+      "id": "PMC12567037",
+      "label": "Japanese women / body weight",
+      "title": "Gut Microbiota α- and β-Diversity, but Not Dietary Patterns, Differ Between Underweight and Normal-Weight Japanese Women Aged 20-39 Years.",
+      "tags": [
+        "Japan",
+        "young women",
+        "observational",
+        "dietary patterns"
+      ],
+      "year": "2025",
+      "citation": "Yamamoto-Wada R, Hiraiwa E, Okuma K, Yamada M, Ushiroda C, Deguchi K, Naruse H, Masuyama H, Iizuka K. Gut Microbiota α- and β-Diversity, but Not Dietary Patterns, Differ Between Underweight and Normal-Weight Japanese Women Aged 20-39 Years. Nutrients. 2025. DOI: 10.3390/nu17203265",
+      "pmid": "41156517",
+      "doi": "10.3390/nu17203265",
+      "sourceUrl": "https://europepmc.org/articles/PMC12567037",
+      "retainedXmlUrl": "https://github.com/hnt119/lit-rev-engine/blob/9891ac352d39c66395e21af2e9732a76b076d002/examples/mvp/offline_microbiome_30_v1/PMC12567037.xml",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "© 2025 by the authors. Yamamoto-Wada R; Hiraiwa E; Okuma K; Yamada M; Ushiroda C; Deguchi K; Naruse H; Masuyama H; Iizuka K. Gut Microbiota α- and β-Diversity, but Not Dietary Patterns, Differ Between Underweight and Normal-Weight Japanese Women Aged 20-39 Years. DOI: 10.3390/nu17203265",
+      "sourceSha256": "1672c8554fc5933e90f7eb4ab19751138be242ac18742ce956667e13e58941e2",
+      "metadataSha256": "a07a5b9d3c3bdd05a1b9f8c59dc6a1f6a3ca94a00962aad842a9960c559e4a4f",
+      "parserId": "lit-rev-engine.source.v1.jats_xml",
+      "cells": [
+        {
+          "fieldId": "population",
+          "excerptId": "PMC12567037-population",
+          "value": "40 underweight women and 40 controls, aged 20–39 years.",
+          "state": "illustrative_note"
+        },
+        {
+          "fieldId": "diet",
+          "excerptId": "PMC12567037-diet",
+          "value": "Food-frequency questionnaire covering ten food categories.",
+          "state": "illustrative_note"
+        },
+        {
+          "fieldId": "longevity",
+          "excerptId": "PMC12567037-longevity",
+          "value": null,
+          "state": "not_established"
+        }
+      ],
+      "excerpts": [
+        {
+          "id": "PMC12567037-population",
+          "fieldId": "population",
+          "quote": "We enrolled 40 women aged 20–39 years who visited a nutrition evaluation clinic with a BMI < 17.5 at their first consultation (underweight group) and 40 age-matched women with 18.5 ≤ BMI < 25 (control group).",
+          "blockId": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/p[1]",
+          "section": "Abstract",
+          "sourceType": "abstract",
+          "quoteStart": 358,
+          "quoteEnd": 566,
+          "contextStart": 198,
+          "contextEnd": 746,
+          "blockLength": 2256,
+          "context": "ng causes remain unclear. This study aimed to examine the associations of body type with dietary patterns and gut microbiota diversity in young women. Methods: We enrolled 40 women aged 20–39 years who visited a nutrition evaluation clinic with a BMI < 17.5 at their first consultation (underweight group) and 40 age-matched women with 18.5 ≤ BMI < 25 (control group). Some women in the underweight group were no longer underweight at the time of analysis but were classified based on their initial BMI. Dietary patterns were assessed based on ten "
+        },
+        {
+          "id": "PMC12567037-diet",
+          "fieldId": "diet",
+          "quote": "Dietary patterns were assessed based on ten major food categories (meat, fish, eggs, dairy products, soybeans, green and yellow vegetables, seaweed, fruit, tubers, and fats and oil) based on the Food Frequency Questionnaire based on Food Groups.",
+          "blockId": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/p[1]",
+          "section": "Abstract",
+          "sourceType": "abstract",
+          "quoteStart": 702,
+          "quoteEnd": 947,
+          "contextStart": 542,
+          "contextEnd": 1127,
+          "blockLength": 2256,
+          "context": "MI < 25 (control group). Some women in the underweight group were no longer underweight at the time of analysis but were classified based on their initial BMI. Dietary patterns were assessed based on ten major food categories (meat, fish, eggs, dairy products, soybeans, green and yellow vegetables, seaweed, fruit, tubers, and fats and oil) based on the Food Frequency Questionnaire based on Food Groups. Gut microbiota α-diversity was evaluated using the Shannon, Simpson, and Pielou indices, while β-diversity was analyzed by nonmetric multidimensional scaling (NMDS) and redundancy"
+        },
+        {
+          "id": "PMC12567037-longevity",
+          "fieldId": "longevity",
+          "quote": "This study was conducted as a cross-sectional observational study to compare the dietary pattern and gut microbiota profiles between normal weight and underweight groups in Japanese young adult women aged 20–39 years.",
+          "blockId": "xml:/article[1]/body[1]/sec[2]/sec[1]/p[1]",
+          "section": "2.1. Study Design",
+          "sourceType": "full_text",
+          "quoteStart": 0,
+          "quoteEnd": 217,
+          "contextStart": 0,
+          "contextEnd": 397,
+          "blockLength": 1422,
+          "context": "This study was conducted as a cross-sectional observational study to compare the dietary pattern and gut microbiota profiles between normal weight and underweight groups in Japanese young adult women aged 20–39 years. The research participants were young female staff members of Fujita health university hospital who were referred from the health management department to the nutrition assessment "
+        }
+      ]
+    }
+  ]
+}

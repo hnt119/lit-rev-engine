@@ -2,14 +2,17 @@
 from typing import Literal
 
 from fastapi import Depends, Query, Response
+from pydantic import ValidationError
 
 from src.mvp.adapters.board_storage import BoardStore
 from src.mvp.board_contracts import (
     BoardCandidates, BoardCandidatesRequest, BoardCellDraft, BoardCellHistory,
     BoardCellRevision, BoardCreateRequest, BoardDraftPutRequest, BoardListing,
     BoardReferenceContext, BoardReviseRequest, BoardSourceInspection,
-    BoardSubmitRequest, BoardView,
+    BoardSubmitRequest, BoardView, BoardPassageSearchContext, BoardPassageSourceContext,
 )
+from src.mvp.contracts import BoardPassageScope
+from src.mvp.ports import MvpError
 from src.mvp.evidence_board import EvidenceBoardService
 from src.mvp.span_board_contracts import (
     ProfiledBoardCreateRequest, ProfiledBoardReviseRequest, BoardCandidatesResult,
@@ -20,6 +23,34 @@ def install_board_routes(app, *, directory, registry, service, owned, session_fo
     boards = EvidenceBoardService(registry, service, BoardStore(directory / "evidence-boards.sqlite3"))
     app.state.boards = boards
     prefix = "/api/v1/workspaces/{workspace_id}/boards"
+
+    def passage_scope(board_id, revision_id, paper_id, field_id):
+        try:
+            return BoardPassageScope(board_id=board_id, board_revision_id=revision_id,
+                                     paper_id=paper_id, field_id=field_id)
+        except ValidationError:
+            raise MvpError('invalid_board_passage_scope', 'Choose an exact comparison revision and both cell identifiers, or neither.') from None
+
+    @app.get(prefix + "/{board_id}/passage-search-context", response_model=BoardPassageSearchContext, dependencies=dependencies)
+    def passage_search_context(workspace_id: str, board_id: str,
+                               revision_id: str = Query(min_length=1, max_length=200),
+                               paper_id: str | None = Query(default=None, min_length=1, max_length=200),
+                               field_id: str | None = Query(default=None, min_length=1, max_length=100),
+                               session=Depends(session_for)):
+        mode, handle, _ = owned(workspace_id, session)
+        return boards.passage_search_context(mode, handle, passage_scope(board_id, revision_id, paper_id, field_id))
+
+    @app.get(prefix + "/{board_id}/passage-source-context", response_model=BoardPassageSourceContext, dependencies=dependencies)
+    def passage_source_context(workspace_id: str, board_id: str,
+                               revision_id: str = Query(min_length=1, max_length=200),
+                               paper_id: str = Query(min_length=1, max_length=200),
+                               field_id: str = Query(min_length=1, max_length=100),
+                               run_id: str = Query(min_length=1, max_length=200),
+                               passage_id: str = Query(min_length=1, max_length=200),
+                               session=Depends(session_for)):
+        mode, handle, _ = owned(workspace_id, session)
+        return boards.passage_source_context(mode, handle,
+            passage_scope(board_id, revision_id, paper_id, field_id), run_id, passage_id)
 
     @app.get(prefix, response_model=BoardListing, dependencies=dependencies)
     def listing(workspace_id: str, session=Depends(session_for)):

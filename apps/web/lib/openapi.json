@@ -2951,6 +2951,204 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/passage-search-context": {
+      "get": {
+        "summary": "Passage Search Context",
+        "operationId": "passage_search_context_api_v1_workspaces__workspace_id__boards__board_id__passage_search_context_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "field_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Field Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardPassageSearchContext"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/passage-source-context": {
+      "get": {
+        "summary": "Passage Source Context",
+        "operationId": "passage_source_context_api_v1_workspaces__workspace_id__boards__board_id__passage_source_context_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "field_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "title": "Field Id"
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "passage_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Passage Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoardPassageSourceContext"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/boards": {
       "get": {
         "summary": "Listing",
@@ -6060,6 +6258,243 @@
         ],
         "title": "BoardPaper"
       },
+      "BoardPassageScope": {
+        "properties": {
+          "board_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Board Id"
+          },
+          "board_revision_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Board Revision Id"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "field_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Field Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "board_id",
+          "board_revision_id"
+        ],
+        "title": "BoardPassageScope",
+        "description": "An owned board revision, optionally narrowed to one exact cell."
+      },
+      "BoardPassageSearchContext": {
+        "properties": {
+          "board_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Board Id"
+          },
+          "board_revision_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Board Revision Id"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "field_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Field Id"
+          },
+          "preparation_id": {
+            "type": "string",
+            "title": "Preparation Id"
+          },
+          "source_revision": {
+            "type": "integer",
+            "title": "Source Revision"
+          },
+          "source_manifest_sha256": {
+            "type": "string",
+            "title": "Source Manifest Sha256"
+          },
+          "board_paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Board Paper Ids"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Paper Ids"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/BoardSourceBinding"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "papers": {
+            "items": {
+              "$ref": "#/components/schemas/BoardPaper"
+            },
+            "type": "array",
+            "title": "Papers"
+          },
+          "board_question": {
+            "type": "string",
+            "title": "Board Question"
+          },
+          "question": {
+            "type": "string",
+            "title": "Question"
+          },
+          "field_revision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Field Revision Id"
+          },
+          "field_label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Field Label"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "board_id",
+          "board_revision_id",
+          "preparation_id",
+          "source_revision",
+          "source_manifest_sha256",
+          "board_paper_ids",
+          "paper_ids",
+          "sources",
+          "papers",
+          "board_question",
+          "question"
+        ],
+        "title": "BoardPassageSearchContext"
+      },
+      "BoardPassageSourceContext": {
+        "properties": {
+          "reference": {
+            "$ref": "#/components/schemas/BoardReference"
+          },
+          "paper": {
+            "$ref": "#/components/schemas/BoardPaper"
+          },
+          "source": {
+            "$ref": "#/components/schemas/BoardSourceBinding"
+          },
+          "freshness": {
+            "type": "string",
+            "enum": [
+              "current",
+              "historical"
+            ],
+            "title": "Freshness"
+          },
+          "block": {
+            "$ref": "#/components/schemas/BoardBlockChunk"
+          },
+          "run_id": {
+            "type": "string",
+            "title": "Run Id"
+          },
+          "passage_id": {
+            "type": "string",
+            "title": "Passage Id"
+          },
+          "passage_start": {
+            "type": "integer",
+            "title": "Passage Start"
+          },
+          "passage_end": {
+            "type": "integer",
+            "title": "Passage End"
+          },
+          "passage_omitted_after": {
+            "type": "integer",
+            "title": "Passage Omitted After"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reference",
+          "paper",
+          "source",
+          "freshness",
+          "block",
+          "run_id",
+          "passage_id",
+          "passage_start",
+          "passage_end",
+          "passage_omitted_after"
+        ],
+        "title": "BoardPassageSourceContext"
+      },
       "BoardReference": {
         "properties": {
           "source_id": {
@@ -6905,6 +7340,16 @@
             "type": "integer",
             "minimum": 1.0,
             "title": "Expected Source Revision"
+          },
+          "board_context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardPassageScope"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false,
@@ -8462,6 +8907,16 @@
           "current": {
             "type": "boolean",
             "title": "Current"
+          },
+          "board_context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardPassageScope"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "collection_ref": {
             "$ref": "#/components/schemas/CollectionInputRef"
@@ -13406,6 +13861,16 @@
           "current": {
             "type": "boolean",
             "title": "Current"
+          },
+          "board_context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardPassageScope"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false,

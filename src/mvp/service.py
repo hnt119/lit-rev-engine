@@ -168,8 +168,13 @@ class MVPService:
         def execute(state):
             updated, result = callback(state)
             return updated, result.model_dump(mode="json")
+        payload = request.model_dump(mode="json")
+        # Retained unscoped retrieve_bound_v1 request receipts predate this
+        # optional field. Preserve their exact fingerprint for idempotent replay.
+        if isinstance(request, BoundRetrieveEvidenceRequest) and request.board_context is None:
+            payload.pop('board_context', None)
         result = self._storage.transact(handle, operation, request.request_id,
-                                       digest(request.model_dump(mode="json")), execute)
+                                       digest(payload), execute)
         return result_model.model_validate(result)
 
     def search_literature(self, handle: WorkspaceHandle, request: SearchRequest) -> SearchPreview:
@@ -296,8 +301,8 @@ class MVPService:
         result = self._storage.transact_guarded(handle, "prepare_job_v1", job_id, fingerprint, publish, commit_guard)
         return PreparationResult.model_validate(result)
 
-    def retrieve_evidence_bound(self, handle: WorkspaceHandle, request: BoundRetrieveEvidenceRequest) -> EvidenceRun:
-        return self._retrieve_evidence(handle, request, "retrieve_bound_v1")
+    def retrieve_evidence_bound(self, handle: WorkspaceHandle, request: BoundRetrieveEvidenceRequest, *, board_resolver=None) -> EvidenceRun:
+        return self._retrieve_evidence(handle, request, "retrieve_bound_v1", board_resolver=board_resolver)
 
     def publish_collection_preparation_job(self, handle, job_id, expected_source_revision, collection_ref,
                                            paper_ids, sources, commit_guard, expected_preparation_id=None):
@@ -344,7 +349,7 @@ class MVPService:
         result = self._storage.transact_guarded(handle, 'prepare_collection_job_v2', job_id, fingerprint, publish, commit_guard)
         return CollectionPreparationResult.model_validate(result)
 
-    def _retrieve_evidence(self, handle, request, operation):
+    def _retrieve_evidence(self, handle, request, operation, *, board_resolver=None):
         from .collection_preparation_contracts import CollectionPreparationResult
         from .origin_resolver import resolve_preparation
         from .workspace_versions import CollectionEvidenceRun, EvidenceRunReader
@@ -361,15 +366,23 @@ class MVPService:
                 raise MvpError("stale_preparation", "Prepared sources changed since this form was loaded. Keep your question and reload the current preparation.")
             _assert_source_integrity(state.sources)
             resolve_preparation(state, preparation)
+            corpus, scoped_parameters = state.sources, {}
+            if getattr(request, 'board_context', None) is not None:
+                if board_resolver is None:
+                    raise MvpError('unsupported_board_passage_context', 'Resolve the exact comparison binding before passage search.')
+                context, corpus = board_resolver(state, request.board_context)
+                scoped_parameters = {'board_passage_context': context.model_dump(mode='json')}
             run_id = new_id()
-            passages, indexed, matched = self._retrieval.search(request.question, state.sources, run_id, request.top_k)
+            # Corpus restriction happens before the existing ranker. Full preparation
+            # provenance remains unchanged for historical receipts/assessments.
+            passages, indexed, matched = self._retrieval.search(request.question, corpus, run_id, request.top_k)
             model = CollectionEvidenceRun if isinstance(preparation, CollectionPreparationResult) else EvidenceRun
             origin = {'collection_ref': preparation.collection_ref, 'member_snapshot_sha256': preparation.member_snapshot_sha256} if isinstance(preparation, CollectionPreparationResult) else {}
             result = model(id=run_id, search_id=preparation.search_id, preparation_id=preparation.id,
                                  source_revision=state.source_revision, source_snapshot_sha256=digest(_manifest(state.sources)),
                                  question=request.question, passages=passages, indexed_passages=indexed,
                                  matched_passages=matched, parameters={**self._retrieval.parameters,
-                                     'top_k': request.top_k, 'returned_count': len(passages)}, **origin)
+                                     'top_k': request.top_k, 'returned_count': len(passages), **scoped_parameters}, **origin)
             return state.model_copy(update={"runs": [*state.runs, result], "current_run_id": result.id}), result
         result = self._operate(handle, operation, request, EvidenceRunReader, execute)
         self._current_run(self._storage.read(handle), result.id)
