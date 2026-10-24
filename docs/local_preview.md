@@ -155,9 +155,10 @@ exports and model weights. Setup recreates build/runtime artifacts locally.
 A checksum detects changes relative to the supplied manifest; it is not a
 cryptographic publisher signature or a scientific validity claim.
 
-See `DISTRIBUTION_TERMS.md` in the archive for the code-license publication
-blocker and the retained public-paper attribution. No engine code license has
-been selected. Article licenses do not grant a license to the engine itself.
+See `LICENSE` for the standard MIT grant covering the owner's original engine
+code, and `THIRD_PARTY_NOTICES.md` / `DISTRIBUTION_TERMS.md` for preserved article,
+model, dependency and research-data boundaries. Beta status does not restrict
+MIT rights; private research material is not relicensed by the engine.
 
 Actual results, failed attempts, skips and remaining limitations belong in the
 separate local-preview evaluation report. Software checks do not establish

@@ -1,23 +1,29 @@
-# Local preview .2 — distribution terms and audit scope
+# Distribution terms — original engine code under MIT
 
-This is a release-preparation record, not a new license grant. It records the
-existing source/attribution situation for the source-only local preview and
-prepared static portfolio overlay. No license has been selected for the owner.
+SPDX-License-Identifier: MIT
 
-## Unresolved project-code terms
+The owner explicitly selected MIT on 25 October 2026. The original engine code
+and associated original documentation are licensed under the standard MIT
+license in root LICENSE, Copyright (c) 2026 Yixuan Huang. No additional beta,
+noncommercial, no-redistribution or research-only restriction modifies that grant.
+The source-only downloadable distribution retains LICENSE and
+THIRD_PARTY_NOTICES.md. The original engine-code scan found no separate existing
+code copyright header to replace; source-specific third-party notices remain.
+The authoritative standard text is https://opensource.org/license/mit .
 
-**PUBLICATION BLOCKER: the engine's distribution/reuse terms remain unresolved.**
-The repository's existing README explicitly says: “No license has been added
-for the project code.” No `LICENSE`, `COPYING` or `NOTICE` file was found among
-tracked files or matching paths in available Git history. There is therefore no
-existing engine license file to copy into the download. Publisher article
-licenses do not license this engine, launcher, comparison UI or portfolio code.
+## Code, research data and third-party boundaries
 
-The owner must decide the terms under which the application source may be
-distributed/reused before approving public pre-release publication. This record
-does not choose MIT, another open-source license, an end-user agreement or an
-all-rights-reserved policy. Technical packaging checks and permission to push
-the reviewed source branch do not resolve this decision.
+Third-party material is not relicensed under MIT. Article excerpts, original
+research datasets, model weights, dependencies and users' private research
+material retain their own terms and ownership. The MIT grant does not assert
+rights over those materials. Keep the specific notices, attribution and source
+manifests described below. Beta describes maturity/support; software tests do
+not establish scientific quality or clinical validity.
+
+The historical local-preview .2 artifacts and their old hashes remain unchanged.
+The new MIT beta must be rebuilt from its own reviewed exact source commit and
+carry newly generated integrity data. Publication approval is the owner's
+operational review gate, not an additional restriction on MIT's permissions.
 
 ## Approved public research example
 
