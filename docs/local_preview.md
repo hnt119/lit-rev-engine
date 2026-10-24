@@ -1,6 +1,6 @@
-# Literature Review Engine — Local preview, setup required
+# Literature Review Engine — Local beta, setup required
 
-Version: **0.3.0-local-preview.2**. This is a source distribution of the existing
+Version: **0.3.0-beta.1**. This is a source distribution of the existing
 Next.js/FastAPI application. It is not a standalone installer and contains no
 Python, Node.js, Docker, model weights, credentials or research workspaces.
 The public website demonstration is read-only; the research application runs
@@ -17,7 +17,7 @@ on your own computer. Hosted deployment is deferred.
 macOS **26.6.2 arm64 is tested**, with Python 3.12.7 and Node 24.19.0. Fresh
 release checks are recorded separately from historical working-tree results;
 these checks do not imply testing on all macOS versions. Linux installation is
-unverified; Windows is unsupported in this preview because process/control
+unverified; Windows is unsupported in this beta because process/control
 locking uses POSIX facilities. No Docker or native desktop framework is needed.
 Models are optional advanced components, installed and configured separately;
 they are not required for saved-example exploration, lexical retrieval, manual
@@ -28,14 +28,14 @@ comparison, source inspection or exports.
 Keep the ZIP, matching manifest and `SHA256SUMS` together. Before extraction:
 
 ```sh
-shasum -a 256 -c lit-rev-engine-0.3.0-local-preview.2.SHA256SUMS
-unzip lit-rev-engine-0.3.0-local-preview.2.zip
-cd lit-rev-engine-0.3.0-local-preview.2
+shasum -a 256 -c lit-rev-engine-0.3.0-beta.1.SHA256SUMS
+unzip lit-rev-engine-0.3.0-beta.1.zip
+cd lit-rev-engine-0.3.0-beta.1
 python3.12 scripts/local_preview.py setup
 ```
 
 `setup` checks prerequisites, creates `.venv-preview` inside this application
-folder, installs the pinned CPU-only Python requirements and locked web
+folder, installs the pinned core Python requirements and locked web
 dependencies, and builds the production frontend. It does not start a research
 session, download models, search papers or migrate data. Missing tools, wrong
 versions, failed installations and failed builds produce an actionable error;
@@ -86,12 +86,20 @@ an active instance.
 
 Inherited hosted settings and model/provider credentials are removed from the
 child environment. Generation, new map fitting and AI planning are off by
-default. The public saved example includes previously computed map results;
+default. All current Track A UI capabilities can be explicitly enabled through
+the validated private configuration path described in `OPTIONAL_FEATURES.md`;
+use `check-config --config /private/path/settings.json` to inspect availability
+without calls, and `launch --config /private/path/settings.json` to apply it.
+Optional map dependencies use an explicit `setup --with-maps`; weights and local
+LLM serving remain separate. Resource budgets, zero-spend restrictions and
+manual review do not change. The public saved example includes previously computed map results;
 opening those results does not run a model. To deliberately configure live
 PubMed discovery, set your own `NCBI_EMAIL` privately and launch with
 `--allow-live`; an optional `NCBI_API_KEY` is forwarded only with that opt-in.
 That permits the application's live actions to send queries and your contact
-to providers. Do not put credentials inside the distribution or website demo.
+to providers. Do not combine `--allow-live` with `--config`; use the private file
+for a combined live/model configuration. Do not put credentials inside the
+distribution or website demo.
 No live retrieval or inference is needed for the setup/read-only demonstration.
 
 ## Data location, reopening and upgrades
@@ -152,7 +160,9 @@ The release manifest enumerates the actual packaged files and SHA-256 values.
 It excludes developer databases, environment files, caches, browser state,
 runtime environments, `node_modules`, frontend build output, tests, private
 exports and model weights. Setup recreates build/runtime artifacts locally.
-A checksum detects changes relative to the supplied manifest; it is not a
+See `CAPABILITIES.md` for the full Track A UI matrix. Historical CLI, Streamlit,
+arXiv and Kaggle research tools are separate entry points, and Track B is not
+part of this download. A checksum detects changes relative to the supplied manifest; it is not a
 cryptographic publisher signature or a scientific validity claim.
 
 See `LICENSE` for the standard MIT grant covering the owner's original engine
@@ -163,4 +173,4 @@ MIT rights; private research material is not relicensed by the engine.
 Actual results, failed attempts, skips and remaining limitations belong in the
 separate local-preview evaluation report. Software checks do not establish
 human usefulness, scientific support or clinical validity. No hosted service,
-paid inference or release publication is part of this preview preparation.
+paid inference or release publication is part of this beta preparation.

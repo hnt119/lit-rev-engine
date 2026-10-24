@@ -10,12 +10,17 @@ import io
 import json
 from pathlib import Path, PurePosixPath
 import re
+import runpy
 import stat
 import zipfile
 
 
 OVERLAY = Path(__file__).resolve().parents[1]
-VERSION = '0.3.0-local-preview.2'
+ENGINE_ROOT = OVERLAY.parents[1]
+LICENSE_POLICY = runpy.run_path(str(ENGINE_ROOT / 'scripts/license_policy.py'))
+MIT_LICENSE_TEXT = LICENSE_POLICY['MIT_LICENSE_TEXT']
+MIT_LICENSE_SHA256 = LICENSE_POLICY['MIT_LICENSE_SHA256']
+VERSION = '0.3.0-beta.1'
 NAME = 'lit-rev-engine-' + VERSION
 SOURCE_FILES = (
     'README.md', 'src/components/LiteratureShowcase.tsx',
@@ -85,12 +90,26 @@ def validate_release(archive, manifest_path, checksums_path, source_commit):
     for name, record in manifest['files'].items():
         if record != {'bytes': len(payload[name]), 'sha256': sha(payload[name])}:
             raise ValueError('Packaged file mismatch: ' + name)
+    if {'src/review/pilot.py', 'src/web_api/pilot_routes.py',
+            'apps/web/components/review-pilot.tsx'} & set(payload):
+        raise ValueError('The Track B researcher pilot is not part of this Track A beta download.')
     release = json.loads(payload.get('RELEASE.json', b'null'))
     if (not isinstance(release, dict) or release.get('schema') != 'litrev.local-preview.release.v1'
             or release.get('version') != VERSION or release.get('source_commit') != source_commit
             or release.get('source_state') != 'clean committed checkout'
             or release.get('runtimes_bundled') is not False or release.get('models_bundled') is not False):
-        raise ValueError('Bind only the exact clean-commit, source-only local preview release.')
+        raise ValueError('Bind only the exact clean-commit, source-only local beta release.')
+    if (release.get('spdx_license') != 'MIT'
+            or release.get('license_sha256') != MIT_LICENSE_SHA256
+            or payload.get('LICENSE') != MIT_LICENSE_TEXT.encode('utf-8')
+            or not payload.get('README.md')
+            or not payload.get('DISTRIBUTION_TERMS.md')
+            or not payload.get('THIRD_PARTY_NOTICES.md')):
+        raise ValueError('Bind only the approved standard MIT beta with its separate distribution notices.')
+    # The code grant does not relicense the public articles or their attribution.
+    if (not payload.get('examples/mvp/offline_microbiome_30_v1/README.md')
+            or not payload.get('examples/mvp/offline_microbiome_30_v1/manifest.json')):
+        raise ValueError('The beta must retain its public-source attribution and license manifest.')
     snapshot = {name: sha(value) for name, value in payload.items()
                 if name not in {'RELEASE.json', 'MANIFEST.json'}}
     if release.get('source_snapshot_sha256') != sha(encoded(snapshot)):
@@ -102,9 +121,16 @@ def validate_release(archive, manifest_path, checksums_path, source_commit):
         'manifest_path': '/downloads/' + manifest_path.name,
         'checksums_path': '/downloads/' + checksums_path.name,
         'archive_sha256': sha(raw), 'archive_bytes': len(raw),
+        'spdx_license': 'MIT',
+        'license_path': '/downloads/' + NAME + '.LICENSE.txt',
+        'installation_path': '/downloads/' + NAME + '.INSTALL.md',
+        'license_sha256': sha(payload['LICENSE']),
+        'installation_sha256': sha(payload['README.md']),
     }
     return metadata, {archive.name: raw, manifest_path.name: manifest_raw,
-                      checksums_path.name: checksums_raw}
+                      checksums_path.name: checksums_raw,
+                      NAME + '.LICENSE.txt': payload['LICENSE'],
+                      NAME + '.INSTALL.md': payload['README.md']}
 
 
 def bind(archive, manifest_path, checksums_path, source_commit, output):
@@ -129,9 +155,12 @@ def bind(archive, manifest_path, checksums_path, source_commit, output):
         (downloads / name).write_bytes(raw)
     receipt = {'schema': 'litrev.portfolio.release-binding.v1', 'status': 'PREPARED_LOCAL_ONLY',
         'source_commit': source_commit, 'archive_sha256': metadata['archive_sha256'],
-        'version': VERSION, 'files': [*SOURCE_FILES, *['public/downloads/' + Path(path).name
-            for path in (archive, manifest_path, checksums_path)]], 'published': False,
-        'distribution_approval': 'Separate release/portfolio approval and unresolved terms review still required.'}
+        'version': VERSION, 'spdx_license': 'MIT',
+        'license_sha256': metadata['license_sha256'],
+        'installation_sha256': metadata['installation_sha256'],
+        'files': [*SOURCE_FILES, *['public/downloads/' + name for name in assets]],
+        'published': False,
+        'distribution_approval': 'Owner selected MIT; separate release-upload and portfolio publication approval still required.'}
     (output / 'RELEASE_BINDING.json').write_bytes(encoded(receipt))
     return receipt
 

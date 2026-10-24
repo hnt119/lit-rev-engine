@@ -10,6 +10,7 @@ import zipfile
 import pytest
 
 from scripts import build_local_preview as package
+from scripts.license_policy import MIT_LICENSE_TEXT, MIT_LICENSE_SHA256, THIRD_PARTY_BOUNDARY
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -39,6 +40,10 @@ def source(tmp_path):
     for name in package.EXACT | package.TASK_FILES | set(package.DOCUMENTS.values()):
         path = root / name; path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text('Synthetic local preview setup fixture.\n')
+    (root/'LICENSE').write_text(MIT_LICENSE_TEXT)
+    (root/'THIRD_PARTY_NOTICES.md').write_text(THIRD_PARTY_BOUNDARY+'\n')
+    (root/'docs/local_preview_distribution_terms.md').write_text('SPDX-License-Identifier: MIT\n'+THIRD_PARTY_BOUNDARY+'\n')
+    (root/'apps/web/package.json').write_text(json.dumps({'version': package.VERSION, 'license': 'MIT'}))
     path = root / 'src/mvp/example.py'; path.parent.mkdir(parents=True)
     path.write_text('VALUE = "synthetic"\n')
     commit(root)
@@ -58,7 +63,10 @@ def test_clean_release_records_exact_commit_and_is_reproducible(source, tmp_path
     metadata = release(first)
     assert metadata['source_commit'] == head
     assert metadata['source_state'] == 'clean committed checkout'
-    assert metadata['code_license_present'] is False and metadata['root_notice_files'] == []
+    assert metadata['code_license_present'] is True
+    assert metadata['root_notice_files'] == ['LICENSE', 'THIRD_PARTY_NOTICES.md']
+    assert metadata['spdx_license'] == 'MIT' and metadata['license_sha256'] == MIT_LICENSE_SHA256
+    assert metadata['product_track'] == 'A' and metadata['label'] == 'Local beta — setup required'
     assert metadata['runtimes_bundled'] is False and metadata['models_bundled'] is False
     with zipfile.ZipFile(first['archive']) as bundle:
         assert bundle.read(package.NAME+'/DISTRIBUTION_TERMS.md') == (source/package.DOCUMENTS['DISTRIBUTION_TERMS.md']).read_bytes()
@@ -85,13 +93,13 @@ def test_wrong_source_commit_and_missing_committed_required_files_are_refused(so
         package.build(source, tmp_path/'missing')
 
 
-def test_existing_license_and_notice_are_copied_without_selecting_new_terms(source, tmp_path):
+def test_additional_license_and_notice_are_preserved_with_approved_mit(source, tmp_path):
     license_bytes = b'Existing synthetic terms; software fixture only.\n'
     (source/'LICENSE.txt').write_bytes(license_bytes)
     (source/'NOTICE').write_text('Existing synthetic attribution.\n')
     commit(source)
     result = package.build(source, tmp_path/'out')
-    assert release(result)['root_notice_files'] == ['LICENSE.txt', 'NOTICE']
+    assert release(result)['root_notice_files'] == ['LICENSE', 'LICENSE.txt', 'NOTICE', 'THIRD_PARTY_NOTICES.md']
     assert release(result)['code_license_present'] is True
     with zipfile.ZipFile(result['archive']) as bundle:
         assert bundle.read(package.NAME+'/LICENSE.txt') == license_bytes
@@ -177,3 +185,33 @@ def test_independent_audit_checks_all_files_against_selected_commit(source, tmp_
     (source/'src/mvp/example.py').write_text('VALUE = "not committed"\n')
     with pytest.raises(AssertionError, match='clean source checkout'):
         archive_audit.audit(result['archive'], head, source)
+
+
+@pytest.mark.parametrize('file,contents', [
+    ('LICENSE', 'Different license terms'),
+    ('THIRD_PARTY_NOTICES.md', 'Omitted boundaries'),
+    ('docs/local_preview_distribution_terms.md', 'Omitted MIT grant'),
+    ('apps/web/package.json', '{"version":"0.3.0-beta.1","license":"UNLICENSED"}'),
+])
+def test_approved_license_boundaries_and_package_metadata_are_required(source, tmp_path, file, contents):
+    (source/file).write_text(contents)
+    commit(source)
+    with pytest.raises(ValueError, match='MIT|boundaries'):
+        package.build(source, tmp_path/'out')
+
+
+@pytest.mark.parametrize('file', sorted(package.TRACK_B_FILES))
+def test_track_b_code_cannot_enter_track_a_download(source, tmp_path, file):
+    target=source/file;target.parent.mkdir(parents=True,exist_ok=True);target.write_text('synthetic pilot fixture')
+    commit(source)
+    with pytest.raises(ValueError, match='Track B'):
+        package.build(source, tmp_path/'out')
+
+
+def test_optional_capability_inputs_and_private_config_example_are_shipped(source, tmp_path):
+    result=package.build(source,tmp_path/'out')
+    with zipfile.ZipFile(result['archive']) as bundle:
+        files={name.removeprefix(package.NAME+'/') for name in bundle.namelist()}
+    assert {'requirements-map.txt','requirements-map-lock.txt','config/local-beta.example.json',
+            'OPTIONAL_FEATURES.md','CAPABILITIES.md','scripts/local_beta_settings.py',
+            'scripts/check_local_beta.py','scripts/license_policy.py','scripts/run_map_worker.py'} <= files

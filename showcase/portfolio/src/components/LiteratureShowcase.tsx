@@ -10,9 +10,14 @@ const downloadBase = `/downloads/lit-rev-engine-${download.version}`;
 // enables these relative links after the corresponding files actually exist.
 const downloadReady = download.available && /^[a-f0-9]{40}$/.test(download.source_commit)
   && /^[a-f0-9]{64}$/.test(download.archive_sha256) && download.archive_bytes > 0
+  && download.spdx_license === 'MIT'
+  && /^[a-f0-9]{64}$/.test(download.license_sha256)
+  && /^[a-f0-9]{64}$/.test(download.installation_sha256)
   && download.archive_path === `${downloadBase}.zip`
   && download.manifest_path === `${downloadBase}.manifest.json`
-  && download.checksums_path === `${downloadBase}.SHA256SUMS`;
+  && download.checksums_path === `${downloadBase}.SHA256SUMS`
+  && download.license_path === `${downloadBase}.LICENSE.txt`
+  && download.installation_path === `${downloadBase}.INSTALL.md`;
 type DemoStage = 'comparison' | 'passages' | 'source';
 type DemoLocation = { paperId: string; fieldId: string; stage: DemoStage; tableScroll: number };
 const sectionFor: Record<DemoStage, string> = {
@@ -103,9 +108,9 @@ export default function LiteratureShowcase() {
   return (
     <div className={styles.showcase} id="literature-saved-demo">
       <div className={styles.demoHeader}>
-        <span className={styles.label}>saved public example · no live calls</span>
+        <span className={styles.label}>try the demo · saved example · read-only</span>
         <h2>Explore the route from paper to evidence</h2>
-        <p className={styles.intro}>Three real papers from a saved 30-paper collection. Follow a comparison cell through saved passage results to its exact source, then return to the same cell. Nothing here searches, generates, or records a review.</p>
+        <p className={styles.intro}>Three real papers from a saved 30-paper collection. Follow a comparison cell through saved passage results to its exact source, then return to the same cell. This narrow gut-microbiome illustration is not a representative all-site review. Nothing here searches, generates, or records a review.</p>
       </div>
 
       <ol className={styles.flow} aria-label="Demonstration sections">
@@ -225,21 +230,28 @@ export default function LiteratureShowcase() {
       </section>
 
       <div className={styles.actions}>
-        <a href="https://github.com/hnt119/lit-rev-engine">View engine source ↗</a>
-        {downloadReady && <a href={download.archive_path} download>Download local preview ZIP</a>}
+        <a href="#literature-saved-demo">Try the demo · saved example, read-only</a>
+        {downloadReady && <>
+          <a href={download.archive_path} download>Download local beta · setup required</a>
+          <a href={download.installation_path}>Installation</a>
+          <a href={download.license_path}>MIT license</a>
+        </>}
+        <a href="https://github.com/hnt119/lit-rev-engine">View source ↗</a>
       </div>
-      <p className={styles.downloadNotice}>Local preview — setup required. Version {download.version} is a source package, not a standalone app. It includes no runtimes or model weights.</p>
-      {!downloadReady && <p className={styles.downloadNotice}>A release artifact has not been bound to this source overlay. Download links remain unavailable until a verified package is supplied.</p>}
+      <p className={styles.downloadNotice}>Local beta — setup required. Version {download.version} is the full Track A source distribution, not a standalone installer. It includes no runtimes, credentials or model weights. The default offline/manual workflow needs no inference. New maps and optional AI features require explicit separate configuration; the beta retains their existing resource and human-review limits.</p>
+      {!downloadReady && <p className={styles.downloadNotice}>A verified MIT beta artifact has not been bound to this source overlay. Download, installation and license-file links remain unavailable until the matching package is supplied.</p>}
       <details className={styles.downloadDetails}>
         <summary>Setup requirements and download verification</summary>
-        <p>Requires Python 3.12, Node.js 24 and pnpm 10.20.0. Internet access is required to install locked dependencies. Start with the README inside the archive.</p>
-        <p>Preview target: macOS Apple Silicon. Current evaluation environment: macOS 26.6.2 (arm64), Python 3.12.7 and Node 24.19.0. Linux is unverified; Windows is unsupported in this preview.</p>
+        <p>Requires Python 3.12, Node.js 24 and pnpm 10.20.0. Internet access is required to install locked dependencies. Start with the README inside the archive. Models stay optional, separately acquired and off by default.</p>
+        <p>Beta target: macOS Apple Silicon. The validated platform is macOS arm64; Linux installation is unverified and Windows is unsupported. The download's capability and validation record separates software checks, provider checks and real-model checks.</p>
+        <p>MIT covers the owner's original engine code. Public articles, datasets, model weights and dependencies retain their own terms. It does not relicense private research data. The separate protocol-review pilot is not included in this Track A download.</p>
         {downloadReady && <>
           <div className={styles.links}><a href={download.manifest_path} download>Download file manifest</a><a href={download.checksums_path} download>Download SHA256SUMS</a></div>
           <span className={styles.label}>ZIP SHA-256</span>
           <code className={styles.downloadHash}>{download.archive_sha256}</code>
           <span className={styles.label}>Committed source</span>
           <code className={styles.downloadHash}>{download.source_commit}</code>
+          <p>The exact beta source snapshot is inside the ZIP. The source action above opens the existing public repository; preparation of this page does not itself publish the new commit, release or website.</p>
         </>}
       </details>
       <p className={styles.boundary}>Saved source capture: {demo.capturedAt.slice(0, 10)}. No backend, account, model or browser storage is used by this demo. Scientific usefulness and human review quality have not been validated here.</p>

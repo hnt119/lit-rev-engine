@@ -1,4 +1,4 @@
-# Portfolio review overlay — not a website deployment
+# Portfolio MIT beta overlay — not a website deployment
 
 Website base: `hnt119/hnt119.github.io`, clean `main` at
 `3a03ea54b84d2658901522613641c054e5096637`.
@@ -7,7 +7,7 @@ This directory mirrors website-relative paths for a review-only update of the
 existing literature-review project article and `LiteratureShowcase` component.
 The actual website checkout and branch are not modified. No publication or
 application hosting is performed. Apply only `src/` (and verified `public/`
-downloads when supplied) to a separate export of that exact website base.
+downloads when supplied) to a separate portfolio feature worktree at that base.
 
 The website's own `AGENTS.md`, installed Next.js 16.4.1 client-component/static
 export guidance, existing component, navigation, layout and global CSS were
@@ -34,6 +34,14 @@ excerpts are curated display material, not new retrieval execution. Six example
 comparison values are illustrative notes, and three reproductive-lifespan cells
 are explicitly unresolved in their partial selected contexts. No human support,
 independent verification or review inclusion is asserted.
+
+This gut-microbiome example is a narrow illustration, not a representative
+all-site review or the separate researcher pilot. The website is deliberately
+read-only. The full Track A MIT local beta remains a separately installed
+application: offline/manual work needs no inference, while new maps and supported
+AI capabilities require explicit optional configuration and separately acquired
+dependencies/models. Existing resource budgets and human-review rules remain.
+Track B is not included in this download.
 
 Offsets count Unicode code points in one existing normalized canonical block;
 the component uses `Array.from` to avoid confusing them with UTF-16 indexes.
@@ -90,21 +98,23 @@ metadata also names that same commit. The release flow therefore keeps the
 committed source and generated distribution outputs separate:
 
 1. Commit and review the unbound overlay and application source.
-2. Build the purpose-built `0.3.0-local-preview.2` ZIP from a clean checkout of
+2. Build the purpose-built `0.3.0-beta.1` ZIP from a clean checkout of
    that exact commit. Its `RELEASE.json` must record the full source SHA and
    `source_state: "clean committed checkout"`.
 3. Bind that ZIP, manifest and checksums into a **new directory outside every
    Git checkout**. The binder validates the exact source SHA/version, both
-   checksums, every ZIP member/manifest hash and the source-snapshot digest.
+   checksums, every ZIP member/manifest hash, the source-snapshot digest, exact
+   standard MIT license bytes and separate public-source notices. Known Track B
+   pilot files are rejected.
 4. Apply only the generated `src/` and `public/` to a separate temporary export
-   of the website base for validation. Do not apply them to the actual portfolio
+   feature worktree of the website base for validation. Do not apply them to the original portfolio
    or publish them without separate authorization.
 
 ```sh
 python3 showcase/portfolio/scripts/bind_release.py \
-  --archive /path/to/lit-rev-engine-0.3.0-local-preview.2.zip \
-  --manifest /path/to/lit-rev-engine-0.3.0-local-preview.2.manifest.json \
-  --checksums /path/to/lit-rev-engine-0.3.0-local-preview.2.SHA256SUMS \
+  --archive /path/to/lit-rev-engine-0.3.0-beta.1.zip \
+  --manifest /path/to/lit-rev-engine-0.3.0-beta.1.manifest.json \
+  --checksums /path/to/lit-rev-engine-0.3.0-beta.1.SHA256SUMS \
   --source-commit "$SOURCE_SHA" \
   --output /absolute/new-overlay-output
 ```
@@ -118,10 +128,17 @@ and actual website untouched. The generated `RELEASE_BINDING.json` is a local
 preparation receipt, not publication approval or a publisher signature.
 
 Only after verification does the generated overlay enable website-relative
-links to the three actual files it copied into its own `public/downloads/`.
+links to the three actual release files it copied into `public/downloads/`.
 The UI then displays the supplied ZIP hash and committed source SHA. No public
-GitHub release URL is constructed. The binder copies only explicitly listed
-public overlay files and the three verified assets; it does not copy arbitrary
+GitHub release URL is constructed. Two additional website-only text files are
+derived from that verified ZIP: `NAME.INSTALL.md` is byte-identical to its README
+and `NAME.LICENSE.txt` is byte-identical to its standard MIT license. Their
+relative paths and SHA-256 values are recorded in generated metadata. Installation
+and MIT actions therefore work before the new source commit is public.
+View source opens the existing public repository; the exact beta source is in
+the ZIP and its full SHA is shown unlinked, without a speculative commit URL.
+The binder copies only explicitly listed public overlay files, the three
+verified assets and those two derivatives; it does not copy arbitrary
 files, research state, caches or old downloads from the source directory.
 
 Offline binder checks:
@@ -130,7 +147,7 @@ Offline binder checks:
 python3 showcase/portfolio/scripts/test_bind_release.py -v
 ```
 
-The UI labels the package **Local preview — setup required**, a source package
+The UI labels the package **Local beta — setup required**, a source package
 rather than a standalone app. It requires Python 3.12, Node.js 24, pnpm 10.20.0
 and network access for dependency installation; runtimes and model weights are
 not bundled. macOS arm64 was tested; Linux installation is unverified and
@@ -138,11 +155,13 @@ Windows is unsupported. Actual fresh installation and browser results belong
 to the separate release evaluation. Model execution, scientific usefulness and
 human review quality are not established by static export checks.
 
-Binding an artifact does not resolve distribution terms. Review
-`docs/local_preview_distribution_terms.md` in the source repository and the
-local publication checklist before any redistribution. No software license is
-selected or inferred by this overlay. The original article/source attribution
-and CC BY notices remain in the public demo projection.
+The owner has explicitly selected MIT for the original engine code. “Beta”
+describes maturity and support, not an extra use/redistribution restriction.
+Articles, datasets, model weights, dependencies and private user research retain
+their own terms; MIT does not relicense them. The original source attribution
+and CC BY notices remain in the demo projection. The binder rejects a missing,
+modified or merely self-labelled MIT grant. The existing final publication
+workflow still requires approval before release upload or portfolio publication.
 
 This directory and its generated outputs remain a review preparation. Do not
 publish, release-upload, deploy or modify the actual portfolio without the

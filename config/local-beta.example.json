@@ -1,0 +1,7 @@
+{
+  "schema": "litrev.local-beta.settings.v1",
+  "live": {"enabled": false, "email": "", "api_key": ""},
+  "maps": {"enabled": false, "cache_dir": ""},
+  "search_planner": {"enabled": false, "url": "", "model": "", "model_revision": ""},
+  "cell_proposals": {"enabled": false, "url": "", "model": "", "model_revision": ""}
+}

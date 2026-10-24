@@ -6,23 +6,33 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.3.0-local-preview.2"
+sys.path.insert(0, str(ROOT))
+from scripts.license_policy import validate_distribution_license
+
+VERSION = "0.3.0-beta.1"
 NAME = "lit-rev-engine-" + VERSION
 EXACT = {
-    "requirements-hosted.txt", "requirements-web-lock.txt",
+    "requirements-hosted.txt", "requirements-web-lock.txt", "requirements-map.txt", "requirements-map-lock.txt",
+    "LICENSE", "THIRD_PARTY_NOTICES.md", "config/local-beta.example.json",
     "apps/web/package.json", "apps/web/pnpm-lock.yaml", "apps/web/tsconfig.json",
     "apps/web/next-env.d.ts", "apps/web/next.config.ts",
     "apps/streamlit/theme/tokens.css",
 }
 TREES = ("src/mvp/", "src/review/", "src/web_api/", "apps/web/app/",
          "apps/web/components/", "apps/web/lib/", "examples/mvp/offline_microbiome_30_v1/")
-TASK_FILES = {"scripts/run_web.py", "scripts/local_preview.py",
+TASK_FILES = {"scripts/run_web.py", "scripts/local_preview.py", "scripts/license_policy.py",
+              "scripts/local_beta_settings.py", "scripts/check_local_beta.py", "scripts/run_map_worker.py",
               "apps/web/lib/comparison-passage.ts"}
 DOCUMENTS = {"README.md": "docs/local_preview.md",
-             "DISTRIBUTION_TERMS.md": "docs/local_preview_distribution_terms.md"}
+             "DISTRIBUTION_TERMS.md": "docs/local_preview_distribution_terms.md",
+             "OPTIONAL_FEATURES.md": "docs/local_beta_optional_features.md",
+             "CAPABILITIES.md": "docs/local_beta_capabilities.md"}
+TRACK_B_FILES = {"src/review/pilot.py", "src/mvp/review_pilot.py", "src/web_api/pilot_routes.py",
+                 "src/web_api/pilot_contracts.py", "apps/web/components/review-pilot.tsx"}
 LICENSE_NAME = re.compile(r"(?:LICEN[CS]E|COPYING|COPYRIGHT|NOTICE)(?:\.(?:md|txt|rst))?", re.I)
 FORBIDDEN_PARTS = {"node_modules", "__pycache__", ".next", ".git", ".cache", "tests",
                    "browser-state", "backups", "private-exports", "model-cache", ".preview",
@@ -98,6 +108,8 @@ def build(root, output, *, expected_source_commit=None, allow_working_tree=False
     if not allow_working_tree:
         clean_checkout(root, source_commit)
     tracked = set(git(root, "ls-files", "-z").decode().split("\0")) - {""}
+    if tracked & TRACK_B_FILES:
+        raise ValueError("Track B pilot code is not part of the Track A beta; build from the reviewed Track A branch.")
     licenses = {name for name in tracked if "/" not in name and LICENSE_NAME.fullmatch(name)}
     names = {name for name in tracked if name in EXACT or name.startswith(TREES)} | TASK_FILES | licenses
     required = EXACT | TASK_FILES | set(DOCUMENTS.values())
@@ -105,23 +117,30 @@ def build(root, output, *, expected_source_commit=None, allow_working_tree=False
     if missing:
         raise ValueError("Missing required release inputs: " + ", ".join(sorted(missing)))
     read = (lambda name: safe_input(root, name)) if allow_working_tree else (lambda name: committed_input(root, name, source_commit))
+    license_metadata = validate_distribution_license(root)
+    package_metadata = json.loads(read("apps/web/package.json"))
+    if package_metadata.get("license") != "MIT" or package_metadata.get("version") != VERSION:
+        raise ValueError("Beta package metadata must identify this version and the owner-approved MIT license")
     payload = {name: read(name) for name in sorted(names)}
     for destination, source in DOCUMENTS.items():
         payload[destination] = read(source)
-    code_license_present = any(re.fullmatch(r"(?:LICEN[CS]E|COPYING)(?:\.(?:md|txt|rst))?", name, re.I) for name in licenses)
+    code_license_present = payload.get("LICENSE") is not None
+    required_notices = sorted(licenses | {"THIRD_PARTY_NOTICES.md"})
     if not allow_working_tree:
         clean_checkout(root, source_commit)
     payload["RELEASE.json"] = json_bytes({
         "schema": "litrev.local-preview.release.v1", "version": VERSION,
-        "label": "Local preview — setup required", "source_commit": source_commit,
+        "label": "Local beta — setup required", "product_track": "A",
+        "spdx_license": license_metadata["spdx_license"], "license_sha256": license_metadata["license_sha256"], "source_commit": source_commit,
         "source_state": "review working tree; not for publication" if allow_working_tree else "clean committed checkout",
         "source_snapshot_sha256": digest(json_bytes({p: digest(b) for p, b in payload.items()})),
         "runtimes_bundled": False, "models_bundled": False,
         "code_license_present": code_license_present,
         "distribution_terms": "DISTRIBUTION_TERMS.md; source article licenses remain separate from project code",
-        "root_notice_files": sorted(licenses),
+        "root_notice_files": required_notices,
+        "optional_feature_configuration": "config/local-beta.example.json; private external --config file; all features off by default",
         "tested_platform": "macOS Apple Silicon; Python 3.12.7 and Node 24.19.0",
-        "other_platforms": "Linux unverified; Windows unsupported in this preview",
+        "other_platforms": "Linux unverified; Windows unsupported in this beta",
         "setup_requires_network": "Python/JavaScript package installation only; no model downloads",
     })
     manifest = json_bytes({

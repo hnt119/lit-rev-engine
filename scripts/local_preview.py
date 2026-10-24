@@ -24,8 +24,10 @@ import webbrowser
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.run_web import LocalLaunchError, LocalServers, local_environment, server_commands, validate_ports
+from scripts.local_beta_settings import load_settings, feature_environment
+from scripts.license_policy import validate_distribution_license
 
-VERSION = "0.3.0-local-preview.2"
+VERSION = "0.3.0-beta.1"
 VENV = ".venv-preview"
 SETUP = ".local-preview-setup.json"
 OWNED = ".local-preview-owned"
@@ -39,7 +41,7 @@ def default_data_dir():
 
 def supported_platform():
     if not (sys.platform == "darwin" or sys.platform.startswith("linux")):
-        raise LocalLaunchError("This preview supports macOS and Linux; Windows has not been packaged or tested.")
+        raise LocalLaunchError("macOS arm64 is tested; Linux installation is unverified and Windows is unsupported in this beta.")
 
 
 def private_directory(path):
@@ -79,7 +81,9 @@ def fingerprint(root):
     """Bind setup to application/build inputs, excluding generated/private files."""
     root = Path(root)
     paths = [root / name for name in ("requirements-hosted.txt", "requirements-web-lock.txt",
-             "scripts/local_preview.py", "scripts/run_web.py", "apps/streamlit/theme/tokens.css")]
+             "scripts/local_preview.py", "scripts/run_web.py", "scripts/local_beta_settings.py",
+             "scripts/check_local_beta.py", "scripts/license_policy.py", "requirements-map.txt",
+             "requirements-map-lock.txt", "LICENSE", "THIRD_PARTY_NOTICES.md", "apps/streamlit/theme/tokens.css")]
     paths += list((root / "src").rglob("*.py"))
     for directory, subdirectories, files in os.walk(root / "apps/web"):
         subdirectories[:] = [name for name in subdirectories if name not in {"node_modules", ".next", ".git"}]
@@ -97,7 +101,7 @@ def reject_web_env_files(root):
     # Next loads these files independently of our subprocess environment.
     if any(path.name in {".env", ".env.local", ".env.production", ".env.production.local"}
            for path in (Path(root) / "apps/web").glob(".env*")):
-        raise LocalLaunchError("Remove local Next.js .env files from the extracted app before setup/launch; use the explicit --allow-live option instead.")
+        raise LocalLaunchError("Remove local Next.js .env files from the extracted app before setup/launch; use the explicit private --config or --allow-live route instead.")
 
 
 def executable(path, name):
@@ -134,6 +138,7 @@ def prerequisites(node=None, pnpm=None, *, require_pnpm=True):
 
 
 def setup(args):
+    validate_distribution_license(ROOT)
     tools = prerequisites(args.node, args.pnpm)
     reject_web_env_files(ROOT)
     target = ROOT / VENV
@@ -146,7 +151,10 @@ def setup(args):
     python = target / "bin/python"
     env = local_environment(os.environ, data_dir=default_data_dir(), api_port=8765, web_port=3000,
                             node=tools["node"], isolated=True, browser_host="localhost")
-    commands = [([str(python), "-m", "pip", "install", "--disable-pip-version-check", "--no-input", "-r", "requirements-hosted.txt"], ROOT),
+    requirements = ["-r", "requirements-hosted.txt"]
+    if getattr(args, "with_maps", False):
+        requirements += ["-r", "requirements-map.txt"]
+    commands = [([str(python), "-m", "pip", "install", "--disable-pip-version-check", "--no-input", *requirements], ROOT),
                 ([tools["pnpm"], "install", "--frozen-lockfile"], ROOT / "apps/web"),
                 ([tools["pnpm"], "build"], ROOT / "apps/web")]
     for command, cwd in commands:
@@ -154,8 +162,9 @@ def setup(args):
         if result.returncode:
             raise LocalLaunchError("Setup failed while installing/building locked dependencies. Check this terminal and network access, then rerun setup; research data was not migrated.")
     atomic_json(ROOT / SETUP, {"version": VERSION, "root": str(ROOT), "fingerprint": fingerprint(ROOT),
-                              "python": str(python), **tools})
-    return {"status": "setup_complete", "version": VERSION, "data_created": False}
+                              "python": str(python), "optional_map_dependencies": bool(getattr(args, "with_maps", False)), **tools})
+    return {"status": "setup_complete", "version": VERSION, "data_created": False,
+            "optional_map_dependencies": bool(getattr(args, "with_maps", False)), "model_downloads": 0}
 
 
 @contextmanager
@@ -360,11 +369,35 @@ def control_request(data_dir, action):
     return response
 
 
+def configured_environment(args, node, data):
+    path = getattr(args, "config", None)
+    if path is not None and getattr(args, "allow_live", False):
+        raise LocalLaunchError("Choose the private --config route or legacy --allow-live, not both. Put explicit live contact settings in the private file when combining features.")
+    settings = load_settings(path, ROOT)
+    env = local_environment(os.environ, data_dir=data, api_port=args.api_port, web_port=args.web_port,
+                            node=node, isolated=True, allow_live=getattr(args, "allow_live", False), browser_host=args.browser_host)
+    env.update(feature_environment(settings))
+    return env
+
+
+def check_configuration(args):
+    validate_distribution_license(ROOT)
+    python, node = launch_configuration(args)
+    env = configured_environment(args, node, default_data_dir())
+    result = subprocess.run([str(python), str(ROOT / "scripts/check_local_beta.py")],
+                            cwd=ROOT, env=env, capture_output=True, text=True, timeout=30)
+    try:
+        report = json.loads(result.stdout)
+    except (ValueError, TypeError):
+        raise LocalLaunchError("Configuration inspection failed; rerun setup for the extracted beta. No settings were printed.") from None
+    print(json.dumps(report, indent=2, sort_keys=True), flush=True)
+    return result.returncode
+
+
 def launch(args, *, installation_descriptor=None):
     python, node = launch_configuration(args)
     data, state = state_paths(args.data_dir)
-    env = local_environment(os.environ, data_dir=data, api_port=args.api_port, web_port=args.web_port,
-                            node=node, isolated=True, allow_live=args.allow_live, browser_host=args.browser_host)
+    env = configured_environment(args, node, data)
     private_directory(data)
     private_directory(state)
     stop = Event()
@@ -409,29 +442,37 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", action="version", version=VERSION)
     commands = parser.add_subparsers(dest="command", required=True)
-    install = commands.add_parser("setup", help="Install locked CPU runtime and build the production UI")
+    install = commands.add_parser("setup", help="Install the locked core runtime and build the production UI; no model weights")
     install.add_argument("--node")
     install.add_argument("--pnpm")
+    install.add_argument("--with-maps", action="store_true", help="Explicitly install existing pinned optional local mapping dependencies; never weights")
     run = commands.add_parser("launch", help="Run in this terminal; Ctrl-C stops both owned servers")
     run.add_argument("--node", help="Override the Node executable recorded by setup")
     run.add_argument("--api-port", type=int, default=8765)
     run.add_argument("--web-port", type=int, default=3000)
     run.add_argument("--browser-host", choices=("localhost", "127.0.0.1"), default="localhost")
     run.add_argument("--no-browser", action="store_true")
+    run.add_argument("--config", type=Path, help="Validated private JSON file outside the app; only existing local adapters and NCBI live opt-in")
     run.add_argument("--allow-live", action="store_true", help="Explicitly allow only validated NCBI_EMAIL/NCBI_API_KEY from this shell")
+    check = commands.add_parser("check-config", help="Inspect explicit settings and optional setup without loading models or contacting providers")
+    check.add_argument("--config", type=Path)
+    check.add_argument("--node")
+    check.set_defaults(api_port=8765, web_port=3000, browser_host="localhost", allow_live=False)
     for command in (run, commands.add_parser("status"), commands.add_parser("stop")):
         command.add_argument("--data-dir", type=Path, default=default_data_dir())
     args = parser.parse_args()
     try:
-        if args.command in {"setup", "launch"}:
-            with installation_lock(shared=args.command == "launch") as descriptor:
+        if args.command in {"setup", "launch", "check-config"}:
+            with installation_lock(shared=args.command != "setup") as descriptor:
+                if args.command == "check-config":
+                    return check_configuration(args)
                 result = setup(args) if args.command == "setup" else launch(args, installation_descriptor=descriptor)
         else:
             result = control_request(args.data_dir, args.command)
         print(json.dumps(result), flush=True)
         return 0
     except (LocalLaunchError, OSError, ValueError, subprocess.SubprocessError) as error:
-        print("Local preview: " + str(error), file=sys.stderr)
+        print("Local beta: " + str(error), file=sys.stderr)
         return 2
 
 

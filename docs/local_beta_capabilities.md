@@ -1,0 +1,39 @@
+# Track A beta capability matrix
+
+Version `0.3.0-beta.1`, **Local beta — setup required**. This source distribution
+contains the current Next.js/FastAPI Track A product, not Track B or a standalone
+installer. MIT applies to the owner's original code; dependencies, papers, data
+and optional weights retain separate licenses. No maturity label adds a use,
+commercial, modification or redistribution restriction.
+
+| Capability | Included / operator prerequisites | Activation and boundary |
+| --- | --- | --- |
+| Saved 30-paper example and saved semantic map | Base setup | Offline retained results, no calls or new fit |
+| Live PubMed and query diagnostics | Base setup; explicit NCBI contact/live opt-in | Explicit actions only; previews are not complete review captures |
+| Zotero CSV, DOI/PMID, supported RIS intake | Base setup | Offline parsing; metadata resolution only when requested; existing 5 MiB/500-row limits |
+| Source preparation | Base setup and retained/public-permitted sources | Existing up-to-30-paper jobs, progress/recovery and rights checks |
+| Paper inspector, list/map selection/navigation | Base setup | Preserves identities, counts and saved map coordinates |
+| Comparison boards | Base setup | Up to 30 reports × 6 fields, existing source and revision validation |
+| Passage retrieval | Base setup | Explicit 5–30 requested passages; exact board/paper/source scope and return |
+| Source inspection, drafts, submission/revision/history | Base setup | Exact locators/hashes; human reading/support and submission remain explicit |
+| CSV/JSON exports | Base setup | Existing schemas, neutral/unresolved states and historical source bindings |
+| New semantic maps | Explicit `setup --with-maps`, pinned separately acquired local BGE snapshot, private maps opt-in | Local CPU profile, no automatic model download; saved maps need neither |
+| LLM query planning | Private opt-in to existing literal-loopback adapter; separately operated compatible model server | Typed editable proposals, zero spend, bounded call/context/time; no automatic search approval |
+| AI cell proposals | Private opt-in to existing literal-loopback adapter; separately operated compatible model server | Exact evidence validation; no automatic support, adoption or submission |
+
+See `OPTIONAL_FEATURES.md` in the archive for the validated private settings
+route. Missing optional setup does not disable the manual application. No
+provider/model key, runtime, compiled frontend, weight or private workspace is
+bundled. Setup installs locked dependencies and produces the production build.
+
+This table records included interfaces and prerequisites, not test outcomes.
+The generated release validation record separately identifies extracted-package
+mock checks, actual live-provider calls and actual real-model execution. Real
+execution not performed remains `NOT_RUN`. Earlier working-tree tests do not
+qualify a later archive automatically.
+
+Tested platform scope remains macOS arm64. Linux installation is unverified;
+Windows unsupported. Cookie/hostname/profile access limitations, force-killed
+controller recovery and the bounded 4,000-code-point inspector remain documented
+in the installation guide. No cloud service, new native framework or model
+provider is introduced by this beta.
