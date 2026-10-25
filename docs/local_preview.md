@@ -1,6 +1,6 @@
 # Literature Review Engine — Local beta, setup required
 
-Version: **0.3.0-beta.2** (combined Track A source beta). This is a source distribution of the existing
+Version: **0.3.0-beta.3** (excerpt-first Track A source beta). This is a source distribution of the existing
 Next.js/FastAPI application. It is not a standalone installer and contains no
 Python, Node.js, Docker, model weights, credentials or research workspaces.
 The public website demonstration is read-only; the research application runs
@@ -28,9 +28,9 @@ comparison, source inspection or exports.
 Keep the ZIP, matching manifest and `SHA256SUMS` together. Before extraction:
 
 ```sh
-shasum -a 256 -c lit-rev-engine-0.3.0-beta.2.SHA256SUMS
-unzip lit-rev-engine-0.3.0-beta.2.zip
-cd lit-rev-engine-0.3.0-beta.2
+shasum -a 256 -c lit-rev-engine-0.3.0-beta.3.SHA256SUMS
+unzip lit-rev-engine-0.3.0-beta.3.zip
+cd lit-rev-engine-0.3.0-beta.3
 python3.12 scripts/local_preview.py setup
 ```
 
@@ -189,11 +189,11 @@ weights, then explicitly install/check the selected pack in Settings and index
 the exact retained sources. No navigation or default change downloads models,
 indexes sources or calls a provider. See [RETRIEVAL.md](RETRIEVAL.md) in the
 extracted package for exact profiles, setup/actions, license notices and limits.
-This combined source beta.2 includes the optional profiles. Published beta.1 remains available with its original source and assets.
+This source beta preserves the optional profiles. Published beta.1 remains available with its original source and assets.
 
 
-## Combined beta.2 evidence and separate desktop
+## Excerpt-first checkpoint and separate desktop
 
-This source package combines Research & AI Settings with optional pinned local Qwen and MedCPT retrieval. Use `RETRIEVAL.md` for explicit optional runtime/pack/index setup. Core lexical remains default; there is no silent model fallback or automatic weight download. The generated RELEASE.json records this ZIP's exact source commit, while MANIFEST.json binds all its application inputs, dependency specifications and model/profile manifests. See VALIDATION.md for combined software and actual local retrieval evidence, distinct from unperformed live generation/provider and human-quality checks.
+This source package combines Research & AI Settings with optional pinned local Qwen and MedCPT retrieval. Use `RETRIEVAL.md` for explicit optional runtime/pack/index setup. Core lexical remains default; there is no silent model fallback or automatic weight download. The generated RELEASE.json records this ZIP's exact source commit, while MANIFEST.json binds all its application inputs, dependency specifications and model/profile manifests. Read USER_MANUAL.md for the one-screen excerpt → comment → save task. See VALIDATION.md for this checkpoint’s observed software checks and reviewer status. HISTORICAL_RETRIEVAL_VALIDATION.md retains the earlier combined beta.2 model evidence, labeled with its original source; it does not qualify a later artifact automatically.
 
-This ZIP contains no desktop executable. The private Electron prototype and its older performance observations are separate and do not demonstrate the integrated hybrid app. Published beta.1 stays available with its original hashes.
+This ZIP contains no desktop executable. The private Electron prototype and its older performance observations are separate and do not demonstrate the integrated hybrid app. Published beta.1 and beta.2 stay available with their original hashes.

@@ -71,6 +71,29 @@ class _Redirects(HTTPRedirectHandler):
         return super().redirect_request(request, fp, code, msg, headers, newurl)
 
 
+def runtime_dependencies():
+    """Inspect distribution metadata/specs only: no model-stack imports or I/O."""
+    from importlib.metadata import version, PackageNotFoundError
+    from importlib.util import find_spec
+    expected = {'torch': ('torch', '2.12.0'), 'transformers': ('transformers', '5.12.0'),
+                'tokenizers': ('tokenizers', '0.22.2'), 'safetensors': ('safetensors', '0.8.0'),
+                'huggingface-hub': ('huggingface_hub', '1.19.0'), 'numpy': ('numpy', '2.4.6')}
+    missing, incompatible = [], []
+    for package, (module, pinned) in expected.items():
+        try:
+            found = find_spec(module) is not None
+            installed = version(package) if found else None
+        except (ImportError, ValueError, PackageNotFoundError):
+            installed = None
+        if installed is None:
+            missing.append(package)
+        elif installed.split('+', 1)[0] != pinned:
+            incompatible.append(package)
+    return {'state': 'needed' if missing or incompatible else 'available', 'missing': missing,
+            'incompatible': incompatible, 'check_scope': 'metadata_only_not_execution',
+            'install_hint': 'python3 scripts/local_preview.py setup --with-retrieval'}
+
+
 class PackManager:
     def __init__(self, root=None):
         self.root = Path(root or os.environ.get('LITREV_RETRIEVAL_CACHE') or
@@ -130,7 +153,7 @@ class PackManager:
             installed=installed, download_bytes=pack['download_bytes'], downloaded_bytes=pack['download_bytes'] if installed else state.get('downloaded_bytes', 0),
             manifest_sha256=digest(pack), models=[{'repo':m['repo'],'revision':m['revision'],'bytes':m['selected_bytes']} for m in pack['models']],
             license=pack['license'], quality_status=pack['quality_status'], runtime=state.get('runtime'),
-            runtime_by_device=state.get('runtimes', {}), index_state='scope_required', message=state.get('message','Install explicitly; opening settings performs no model or provider call.'))
+            runtime_by_device=state.get('runtimes', {}), dependencies=runtime_dependencies(), index_state='scope_required', message=state.get('message','Install explicitly; opening settings performs no model or provider call.'))
 
     def manifest(self, profile_id):
         return json.loads(canonical(_manifest(profile_id)))

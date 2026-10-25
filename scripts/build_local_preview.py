@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.license_policy import validate_distribution_license
 
-VERSION = "0.3.0-beta.2"
+VERSION = "0.3.0-beta.3"
 NAME = "lit-rev-engine-" + VERSION
 EXACT = {
     "requirements-hosted.txt", "requirements-windows-bootstrap.txt", "requirements-web-lock.txt", "requirements-retrieval.txt", "requirements-map.txt", "requirements-map-lock.txt",
@@ -33,7 +33,9 @@ DOCUMENTS = {"README.md": "docs/local_preview.md",
              "CAPABILITIES.md": "docs/local_beta_capabilities.md",
              "SETTINGS.md": "docs/research_ai_settings.md",
              "WINDOWS_SOURCE.md": "docs/windows_source.md",
-             "VALIDATION.md": "docs/combined_beta_validation.md",
+             "VALIDATION.md": "docs/excerpt_first_validation.md",
+             "USER_MANUAL.md": "docs/user_manual.md",
+             "HISTORICAL_RETRIEVAL_VALIDATION.md": "docs/combined_beta_validation.md",
              "RETRIEVAL.md": "docs/hybrid_retrieval.md",
              "MODEL_REFERENCES.md": "docs/hybrid_model_references.md",
              "notices/QWEN_APACHE_LICENSE.txt": "docs/notices/QWEN_APACHE_LICENSE.txt",

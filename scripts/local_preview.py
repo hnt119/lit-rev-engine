@@ -29,7 +29,7 @@ from scripts.run_web import LocalLaunchError, LocalServers, local_environment, s
 from scripts.local_beta_settings import load_settings, feature_environment
 from scripts.license_policy import validate_distribution_license
 
-VERSION = "0.3.0-beta.2"
+VERSION = "0.3.0-beta.3"
 VENV = ".venv-preview"
 SETUP = ".local-preview-setup.json"
 OWNED = ".local-preview-owned"
