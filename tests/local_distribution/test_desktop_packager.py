@@ -120,3 +120,15 @@ def test_generated_bundle_rejects_checkout_and_install_prefix_paths(tmp_path,mon
             desktop.audit_generated_payload(resources,output)
     candidate.write_text('Portable public fixture')
     desktop.audit_generated_payload(resources,output)
+
+
+def test_standalone_dependency_copy_retains_runtime_trace_module(tmp_path):
+    standalone=tmp_path/'standalone';module=standalone/'node_modules/next/dist/trace/shared.js'
+    module.parent.mkdir(parents=True);module.write_text('module.exports={runtime:true};\n')
+    (standalone/'debug.map').write_text('unneeded source map')
+    # This is the exact production copy operation; trace is a required JS
+    # dependency directory, not permission to discard matching path names.
+    target=tmp_path/'packaged'
+    desktop.copy_standalone(standalone,target)
+    assert (target/'node_modules/next/dist/trace/shared.js').read_bytes()==module.read_bytes()
+    assert not (target/'debug.map').exists()

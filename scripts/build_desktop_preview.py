@@ -68,6 +68,10 @@ def extract_source(archive,destination,expected):
     return metadata
 
 
+def copy_standalone(source,destination):
+    shutil.copytree(source,destination,symlinks=True,ignore=shutil.ignore_patterns('*.map','*.tsbuildinfo'))
+
+
 def portable_web_build(web):
     """Replace only observed build-machine metadata with runtime-relative roots."""
     server=web/'apps/web/server.js'
@@ -159,7 +163,7 @@ def build(args):
     for file in unpack.iterdir():
         if file.is_file():shutil.copy2(file,resources/file.name)
     shutil.rmtree(unpack)
-    shutil.copytree(standalone,resources/'web',symlinks=True,ignore=shutil.ignore_patterns('trace','*.map','*.tsbuildinfo'))
+    copy_standalone(standalone,resources/'web')
     target=resources/'web/apps/web'
     shutil.copytree(ROOT/'apps/web/.next/static',target/'.next/static',dirs_exist_ok=True)
     if (ROOT/'apps/web/public').is_dir():shutil.copytree(ROOT/'apps/web/public',target/'public',dirs_exist_ok=True)
