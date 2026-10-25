@@ -1323,6 +1323,228 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/settings/retrieval": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Capabilities */
+        get: operations["capabilities_api_v1_settings_retrieval_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/settings/retrieval/install": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Install */
+        post: operations["install_api_v1_settings_retrieval_install_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/settings/retrieval/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel Pack */
+        post: operations["cancel_pack_api_v1_settings_retrieval_cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/settings/retrieval/check-runtime": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Check */
+        post: operations["check_api_v1_settings_retrieval_check_runtime_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/settings/retrieval/remove": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Remove */
+        post: operations["remove_api_v1_settings_retrieval_remove_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/hybrid-index/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Index Status */
+        post: operations["index_status_api_v1_workspaces__workspace_id__hybrid_index_status_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/hybrid-index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Index */
+        post: operations["index_api_v1_workspaces__workspace_id__hybrid_index_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/hybrid-runs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Runs */
+        get: operations["runs_api_v1_workspaces__workspace_id__hybrid_runs_get"];
+        put?: never;
+        /** Retrieve */
+        post: operations["retrieve_api_v1_workspaces__workspace_id__hybrid_runs_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/hybrid-runs/{run_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Run */
+        get: operations["get_run_api_v1_workspaces__workspace_id__hybrid_runs__run_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/hybrid-runs/{run_id}/candidates/{candidate_id}/context": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Context */
+        get: operations["context_api_v1_workspaces__workspace_id__hybrid_runs__run_id__candidates__candidate_id__context_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/hybrid-exports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export */
+        get: operations["export_api_v1_workspaces__workspace_id__hybrid_exports_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/hybrid-jobs/{job_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Job */
+        get: operations["job_api_v1_workspaces__workspace_id__hybrid_jobs__job_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/hybrid-jobs/{job_id}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel */
+        post: operations["cancel_api_v1_workspaces__workspace_id__hybrid_jobs__job_id__cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/workspaces/{workspace_id}/collection-preparation-jobs": {
         parameters: {
             query?: never;
@@ -2279,16 +2501,18 @@ export interface components {
              * Profile Ids
              * @default [
              *       "legacy_block_prefix_v1",
-             *       "lexical_spans_v1"
+             *       "lexical_spans_v1",
+             *       "hybrid_qwen3_06b_rrf_rerank_v1",
+             *       "hybrid_medcpt_passage_rrf_rerank_v1"
              *     ]
              */
-            profile_ids: ("legacy_block_prefix_v1" | "lexical_spans_v1")[];
+            profile_ids: ("legacy_block_prefix_v1" | "lexical_spans_v1" | "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1")[];
             /**
              * Default Profile Id
              * @default legacy_block_prefix_v1
              * @enum {string}
              */
-            default_profile_id: "legacy_block_prefix_v1" | "lexical_spans_v1";
+            default_profile_id: "legacy_block_prefix_v1" | "lexical_spans_v1" | "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1";
             /**
              * Max Requirements Per Field
              * @default 3
@@ -3551,6 +3775,407 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** HybridBoardCandidates */
+        HybridBoardCandidates: {
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            schema_version: "mvp.board-candidates.hybrid.v1";
+            /** Id */
+            id: string;
+            /** Board Id */
+            board_id: string;
+            /** Board Revision Id */
+            board_revision_id: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Field Id */
+            field_id: string;
+            /** Field Revision Id */
+            field_revision_id: string;
+            /** Preparation Id */
+            preparation_id: string;
+            /** Source Manifest Sha256 */
+            source_manifest_sha256: string;
+            /** Retrieval Profile */
+            retrieval_profile: {
+                [key: string]: unknown;
+            };
+            /** Retrieval Profile Sha256 */
+            retrieval_profile_sha256: string;
+            result: components["schemas"]["HybridResult"];
+            /** Created At */
+            created_at?: string;
+        };
+        /** HybridCandidate */
+        HybridCandidate: {
+            /** Candidate Id */
+            candidate_id: string;
+            /** Rank */
+            rank: number;
+            reference: components["schemas"]["BoardReference"];
+            /**
+             * Source Type
+             * @enum {string}
+             */
+            source_type: "full_text" | "abstract";
+            /** Total Block Characters */
+            total_block_characters: number;
+            /** Omitted Before */
+            omitted_before: number;
+            /** Omitted After */
+            omitted_after: number;
+            /** Component Ids */
+            component_ids: string[];
+            /** Branch Membership */
+            branch_membership: ("bm25" | "dense")[];
+            /** Stages */
+            stages: components["schemas"]["HybridComponentStages"][];
+            /** Score */
+            score: number;
+            /**
+             * Score Meaning
+             * @default reranker_relevance_not_support_probability
+             * @constant
+             */
+            score_meaning: "reranker_relevance_not_support_probability";
+        };
+        /** HybridComponentReceipt */
+        HybridComponentReceipt: {
+            requirement: components["schemas"]["SpanRequirement"];
+            /** Lexical Matches */
+            lexical_matches: number;
+            /** Lexical Candidates */
+            lexical_candidates: number;
+            /** Dense Candidates */
+            dense_candidates: number;
+            /** Fusion Candidates */
+            fusion_candidates: number;
+            /** Reranked Candidates */
+            reranked_candidates: number;
+            /** Selected Candidates */
+            selected_candidates: number;
+            /**
+             * Meaning
+             * @default candidate_association_not_semantic_coverage
+             * @constant
+             */
+            meaning: "candidate_association_not_semantic_coverage";
+        };
+        /** HybridComponentStages */
+        HybridComponentStages: {
+            /** Component Id */
+            component_id: string;
+            bm25: components["schemas"]["HybridStage"];
+            dense: components["schemas"]["HybridStage"];
+            fusion: components["schemas"]["HybridStage"];
+            rerank: components["schemas"]["HybridStage"];
+        };
+        /** HybridCoverage */
+        HybridCoverage: {
+            /** Total Source Blocks */
+            total_source_blocks: number;
+            /** Indexed Blocks */
+            indexed_blocks: number;
+            /** Total Source Characters */
+            total_source_characters: number;
+            /** Indexed Source Characters */
+            indexed_source_characters: number;
+            /** Indexed Windows */
+            indexed_windows: number;
+            /** Unindexed Characters */
+            unindexed_characters: number;
+            /** Complete */
+            complete: boolean;
+            /** Omissions */
+            omissions: string[];
+            /** Limitations */
+            limitations?: string[];
+        };
+        /** HybridProposalPacket */
+        HybridProposalPacket: {
+            /**
+             * Schema Version
+             * @default mvp.hybrid-proposal-packet.v1
+             * @constant
+             */
+            schema_version: "mvp.hybrid-proposal-packet.v1";
+            /** Paper Id */
+            paper_id: string;
+            /** Title */
+            title: string;
+            /** Question */
+            question: string;
+            /**
+             * Source Type
+             * @enum {string}
+             */
+            source_type: "full_text" | "abstract" | "none";
+            /** Source Status */
+            source_status: string;
+            /**
+             * Context Scope
+             * @default retrieved_context_only
+             * @constant
+             */
+            context_scope: "retrieved_context_only";
+            /** Fields */
+            fields: components["schemas"]["HybridProposalPacketField"][];
+            /** Evidence */
+            evidence: components["schemas"]["ProposalEvidence"][];
+            /** Evidence Characters */
+            evidence_characters: number;
+            /** Omitted Evidence */
+            omitted_evidence: number;
+            /** Retrieval Profile Sha256 */
+            retrieval_profile_sha256: string;
+            /**
+             * Packet Policy
+             * @default hybrid-primary-spans-round-robin.v1
+             * @constant
+             */
+            packet_policy: "hybrid-primary-spans-round-robin.v1";
+        };
+        /** HybridProposalPacketField */
+        HybridProposalPacketField: {
+            /** Field Id */
+            field_id: string;
+            /** Field Revision Id */
+            field_revision_id: string;
+            /** Label */
+            label: string;
+            /** Subquestion */
+            subquestion: string;
+            /** Evidence Ids */
+            evidence_ids: string[];
+            /** Candidate Run Id */
+            candidate_run_id: string;
+            /** Indexed Windows */
+            indexed_windows: number;
+            /** Candidate Count */
+            candidate_count: number;
+            /** Component Ids */
+            component_ids: string[];
+            /**
+             * Omitted Evidence
+             * @default 0
+             */
+            omitted_evidence: number;
+            /**
+             * Meaning
+             * @default candidate_association_not_semantic_coverage
+             * @constant
+             */
+            meaning: "candidate_association_not_semantic_coverage";
+        };
+        /** HybridResult */
+        HybridResult: {
+            /**
+             * Schema Version
+             * @default mvp.hybrid-retrieval.v1
+             * @constant
+             */
+            schema_version: "mvp.hybrid-retrieval.v1";
+            /** Run Id */
+            run_id: string;
+            /**
+             * Profile Id
+             * @enum {string}
+             */
+            profile_id: "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1";
+            /**
+             * Profile Revision
+             * @default 1
+             * @constant
+             */
+            profile_revision: 1;
+            /**
+             * Experimental
+             * @default true
+             */
+            experimental: boolean;
+            /** Original Query */
+            original_query: string;
+            /** Requirements */
+            requirements: components["schemas"]["SpanRequirement"][];
+            /** Candidates */
+            candidates: components["schemas"]["HybridCandidate"][];
+            /** Requested Count */
+            requested_count: number;
+            /** Returned Count */
+            returned_count: number;
+            /**
+             * Operation
+             * @enum {string}
+             */
+            operation: "search" | "cell";
+            /** Source Manifest */
+            source_manifest: components["schemas"]["HybridSourceBinding"][];
+            /** Source Snapshot Sha256 */
+            source_snapshot_sha256: string;
+            /** Window Manifest Sha256 */
+            window_manifest_sha256: string;
+            coverage: components["schemas"]["HybridCoverage"];
+            /** Model Manifest */
+            model_manifest: {
+                [key: string]: unknown;
+            };
+            /** Profile Parameters */
+            profile_parameters: {
+                [key: string]: unknown;
+            };
+            /** Component Receipts */
+            component_receipts: components["schemas"]["HybridComponentReceipt"][];
+            /** Index Key */
+            index_key: string;
+            /** Timings */
+            timings: {
+                [key: string]: number;
+            };
+            /** Runtime */
+            runtime: {
+                [key: string]: unknown;
+            };
+            /**
+             * Terminal Status
+             * @default completed
+             * @constant
+             */
+            terminal_status: "completed";
+            /**
+             * Offset Convention
+             * @default half-open-unicode-codepoints
+             * @constant
+             */
+            offset_convention: "half-open-unicode-codepoints";
+            /**
+             * Meaning
+             * @default retrieval_candidates_not_inspected_support
+             * @constant
+             */
+            meaning: "retrieval_candidates_not_inspected_support";
+        };
+        /** HybridRunListing */
+        HybridRunListing: {
+            /** Runs */
+            runs: components["schemas"]["HybridSavedRun"][];
+        };
+        /** HybridSavedRun */
+        HybridSavedRun: {
+            /**
+             * Schema Version
+             * @default mvp.hybrid-saved-run.v1
+             * @constant
+             */
+            schema_version: "mvp.hybrid-saved-run.v1";
+            /** Id */
+            id: string;
+            /** Workspace Id */
+            workspace_id: string;
+            /** Preparation Id */
+            preparation_id: string;
+            /** Source Revision */
+            source_revision: number;
+            board_context: components["schemas"]["BoardPassageScope"] | null;
+            /** Request Sha256 */
+            request_sha256: string;
+            result: components["schemas"]["HybridResult"];
+            /** Created At */
+            created_at?: string;
+        };
+        /** HybridScopeRequest */
+        HybridScopeRequest: {
+            /** Request Id */
+            request_id: string;
+            /**
+             * Profile Id
+             * @enum {string}
+             */
+            profile_id: "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1";
+            /**
+             * Device
+             * @default cpu
+             * @enum {string}
+             */
+            device: "cpu" | "mps";
+            /** Expected Preparation Id */
+            expected_preparation_id: string;
+            /** Expected Source Revision */
+            expected_source_revision: number;
+            board_context?: components["schemas"]["BoardPassageScope"] | null;
+        };
+        /** HybridSearchRequest */
+        HybridSearchRequest: {
+            /** Request Id */
+            request_id: string;
+            /**
+             * Profile Id
+             * @enum {string}
+             */
+            profile_id: "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1";
+            /**
+             * Device
+             * @default cpu
+             * @enum {string}
+             */
+            device: "cpu" | "mps";
+            /** Expected Preparation Id */
+            expected_preparation_id: string;
+            /** Expected Source Revision */
+            expected_source_revision: number;
+            board_context?: components["schemas"]["BoardPassageScope"] | null;
+            /** Question */
+            question: string;
+            /**
+             * Top K
+             * @default 5
+             */
+            top_k: number;
+        };
+        /** HybridSourceBinding */
+        HybridSourceBinding: {
+            /** Source Id */
+            source_id: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Version */
+            version: string;
+            /** Source Sha256 */
+            source_sha256: string;
+            /** Blocks Sha256 */
+            blocks_sha256: string;
+            /** Parser Id */
+            parser_id: string;
+            /**
+             * Source Type
+             * @enum {string}
+             */
+            source_type: "full_text" | "abstract" | "none";
+        };
+        /** HybridSourceContext */
+        HybridSourceContext: {
+            reference: components["schemas"]["BoardReference"];
+            paper: components["schemas"]["BoardPaper"];
+            source: components["schemas"]["BoardSourceBinding"];
+            /**
+             * Freshness
+             * @enum {string}
+             */
+            freshness: "current" | "historical";
+            block: components["schemas"]["BoardBlockChunk"];
+            /** Run Id */
+            run_id: string;
+            /** Candidate Id */
+            candidate_id: string;
+        };
+        /** HybridStage */
+        HybridStage: {
+            /** Rank */
+            rank?: number | null;
+            /** Score */
+            score?: number | null;
+        };
         /** ImportCommitRequest */
         ImportCommitRequest: {
             /** Request Id */
@@ -4243,7 +4868,7 @@ export interface components {
              * Retrieval Profile Id
              * @enum {string}
              */
-            retrieval_profile_id: "legacy_block_prefix_v1" | "lexical_spans_v1";
+            retrieval_profile_id: "legacy_block_prefix_v1" | "lexical_spans_v1" | "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1";
             /** Field Requirements */
             field_requirements?: components["schemas"]["FieldSpanRequirements"][];
         };
@@ -4269,7 +4894,7 @@ export interface components {
              * Retrieval Profile Id
              * @enum {string}
              */
-            retrieval_profile_id: "legacy_block_prefix_v1" | "lexical_spans_v1";
+            retrieval_profile_id: "legacy_block_prefix_v1" | "lexical_spans_v1" | "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1";
             /** Field Requirements */
             field_requirements?: components["schemas"]["FieldSpanRequirements"][];
             /** Expected Revision Id */
@@ -4586,7 +5211,7 @@ export interface components {
             /** Failure Message */
             failure_message?: string | null;
             /** Packets */
-            packets?: components["schemas"]["ProposalPacket"][];
+            packets?: (components["schemas"]["ProposalPacket"] | components["schemas"]["HybridProposalPacket"])[];
             /** Calls */
             calls?: components["schemas"]["ProposalCallReceipt"][];
             /** Proposals */
@@ -4814,6 +5439,37 @@ export interface components {
              */
             rights_note: string;
         };
+        /** RetrievalPackAction */
+        RetrievalPackAction: {
+            /** Expected Revision */
+            expected_revision: number;
+            /**
+             * Profile Id
+             * @enum {string}
+             */
+            profile_id: "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1";
+            /**
+             * Device
+             * @default cpu
+             * @enum {string}
+             */
+            device: "cpu" | "mps";
+        };
+        /** RetrievalPreferences */
+        RetrievalPreferences: {
+            /**
+             * Profile Id
+             * @default legacy_block_prefix_v1
+             * @enum {string}
+             */
+            profile_id: "legacy_block_prefix_v1" | "lexical_spans_v1" | "hybrid_qwen3_06b_rrf_rerank_v1" | "hybrid_medcpt_passage_rrf_rerank_v1";
+            /**
+             * Device
+             * @default cpu
+             * @enum {string}
+             */
+            device: "cpu" | "mps";
+        };
         /** ReviewedImportRow */
         ReviewedImportRow: {
             /** Id */
@@ -4914,6 +5570,7 @@ export interface components {
             ai?: components["schemas"]["AIPreferences"];
             defaults?: components["schemas"]["SearchDefaults"];
             maps?: components["schemas"]["MapPreferences"];
+            retrieval?: components["schemas"]["RetrievalPreferences"];
         };
         /** RuntimeProposalRequest */
         RuntimeProposalRequest: {
@@ -8242,7 +8899,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["BoardCandidates"] | components["schemas"]["SpanBoardCandidates"];
+                    "application/json": components["schemas"]["BoardCandidates"] | components["schemas"]["SpanBoardCandidates"] | components["schemas"]["HybridBoardCandidates"];
                 };
             };
             /** @description Validation Error */
@@ -8806,6 +9463,454 @@ export interface operations {
             path: {
                 workspace_id: string;
                 board_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    capabilities_api_v1_settings_retrieval_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    install_api_v1_settings_retrieval_install_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RetrievalPackAction"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cancel_pack_api_v1_settings_retrieval_cancel_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RetrievalPackAction"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    check_api_v1_settings_retrieval_check_runtime_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RetrievalPackAction"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    remove_api_v1_settings_retrieval_remove_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RetrievalPackAction"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    index_status_api_v1_workspaces__workspace_id__hybrid_index_status_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["HybridScopeRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    index_api_v1_workspaces__workspace_id__hybrid_index_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["HybridScopeRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    runs_api_v1_workspaces__workspace_id__hybrid_runs_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HybridRunListing"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    retrieve_api_v1_workspaces__workspace_id__hybrid_runs_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["HybridSearchRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HybridSavedRun"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_run_api_v1_workspaces__workspace_id__hybrid_runs__run_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                run_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HybridSavedRun"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    context_api_v1_workspaces__workspace_id__hybrid_runs__run_id__candidates__candidate_id__context_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                run_id: string;
+                candidate_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HybridSourceContext"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    export_api_v1_workspaces__workspace_id__hybrid_exports_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    job_api_v1_workspaces__workspace_id__hybrid_jobs__job_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                job_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cancel_api_v1_workspaces__workspace_id__hybrid_jobs__job_id__cancel_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                job_id: string;
             };
             cookie?: never;
         };

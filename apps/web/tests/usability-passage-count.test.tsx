@@ -18,6 +18,7 @@ test("passage counts 5,7,10,20,30 are explicit requests, persist across question
   globalThis.fetch=async(input,options)=>{
     const path=String(input),method=options?.method??"GET",body=options?.body?JSON.parse(String(options.body)):null;calls.push({path,method,body});
     if(path.endsWith("/session"))return response({csrf_token:"software"});
+    if(path.endsWith("/settings"))return response({preferences:{retrieval:{profile_id:"legacy_block_prefix_v1",device:"cpu"}}});
     if(path.endsWith("/drafts/evidence")){if(method==="PUT"){assert.equal(body.version,saved.version);saved={...saved,...body,version:saved.version+1};}return response(saved);}
     if(path.endsWith("/evidence-runs"))return response({...f.run,id:"new-"+body.top_k,parameters:{top_k:body.top_k,returned_count:3}});
     throw new Error("Unexpected provider or retrieval call "+path);

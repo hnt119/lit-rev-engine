@@ -78,6 +78,7 @@ class BoardStore:
     def decode(row, model):
         from ..board_contracts import BoardCandidates, BoardRevision, CollectionBoardRevision
         from ..span_board_contracts import SpanBoardCandidates
+        from ..hybrid_app_contracts import HybridBoardCandidates
         try:
             payload = json.loads(row['payload'])
             if model in (BoardRevision, CollectionBoardRevision):
@@ -88,9 +89,11 @@ class BoardStore:
                     model = BoardRevision
                 else:
                     raise ValueError('Unsupported board definition version')
-            if model in (BoardCandidates, SpanBoardCandidates):
+            if model in (BoardCandidates, SpanBoardCandidates, HybridBoardCandidates):
                 version = payload.get('schema_version') if isinstance(payload, dict) else None
-                if version == 'mvp.board-candidates.spans.v2':
+                if version == 'mvp.board-candidates.hybrid.v1':
+                    model = HybridBoardCandidates
+                elif version == 'mvp.board-candidates.spans.v2':
                     model = SpanBoardCandidates
                 elif version == 'mvp.board-candidates.v1':
                     model = BoardCandidates
@@ -105,7 +108,9 @@ class BoardStore:
 
     def limits(self, db, workspace_id):
         total = 0
-        for table in ('evidence_boards', 'board_definitions', 'board_cells', 'board_heads', 'board_drafts', 'board_candidates', 'board_requests', 'proposal_runs', 'cell_proposals', 'proposal_events', 'proposal_actions'):
+        for table in ('evidence_boards', 'board_definitions', 'board_cells', 'board_heads', 'board_drafts', 'board_candidates', 'board_requests', 'proposal_runs', 'cell_proposals', 'proposal_events', 'proposal_actions', 'hybrid_runs', 'hybrid_jobs_v1'):
+            if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",(table,)).fetchone() is None:
+                continue
             for row in db.execute('SELECT * FROM ' + table + ' WHERE workspace_id=?', (workspace_id,)):
                 total += sum(len(str(value).encode('utf-8')) for value in row if value is not None) + 256
         if total > self.max_workspace_bytes or db.execute('SELECT COUNT(*) FROM board_requests WHERE workspace_id=?', (workspace_id,)).fetchone()[0] > self.max_requests:

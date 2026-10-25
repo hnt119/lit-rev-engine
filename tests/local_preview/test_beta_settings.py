@@ -207,3 +207,23 @@ def test_optional_map_dependency_install_requires_explicit_setup_flag(tmp_path,m
     assert all(item[1]['env']['MVP_MAP_ENABLED']=='0' for item in calls)
     assert result['optional_map_dependencies'] is with_maps and result['model_downloads']==0
     assert not (tmp_path/'data').exists()
+
+
+@pytest.mark.parametrize('with_retrieval',[False,True])
+def test_retrieval_runtime_install_requires_explicit_setup_flag(tmp_path,monkeypatch,with_retrieval):
+    import argparse
+    from scripts import local_preview as preview
+    monkeypatch.setattr(preview,'ROOT',tmp_path)
+    monkeypatch.setattr(preview,'validate_distribution_license',lambda root:None)
+    monkeypatch.setattr(preview,'prerequisites',lambda *a:{'node':'node','pnpm':'pnpm'})
+    monkeypatch.setattr(preview,'reject_web_env_files',lambda root:None)
+    monkeypatch.setattr(preview,'fingerprint',lambda path:'synthetic-fingerprint')
+    def create(target):
+        (target/'bin').mkdir(parents=True);(target/'bin/python').write_text('synthetic')
+    monkeypatch.setattr(preview.venv.EnvBuilder,'create',lambda self,target:create(target))
+    commands=[]
+    monkeypatch.setattr(preview.subprocess,'run',lambda command,**kw:commands.append(command) or type('Result',(),{'returncode':0})())
+    result=preview.setup(argparse.Namespace(node=None,pnpm=None,with_maps=False,with_retrieval=with_retrieval))
+    assert ('requirements-retrieval.txt' in commands[0]) is with_retrieval
+    assert all('retrieval_pack.py' not in command for command in commands)
+    assert result['optional_retrieval_dependencies'] is with_retrieval and result['model_downloads']==0

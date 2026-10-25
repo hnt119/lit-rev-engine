@@ -27,6 +27,7 @@ _SAFE_FAILURES = {
     'proposal_timeout': 'The bounded generation runtime expired. No proposals were published; an unfinished adapter call cannot publish later.',
     'proposal_stale_inputs': 'The board, sources, cell submission or saved draft changed during generation. No proposals were published.',
     'proposal_context_limit': 'The retained evidence packet exceeded its bounded input limit. No proposals were published.',
+    'hybrid_candidates_required': 'Open each selected comparison cell and choose Find relevant passages before preparing hybrid proposals. No neural retrieval or generation was started by this proposal action.',
     'proposal_storage_limit': 'The bounded comparison storage limit prevented publication. No proposals were published.',
 }
 
@@ -129,13 +130,19 @@ class CellProposalService:
                 from .adapters.cell_generation import build_packet
                 from .adapters.span_packets import build_span_packet
                 from .span_board_contracts import SPAN_BOARD_PROFILE
-                packet_builder = build_span_packet if definition.retrieval_profile.get('profile_id') == SPAN_BOARD_PROFILE else build_packet
+                from .adapters.hybrid_packets import build_hybrid_packet
+                packet_builder = (build_hybrid_packet if definition.retrieval_profile.get('profile_id','').startswith('hybrid_') else
+                    build_span_packet if definition.retrieval_profile.get('profile_id') == SPAN_BOARD_PROFILE else build_packet)
                 packets = []
                 for paper_id in request.paper_ids:
                     self._deadline(started)
-                    candidates = [self.boards.candidates(mode, handle, board_id, BoardCandidatesRequest(
-                        request_id=f'proposal:{run.id}:{index}:{len(packets)}', expected_revision_id=definition.revision_id,
-                        paper_id=paper_id, field_id=field_id)) for index, field_id in enumerate(request.field_ids)]
+                    if definition.retrieval_profile.get('profile_id','').startswith('hybrid_'):
+                        candidates = [self.boards.saved_hybrid_candidates(mode,handle,board_id,definition.revision_id,paper_id,field_id)
+                                      for field_id in request.field_ids]
+                    else:
+                        candidates = [self.boards.candidates(mode, handle, board_id, BoardCandidatesRequest(
+                            request_id=f'proposal:{run.id}:{index}:{len(packets)}', expected_revision_id=definition.revision_id,
+                            paper_id=paper_id, field_id=field_id)) for index, field_id in enumerate(request.field_ids)]
                     packets.append(packet_builder(definition, paper_id, candidates))
                 run = run.model_copy(update={'packets': packets, 'calls': [ProposalCallReceipt(paper_id=p.paper_id,
                     packet_sha256=digest(p.model_dump(mode='json')), request_sha256=digest({'packet': p.model_dump(mode='json'),

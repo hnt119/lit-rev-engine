@@ -17,7 +17,7 @@ VERSION = '0.3.0-beta.2'
 PREFIX = 'lit-rev-engine-' + VERSION + '/'
 TREES = ('src/mvp/', 'src/review/', 'src/web_api/', 'apps/web/app/', 'apps/web/components/',
          'apps/web/lib/', 'examples/mvp/offline_microbiome_30_v1/')
-EXACT = {'README.md', 'DISTRIBUTION_TERMS.md', 'RELEASE.json', 'MANIFEST.json', 'requirements-hosted.txt', 'requirements-web-lock.txt', 'requirements-map.txt', 'requirements-map-lock.txt',
+EXACT = {'RETRIEVAL.md','MODEL_REFERENCES.md','notices/QWEN_APACHE_LICENSE.txt','notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt','requirements-retrieval.txt','scripts/retrieval_pack.py','README.md', 'DISTRIBUTION_TERMS.md', 'RELEASE.json', 'MANIFEST.json', 'requirements-hosted.txt', 'requirements-web-lock.txt', 'requirements-map.txt', 'requirements-map-lock.txt',
          'LICENSE', 'THIRD_PARTY_NOTICES.md', 'OPTIONAL_FEATURES.md', 'CAPABILITIES.md', 'SETTINGS.md', 'config/local-beta.example.json',
          'scripts/run_web.py', 'scripts/local_preview.py', 'scripts/license_policy.py',
          'scripts/local_beta_settings.py', 'scripts/check_local_beta.py', 'scripts/run_map_worker.py', 'apps/web/package.json', 'apps/web/pnpm-lock.yaml',
@@ -26,7 +26,7 @@ BANNED = {'node_modules', '__pycache__', '.next', '.git', '.cache', 'tests', 're
           'workflow', 'data', '.mvp-web-state', '.mvp-state', 'browser-state', 'backups', 'private-exports',
           'model-cache', '.venv', '.venv-map', '.venv-preview', '.local-preview-setup.json'}
 BAD_SUFFIXES = ('.sqlite', '.sqlite3', '.sqlite3-wal', '.sqlite3-shm', '.db', '.db-wal', '.db-shm',
-                '.pem', '.key', '.crt', '.cer', '.p12', '.pfx', '.pyc', '.safetensors', '.gguf', '.pt', '.pth',
+                '.pem', '.key', '.crt', '.cer', '.p12', '.pfx', '.pyc', '.safetensors', '.gguf', '.pt', '.pth', '.bin',
                 '.tsbuildinfo', '.map', '.log', '.xlsx', '.zip', '.tar', '.tar.gz', '.bak')
 PRIVATE = [rb'-----BEGIN (?:[A-Z0-9]+ )?PRIVATE KEY-----',
            rb'(?:gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9_-]{24,}|AKIA[A-Z0-9]{16})',
@@ -50,7 +50,9 @@ def audit(archive, expected_source_commit, source_checkout):
     licenses = {name for name in tracked if '/' not in name and LICENSE_NAME.fullmatch(name)}
     expected_names = {name for name in tracked if name in EXACT or name.startswith(TREES)} | EXACT | licenses
     # README is the dedicated installation guide in this purpose-built archive.
-    translations = {'README.md': 'docs/local_preview.md', 'DISTRIBUTION_TERMS.md': 'docs/local_preview_distribution_terms.md',
+    translations = {'RETRIEVAL.md':'docs/hybrid_retrieval.md','MODEL_REFERENCES.md':'docs/hybrid_model_references.md',
+                    'notices/QWEN_APACHE_LICENSE.txt':'docs/notices/QWEN_APACHE_LICENSE.txt',
+                    'notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt':'docs/notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt', 'README.md': 'docs/local_preview.md', 'DISTRIBUTION_TERMS.md': 'docs/local_preview_distribution_terms.md',
                     'OPTIONAL_FEATURES.md': 'docs/local_beta_optional_features.md', 'CAPABILITIES.md': 'docs/local_beta_capabilities.md', 'SETTINGS.md':'docs/research_ai_settings.md'}
     archive = Path(archive)
     assert archive.suffix == '.zip' and archive.is_file() and not archive.is_symlink()

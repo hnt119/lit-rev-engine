@@ -83,7 +83,8 @@ def fingerprint(root):
     paths = [root / name for name in ("requirements-hosted.txt", "requirements-web-lock.txt",
              "scripts/local_preview.py", "scripts/run_web.py", "scripts/local_beta_settings.py",
              "scripts/check_local_beta.py", "scripts/license_policy.py", "requirements-map.txt",
-             "requirements-map-lock.txt", "LICENSE", "THIRD_PARTY_NOTICES.md", "apps/streamlit/theme/tokens.css")]
+             "requirements-map-lock.txt", "requirements-retrieval.txt", "src/mvp/retrieval_pack_manifest.json",
+             "src/mvp/retrieval_pack_notices.json", "LICENSE", "THIRD_PARTY_NOTICES.md", "apps/streamlit/theme/tokens.css")]
     paths += list((root / "src").rglob("*.py"))
     for directory, subdirectories, files in os.walk(root / "apps/web"):
         subdirectories[:] = [name for name in subdirectories if name not in {"node_modules", ".next", ".git"}]
@@ -154,6 +155,8 @@ def setup(args):
     requirements = ["-r", "requirements-hosted.txt"]
     if getattr(args, "with_maps", False):
         requirements += ["-r", "requirements-map.txt"]
+    if getattr(args, "with_retrieval", False):
+        requirements += ["-r", "requirements-retrieval.txt"]
     commands = [([str(python), "-m", "pip", "install", "--disable-pip-version-check", "--no-input", *requirements], ROOT),
                 ([tools["pnpm"], "install", "--frozen-lockfile"], ROOT / "apps/web"),
                 ([tools["pnpm"], "build"], ROOT / "apps/web")]
@@ -162,9 +165,11 @@ def setup(args):
         if result.returncode:
             raise LocalLaunchError("Setup failed while installing/building locked dependencies. Check this terminal and network access, then rerun setup; research data was not migrated.")
     atomic_json(ROOT / SETUP, {"version": VERSION, "root": str(ROOT), "fingerprint": fingerprint(ROOT),
-                              "python": str(python), "optional_map_dependencies": bool(getattr(args, "with_maps", False)), **tools})
+                              "python": str(python), "optional_map_dependencies": bool(getattr(args, "with_maps", False)),
+                              "optional_retrieval_dependencies": bool(getattr(args, "with_retrieval", False)), **tools})
     return {"status": "setup_complete", "version": VERSION, "data_created": False,
-            "optional_map_dependencies": bool(getattr(args, "with_maps", False)), "model_downloads": 0}
+            "optional_map_dependencies": bool(getattr(args, "with_maps", False)),
+            "optional_retrieval_dependencies": bool(getattr(args, "with_retrieval", False)), "model_downloads": 0}
 
 
 @contextmanager
@@ -377,6 +382,15 @@ def configured_environment(args, node, data):
     env = local_environment(os.environ, data_dir=data, api_port=args.api_port, web_port=args.web_port,
                             node=node, isolated=True, allow_live=getattr(args, "allow_live", False), browser_host=args.browser_host)
     env.update(feature_environment(settings))
+    cache = getattr(args, 'retrieval_cache', None)
+    if cache:
+        cache = Path(cache).expanduser()
+        if (not cache.is_absolute() or '..' in cache.parts or cache.resolve().is_relative_to(ROOT.resolve())
+            or any(path.is_symlink() for path in (cache, *cache.parents))):
+            raise LocalLaunchError('Use an absolute private external retrieval cache without symlinks.')
+        if cache.exists() and (not cache.is_dir() or cache.stat().st_uid != os.getuid() or stat.S_IMODE(cache.stat().st_mode) != 0o700):
+            raise LocalLaunchError('Retrieval cache must be an owned mode-0700 directory.')
+        env['LITREV_RETRIEVAL_CACHE'] = str(cache)
     return env
 
 
@@ -445,18 +459,21 @@ def main():
     install = commands.add_parser("setup", help="Install the locked core runtime and build the production UI; no model weights")
     install.add_argument("--node")
     install.add_argument("--pnpm")
+    install.add_argument("--with-retrieval", action="store_true", help="Install optional pinned local evidence-retrieval dependencies; no model weights")
     install.add_argument("--with-maps", action="store_true", help="Explicitly install existing pinned optional local mapping dependencies; never weights")
     run = commands.add_parser("launch", help="Run in this terminal; Ctrl-C stops both owned servers")
     run.add_argument("--node", help="Override the Node executable recorded by setup")
     run.add_argument("--api-port", type=int, default=8765)
     run.add_argument("--web-port", type=int, default=3000)
     run.add_argument("--browser-host", choices=("localhost", "127.0.0.1"), default="localhost")
+    run.add_argument("--retrieval-cache", type=Path, help="Explicit private external model/index cache; does not install or index")
     run.add_argument("--no-browser", action="store_true")
     run.add_argument("--config", type=Path, help="Validated private JSON file outside the app; only existing local adapters and NCBI live opt-in")
     run.add_argument("--allow-live", action="store_true", help="Explicitly allow only validated NCBI_EMAIL/NCBI_API_KEY from this shell")
     check = commands.add_parser("check-config", help="Inspect explicit settings and optional setup without loading models or contacting providers")
     check.add_argument("--config", type=Path)
     check.add_argument("--node")
+    check.add_argument("--retrieval-cache", type=Path)
     check.set_defaults(api_port=8765, web_port=3000, browser_host="localhost", allow_live=False)
     for command in (run, commands.add_parser("status"), commands.add_parser("stop")):
         command.add_argument("--data-dir", type=Path, default=default_data_dir())

@@ -57,10 +57,16 @@ def install_proposal_routes(app, *, proposals, owned, session_for, dependencies)
         packets = []
         seed = new_id()
         for pi, paper in enumerate(request.paper_ids):
-            candidates = [proposals.boards.candidates(mode, handle, board_id, BoardCandidatesRequest(
-                request_id=f'consent:{seed}:{pi}:{fi}', expected_revision_id=definition.revision_id,
-                paper_id=paper, field_id=field)) for fi, field in enumerate(request.field_ids)]
-            builder = build_span_packet if definition.retrieval_profile.get('profile_id') == SPAN_BOARD_PROFILE else build_packet
+            if definition.retrieval_profile.get('profile_id','').startswith('hybrid_'):
+                candidates = [proposals.boards.saved_hybrid_candidates(mode,handle,board_id,definition.revision_id,paper,field)
+                              for field in request.field_ids]
+            else:
+                candidates = [proposals.boards.candidates(mode, handle, board_id, BoardCandidatesRequest(
+                    request_id=f'consent:{seed}:{pi}:{fi}', expected_revision_id=definition.revision_id,
+                    paper_id=paper, field_id=field)) for fi, field in enumerate(request.field_ids)]
+            from src.mvp.adapters.hybrid_packets import build_hybrid_packet
+            builder = (build_hybrid_packet if definition.retrieval_profile.get('profile_id','').startswith('hybrid_') else
+                build_span_packet if definition.retrieval_profile.get('profile_id') == SPAN_BOARD_PROFILE else build_packet)
             packets.append(builder(definition, paper, candidates).model_dump(mode='json'))
         return settings.prepare(session['token_hash'], snapshot['revision'], binding(workspace_id, board_id, request),
             disclosure(selected.adapter, 'proposals', packets, len(packets)),

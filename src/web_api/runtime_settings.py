@@ -72,11 +72,19 @@ class MapPreferences(Model):
     cache_dir: str = Field(default='', max_length=1000)
 
 
+class RetrievalPreferences(Model):
+    # Default affects future explicit operations; saved definitions retain profiles.
+    profile_id: Literal['legacy_block_prefix_v1', 'lexical_spans_v1',
+        'hybrid_qwen3_06b_rrf_rerank_v1', 'hybrid_medcpt_passage_rrf_rerank_v1'] = 'legacy_block_prefix_v1'
+    device: Literal['cpu', 'mps'] = 'cpu'
+
+
 class RuntimePreferences(Model):
     pubmed: PubMedPreferences = Field(default_factory=PubMedPreferences)
     ai: AIPreferences = Field(default_factory=AIPreferences)
     defaults: SearchDefaults = Field(default_factory=SearchDefaults)
     maps: MapPreferences = Field(default_factory=MapPreferences)
+    retrieval: RetrievalPreferences = Field(default_factory=RetrievalPreferences)
 
 
 class SettingsPut(Model):

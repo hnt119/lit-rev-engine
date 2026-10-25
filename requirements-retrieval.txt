@@ -1,0 +1,10 @@
+# Optional local evidence retrieval only; core lexical does not import these.
+# Explicit setup in its own environment; model installation is a separate action.
+# Native Transformers; no sentence-transformers, map fitting or remote model code.
+-c requirements-map-lock.txt
+torch==2.12.0
+transformers==5.12.0
+tokenizers==0.22.2
+safetensors==0.8.0
+huggingface-hub==1.19.0
+numpy==2.4.6
