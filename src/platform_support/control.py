@@ -8,6 +8,7 @@ import json
 import os
 from threading import Thread
 import time
+from .windows import native_errors
 
 
 def pipe_name(state):
@@ -16,13 +17,14 @@ def pipe_name(state):
     return '\\\\.\\pipe\\litrev-preview-' + hashlib.sha256(identity.encode()).hexdigest()
 
 
+@native_errors
 def _overlapped(handle, invoke, timeout):
     from .windows import require_runtime
     types, _, con, file, _, event, *_ = require_runtime()
     value = types.OVERLAPPED(); value.hEvent = event.CreateEvent(None, True, False, None)
     try:
         try: invoke(value)
-        except OSError as error:
+        except types.error as error:
             if getattr(error, 'winerror', None) == 535:  # client already connected
                 return 0
             if getattr(error, 'winerror', None) != 997:  # ERROR_IO_PENDING
@@ -59,6 +61,7 @@ class PipeConnection:
         if self.handle is not None: self.handle.Close(); self.handle = None
 
 
+@native_errors
 def connect(state, expected_pid):
     from .windows import require_runtime
     _, _, con, file, _, _, _, _, pipe = require_runtime()
@@ -85,6 +88,7 @@ class PipeServer:
         self.state, self.stop, self.handler = state, stop, handler
         self.handle = self.thread = None
 
+    @native_errors
     def start(self):
         from .windows import require_runtime, security_attributes
         _, _, con, _, _, _, _, _, pipe = require_runtime()
@@ -98,7 +102,7 @@ class PipeServer:
 
     def serve(self):
         from .windows import require_runtime
-        pipe = require_runtime()[8]
+        types, *_, pipe = require_runtime()
         try:
             while not self.stop.is_set():
                 try:
@@ -111,7 +115,7 @@ class PipeServer:
                     pass
                 finally:
                     try: pipe.DisconnectNamedPipe(self.handle)
-                    except OSError: pass
+                    except types.error: pass
         finally:
             if not self.stop.is_set(): self.stop.set()
 

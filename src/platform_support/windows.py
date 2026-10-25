@@ -6,6 +6,8 @@ used. Same-account malware and privileged administrators are outside this
 per-user boundary, as on POSIX.
 """
 from functools import lru_cache
+from functools import wraps
+import errno
 import ntpath
 import os
 from pathlib import Path
@@ -17,13 +19,43 @@ def require_runtime():
     if os.name != 'nt':
         raise RuntimeError('Windows native security is available only on Windows.')
     try:
-        import pywintypes, win32api, win32con, win32file, win32security, win32event, win32process, win32job, win32pipe
+        import pywintypes, win32api, win32con, win32file, win32security, win32event, win32process, win32job, win32pipe, ntsecuritycon
+        from types import SimpleNamespace
         from importlib.metadata import version
         if version('pywin32') != '312':
             raise ImportError('unreviewed security runtime')
     except ImportError:
         raise RuntimeError('Windows setup requires the pinned security prerequisite before private state is opened. Create .venv-bootstrap with py -3.12 -m venv .venv-bootstrap, then run its Scripts\\python.exe -m pip install -r requirements-windows-bootstrap.txt. Use that interpreter for setup/launch; do not run the global pywin32 post-install script.') from None
-    return pywintypes, win32api, win32con, win32file, win32security, win32event, win32process, win32job, win32pipe
+    # File access rights live in ntsecuritycon; some file/event constants are
+    # exported only by their API modules in pinned pywin32 312.
+    constants = SimpleNamespace(**vars(win32con))
+    constants.FILE_READ_ATTRIBUTES = ntsecuritycon.FILE_READ_ATTRIBUTES
+    constants.FILE_ALL_ACCESS = ntsecuritycon.FILE_ALL_ACCESS
+    constants.FILE_FLAG_OPEN_REPARSE_POINT = win32file.FILE_FLAG_OPEN_REPARSE_POINT
+    constants.INFINITE = win32event.INFINITE
+    constants.MOVEFILE_WRITE_THROUGH = 0x8  # documented Win32 MOVEFILE_WRITE_THROUGH
+    return pywintypes, win32api, constants, win32file, win32security, win32event, win32process, win32job, win32pipe
+
+
+def _os_error(error):
+    code = getattr(error, 'winerror', error.args[0] if error.args else 0)
+    kind, number = ({2: (FileNotFoundError, errno.ENOENT), 3: (FileNotFoundError, errno.ENOENT),
+        5: (PermissionError, errno.EACCES), 32: (PermissionError, errno.EACCES),
+        80: (FileExistsError, errno.EEXIST), 183: (FileExistsError, errno.EEXIST),
+        33: (BlockingIOError, errno.EAGAIN)}).get(code, (OSError, errno.EIO))
+    result = kind(number, 'The private Windows operation failed; no unsafe fallback was used.')
+    result.winerror = code
+    return result
+
+
+def native_errors(function):
+    """Expose ordinary OSError categories at the existing platform boundary."""
+    @wraps(function)
+    def call(*args, **kwargs):
+        types = require_runtime()[0]
+        try: return function(*args, **kwargs)
+        except types.error as error: raise _os_error(error) from None
+    return call
 
 
 @lru_cache(maxsize=1)
@@ -78,15 +110,18 @@ def _require_ntfs(drive):
         raise ValueError('Windows private data requires a local NTFS volume; network, FAT and exFAT storage are unsupported.')
 
 
+@native_errors
 def assert_no_reparse(path):
     path=_full(path)
-    _,_,con,file,*_=require_runtime()
+    types,api,con,file,*_=require_runtime()
     for item in (path,*path.parents):
         try:
-            flags=file.GetFileAttributes(_native(item))
-        except OSError as error:
+            # win32file's raw DWORD wrapper returns INVALID_FILE_ATTRIBUTES on
+            # failure. win32api checks that sentinel and raises the error.
+            flags=api.GetFileAttributes(_native(item))
+        except types.error as error:
             if getattr(error,'winerror',None) in {2,3}:continue
-            raise
+            raise _os_error(error) from None
         if flags & con.FILE_ATTRIBUTE_REPARSE_POINT:
             raise ValueError('Private Windows paths cannot contain reparse points or junctions.')
     return path
@@ -98,6 +133,7 @@ def _native(path):
     return '\\\\?\\' + str(path)
 
 
+@native_errors
 def _handle(path, *, directory=False, access=None):
     _,_,con,file,*_=require_runtime()
     path=assert_no_reparse(path)
@@ -138,6 +174,7 @@ def _protect(handle,directory=False):
         None,None,descriptor.GetSecurityDescriptorDacl(),None)
 
 
+@native_errors
 def private_directory(path):
     _,_,con,file,*_=require_runtime()
     path=assert_no_reparse(path)
@@ -155,6 +192,7 @@ def private_directory(path):
     return path
 
 
+@native_errors
 def open_private(path,flags,*,strict=False):
     import msvcrt
     _,_,con,file,*_=require_runtime()
@@ -182,17 +220,20 @@ def open_private(path,flags,*,strict=False):
         if handle is not None:handle.Close()
 
 
+@native_errors
 def owned_fd(descriptor,*,private=False):
     import msvcrt
     return _owned(msvcrt.get_osfhandle(descriptor),private)
 
 
+@native_errors
 def owned_path(path,*,private=False):
     handle=_handle(path,directory=Path(path).is_dir())
     try:return _owned(handle,private)
     finally:handle.Close()
 
 
+@native_errors
 def restrict_fd(descriptor):
     import msvcrt
     handle=msvcrt.get_osfhandle(descriptor)
@@ -200,6 +241,7 @@ def restrict_fd(descriptor):
     _protect(handle)
 
 
+@native_errors
 def restrict_path(path):
     con=require_runtime()[2]
     handle=_handle(path,directory=Path(path).is_dir(),access=con.READ_CONTROL|con.WRITE_DAC)
@@ -209,6 +251,7 @@ def restrict_path(path):
     finally:handle.Close()
 
 
+@native_errors
 def flock(descriptor,operation):
     import msvcrt
     types,_,con,file,*_=require_runtime()
@@ -221,14 +264,21 @@ def flock(descriptor,operation):
         raise ValueError('Choose a shared or exclusive OS file lock.')
     flags=(con.LOCKFILE_EXCLUSIVE_LOCK if operation&2 else 0)|(con.LOCKFILE_FAIL_IMMEDIATELY if operation&4 else 0)
     try:file.LockFileEx(handle,flags,1,0,overlapped)
-    except OSError as error:
+    except types.error as error:
         if getattr(error,'winerror',None)==33:raise BlockingIOError('Another process owns this OS file lock.') from None
         raise
 
 
 def is_process_alive(pid):
-    _,api,con,_,_,event,process,*_=require_runtime()
+    types,api,con,_,_,event,process,*_=require_runtime()
     try:handle=api.OpenProcess(con.SYNCHRONIZE|0x1000,False,pid)
-    except OSError:return False
+    except types.error:return False
     try:return event.WaitForSingleObject(handle,0)==con.WAIT_TIMEOUT
     finally:handle.Close()
+
+
+@native_errors
+def move(source, destination, *, replace=False):
+    _, api, con, *_ = require_runtime()
+    api.MoveFileEx(_native(assert_no_reparse(source)), _native(assert_no_reparse(destination)),
+        con.MOVEFILE_WRITE_THROUGH | (con.MOVEFILE_REPLACE_EXISTING if replace else 0))

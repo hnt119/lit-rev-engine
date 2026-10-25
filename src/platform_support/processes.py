@@ -6,10 +6,12 @@ stored PID is ever used to terminate a process, including after a crash.
 import os
 from pathlib import Path
 import socket
+import secrets
 import struct
 import subprocess
 import sys
 import time
+from .windows import native_errors
 
 
 def peak_rss_bytes():
@@ -89,24 +91,28 @@ class OwnedWindowsProcess:
         """
         from .windows import require_runtime
         if self.poll() is not None: return False
-        _, api, con, *_ = require_runtime()
+        types, api, con, *_ = require_runtime()
         try:
             api.GenerateConsoleCtrlEvent(con.CTRL_BREAK_EVENT, self.pid)
             return True
-        except OSError:
+        except types.error:
             return False
 
 
 class WindowsJob:
+    @native_errors
     def __init__(self):
-        from .windows import require_runtime
+        from .windows import require_runtime, security_attributes
         _, _, _, _, _, _, _, job, _ = require_runtime()
-        self.handle = job.CreateJobObject(None, None)
+        # Pinned pywin32 requires a string here. A random per-instance name plus
+        # the same current-SID/SYSTEM descriptor prevents default shared access.
+        self.handle = job.CreateJobObject(security_attributes(), 'Local\\litrev-owned-' + secrets.token_hex(32))
         limits = job.QueryInformationJobObject(self.handle, job.JobObjectExtendedLimitInformation)
         limits['BasicLimitInformation']['LimitFlags'] |= job.JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
         job.SetInformationJobObject(self.handle, job.JobObjectExtendedLimitInformation, limits)
         self.children = []
 
+    @native_errors
     def spawn(self, command, cwd, env):
         from .windows import require_runtime
         _, _, con, _, _, _, process, job, _ = require_runtime()
@@ -130,6 +136,7 @@ class WindowsJob:
         finally:
             thread.Close()
 
+    @native_errors
     def close(self, shutdown_seconds=12):
         if self.handle is None:
             return {'already_closed': True}

@@ -26,3 +26,56 @@ def test_only_fixed_ntfs_is_accepted_and_drive_type_is_not_cached(monkeypatch):
     drive_type[0] = 4
     with pytest.raises(ValueError): windows._require_ntfs('Z:\\')
     assert calls == ['Z:\\']
+
+
+class NativeError(Exception):
+    def __init__(self, code):
+        self.winerror = code
+        super().__init__(code, 'synthetic native API error')
+
+
+def test_pywintypes_error_categories_are_translated_without_paths_or_unsafe_fallback(monkeypatch):
+    from src.platform_support import windows
+    monkeypatch.setattr(windows, 'require_runtime', lambda: (SimpleNamespace(error=NativeError),))
+    @windows.native_errors
+    def operation(code): raise NativeError(code)
+    for code, expected in [(2,FileNotFoundError),(3,FileNotFoundError),(5,PermissionError),
+            (183,FileExistsError),(33,BlockingIOError),(87,OSError)]:
+        with pytest.raises(expected) as error: operation(code)
+        assert error.value.winerror == code
+
+
+def test_missing_attributes_are_not_interpreted_as_reparse_flags(monkeypatch, tmp_path):
+    from src.platform_support import windows
+    def attributes(path):
+        if path == str(tmp_path / 'new-private-directory'): raise NativeError(2)
+        return 0
+    types = SimpleNamespace(error=NativeError)
+    api = SimpleNamespace(GetFileAttributes=attributes)
+    con = SimpleNamespace(FILE_ATTRIBUTE_REPARSE_POINT=0x400)
+    file = SimpleNamespace(GetFileAttributes=lambda *_: pytest.fail('Do not use the raw DWORD sentinel wrapper'))
+    monkeypatch.setattr(windows, 'require_runtime', lambda: (types,api,con,file))
+    monkeypatch.setattr(windows, '_full', lambda path:path)
+    monkeypatch.setattr(windows, '_native', str)
+    path = tmp_path / 'new-private-directory'
+    assert windows.assert_no_reparse(path) == path
+    api.GetFileAttributes = lambda *_: 0x400
+    with pytest.raises(ValueError): windows.assert_no_reparse(path)
+
+
+def test_job_uses_a_random_protected_name_for_pinned_string_only_api(monkeypatch):
+    from src.platform_support import windows, processes
+    calls=[]
+    class Job:
+        JobObjectExtendedLimitInformation=9
+        JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE=0x2000
+        def CreateJobObject(self,attributes,name):
+            assert attributes == 'protected-SID-fixture'
+            assert isinstance(name,str) and name.startswith('Local\\litrev-owned-')
+            calls.append(name);return 'handle-fixture'
+        def QueryInformationJobObject(self,*_):return {'BasicLimitInformation':{'LimitFlags':0}}
+        def SetInformationJobObject(self,handle,kind,limits):assert limits['BasicLimitInformation']['LimitFlags']==0x2000
+    monkeypatch.setattr(windows, 'require_runtime', lambda: (SimpleNamespace(error=NativeError),None,None,None,None,None,None,Job(),None))
+    monkeypatch.setattr(windows, 'security_attributes', lambda:'protected-SID-fixture')
+    processes.WindowsJob();processes.WindowsJob()
+    assert len(calls)==2 and calls[0]!=calls[1]

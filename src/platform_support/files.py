@@ -119,8 +119,7 @@ def venv_python(directory):
 def atomic_replace(source, destination):
     assert_no_links(source); assert_no_links(destination)
     if IS_WINDOWS:
-        _, api, con, *_ = _windows().require_runtime()
-        api.MoveFileEx(str(source), str(destination), con.MOVEFILE_REPLACE_EXISTING | con.MOVEFILE_WRITE_THROUGH)
+        _windows().move(source, destination, replace=True)
     else:
         os.replace(source, destination)
 
@@ -129,8 +128,7 @@ def publish_new(source, destination, *, directory=False):
     """Atomic no-overwrite publication; never replace the only data copy."""
     assert_no_links(source); assert_no_links(destination)
     if IS_WINDOWS:
-        _, api, con, *_ = _windows().require_runtime()
-        api.MoveFileEx(str(source), str(destination), con.MOVEFILE_WRITE_THROUGH)
+        _windows().move(source, destination)
     elif directory:
         os.rename(source, destination)
     else:

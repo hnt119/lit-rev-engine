@@ -118,7 +118,7 @@ def test_non_utf8_locale_preserves_exact_private_unicode_json(tmp_path, monkeypa
 def test_long_unicode_private_path_and_process_arguments(tmp_path):
     from src.platform_support import private_directory, open_private, owned_path
     from src.platform_support.processes import WindowsJob
-    root = private_directory(tmp_path / ('Long 空间 ' + 'nested ' * 5))
+    root = private_directory(tmp_path / ('Long 空间 ' + 'nested ' * 5).rstrip())
     path = root
     while len(str(path)) < 280: path = path / ('directory ' + 'x' * 25)
     private_directory(path)
