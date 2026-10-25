@@ -33,15 +33,20 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
   });
   const button=name=>page.getByRole('button',{name,exact:true});
   const readyEditor=async()=>{
-    await page.getByLabel('Manual cell value',{exact:true}).waitFor();
+    await page.getByRole('textbox',{name:'Manual cell value',exact:true}).waitFor();
     await page.locator('.board-cell-editor').getByText('Draft: saved',{exact:true}).waitFor();
   };
-  const assertDraft=async()=>assert.equal(await page.getByLabel('Manual cell value',{exact:true}).inputValue(),marker);
+  const readyPassageSearch=async()=>{
+    const question=page.getByRole('textbox',{name:'Evidence question',exact:true});
+    await question.waitFor();
+    await page.locator('section').filter({has:question}).getByText('Draft: saved',{exact:true}).waitFor();
+  };
+  const assertDraft=async()=>assert.equal(await page.getByRole('textbox',{name:'Manual cell value',exact:true}).inputValue(),marker);
   try {
     if(phase==='create'){
       checkpoint('create-workspace');
       await page.goto(origin,{waitUntil:'domcontentloaded'});
-      await page.getByLabel('Research question',{exact:true}).fill('SYNTHETIC SOFTWARE QA Windows browser: 亚洲女性 🧬 inspect retained microbiome evidence');
+      await page.getByRole('textbox',{name:'Research question',exact:true}).fill('SYNTHETIC SOFTWARE QA Windows browser: 亚洲女性 🧬 inspect retained microbiome evidence');
       await button('Create workspace').click();
       checkpoint('open-saved-example');
       await button('Open saved example').click();
@@ -49,9 +54,10 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
       for(let i=0;i<3;i++) await page.locator('article[data-paper-id]').nth(i).getByRole('checkbox',{name:'Select for exploration',exact:true}).check();
       checkpoint('prepare-three-selected-papers');
       await button('Prepare & compare (3)').click();
-      const form=page.getByLabel('Field 1 retrieval subquestion',{exact:true});
+      const form=page.getByRole('textbox',{name:'Field 1 retrieval subquestion',exact:true});
       const openReady=button('Open ready comparison (3)'),continueReady=button('Continue to comparison (3)');
-      const failure=page.getByRole('alert').first();
+      // Next's route announcer can expose an empty transient alert outside the app.
+      const failure=page.locator('#main').getByRole('alert').filter({hasText:/\S/}).first();
       const terminalFailure=page.locator('section[aria-label="Preparation job receipt"] p.meta')
         .filter({hasText:/ · (?:failed|stale|cancelled) · /}).first();
       const outcome=await Promise.race([
@@ -69,7 +75,7 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
       }
       await form.waitFor({timeout:45000});
       checkpoint('create-three-field-board');
-      for(let i=1;i<=3;i++) await page.getByLabel(`Field ${i} retrieval subquestion`,{exact:true}).fill('microbiome');
+      for(let i=1;i<=3;i++) await page.getByRole('textbox',{name:`Field ${i} retrieval subquestion`,exact:true}).fill('microbiome');
       await button('Create comparison board').click();
       await page.locator('button[data-board-cell]').nth(8).waitFor();
       for(let i=0;i<3;i++){
@@ -80,21 +86,21 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
         await button('Read in source · passage 1').click();
         await page.locator('.board-cell-editor .source-text').waitFor();
         await button('I have read this excerpt — attach as evidence').click();
-        await page.getByLabel('Manual cell value',{exact:true}).fill(`SOFTWARE QA unassessed Windows cell ${i}`);
-        await page.getByLabel('Reason',{exact:true}).fill('Mechanical software exercise only; no researcher support judgment.');
+        await page.getByRole('textbox',{name:'Manual cell value',exact:true}).fill(`SOFTWARE QA unassessed Windows cell ${i}`);
+        await page.getByRole('textbox',{name:'Reason',exact:true}).fill('Mechanical software exercise only; no researcher support judgment.');
         await button('Save cell to table').click();
         await page.getByText('Saved to comparison.',{exact:true}).waitFor();
       }
       await page.locator('button[data-board-cell]').first().click();
       checkpoint('edit-unsent-cell-draft');
       await button('Edit saved cell').click();
-      await page.getByLabel('Manual cell value',{exact:true}).fill(marker);
+      await page.getByRole('textbox',{name:'Manual cell value',exact:true}).fill(marker);
       const before=requests.filter(v=>v.method==='POST'&&v.path.endsWith('/evidence-runs')).length;
       await button('Open passage search for this field').click();
       checkpoint('comparison-passage-search');
-      await page.getByLabel('Evidence question',{exact:true}).waitFor();
+      await readyPassageSearch();
       assert.equal(requests.filter(v=>v.method==='POST'&&v.path.endsWith('/evidence-runs')).length,before);
-      await page.getByLabel('Evidence question',{exact:true}).fill('microbiome');
+      await page.getByRole('textbox',{name:'Evidence question',exact:true}).fill('microbiome');
       await page.getByLabel('Maximum passages for next search',{exact:true}).fill('10');
       await button('Retrieve passages').click();
       checkpoint('inspect-exact-passage-source');
@@ -107,8 +113,8 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
       const boardUrl=page.url();
       await page.reload({waitUntil:'domcontentloaded'});await readyEditor();await assertDraft();
       await page.goBack({waitUntil:'domcontentloaded'});
-      await page.getByLabel('Evidence question',{exact:true}).waitFor();
-      assert.equal(await page.getByLabel('Evidence question',{exact:true}).inputValue(),'microbiome');
+      await readyPassageSearch();
+      assert.equal(await page.getByRole('textbox',{name:'Evidence question',exact:true}).inputValue(),'microbiome');
       assert.equal(await page.getByLabel('Maximum passages for next search',{exact:true}).inputValue(),'10');
       await button('Back to cell').click();await readyEditor();await assertDraft();
       checkpoint('return-focus-and-export');
@@ -129,7 +135,7 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
         buffer:Buffer.from('Title,Authors,Year,DOI,Abstract\nSYNTHETIC Windows software fixture,Software QA,2026,10.5555/windows-software-fixture,Public synthetic microbiome fixture for software checks only\n')});
       await button('Parse and preview citations').click();
       await page.getByRole('checkbox',{name:'Accept row 1 for the collection',exact:true}).check();
-      await page.getByLabel('Collection name',{exact:true}).fill('SYNTHETIC Windows browser import');
+      await page.getByRole('textbox',{name:'Collection name',exact:true}).fill('SYNTHETIC Windows browser import');
       await button('Commit 1 accepted records').click();
       await page.getByText('SYNTHETIC Windows browser import',{exact:true}).first().waitFor();
       await page.goto(boardUrl,{waitUntil:'domcontentloaded'});await readyEditor();await assertDraft();
@@ -159,5 +165,13 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
     }).catch(()=>({page:'unavailable'}));
     throw error;
   } finally {await context.close();await browser.close();}
-})().catch(error=>{console.error(JSON.stringify({status:'FAIL',error_type:error.name,browser_step:browserStep,
-  last_preparation_status:lastPreparationStatus,diagnostics}));process.exitCode=1;});
+})().catch(error=>{
+  const message=String(error.message??'');
+  const errorCode=message.includes('strict mode violation')?'locator-ambiguous':
+    /Unexpected token|Invalid selector|Error while parsing selector|not a valid selector/.test(message)?'selector-syntax':
+    message.includes('Preparation UI reported a failure')?'preparation-ui-failure':
+    /Target page, context or browser has been closed|Protocol error/.test(message)?'browser-protocol':
+    error.name==='TimeoutError'?'timeout':'unclassified';
+  console.error(JSON.stringify({status:'FAIL',error_type:error.name,error_code:errorCode,browser_step:browserStep,
+    last_preparation_status:lastPreparationStatus,diagnostics}));process.exitCode=1;
+});

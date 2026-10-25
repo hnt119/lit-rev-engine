@@ -46,6 +46,11 @@ class ValidationCommandError(RuntimeError):
             try: value = json.loads(line)
             except ValueError: continue
             if not isinstance(value, dict) or value.get('status') != 'FAIL': continue
+            kind=value.get('error_type'); code=value.get('error_code')
+            if isinstance(kind,str) and kind in {'Error','TimeoutError','AssertionError','TypeError','RangeError','ReferenceError','SyntaxError'}:
+                self.detail['browser_error_type']=kind
+            if isinstance(code,str) and code in {'locator-ambiguous','selector-syntax','preparation-ui-failure','browser-protocol','timeout','unclassified'}:
+                self.detail['browser_error_code']=code
             step = value.get('browser_step')
             if isinstance(step,str) and re.fullmatch('[a-z0-9-]{1,80}',step): self.detail['browser_step']=step
             status = value.get('last_preparation_status')

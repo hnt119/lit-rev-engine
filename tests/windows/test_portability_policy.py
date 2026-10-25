@@ -111,11 +111,25 @@ def test_browser_failure_report_keeps_only_static_substep_status_and_counts():
     import json
     from tests.windows.run_source_acceptance import ValidationCommandError
     raw = {'status':'FAIL','browser_step':'prepare-three-selected-papers','last_preparation_status':'failed',
+        'error_type':'Error','error_code':'preparation-ui-failure',
         'question':'PRIVATE_FIXTURE_MUST_NOT_APPEAR','cookie':'PRIVATE_FIXTURE_COOKIE',
         'diagnostics':{'page':'discover','alert_count':1,'board_form_present':False,
             'ready_action_present':True,'url':'http://private.invalid/secret'}}
     error = ValidationCommandError(SimpleNamespace(returncode=1,stderr=json.dumps(raw).encode()))
     assert error.detail['browser_step']=='prepare-three-selected-papers'
+    assert error.detail['browser_error_type']=='Error'
+    assert error.detail['browser_error_code']=='preparation-ui-failure'
     assert error.detail['last_preparation_status']=='failed'
     assert error.detail['browser_state']=={'page':'discover','alert_count':1,'board_form_present':False,'ready_action_present':True}
     assert 'PRIVATE_FIXTURE' not in json.dumps(error.detail) and 'private.invalid' not in json.dumps(error.detail)
+
+
+@pytest.mark.parametrize('unsafe_code',[{'private':'PRIVATE_FIXTURE'},'PRIVATE_FIXTURE_ERROR'])
+def test_browser_failure_report_rejects_nonstatic_error_codes(unsafe_code):
+    import json
+    from tests.windows.run_source_acceptance import ValidationCommandError
+    error=ValidationCommandError(SimpleNamespace(returncode=1,stderr=json.dumps({
+        'status':'FAIL','error_type':'PRIVATE_FIXTURE_TYPE','error_code':unsafe_code}).encode()))
+    assert 'browser_error_code' not in error.detail
+    assert 'browser_error_type' not in error.detail
+    assert 'PRIVATE' not in json.dumps(error.detail)
