@@ -58,3 +58,8 @@ Core remains usable when the optional cache is unavailable. Source-package model
 credentials, private caches, Track B and pilot state remain excluded. Read
 `RETRIEVAL.md` and `MODEL_REFERENCES.md` in the extracted package. Full human-gold,
 held-out and scientific-usefulness validation remains unperformed.
+
+
+## Combined release evidence
+
+This matrix applies to the integrated Track A source beta, not either earlier branch-specific archive with the same private version label. Consult VALIDATION.md and this ZIP's generated RELEASE.json/MANIFEST.json for exact source and test binding. The source package contains no vendored third-party runtimes or weights; the desktop-only notice gaps concern the withheld binary. Source notices and approved article attribution remain included.

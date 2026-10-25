@@ -1,14 +1,40 @@
 # Literature Review Engine
 
-Track A successor **0.3.0-beta.2 is prepared locally for review, not published**, on `codex/next-local-beta`. Begin with the [candidate, capability matrix, checksums and publication gates](docs/releases/v0.3.0-beta.2-review.md), [Research & AI Settings](docs/research_ai_settings.md) and [separate internal Desktop Preview](docs/desktop_preview.md). These reviewed descendants preserve published beta.1; the historical branch guides below do not replace the Track A starting point.
+A local research application for exploring papers, comparing retained evidence and checking the exact source behind each quotation. **Track A Local Beta 0.3.0-beta.2 is setup-required source software**, extending the MIT beta.1 with Research & AI Settings and optional experimental local retrieval. The authoritative download is the purpose-built ZIP on [GitHub Releases](https://github.com/hnt119/lit-rev-engine/releases), with its matching manifest and checksums. GitHub's automatic repository archive is not the tested distribution.
 
-A Python engine for managing a reproducible review ledger and exploring locally indexed academic papers with an Agnes-powered assistant.
+## Run the local research app
 
-The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Project passage retrieval searches those retained sources and returns exact anchors for reviewer inspection. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
+Tested on macOS arm64 with Python 3.12, Node 24 and pnpm 10.20.0. Linux installation is unverified; Windows is unsupported. Download and verify the matching release files, extract the source ZIP, then run these commands in its folder:
 
-## Local web MVP v0.3 checkpoint
+```sh
+python3.12 scripts/local_preview.py setup
+python3.12 scripts/local_preview.py launch
+```
 
-Use [`codex/mvp-v0-3`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-3) for the current development checkpoint. The working application supports imports and exploratory PubMed discovery, linked saved maps, preparation of up to 30 papers, a source-linked manual comparison board with up to six fields, durable drafts/revisions and CSV/JSON exports. Optional AI cell proposals remain separate from human submission. Read the [current workflow guide](docs/usability_consolidation.md), [manual board guide](docs/manual_comparison_board.md), [proposal guide](docs/cell_proposals.md), and [executed usability evidence](docs/usability_consolidation_evaluation.md). This branch is separate from `main`; local mode remains the default.
+Setup installs locked dependencies and builds the production Next.js interface over the existing FastAPI engine. No Docker is needed. Models are optional and not downloaded by setup/startup. Research state stays in a separate per-user directory; replacing application files does not migrate or delete your research. Stop with Ctrl-C, or `python3.12 scripts/local_preview.py stop` from the same application folder. Read the [installation, reopening and recovery guide](docs/local_preview.md) before using an existing data folder; cookie/profile/hostname limitations remain.
+
+Start with **Saved example · offline**: 30 public papers and a saved map, then source preparation → comparison board → passage search → exact source → return to cell → explicit judgment/revision → CSV/JSON export. This curated example is exploratory, not a complete systematic-review capture or formal inclusion. Manual work and core lexical retrieval require no LLM or neural models.
+
+| Configure independently | Behavior and guide |
+| --- | --- |
+| Research sources and per-search specifications | PubMed contact and optional API key; explicit live actions; exact query, dates, sort and bound stay with each search. [Settings](docs/research_ai_settings.md) |
+| Evidence retrieval | Core lexical remains default. Optional pinned Qwen/MedCPT encoder + reranker packs use explicit installation/indexing and exact source scopes. Both hybrid profiles are experimental, with no demonstrated superiority over BM25. [Retrieval setup](docs/hybrid_retrieval.md) |
+| Paper-level semantic maps | Existing saved artifacts work offline; new maps need separate pinned BGE dependencies/weights and configuration. Filters/navigation do not refit maps. [Optional setup](docs/local_beta_optional_features.md) |
+| Generative assistance | Optional real local/OpenAI/DeepSeek adapters; user-supplied backend session-only keys, explicit one-run data/cost consent and no fallback. Proposals remain separate from human support/submission. Real generation/live-provider validation is NOT_RUN for beta.2. [Settings and consent](docs/research_ai_settings.md) |
+
+Read the [capability matrix](docs/local_beta_capabilities.md), [combined validation and evidence boundaries](docs/combined_beta_validation.md), [source/model references](docs/hybrid_model_references.md), [MIT license](LICENSE) and [third-party boundaries](THIRD_PARTY_NOTICES.md). Software/runtime checks do not establish scientific support, clinical reliability or independent human review.
+
+## Separate work and preserved history
+
+The Electron desktop source/private prototype is preserved, but **no public desktop executable is supplied**. Its earlier binary predates the integrated hybrid release and remains withheld pending notices/SBOM, Developer ID signing and notarization. No operating-system protection bypass is recommended. [Desktop status](docs/desktop_preview.md)
+
+Track B protocol-defined researcher-pilot work remains on its separate branch/worktree. It is not in the Track A download and is not modified or launched by this release. Hosted/Render implementation is deferred and no service is deployed. Published beta.1 and frozen retrieval/Qwen experiments keep their original identities.
+
+The following sections preserve earlier engine, branch and CLI guides. The local source-beta instructions above are the primary application entry point.
+
+## Historical local web MVP v0.3 checkpoint
+
+Use [`codex/mvp-v0-3`](https://github.com/hnt119/lit-rev-engine/tree/codex/mvp-v0-3) for the frozen earlier development checkpoint; use the integrated source beta above for the current app. The working application supports imports and exploratory PubMed discovery, linked saved maps, preparation of up to 30 papers, a source-linked manual comparison board with up to six fields, durable drafts/revisions and CSV/JSON exports. Optional AI cell proposals remain separate from human submission. Read the [current workflow guide](docs/usability_consolidation.md), [manual board guide](docs/manual_comparison_board.md), [proposal guide](docs/cell_proposals.md), and [executed usability evidence](docs/usability_consolidation_evaluation.md). This branch is separate from `main`; local mode remains the default.
 
 The [single-instance hosted package](docs/deployment.md) adds explicit invite admission, production Docker supervision, mounted private SQLite state and stopped-app backup/restore. It is deployment preparation, **not a published service**. Generation and new-map fitting are disabled in the initial hosted release. See [deployment checks and remaining gates](docs/deployment_evaluation.md). The portfolio stays on GitHub Pages; no live application link is inserted before an actual HTTPS deployment is verified.
 
@@ -38,11 +64,11 @@ The default is a clearly labeled offline example using a real CC BY article abou
 
 Services, typed contracts and private SQLite state live in `src/mvp/`, separate from Streamlit and the frozen engine. The [headless smoke](scripts/mvp_smoke.py) runs the same service without a UI dependency. The evidence workspace pairs each passage with its judgment, keeps source context below, and opens each workflow screen at the top. Read the [evaluation evidence](docs/mvp_evaluation.md), [portable visual identity guide](docs/mvp_theme.md) and [frontend migration plan](docs/mvp_migration.md). No hosted deployment is created; the original CLI workflows below remain available.
 
-## Start here
+## Existing review ledger and CLI guides
 
-Use **`review.py` for a reproducible medical review**. Begin with the [offline getting-started guide](docs/getting-started.md): it creates an isolated synthetic project, imports six occurrences into four records, records decisions and reproduces the exports without an API key or model download.
+The existing **`review.py` ledger CLI** manages reproducible medical-review records separately from the browser workspace. Begin with the [offline getting-started guide](docs/getting-started.md): it creates an isolated synthetic project, imports six occurrences into four records, records decisions and reproduces the exports without an API key or model download.
 
-Use `main` for the current accepted, runnable code. It already contains the review ledger, Qwen component workflow and Agnes/RAG passage pipeline. A working branch starts from `main`; Git does not give it a separate parent/child hierarchy or automatically enable experimental features.
+After the Track A integration, `main` contains the local web application as well as the legacy ledger, Qwen component workflow and Agnes/RAG passage pipeline. The source beta above is the tested application distribution. Branch names select source history; they do not automatically activate a retrieval method or confer review eligibility.
 
 | Branch or tag | Purpose |
 | --- | --- |

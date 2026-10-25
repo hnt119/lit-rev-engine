@@ -1,6 +1,6 @@
 # Optional local evidence retrieval — additive Track A successor
 
-This change builds on the unpublished Track A Research & AI Settings application.
+This capability is integrated with the Track A Research & AI Settings application for source beta.2.
 It preserves the published beta, historical lexical profiles, source preparations,
 board definitions, paper-map artifacts and frozen Qwen 4B evaluations. Track B and
 its private pilot environment are separate and are not inputs to this package.
@@ -120,6 +120,4 @@ usefulness. Human relevance, wrong-cohort/numeric adjudication and correction ti
 remain distinct release gates. Actual commands and outcomes are in the validation
 report, including regressions and unperformed checks.
 
-This is a private additive review candidate. It does not replace any published beta,
-publish a model pack, change a website, merge, deploy or authorize paid usage. A
-standalone desktop wrapper is not required to test the browser application.
+The source beta includes this optional capability without bundling model weights or changing beta.1. Publishing the source does not publish/mirror a model pack, deploy a service or authorize paid usage. The private desktop binary is withheld separately; it is not needed to run the browser application. See VALIDATION.md in the release for combined tests and actual-versus-mocked evidence.

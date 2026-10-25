@@ -91,9 +91,11 @@ No passage ranking, map fit/profile or historical artifact is silently changed.
 
 ## LLM query planning and AI cell proposals
 
-Both existing adapters support one explicitly operated **literal HTTP loopback**
-OpenAI-compatible server. They do not support remote credentials or paid provider
-calls. You must install/operate your own compatible server and acquire its
+The private launch-file adapters support one explicitly operated **literal HTTP loopback**
+OpenAI-compatible server. That launch-file route does not accept cloud credentials.
+The separate Research & AI Settings page supports explicit own-key OpenAI/DeepSeek
+profiles under per-run consent, as documented in SETTINGS.md. Those optional cloud
+calls are not performed by setup or these launch-file checks. You must install/operate your own compatible server and acquire its
 weights separately. These settings do not install or start a model server.
 
 For either `search_planner` or `cell_proposals`, set `enabled` true and supply:
@@ -124,3 +126,8 @@ provider/model runs are different evidence. Inspect the final release validation
 record for what actually ran. `NOT_RUN` means untested, not passed or zero usage.
 No software test establishes scientific support, methodological completeness,
 clinical reliability or usefulness to a researcher.
+
+
+## Experimental local retrieval packs
+
+Use `setup --with-retrieval` to add the pinned optional retrieval runtime, then read RETRIEVAL.md for explicit pinned pack installation, verification, device selection and source indexing. This setup does not download weights or change generation/paper-source settings. To install mapping and retrieval dependencies together, select both `--with-maps --with-retrieval`; rerunning setup rebuilds the app-owned environment, while research and external caches stay outside it. Saved neural results remain readable after pack removal, but new selected-profile requests fail visibly until the matching models/index/runtime are ready. Both Qwen and MedCPT remain experimental, with no superiority claim over lexical/BM25.

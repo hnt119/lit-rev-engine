@@ -1,6 +1,6 @@
 # Literature Review Engine — Local beta, setup required
 
-Version: **0.3.0-beta.2** (successor candidate, not yet published). This is a source distribution of the existing
+Version: **0.3.0-beta.2** (combined Track A source beta). This is a source distribution of the existing
 Next.js/FastAPI application. It is not a standalone installer and contains no
 Python, Node.js, Docker, model weights, credentials or research workspaces.
 The public website demonstration is read-only; the research application runs
@@ -190,3 +190,10 @@ the exact retained sources. No navigation or default change downloads models,
 indexes sources or calls a provider. See [RETRIEVAL.md](RETRIEVAL.md) in the
 extracted package for exact profiles, setup/actions, license notices and limits.
 This unpublished candidate does not replace the published beta.
+
+
+## Combined beta.2 evidence and separate desktop
+
+This source package combines Research & AI Settings with optional pinned local Qwen and MedCPT retrieval. Use `RETRIEVAL.md` for explicit optional runtime/pack/index setup. Core lexical remains default; there is no silent model fallback or automatic weight download. The generated RELEASE.json records this ZIP's exact source commit, while MANIFEST.json binds all its application inputs, dependency specifications and model/profile manifests. See VALIDATION.md for combined software and actual local retrieval evidence, distinct from unperformed live generation/provider and human-quality checks.
+
+This ZIP contains no desktop executable. The private Electron prototype and its older performance observations are separate and do not demonstrate the integrated hybrid app. Published beta.1 stays available with its original hashes.

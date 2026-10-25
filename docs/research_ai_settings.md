@@ -48,3 +48,8 @@ Settings navigation uses the current draft-save barrier and returns to the origi
 ## Validation status
 
 Read the successor validation report for exact executed commands and results. Offline/mocked provider checks are separate from actual provider calls and genuine model execution. **Real LLM planning/proposals, live PubMed and new embedding execution are NOT_RUN for this successor unless an explicitly disclosed later report records them.** Software checks do not validate research usefulness, independent review, eligibility or a complete systematic review.
+
+
+## Evidence retrieval remains independent
+
+The Evidence retrieval section selects defaults for future explicit passage searches and manages separately installed pinned local Qwen/MedCPT packs. Existing board definitions retain their retrieval profile; switching requires an explicit definition revision. Neither pack needs a generation key, changes paper providers, replaces BGE paper-map embeddings or supplies a human support judgment. Core lexical remains default. Both neural profiles are experimental and need explicit runtime/index readiness. See RETRIEVAL.md in the source package and the combined VALIDATION.md; actual neural retrieval is distinct from unperformed real LLM generation.
