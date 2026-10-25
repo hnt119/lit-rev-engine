@@ -170,6 +170,27 @@ metadata are unchanged. An affected suite using the installed optional tensor
 runtime passed 88 checks (two existing warnings); fake weights and small tensors
 are not trained-model execution or relevance validation.
 
+## Second replay dfb8399 — model loading still unresolved
+
+[Run 40220571785](https://github.com/hnt119/lit-rev-engine/actions/runs/40220571785)
+used `dfb83998a71cee0acc6308a3b6ce00e17d389ee2`. Its Core browser/manual,
+security, persistence, lifecycle, exports and backup checks passed, together
+with 84 native/policy tests and two Node checks. The Qwen tiny CPU component
+check passed (15.562 seconds), but production HTTP indexing failed with the
+static diagnostic `phase=loading; kind=unknown; category=unknown; os_code=none`.
+No specific cause was established; MedCPT was NOT_RUN afterward.
+
+A separate source inspection found that the installed Transformers/Torch import
+path initializes a username-based cache through the standard-library
+`getpass.getuser()`, which requires a username environment field on Windows.
+The isolated launcher omitted Windows USERNAME. A controlled child process with
+Unix pwd unavailable failed before preserving that standard OS field and passed
+afterward; 65 launcher/settings checks passed, with credential and injection
+variables still excluded. This corrects a verified prerequisite, **not** proof
+that it caused or fixed the observed production-model failure. The follow-up
+keeps model inputs, profiles, computation, thread settings and budgets unchanged;
+actual Windows execution is still required.
+
 ## Historical Windows baseline — actually executed, different source
 
 [Actions run 40214350818](https://github.com/hnt119/lit-rev-engine/actions/runs/40214350818)

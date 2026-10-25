@@ -18,7 +18,7 @@ if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
 from src.platform_support import IS_WINDOWS
 from src.platform_support.processes import WindowsJob, windows_listener_owned
 SAFE_ENVIRONMENT = {"PATH", "HOME", "USER", "LOGNAME", "TMPDIR", "TMP", "TEMP",
-                    "LANG", "LC_ALL", "LC_CTYPE", "DISPLAY", "WAYLAND_DISPLAY", "XDG_RUNTIME_DIR", "SYSTEMROOT", "WINDIR", "LOCALAPPDATA", "APPDATA", "USERPROFILE", "HOMEDRIVE", "HOMEPATH", "PATHEXT"}
+                    "LANG", "LC_ALL", "LC_CTYPE", "DISPLAY", "WAYLAND_DISPLAY", "XDG_RUNTIME_DIR", "SYSTEMROOT", "WINDIR", "LOCALAPPDATA", "APPDATA", "USERPROFILE", "USERNAME", "HOMEDRIVE", "HOMEPATH", "PATHEXT"}
 
 
 class LocalLaunchError(ValueError):

@@ -360,3 +360,20 @@ def test_browser_open_is_gated_by_both_owned_servers_ready(short_data,monkeypatc
     assert observations.count("browser-open")==int(case=="ready")
     assert "owned-servers-stop" in observations and observations[-1]=="controller-close"
     assert not (data/".preview/owner.json").exists()
+
+
+def test_distribution_preserves_windows_username_without_pwd_or_credentials():
+    # Windows has no Unix pwd module. Torch's eager model-import path also
+    # initializes a username-scoped cache through getpass.getuser().
+    inherited = {key: value for key, value in os.environ.items() if key in web.SAFE_ENVIRONMENT}
+    for key in ("LOGNAME", "USER", "LNAME"):
+        inherited.pop(key, None)
+    inherited.update(USERNAME="windows-software-qa", OPENAI_API_KEY="PRIVATE_CANARY",
+        PYTHONPATH="PRIVATE_CANARY", NODE_OPTIONS="PRIVATE_CANARY")
+    actual = env(inherited)
+    code = "import sys,getpass;sys.modules['pwd']=None;assert getpass.getuser()=='windows-software-qa';print('USERNAME_PREREQUISITE_PASS')"
+    result = subprocess.run([sys.executable, "-c", code], env=actual, capture_output=True, text=True, timeout=10)
+    assert result.returncode == 0, "An isolated Windows-compatible child must resolve its OS username without Unix pwd."
+    assert result.stdout.strip() == "USERNAME_PREREQUISITE_PASS"
+    assert "PRIVATE_CANARY" not in actual.values()
+    assert not set(actual) & {"OPENAI_API_KEY", "PYTHONPATH", "NODE_OPTIONS"}
