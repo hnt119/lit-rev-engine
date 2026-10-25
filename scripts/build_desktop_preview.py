@@ -19,6 +19,7 @@ sys.path.insert(0,str(ROOT))
 from scripts.build_local_preview import clean_checkout, json_bytes, digest
 from scripts.run_web import local_environment
 from scripts.local_preview import reject_web_env_files
+from scripts.desktop_notices import copy_web_dependency_notices
 
 VERSION='0.3.0-desktop-preview.1'
 APP='Literature Review Engine Desktop Preview.app'
@@ -81,7 +82,7 @@ def portable_web_build(web):
     value,end=json.JSONDecoder().raw_decode(text[start:])
     for key in ('outputFileTracingRoot','repoRoot'):value.pop(key,None)
     if isinstance(value.get('turbopack'),dict):value['turbopack'].pop('root',None)
-    replacement=json.dumps(value,separators=(',',':'))+"\nnextConfig.repoRoot = dir\nnextConfig.outputFileTracingRoot = path.resolve(dir, '../..')\nnextConfig.turbopack = {...nextConfig.turbopack, root:path.resolve(dir, '../..')}"
+    replacement=json.dumps(value,separators=(',',':'))+"\nnextConfig.repoRoot = dir\nnextConfig.outputFileTracingRoot = path.resolve(dir, '../..')\nnextConfig.turbopack = {...nextConfig.turbopack, root:path.resolve(dir, '../..')}\nnextConfig.cacheHandler = path.resolve(dir, '../../../app/no-disk-cache.cjs')\nnextConfig.images = {...nextConfig.images, customCacheHandler:true}"
     server.write_text(text[:start]+replacement+text[start+end:])
     required=web/'apps/web/.next/required-server-files.json'
     value=json.loads(required.read_text())
@@ -129,7 +130,7 @@ def build(args):
     resources=app/'Contents/Resources'
     default=resources/'default_app.asar';default.unlink(missing_ok=True)
     shell=resources/'app';shell.mkdir()
-    for file in ('main.cjs','services.cjs','security.cjs','package.json','runtime-lock.json'):
+    for file in ('main.cjs','services.cjs','security.cjs','no-disk-cache.cjs','package.json','runtime-lock.json'):
         shutil.copy2(ROOT/'apps/desktop'/file,shell/file)
     engine=resources/'engine';engine.mkdir()
     source=extract_source(args.source_archive,engine,head)
@@ -168,6 +169,7 @@ def build(args):
     shutil.copytree(ROOT/'apps/web/.next/static',target/'.next/static',dirs_exist_ok=True)
     if (ROOT/'apps/web/public').is_dir():shutil.copytree(ROOT/'apps/web/public',target/'public',dirs_exist_ok=True)
     portable_web_build(resources/'web')
+    web_notices=copy_web_dependency_notices(resources/'web',ROOT/'apps/web/node_modules',resources/'WEB_DEPENDENCY_NOTICES')
     # Do not include optional ML packages, source maps, workspace state or caches.
     for path in resources.rglob('__pycache__'):
         if path.is_dir():shutil.rmtree(path)
@@ -177,9 +179,9 @@ def build(args):
     info=app/'Contents/Info.plist'
     value=plistlib.loads(info.read_bytes());value.update(CFBundleExecutable=EXECUTABLE,CFBundleName='Literature Review Engine Desktop Preview',CFBundleDisplayName='Literature Review Engine Desktop Preview',CFBundleIdentifier='org.hnt119.litrev.desktop-preview',CFBundleShortVersionString='0.3.0',CFBundleVersion='1',LitrevPrototypeVersion=VERSION,NSHighResolutionCapable=True)
     info.write_bytes(plistlib.dumps(value))
-    notices='''# Desktop Preview runtime notices\n\nThe owner original engine code is MIT; LICENSE and THIRD_PARTY_NOTICES.md are in engine/. This internal macOS arm64 prototype bundles additional runtimes. Their terms remain separate.\n\nElectron45.0.0 includes Chromium/Node/V8 and upstream codecs; retain Resources/LICENSE and LICENSES.chromium.html and the framework license files. Python3.12.15+20261021 is the pinned python-build-standalone distribution; retain all Python licenses in python/ and the exact upstream binary-dependency license texts/provenance in python/UPSTREAM_LICENSES/. Installed Python/Next/React dependency license and dist-info files are retained. No model weights or ML stacks are included.\n\nThis bundle is ad-hoc signed for internal tests, not Developer ID signed or Apple-notarized. It is not approved for public distribution. A complete binary SBOM/license review and nested-code Developer ID signing/notarization must precede a trusted public desktop release. Do not disable operating-system protections.\n'''
+    notices='''# Desktop Preview runtime notices\n\nThe owner original engine code is MIT; LICENSE and THIRD_PARTY_NOTICES.md are in engine/. This internal macOS arm64 prototype bundles additional runtimes. Their terms remain separate.\n\nElectron45.0.0 includes Chromium/Node/V8 and upstream codecs; retain Resources/LICENSE and LICENSES.chromium.html and the framework license files. Python3.12.15+20261021 is the pinned python-build-standalone distribution; retain all Python licenses in python/ and the exact upstream binary-dependency license texts/provenance in python/UPSTREAM_LICENSES/. Installed Python package license and dist-info files are retained. Exact locked Next/React/vendored/native web notices are preserved in WEB_DEPENDENCY_NOTICES/; its inventory explicitly records missing upstream full-notice files and source pointers. This is not legal clearance or a complete binary SBOM. No model weights or ML stacks are included.\n\nThis bundle is ad-hoc signed for internal tests, not Developer ID signed or Apple-notarized. It is not approved for public distribution. A complete binary SBOM/license review and nested-code Developer ID signing/notarization must precede a trusted public desktop release. Do not disable operating-system protections.\n'''
     (resources/'DESKTOP_NOTICES.md').write_text(notices)
-    metadata={'schema':'litrev.desktop-preview.release.v1','version':VERSION,'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'platform':'macOS arm64','label':'Internal desktop prototype — not notarized','core_runtimes_bundled':True,'node_execution':'Electron utilityProcess; developer PATH is removed','python_execution':'Resources/python/bin/python3.12','runtimes':lock,'models_bundled':False,'optional_map_dependencies_bundled':False,'build_metadata_normalization':'Next repo/tracing/turbopack roots are derived from packaged server directory; required-server appDir is relative; unused pip console scripts omitted', 'signature':'ad-hoc; not Developer ID; not notarized','public_distribution':'not authorized','research_data':'external dedicated Desktop Preview root; no migration'}
+    metadata={'schema':'litrev.desktop-preview.release.v1','version':VERSION,'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'platform':'macOS arm64','label':'Internal desktop prototype — not notarized','web_dependency_notice_inventory':{'packages':len(web_notices['packages']),'notice_files':web_notices['unique_notice_files'],'missing_notice_sources':web_notices['missing_notice_sources'],'public_distribution_review':'pending complete binary SBOM/source obligations'},'derived_page_and_image_cache':'not persisted; signed application remains immutable','core_runtimes_bundled':True,'node_execution':'Electron utilityProcess; developer PATH is removed','python_execution':'Resources/python/bin/python3.12','runtimes':lock,'models_bundled':False,'optional_map_dependencies_bundled':False,'build_metadata_normalization':'Next repo/tracing/turbopack roots are derived from packaged server directory; required-server appDir is relative; unused pip console scripts omitted', 'signature':'ad-hoc; not Developer ID; not notarized','public_distribution':'not authorized','research_data':'external dedicated Desktop Preview root; no migration'}
     (resources/'DESKTOP_RELEASE.json').write_bytes(json_bytes(metadata))
     audit_generated_payload(resources,output)
     clean_checkout(ROOT,head)
