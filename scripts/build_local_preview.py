@@ -149,7 +149,7 @@ def build(root, output, *, expected_source_commit=None, allow_working_tree=False
         "distribution_terms": "DISTRIBUTION_TERMS.md; source article licenses remain separate from project code",
         "root_notice_files": required_notices,
         "optional_feature_configuration": "Research & AI Settings: session-owned non-secret preferences + memory-only credentials; existing private external --config remains supported; generation defaults off",
-        "tested_platform": "macOS arm64 and Windows x64 Core/source workflows; exact commit, observed OS/runtime, archive gates and optional retrieval failures/skips are separately recorded in VALIDATION.md and release acceptance evidence.",
+        "tested_platform": "macOS arm64 source workflows (candidate 8cf4379); Windows x64 Core and bounded Qwen/MedCPT CPU HTTP retrieval (candidate c27aea0, runner windows-2025, observed 2022Server / 10.0.26100). Exact final archive acceptance is a separate external RELEASE_ACCEPTANCE.json; candidate evidence/limits remain in VALIDATION.md.",
         "other_platforms": "Physical Windows 11 NOT_RUN; Linux installation unverified; Intel Mac and Windows ARM unqualified; native executables withheld",
         "setup_requires_network": "Python/JavaScript package installation only; no model downloads",
     })

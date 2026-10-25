@@ -17,12 +17,12 @@ on your own computer. Hosted deployment is deferred.
 macOS **26.6.2 arm64** passed a fresh extracted **8cf4379 candidate** check with
 Python 3.12.7, Node 24.19.0 and Chrome 155.0.8059.85. Final merged-archive checks
 remain separate in VALIDATION.md; no other macOS version is implied. Windows x64
-candidate 8cf4379 passed Core production/browser checks, but its overall run
-failed on an actual Qwen index request (HTTP 422 `retrieval_model_failed`);
-MedCPT was NOT_RUN in that run. The runner label was `windows-2025`, while its
-observed OS release/version were `2022Server` / `10.0.26100`. Windows neural
-retrieval is not qualified, and final exact-archive checks remain pending in
-VALIDATION.md. Physical Windows 11 testing is NOT_RUN. Linux installation is
+candidate c27aea0 passed Core production/browser checks and both bounded Qwen /
+MedCPT CPU production-API index/query/rerank cases. The runner label was
+`windows-2025`, while observed OS release/version were `2022Server` / `10.0.26100`.
+Earlier failures remain historical, not overwritten. Final exact-archive checks
+remain pending in a separate external RELEASE_ACCEPTANCE.json after the final
+build; VALIDATION.md records candidate scopes and scientific limits. Physical Windows 11 testing is NOT_RUN. Linux installation is
 unverified; Intel Mac and Windows ARM are unqualified. No Docker or native
 desktop framework is needed.
 Models are optional advanced components, installed and configured separately;

@@ -20,7 +20,7 @@ Setup installs dependencies and builds the production interface; it does not dow
 | Platform | Source application | Desktop executable |
 | --- | --- | --- |
 | macOS Apple Silicon | Tested; fresh next-beta candidate passed; final archive pending | Private prototype; unavailable publicly |
-| Windows x64 | Core candidate passed; neural index gate failed; final archive pending | Unavailable |
+| Windows x64 | Core and bounded Qwen/MedCPT candidate passed; setup required; final archive pending | Unavailable |
 
 Linux installation is unverified. Physical Windows 11 is NOT_RUN; Intel Mac and Windows ARM are not qualified. See [Windows source instructions and exact evidence scope](docs/windows_source.md). The published beta.3 links above retain their original Mac-only artifact; this working-source Windows boundary does not retrofit that ZIP. A source download is not a bundled desktop installer.
 
