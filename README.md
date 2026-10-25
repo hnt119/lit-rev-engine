@@ -3,9 +3,7 @@
 A local research app for comparing retained papers, selecting exact evidence excerpts and exporting a table you can verify. The source beta requires setup; original engine code is MIT.
 
 <!-- published-release:start -->
-**[Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Published source beta 0.3.0-beta.2](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.2) · [Download ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.2/lit-rev-engine-0.3.0-beta.2.zip) · [Quick start](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.2/INSTALL.md)**
-
-This checkout develops the excerpt-first successor. The verified download above contains the earlier interface; its validation record identifies its exact source. Release links update only after publication.
+**[Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Published source beta 0.3.0-beta.3](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.3) · [Download ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.3/lit-rev-engine-0.3.0-beta.3.zip) · [Quick start](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.3/INSTALL.md)**
 <!-- published-release:end -->
 
 ## Start locally

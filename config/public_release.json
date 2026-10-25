@@ -1,13 +1,13 @@
 {
   "schema": "litrev.public-release-links.v1",
   "repository": "hnt119/lit-rev-engine",
-  "version": "0.3.0-beta.2",
-  "tag": "v0.3.0-beta.2",
-  "source_commit": "21096d706b014c7cb0a4eb15ae04c6059743af1c",
-  "release_url": "https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.2",
-  "download_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.2/lit-rev-engine-0.3.0-beta.2.zip",
-  "install_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.2/INSTALL.md",
-  "validation_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.2/VALIDATION.md",
+  "version": "0.3.0-beta.3",
+  "tag": "v0.3.0-beta.3",
+  "source_commit": "a2f42fcb3001a3bca668569b33fb7a7ef58bcb06",
+  "release_url": "https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.3",
+  "download_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.3/lit-rev-engine-0.3.0-beta.3.zip",
+  "install_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.3/INSTALL.md",
+  "validation_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.3/VALIDATION.md",
   "demo_url": "https://hnt119.github.io/projects/literature-review-engine/#saved-evidence",
   "source_status": "setup_required",
   "platforms": {
@@ -17,5 +17,5 @@
     "windows_x64_desktop": "not_available"
   },
   "publication_verified": true,
-  "development_checkpoint_notice": true
+  "development_checkpoint_notice": false
 }
