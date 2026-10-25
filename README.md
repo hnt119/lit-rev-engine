@@ -3,7 +3,7 @@
 A local research app for comparing retained papers, selecting exact evidence excerpts and exporting a table you can verify. The source beta requires setup; original engine code is MIT.
 
 <!-- published-release:start -->
-**[Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Published source beta 0.3.0-beta.3](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.3) · [Download ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.3/lit-rev-engine-0.3.0-beta.3.zip) · [Quick start](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.3/INSTALL.md)**
+**[Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Published source beta 0.3.0-beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4) · [Download ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.zip) · [Quick start](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md)**
 <!-- published-release:end -->
 
 ## Start locally
@@ -19,10 +19,10 @@ Setup installs dependencies and builds the production interface; it does not dow
 
 | Platform | Source application | Desktop executable |
 | --- | --- | --- |
-| macOS Apple Silicon | Tested; fresh next-beta candidate passed; final archive pending | Private prototype; unavailable publicly |
-| Windows x64 | Core and bounded Qwen/MedCPT candidate passed; setup required; final archive pending | Unavailable |
+| macOS Apple Silicon | Tested; setup required | Private prototype; unavailable publicly |
+| Windows x64 | Core and bounded Qwen/MedCPT CPU workflows tested on CI; setup required | Unavailable |
 
-Linux installation is unverified. Physical Windows 11 is NOT_RUN; Intel Mac and Windows ARM are not qualified. See [Windows source instructions and exact evidence scope](docs/windows_source.md). The published beta.3 links above retain their original Mac-only artifact; this working-source Windows boundary does not retrofit that ZIP. A source download is not a bundled desktop installer.
+Linux installation is unverified. Physical Windows 11 is NOT_RUN; Intel Mac and Windows ARM are not qualified. See [Windows source instructions and exact evidence scope](docs/windows_source.md). A source download is not a bundled desktop installer.
 
 ## Choose retrieval in the same app
 
