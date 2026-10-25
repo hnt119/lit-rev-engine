@@ -67,6 +67,34 @@ def extract_source(archive,destination,expected):
     return metadata
 
 
+def portable_web_build(web):
+    """Replace only observed build-machine metadata with runtime-relative roots."""
+    server=web/'apps/web/server.js'
+    text=server.read_text()
+    marker='const nextConfig = '
+    start=text.index(marker)+len(marker)
+    value,end=json.JSONDecoder().raw_decode(text[start:])
+    for key in ('outputFileTracingRoot','repoRoot'):value.pop(key,None)
+    if isinstance(value.get('turbopack'),dict):value['turbopack'].pop('root',None)
+    replacement=json.dumps(value,separators=(',',':'))+"\nnextConfig.repoRoot = dir\nnextConfig.outputFileTracingRoot = path.resolve(dir, '../..')\nnextConfig.turbopack = {...nextConfig.turbopack, root:path.resolve(dir, '../..')}"
+    server.write_text(text[:start]+replacement+text[start+end:])
+    required=web/'apps/web/.next/required-server-files.json'
+    value=json.loads(required.read_text())
+    value['appDir']='.'
+    for key in ('outputFileTracingRoot','repoRoot'):value['config'].pop(key,None)
+    if isinstance(value['config'].get('turbopack'),dict):value['config']['turbopack'].pop('root',None)
+    required.write_bytes(json_bytes(value))
+
+
+def audit_generated_payload(resources,build_output):
+    markers=[str(ROOT).encode(),(str(Path.home())+'/').encode(),str(build_output).encode()]
+    for path in resources.rglob('*'):
+        if path.is_file() and not path.is_symlink():
+            raw=path.read_bytes()
+            if any(marker in raw for marker in markers):
+                raise ValueError('Generated bundle contains an owner/build-machine path: '+str(path.relative_to(resources)))
+
+
 def build(args):
     if sys.platform!='darwin' or platform.machine()!='arm64':raise ValueError('This prototype builder is macOS arm64 only')
     reject_web_env_files(ROOT)
@@ -122,6 +150,10 @@ def build(args):
     for unused in ('lib/python3.12/test','lib/python3.12/idlelib/idle_test','lib/python3.12/tkinter/test'):
         candidate=resources/'python'/unused
         if candidate.is_dir():shutil.rmtree(candidate)
+    # These generated console scripts have non-relocatable build-prefix shebangs.
+    # The application uses its packaged interpreter directly and does not expose them.
+    for unused in ('idna','fastapi','uvicorn'):
+        (resources/'python/bin'/unused).unlink(missing_ok=True)
     # Source distributions retain their notices; runtime distributions add their own.
     for file in unpack.iterdir():
         if file.is_file():shutil.copy2(file,resources/file.name)
@@ -130,6 +162,7 @@ def build(args):
     target=resources/'web/apps/web'
     shutil.copytree(ROOT/'apps/web/.next/static',target/'.next/static',dirs_exist_ok=True)
     if (ROOT/'apps/web/public').is_dir():shutil.copytree(ROOT/'apps/web/public',target/'public',dirs_exist_ok=True)
+    portable_web_build(resources/'web')
     # Do not include optional ML packages, source maps, workspace state or caches.
     for path in resources.rglob('__pycache__'):
         if path.is_dir():shutil.rmtree(path)
@@ -138,8 +171,9 @@ def build(args):
     info.write_bytes(plistlib.dumps(value))
     notices='''# Desktop Preview runtime notices\n\nThe owner original engine code is MIT; LICENSE and THIRD_PARTY_NOTICES.md are in engine/. This internal macOS arm64 prototype bundles additional runtimes. Their terms remain separate.\n\nElectron45.0.0 includes Chromium/Node/V8 and upstream codecs; retain Resources/LICENSE and LICENSES.chromium.html and the framework license files. Python3.12.15+20261021 is the pinned python-build-standalone distribution; retain all Python licenses in python/ and the exact upstream binary-dependency license texts/provenance in python/UPSTREAM_LICENSES/. Installed Python/Next/React dependency license and dist-info files are retained. No model weights or ML stacks are included.\n\nThis bundle is ad-hoc signed for internal tests, not Developer ID signed or Apple-notarized. It is not approved for public distribution. A complete binary SBOM/license review and nested-code Developer ID signing/notarization must precede a trusted public desktop release. Do not disable operating-system protections.\n'''
     (resources/'DESKTOP_NOTICES.md').write_text(notices)
-    metadata={'schema':'litrev.desktop-preview.release.v1','version':VERSION,'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'platform':'macOS arm64','label':'Internal desktop prototype — not notarized','core_runtimes_bundled':True,'node_execution':'Electron utilityProcess; developer PATH is removed','python_execution':'Resources/python/bin/python3.12','runtimes':lock,'models_bundled':False,'optional_map_dependencies_bundled':False,'signature':'ad-hoc; not Developer ID; not notarized','public_distribution':'not authorized','research_data':'external dedicated Desktop Preview root; no migration'}
+    metadata={'schema':'litrev.desktop-preview.release.v1','version':VERSION,'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'platform':'macOS arm64','label':'Internal desktop prototype — not notarized','core_runtimes_bundled':True,'node_execution':'Electron utilityProcess; developer PATH is removed','python_execution':'Resources/python/bin/python3.12','runtimes':lock,'models_bundled':False,'optional_map_dependencies_bundled':False,'build_metadata_normalization':'Next repo/tracing/turbopack roots are derived from packaged server directory; required-server appDir is relative; unused pip console scripts omitted', 'signature':'ad-hoc; not Developer ID; not notarized','public_distribution':'not authorized','research_data':'external dedicated Desktop Preview root; no migration'}
     (resources/'DESKTOP_RELEASE.json').write_bytes(json_bytes(metadata))
+    audit_generated_payload(resources,output)
     clean_checkout(ROOT,head)
     run(['/usr/bin/codesign','--force','--deep','--sign','-',app])
     run(['/usr/bin/codesign','--verify','--deep','--strict',app])

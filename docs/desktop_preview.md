@@ -33,3 +33,7 @@ Public trusted macOS installation requires a complete binary notice/SBOM review,
 ## Measurements and evidence
 
 The evaluation record must distinguish build success from actual bundle execution with developer runtimes unavailable. Record compressed/installed bytes, included executable paths/versions, cold readiness/window time, idle/working memory, shutdown/reopen, port conflicts, app replacement, and visual/keyboard/manual-workflow results. List skips and failures. Linux/Windows desktop support is not claimed.
+
+## Observed packaging integrity correction
+
+The first internal build exposed absolute developer checkout roots in generated Next server/config metadata and non-relocatable install-prefix shebangs in three unused Python console scripts. The builder now derives only those observed Next build roots from the packaged server directory, keeps required-server appDir relative, removes the unused console entry scripts (the app invokes packaged Python directly), and refuses generated payloads retaining the owner home, checkout or build-output path. This transformation is recorded in DESKTOP_RELEASE.json and checked before signing. The first internal archive is superseded and must not be distributed as the successor.

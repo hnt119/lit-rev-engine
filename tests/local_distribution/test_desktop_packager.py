@@ -88,3 +88,35 @@ def test_pinned_runtime_metadata_is_specific_to_one_arm64_target():
         assert '/releases/download/' in value['url']
         assert len(value['sha256']) == 64 and set(value['sha256']) <= set('0123456789abcdef')
         assert value['version'] in value['file']
+
+
+def test_generated_next_build_roots_are_portable_and_other_configuration_is_preserved(tmp_path):
+    web=tmp_path/'web';app=web/'apps/web';(app/'.next').mkdir(parents=True)
+    config={'repoRoot':'/synthetic/build/app','outputFileTracingRoot':'/synthetic/build',
+            'turbopack':{'root':'/synthetic/build','fixture_option':True},
+            'env':{},'poweredByHeader':False,'experimental':{'preserved':True}}
+    server="const path = require('path')\nconst dir=__dirname\nconst nextConfig = "+json.dumps(config)+"\nprocess.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig)\n"
+    (app/'server.js').write_text(server)
+    (app/'.next/required-server-files.json').write_text(json.dumps({'version':1,'appDir':'/synthetic/build/app','relativeAppDir':'apps/web','config':config,'files':['.next/BUILD_ID']}))
+    desktop.portable_web_build(web)
+    result=(app/'server.js').read_text()
+    assert '/synthetic/build' not in result
+    assert 'nextConfig.repoRoot = dir' in result
+    value=json.loads((app/'.next/required-server-files.json').read_text())
+    assert value['appDir']=='.' and value['files']==['.next/BUILD_ID']
+    assert value['config']['poweredByHeader'] is False
+    assert value['config']['experimental']=={'preserved':True}
+    assert value['config']['turbopack']=={'fixture_option':True}
+
+
+def test_generated_bundle_rejects_checkout_and_install_prefix_paths(tmp_path,monkeypatch):
+    resources=tmp_path/'resources';resources.mkdir()
+    root=tmp_path/'source';monkeypatch.setattr(desktop,'ROOT',root)
+    output=tmp_path/'output'
+    candidate=resources/'unexpected-generated.txt'
+    for marker in (root,output):
+        candidate.write_text(str(marker)+'/private-generated-input')
+        with pytest.raises(ValueError,match='Generated bundle contains'):
+            desktop.audit_generated_payload(resources,output)
+    candidate.write_text('Portable public fixture')
+    desktop.audit_generated_payload(resources,output)
