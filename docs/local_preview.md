@@ -1,6 +1,6 @@
 # Literature Review Engine — Local beta, setup required
 
-Version: **0.3.0-beta.3** (excerpt-first Track A source beta). This is a source distribution of the existing
+Version: **0.3.0-beta.4** (Track A source beta with the Windows x64 boundary and paper/field context). This is a source distribution of the existing
 Next.js/FastAPI application. It is not a standalone installer and contains no
 Python, Node.js, Docker, model weights, credentials or research workspaces.
 The public website demonstration is read-only; the research application runs
@@ -16,21 +16,29 @@ on your own computer. Hosted deployment is deferred.
 
 macOS **26.6.2 arm64 is tested**, with Python 3.12.7 and Node 24.19.0. Fresh
 release checks are recorded separately from historical working-tree results;
-these checks do not imply testing on all macOS versions. Linux installation is
-unverified; Windows is unsupported in this beta because process/control
-locking uses POSIX facilities. No Docker or native desktop framework is needed.
+these checks do not imply testing on all macOS versions. Windows x64 has actual
+Windows Server 2025 runner validation at the earlier portability baseline; this
+combined source and its final extracted archive need their own gates in
+VALIDATION.md. Physical Windows 11 testing is NOT_RUN. Linux installation is
+unverified; Intel Mac and Windows ARM are unqualified. No Docker or native
+desktop framework is needed.
 Models are optional advanced components, installed and configured separately;
 they are not required for saved-example exploration, lexical retrieval, manual
 comparison, source inspection or exports.
 
 ## Verify and install
 
-Keep the ZIP, matching manifest and `SHA256SUMS` together. Before extraction:
+Keep the ZIP, matching manifest and `SHA256SUMS` together. The shell examples
+below are for macOS (Linux remains unverified). **On Windows, follow
+WINDOWS_SOURCE.md instead**, including checksum verification and the isolated
+pywin32 bootstrap before invoking this launcher. Do not use POSIX chmod or pip
+installation in your global Python as a Windows permissions/dependency fix.
+Before extraction on macOS:
 
 ```sh
-shasum -a 256 -c lit-rev-engine-0.3.0-beta.3.SHA256SUMS
-unzip lit-rev-engine-0.3.0-beta.3.zip
-cd lit-rev-engine-0.3.0-beta.3
+shasum -a 256 -c lit-rev-engine-0.3.0-beta.4.SHA256SUMS
+unzip lit-rev-engine-0.3.0-beta.4.zip
+cd lit-rev-engine-0.3.0-beta.4
 python3.12 scripts/local_preview.py setup
 ```
 
@@ -107,6 +115,7 @@ No live retrieval or inference is needed for the setup/read-only demonstration.
 Distributed data defaults to a stable private directory outside the app:
 
 - macOS: `~/Library/Application Support/LiteratureReviewEngine`
+- Windows x64: `%LOCALAPPDATA%\LiteratureReviewEngine` on a fixed local NTFS volume.
 - Linux, unverified: `$XDG_DATA_HOME/lit-rev-engine`, or
   `~/.local/share/lit-rev-engine` when that variable is absent.
 
@@ -115,6 +124,11 @@ selection for launch, status and stop. No existing checkout `.mvp-web-state`,
 Streamlit `.mvp-state` or research database is automatically imported or moved.
 The developer launcher `scripts/run_web.py` keeps its existing checkout data
 default; the distribution wrapper supplies its external default explicitly.
+
+On Windows, use the stopped backup/restore commands in WINDOWS_SOURCE.md and
+its protected current-user ACL procedure for an optional operator file. Use
+Research & AI Settings for ordinary session configuration; do not apply `chmod`
+examples from older advanced guides on Windows.
 
 Wait for draft indicators to say **saved** before stopping or closing the tab.
 Reloading, reopening the same browser profile and restarting the app preserve
@@ -194,6 +208,6 @@ This source beta preserves the optional profiles. Published beta.1 remains avail
 
 ## Excerpt-first checkpoint and separate desktop
 
-This source package combines Research & AI Settings with optional pinned local Qwen and MedCPT retrieval. Use `RETRIEVAL.md` for explicit optional runtime/pack/index setup. Core lexical remains default; there is no silent model fallback or automatic weight download. The generated RELEASE.json records this ZIP's exact source commit, while MANIFEST.json binds all its application inputs, dependency specifications and model/profile manifests. Read USER_MANUAL.md for the one-screen excerpt → comment → save task. See VALIDATION.md for this checkpoint’s observed software checks and reviewer status. HISTORICAL_RETRIEVAL_VALIDATION.md retains the earlier combined beta.2 model evidence, labeled with its original source; it does not qualify a later artifact automatically.
+This source package combines Research & AI Settings with optional pinned local Qwen and MedCPT retrieval. Use `RETRIEVAL.md` for explicit optional runtime/pack/index setup. Core lexical remains default; there is no silent model fallback or automatic weight download. The generated RELEASE.json records this ZIP's exact source commit, while MANIFEST.json binds all its application inputs, dependency specifications and model/profile manifests. Read USER_MANUAL.md for the one-screen excerpt → comment → save task. See VALIDATION.md for this release’s exact-source gates and unresolved checks. HISTORICAL_EXCERPT_VALIDATION.md retains the earlier beta.3 excerpt/model/reviewer observations; HISTORICAL_RETRIEVAL_VALIDATION.md retains the earlier beta.2 model evidence. Both keep their original source identities and do not qualify this archive automatically.
 
-This ZIP contains no desktop executable. The private Electron prototype and its older performance observations are separate and do not demonstrate the integrated hybrid app. Published beta.1 and beta.2 stay available with their original hashes.
+This ZIP contains no desktop executable. The private Electron prototype and its older performance observations are separate and do not demonstrate the integrated hybrid app. Published beta.1, beta.2 and beta.3 stay available with their original hashes.

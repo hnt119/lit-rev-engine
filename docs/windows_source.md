@@ -1,20 +1,51 @@
-# Windows source preview: validation gate
+# Windows x64 source beta — setup required
 
-This is the existing local research application, with a Windows security and
-launcher boundary. It is setup-required source, not a native installer. Native
-Windows execution is **NOT_RUN** until the reviewed Windows CI job passes.
-No Windows support claim follows from macOS tests or mocks. Windows ARM,
-network shares, FAT/exFAT, junction/reparse data paths and native Windows desktop
-packaging are unsupported. Linux installation remains unverified.
+This is the same Next.js/FastAPI local application, with the reviewed Windows
+security and launcher boundary. It is source that you set up, not a native
+installer or a bundled desktop runtime. Use a fixed local **NTFS** volume and
+an ordinary non-administrator account. Windows ARM, network shares, FAT/exFAT,
+junction/reparse data paths and a native Windows desktop package are unsupported.
+Linux installation remains unverified.
 
-The intended validation target is Windows x64, a fixed local NTFS volume, Python
-3.12, Node.js 24 and pnpm 10.20.0. Install those prerequisites yourself. The
-application does not download runtimes or weights automatically. Use an ordinary
-non-administrator account; do not weaken Windows security or script policy.
+Actual Windows x64 validation passed on the **Windows Server 2025** standard
+GitHub runner at portability baseline
+`aec9277d8cf2199026ff933da86ca3c8d3ea7b52`,
+[Actions run 40214350818](https://github.com/hnt119/lit-rev-engine/actions/runs/40214350818).
+That run is evidence for its exact baseline, not an inherited pass for the newer
+comparison UI, combined source or beta.4 ZIP. Their final gates are in
+VALIDATION.md. **Physical Windows 11 testing is NOT_RUN.** No claim follows from
+macOS tests or Windows mocks alone.
 
-## Explicit bootstrap and setup
+## Verify the source download
 
-In PowerShell, inside the extracted application directory:
+Install Python **3.12** with `venv`/pip, Node.js **24** and pnpm **10.20.0** from
+their normal trusted distributions. They must be available in your terminal;
+setup can also take explicit `--node` / `--pnpm` executable paths. The app does
+not fetch these runtimes or model weights automatically. Do not disable TLS,
+SmartScreen, antivirus or PowerShell execution policy to use it.
+
+Keep the purpose-built ZIP, matching manifest and SHA256SUMS together in the
+download directory. GitHub's automatic source ZIP is a different artifact. In
+PowerShell, verify both listed files before extracting:
+
+```powershell
+Get-Content .\lit-rev-engine-0.3.0-beta.4.SHA256SUMS | ForEach-Object {
+    $expected, $name = $_ -split '  ', 2
+    if (-not $name -or (Get-FileHash -LiteralPath $name -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expected) {
+        throw 'Release checksum mismatch; do not run this download.'
+    }
+}
+Expand-Archive -LiteralPath .\lit-rev-engine-0.3.0-beta.4.zip -DestinationPath .\litrev-beta4
+Set-Location .\litrev-beta4\lit-rev-engine-0.3.0-beta.4
+```
+
+Checksums bind these files to the supplied integrity data; they are not a signed
+publisher identity or a scientific validity certificate. Use the exact release
+and source identity in RELEASE.json, not a guessed/latest download URL.
+
+## Isolated bootstrap, setup and ordinary use
+
+Inside the extracted application directory:
 
 ```powershell
 py -3.12 -m venv .venv-bootstrap
@@ -23,88 +54,160 @@ py -3.12 -m venv .venv-bootstrap
 .\.venv-bootstrap\Scripts\python.exe scripts\local_preview.py launch
 ```
 
-No activation or execution-policy change is needed. The dedicated bootstrap
-installs `pywin32==312` only in that environment. The application environment
-also receives that Windows-only pin through its requirements. Never run a global
-pywin32 post-install operation. Missing native security dependencies produce an
-actionable failure before private state is opened; there is no permissive fallback.
+The bootstrap installs `pywin32==312` only in that environment. The app-owned
+`.venv-preview` also receives the pinned Windows security dependency. No shell
+activation, global pip/pywin32 post-install or execution-policy change is needed.
+Missing prerequisites fail before private state opens; there is no permissive
+fallback. Setup installs locked dependencies and builds the production UI. It
+does not search, call a model, download weights or migrate research.
 
-Ordinary use runs the production Next.js build and binds both services to IPv4
-loopback. The browser opens only after health checks and native listener ownership
-checks pass. Host, Origin, session and CSRF checks remain in force. Inherited
-hosted settings, provider keys, Python injection and Node options are stripped.
-The existing private `--config` route and session-scoped Research & AI Settings
-are still explicit opt-ins; saving preferences is not a provider test.
+Both services bind IPv4 loopback. The browser opens only after readiness and
+native listener-ownership checks. Host, Origin, session and CSRF checks remain
+in force. Inherited hosted settings, provider keys, Python injection and Node
+options are stripped. Start with **Saved example · offline**: its 30 public
+papers and saved map work with Core lexical and no model/key.
+
+Keep the launch terminal open. Ctrl-C or authenticated `stop` requests the
+existing API/frontend cleanup through narrow Windows console-break adapters:
 
 ```powershell
 .\.venv-bootstrap\Scripts\python.exe scripts\local_preview.py status
 .\.venv-bootstrap\Scripts\python.exe scripts\local_preview.py stop
 ```
 
-The launcher stays in its terminal; Ctrl-C or authenticated `stop` requests the
-existing API/frontend cleanup through narrow Windows console-break adapters.
-The launcher waits up to twelve seconds before the owned Job Object terminates
-remaining children. Missing-console launches have only that termination fallback;
-graceful shutdown is qualified separately on the terminal path. The disposable
-Windows CI fixture explicitly allocates a console when its worker has none and
-records that fact. A kill-on-close Job Object also cleans up after launcher
-crashes. No recorded PID or occupied port is used as a kill target.
-If a foreign process owns a requested port, choose a different port explicitly.
+The launcher waits up to twelve seconds before its owned Job Object terminates
+remaining children. A missing-console launch has only that termination fallback;
+graceful terminal shutdown was tested separately. The passed baseline runner
+already had a console (four console processes); no test-fixture console was
+allocated. The disposable fixture can explicitly allocate one only when absent;
+that is not hidden production behavior. A kill-on-close Job Object also cleans
+up after launcher crashes. No
+recorded PID or occupied port is used as a kill target. Choose another port
+explicitly if a foreign process owns one; do not delete locks to bypass it.
+
+## Normal Settings and optional private operator file
+
+Use **Research & AI Settings** for ordinary session PubMed and optional
+local/OpenAI/DeepSeek configuration. A saved preference makes no external
+request. Keys are session-scoped backend memory, GET returns presence only,
+and restart requires re-entry. Every generation action still needs explicit
+bounded data/cost consent. Paper-provider settings are independent of LLM
+selection; core/manual work needs no LLM. No paid validation is implied.
+
+The advanced launch-file route remains optional. It accepts explicit live
+contact, pinned new-map configuration and a literal-loopback generation adapter;
+it is not the cloud-key route. Read OPTIONAL_FEATURES.md for its exact schema,
+allowed endpoints and budgets, but use the **Windows ACL procedure below**
+instead of that historical guide's POSIX `chmod` and Unix executable examples.
+The sample disables all optional actions.
+
+From this app directory, create a **new** protected operator directory/file
+outside the app through the existing platform facade. This does not print or
+fetch credentials and refuses to overwrite an existing file:
+
+```powershell
+@'
+import os
+from pathlib import Path
+from src.platform_support import private_directory, open_private
+folder = private_directory(Path(os.environ["LOCALAPPDATA"]) / "LiteratureReviewEngine-operator")
+target = folder / "settings.json"
+fd = open_private(target, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+with os.fdopen(fd, "wb") as stream:
+    stream.write(Path("config/local-beta.example.json").read_bytes())
+'@ | .\.venv-bootstrap\Scripts\python.exe -
+$operatorConfig = Join-Path $env:LOCALAPPDATA 'LiteratureReviewEngine-operator\settings.json'
+```
+
+Edit only that private copy using an editor you trust. Never put keys in the app,
+Git, browser storage, a Next.js `.env` or a public issue. After editing, reapply
+and verify the supported current-user ACL through the same facade; do not use
+POSIX mode bits as a Windows security check:
+
+```powershell
+@'
+import os
+from pathlib import Path
+from src.platform_support import restrict_path, owned_path
+path = Path(os.environ["LOCALAPPDATA"]) / "LiteratureReviewEngine-operator" / "settings.json"
+restrict_path(path)
+if not owned_path(path, private=True):
+    raise SystemExit("Private settings ACL verification failed.")
+'@ | .\.venv-bootstrap\Scripts\python.exe -
+.\.venv-bootstrap\Scripts\python.exe scripts\local_preview.py check-config --config "$operatorConfig"
+.\.venv-bootstrap\Scripts\python.exe scripts\local_preview.py launch --config "$operatorConfig"
+```
+
+Only the existing facade changes permissions on this own-user private copy; it
+does not take ownership of somebody else's files. `check-config` validates
+without provider/model calls and rejects unsafe ACLs, paths or unsupported
+settings. Saving a cache preference in the UI alone does not activate new-map
+computation: that existing opt-in still requires the private launch config,
+optional mapping runtime and separately acquired pinned BGE weights.
 
 ## Data, replacement and recovery
 
-The default stable data directory is `%LOCALAPPDATA%\LiteratureReviewEngine`,
-outside the app. `--data-dir` selects a separate absolute private directory;
-there is no automatic migration of existing browser-beta or desktop data.
-Current-user SID ownership, protected ACLs, reparse checks and real OS file
-locks protect local state. These are per-user boundaries, not protection against
-malware running as the same user or privileged administrators.
+The stable data directory defaults to `%LOCALAPPDATA%\LiteratureReviewEngine`,
+outside the app. Use the same explicit `--data-dir` for launch/status/stop if
+you choose another absolute private path. No browser-beta or desktop database
+is automatically moved. Current-user SID ownership, protected ACLs, reparse
+checks and actual OS locks protect local state. They do not protect against
+malware as the same user or privileged administrators.
 
-After stopping, extract an update into a new application folder, repeat bootstrap
-and setup there, and launch with the same external `--data-dir`, hostname and
-ports. Do not copy a virtual environment between app folders. Browser access
-depends on its retained local session cookie; a workspace ID alone cannot recover
-access. Clearing cookies, changing browser profile/hostname or using another
-browser can lose that access. Backups contain private registry credentials and
-must be protected as private research material. The app does not offer account
-recovery, authenticated multi-user review or access recovery by workspace ID.
+Stop first, extract an update into a new app folder, repeat bootstrap/setup,
+then launch using the same external data directory, browser hostname/profile
+and selected ports. Do not copy a venv between app folders or run two versions
+against one data directory. Access depends on the retained local session cookie;
+a workspace UUID alone is not recovery. Cookies are host-scoped rather than
+port-scoped. Clearing cookies, switching profile/hostname or using another
+browser can lose access. Independent data folders need separate browser profiles.
+There are no cross-device accounts or authenticated multi-user/reviewer claims.
 
-The stopped backup path reuses the existing bounded archive, SQLite integrity
-and exact-manifest validators. Run it only after all independently started API
-processes are stopped; the launcher cannot coordinate arbitrary raw API commands.
-The output must be a new file outside the parent of the data directory.
+Use the existing stopped backup path only after the controller **and any raw
+API processes** have stopped. It reuses bounded archive, SQLite integrity and
+exact-manifest validators. The output must be a new file outside the data
+parent; backup contents include private access registry material and must stay
+private. For example, with the default data path:
 
 ```powershell
 .\.venv-bootstrap\Scripts\python.exe scripts\local_preview.py backup --output "$env:USERPROFILE\Desktop\research-backup.tar.gz"
 .\.venv-bootstrap\Scripts\python.exe scripts\local_preview.py restore --archive "$env:USERPROFILE\Desktop\research-backup.tar.gz" --destination "$env:LOCALAPPDATA\LiteratureReviewEngine-restored"
 ```
 
-Restore publishes a new sibling directory and never overwrites the original.
-Inspect that restored copy with an explicit `--data-dir` before deciding what to
-keep. Windows publishes flushed files with native write-through moves; no claim
-of identical POSIX directory-fsync/power-loss semantics is made.
+Restore verifies into a new sibling directory and never overwrites the original.
+Inspect it with an explicit `--data-dir` before deciding what to keep. Back up
+browser access state separately under browser/OS privacy controls; the app does
+not promise portable cookie recovery. Windows uses flushed files and native
+write-through publication, not a claim of identical POSIX directory-fsync or
+power-loss semantics. Preserve the only research copy.
 
-## Optional models and evidence status
+## Optional models and actual evidence boundary
 
-Core research, saved examples and lexical passage retrieval need no model.
-`setup --with-retrieval` explicitly installs optional pinned dependencies but
-does not install weights. Use the existing `scripts/retrieval_pack.py` install
-and check actions explicitly for the two existing pinned packs. Windows validation
-targets CPU only; Apple MPS remains an Apple-specific option. Model weights,
-credentials and caches are never included in source assets. Cloud generation
-remains optional, session-scoped, consented and bounded; no paid validation is
-authorized by this portability work.
+For optional retrieval, stop and run setup with `--with-retrieval` using the
+bootstrap Python above; then explicitly install/check the selected pinned pack
+in Settings or the existing `scripts/retrieval_pack.py`. Setup adds dependencies,
+not weights. Do not paste Unix `.venv-preview/bin/...` paths from older guides
+into PowerShell; the Windows app environment is `.venv-preview\Scripts`.
+Both packs/cache and research data stay outside replaceable application files.
+Core and saved maps keep working without them. No default change downloads,
+indexes, searches or infers; no provider fallback exists.
 
-The reviewed CI job uses the free standard `windows-2025` public-repository x64
-runner with read-only repository permissions. It may explicitly download only
-the already approved pinned Qwen/MedCPT artifacts into disposable private cache
-and run both encoders and rerankers on synthetic text. It uploads no models,
-cookies, databases or binaries. Test execution, live providers, real model
-execution and research usefulness are separate evidence categories.
+The baseline runner actually executed Qwen and MedCPT CPU checks, each with one
+query encoding, two document encodings and two reranker pairs. Synthetic runtime
+checks are not clinical/biomedical relevance or retrieval-quality validation.
+Apple MPS is not a Windows option. Fresh Windows BGE map fitting, real generation
+and live providers remain **NOT_RUN**. Read VALIDATION.md for combined/final
+source gates; neither historical Mac model results nor this earlier runner
+qualifies a new archive automatically.
+
+The public-repository standard `windows-2025` job uses read-only repository
+permissions. Its authorized optional checks can download only the existing
+approved pinned Qwen/MedCPT packs into disposable private cache. It uploads no
+models, cookies, database, browser state or native binary. MIT covers owner code;
+dependencies, articles, data and models keep their own terms. No native executable
+is included or qualified by this source application work.
 
 Implementation references: [Windows Job Objects](https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects),
 [LockFileEx](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-lockfileex),
 [named-pipe security](https://learn.microsoft.com/en-us/windows/win32/ipc/named-pipe-security-and-access-rights),
 [pywin32 312](https://pypi.org/project/pywin32/312/).
-Separately installed dependencies retain their upstream terms; engine MIT does
-not relicense dependencies, model weights or article data.

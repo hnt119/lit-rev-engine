@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.license_policy import validate_distribution_license
 
-VERSION = "0.3.0-beta.3"
+VERSION = "0.3.0-beta.4"
 NAME = "lit-rev-engine-" + VERSION
 EXACT = {
     "requirements-hosted.txt", "requirements-windows-bootstrap.txt", "requirements-web-lock.txt", "requirements-retrieval.txt", "requirements-map.txt", "requirements-map-lock.txt",
@@ -33,7 +33,8 @@ DOCUMENTS = {"README.md": "docs/local_preview.md",
              "CAPABILITIES.md": "docs/local_beta_capabilities.md",
              "SETTINGS.md": "docs/research_ai_settings.md",
              "WINDOWS_SOURCE.md": "docs/windows_source.md",
-             "VALIDATION.md": "docs/excerpt_first_validation.md",
+             "VALIDATION.md": "docs/source_beta4_validation.md",
+             "HISTORICAL_EXCERPT_VALIDATION.md": "docs/excerpt_first_validation.md",
              "USER_MANUAL.md": "docs/user_manual.md",
              "HISTORICAL_RETRIEVAL_VALIDATION.md": "docs/combined_beta_validation.md",
              "RETRIEVAL.md": "docs/hybrid_retrieval.md",
@@ -148,8 +149,8 @@ def build(root, output, *, expected_source_commit=None, allow_working_tree=False
         "distribution_terms": "DISTRIBUTION_TERMS.md; source article licenses remain separate from project code",
         "root_notice_files": required_notices,
         "optional_feature_configuration": "Research & AI Settings: session-owned non-secret preferences + memory-only credentials; existing private external --config remains supported; generation defaults off",
-        "tested_platform": "macOS Apple Silicon; Python 3.12.7 and Node 24.19.0",
-        "other_platforms": "Linux unverified; Windows unsupported in this beta",
+        "tested_platform": "macOS arm64 historical source checks; Windows x64 baseline on Windows Server 2025, source aec9277d8cf2199026ff933da86ca3c8d3ea7b52, Actions run 40214350818. Exact combined/archive gates are separate in VALIDATION.md.",
+        "other_platforms": "Physical Windows 11 NOT_RUN; Linux installation unverified; Intel Mac and Windows ARM unqualified; native executables withheld",
         "setup_requires_network": "Python/JavaScript package installation only; no model downloads",
     })
     manifest = json_bytes({
