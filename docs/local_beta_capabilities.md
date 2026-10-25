@@ -1,6 +1,6 @@
 # Track A beta capability matrix
 
-Version `0.3.0-beta.2`, **Local beta — setup required**. This source distribution
+Version `0.3.0-beta.3`, **Local beta — setup required**. This source distribution
 contains the current Next.js/FastAPI Track A product, not Track B or a standalone
 installer. MIT applies to the owner's original code; dependencies, papers, data
 and optional weights retain separate licenses. No maturity label adds a use,
@@ -13,7 +13,7 @@ commercial, modification or redistribution restriction.
 | Zotero CSV, DOI/PMID, supported RIS intake | Base setup | Offline parsing; metadata resolution only when requested; existing 5 MiB/500-row limits |
 | Source preparation | Base setup and retained/public-permitted sources | Existing up-to-30-paper jobs, progress/recovery and rights checks |
 | Paper inspector, list/map selection/navigation | Base setup | Preserves identities, counts and saved map coordinates |
-| Comparison boards | Base setup | Up to 30 reports × 6 fields, existing source and revision validation |
+| Comparison boards | Base setup | Up to 30 reports × 6 fields; excerpt-first select/comment/review editor, existing source and revision validation |
 | Passage retrieval | Base setup | Explicit 5–30 requested passages; exact board/paper/source scope and return |
 | Source inspection, drafts, submission/revision/history | Base setup | Exact locators/hashes; human reading/support and submission remain explicit |
 | CSV/JSON exports | Base setup | Existing schemas, neutral/unresolved states and historical source bindings |
@@ -56,10 +56,10 @@ assistance. Indexing is explicit and bound to the exact authorized source snapsh
 New versioned hybrid receipts preserve signed/dense-only scores and exact anchors.
 Core remains usable when the optional cache is unavailable. Source-package models,
 credentials, private caches, Track B and pilot state remain excluded. Read
-`RETRIEVAL.md` and `MODEL_REFERENCES.md` in the extracted package. Full human-gold,
+`USER_MANUAL.md`, `RETRIEVAL.md` and `MODEL_REFERENCES.md` in the extracted package. Full human-gold,
 held-out and scientific-usefulness validation remains unperformed.
 
 
-## Combined release evidence
+## Source and validation binding
 
-This matrix applies to the integrated Track A source beta, not either earlier branch-specific archive with the same private version label. Consult VALIDATION.md and this ZIP's generated RELEASE.json/MANIFEST.json for exact source and test binding. The source package contains no vendored third-party runtimes or weights; the desktop-only notice gaps concern the withheld binary. Source notices and approved article attribution remain included.
+This matrix applies to the integrated Track A source beta, not a native executable. Earlier beta.1/beta.2 assets remain unchanged. Consult VALIDATION.md and this ZIP's generated RELEASE.json/MANIFEST.json for exact source and test binding. The source package contains no vendored third-party runtimes or weights; the desktop-only notice gaps concern the withheld binary. Source notices and approved article attribution remain included.
