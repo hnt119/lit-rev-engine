@@ -16,7 +16,18 @@ function button(renderer:ReactTestRenderer,label:string){const node=renderer.roo
 function control(renderer:ReactTestRenderer,label:string,type:"textarea"|"select"|"input"="textarea"){const node=renderer.root.findAllByType("label").find(node=>node.children.some(child=>child===label));assert.ok(node,"Missing control: "+label);return node.findByType(type);}
 function disabled(node:ReactTestInstance){for(let n:ReactTestInstance|null=node;n;n=n.parent)if(n.props.disabled)return true;return false;}
 function step(renderer:ReactTestRenderer){return text(renderer.root.findByProps({"aria-label":"Cell review steps"}).findByProps({"aria-current":"step"}));}
-async function click(renderer:ReactTestRenderer,label:string){await act(async()=>{await button(renderer,label).props.onClick();});}
+async function click(renderer:ReactTestRenderer,label:string){
+ // Event handlers deliberately return void. Observe the rendered, enabled
+ // control rather than assuming an earlier asynchronous action has finished.
+ let target:ReactTestInstance|undefined;
+ for(let attempt=0;attempt<100;attempt++){
+  target=renderer.root.findAllByType("button").find(node=>text(node)===label&&!disabled(node));
+  if(target)break;
+  await act(async()=>{await new Promise(resolve=>setTimeout(resolve,10));});
+ }
+ assert.ok(target,"Missing enabled button: "+label);
+ await act(async()=>{await target.props.onClick();});
+}
 async function change(renderer:ReactTestRenderer,label:string,value:string,type:"textarea"|"select"|"input"="textarea"){await act(async()=>control(renderer,label,type).props.onChange({target:{value}}));}
 
 async function fixture(id:string,{historical=false,long=false,empty=false,providerFailure=false}={}){

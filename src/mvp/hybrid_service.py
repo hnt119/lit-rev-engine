@@ -154,6 +154,10 @@ class HybridEvidenceService:
             if phase in {'publishing','cancelling'}:progress={**previous,**progress}
             if phase==previous.get('phase') and progress.get('component')==previous.get('component'):
                 progress={**previous,**progress}
+            # A batch completing after Cancel can add counters, but cannot
+            # erase the acknowledged cancellation request before termination.
+            if previous.get('phase')=='cancelling':
+                progress={**previous,**progress,'phase':'cancelling'}
             db.execute('UPDATE hybrid_jobs_v1 SET detail=? WHERE workspace_id=? AND id=? AND state=?',
                 (canonical({'message':'','progress':progress}),workspace,identifier,'running'))
     def _finish_job(self,workspace,identifier,state,message=''):
