@@ -148,7 +148,9 @@ def _model_http_failure(*, phase='loading', kind='os_error', category='memory', 
 
 @pytest.mark.parametrize('kind', ['memory_error','os_error','permission_error','file_not_found',
     'blocking_io_error','runtime_error','value_error','type_error','import_error','module_not_found',
-    'sqlite_operational_error','sqlite_database_error','unicode_encode_error','unicode_decode_error','unknown'])
+    'sqlite_operational_error','sqlite_database_error','unicode_encode_error','unicode_decode_error',
+    'key_error','attribute_error','name_error','index_error','not_implemented','assertion_error',
+    'stop_iteration','process_error','process_timeout','unknown'])
 def test_http_model_diagnostics_only_project_known_exception_kinds(kind):
     from tests.windows.run_source_acceptance import model_failure_diagnostic
     error=_model_http_failure(phase='execution',kind=kind,category='unknown',os_code='none')
@@ -160,7 +162,9 @@ def test_http_model_diagnostics_only_project_known_exception_kinds(kind):
     ('loading','os_error','memory','win1455'),('execution','runtime_error','memory','none'),
     ('loading','sqlite_operational_error','storage','none'),('execution','sqlite_database_error','storage','none'),
     ('execution','unicode_encode_error','encoding','none'),('loading','unicode_decode_error','encoding','none'),
-    ('unknown','unknown','unknown','none')])
+    ('unknown','unknown','unknown','none'),('progress','type_error','unknown','none'),
+    ('weights','key_error','environment','env_user'),('placing','runtime_error','memory','none'),
+    ('cancel','key_error','unknown','none')])
 def test_http_model_diagnostics_keep_phase_category_and_code_separate(phase,kind,category,os_code):
     from tests.windows.run_source_acceptance import model_failure_diagnostic
     assert model_failure_diagnostic(_model_http_failure(phase=phase,kind=kind,category=category,os_code=os_code))=={
@@ -247,3 +251,124 @@ def test_failed_exit_publishes_static_diagnostic_without_body_path_or_traceback(
     assert value['status']=='FAIL' and value['failure_type']=='AssertionError'
     assert value['model_failure_diagnostic']=={'phase':'loading','kind':'value_error','category':'unknown','os_code':'none'}
     assert all(text not in result.stdout+result.stderr for text in ['PRIVATE_CANARY','/PRIVATE/','Traceback','credential=','retryable','message'])
+
+
+@pytest.mark.parametrize('code',['env_user','env_shell','env_cpu','env_system','env_windows','env_app',
+    'env_local','env_temp','env_tmp','env_profile','env_drive','env_home'])
+def test_http_model_diagnostics_retain_static_environment_tokens_only(code):
+    import json
+    from tests.windows.run_source_acceptance import model_failure_diagnostic
+    error=_model_http_failure(phase='weights',kind='key_error',category='environment',os_code=code)
+    assert len(error.args[0][-1])<=300
+    result=model_failure_diagnostic(error)
+    assert result=={'phase':'weights','kind':'key_error','category':'environment','os_code':code}
+    assert all(value not in json.dumps(result) for value in ['PRIVATE','USERNAME','USERPROFILE','LOCALAPPDATA','SYSTEMROOT'])
+
+
+def _model_profile_callbacks(errors=None, *, fail_prepare=None, fail_start=None, fail_stop=None, fail_remove=None):
+    errors=errors or {};events=[]
+    def prepare(profile):
+        events.append(('prepare',profile))
+        if fail_prepare is not None:raise fail_prepare
+        return {'download_and_check_seconds':0.0,'runtime':{'encoder_executed':True,'reranker_executed':True}}
+    def start(profile):
+        events.append(('start',profile))
+        if fail_start is not None:raise fail_start
+    def evaluate(profile):
+        events.append(('http',profile))
+        if profile in errors:raise errors[profile]
+        return {'status':'PASS','source_scope':'synthetic software fixture only'}
+    def stop(profile):
+        events.append(('stop',profile))
+        if fail_stop is not None:raise fail_stop
+    def remove(profile):
+        events.append(('remove',profile))
+        if fail_remove is not None:raise fail_remove
+    return dict(prepare=prepare,start=start,evaluate=evaluate,stop=stop,remove=remove),events
+
+
+@pytest.mark.parametrize('failed_indices',[[],[0],[1],[0,1]])
+def test_requested_model_profiles_are_independent_once_and_any_failure_remains_failure(failed_indices):
+    import json
+    from tests.windows.run_source_acceptance import run_requested_model_profiles,_REQUESTED_MODEL_PROFILES
+    profiles=_REQUESTED_MODEL_PROFILES
+    failures={profiles[i]:_model_http_failure(kind='unknown',category='unknown',os_code='none') for i in failed_indices}
+    callbacks,events=_model_profile_callbacks(failures);report={'models':[]}
+    passed=run_requested_model_profiles(report,**callbacks)
+    assert passed is (not failed_indices)
+    assert events==[(action,profile) for profile in profiles for action in ['prepare','start','http','stop','remove']]
+    assert report['failed_model_profiles']==[profiles[i] for i in failed_indices]
+    for i,row in enumerate(report['models']):
+        assert row['profile_id']==profiles[i] and row['runtime_status']=='PASS'
+        assert row['owned_stop_status']==row['pack_cleanup_status']=='PASS'
+        assert row['status']==row['application_http']['status']==('FAIL' if i in failed_indices else 'PASS')
+        if i in failed_indices:assert row['application_http']['model_failure_diagnostic']=={
+            'phase':'loading','kind':'unknown','category':'unknown','os_code':'none'}
+    assert 'PRIVATE' not in json.dumps(report)
+
+
+@pytest.mark.parametrize('error',[AssertionError('PRIVATE source integrity failure'),
+    TimeoutError('PRIVATE timeout'),RuntimeError('PRIVATE unknown failure'),
+    PermissionError('PRIVATE ownership failure'),KeyboardInterrupt(),SystemExit(1),
+    _model_http_failure(code='retrieval_integrity'),_model_http_failure(kind='private_canary')])
+def test_non_model_security_timeout_and_unknown_failures_never_start_second_profile(error):
+    from tests.windows.run_source_acceptance import run_requested_model_profiles,_REQUESTED_MODEL_PROFILES,abort_validation
+    first=_REQUESTED_MODEL_PROFILES[0];callbacks,events=_model_profile_callbacks({first:error});report={'models':[]}
+    with pytest.raises(type(error)) as caught:run_requested_model_profiles(report,**callbacks)
+    assert caught.value is error
+    assert events==[(action,first) for action in ['prepare','start','http','stop','remove']]
+    assert len(report['models'])==1 and report['models'][0]['status']=='FAIL'
+    assert report['models'][0]['runtime_status']=='PASS'
+    assert report['models'][0]['application_http']=={'status':'FAIL',
+        'failure_phase':'real-production-hybrid-http-'+first}
+    with pytest.raises(SystemExit) as failed:abort_validation(report,error)
+    assert failed.value.code==1 and report['status']=='FAIL'
+
+
+@pytest.mark.parametrize('stage',['prepare','start','stop','remove'])
+def test_profile_cleanup_or_start_failure_prevents_continuation(stage):
+    from tests.windows.run_source_acceptance import run_requested_model_profiles,_REQUESTED_MODEL_PROFILES
+    first=_REQUESTED_MODEL_PROFILES[0];error=RuntimeError('PRIVATE failed '+stage)
+    callbacks,events=_model_profile_callbacks({first:_model_http_failure()},**{'fail_'+stage:error});report={'models':[]}
+    with pytest.raises(RuntimeError) as caught:run_requested_model_profiles(report,**callbacks)
+    assert caught.value is error
+    expected={'prepare':['prepare','remove'],'start':['prepare','start','stop','remove'],
+        'stop':['prepare','start','http','stop'],'remove':['prepare','start','http','stop','remove']}[stage]
+    assert events==[(action,first) for action in expected]
+    assert len(report['models'])==1 and report['models'][0]['status']=='FAIL'
+    assert report['models'][0]['runtime_status']==('INCOMPLETE' if stage=='prepare' else 'PASS')
+    if stage in {'prepare','start'}:assert report['models'][0]['application_http']=={'status':'NOT_RUN'}
+    else:assert report['models'][0]['application_http']['status']=='FAIL'
+    if stage=='stop':assert report['models'][0]['pack_cleanup_status']=='NOT_RUN'
+    if stage=='remove':assert report['models'][0]['pack_cleanup_status']=='FAIL'
+
+
+def test_aggregate_failure_keeps_exit_one_and_each_profile_result(capsys):
+    import json
+    from tests.windows.run_source_acceptance import run_requested_model_profiles,_REQUESTED_MODEL_PROFILES,abort_validation
+    first=_REQUESTED_MODEL_PROFILES[0];callbacks,_=_model_profile_callbacks({first:_model_http_failure()});report={'models':[]}
+    passed=run_requested_model_profiles(report,**callbacks)
+    with pytest.raises(SystemExit) as stopped:
+        try:
+            if not passed:raise RuntimeError('At least one requested model failed')
+        except RuntimeError as error:abort_validation(report,error)
+    assert stopped.value.code==1 and report['status']=='FAIL'
+    assert [item['status'] for item in report['models']]==['FAIL','PASS']
+    assert report['failed_model_profiles']==[first]
+    assert 'PRIVATE' not in json.dumps(report)+capsys.readouterr().out
+
+
+def test_longest_producer_diagnostic_stays_complete_and_parseable_within_300_bytes():
+    import errno,json,sqlite3
+    from src.mvp.adapters.neural_retrieval import _model_failure_diagnostic
+    from tests.windows.run_source_acceptance import model_failure_diagnostic
+    error=sqlite3.OperationalError('PRIVATE_CANARY source and machine path')
+    error.errno=errno.EACCES
+    suffix=_model_failure_diagnostic(error,'execution')
+    message=('The selected local model failed to execute. Diagnostic: '+suffix+
+        '. Inspect the runtime check or select lexical explicitly; no fallback ran.')
+    body=json.dumps({'error':{'code':'retrieval_model_failed','message':message,'retryable':False}}).encode()
+    assert len(body)==299 and len(body[:300])==len(body)
+    parsed=model_failure_diagnostic(AssertionError(('POST','/PRIVATE_CANARY',422,200,body[:300])))
+    assert parsed=={'phase':'execution','kind':'sqlite_operational_error','category':'permission','os_code':'errno_eacces'}
+    assert 'PRIVATE' not in json.dumps(parsed)

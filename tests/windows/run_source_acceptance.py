@@ -67,14 +67,18 @@ class ValidationCommandError(RuntimeError):
 
 
 _MODEL_DIAGNOSTIC_ENUMS = {
-    'phase': {'loading', 'execution', 'unknown'},
+    'phase': {'progress', 'weights', 'placing', 'cancel', 'loading', 'execution', 'unknown'},
     'kind': {'memory_error', 'os_error', 'permission_error', 'file_not_found',
         'blocking_io_error', 'runtime_error', 'value_error', 'type_error',
         'import_error', 'module_not_found', 'sqlite_operational_error',
-        'sqlite_database_error', 'unicode_encode_error', 'unicode_decode_error', 'unknown'},
-    'category': {'memory', 'permission', 'locking', 'storage', 'encoding', 'unknown'},
+        'sqlite_database_error', 'unicode_encode_error', 'unicode_decode_error',
+        'key_error', 'attribute_error', 'name_error', 'index_error', 'not_implemented',
+        'assertion_error', 'stop_iteration', 'process_error', 'process_timeout', 'unknown'},
+    'category': {'memory', 'permission', 'locking', 'storage', 'encoding', 'environment', 'unknown'},
     'os_code': {'win1455', 'win8', 'win14', 'win5', 'win32', 'win33',
-        'errno_enomem', 'errno_eacces', 'errno_eperm', 'errno_ebusy', 'errno_eagain', 'none'},
+        'errno_enomem', 'errno_eacces', 'errno_eperm', 'errno_ebusy', 'errno_eagain',
+        'env_user', 'env_shell', 'env_cpu', 'env_system', 'env_windows', 'env_app',
+        'env_local', 'env_temp', 'env_tmp', 'env_profile', 'env_drive', 'env_home', 'none'},
 }
 _MODEL_DIAGNOSTIC = re.compile(
     r'The selected local model failed to execute\. Diagnostic: '
@@ -118,6 +122,67 @@ def model_failure_diagnostic(error):
         return None
     projected = match.groupdict()
     return projected if all(value in _MODEL_DIAGNOSTIC_ENUMS[key] for key, value in projected.items()) else None
+
+
+_REQUESTED_MODEL_PROFILES = (
+    'hybrid_qwen3_06b_rrf_rerank_v1',
+    'hybrid_medcpt_passage_rrf_rerank_v1',
+)
+
+
+def run_requested_model_profiles(report, *, prepare, start, evaluate, stop, remove):
+    """Two explicitly requested evaluations, never an engine fallback/retry.
+
+    Only a recognized typed model HTTP failure can continue after strict owned
+    stop and cache removal. Source/security/unknown failures and cleanup errors
+    propagate immediately. A successful second profile cannot clear the first.
+    """
+    failed = report.setdefault('failed_model_profiles', [])
+    for profile in _REQUESTED_MODEL_PROFILES:
+        entry = {'profile_id': profile, 'status': 'FAIL', 'device': 'cpu',
+            'runtime_status': 'NOT_RUN', 'application_http': {'status': 'NOT_RUN'},
+            'owned_stop_status': 'NOT_RUN', 'pack_cleanup_status': 'NOT_RUN'}
+        report['models'].append(entry)
+        cache_safe, http_passed = True, False
+        try:
+            phase('explicit-pinned-cpu-pack-' + profile)
+            # Installation/check may have begun even if it does not complete.
+            entry['runtime_status'] = 'INCOMPLETE'
+            prepared = prepare(profile)
+            entry.update(download_and_check_seconds=prepared['download_and_check_seconds'],
+                runtime=prepared['runtime'], runtime_status='PASS')
+            phase('real-production-hybrid-http-' + profile)
+            cache_safe = False  # Startup may have created an owned process.
+            try:
+                start(profile)
+                # A later unknown/timeout/source error must not relabel an
+                # attempted HTTP workflow as never run.
+                entry['application_http'] = {'status': 'FAIL', 'failure_phase': PHASE}
+                try:
+                    result = evaluate(profile)
+                except BaseException as error:
+                    diagnostic = model_failure_diagnostic(error)
+                    if diagnostic is None: raise
+                    entry['application_http'] = {'status': 'FAIL',
+                        'failure_phase': PHASE, 'model_failure_diagnostic': diagnostic}
+                    failed.append(profile)
+                else:
+                    if type(result) is not dict or result.get('status') != 'PASS':
+                        raise AssertionError('Explicit model HTTP evaluation did not return PASS.')
+                    entry['application_http'], http_passed = result, True
+            finally:
+                entry['owned_stop_status'] = 'FAIL'
+                stop(profile)  # Existing strict verified-owned graceful stop.
+                entry['owned_stop_status'], cache_safe = 'PASS', True
+        finally:
+            # If owned stop failed, leave its files untouched and let the outer
+            # finally clean only that held process. Never start the next model.
+            if cache_safe:
+                entry['pack_cleanup_status'] = 'FAIL'
+                remove(profile)
+                entry['pack_cleanup_status'] = 'PASS'
+        if http_passed: entry['status'] = 'PASS'
+    return not failed
 
 
 def abort_validation(report, error):
@@ -363,24 +428,23 @@ def main():
         report['checks']['stopped_backup_integrity_new_directory_restore'] = 'PASS'
         if args.models:
             hybrid_probe = load('windows_hybrid_http_probe', ROOT / 'tests/windows/hybrid_http_probe.py')
-            for profile in ('hybrid_qwen3_06b_rrf_rerank_v1', 'hybrid_medcpt_passage_rrf_rerank_v1'):
-                phase('explicit-pinned-cpu-pack-' + profile)
-                model_script = app / 'scripts/retrieval_pack.py'
+            model_script = app / 'scripts/retrieval_pack.py'
+            def prepare_profile(profile):
                 begin = time.monotonic()
                 command([app_python, model_script, 'install', '--cache', cache, '--profile', profile], cwd=app, timeout=2400, output=qa / (profile + '-install.log'))
                 raw = command([app_python, model_script, 'check', '--cache', cache, '--profile', profile, '--device', 'cpu'],
                     cwd=app, timeout=1800, output=qa / (profile + '-check.log'))
                 status = json.loads(raw); runtime = status['runtime']
                 assert status['state'] == 'runtime_passed' and runtime['encoder_executed'] and runtime['reranker_executed']
-                report['models'].append({'profile_id': profile, 'status': 'PASS', 'device': 'cpu',
-                    'download_and_check_seconds': round(time.monotonic() - begin, 3), 'runtime': runtime})
-                phase('real-production-hybrid-http-' + profile)
-                start(script)
-                try:
-                    report['models'][-1]['application_http'] = hybrid_probe.run_case(acceptance.Browser(origin), profile)
-                finally:
-                    stop(script)
-                command([app_python, model_script, 'remove', '--cache', cache, '--profile', profile], cwd=app, timeout=120)
+                return {'download_and_check_seconds': round(time.monotonic() - begin, 3), 'runtime': runtime}
+            passed = run_requested_model_profiles(report, prepare=prepare_profile,
+                start=lambda _profile: start(script),
+                evaluate=lambda profile: hybrid_probe.run_case(acceptance.Browser(origin), profile),
+                stop=lambda _profile: stop(script),
+                remove=lambda profile: command([app_python, model_script, 'remove', '--cache', cache, '--profile', profile], cwd=app, timeout=120))
+            if not passed:
+                phase('explicit-model-profile-summary')
+                raise RuntimeError('An explicitly requested model HTTP evaluation failed; overall validation remains failed.')
         report['status'] = 'PASS'
     except BaseException as error:
         if (qa / 'launcher.log').exists():
