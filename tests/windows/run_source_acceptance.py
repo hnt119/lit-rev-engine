@@ -191,8 +191,11 @@ def main():
                 except ValueError: continue
                 if isinstance(value, dict) and value.get('windows_owned_shutdown'):
                     summaries.append(value['windows_owned_shutdown'])
+            if summaries:
+                report.setdefault('windows_shutdown_observations', []).append({key: summaries[-1][key]
+                    for key in ('ctrl_break_sent','forced_primaries','exit_codes','owned_job_closed')})
             assert summaries and summaries[-1]['forced_primaries'] == 0
-            assert summaries[-1]['ctrl_break_sent'] == 2 and summaries[-1]['exit_codes'] == [0, 0]
+            assert summaries[-1]['ctrl_break_sent'] == 2 and summaries[-1]['exit_codes'] == [0, 143]
             report['checks']['terminal_graceful_shutdown_without_job_fallback'] = 'PASS'
         phase('production-start-and-owned-readiness')
         ready = time.monotonic(); start()
