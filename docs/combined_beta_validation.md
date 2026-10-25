@@ -22,7 +22,7 @@ The following results were executed on the combined code at 170046b and the clea
 | Real Qwen encoder/reranker, CPU and Apple MPS | Both passed independently using approved cached weights only |
 | Real MedCPT query/article/cross encoders, CPU and Apple MPS | Both passed independently using approved cached weights only |
 | Combined extracted source setup/manual/configuration/round trip/restart/export/replacement | Passed against exact f98efac source ZIP; base install has no Torch/Transformers and setup downloads no model weights |
-| Actual isolated Chrome | Nine settings/session/key-isolation checks; six manual round-trip checks plus reopening verification passed |
+| Actual isolated Chrome | Nine settings/session/key-isolation checks; six manual round-trip checks plus reopening verification; both real cached neural profiles completed cell/passage/source/cell navigation |
 | Actual scoped hybrid HTTP workflow | Both CPU profiles passed on an explicit retained public abstract: index, passage/cell retrieval, exact inspection/return, wrong-paper rejection, history/replay/export and disposable pack removal |
 | Clean source build / independent audit | f98efac candidate rebuilt byte-for-byte; all 253 files/manifest/source binding, 30 public-source attributions, MIT/notices/private exclusions passed |
 | Final merged source and public-download verification | Release-time results belong in the separate SHA-bound VALIDATION.md release attachment; this pre-merge document does not pre-claim them |
@@ -76,3 +76,10 @@ Beta.1/frozen archives keep their original bytes. Original research, unrelated w
 
 
 Independent frozen medical source/anchor audits v1/v2/v3 passed; the v3 audit rejected 18 specified tamper cases and accepted one disclosed runtime-preservation case. These are provenance checks, not new ranking/model tests. The separately exercised integrated ReviewStore provenance-chain/CLI acceptance passed two tests. An additional original-engine CLI/RAG/PDF/vectorstore regression run passed 62 tests using mocks/temporary state. These selected executions overlap parts of broader suites and are not added into a total. Legacy review/retrieval/embedding/RAG/search code and frozen artifacts were byte-unchanged from beta.1.
+
+
+### Separate actual extracted neural UI check
+
+After default/manual acceptance, a separate explicit `setup --with-retrieval` installed the pinned optional runtime. Both packs used disposable APFS copies of the approved weights; no model installation/download endpoint was called. An isolated Chrome session imported three approved public title/abstracts through RIS with external identifiers deliberately omitted. These are retained abstract-only import sources, not an external metadata/PMID identity-resolution validation. One selected paper's normalized abstract was 2,268 characters / three windows, distinct from the API case above. Both profiles completed explicit cell indexing → candidate retrieval → exact source → passage search → exact source → original cell. The cell draft remained unassessed and nothing was automatically attached or submitted.
+
+Recorded index runtime receipts executed three document encodings at the correct 768/1,024 dimensions; four saved runs (two per profile) each executed one query encoding and three reranker pairs. MedCPT index time was 7.886 s and the cell/passage/source/return sequence 16.109 s; Qwen was 5.406 s / 18.515 s. These warm-cache bounded-case observations do not establish full-paper or 30-source performance. External browser requests, model downloads, generation/literature/metadata-resolution calls and page errors were zero. An initial small-summary/detail projection assumption in the UI harness was corrected before neural work. Only QA-owned servers were stopped; existing browser-beta/desktop workspaces were not used.
