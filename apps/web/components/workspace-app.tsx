@@ -1,4 +1,5 @@
 "use client";
+import packageMetadata from "../package.json";
 import {useCallback,useEffect,useRef,useState} from "react";
 import {api,initializeSession,requestId,acknowledgeRequest,workspacePath,type Schema} from "../lib/api";
 import {flushDrafts,recoverDrafts} from "../lib/drafts";
@@ -99,7 +100,7 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
   if(location.page==="compare")origin=location.board?(boardOrigin?.scope===boardScope?(boardOrigin.collection?"collection":"legacy"):"loading"):collectionPreparation?"collection":"legacy";
   if(location.page==="history"&&(active?.preparations.some(item=>"collection_ref" in item)||active?.runs.some(item=>"collection_ref" in item)))origin="mixed";
   return <SettingsNavigationContext.Provider value={hosted?null:openSettings}><SearchDefaultsContext.Provider value={searchDefaults}><a className="skip-link" href="#main">Skip to workspace</a>
-    <header className="site-header"><a className="wordmark" href="/?page=workspaces" onClick={event=>{event.preventDefault();void navigate({page:"workspaces"});}}>LITERATURE REVIEW ENGINE</a><span className="meta">{hosted?"HOSTED BETA":"LOCAL WORKSPACE"} · v0.3.0-beta.2</span></header>
+    <header className="site-header"><a className="wordmark" href="/?page=workspaces" onClick={event=>{event.preventDefault();void navigate({page:"workspaces"});}}>LITERATURE REVIEW ENGINE</a><span className="meta">{hosted?"HOSTED BETA":"LOCAL WORKSPACE"} · v{packageMetadata.version}</span></header>
     <div className={location.page==="workspaces"?"app-shell landing":"app-shell"}>
       <nav aria-label="Research workflow"><button aria-current={location.page==="workspaces"?"page":undefined} onClick={()=>void navigate({page:"workspaces"})}>Workspaces</button>
         {([["discover","Discover & explore"],["compare","Comparison board"],["evidence","Passage search"],["history","History & export"]] as const).map(([page,label])=><button key={page} disabled={!location.workspace} aria-current={location.page===page?"page":undefined} onClick={()=>void navigate({page,workspace:location.workspace})}>{label}</button>)}{!hosted&&<button aria-current={location.page==="settings"?"page":undefined} onClick={()=>void openSettings()}>Research &amp; AI Settings</button>}</nav>
