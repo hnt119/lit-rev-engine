@@ -58,10 +58,18 @@ Checks ran serially at lower process priority on macOS arm64 with the existing p
 
 ## Reviewer retest
 
-Status: PREPARED; feedback pending. A dedicated browser profile and fresh temporary data contain three blank cells (Participants, Dietary intervention, Longer-term follow-up) using Core lexical retrieval on one retained public abstract. No answers, support decisions or submitted entries were prefilled. Public attribution is retained as unmapped CSV metadata so this isolated import remains honestly abstract-only rather than resolving to full text. This is a disclosed usability fixture, not a protocol pilot or identity-resolution benchmark.
+Status at beta.3 publication: PREPARED; feedback pending. A dedicated browser profile and fresh temporary data contain three blank cells (Participants, Dietary intervention, Longer-term follow-up) using Core lexical retrieval on one retained public abstract. No answers, support decisions or submitted entries were prefilled. Public attribution is retained as unmapped CSV metadata so this isolated import remains honestly abstract-only rather than resolving to full text. This is a disclosed usability fixture, not a protocol pilot or identity-resolution benchmark.
 
 Ask the reviewer to open each cell, find/read/select an excerpt, comment/judge and save, then record help needed, any cross-page detour, draft/submitted understanding and missing-information clarity. Correction, reopening and exports count only if actually tried. Availability is not completion or approval. No timing, research accuracy or independent human review is claimed.
 
 ## Platform and release boundaries
 
 This checkpoint does not qualify Windows or a native executable. Windows portability, runtime/model execution and signing are separate gates. Existing source beta.1/beta.2 assets remain immutable. New release assets must be built from the final reviewed commit, audited and exercised after extraction; earlier archives do not contain this change. Real generation, live PubMed/provider calls and independent scientific quality evaluation are NOT_RUN here.
+
+## Post-publication owner-reported navigation retest — 26 October 2026
+
+The owner reported that the reviewer completed the three-cell excerpt → comment → save task entirely inside the comparison editor without help. The rest of the interface was described as clear/fine, but the reviewer initially did not recognize that the three cells were different fields of the same paper (confirmed clarification). This was the isolated pre-release UX1 production session, not a relabeled human execution of the published ZIP. It is one qualitative report, not an independently observed/authenticated trial, scientific relevance judgment or accuracy benchmark.
+
+The follow-up source displays persistent Paper i/N and Field j/M, the same-report relationship and whether the next unfinished cell changes fields within the paper or moves to another paper. These are read-only projections of the existing board; retrieval, source bindings, drafts, contracts and navigation barriers are unchanged. The new cue has software/browser checks, not a further human retest.
+
+Some excerpts were reportedly not found. Empty candidate results versus inability to open a displayed quotation remains unclarified; no retrieval change or whole-paper absence conclusion is inferred. Specific correction, reopening/export, missing-information interpretation and draft-versus-submitted observations were not separately reported. No timings or independent/dual-review claim are made. The reviewer session/data and published beta.3 assets remain intact; their feedback-pending snapshot was accurate at publication.
