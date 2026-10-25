@@ -151,12 +151,10 @@ footer { max-width: 1380px; margin: 0 auto; padding: 24px 36px; border-top: 1px 
 .comparison-table-pane { margin-top: 0; }
 .board-editor-navigation { margin: 0 0 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
 .board-editor-anchor .board-cell-editor { margin: 0; padding: 0; border: 0; }
-.board-editor-anchor .board-workspace-columns { grid-template-columns: minmax(0,1fr); }
+
 .board-editor-anchor .source-text { font-size: 13px; line-height: 1.75; padding: 16px; }
 .board-editor-anchor .board-judgment-column { border-top: 1px solid var(--line); padding-top: 24px; }
-@media(min-width:1200px) { .comparison-layout.has-editor { grid-template-columns: minmax(340px,.9fr) minmax(440px,1.1fr); }
-  .has-editor .board-editor-anchor { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow: auto; padding: 4px 12px 24px 4px; }
-}
+
 .board-workspace-columns { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 36px; margin-top: 32px; }
 .board-workspace-columns > div { min-width: 0; }
 .board-candidate, .board-reference { border-bottom: 1px solid var(--line); padding: 22px 0; }
@@ -171,3 +169,23 @@ footer { max-width: 1380px; margin: 0 auto; padding: 24px 36px; border-top: 1px 
 .proposal-card .eyebrow { color: var(--accent); }
 .cell-proposals { padding-bottom: 24px; }
 .cell-proposals > h3 { margin-top: 0; }
+
+/* The existing cell editor takes focus; the comparison table retains its position. */
+.comparison-layout.has-editor { grid-template-columns: minmax(0,1fr); }
+.comparison-table-pane[hidden], .cell-review-panels [hidden] { display: none; }
+.cell-editor-identity { max-width: 95ch; padding-bottom: 12px; }
+.cell-editor-identity h2 { margin-bottom: 12px; }
+.cell-editor-identity h3 { font-size: 20px; line-height: 1.45; }
+.cell-review-steps { display:flex; flex-wrap:wrap; gap:8px; margin:28px 0; border-bottom:1px solid var(--line); padding-bottom:16px; }
+.cell-review-steps button { border-color:transparent; background:transparent; }
+.cell-review-steps button[aria-current="step"] { border-color:var(--accent); color:var(--accent); }
+.cell-evidence-stage { margin:0; border:0; padding:0; }
+.cell-comment-stage, .cell-final-stage { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
+.cell-comment-stage > section, .cell-final-stage > section { margin:0; border:0; padding:0; min-width:0; }
+.cell-retained-evidence { min-width:0; }
+.retained-excerpt { border-top:1px solid var(--line); padding:16px 0; overflow-wrap:anywhere; }
+.retained-excerpt blockquote { margin:16px 0; padding-left:16px; border-left:2px solid var(--line); white-space:pre-wrap; font-size:14px; line-height:1.8; max-height:430px; overflow:auto; }
+.cell-review-summary dt { margin-top:16px; font:11px var(--mono); color:var(--muted); }
+.cell-review-summary dd { margin:6px 0 16px; white-space:pre-wrap; overflow-wrap:anywhere; }
+.comparison-secondary-tools { margin:24px 0; padding:16px 0; border-top:1px solid var(--line); }
+@media(min-width:1000px) { .cell-comment-stage, .cell-final-stage { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; } }
