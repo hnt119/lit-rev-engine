@@ -106,6 +106,7 @@ class NeuralAdapter:
                     raise MvpError('retrieval_tokenizer_invalid', 'The installed pinned tokenizer could not be opened locally. No fallback ran.') from None
             self._tokenizers[role] = by_repo[repo]
         self._cancelled = None
+        self._progress = None
         self._executed = {'query_encoder': 0, 'document_encoder': 0, 'reranker': 0}
         self._timing = {'model_load_seconds': 0.0, 'query_encoder_seconds': 0.0, 'document_encoder_seconds': 0.0, 'reranker_seconds': 0.0}
         self._token_counts = {'query_tokens': 0, 'document_tokens': 0, 'reranker_pair_tokens': 0}
@@ -114,6 +115,17 @@ class NeuralAdapter:
         if callback is not None and not callable(callback):
             raise MvpError('retrieval_cancellation_invalid', 'Use an explicit cancellation predicate or guard callback.')
         self._cancelled = callback
+
+    def set_progress(self, callback):
+        """Operational notifications only; never part of model/profile metadata."""
+        if callback is not None and not callable(callback):
+            raise MvpError('retrieval_progress_invalid', 'Use an explicit progress callback.')
+        self._progress = callback
+
+    def _report(self, phase, **counters):
+        callback = getattr(self, '_progress', None)
+        if callback is not None:
+            callback(phase=phase, **counters)
 
     def _check_cancelled(self):
         callback = getattr(self, '_cancelled', None)
@@ -175,6 +187,7 @@ class NeuralAdapter:
         model = None
         try:
             started = time.monotonic()
+            self._report("loading_model", component=role)
             path, tx, torch = self._dirs[role], self._transformers, self._torch
             if self.profile_id == MEDCPT_PROFILE and role == 'reranker':
                 major_minor = tuple(int(part) for part in torch.__version__.split('+')[0].split('.')[:2])
@@ -218,7 +231,9 @@ class NeuralAdapter:
 
     def _vectors(self, role, inputs, *, paired=False):
         vectors, stage, started = [], 'query_encoder' if role == 'query' else 'document_encoder', time.monotonic()
+        total_batches = (len(inputs) + DOCUMENT_BATCH_SIZE - 1) // DOCUMENT_BATCH_SIZE
         with self._model(role) as model, self._torch.inference_mode():
+            self._report('embedding' if role == 'document' else 'encoding_query', component=role, completed_batches=0, total_batches=total_batches, processed_items=0, total_items=len(inputs))
             for begin in range(0, len(inputs), DOCUMENT_BATCH_SIZE):
                 self._check_cancelled()
                 batch = self._batch(role, inputs[begin:begin + DOCUMENT_BATCH_SIZE], paired=paired)
@@ -233,6 +248,7 @@ class NeuralAdapter:
                 self._executed[stage] += len(inputs[begin:begin + DOCUMENT_BATCH_SIZE])
                 self._token_counts['query_tokens' if role == 'query' else 'document_tokens'] += int(batch['attention_mask'].sum().item())
                 del batch, hidden, values
+                self._report('embedding' if role == 'document' else 'encoding_query', component=role, completed_batches=begin // DOCUMENT_BATCH_SIZE + 1, total_batches=total_batches, processed_items=min(begin + DOCUMENT_BATCH_SIZE,len(inputs)), total_items=len(inputs))
         self._timing[stage + '_seconds'] += time.monotonic() - started
         return vectors
 
@@ -270,7 +286,9 @@ class NeuralAdapter:
             if any(len(self._ids(tokenizer, *pair)) > MEDCPT_INPUT_TOKENS for pair in pairs):
                 raise MvpError('retrieval_pair_budget', 'The complete MedCPT query/document pair exceeds 512 tokens; no truncation ran.')
         result, started = [], time.monotonic()
+        total_batches = (len(docs) + DOCUMENT_BATCH_SIZE - 1) // DOCUMENT_BATCH_SIZE
         with self._model('reranker') as model, self._torch.inference_mode():
+            self._report('reranking', component='reranker', completed_batches=0, total_batches=total_batches, processed_items=0, total_items=len(docs))
             for begin in range(0, len(docs), DOCUMENT_BATCH_SIZE):
                 self._check_cancelled()
                 if self.profile_id == QWEN_PROFILE:
@@ -291,6 +309,7 @@ class NeuralAdapter:
                 del batch, scores
                 if self.profile_id == QWEN_PROFILE:
                     del logits
+                self._report('reranking', component='reranker', completed_batches=begin // DOCUMENT_BATCH_SIZE + 1, total_batches=total_batches, processed_items=min(begin + DOCUMENT_BATCH_SIZE,len(docs)), total_items=len(docs))
         self._timing['reranker_seconds'] += time.monotonic() - started
         return result
 

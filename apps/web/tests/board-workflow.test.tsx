@@ -10,6 +10,7 @@ const response=(value:unknown,status=200)=>new Response(JSON.stringify(value),{s
 function content(node:ReactTestInstance):string{return node.children.map(child=>typeof child==="string"?child:content(child)).join("");}
 function button(renderer:ReactTestRenderer,label:string){const value=renderer.root.findAllByType("button").find(item=>content(item)===label);assert.ok(value,`Missing button: ${label}`);return value;}
 function disabled(node:ReactTestInstance):boolean {let current:ReactTestInstance|null=node;while(current){if(current.props.disabled)return true;current=current.parent;}return false;}
+async function observed(check:()=>boolean){const deadline=Date.now()+5000;while(!check()){assert.ok(Date.now()<deadline,"Expected acknowledgment was not observed");await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});}}
 function control(renderer:ReactTestRenderer,label:string,type:"textarea"|"select"|"input"="textarea"){const value=renderer.root.findAllByType("label").find(item=>item.children.some(child=>typeof child==="string"&&child===label));assert.ok(value,`Missing control: ${label}`);return value.findByType(type);}
 const text="女性😀 participants were Chinese women. Diet was assessed using a questionnaire.";
 const fieldList=[{id:"population",revision_id:"fp",label:"Population",subquestion:"What participants were studied?"},{id:"design",revision_id:"fd",label:"Design",subquestion:"What design was used?"},{id:"exposure",revision_id:"fe",label:"Exposure",subquestion:"What diet was measured?"}];
@@ -90,7 +91,9 @@ test("nine-cell board performs only explicit per-cell retrieval, inspection, man
     await act(async()=>button(renderer,"Edit saved cell").props.onClick());
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: explicit second revision"}}));
     await act(async()=>button(renderer,"Review entry before saving").props.onClick());
+    await observed(()=>!disabled(button(renderer,revisions.length?"Save revision":"Save reviewed entry")));
     await act(async()=>button(renderer,revisions.length?"Save revision":"Save reviewed entry").props.onClick());
+    await observed(()=>revisions.length>0);
     assert.equal(revisions.length,2);assert.equal(revisions[1].supersedes_id,"cell-1");
     await act(async()=>button(renderer,"Load immutable cell history").props.onClick());assert.ok(content(renderer.root.findByProps({"aria-label":"Immutable cell history"})).includes("2 of 2 revisions"));
     const csv=renderer.root.findAllByType("a").find(link=>content(link)==="Download board CSV")!;assert.ok(csv.props.href.includes("/boards/b/exports?format=csv"));
@@ -112,7 +115,9 @@ test("abstract-only missing information stays null and does not become an unsupp
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: no allocation detail in the inspected abstract range"}}));
     await act(async()=>control(renderer,"Missing information").props.onChange({target:{value:"Allocation method; full text not retained"}}));
     await act(async()=>button(renderer,"Review entry before saving").props.onClick());
+    await observed(()=>!disabled(button(renderer,revisions.length?"Save revision":"Save reviewed entry")));
     await act(async()=>button(renderer,revisions.length?"Save revision":"Save reviewed entry").props.onClick());
+    await observed(()=>revisions.length>0);
     assert.equal(revisions.length,1);assert.equal(revisions[0].value,null);assert.equal(revisions[0].semantic_assessment,"unassessed");assert.equal(revisions[0].scope_result,"not_found_in_inspected_material");
     assert.ok(content(renderer.root.findByProps({"aria-label":"Design for SOFTWARE TEST Report 3"})).includes("Not found in inspected material"));assert.ok(content(renderer.root.findByProps({"aria-label":"Population for SOFTWARE TEST Report 1"})).includes("Not yet submitted"));
   }finally{await act(async()=>renderer.unmount());}
@@ -190,7 +195,9 @@ test("a 30 by 6 table mounts one guided editor and performs no per-cell retrieva
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"Source has no usable answer for this field"}}));
     await act(async()=>control(renderer,"Missing information").props.onChange({target:{value:"Field details are not provided in retained material"}}));
     await act(async()=>button(renderer,"Review entry before saving").props.onClick());
+    await observed(()=>!disabled(button(renderer,revisions.length?"Save revision":"Save reviewed entry")));
     await act(async()=>button(renderer,revisions.length?"Save revision":"Save reviewed entry").props.onClick());
+    await observed(()=>revisions.length>0);
     assert.match(content(renderer.root),/Saved to comparison/);
     assert.match(content(renderer.root),/1 \/ 180 cells saved to the table/);
     await act(async()=>button(renderer,"Next unfinished cell").props.onClick());
