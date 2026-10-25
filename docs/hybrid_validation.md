@@ -307,3 +307,8 @@ core lexical/manual research remains usable.
 The extracted successor walkthrough and artifact hashes are recorded separately
 in the final private review packet, after freezing an exact source commit. This
 source document does not pre-claim those later observations or authorize publication.
+
+The final complete core rerun passed **736 tests**, with **13 optional Streamlit
+skips**, in 26.75 seconds. The final complete frontend rerun passed **181 tests**
+in 3.43 seconds. Existing Starlette/AnyIO and React test-renderer deprecation
+warnings remain; dependencies were not changed to suppress them.

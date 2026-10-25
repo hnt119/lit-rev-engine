@@ -42,3 +42,19 @@ only after explicit authorization; no paid validation is included.
 ## Successor settings and generation access
 
 Research & AI Settings is included in this browser/source package. Session-owned settings and memory-only keys are separate from per-search scientific specifications and research exports. PubMed can be configured independently without an API key. Optional explicit local/OpenAI/DeepSeek generation delegates to the existing typed planning/proposal services and needs one-run data/cost consent. No live authenticated/provider/model checks are implied by the software tests; see SETTINGS.md and the successor evaluation record. The Electron experiment is a separate artifact, not included in this setup-required ZIP.
+
+## Additive experimental evidence retrieval
+
+| Same-application mode | Optional requirement | Observed boundary |
+| --- | --- | --- |
+| Existing core lexical | Core dependencies only | Historical profiles and receipts retained |
+| Qwen hybrid + reranking | Explicit Qwen two-model pack and optional retrieval runtime | Real encoder/reranker executed separately on CPU and Apple MPS; quality remains experimental |
+| Biomedical hybrid + reranking | Explicit matching MedCPT query/article/cross components and optional retrieval runtime | Real three-component execution on CPU/MPS; passage adaptation, not a validated biomedical advantage |
+
+Retrieval is independent of paper providers, paper-map embeddings and generative
+assistance. Indexing is explicit and bound to the exact authorized source snapshot.
+New versioned hybrid receipts preserve signed/dense-only scores and exact anchors.
+Core remains usable when the optional cache is unavailable. Source-package models,
+credentials, private caches, Track B and pilot state remain excluded. Read
+`RETRIEVAL.md` and `MODEL_REFERENCES.md` in the extracted package. Full human-gold,
+held-out and scientific-usefulness validation remains unperformed.

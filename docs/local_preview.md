@@ -178,3 +178,15 @@ paid inference or release publication is part of this beta preparation.
 ## Research & AI Settings
 
 Use Research & AI Settings for session-owned PubMed and optional local/OpenAI/DeepSeek generation configuration. Per-search scientific specifications remain beside each query. Saving settings makes no external request. Read SETTINGS.md for fixed endpoints, key lifetime, explicit one-run cost/data consent and limits. Existing private --config launch settings remain supported and are not silently imported or rewritten. Core saved/manual research works without an LLM.
+
+## Optional evidence retrieval packs (private additive successor)
+
+Core lexical retrieval stays available without neural dependencies. The same
+Research & AI Settings page now has an independent Evidence retrieval section:
+optional Qwen hybrid/reranking or the experimental MedCPT passage adaptation.
+Use `setup --with-retrieval` to install the pinned optional runtime without
+weights, then explicitly install/check the selected pack in Settings and index
+the exact retained sources. No navigation or default change downloads models,
+indexes sources or calls a provider. See [RETRIEVAL.md](RETRIEVAL.md) in the
+extracted package for exact profiles, setup/actions, license notices and limits.
+This unpublished candidate does not replace the published beta.
