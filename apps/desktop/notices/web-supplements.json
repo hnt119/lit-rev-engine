@@ -1,0 +1,210 @@
+{
+  "packages": [
+    {
+      "name": "@edge-runtime/cookies",
+      "notices": [
+        {
+          "file": "edge-runtime-MIT.txt",
+          "kind": "exact_published_package_notice",
+          "provenance": {
+            "package": "@edge-runtime/cookies",
+            "tarball_integrity": "sha512-VVO/8AwC2qVbygLb2IOkX1zWFx2yWIHzFv4D602CTnoRffd/+cdcXqpSydKaedFrk7a1dRYXbWwjzfV/gwZ2Gw==",
+            "tarball_sha256": "6ed10bffb7f722669cad0ef21ae28c7ced140785a587ddf2aa4cb8b98eadda4a",
+            "tarball_url": "https://registry.npmjs.org/@edge-runtime/cookies/-/cookies-6.0.0.tgz",
+            "version": "6.0.0"
+          },
+          "sha256": "e4f76a7a19ef2989dd79339bd3abf8afcf1d6f065e5a10c76c19415ffd727eb3",
+          "source_url": "https://github.com/vercel/edge-runtime/blob/@edge-runtime/cookies@6.0.0/LICENSE.md"
+        }
+      ],
+      "package_json_sha256": "84dec8086a6d6a1176ff52a54dbc4542aeca7241214a0cf7d5af2870ee422db2",
+      "package_version": "6.0.0",
+      "parent": {
+        "dependency_manifest": {
+          "file": "next-16.4.2-upstream-package.json",
+          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
+          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+        },
+        "dependency_section": "devDependencies",
+        "name": "next",
+        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "relative_package_json": "dist/compiled/@edge-runtime/cookies/package.json",
+        "version": "16.4.2"
+      },
+      "reviewed_version": "6.0.0",
+      "runtime_files": {
+        "index.js": "078a208032232fcedaa17a3471421688e4be15f5cb71cb1f189d0514b393ed94"
+      }
+    },
+    {
+      "name": "@edge-runtime/ponyfill",
+      "notices": [
+        {
+          "file": "edge-runtime-MIT.txt",
+          "kind": "exact_published_package_notice",
+          "provenance": {
+            "package": "@edge-runtime/ponyfill",
+            "tarball_integrity": "sha512-JZdDyYUqweSbhMgSxxL8QuquNuanVw+gMK8RfFq1LHMQHxzXPVvAf9aw6M7MSuyhnCBtFhqtSTr682rf8U5eyA==",
+            "tarball_sha256": "8c5af3358af8889d2fa65b9bf9432b0f36a88486cce5702b14f18f8986fb55c1",
+            "tarball_url": "https://registry.npmjs.org/@edge-runtime/ponyfill/-/ponyfill-4.0.0.tgz",
+            "version": "4.0.0"
+          },
+          "sha256": "e4f76a7a19ef2989dd79339bd3abf8afcf1d6f065e5a10c76c19415ffd727eb3",
+          "source_url": "https://github.com/vercel/edge-runtime/blob/@edge-runtime/ponyfill@4.0.0/LICENSE.md"
+        }
+      ],
+      "package_json_sha256": "04d31884423b345e3abddc712adc85e10347ccf057630b23a930f1ba9af56708",
+      "package_version": "4.0.0",
+      "parent": {
+        "dependency_manifest": {
+          "file": "next-16.4.2-upstream-package.json",
+          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
+          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+        },
+        "dependency_section": "devDependencies",
+        "name": "next",
+        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "relative_package_json": "dist/compiled/@edge-runtime/ponyfill/package.json",
+        "version": "16.4.2"
+      },
+      "reviewed_version": "4.0.0",
+      "runtime_files": {
+        "index.js": "2947a158434e3de30291ea1d0b888fe57d6ef4fc84125096e12fb3a4370d8579"
+      }
+    },
+    {
+      "name": "@edge-runtime/primitives",
+      "notices": [
+        {
+          "file": "edge-runtime-MIT.txt",
+          "kind": "exact_published_package_notice",
+          "provenance": {
+            "package": "@edge-runtime/primitives",
+            "tarball_integrity": "sha512-FqoxaBT+prPBHBwE1WXS1ocnu/VLTQyZ6NMUBAdbP7N2hsFTTxMC/jMu2D/8GAlMQfxeuppcPuCUk/HO3fpIvA==",
+            "tarball_sha256": "92878e3cfa4d42010c760449210ab4ca6d71435d71db8ee97b7ecbf4fd75c6e2",
+            "tarball_url": "https://registry.npmjs.org/@edge-runtime/primitives/-/primitives-6.0.0.tgz",
+            "version": "6.0.0"
+          },
+          "sha256": "e4f76a7a19ef2989dd79339bd3abf8afcf1d6f065e5a10c76c19415ffd727eb3",
+          "source_url": "https://github.com/vercel/edge-runtime/blob/@edge-runtime/primitives@6.0.0/LICENSE.md"
+        }
+      ],
+      "package_json_sha256": "ee5dfbcb78d0c753908a0643fc23d7486cf4478872789bca8722a88f71d5c213",
+      "package_version": "6.0.0",
+      "parent": {
+        "dependency_manifest": {
+          "file": "next-16.4.2-upstream-package.json",
+          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
+          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+        },
+        "dependency_section": "devDependencies",
+        "name": "next",
+        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "relative_package_json": "dist/compiled/@edge-runtime/primitives/package.json",
+        "version": "16.4.2"
+      },
+      "reviewed_version": "6.0.0",
+      "runtime_files": {
+        "abort-controller.js.text.js": "aea89210daca9e960a4ea2527fd9f393120c3348c1f170e584180e711d210d98",
+        "console.js.text.js": "ecce4f5d3a06e7f4f81f134dfc2458514b69a774fd9f444b848e003eda94714f",
+        "crypto.js": "cd25eaef9257d212b3a845f6d4c89394a20ab8c3fb62c32df3b04f1d032e9c30",
+        "events.js.text.js": "5d1edce76ef9091f8055162c0b803d42b7c72909c855792a58bf37e5c69329d2",
+        "fetch.js": "1577109d1e286a11e66bb56ba3dfa07d53d6c0e0610c08fed994f82838bb7658",
+        "index.js": "be20f1fa5e356c1582311fe8d98f9cfe50227b79e9dd024b03c7192a78edd22b",
+        "load.js": "d36b91e07ff16e770688afc5578702030e7eccaa3de59303cd6b0cef0707d230",
+        "stream.js": "7f1b043b0ab0ed3b6b31d1376f0571fbcd0803e08ed38364191c43e06cd9e8ae",
+        "timers.js.text.js": "72e4ec2522e2b3cd1071bd76f6616dccc2b05ebafd133f22fb48ee3940145c13",
+        "url.js.text.js": "cca6037acfe0858eda39683de9b4817d67a849366ba31a2b12c8a27e576d14e3"
+      }
+    },
+    {
+      "name": "@next/env",
+      "notices": [
+        {
+          "file": "next-16.4.2-MIT.txt",
+          "kind": "matching_monorepo_notice",
+          "provenance": {
+            "package": "@next/env",
+            "tarball_integrity": "sha512-nTUTFH7G5/J/fmpkjVLegOkqyKOP0CEsJcMsyO4UCYeN1su+YMW/MfaSErnJskL7XM+UDK6aTvslxsRCyya/sA==",
+            "tarball_sha256": "3689438a836af5958bea785eda04689932c819dc25b7a1e4833d4a32951bd935",
+            "tarball_url": "https://registry.npmjs.org/@next/env/-/env-16.4.2.tgz",
+            "version": "16.4.2"
+          },
+          "sha256": "ee765244e2d59f5234d474f62e0766fa0c8b99af967fdd4c0cb8dcb0c76ea224",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/license.md"
+        }
+      ],
+      "package_json_sha256": "890f8f188a008f05020375b9ed0d499244e55a3e59cebc00f76b4047c51afb88",
+      "package_version": "16.4.2",
+      "parent": {
+        "dependency_manifest": {
+          "file": "next-16.4.2-upstream-package.json",
+          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
+          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+        },
+        "dependency_section": "dependencies",
+        "name": "next",
+        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "relative_package_json": null,
+        "version": "16.4.2"
+      },
+      "reviewed_version": "16.4.2",
+      "runtime_files": {
+        "dist/index.js": "c3100f65b6072118fb1bc458c8cdcb9c5dc9d7c6f07128a91e7baa61423ec2c4"
+      }
+    },
+    {
+      "name": "string-hash",
+      "notices": [
+        {
+          "file": "string-hash-1.1.3-README.md",
+          "kind": "upstream_dedication",
+          "provenance": {
+            "package": "string-hash",
+            "source_commit": "5bf7547a91372c399f4052cc1094a93f73e10284",
+            "tarball_integrity": "sha512-kJUvRUFK49aub+a7T1nNE66EJbZBMnBgoC1UbCZ5n6bsZKBRga4KgBRTMn/pFkeCZSYtNeSyMxPDM0AXWELk2A==",
+            "tarball_sha256": "264f97224f48229c23c8cac1f045868a4bdc8dd95996e595e448d0be622ba1f4",
+            "tarball_url": "https://registry.npmjs.org/string-hash/-/string-hash-1.1.3.tgz",
+            "version": "1.1.3"
+          },
+          "sha256": "62a7a3b8dba4cc818974ab2c00cb7fb7cb20afd7d3c73ed049d7f2eb5621a46e",
+          "source_url": "https://github.com/darkskyapp/string-hash/blob/5bf7547a91372c399f4052cc1094a93f73e10284/README.md"
+        },
+        {
+          "file": "CC0-1.0-legalcode.txt",
+          "kind": "standard_license_definition",
+          "provenance": {
+            "license": "CC0-1.0"
+          },
+          "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+          "source_url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt"
+        }
+      ],
+      "package_json_sha256": "afb2563fe191f4e7eecc9e6bf1131f07da3f855e6e51b2d517206ae737b343b0",
+      "package_version": null,
+      "parent": {
+        "dependency_manifest": {
+          "file": "next-16.4.2-upstream-package.json",
+          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
+          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+        },
+        "dependency_section": "devDependencies",
+        "name": "next",
+        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "relative_package_json": "dist/compiled/string-hash/package.json",
+        "version": "16.4.2"
+      },
+      "reviewed_version": "1.1.3",
+      "runtime_files": {
+        "index.js": "704c6006f09b17e2e7e387a254f2cba84c25859418cd3a44b895f899281c556f"
+      }
+    }
+  ],
+  "schema": "litrev.desktop-web-notice-supplements.v1",
+  "scope": "Five exact-version notice supplements only; no distribution or legal clearance."
+}
