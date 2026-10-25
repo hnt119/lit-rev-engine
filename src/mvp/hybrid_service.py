@@ -9,6 +9,7 @@ from pathlib import Path
 from threading import BoundedSemaphore, Event, RLock
 import json
 import os
+from src.platform_support import open_private, restrict_fd, is_link, assert_no_links, private_directory, atomic_replace
 import re
 import sqlite3
 from .contracts import canonical, digest, new_id, now
@@ -24,7 +25,7 @@ class HybridEvidenceService:
         self.registry, self.service_for, self.boards, self.packs = registry, service_for, boards, packs
         self.path = Path(boards.store.path)  # Additive tables in the existing comparison sidecar.
         self._slot, self._lock, self._cancel = BoundedSemaphore(1), RLock(), {}
-        fd=os.open(self.path, os.O_CREAT|os.O_RDWR|os.O_NOFOLLOW, 0o600);os.fchmod(fd,0o600);os.close(fd)
+        fd=open_private(self.path, os.O_CREAT|os.O_RDWR|0, 0o600);restrict_fd(fd,0o600);os.close(fd)
         with self.db() as db:
             db.executescript('''CREATE TABLE IF NOT EXISTS hybrid_runs(workspace_id TEXT NOT NULL,id TEXT PRIMARY KEY,request_id TEXT NOT NULL,fingerprint TEXT NOT NULL,payload TEXT NOT NULL,sha256 TEXT NOT NULL,UNIQUE(workspace_id,request_id));
                 CREATE TABLE IF NOT EXISTS hybrid_jobs_v1(workspace_id TEXT NOT NULL,id TEXT NOT NULL,kind TEXT NOT NULL,state TEXT NOT NULL,detail TEXT NOT NULL,fingerprint TEXT NOT NULL,PRIMARY KEY(workspace_id,id));
@@ -104,10 +105,11 @@ class HybridEvidenceService:
         return Path(self.packs.root)/'indexes'/key[:2]/(key+'.json')
     def _load(self,key):
         path=self._index_path(key)
-        if not path.is_file() or path.is_symlink():
+        assert_no_links(path)
+        if not path.is_file() or is_link(path):
             raise MvpError('retrieval_index_missing','Index missing or stale for these exact sources/profile/device. Choose Index these sources explicitly.')
         try:
-            value=json.loads(path.read_text());inventory=HybridInventory.model_validate(value['inventory']);index=HybridIndex.model_validate(value['index'])
+            value=json.loads(path.read_text(encoding='utf-8'));inventory=HybridInventory.model_validate(value['inventory']);index=HybridIndex.model_validate(value['index'])
             if digest({'inventory':value['inventory'],'index':value['index']})!=value['sha256']:raise ValueError()
             return inventory,index
         except (ValueError,KeyError,TypeError):raise MvpError('retrieval_index_corrupt','The derived index failed validation; explicitly rebuild it.') from None
@@ -233,19 +235,19 @@ class HybridEvidenceService:
             progress(phase='publishing')
             self._revalidate(mode,handle,request,captured)
             if cancelled():raise MvpError('retrieval_cancelled','Indexing cancelled; no index was published.')
-            path=self._index_path(key);path.parent.mkdir(mode=0o700,parents=True,exist_ok=True)
+            path=self._index_path(key);private_directory(path.parent)
             data={'inventory':inventory.model_dump(mode='json'),'index':index.model_dump(mode='json')};data['sha256']=digest(data)
             tmp=path.with_suffix('.partial-'+new_id())
             try:
-                fd=os.open(tmp,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600)
-                with os.fdopen(fd,'w') as f:f.write(canonical(data));f.flush();os.fsync(f.fileno())
+                fd=open_private(tmp,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600)
+                with os.fdopen(fd,'w', encoding='utf-8') as f:f.write(canonical(data));f.flush();os.fsync(f.fileno())
                 def publish(fresh):
                     with self._lock:
                         if fresh['scope']!=captured['scope'] or fresh['sources']!=captured['sources'] or fresh['titles']!=captured['titles']:
                             raise MvpError('retrieval_stale_inputs','Source bindings changed; index not published.')
                         if cancelled():raise MvpError('retrieval_cancelled','Indexing cancelled; no index published.')
                         with self.db() as db:self._alive(db,handle.workspace_id)
-                        os.replace(tmp,path)
+                        atomic_replace(tmp,path)
                 self.capture(mode,handle,request,publish=publish)
             finally:tmp.unlink(missing_ok=True)
             return {'state':'ready','index_key':index.index_key,'coverage':inventory.coverage.model_dump(mode='json'),'elapsed_seconds':index.elapsed_seconds,'runtime':index.runtime}

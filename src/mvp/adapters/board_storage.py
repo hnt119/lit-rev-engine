@@ -2,6 +2,7 @@
 from contextlib import contextmanager
 import json
 import os
+from src.platform_support import open_private, restrict_fd, is_link
 from pathlib import Path
 import sqlite3
 
@@ -20,10 +21,10 @@ class BoardStore:
                  max_definitions=MAX_DEFINITIONS, max_cell_revisions=MAX_CELL_REVISIONS, max_requests=1000):
         self.path = Path(path)
         private_directory(self.path.parent)
-        if any(Path(str(self.path) + suffix).is_symlink() for suffix in ('', '-wal', '-shm', '-journal')):
+        if any(is_link(Path(str(self.path) + suffix)) for suffix in ('', '-wal', '-shm', '-journal')):
             raise ValueError('Board storage must not be a symlink')
-        fd = os.open(self.path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
-        os.fchmod(fd, 0o600)
+        fd = open_private(self.path, os.O_CREAT | os.O_RDWR | 0, 0o600)
+        restrict_fd(fd, 0o600)
         os.close(fd)
         self.max_workspace_bytes, self.max_boards = max_workspace_bytes, max_boards
         self.max_definitions, self.max_cell_revisions, self.max_requests = max_definitions, max_cell_revisions, max_requests

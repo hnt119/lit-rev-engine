@@ -5,6 +5,7 @@ library, makes no calls, imports no model stack and never prints setting values.
 """
 import json
 import os
+from src.platform_support import open_private, owned_fd, assert_no_links
 from pathlib import Path
 import re
 import stat
@@ -98,11 +99,11 @@ def load_settings(path, app_root):
     if any(parent.is_symlink() for parent in (path, *path.parents)):
         _failure('settings must use an ordinary file without symlink paths.')
     try:
-        descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+        descriptor = open_private(path, os.O_RDONLY | getattr(os, 'O_NONBLOCK', 0), strict=True)
         try:
             info = os.fstat(descriptor)
-            if not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid() or stat.S_IMODE(info.st_mode) != 0o600 or info.st_size > MAX_SETTINGS_BYTES:
-                _failure('settings must be an ordinary file owned by you, mode 0600 and at most 16 KiB. Copy the sample outside the app and run chmod 600 on that private copy.')
+            if not stat.S_ISREG(info.st_mode) or not owned_fd(descriptor, private=True) or info.st_size > MAX_SETTINGS_BYTES:
+                _failure('settings must be an ordinary file owned by you and at most 16 KiB, with POSIX mode 0600 or a protected Windows current-user ACL. Keep the private copy outside the app; follow the installation guide for your OS.')
             with os.fdopen(descriptor, 'rb', closefd=False) as stream:
                 raw = stream.read(MAX_SETTINGS_BYTES + 1)
         finally:
@@ -122,7 +123,7 @@ def load_settings(path, app_root):
     except LocalLaunchError:
         raise
     except (OSError, ValueError, TypeError, UnicodeError, RecursionError):
-        _failure('could not read valid private JSON settings. No setting values were printed or forwarded.')
+        _failure('could not read valid private JSON settings; an ordinary file with POSIX mode 0600 / protected Windows current-user ACL is required. No setting values were printed or forwarded.')
     return validate_settings(value, app_root)
 
 

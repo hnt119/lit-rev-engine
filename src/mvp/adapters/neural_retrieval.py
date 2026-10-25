@@ -5,10 +5,13 @@ truncates, downloads, executes remote code, or substitutes a generation service.
 """
 from contextlib import contextmanager
 from copy import deepcopy
+import errno
 import gc
 from importlib.metadata import version, PackageNotFoundError
 import math
 from pathlib import Path
+import sqlite3
+import subprocess
 import threading
 import time
 from ..ports import MvpError
@@ -28,6 +31,67 @@ QWEN_PREFIX = ('<|im_start|>system\nJudge whether the Document meets the require
                'Note that the answer can only be "yes" or "no".<|im_end|>\n<|im_start|>user\n')
 QWEN_SUFFIX = '<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n'
 _MODEL_GATE = threading.BoundedSemaphore(1)
+
+
+def _model_failure_diagnostic(error, phase):
+    """Static operational classification; exception payloads stay private.
+
+    Unknown subclasses/codes remain unknown. Even source text, paths, tensor
+    values or custom exception names in an error cannot enter the public suffix.
+    """
+    kinds = ((MemoryError, 'memory_error'), (OSError, 'os_error'), (PermissionError, 'permission_error'),
+        (FileNotFoundError, 'file_not_found'), (BlockingIOError, 'blocking_io_error'),
+        (RuntimeError, 'runtime_error'), (ValueError, 'value_error'), (TypeError, 'type_error'),
+        (ImportError, 'import_error'), (ModuleNotFoundError, 'module_not_found'),
+        (KeyError, 'key_error'), (AttributeError, 'attribute_error'), (NameError, 'name_error'),
+        (IndexError, 'index_error'), (NotImplementedError, 'not_implemented'),
+        (AssertionError, 'assertion_error'), (StopIteration, 'stop_iteration'),
+        (subprocess.CalledProcessError, 'process_error'), (subprocess.TimeoutExpired, 'process_timeout'),
+        (UnicodeEncodeError, 'unicode_encode_error'), (UnicodeDecodeError, 'unicode_decode_error'),
+        (sqlite3.OperationalError, 'sqlite_operational_error'), (sqlite3.DatabaseError, 'sqlite_database_error'))
+    kind = next((name for cls, name in kinds if type(error) is cls), 'unknown')
+    category, code = 'unknown', 'none'
+    if type(error) is MemoryError:
+        category = 'memory'
+    elif type(error) is sqlite3.OperationalError or type(error) is sqlite3.DatabaseError:
+        category = 'storage'
+    elif type(error) is UnicodeEncodeError or type(error) is UnicodeDecodeError:
+        category = 'encoding'
+    if type(error) is KeyError:
+        names = {'USERNAME': 'env_user', 'COMSPEC': 'env_shell', 'NUMBER_OF_PROCESSORS': 'env_cpu',
+            'SYSTEMROOT': 'env_system', 'WINDIR': 'env_windows', 'APPDATA': 'env_app',
+            'LOCALAPPDATA': 'env_local', 'TEMP': 'env_temp', 'TMP': 'env_tmp',
+            'USERPROFILE': 'env_profile', 'HOMEDRIVE': 'env_drive', 'HOMEPATH': 'env_home'}
+        args = error.args
+        if type(args) is tuple and len(args) == 1 and type(args[0]) is str and args[0] in names:
+            category, code = 'environment', names[args[0]]
+    windows = {1455: ('memory', 'win1455'), 8: ('memory', 'win8'), 14: ('memory', 'win14'),
+        5: ('permission', 'win5'), 32: ('locking', 'win32'), 33: ('locking', 'win33')}
+    portable = {errno.ENOMEM: ('memory', 'errno_enomem'), errno.EACCES: ('permission', 'errno_eacces'),
+        errno.EPERM: ('permission', 'errno_eperm'), errno.EBUSY: ('locking', 'errno_ebusy'),
+        errno.EAGAIN: ('locking', 'errno_eagain')}
+    for attribute, allowed in (('winerror', windows), ('errno', portable)):
+        try:
+            value = getattr(error, attribute, None)
+        except Exception:
+            value = None
+        if type(value) is int and value in allowed:
+            category, code = allowed[value]
+            break
+    if category == 'unknown':
+        # Inspect bounded plain-string arguments only; never call str/repr on
+        # an exception, an argument or a source-controlled custom object.
+        try:
+            args = error.args
+        except Exception:
+            args = ()
+        if type(args) is tuple:
+            phrases = ('defaultcpuallocator: not enough memory', "defaultcpuallocator: can't allocate memory",
+                'cuda out of memory', 'mps backend out of memory')
+            if any(phrase in value[:4096].lower() for value in args[:4] if type(value) is str for phrase in phrases):
+                category = 'memory'
+    safe_phase = phase if phase in {'loading', 'progress', 'weights', 'placing', 'cancel', 'execution'} else 'unknown'
+    return f'phase={safe_phase}; kind={kind}; category={category}; os_code={code}'
 
 
 def qwen_query(query):
@@ -185,9 +249,11 @@ class NeuralAdapter:
         if not _MODEL_GATE.acquire(blocking=False):
             raise MvpError('retrieval_runtime_busy', 'Another neural component is executing. Retry this explicit local operation.', True)
         model = None
+        phase = 'progress'
         try:
             started = time.monotonic()
             self._report("loading_model", component=role)
+            phase = 'weights'
             path, tx, torch = self._dirs[role], self._transformers, self._torch
             if self.profile_id == MEDCPT_PROFILE and role == 'reranker':
                 major_minor = tuple(int(part) for part in torch.__version__.split('+')[0].split('.')[:2])
@@ -204,14 +270,19 @@ class NeuralAdapter:
                 cls = tx.AutoModelForCausalLM if role == 'reranker' else tx.AutoModel
                 model = cls.from_pretrained(str(path), local_files_only=True, trust_remote_code=False,
                     use_safetensors=True, dtype=torch.float32, attn_implementation='eager')
+            phase = 'placing'
             model = model.to(device=self.device, dtype=torch.float32).eval()
             self._timing['model_load_seconds'] += time.monotonic() - started
+            phase = 'cancel'
             self._check_cancelled()
+            phase = 'execution'
             yield model
         except MvpError:
             raise
-        except Exception:
-            raise MvpError('retrieval_model_failed', 'The selected local model failed to execute. Inspect the runtime check or select lexical explicitly; no fallback ran.') from None
+        except Exception as error:
+            diagnostic = _model_failure_diagnostic(error, phase)
+            raise MvpError('retrieval_model_failed', 'The selected local model failed to execute. '
+                + 'Diagnostic: ' + diagnostic + '. Inspect the runtime check or select lexical explicitly; no fallback ran.') from None
         finally:
             if model is not None:
                 del model

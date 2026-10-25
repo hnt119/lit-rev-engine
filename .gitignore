@@ -82,3 +82,6 @@ cookies.json
 apps/desktop/out/
 apps/desktop/node_modules/
 .desktop-state/
+
+# Explicit Windows launcher bootstrap; never a release asset.
+.venv-bootstrap/

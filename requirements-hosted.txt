@@ -15,3 +15,6 @@ starlette==1.3.1
 typing-extensions==4.16.0
 typing-inspection==0.4.4
 uvicorn==0.54.0
+
+# Local Windows private-state boundary; no effect on POSIX/hosted runtimes.
+pywin32==312; sys_platform == "win32"

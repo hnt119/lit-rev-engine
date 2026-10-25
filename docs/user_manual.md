@@ -1,10 +1,12 @@
 # User manual — evidence-first local research
 
-Use the normal application for this guide. Track B's protocol pilot, the legacy CLI and the private desktop prototype are separate. This working-source manual describes the excerpt-first checkpoint; use the published release's INSTALL.md and VALIDATION.md to identify the exact downloadable interface. Start with the permitted offline example before entering private research.
+Use the normal application for this guide. Track B's protocol pilot, the legacy CLI and the private desktop prototype are separate. This manual describes the beta.4 source checkpoint; use the exact release's installation guide and VALIDATION.md to identify the downloadable interface and its actual checks. Earlier published downloads remain bound to their own guides. Start with the permitted offline example before entering private research.
 
 ## Install on your OS
 
-The source app is setup-required: Python 3.12 (venv/pip), Node 24 and pnpm 10.20.0. macOS Apple Silicon is tested. Windows x64 portability is under development; there is no tested Windows download at this checkpoint. Linux installation, Intel Mac and Windows ARM are unqualified. No public desktop installer is available. Do not disable Gatekeeper/SmartScreen or execute a package that claims those untested capabilities.
+The source app is setup-required: Python 3.12 (venv/pip), Node 24 and pnpm 10.20.0. macOS 26.6.2 arm64 passed fresh extracted candidate 8cf4379 checks. Windows x64 candidate 8cf4379 passed Core/browser checks, but combined run 40217061799 ended FAIL after its actual Qwen index returned HTTP 422 `retrieval_model_failed`; MedCPT was not run afterward. Observed OS values were `2022Server` / `10.0.26100` on a runner labeled `windows-2025`. Windows neural retrieval is not qualified; the final archive gate remains pending in VALIDATION.md. Physical Windows 11 is NOT_RUN. Linux installation, Intel Mac and Windows ARM are unqualified. No public desktop installer is available. Do not disable Gatekeeper/SmartScreen or execute a package that claims those untested capabilities.
+
+On Windows, follow WINDOWS_SOURCE.md instead of the macOS shell examples below. It verifies checksums, creates an isolated `.venv-bootstrap` with the pinned Windows security prerequisite, and uses that Python for setup/launch/status/stop. No activation, execution-policy change or global pip install is required.
 
 Get the purpose-built ZIP, manifest and SHA256SUMS from the exact pre-release linked in the repository README. GitHub's automatic source archive is not the tested distribution. Keep those three files together in the download folder and verify them there:
 
@@ -27,7 +29,7 @@ python3.12 scripts/local_preview.py stop
 
 Launch waits for both owned loopback services before opening the browser. Keep that terminal open, or use Ctrl-C for a controlled stop. Run status/stop from the same extracted application folder. Use the printed URL and the same browser profile and hostname when reopening; cookies identify local access, not a named researcher account. Clearing or expiring cookies can lose access. Knowing a workspace UUID is not authorization and there is no new account-transfer/recovery system.
 
-If ports are occupied, close only the positively identified other application or deliberately choose unused ports with `--web-port` and `--api-port`; never kill an unknown listener. Force-killing the source controller can leave owned children running. Do not delete active locks to bypass them; follow INSTALL.md's recovery instructions or restart the computer before relaunching.
+If ports are occupied, close only the positively identified other application or deliberately choose unused ports with `--web-port` and `--api-port`; never kill an unknown listener. Force-killing the source controller can leave owned children running. Do not delete active locks to bypass them; follow the extracted README.md / release INSTALL.md recovery instructions or restart the computer before relaunching.
 
 ## Start with the offline example
 
@@ -43,7 +45,7 @@ Choose reports and explicitly prepare sources. Identity/permissions determine pe
 
 ## Select an excerpt, comment and save
 
-Open an unfinished comparison cell. It stays inside the comparison view with paper, field/subquestion and source availability visible.
+Open an unfinished comparison cell. It stays inside the comparison view with paper, field/subquestion and source availability visible. **Paper i/N** and **Field j/M** identify whether the next unfinished cell is another field of the same report or another paper. These labels do not group reports into independent studies.
 
 1. **Select evidence.** Choose **Find excerpts in this paper**, or **Browse this source** if candidates are empty/unhelpful. A candidate is only a possible match. Opening/highlighting it does not mark inspection, attach evidence or judge support.
 2. Read its exact retained context. **I have read this excerpt — use it** explicitly attaches the valid range and declares that you read it. Wait for acknowledgement; the comment input then receives focus. The chosen excerpt/citation stays visible beside it.
@@ -68,7 +70,7 @@ Two tabs may conflict. A rejected save keeps local text/evidence; compare the sa
 
 All are choices in one app. **Core lexical** needs no neural package, key or index installation. **Qwen hybrid + reranking** uses Qwen3-Embedding-0.6B plus Qwen3-Reranker-0.6B; **Biomedical/MedCPT hybrid + reranking** uses query/article encoders and a cross encoder, as an experimental passage adaptation.
 
-For the source app, stop before changing its runtime, then explicitly run:
+For the source app, stop before changing its runtime, then explicitly run (Windows: use the bootstrap Python shown in WINDOWS_SOURCE.md):
 
 ```sh
 python3.12 scripts/local_preview.py setup --with-retrieval
@@ -76,7 +78,7 @@ python3.12 scripts/local_preview.py setup --with-retrieval
 
 This installs optional dependencies, not weights. Re-running ordinary setup replaces the app-owned environment with the base runtime; external research/models remain. In **Research & AI Settings → Evidence retrieval**, explicitly install the chosen pinned pack, check its selected device/runtime, then index the exact retained sources for the selected board/cell. The UI shows model bytes/revisions/licenses; Qwen's official payload is 2,414,972,344 bytes and MedCPT's 1,316,720,932 bytes, before indexes/runtime overhead. Both packs can coexist outside replaceable app files. No model download happens merely by opening a page.
 
-Changing defaults affects future work. An existing board changes profile only by an explicit definition revision, preserving old cells and receipts. Missing/corrupt/incompatible models or indexes fail visibly; choose a new explicit attempt/profile rather than expecting fallback. Indexing can be slow. The current request shows model/loading/windowing/batch progress and explicit cancellation/retry; cancellation is cooperative between native operations. A full page refresh does not automatically rediscover the prior job identifier. This is not a durable background-work guarantee. Real CPU/MPS tests on Mac do not establish Windows, sustained latency or superiority over BM25. Read RETRIEVAL.md and MODEL_REFERENCES.md in the source download.
+Changing defaults affects future work. An existing board changes profile only by an explicit definition revision, preserving old cells and receipts. Missing/corrupt/incompatible models or indexes fail visibly; choose a new explicit attempt/profile rather than expecting fallback. Indexing can be slow. The current request shows model/loading/windowing/batch progress and explicit cancellation/retry; cancellation is cooperative between native operations. A full page refresh does not automatically rediscover the prior job identifier. This is not a durable background-work guarantee. Historical real CPU/MPS tests on Mac and the separate tiny baseline Windows CPU checks do not establish sustained latency or superiority over BM25. Read VALIDATION.md for whether this exact source/archive was checked. Read RETRIEVAL.md and MODEL_REFERENCES.md in the source download.
 
 ## Configure optional generation
 
@@ -88,7 +90,7 @@ Suggestions remain separate from drafts/submissions. Inspect their exact sources
 
 Use History & export for the existing CSV/JSON formats and retained histories; inspect which values are submitted versus draft-only. Export while your access session is available. Exports are scholarly records, not a complete backup of browser authorization, original sources and all runtime state.
 
-For a local source backup, stop the app cleanly, confirm its controller/services are stopped, then copy the complete external data directory privately. Keep the browser profile/cookies separately under their own OS/browser privacy controls; the app does not promise portable authentication recovery. Do not copy a running SQLite database as a consistent backup. Do not put backups, cookies, keys, source files or private exports in GitHub/public issues. Retain the original copy before any restore and use a separate test location; knowing a data path does not recover expired/lost authorization.
+On Windows, use the stopped `backup` / `restore` path in WINDOWS_SOURCE.md; it creates protected private archives and restores only to a new sibling directory. For macOS, stop the app cleanly, confirm its controller/services are stopped, then copy the complete external data directory privately. Keep the browser profile/cookies separately under their own OS/browser privacy controls; the app does not promise portable authentication recovery. Do not copy a running SQLite database as a consistent backup. Do not put backups, cookies, keys, source files or private exports in GitHub/public issues. Retain the original copy before any restore and use a separate test location; knowing a data path does not recover expired/lost authorization.
 
 Replacing/extracting application files must leave the data directory untouched; run fresh setup in the replacement app before launch. Do not migrate the only data copy or change research/profile bindings silently. Models/caches are separate from both the app and scholarly exports.
 

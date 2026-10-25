@@ -118,3 +118,19 @@ def test_metadata_dependency_versions_handle_missing_mismatch_and_build_suffix(m
     value=runtime_dependencies()
     assert value['missing']==['numpy'] and value['incompatible']==['torch']
     assert value['check_scope']=='metadata_only_not_execution'
+
+
+def test_caller_held_lifecycle_guard_supports_exact_capture_without_reacquiring(flow, monkeypatch):
+    """The platform/progress union must retain its guard=False context path."""
+    from src.mvp.hybrid_app_contracts import HybridScopeRequest
+    c=flow;runtime=c.app.state.hybrid_retrieval
+    session=c.app.state.registry.resolve_session(c.client.cookies.get('litrev_local_session'))
+    mode,handle=c.app.state.registry.workspace(session['token_hash'],c.workspace['id'])
+    request=HybridScopeRequest.model_validate(c.payload)
+    expected=runtime.capture(mode,handle,request)
+    with runtime.registry.lifecycle_guard(handle.workspace_id):
+        monkeypatch.setattr(runtime.registry,'lifecycle_guard',lambda *_:pytest.fail('A caller-held guard must not be reacquired'))
+        captured=runtime.capture(mode,handle,request,guard=False)
+        assert captured==expected
+        runtime._revalidate(mode,handle,request,captured,guard=False)
+    assert c.packs.adapters[QWEN_PROFILE].calls==[]

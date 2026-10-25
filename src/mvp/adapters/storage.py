@@ -7,8 +7,9 @@ calls happen outside SQLite transactions so separate workspaces remain usable.
 from contextlib import contextmanager
 import hashlib
 import hmac
-import fcntl
+from src.platform_support import locks as fcntl
 import os
+from src.platform_support import open_private, restrict_path, private_directory as platform_private_directory
 from pathlib import Path
 import secrets
 import sqlite3
@@ -21,14 +22,10 @@ class SQLiteWorkspaceStorage:
     def __init__(self, path, max_workspace_bytes=64 * 1024 * 1024):
         self._path = Path(path)
         self._max_workspace_bytes = max_workspace_bytes
-        self._path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
-        self._locks = self._path.parent / (self._path.name + ".locks")
-        self._locks.mkdir(mode=0o700, exist_ok=True)
-        self._locks.chmod(0o700)
-        if self._path.is_symlink():
-            raise ValueError("Workspace database must not be a symlink")
-        self._path.touch(mode=0o600, exist_ok=True)
-        self._path.chmod(0o600)
+        platform_private_directory(self._path.parent)
+        self._locks = platform_private_directory(self._path.parent / (self._path.name + ".locks"))
+        descriptor = open_private(self._path, os.O_CREAT | os.O_RDWR)
+        os.close(descriptor)
         with self._connection() as connection:
             connection.executescript("""
                 PRAGMA journal_mode=WAL;
@@ -47,7 +44,7 @@ class SQLiteWorkspaceStorage:
                     FOREIGN KEY(workspace_id) REFERENCES mvp_workspaces(id) ON DELETE CASCADE
                 );
             """)
-        self._path.chmod(0o600)
+        restrict_path(self._path, 0o600)
 
     @contextmanager
     def _connection(self):
@@ -107,7 +104,7 @@ class SQLiteWorkspaceStorage:
     def _workspace_lock(self, handle):
         # Hash the untrusted ID; no external identifier becomes a filesystem path.
         name = hashlib.sha256(handle.workspace_id.encode("utf-8")).hexdigest()
-        descriptor = os.open(self._locks / name, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+        descriptor = open_private(self._locks / name, os.O_CREAT | os.O_RDWR | 0, 0o600)
         try:
             fcntl.flock(descriptor, fcntl.LOCK_EX)
             yield

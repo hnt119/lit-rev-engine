@@ -3,6 +3,7 @@ from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 import json
 import os
+from src.platform_support import open_private, restrict_fd, is_link
 from pathlib import Path
 import sqlite3
 
@@ -32,10 +33,10 @@ class MapStore:
     def __init__(self, path, *, max_workspace_bytes=32 * 1024 * 1024, max_jobs=200, max_maps=100, max_embeddings=5000, max_requests=1000):
         self.path = Path(path)
         private_directory(self.path.parent)
-        if any(Path(str(self.path) + suffix).is_symlink() for suffix in ("", "-wal", "-shm", "-journal")):
+        if any(is_link(Path(str(self.path) + suffix)) for suffix in ("", "-wal", "-shm", "-journal")):
             raise ValueError("Map storage must not be a symlink")
-        descriptor = os.open(self.path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
-        os.fchmod(descriptor, 0o600)
+        descriptor = open_private(self.path, os.O_CREAT | os.O_RDWR | 0, 0o600)
+        restrict_fd(descriptor, 0o600)
         os.close(descriptor)
         self.max_workspace_bytes, self.max_jobs = max_workspace_bytes, max_jobs
         self.max_maps, self.max_embeddings, self.max_requests = max_maps, max_embeddings, max_requests

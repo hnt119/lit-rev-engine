@@ -4,8 +4,15 @@
 !.dockerignore
 !requirements-hosted.txt
 !requirements-web-lock.txt
+!LICENSE
+!THIRD_PARTY_NOTICES.md
+!docs/
+docs/**
+!docs/local_preview_distribution_terms.md
 !src/
 src/**
+!src/platform_support/
+!src/platform_support/**
 !src/mvp/
 !src/mvp/**
 !src/review/
@@ -147,3 +154,6 @@ examples/mvp/**
 **/storage-state.json
 **/cookies.json
 **/*cookie*jar*
+
+# Source-only Windows launcher bootstrap; never a container input.
+**/.venv-bootstrap/**

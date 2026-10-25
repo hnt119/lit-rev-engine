@@ -1,0 +1,74 @@
+name: Windows source validation (public disposable QA)
+
+on:
+  push:
+    branches: [codex/windows-portability]
+  workflow_dispatch:
+    inputs:
+      run_models:
+        description: Explicit official pinned Qwen/MedCPT CPU encoder and reranker checks
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-source-validation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  windows-source:
+    # Exact free standard public-repository runner. No larger/private/self-hosted runner.
+    if: github.repository == 'hnt119/lit-rev-engine' && github.event.repository.private == false
+    runs-on: windows-2025
+    timeout-minutes: 90
+    env:
+      # Exercise ordinary non-UTF8 Windows locale; persisted JSON is explicitly UTF-8.
+      PYTHONUTF8: '0'
+      PYTHONDONTWRITEBYTECODE: '1'
+      PIP_NO_CACHE_DIR: '1'
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+      NEXT_TELEMETRY_DISABLED: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Keep committed source bytes exact
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # official v4 resolved read-only
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # official v5 resolved read-only
+        with:
+          python-version: '3.12.7'
+          architecture: x64
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # official v4 resolved read-only
+        with:
+          node-version: '24.19.0'
+          architecture: x64
+      - name: Explicit isolated source-launcher prerequisite
+        run: |
+          if ('${{ github.repository }}' -ne 'hnt119/lit-rev-engine' -or '${{ github.event.repository.private }}' -ne 'false') { throw 'Public-only free runner guard failed' }
+          python -m venv .venv-bootstrap
+          .\.venv-bootstrap\Scripts\python.exe -m pip install -r requirements-windows-bootstrap.txt -r requirements-hosted.txt pytest==9.1.0 httpx==0.28.1
+          npm.cmd install --global pnpm@10.20.0
+      - name: Explicit disposable browser-test tools (not app dependencies)
+        run: |
+          npm.cmd install --prefix "$env:RUNNER_TEMP\litrev-playwright-tools" --ignore-scripts --no-audit --no-fund --save-exact playwright@1.62.1
+          node.exe "$env:RUNNER_TEMP\litrev-playwright-tools\node_modules\playwright\cli.js" install chromium
+      - name: Existing Next signal-bridge adapter contract
+        run: node.exe --test tests/windows/test_windows_web_adapter.cjs
+      - name: Native ACL, paths, OS locks, pipes, owned jobs and stopped backup
+        run: .\.venv-bootstrap\Scripts\python.exe -m pytest -q -p no:cacheprovider -p tests.windows.native_fixtures tests/windows/test_native_boundary.py tests/windows/test_portability_policy.py tests/windows/test_hybrid_http_probe.py tests/web_api/test_hybrid_retrieval_independent.py tests/local_preview/test_launcher.py::test_distribution_preserves_windows_username_without_pwd_or_credentials
+      - name: Extracted production workflow and explicit existing-pack CPU checks
+        if: github.event_name == 'push' || inputs.run_models
+        run: .\.venv-bootstrap\Scripts\python.exe tests\windows\run_source_acceptance.py --models --playwright-dir "$env:RUNNER_TEMP\litrev-playwright-tools"
+      - name: Extracted production workflow without optional model execution
+        if: github.event_name == 'workflow_dispatch' && !inputs.run_models
+        run: .\.venv-bootstrap\Scripts\python.exe tests\windows\run_source_acceptance.py --playwright-dir "$env:RUNNER_TEMP\litrev-playwright-tools"
+      # No artifact upload. QA roots contain private session cookies/registries.
+      # No binary, weights, database, browser state or private export leaves this runner.

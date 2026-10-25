@@ -13,16 +13,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.license_policy import validate_distribution_license
 
-VERSION = "0.3.0-beta.3"
+VERSION = "0.3.0-beta.4"
 NAME = "lit-rev-engine-" + VERSION
 EXACT = {
-    "requirements-hosted.txt", "requirements-web-lock.txt", "requirements-retrieval.txt", "requirements-map.txt", "requirements-map-lock.txt",
+    "requirements-hosted.txt", "requirements-windows-bootstrap.txt", "requirements-web-lock.txt", "requirements-retrieval.txt", "requirements-map.txt", "requirements-map-lock.txt",
     "LICENSE", "THIRD_PARTY_NOTICES.md", "config/local-beta.example.json",
     "apps/web/package.json", "apps/web/pnpm-lock.yaml", "apps/web/tsconfig.json",
     "apps/web/next-env.d.ts", "apps/web/next.config.ts",
     "apps/streamlit/theme/tokens.css",
 }
-TREES = ("src/mvp/", "src/review/", "src/web_api/", "apps/web/app/",
+TREES = ("src/platform_support/", "src/mvp/", "src/review/", "src/web_api/", "apps/web/app/",
          "apps/web/components/", "apps/web/lib/", "examples/mvp/offline_microbiome_30_v1/")
 TASK_FILES = {"scripts/retrieval_pack.py", "scripts/run_web.py", "scripts/local_preview.py", "scripts/license_policy.py",
               "scripts/local_beta_settings.py", "scripts/check_local_beta.py", "scripts/run_map_worker.py",
@@ -32,7 +32,9 @@ DOCUMENTS = {"README.md": "docs/local_preview.md",
              "OPTIONAL_FEATURES.md": "docs/local_beta_optional_features.md",
              "CAPABILITIES.md": "docs/local_beta_capabilities.md",
              "SETTINGS.md": "docs/research_ai_settings.md",
-             "VALIDATION.md": "docs/excerpt_first_validation.md",
+             "WINDOWS_SOURCE.md": "docs/windows_source.md",
+             "VALIDATION.md": "docs/source_beta4_validation.md",
+             "HISTORICAL_EXCERPT_VALIDATION.md": "docs/excerpt_first_validation.md",
              "USER_MANUAL.md": "docs/user_manual.md",
              "HISTORICAL_RETRIEVAL_VALIDATION.md": "docs/combined_beta_validation.md",
              "RETRIEVAL.md": "docs/hybrid_retrieval.md",
@@ -44,7 +46,7 @@ TRACK_B_FILES = {"src/review/pilot.py", "src/mvp/review_pilot.py", "src/web_api/
 LICENSE_NAME = re.compile(r"(?:LICEN[CS]E|COPYING|COPYRIGHT|NOTICE)(?:\.(?:md|txt|rst))?", re.I)
 FORBIDDEN_PARTS = {"node_modules", "__pycache__", ".next", ".git", ".cache", "tests",
                    "browser-state", "backups", "private-exports", "model-cache", ".preview",
-                   ".hosted-state", ".huggingface", ".venv", ".venv-preview", ".venv-map"}
+                   ".hosted-state", ".huggingface", ".venv", ".venv-preview", ".venv-map", ".venv-bootstrap"}
 FORBIDDEN_SUFFIXES = (".sqlite", ".sqlite3", ".db", ".pem", ".key", ".crt", ".cer",
                       ".p12", ".pfx", ".pyc", ".safetensors", ".gguf", ".pt", ".pth", ".bin",
                       ".bak", ".zip", ".tar", ".tar.gz", ".tgz", ".tsbuildinfo", ".log", ".map")
@@ -147,8 +149,8 @@ def build(root, output, *, expected_source_commit=None, allow_working_tree=False
         "distribution_terms": "DISTRIBUTION_TERMS.md; source article licenses remain separate from project code",
         "root_notice_files": required_notices,
         "optional_feature_configuration": "Research & AI Settings: session-owned non-secret preferences + memory-only credentials; existing private external --config remains supported; generation defaults off",
-        "tested_platform": "macOS Apple Silicon; Python 3.12.7 and Node 24.19.0",
-        "other_platforms": "Linux unverified; Windows unsupported in this beta",
+        "tested_platform": "macOS arm64 and Windows x64 Core/source workflows; exact commit, observed OS/runtime, archive gates and optional retrieval failures/skips are separately recorded in VALIDATION.md and release acceptance evidence.",
+        "other_platforms": "Physical Windows 11 NOT_RUN; Linux installation unverified; Intel Mac and Windows ARM unqualified; native executables withheld",
         "setup_requires_network": "Python/JavaScript package installation only; no model downloads",
     })
     manifest = json_bytes({
@@ -171,7 +173,7 @@ def build(root, output, *, expected_source_commit=None, allow_working_tree=False
             bundle.writestr(entry, data)
     manifest_path.write_bytes(manifest)
     checksum_path.write_text("".join(digest(p.read_bytes()) + "  " + p.name + "\n"
-                                     for p in (archive, manifest_path)))
+                                     for p in (archive, manifest_path)), encoding='utf-8')
     return {"archive": str(archive), "archive_sha256": digest(archive.read_bytes()),
             "archive_bytes": archive.stat().st_size, "manifest": str(manifest_path),
             "checksums": str(checksum_path), "files": len(payload), "source_commit": source_commit}

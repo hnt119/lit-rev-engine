@@ -1,6 +1,6 @@
 # Track A beta capability matrix
 
-Version `0.3.0-beta.3`, **Local beta — setup required**. This source distribution
+Version `0.3.0-beta.4`, **Local beta — setup required**. This source distribution
 contains the current Next.js/FastAPI Track A product, not Track B or a standalone
 installer. MIT applies to the owner's original code; dependencies, papers, data
 and optional weights retain separate licenses. No maturity label adds a use,
@@ -13,7 +13,7 @@ commercial, modification or redistribution restriction.
 | Zotero CSV, DOI/PMID, supported RIS intake | Base setup | Offline parsing; metadata resolution only when requested; existing 5 MiB/500-row limits |
 | Source preparation | Base setup and retained/public-permitted sources | Existing up-to-30-paper jobs, progress/recovery and rights checks |
 | Paper inspector, list/map selection/navigation | Base setup | Preserves identities, counts and saved map coordinates |
-| Comparison boards | Base setup | Up to 30 reports × 6 fields; excerpt-first select/comment/review editor, existing source and revision validation |
+| Comparison boards | Base setup | Up to 30 reports × 6 fields; excerpt-first select/comment/review editor with explicit same-paper/next-paper context; existing source and revision validation |
 | Passage retrieval | Base setup | Explicit 5–30 requested passages; exact board/paper/source scope and return |
 | Source inspection, drafts, submission/revision/history | Base setup | Exact locators/hashes; human reading/support and submission remain explicit |
 | CSV/JSON exports | Base setup | Existing schemas, neutral/unresolved states and historical source bindings |
@@ -32,8 +32,14 @@ mock checks, actual live-provider calls and actual real-model execution. Real
 execution not performed remains `NOT_RUN`. Earlier working-tree tests do not
 qualify a later archive automatically.
 
-Tested platform scope remains macOS arm64. Linux installation is unverified;
-Windows unsupported. Cookie/hostname/profile access limitations, force-killed
+Fresh macOS 26.6.2 arm64 candidate 8cf4379 checks passed. Windows x64 candidate
+run 40217061799 passed Core/production checks but ended FAIL: Qwen's actual
+index returned HTTP 422 `retrieval_model_failed`; MedCPT was NOT_RUN afterward.
+Windows neural retrieval is not qualified. Observed OS release/version were
+`2022Server` / `10.0.26100` (runner label `windows-2025`). Final exact-archive
+checks remain pending in VALIDATION.md. Physical Windows
+11 is NOT_RUN. Linux installation is unverified; Intel Mac and Windows ARM
+are unqualified. Cookie/hostname/profile access limitations, force-killed
 controller recovery and the bounded 4,000-code-point inspector remain documented
 in the installation guide. No hosted service, model weights or desktop runtime
 is bundled in this source ZIP. Optional cloud generation uses your own account
@@ -62,4 +68,4 @@ held-out and scientific-usefulness validation remains unperformed.
 
 ## Source and validation binding
 
-This matrix applies to the integrated Track A source beta, not a native executable. Earlier beta.1/beta.2 assets remain unchanged. Consult VALIDATION.md and this ZIP's generated RELEASE.json/MANIFEST.json for exact source and test binding. The source package contains no vendored third-party runtimes or weights; the desktop-only notice gaps concern the withheld binary. Source notices and approved article attribution remain included.
+This matrix applies to the integrated Track A source beta, not a native executable. Earlier beta.1/beta.2/beta.3 assets remain unchanged. Consult VALIDATION.md and this ZIP's generated RELEASE.json/MANIFEST.json for exact source and test binding. The source package contains no vendored third-party runtimes or weights; the desktop-only notice gaps concern the withheld binary. Source notices and approved article attribution remain included. The withheld desktop collector now matches five exact-version notice supplements; client-only attribution and libvips/native obligations remain unresolved, as do a complete SBOM, trusted signing/notarization and an external optional ML runtime installer. Those gates are not source-app testing claims.

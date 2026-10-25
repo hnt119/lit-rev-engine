@@ -9,6 +9,7 @@ from __future__ import annotations
 from collections import Counter
 import hashlib
 import os
+from src.platform_support import open_private
 from pathlib import Path
 import re
 from typing import Literal
@@ -273,7 +274,7 @@ def write_private_manifest(output: Path, manifest: dict):
         raise ValueError("Choose a new case-audit output directory")
     directory = private_directory(output)
     path = directory / "manifest.json"
-    descriptor = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY | os.O_NOFOLLOW, 0o600)
+    descriptor = open_private(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     from .contracts import canonical
     with os.fdopen(descriptor, "w", encoding="utf-8") as file:
         file.write(canonical(manifest) + "\n")

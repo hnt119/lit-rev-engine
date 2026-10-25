@@ -23,7 +23,8 @@ def test_context_is_allowlisted_and_no_private_trees_are_reincluded():
     rules = [line.strip() for line in (ROOT / ".dockerignore").read_text().splitlines() if line.strip() and not line.startswith("#")]
     assert rules[0] == "**"
     allowed = [line[1:] for line in rules if line.startswith("!")]
-    assert not any(line.startswith((".git", ".env", ".mvp", "data/", "reports/", "workflow/", "tests/", "docs/")) for line in allowed)
+    assert not any(line.startswith((".git", ".env", ".mvp", "data/", "reports/", "workflow/", "tests/")) for line in allowed)
+    assert {line for line in allowed if line.startswith('docs/')} == {'docs/', 'docs/local_preview_distribution_terms.md'}
     public = [line for line in allowed if line.startswith("examples/mvp/offline_microbiome_30_v1/")]
     assert public and all("*" not in line for line in public)
     assert "examples/mvp/offline_microbiome_30_v1/manifest.json" in allowed
@@ -61,3 +62,13 @@ def test_git_excludes_private_runtime_canaries(tmp_path):
         input="\n".join(paths) + "\n", text=True, capture_output=True, env=env, check=True,
     )
     assert set(result.stdout.splitlines()) == set(paths)
+
+
+def test_license_page_build_input_and_runtime_terms_are_explicitly_packaged():
+    docker = (ROOT / 'Dockerfile').read_text()
+    assert docker.index('COPY LICENSE /app/LICENSE') < docker.index('RUN pnpm build')
+    assert 'COPY LICENSE THIRD_PARTY_NOTICES.md ./' in docker
+    assert 'COPY docs/local_preview_distribution_terms.md ./DISTRIBUTION_TERMS.md' in docker
+    rules = (ROOT / '.dockerignore').read_text().splitlines()
+    for path in ('LICENSE', 'THIRD_PARTY_NOTICES.md', 'docs/local_preview_distribution_terms.md'):
+        assert (ROOT / path).is_file() and '!' + path in rules
