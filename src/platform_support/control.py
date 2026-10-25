@@ -119,6 +119,12 @@ class PipeServer:
                 except (OSError, ValueError, TypeError, AttributeError):
                     pass
                 finally:
+                    # Write completion can mean buffered, not read. Immediate
+                    # DisconnectNamedPipe discards unread response bytes. Wait
+                    # boundedly for the one-request client to consume and close;
+                    # do not use blocking/unbounded FlushFileBuffers.
+                    try: PipeConnection(self.handle, .5).recv(1)
+                    except (OSError, TimeoutError): pass
                     try: pipe.DisconnectNamedPipe(self.handle)
                     except types.error: pass
         finally:

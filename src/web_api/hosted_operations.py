@@ -111,12 +111,18 @@ def create_backup(root, directory, output, *, validate_storage=None, operation_l
         snapshot = private_tempdir(prefix=".litrev-snapshot-", parent=output.parent)
         fd, temporary = private_tempfile(prefix=".litrev-backup-", parent=output.parent)
         try:
-            for path, relative, _ in entries:
+            for path, relative, size in entries:
                 target = snapshot / relative
                 platform_private_directory(target.parent)
-                with path.open("rb") as source, os.fdopen(open_private(target, os.O_CREAT | os.O_EXCL | os.O_WRONLY), "wb") as destination:
+                with os.fdopen(open_private(target, os.O_CREAT | os.O_EXCL | os.O_WRONLY), "wb") as destination:
                     restrict_path(target, 0o600)
-                    shutil.copyfileobj(source, destination, length=1024 * 1024)
+                    # Keep the launch lock held. Windows byte locks are
+                    # mandatory, including a read request past EOF on the
+                    # zero-byte owner.lock. Preserve its exact empty contents
+                    # without issuing an unnecessary conflicting read.
+                    if size:
+                        with path.open("rb") as source:
+                            shutil.copyfileobj(source, destination, length=1024 * 1024)
             _check_databases(snapshot)
             entries = _safe_tree(snapshot)
             manifest = {"schema": "litrev.stopped-backup.v1", "files": {

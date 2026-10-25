@@ -146,7 +146,10 @@ def test_named_pipe_auth_status_stop_and_native_server_identity(tmp_path):
     with preview.owner_lock(state):
         controller.start(); preview.atomic_json(state / 'owner.json', identity)
         try:
-            assert preview.control_request(data, 'status')['status'] == 'ready'
+            # Repeat real client connect/read/close cycles to catch response
+            # loss if buffered bytes are discarded by a premature disconnect.
+            for _ in range(10):
+                assert preview.control_request(data, 'status')['status'] == 'ready'
             connection = connect(state, os.getpid())
             connection.sendall((json.dumps({'action': 'stop', 'token': 'c' * 64, 'instance': 'b' * 32}) + '\n').encode())
             assert preview.read_message(connection)['status'] == 'denied'; connection.close()
@@ -227,6 +230,9 @@ def test_stopped_backup_restore_preserves_original_and_rejects_live_owner(tmp_pa
         with pytest.raises(preview.LocalLaunchError): preview.stopped_backup(args)
     assert preview.stopped_backup(args)['files'] >= 1
     assert owned_path(output, private=True)
+    import tarfile
+    with tarfile.open(output, 'r:gz') as archive:
+        assert archive.extractfile('data/.preview/owner.lock').read() == b''
     destination = root / 'Restored 空间'
     args = argparse.Namespace(command='restore', data_dir=data, archive=output, destination=destination)
     assert preview.stopped_backup(args)['files'] >= 1
