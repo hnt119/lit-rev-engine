@@ -40,6 +40,24 @@ class ValidationCommandError(RuntimeError):
             'software_error_types': sorted(set(value.decode() for value in re.findall(
                 rb'\b(?:ModuleNotFoundError|AttributeError|PermissionError|UnicodeEncodeError|UnicodeDecodeError|ValueError|RuntimeError|OSError|TimeoutError)\b', raw))),
             'windows_error_codes': sorted(set(int(value) for value in re.findall(rb'\[WinError ([0-9]{1,6})\]', raw)))}
+        # Test driver emits only controlled substep/status/count diagnostics.
+        # Never publish arbitrary browser errors, selectors, URLs or payloads.
+        for line in reversed(raw.splitlines()):
+            try: value = json.loads(line)
+            except ValueError: continue
+            if not isinstance(value, dict) or value.get('status') != 'FAIL': continue
+            step = value.get('browser_step')
+            if isinstance(step,str) and re.fullmatch('[a-z0-9-]{1,80}',step): self.detail['browser_step']=step
+            status = value.get('last_preparation_status')
+            if status is None or isinstance(status,str) and status in {'queued','running','succeeded','failed','stale','cancelled','cancel_requested'}:
+                self.detail['last_preparation_status']=status
+            state=value.get('diagnostics',{})
+            if isinstance(state,dict):
+                self.detail['browser_state']={k:v for k,v in state.items()
+                    if (k in {'board_form_present','ready_action_present'} and type(v) is bool)
+                    or (k=='alert_count' and type(v) is int and 0<=v<=100)
+                    or (k=='page' and isinstance(v,str) and v in {'workspaces','discover','compare','evidence','history','settings','unknown','unavailable'})}
+            break
         super().__init__('Owned validation command failed; see the sanitized phase/exit-code report.')
 
 
@@ -188,8 +206,12 @@ def main():
             if args.playwright_dir is None: return
             phase('actual-browser-' + mode)
             node = shutil.which('node')
-            raw = command([node, ROOT / 'tests/windows/source_browser.cjs', args.playwright_dir,
-                origin, qa, mode], cwd=ROOT, env=env, output=qa / ('browser-' + mode + '.log'), timeout=360)
+            report['actual_browser'] = 'ATTEMPTED; Chromium sandboxed via pinned test-only Playwright 1.62.1'
+            try:
+                raw = command([node, ROOT / 'tests/windows/source_browser.cjs', args.playwright_dir,
+                    origin, qa, mode], cwd=ROOT, env=env, output=qa / ('browser-' + mode + '.log'), timeout=360)
+            except BaseException:
+                report['checks']['browser_' + mode] = 'FAIL'; raise
             assert json.loads(raw.splitlines()[-1])['status'] == 'PASS'
             report['actual_browser'] = 'Chromium via pinned test-only Playwright 1.62.1'
             report['checks']['browser_' + mode] = 'PASS'

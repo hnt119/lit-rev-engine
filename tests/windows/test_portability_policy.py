@@ -105,3 +105,17 @@ def test_console_access_denial_is_not_treated_as_absence():
     with pytest.raises(OSError) as error:
         ensure_terminal_console(kernel, get_error=lambda:5, error_factory=lambda code:OSError(code,'fixture'))
     assert error.value.errno == 5
+
+
+def test_browser_failure_report_keeps_only_static_substep_status_and_counts():
+    import json
+    from tests.windows.run_source_acceptance import ValidationCommandError
+    raw = {'status':'FAIL','browser_step':'prepare-three-selected-papers','last_preparation_status':'failed',
+        'question':'PRIVATE_FIXTURE_MUST_NOT_APPEAR','cookie':'PRIVATE_FIXTURE_COOKIE',
+        'diagnostics':{'page':'discover','alert_count':1,'board_form_present':False,
+            'ready_action_present':True,'url':'http://private.invalid/secret'}}
+    error = ValidationCommandError(SimpleNamespace(returncode=1,stderr=json.dumps(raw).encode()))
+    assert error.detail['browser_step']=='prepare-three-selected-papers'
+    assert error.detail['last_preparation_status']=='failed'
+    assert error.detail['browser_state']=={'page':'discover','alert_count':1,'board_form_present':False,'ready_action_present':True}
+    assert 'PRIVATE_FIXTURE' not in json.dumps(error.detail) and 'private.invalid' not in json.dumps(error.detail)
