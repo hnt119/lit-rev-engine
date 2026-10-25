@@ -171,15 +171,15 @@ model, dependency and research-data boundaries. Beta status does not restrict
 MIT rights; private research material is not relicensed by the engine.
 
 Actual results, failed attempts, skips and remaining limitations belong in the
-separate local-preview evaluation report. Software checks do not establish
-human usefulness, scientific support or clinical validity. No hosted service,
-paid inference or release publication is part of this beta preparation.
+included VALIDATION.md and release validation attachment. Software checks do not establish
+human usefulness, scientific support or clinical validity. This source release
+does not deploy a hosted service or perform paid inference automatically.
 
 ## Research & AI Settings
 
 Use Research & AI Settings for session-owned PubMed and optional local/OpenAI/DeepSeek generation configuration. Per-search scientific specifications remain beside each query. Saving settings makes no external request. Read SETTINGS.md for fixed endpoints, key lifetime, explicit one-run cost/data consent and limits. Existing private --config launch settings remain supported and are not silently imported or rewritten. Core saved/manual research works without an LLM.
 
-## Optional evidence retrieval packs (private additive successor)
+## Optional experimental evidence retrieval packs
 
 Core lexical retrieval stays available without neural dependencies. The same
 Research & AI Settings page now has an independent Evidence retrieval section:
@@ -189,7 +189,7 @@ weights, then explicitly install/check the selected pack in Settings and index
 the exact retained sources. No navigation or default change downloads models,
 indexes sources or calls a provider. See [RETRIEVAL.md](RETRIEVAL.md) in the
 extracted package for exact profiles, setup/actions, license notices and limits.
-This unpublished candidate does not replace the published beta.
+This combined source beta.2 includes the optional profiles. Published beta.1 remains available with its original source and assets.
 
 
 ## Combined beta.2 evidence and separate desktop
