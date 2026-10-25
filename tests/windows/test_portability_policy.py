@@ -133,3 +133,117 @@ def test_browser_failure_report_rejects_nonstatic_error_codes(unsafe_code):
     assert 'browser_error_code' not in error.detail
     assert 'browser_error_type' not in error.detail
     assert 'PRIVATE' not in json.dumps(error.detail)
+
+
+def _model_http_failure(*, phase='loading', kind='os_error', category='memory', os_code='win1455', code='retrieval_model_failed', extra=None):
+    import json
+    message=('The selected local model failed to execute. Diagnostic: '
+        f'phase={phase}; kind={kind}; category={category}; os_code={os_code}'
+        '. Inspect the runtime check or select lexical explicitly; no fallback ran.')
+    value={'error':{'code':code,'message':message,'retryable':False}}
+    if extra:value.update(extra)
+    body=json.dumps(value).encode('utf-8')
+    return AssertionError(('POST','/PRIVATE/path?credential=PRIVATE_CANARY',422,200,body))
+
+
+@pytest.mark.parametrize('kind', ['memory_error','os_error','permission_error','file_not_found',
+    'blocking_io_error','runtime_error','value_error','type_error','import_error','module_not_found',
+    'sqlite_operational_error','sqlite_database_error','unicode_encode_error','unicode_decode_error','unknown'])
+def test_http_model_diagnostics_only_project_known_exception_kinds(kind):
+    from tests.windows.run_source_acceptance import model_failure_diagnostic
+    error=_model_http_failure(phase='execution',kind=kind,category='unknown',os_code='none')
+    assert len(error.args[0][-1])<=300
+    assert model_failure_diagnostic(error)=={'phase':'execution','kind':kind,'category':'unknown','os_code':'none'}
+
+
+@pytest.mark.parametrize('phase,kind,category,os_code', [
+    ('loading','os_error','memory','win1455'),('execution','runtime_error','memory','none'),
+    ('loading','sqlite_operational_error','storage','none'),('execution','sqlite_database_error','storage','none'),
+    ('execution','unicode_encode_error','encoding','none'),('loading','unicode_decode_error','encoding','none'),
+    ('unknown','unknown','unknown','none')])
+def test_http_model_diagnostics_keep_phase_category_and_code_separate(phase,kind,category,os_code):
+    from tests.windows.run_source_acceptance import model_failure_diagnostic
+    assert model_failure_diagnostic(_model_http_failure(phase=phase,kind=kind,category=category,os_code=os_code))=={
+        'phase':phase,'kind':kind,'category':category,'os_code':os_code}
+
+
+@pytest.mark.parametrize('field',['phase','kind','category','os_code'])
+def test_http_model_diagnostics_reject_private_or_unknown_tokens(field):
+    import json
+    from tests.windows.run_source_acceptance import model_failure_diagnostic,abort_validation
+    error=_model_http_failure(**{field:'PRIVATE_CANARY'})
+    assert model_failure_diagnostic(error) is None
+    report={}
+    with pytest.raises(SystemExit) as stopped:abort_validation(report,error)
+    assert stopped.value.code==1 and report['status']=='FAIL'
+    assert 'model_failure_diagnostic' not in report and 'PRIVATE' not in json.dumps(report)
+
+
+@pytest.mark.parametrize('change',['truncated_tail','truncated_message','malformed','duplicate','wrong_code','appended_text','oversize','body_string','body_mutable','wrong_method','wrong_status','wrong_expected','wrong_shape','not_http_assertion'])
+def test_http_model_diagnostics_fail_closed_for_malformed_or_truncated_packets(change):
+    import json
+    from tests.windows.run_source_acceptance import model_failure_diagnostic
+    error=_model_http_failure();packet=list(error.args[0]);body=packet[-1]
+    if change=='truncated_tail':packet[-1]=body[:-1]
+    elif change=='truncated_message':packet[-1]=body[:150]
+    elif change=='malformed':packet[-1]=b'{"error": [PRIVATE CANARY}'
+    elif change=='duplicate':packet[-1]=b'{"error":{},"error":{}}'
+    elif change=='wrong_code':return assert_no_model_diagnostic(_model_http_failure(code='other_failure'))
+    elif change=='appended_text':
+        value=json.loads(body);value['error']['message']+=' PRIVATE_CANARY';packet[-1]=json.dumps(value).encode()
+    elif change=='oversize':packet[-1]=body+b' '*(301-len(body))
+    elif change=='body_string':packet[-1]=body.decode()
+    elif change=='body_mutable':packet[-1]=bytearray(body)
+    elif change=='wrong_method':packet[0]='GET'
+    elif change=='wrong_status':packet[2]=503
+    elif change=='wrong_expected':packet[3]=202
+    elif change=='wrong_shape':packet=packet[:-1]
+    elif change=='not_http_assertion':return assert_no_model_diagnostic(RuntimeError(tuple(packet)))
+    assert model_failure_diagnostic(AssertionError(tuple(packet))) is None
+
+
+def assert_no_model_diagnostic(error):
+    from tests.windows.run_source_acceptance import model_failure_diagnostic
+    assert model_failure_diagnostic(error) is None
+
+
+def test_http_model_diagnostics_never_compare_or_render_untrusted_packet_objects():
+    from tests.windows.run_source_acceptance import model_failure_diagnostic,abort_validation
+    def forbidden(*_):raise AssertionError('Untrusted object must not be rendered/compared/hashed')
+    class Method:
+        __eq__=__ne__=__str__=__repr__=forbidden
+    packet=list(_model_http_failure().args[0]);packet[0]=Method()
+    assert model_failure_diagnostic(AssertionError(tuple(packet))) is None
+    class ErrorMeta(type):__hash__=forbidden
+    class PrivateError(Exception,metaclass=ErrorMeta):__str__=__repr__=forbidden
+    report={}
+    with pytest.raises(SystemExit):abort_validation(report,PrivateError('PRIVATE_CANARY'))
+    assert report['failure_type']=='OtherError' and 'model_failure_diagnostic' not in report
+
+
+def test_http_model_diagnostics_do_not_read_a_subclass_error_detail():
+    from tests.windows.run_source_acceptance import ValidationCommandError,abort_validation
+    class PrivateError(ValidationCommandError):
+        @property
+        def detail(self):raise AssertionError('Untrusted detail must not be accessed')
+    error=PrivateError.__new__(PrivateError);report={}
+    with pytest.raises(SystemExit):abort_validation(report,error)
+    assert report['failure_type']=='OtherError' and 'command_failure' not in report
+
+
+def test_failed_exit_publishes_static_diagnostic_without_body_path_or_traceback(tmp_path):
+    import json,os,subprocess,sys
+    from pathlib import Path
+    source=Path(__file__).resolve().parents[2]
+    error=_model_http_failure(kind='value_error',category='unknown',os_code='none',extra={'x':'PRIVATE_CANARY'})
+    assert len(error.args[0][-1])<=300
+    script=("import json\nfrom tests.windows.run_source_acceptance import abort_validation\nreport={}\ntry:\n raise AssertionError("+repr(error.args[0])+")\nexcept BaseException as error:\n try: abort_validation(report,error)\n finally: print(json.dumps(report))\n")
+    from scripts.run_web import SAFE_ENVIRONMENT
+    env={key:value for key,value in os.environ.items() if key in SAFE_ENVIRONMENT}
+    env.update(PYTHONDONTWRITEBYTECODE='1',PYTHONNOUSERSITE='1')
+    result=subprocess.run([sys.executable,'-c',script],cwd=source,env=env,capture_output=True,text=True,timeout=10)
+    assert result.returncode==1 and not result.stderr
+    value=json.loads(result.stdout)
+    assert value['status']=='FAIL' and value['failure_type']=='AssertionError'
+    assert value['model_failure_diagnostic']=={'phase':'loading','kind':'value_error','category':'unknown','os_code':'none'}
+    assert all(text not in result.stdout+result.stderr for text in ['PRIVATE_CANARY','/PRIVATE/','Traceback','credential=','retryable','message'])

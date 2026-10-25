@@ -66,6 +66,79 @@ class ValidationCommandError(RuntimeError):
         super().__init__('Owned validation command failed; see the sanitized phase/exit-code report.')
 
 
+_MODEL_DIAGNOSTIC_ENUMS = {
+    'phase': {'loading', 'execution', 'unknown'},
+    'kind': {'memory_error', 'os_error', 'permission_error', 'file_not_found',
+        'blocking_io_error', 'runtime_error', 'value_error', 'type_error',
+        'import_error', 'module_not_found', 'sqlite_operational_error',
+        'sqlite_database_error', 'unicode_encode_error', 'unicode_decode_error', 'unknown'},
+    'category': {'memory', 'permission', 'locking', 'storage', 'encoding', 'unknown'},
+    'os_code': {'win1455', 'win8', 'win14', 'win5', 'win32', 'win33',
+        'errno_enomem', 'errno_eacces', 'errno_eperm', 'errno_ebusy', 'errno_eagain', 'none'},
+}
+_MODEL_DIAGNOSTIC = re.compile(
+    r'The selected local model failed to execute\. Diagnostic: '
+    r'phase=(?P<phase>[a-z_]{1,16}); kind=(?P<kind>[a-z_]{1,32}); '
+    r'category=(?P<category>[a-z_]{1,16}); os_code=(?P<os_code>[a-z0-9_]{1,24})'
+    r'\. Inspect the runtime check or select lexical explicitly; no fallback ran\.')
+
+
+def model_failure_diagnostic(error):
+    """Project static enums only from this driver's bounded HTTP assertion.
+
+    Never render the exception, request path or body. Complete UTF-8 JSON and
+    the exact typed failure/grammar are required; truncated/ambiguous inputs
+    produce no diagnostic rather than a best-effort scan of private text.
+    """
+    if type(error) is not AssertionError or len(error.args) != 1:
+        return None
+    packet = error.args[0]
+    if type(packet) is not tuple or len(packet) != 5:
+        return None
+    method, _path, status, expected, body = packet
+    if type(method) is not str or method != 'POST' or type(status) is not int or status != 422 or type(expected) is not int or expected != 200:
+        return None
+    if type(body) is not bytes or not 0 < len(body) <= 300:
+        return None
+    def unique(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result: raise ValueError('Ambiguous error JSON')
+            result[key] = value
+        return result
+    try:
+        value = json.loads(body.decode('utf-8'), object_pairs_hook=unique)
+    except (ValueError, UnicodeError, RecursionError):
+        return None
+    detail = value.get('error') if type(value) is dict else None
+    if type(detail) is not dict or detail.get('code') != 'retrieval_model_failed' or type(detail.get('message')) is not str:
+        return None
+    match = _MODEL_DIAGNOSTIC.fullmatch(detail['message'])
+    if not match:
+        return None
+    projected = match.groupdict()
+    return projected if all(value in _MODEL_DIAGNOSTIC_ENUMS[key] for key, value in projected.items()) else None
+
+
+def abort_validation(report, error):
+    """Fail with a sanitized report, never a raw AssertionError traceback."""
+    known = (AssertionError, AttributeError, FileNotFoundError, ImportError,
+        ModuleNotFoundError, OSError, PermissionError, RuntimeError, TimeoutError,
+        TypeError, UnicodeEncodeError, UnicodeDecodeError, ValueError,
+        subprocess.TimeoutExpired, ValidationCommandError, KeyboardInterrupt, SystemExit)
+    report['status'] = 'FAIL'
+    report['failure_type'] = type(error).__name__ if any(type(error) is kind for kind in known) else 'OtherError'
+    report['failure_phase'] = PHASE
+    if type(error) is ValidationCommandError:
+        report['command_failure'] = error.detail
+    diagnostic = model_failure_diagnostic(error)
+    if diagnostic is not None:
+        report['model_failure_diagnostic'] = diagnostic
+    # Preserve failure and finally cleanup; SystemExit has no exception payload
+    # for Python to echo after the public-safe report in the outer finally.
+    raise SystemExit(1) from None
+
+
 def load(name, path):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec); sys.modules[name] = module
@@ -310,14 +383,11 @@ def main():
                 command([app_python, model_script, 'remove', '--cache', cache, '--profile', profile], cwd=app, timeout=120)
         report['status'] = 'PASS'
     except BaseException as error:
-        report['failure_type'] = type(error).__name__
-        report['failure_phase'] = PHASE
-        if isinstance(error, ValidationCommandError): report['command_failure'] = error.detail
         if (qa / 'launcher.log').exists():
             raw = (qa / 'launcher.log').read_bytes()[-32768:]
             report['launcher_error_codes'] = sorted(set(v.decode() for v in re.findall(
                 rb'\b(?:MODULE_NOT_FOUND|EADDRINUSE|EACCES|EPERM|ModuleNotFoundError|AttributeError|PermissionError|UnicodeEncodeError|UnicodeDecodeError|TimeoutError)\b', raw)))
-        raise
+        abort_validation(report, error)
     finally:
         if process is not None and process.poll() is None:
             process.terminate()
