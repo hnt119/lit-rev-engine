@@ -33,7 +33,7 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
   });
   const button=name=>page.getByRole('button',{name,exact:true});
   const readyEditor=async()=>{
-    await page.getByRole('textbox',{name:'Manual cell value',exact:true}).waitFor();
+    await page.locator('.board-cell-editor').waitFor();
     await page.locator('.board-cell-editor').getByText('Draft: saved',{exact:true}).waitFor();
   };
   const readyPassageSearch=async()=>{
@@ -41,7 +41,16 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
     await question.waitFor();
     await page.locator('section').filter({has:question}).getByText('Draft: saved',{exact:true}).waitFor();
   };
-  const assertDraft=async()=>assert.equal(await page.getByRole('textbox',{name:'Manual cell value',exact:true}).inputValue(),marker);
+  const showComment=async()=>{
+    const value=page.getByRole('textbox',{name:'Manual cell value',exact:true});
+    if(!await value.isVisible())await button('2. Comment & judge').click();
+    await value.waitFor();
+  };
+  const assertDraft=async()=>{await showComment();assert.equal(await page.getByRole('textbox',{name:'Manual cell value',exact:true}).inputValue(),marker);};
+  const moreTools=async()=>{
+    const tools=page.locator('.board-cell-editor details').filter({has:page.getByText('More evidence tools, proposals and history',{exact:true})});
+    if(!await tools.evaluate(node=>node.open))await tools.locator('summary').first().click();
+  };
   try {
     if(phase==='create'){
       checkpoint('create-workspace');
@@ -78,23 +87,36 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
       for(let i=1;i<=3;i++) await page.getByRole('textbox',{name:`Field ${i} retrieval subquestion`,exact:true}).fill('microbiome');
       await button('Create comparison board').click();
       await page.locator('button[data-board-cell]').nth(8).waitFor();
+      await page.locator('button[data-board-cell]').first().click();
+      let firstPaper;
       for(let i=0;i<3;i++){
-        checkpoint('inline-cell-'+i);
-        await page.locator('button[data-board-cell]').nth(i).click();
+        checkpoint('inline-same-paper-field-'+(i+1));
         await readyEditor();
-        await button('Find relevant passages').click();
+        const currentPaper=new URL(page.url()).searchParams.get('paper');
+        if(i===0)firstPaper=currentPaper;
+        assert.equal(currentPaper,firstPaper);
+        assert.equal(await page.locator('[aria-label="Current paper and field"]').innerText(),`Paper 1 of 3 · Field ${i+1} of 3`);
+        await button('Find excerpts in this paper').focus();await page.keyboard.press('Enter');
         await button('Read in source · passage 1').click();
         await page.locator('.board-cell-editor .source-text').waitFor();
-        await button('I have read this excerpt — attach as evidence').click();
+        await button('I have read this excerpt — use it').click();
+        await page.getByRole('textbox',{name:'Manual cell value',exact:true}).waitFor();
+        assert.equal(await page.getByRole('textbox',{name:'Manual cell value',exact:true}).evaluate(node=>node===document.activeElement),true);
         await page.getByRole('textbox',{name:'Manual cell value',exact:true}).fill(`SOFTWARE QA unassessed Windows cell ${i}`);
         await page.getByRole('textbox',{name:'Reason',exact:true}).fill('Mechanical software exercise only; no researcher support judgment.');
-        await button('Save cell to table').click();
+        await button('Review entry before saving').click();
+        await button('Save reviewed entry').click();
         await page.getByText('Saved to comparison.',{exact:true}).waitFor();
+        const next=await page.locator('[aria-label="Next unfinished cell destination"]').innerText();
+        assert.ok(next.startsWith(i<2?'Next: another field in the same paper':'Next: a different paper'));
+        if(i<2)await button('Next unfinished cell').click();
       }
+      await button('Back to table').first().click();
       await page.locator('button[data-board-cell]').first().click();
       checkpoint('edit-unsent-cell-draft');
       await button('Edit saved cell').click();
       await page.getByRole('textbox',{name:'Manual cell value',exact:true}).fill(marker);
+      await moreTools();
       const before=requests.filter(v=>v.method==='POST'&&v.path.endsWith('/evidence-runs')).length;
       await button('Open passage search for this field').click();
       checkpoint('comparison-passage-search');
@@ -120,12 +142,13 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
       checkpoint('return-focus-and-export');
       await button('Back to table').first().click();
       assert.equal(await page.locator('button[data-board-cell]').first().evaluate(node=>node===document.activeElement),true);
+      await page.getByText('Comparison tools and revision history',{exact:true}).click();
       const downloadWait=page.waitForEvent('download');
       await page.getByRole('link',{name:'Download board audit JSON',exact:true}).click();
       const downloaded=await downloadWait;const jsonPath=path.join(qa,'browser-board-export.json');await downloaded.saveAs(jsonPath);
       const exported=JSON.parse(fs.readFileSync(jsonPath,'utf8'));
       assert.equal(exported.table.length,9);assert.equal(exported.cell_revisions.length,3);
-      assert.ok(exported.cell_revisions.every(v=>v.semantic_assessment==='unassessed'));
+      assert.ok(exported.cell_revisions.every(v=>v.semantic_assessment==='unassessed'&&v.paper_id===firstPaper));
       const csvWait=page.waitForEvent('download');await page.getByRole('link',{name:'Download board CSV',exact:true}).click();
       await (await csvWait).saveAs(path.join(qa,'browser-board-export.csv'));
       // Genuine browser citation upload/preview/commit; no metadata resolution.
@@ -141,13 +164,16 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
       await page.goto(boardUrl,{waitUntil:'domcontentloaded'});await readyEditor();await assertDraft();
       checkpoint('persist-browser-session');
       await context.storageState({path:cookiesPath});
-      fs.writeFileSync(progressPath,JSON.stringify({boardUrl,checks:{browser_import:'PASS',three_inline_cells:'PASS',
+      fs.writeFileSync(progressPath,JSON.stringify({boardUrl,checks:{browser_import:'PASS',three_fields_same_paper_context:'PASS',excerpt_comment_review_save:'PASS',
         comparison_passage_exact_source_return:'PASS',no_navigation_search:'PASS',draft_refresh_back:'PASS',keyboard_return_focus:'PASS',exports:'PASS'}}));
     }else{
       checkpoint('reopen-browser-draft-after-restart');
       const state=JSON.parse(fs.readFileSync(progressPath,'utf8'));
       await page.goto(state.boardUrl,{waitUntil:'domcontentloaded'});await readyEditor();await assertDraft();
-      await button('Browse retained source').click();await page.locator('.board-cell-editor .source-text').waitFor();
+      await button('1. Select evidence').click();
+      await button('Browse this source').click();await page.locator('.board-cell-editor .source-text').waitFor();
+      await button('Back to table').first().click();
+      await page.getByText('Comparison tools and revision history',{exact:true}).click();
       await page.getByRole('link',{name:'Download board audit JSON',exact:true}).waitFor();
       await context.storageState({path:cookiesPath});
     }

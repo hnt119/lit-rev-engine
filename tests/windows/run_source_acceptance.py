@@ -135,6 +135,8 @@ def main():
     qa = private_tempdir(prefix='litrev-windows-', parent=Path(os.environ['RUNNER_TEMP']).resolve())
     report = {'schema': 'litrev.windows-source-acceptance.v1', 'source_commit': commit,
         'status': 'FAIL', 'platform': sys.platform, 'architecture': __import__('platform').machine(),
+        'os_release': __import__('platform').release(), 'os_version': __import__('platform').version(),
+        'windows_version': list(sys.getwindowsversion()) if os.name=='nt' else None,
         'models': [], 'live_providers': 'NOT_RUN', 'generation': 'NOT_RUN',
         'research_usefulness': 'NOT_RUN', 'native_desktop': 'NOT_RUN', 'actual_browser': 'NOT_RUN',
         'private_artifacts_uploaded': False, 'checks': {}}
@@ -167,8 +169,9 @@ def main():
         data = qa / 'Research 数据 with spaces'; api, web = free_pair()
         origin, api_origin = f'http://localhost:{web}', f'http://127.0.0.1:{api}'
         log = (qa / 'launcher.log').open('ab')
+        cache = private_directory(qa / 'Optional model cache')
         launch_args = [sys.executable, script, 'launch', '--no-browser', '--data-dir', data,
-            '--api-port', str(api), '--web-port', str(web)]
+            '--api-port', str(api), '--web-port', str(web), '--retrieval-cache', cache]
         def start(path=script):
             nonlocal process
             argv = [str(v) for v in launch_args]; argv[1] = str(path)
@@ -286,7 +289,7 @@ def main():
         assert owned_path(backup, private=True) and owned_path(restored, private=True)
         report['checks']['stopped_backup_integrity_new_directory_restore'] = 'PASS'
         if args.models:
-            cache = qa / 'Optional model cache'
+            hybrid_probe = load('windows_hybrid_http_probe', ROOT / 'tests/windows/hybrid_http_probe.py')
             for profile in ('hybrid_qwen3_06b_rrf_rerank_v1', 'hybrid_medcpt_passage_rrf_rerank_v1'):
                 phase('explicit-pinned-cpu-pack-' + profile)
                 model_script = app / 'scripts/retrieval_pack.py'
@@ -298,6 +301,12 @@ def main():
                 assert status['state'] == 'runtime_passed' and runtime['encoder_executed'] and runtime['reranker_executed']
                 report['models'].append({'profile_id': profile, 'status': 'PASS', 'device': 'cpu',
                     'download_and_check_seconds': round(time.monotonic() - begin, 3), 'runtime': runtime})
+                phase('real-production-hybrid-http-' + profile)
+                start(script)
+                try:
+                    report['models'][-1]['application_http'] = hybrid_probe.run_case(acceptance.Browser(origin), profile)
+                finally:
+                    stop(script)
                 command([app_python, model_script, 'remove', '--cache', cache, '--profile', profile], cwd=app, timeout=120)
         report['status'] = 'PASS'
     except BaseException as error:

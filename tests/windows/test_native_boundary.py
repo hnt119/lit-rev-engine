@@ -239,3 +239,23 @@ def test_stopped_backup_restore_preserves_original_and_rejects_live_owner(tmp_pa
     assert (destination / path.name).read_bytes() == path.read_bytes()
     assert owned_path(destination / path.name, private=True)
     with pytest.raises(ValueError): preview.stopped_backup(args)
+
+
+def test_operator_config_uses_protected_acl_and_no_unix_only_flags(tmp_path):
+    from scripts import local_beta_settings as settings
+    from scripts.run_web import LocalLaunchError
+    from src.platform_support import private_directory, open_private
+    from src.platform_support.windows import require_runtime
+    folder = private_directory(tmp_path / "Private operator 配置")
+    target = folder / "settings.json"
+    fd = open_private(target, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    os.write(fd, json.dumps({"schema": settings.SCHEMA}).encode("utf-8")); os.close(fd)
+    normalized = settings.load_settings(target, tmp_path / "app")
+    assert all(normalized[feature]["enabled"] is False for feature in settings.FEATURES)
+    _, _, con, _, security, *_ = require_runtime()
+    acl = security.ACL()
+    acl.AddAccessAllowedAce(security.ACL_REVISION, con.FILE_ALL_ACCESS, security.CreateWellKnownSid(security.WinWorldSid, None))
+    security.SetNamedSecurityInfo(str(target), security.SE_FILE_OBJECT,
+        security.DACL_SECURITY_INFORMATION | security.UNPROTECTED_DACL_SECURITY_INFORMATION, None, None, acl, None)
+    with pytest.raises(LocalLaunchError, match="protected Windows current-user ACL"):
+        settings.load_settings(target, tmp_path / "app")

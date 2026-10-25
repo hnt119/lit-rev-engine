@@ -63,7 +63,7 @@ jobs:
       - name: Existing Next signal-bridge adapter contract
         run: node.exe --test tests/windows/test_windows_web_adapter.cjs
       - name: Native ACL, paths, OS locks, pipes, owned jobs and stopped backup
-        run: .\.venv-bootstrap\Scripts\python.exe -m pytest -q -p no:cacheprovider -p tests.windows.native_fixtures tests/windows/test_native_boundary.py tests/windows/test_portability_policy.py tests/web_api/test_hybrid_retrieval_independent.py
+        run: .\.venv-bootstrap\Scripts\python.exe -m pytest -q -p no:cacheprovider -p tests.windows.native_fixtures tests/windows/test_native_boundary.py tests/windows/test_portability_policy.py tests/windows/test_hybrid_http_probe.py tests/web_api/test_hybrid_retrieval_independent.py
       - name: Extracted production workflow and explicit existing-pack CPU checks
         if: github.event_name == 'push' || inputs.run_models
         run: .\.venv-bootstrap\Scripts\python.exe tests\windows\run_source_acceptance.py --models --playwright-dir "$env:RUNNER_TEMP\litrev-playwright-tools"
