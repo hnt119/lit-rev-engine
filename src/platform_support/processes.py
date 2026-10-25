@@ -59,8 +59,8 @@ def pnpm_argv(executable, node):
 
 
 class OwnedWindowsProcess:
-    def __init__(self, process, pid, command):
-        self.handle, self.pid, self.args = process, pid, command
+    def __init__(self, process, pid, command, job):
+        self.handle, self.pid, self.args, self.job = process, pid, command, job
 
     def poll(self):
         from .windows import require_runtime
@@ -125,7 +125,7 @@ class WindowsJob:
             # No breakaway fallback: assignment failure terminates only this
             # newly created suspended process, through its verified handle.
             job.AssignProcessToJobObject(self.handle, handle)
-            child = OwnedWindowsProcess(handle, pid, command)
+            child = OwnedWindowsProcess(handle, pid, command, self)
             process.ResumeThread(thread)
             self.children.append(child)
             return child
@@ -182,6 +182,19 @@ def windows_listener_owned(child, port):
     if count * ctypes.sizeof(Row) + ctypes.sizeof(wintypes.DWORD) > size.value:
         return False
     rows = (Row * count).from_buffer(buffer, ctypes.sizeof(wintypes.DWORD))
-    found = any(row.pid == child.pid and row.state == 2 and struct.pack('=I', row.local) == socket.inet_aton('127.0.0.1')
-        and socket.ntohs(row.port & 0xffff) == port for row in rows)
-    return found and child.poll() is None
+    for row in rows:
+        if row.state != 2 or struct.pack('=I', row.local) != socket.inet_aton('127.0.0.1') or socket.ntohs(row.port & 0xffff) != port:
+            continue
+        if row.pid == child.pid: return child.poll() is None
+        # Windows venv python.exe is a redirector. Its base-interpreter child
+        # inherits our Job and may own the socket. Verify the live native handle
+        # and our exact Job membership; never adopt an arbitrary listening PID.
+        from .windows import require_runtime
+        types, api, con, _, _, event, _, job, _ = require_runtime()
+        try: handle = api.OpenProcess(con.SYNCHRONIZE | 0x1000, False, row.pid)
+        except types.error: continue
+        try:
+            if child.job.handle is not None and event.WaitForSingleObject(handle,0) == con.WAIT_TIMEOUT and job.IsProcessInJob(handle,child.job.handle):
+                return child.poll() is None
+        finally: handle.Close()
+    return False

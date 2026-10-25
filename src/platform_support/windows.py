@@ -193,6 +193,13 @@ def private_directory(path):
 
 
 @native_errors
+def exclusive_private_directory(path):
+    path = assert_no_reparse(path)
+    require_runtime()[3].CreateDirectory(_native(path), security_attributes(True))
+    return private_directory(path)
+
+
+@native_errors
 def open_private(path,flags,*,strict=False):
     import msvcrt
     _,_,con,file,*_=require_runtime()

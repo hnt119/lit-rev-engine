@@ -107,8 +107,7 @@ def test_non_utf8_locale_preserves_exact_private_unicode_json(tmp_path, monkeypa
     assert json.loads(path.read_bytes()) == value
     _write(root / 'pack-state.json', value)
     assert json.loads((root / 'pack-state.json').read_bytes()) == value
-    preferences = RuntimePreferences()
-    preferences.ai.model = value['text']
+    preferences = RuntimePreferences.model_validate({'ai': {'model': value['text']}})
     owner = 'a' * 64
     settings = RuntimeSettings(root)
     settings.put(owner, SettingsPut(expected_revision=0, preferences=preferences))
@@ -162,11 +161,14 @@ def test_named_pipe_auth_status_stop_and_native_server_identity(tmp_path):
 
 def test_job_kills_only_owned_children_and_exact_listener_required(tmp_path):
     from src.platform_support.processes import WindowsJob, windows_listener_owned
-    with socket.socket() as probe:
+    with socket.socket() as probe, socket.socket() as other:
         probe.bind(('127.0.0.1', 0)); port = probe.getsockname()[1]
+        other.bind(('127.0.0.1', 0)); foreign_port = other.getsockname()[1]
     code = 'import socket,time; s=socket.socket();s.bind(("127.0.0.1",'+str(port)+'));s.listen();time.sleep(60)'
     job = WindowsJob()
-    foreign = subprocess.Popen([sys.executable, '-c', 'import time;time.sleep(60)'])
+    marker = tmp_path / 'foreign-listening.txt'
+    foreign_code = 'import socket,time,sys;from pathlib import Path;s=socket.socket();s.bind(("127.0.0.1",'+str(foreign_port)+'));s.listen();Path(sys.argv[1]).write_bytes(b"ready");time.sleep(60)'
+    foreign = subprocess.Popen([sys.executable, '-c', foreign_code, str(marker)])
     try:
         child = job.spawn([sys.executable, '-c', code], ROOT, os.environ)
         deadline = time.monotonic() + 5
@@ -174,6 +176,10 @@ def test_job_kills_only_owned_children_and_exact_listener_required(tmp_path):
         assert windows_listener_owned(child, port)
         assert not windows_listener_owned(child, port + 1)
         assert not windows_listener_owned(foreign.pid, port)
+        deadline = time.monotonic() + 5
+        while not marker.exists() and time.monotonic() < deadline: time.sleep(.05)
+        assert marker.exists()
+        assert not windows_listener_owned(child, foreign_port)
         job.close()
         assert foreign.poll() is None
     finally:

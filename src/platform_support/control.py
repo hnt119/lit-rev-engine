@@ -30,9 +30,14 @@ def _overlapped(handle, invoke, timeout):
             if getattr(error, 'winerror', None) != 997:  # ERROR_IO_PENDING
                 raise
         if event.WaitForSingleObject(value.hEvent, max(1, int(timeout * 1000))) != con.WAIT_OBJECT_0:
-            file.CancelIoEx(handle, value)
+            # Every operation is issued and cancelled on this same thread and
+            # the connection serializes reads/writes. Pinned 312 exposes
+            # CancelIo, whose same-thread semantics fit this boundary exactly.
+            file.CancelIo(handle)
             # Keep OVERLAPPED and its event alive until cancellation completes.
-            file.GetOverlappedResult(handle, value, True)
+            try: file.GetOverlappedResult(handle, value, True)
+            except types.error as error:
+                if getattr(error, 'winerror', None) != 995: raise
             raise TimeoutError('Local control timed out.')
         return file.GetOverlappedResult(handle, value, False)
     finally:

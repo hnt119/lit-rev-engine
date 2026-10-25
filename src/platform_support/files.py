@@ -3,6 +3,8 @@ import hashlib
 import os
 from pathlib import Path
 import stat
+import secrets
+import tempfile
 
 IS_WINDOWS = os.name == 'nt'
 
@@ -144,3 +146,27 @@ def sync_directory(directory):
     descriptor = os.open(directory, os.O_RDONLY | os.O_DIRECTORY)
     try: os.fsync(descriptor)
     finally: os.close(descriptor)
+
+
+def _temporary_name(parent, prefix):
+    if not isinstance(prefix, str) or len(prefix) > 80 or any(c in prefix for c in '/\\:'):
+        raise ValueError('Use a short ordinary temporary-file prefix.')
+    return assert_no_links(parent) / (prefix + secrets.token_hex(16))
+
+
+def private_tempdir(*, parent, prefix='litrev-'):
+    if not IS_WINDOWS:
+        return private_directory(Path(tempfile.mkdtemp(prefix=prefix, dir=assert_no_links(parent))))
+    for _ in range(10):
+        path = _temporary_name(parent, prefix)
+        try: return _windows().exclusive_private_directory(path)
+        except FileExistsError: continue
+    raise FileExistsError('Could not create a new private temporary directory.')
+
+
+def private_tempfile(*, parent, prefix='litrev-'):
+    for _ in range(10):
+        path = _temporary_name(parent, prefix)
+        try: return open_private(path, os.O_CREAT | os.O_EXCL | os.O_RDWR), str(path)
+        except FileExistsError: continue
+    raise FileExistsError('Could not create a new private temporary file.')

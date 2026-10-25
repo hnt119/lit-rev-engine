@@ -21,7 +21,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-from src.platform_support import private_directory, owned_path, is_process_alive, venv_python
+from src.platform_support import private_directory, owned_path, is_process_alive, venv_python, private_tempdir
 from src.platform_support.processes import pnpm_argv
 
 PHASE = 'initialization'
@@ -84,7 +84,7 @@ def main():
         if not ctypes.windll.kernel32.AllocConsole(): raise ctypes.WinError()
         console_fixture = True
     commit = command(['git', 'rev-parse', 'HEAD']).decode().strip()
-    qa = private_directory(Path(tempfile.mkdtemp(prefix='litrev-windows-', dir=os.environ['RUNNER_TEMP'])))
+    qa = private_tempdir(prefix='litrev-windows-', parent=Path(os.environ['RUNNER_TEMP']).resolve())
     report = {'schema': 'litrev.windows-source-acceptance.v1', 'source_commit': commit,
         'status': 'FAIL', 'platform': sys.platform, 'architecture': __import__('platform').machine(),
         'models': [], 'live_providers': 'NOT_RUN', 'generation': 'NOT_RUN',

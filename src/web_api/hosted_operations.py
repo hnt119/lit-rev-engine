@@ -9,7 +9,7 @@ from src.platform_support import locks as fcntl
 import hashlib
 import json
 import os
-from src.platform_support import publish_new, sync_directory
+from src.platform_support import publish_new, sync_directory, private_tempdir, private_tempfile
 from src.platform_support import open_private, restrict_fd, restrict_path, private_directory as platform_private_directory, is_link
 from pathlib import Path, PurePosixPath
 import shutil
@@ -108,9 +108,8 @@ def create_backup(root, directory, output, *, validate_storage=None, operation_l
         entries = _safe_tree(directory)
         # Validate a copy, never the only original. Some SQLite journal modes
         # need writable derived SHM state even for a read-only connection.
-        snapshot = Path(tempfile.mkdtemp(prefix=".litrev-snapshot-", dir=output.parent))
-        platform_private_directory(snapshot)
-        fd, temporary = tempfile.mkstemp(prefix=".litrev-backup-", dir=output.parent)
+        snapshot = private_tempdir(prefix=".litrev-snapshot-", parent=output.parent)
+        fd, temporary = private_tempfile(prefix=".litrev-backup-", parent=output.parent)
         try:
             for path, relative, _ in entries:
                 target = snapshot / relative
@@ -166,8 +165,7 @@ def restore_backup(root, archive_path, destination, *, validate_storage=None, op
     with (hosted_lock(root) if operation_lock is None else operation_lock):
         if validate_storage is not None:
             validate_storage()
-        staging = Path(tempfile.mkdtemp(prefix=".litrev-restore-", dir=root))
-        platform_private_directory(staging)
+        staging = private_tempdir(prefix=".litrev-restore-", parent=root)
         try:
             with tarfile.open(archive_path, "r:gz") as archive:
                 members, names, total = [], set(), 0
