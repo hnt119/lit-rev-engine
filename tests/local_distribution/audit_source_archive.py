@@ -13,11 +13,11 @@ import stat
 import subprocess
 import zipfile
 
-VERSION = '0.3.0-beta.2'
+VERSION = '0.3.0-beta.3'
 PREFIX = 'lit-rev-engine-' + VERSION + '/'
 TREES = ('src/mvp/', 'src/review/', 'src/web_api/', 'apps/web/app/', 'apps/web/components/',
          'apps/web/lib/', 'examples/mvp/offline_microbiome_30_v1/')
-EXACT = {'VALIDATION.md','RETRIEVAL.md','MODEL_REFERENCES.md','notices/QWEN_APACHE_LICENSE.txt','notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt','requirements-retrieval.txt','scripts/retrieval_pack.py','README.md', 'DISTRIBUTION_TERMS.md', 'RELEASE.json', 'MANIFEST.json', 'requirements-hosted.txt', 'requirements-web-lock.txt', 'requirements-map.txt', 'requirements-map-lock.txt',
+EXACT = {'USER_MANUAL.md','HISTORICAL_RETRIEVAL_VALIDATION.md','VALIDATION.md','RETRIEVAL.md','MODEL_REFERENCES.md','notices/QWEN_APACHE_LICENSE.txt','notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt','requirements-retrieval.txt','scripts/retrieval_pack.py','README.md', 'DISTRIBUTION_TERMS.md', 'RELEASE.json', 'MANIFEST.json', 'requirements-hosted.txt', 'requirements-web-lock.txt', 'requirements-map.txt', 'requirements-map-lock.txt',
          'LICENSE', 'THIRD_PARTY_NOTICES.md', 'OPTIONAL_FEATURES.md', 'CAPABILITIES.md', 'SETTINGS.md', 'config/local-beta.example.json',
          'scripts/run_web.py', 'scripts/local_preview.py', 'scripts/license_policy.py',
          'scripts/local_beta_settings.py', 'scripts/check_local_beta.py', 'scripts/run_map_worker.py', 'apps/web/package.json', 'apps/web/pnpm-lock.yaml',
@@ -50,7 +50,7 @@ def audit(archive, expected_source_commit, source_checkout):
     licenses = {name for name in tracked if '/' not in name and LICENSE_NAME.fullmatch(name)}
     expected_names = {name for name in tracked if name in EXACT or name.startswith(TREES)} | EXACT | licenses
     # README is the dedicated installation guide in this purpose-built archive.
-    translations = {'VALIDATION.md':'docs/combined_beta_validation.md','RETRIEVAL.md':'docs/hybrid_retrieval.md','MODEL_REFERENCES.md':'docs/hybrid_model_references.md',
+    translations = {'VALIDATION.md':'docs/excerpt_first_validation.md','USER_MANUAL.md':'docs/user_manual.md','HISTORICAL_RETRIEVAL_VALIDATION.md':'docs/combined_beta_validation.md','RETRIEVAL.md':'docs/hybrid_retrieval.md','MODEL_REFERENCES.md':'docs/hybrid_model_references.md',
                     'notices/QWEN_APACHE_LICENSE.txt':'docs/notices/QWEN_APACHE_LICENSE.txt',
                     'notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt':'docs/notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt', 'README.md': 'docs/local_preview.md', 'DISTRIBUTION_TERMS.md': 'docs/local_preview_distribution_terms.md',
                     'OPTIONAL_FEATURES.md': 'docs/local_beta_optional_features.md', 'CAPABILITIES.md': 'docs/local_beta_capabilities.md', 'SETTINGS.md':'docs/research_ai_settings.md'}

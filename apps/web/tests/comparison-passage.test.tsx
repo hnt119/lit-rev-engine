@@ -58,7 +58,7 @@ test("board and field passage entry points carry IDs and save the cell draft wit
   await act(async()=>r.root.findByProps({"aria-label":"Diet for "+f.paper.title}).props.onClick());
   await act(async()=>control(r,"Manual cell value").props.onChange({target:{value:"Retained cell draft"}}));
   await act(async()=>button(r,"Open passage search for this field").props.onClick());
-  assert.equal(f.getCell().data.value,"Retained cell draft");assert.equal(f.locations.at(-1)?.paper,f.paper.id);assert.equal(f.locations.at(-1)?.field,"diet");assert.ok(button(r,"Find relevant passages"));
+  assert.equal(f.getCell().data.value,"Retained cell draft");assert.equal(f.locations.at(-1)?.paper,f.paper.id);assert.equal(f.locations.at(-1)?.field,"diet");assert.ok(button(r,"Find excerpts in this paper"));
   assert.equal(f.calls.some(c=>/evidence-runs|candidates|preparation-jobs|proposal-runs/.test(c.path)),false);assert.equal(JSON.stringify(f.locations).includes(f.context.question),false);
  }finally{await act(async()=>r.unmount());}
 });
@@ -127,7 +127,7 @@ test("return restores the original table position and keyboard focus after the b
  let r!:ReactTestRenderer;
  try{
   await act(async()=>{r=create(<Compare workspace={f.workspace} requestedBoard="board" requestedPaper={f.paper.id} requestedField="diet" requestedReturn="cell" navigate={f.navigate}/>,{createNodeMock(element){return (element.props as {className?:string}).className==="board-table-scroll"?table:{focus(){focus.push("editor");},scrollIntoView(){}};}});});
-  assert.equal(table.scrollLeft,125);assert.equal(scroll.at(-1),333);assert.equal(focus.at(-1),"original cell");
+  assert.equal(table.scrollLeft,125);assert.equal(scroll.at(-1),333);assert.equal(focus.at(-1),"editor","a returned cell opens the visible focused editor instead of focusing its hidden table button");
   await act(async()=>button(r,"Open passage search for this field").props.onClick());assert.deepEqual(history.state.comparisonPosition,{workspace:f.workspace.id,board:"board",revision:"revision",left:125,top:333});
  }finally{if(r)await act(async()=>r.unmount());if(previous===undefined)delete (globalThis as any).window;else Object.assign(globalThis,{window:previous});}
 });

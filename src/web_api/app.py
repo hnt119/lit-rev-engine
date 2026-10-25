@@ -486,6 +486,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.get(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def get_draft(workspace_id: str, scope: str, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('board-editor:'):
+            return DraftRecord(**app.state.boards.editor_draft(mode, handle, scope))
         if scope.startswith('board-evidence:'):
             return DraftRecord(**app.state.boards.passage_draft(mode, handle, scope))
         scope_parts = usability_scope(scope)
@@ -499,6 +501,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.put(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def put_draft(workspace_id: str, scope: str, request: DraftUpdate, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('board-editor:'):
+            return DraftRecord(**app.state.boards.editor_draft(mode, handle, scope, request))
         if scope.startswith('board-evidence:'):
             return DraftRecord(**app.state.boards.passage_draft(mode, handle, scope, request))
         scope_parts = usability_scope(scope)

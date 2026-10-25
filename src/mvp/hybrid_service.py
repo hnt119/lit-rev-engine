@@ -9,6 +9,7 @@ from pathlib import Path
 from threading import BoundedSemaphore, Event, RLock
 import json
 import os
+import re
 import sqlite3
 from .contracts import canonical, digest, new_id, now
 from .ports import MvpError
@@ -28,7 +29,11 @@ class HybridEvidenceService:
             db.executescript('''CREATE TABLE IF NOT EXISTS hybrid_runs(workspace_id TEXT NOT NULL,id TEXT PRIMARY KEY,request_id TEXT NOT NULL,fingerprint TEXT NOT NULL,payload TEXT NOT NULL,sha256 TEXT NOT NULL,UNIQUE(workspace_id,request_id));
                 CREATE TABLE IF NOT EXISTS hybrid_jobs_v1(workspace_id TEXT NOT NULL,id TEXT NOT NULL,kind TEXT NOT NULL,state TEXT NOT NULL,detail TEXT NOT NULL,fingerprint TEXT NOT NULL,PRIMARY KEY(workspace_id,id));
                 CREATE TABLE IF NOT EXISTS hybrid_deleted(workspace_id TEXT PRIMARY KEY);''')
-            db.execute("UPDATE hybrid_jobs_v1 SET state='interrupted',detail='Backend restarted; explicitly start a new operation.' WHERE state='running'")
+            for row in db.execute("SELECT workspace_id,id,detail FROM hybrid_jobs_v1 WHERE state='running'").fetchall():
+                detail=self._job_detail(row['detail'])
+                progress={**detail['progress'],'phase':'interrupted'}
+                db.execute("UPDATE hybrid_jobs_v1 SET state='interrupted',detail=? WHERE workspace_id=? AND id=?",
+                    (canonical({'message':'Backend restarted; explicitly start a new operation.','progress':progress}),row['workspace_id'],row['id']))
     @contextmanager
     def db(self):
         db=sqlite3.connect(self.path,timeout=15);db.row_factory=sqlite3.Row
@@ -115,6 +120,53 @@ class HybridEvidenceService:
             inventory,index=self._load(key)
             return {'state':'ready','index_key':index.index_key,'coverage':inventory.coverage.model_dump(mode='json')}
         except MvpError as e:return {'state':'missing_or_stale','reason':e.message}
+    @staticmethod
+    def _job_detail(raw):
+        try:
+            value=json.loads(raw)
+            if isinstance(value,dict) and isinstance(value.get('progress'),dict):
+                raw_progress=value['progress'];progress={}
+                if raw_progress.get('phase') in {'starting','loading_models','loading_model','windowing','embedding','encoding_query','reranking','publishing','completed','failed','cancelled','interrupted','cancelling'}:progress['phase']=raw_progress['phase']
+                for key in ('completed_batches','total_batches','processed_items','total_items','total_windows'):
+                    counter=raw_progress.get(key)
+                    if type(counter) is int and 0<=counter<=1000000:progress[key]=counter
+                if raw_progress.get('component') in {'query','document','reranker'}:progress['component']=raw_progress['component']
+                return {'message':value.get('message','') if isinstance(value.get('message',''),str) else '', 'progress':progress}
+        except (ValueError,TypeError):pass
+        return {'message':raw,'progress':{}}
+    def _progress(self,workspace,identifier,*,phase,**values):
+        phases={'starting','loading_models','loading_model','windowing','embedding','encoding_query','reranking','publishing','completed','failed','cancelled','interrupted','cancelling'}
+        if phase not in phases:raise MvpError('retrieval_progress_invalid','Unknown operational progress phase.')
+        progress={'phase':phase}
+        for key in ('completed_batches','total_batches','processed_items','total_items','total_windows'):
+            value=values.get(key)
+            if value is not None:
+                if type(value) is not int or not 0<=value<=1000000:raise MvpError('retrieval_progress_invalid','Invalid bounded progress counter.')
+                progress[key]=value
+        if values.get('component') in {'query','document','reranker'}:progress['component']=values['component']
+        # A short independent transaction; no neural computation holds this lock.
+        with self.db() as db:
+            self._alive(db,workspace)
+            row=db.execute('SELECT state,detail FROM hybrid_jobs_v1 WHERE workspace_id=? AND id=?',(workspace,identifier)).fetchone()
+            if row is None or row['state']!='running':return
+            previous=self._job_detail(row['detail'])['progress']
+            if 'total_windows' in previous:progress.setdefault('total_windows',previous['total_windows'])
+            if phase in {'publishing','cancelling'}:progress={**previous,**progress}
+            if phase==previous.get('phase') and progress.get('component')==previous.get('component'):
+                progress={**previous,**progress}
+            # A batch completing after Cancel can add counters, but cannot
+            # erase the acknowledged cancellation request before termination.
+            if previous.get('phase')=='cancelling':
+                progress={**previous,**progress,'phase':'cancelling'}
+            db.execute('UPDATE hybrid_jobs_v1 SET detail=? WHERE workspace_id=? AND id=? AND state=?',
+                (canonical({'message':'','progress':progress}),workspace,identifier,'running'))
+    def _finish_job(self,workspace,identifier,state,message=''):
+        code=message if isinstance(message,str) and re.fullmatch(r'[a-zA-Z0-9_.-]{1,80}',message) else 'retrieval_failure' if message else ''
+        with self.db() as db:
+            row=db.execute('SELECT detail FROM hybrid_jobs_v1 WHERE workspace_id=? AND id=?',(workspace,identifier)).fetchone()
+            if row is None:return
+            detail=self._job_detail(row['detail']);detail['message']=code;detail['progress']={**detail['progress'],'phase':state}
+            db.execute('UPDATE hybrid_jobs_v1 SET state=?,detail=? WHERE workspace_id=? AND id=?',(state,canonical(detail),workspace,identifier))
     @contextmanager
     def operation(self,workspace,identifier,kind,fingerprint):
         if not self._slot.acquire(blocking=False):raise MvpError('retrieval_busy','Another neural retrieval operation is active; explicitly retry later.',True)
@@ -128,16 +180,15 @@ class HybridEvidenceService:
                     if old['fingerprint']!=fingerprint or old['kind']!=kind:
                         raise MvpError('idempotency_conflict','This retrieval job key was used with a different operation or input.')
                     raise MvpError('retrieval_already_attempted','This job was already attempted. Inspect its retained state; start a new explicit request to retry.')
-                db.execute('INSERT INTO hybrid_jobs_v1 VALUES(?,?,?,?,?,?)',(workspace,identifier,kind,'running','',fingerprint))
+                db.execute('INSERT INTO hybrid_jobs_v1 VALUES(?,?,?,?,?,?)',(workspace,identifier,kind,'running',canonical({'message':'','progress':{'phase':'starting'}}),fingerprint))
                 self.boards.store.limits(db,workspace)
             try:
                 yield event.is_set
             except BaseException as e:
-                with self.db() as db:db.execute('UPDATE hybrid_jobs_v1 SET state=?,detail=? WHERE workspace_id=? AND id=?',
-                    ('cancelled' if event.is_set() else 'failed',getattr(e,'code','retrieval_failure'),workspace,identifier))
+                self._finish_job(workspace,identifier,'cancelled' if event.is_set() else 'failed',getattr(e,'code','retrieval_failure'))
                 raise
             else:
-                with self.db() as db:db.execute("UPDATE hybrid_jobs_v1 SET state='completed',detail='' WHERE workspace_id=? AND id=?",(workspace,identifier))
+                self._finish_job(workspace,identifier,'completed')
         finally:
             with self._lock:self._cancel.pop((workspace,identifier),None)
             self._slot.release()
@@ -145,12 +196,13 @@ class HybridEvidenceService:
         with self._lock:
             event=self._cancel.get((workspace,identifier))
             if event:event.set()
+        if event:self._progress(workspace,identifier,phase="cancelling")
         return self.job(workspace,identifier)
     def job(self,workspace,identifier):
         with self.db() as db:
             self._alive(db,workspace);row=db.execute('SELECT * FROM hybrid_jobs_v1 WHERE workspace_id=? AND id=?',(workspace,identifier)).fetchone()
             if row is None:raise MvpError('unknown_retrieval_job','The job does not belong to this workspace.')
-            return dict(row)
+            result=dict(row);detail=self._job_detail(result['detail']);result['detail']=detail['message'];result['progress']=detail['progress'] or {'phase':result['state']};result['retry_allowed']=result['state'] in {'failed','cancelled','interrupted'};result['execution_scope']='synchronous_request_cooperative_cancel_not_durable_background';return result
     def build_index(self,mode,handle,request):
         self._require_cache()
         from .hybrid_windows import build_inventory
@@ -167,9 +219,18 @@ class HybridEvidenceService:
                     inventory,index=self._load(key)
                     return {'state':'ready','index_key':index.index_key,'coverage':inventory.coverage.model_dump(mode='json'),'elapsed_seconds':index.elapsed_seconds,'runtime':index.runtime}
         with self.operation(handle.workspace_id,request.request_id,'index',fingerprint) as cancelled:
+            progress=lambda **values:self._progress(handle.workspace_id,request.request_id,**values)
+            progress(phase='loading_models')
             adapter=self.packs.adapter(request.profile_id,request.device)
-            inventory=build_inventory(captured['sources'],authorized_sources=captured['bindings'],titles=captured['titles'],fits_document=adapter.fits_document,cancelled=cancelled)
-            index=HybridRetrieval(adapter).build_index(inventory,cancelled=cancelled)
+            if hasattr(adapter,'set_progress'):adapter.set_progress(progress)
+            try:
+                progress(phase='windowing')
+                inventory=build_inventory(captured['sources'],authorized_sources=captured['bindings'],titles=captured['titles'],fits_document=adapter.fits_document,cancelled=cancelled)
+                progress(phase='embedding',total_windows=len(inventory.windows))
+                index=HybridRetrieval(adapter).build_index(inventory,cancelled=cancelled)
+            finally:
+                if hasattr(adapter,'set_progress'):adapter.set_progress(None)
+            progress(phase='publishing')
             self._revalidate(mode,handle,request,captured)
             if cancelled():raise MvpError('retrieval_cancelled','Indexing cancelled; no index was published.')
             path=self._index_path(key);path.parent.mkdir(mode=0o700,parents=True,exist_ok=True)
@@ -209,9 +270,15 @@ class HybridEvidenceService:
         manifest=self.packs.manifest(request.profile_id);key=self._key(captured,request,manifest)
         inventory,index=self._load(key)
         with self.operation(handle.workspace_id,request.request_id,'search',fingerprint) as cancelled:
+            progress=lambda **values:self._progress(handle.workspace_id,request.request_id,**values)
+            progress(phase='loading_models')
             adapter=self.packs.adapter(request.profile_id,request.device)
-            result=HybridRetrieval(adapter).search(request.question,captured['sources'],new_id(),request.top_k,
+            if hasattr(adapter,'set_progress'):adapter.set_progress(progress)
+            try:result=HybridRetrieval(adapter).search(request.question,captured['sources'],new_id(),request.top_k,
                 authorized_sources=captured['bindings'],titles=captured['titles'],requirements=requirements,operation=operation,index=index,inventory=inventory,cancelled=cancelled)
+            finally:
+                if hasattr(adapter,'set_progress'):adapter.set_progress(None)
+            progress(phase='publishing')
             result=HybridResult.model_validate(result.model_dump(mode='json'))
             saved=HybridSavedRun(id=result.run_id,workspace_id=handle.workspace_id,preparation_id=request.expected_preparation_id,
                 source_revision=request.expected_source_revision,board_context=request.board_context,request_sha256=fingerprint,result=result)

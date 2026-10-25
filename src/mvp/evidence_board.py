@@ -238,6 +238,44 @@ class EvidenceBoardService:
             return self.registry.put_draft(state.id, scope, **request.model_dump(mode='json'))
         return self._with(mode, handle, validate)
 
+    def editor_draft(self, mode, handle, scope, request=None):
+        """One bounded existing UI-draft record per definition, never cell evidence.
+
+        Restoring a step cannot satisfy inspection/support/submission prerequisites.
+        One record holds at most 30x6 hints without increasing the draft quota.
+        """
+        from .cell_editor_contracts import BoardEditorViewDraft
+        if not scope.startswith('board-editor:'):
+            raise MvpError('invalid_draft_scope', 'Choose an exact comparison editor revision.')
+        identity = scope.removeprefix('board-editor:').split(':')
+        if len(identity) != 2 or any(not item or len(item) > 200 for item in identity):
+            raise MvpError('invalid_draft_scope', 'Choose an exact comparison editor revision.')
+        board_id, revision_id = identity
+
+        def validate(state, db):
+            definition = self.store.definition(db, state.id, board_id, revision_id)
+            prior = self.registry.draft(state.id, scope)
+            if request is not None:
+                if prior['version'] != request.version:
+                    raise MvpError('stale_draft', 'A newer editor position exists. Your comment and evidence edits were not overwritten; reload the saved navigation hints for comparison.')
+                self._writable(state, db, board_id, revision_id)
+                if request.expected_assessment_head is not None:
+                    raise MvpError('invalid_cell_editor_draft', 'Editor navigation cannot set a research assessment head.')
+            data = request.data if request is not None else prior['data']
+            if request is not None or prior['version']:
+                try:
+                    value = BoardEditorViewDraft.model_validate(data)
+                except ValidationError:
+                    raise MvpError('invalid_cell_editor_draft', 'Keep only bounded editor steps and exact owned comparison/cell identifiers. Existing drafts are unchanged.') from None
+                if value.board_id != board_id or value.board_revision_id != revision_id:
+                    raise MvpError('invalid_cell_editor_draft', 'The editor position must retain its exact board definition scope.')
+                for item in value.cells:
+                    self._cell(definition, item.paper_id, item.field_id)
+            if request is None:
+                return prior
+            return self.registry.put_draft(state.id, scope, **request.model_dump(mode='json'))
+        return self._with(mode, handle, validate)
+
     def passage_source_context(self, mode, handle, scope, run_id, passage_id):
         if self.hybrid_retrieval is not None:
             try:
