@@ -58,7 +58,7 @@ class AdmissionLogin(BaseModel):
 def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
                allowed_origin="http://127.0.0.1:3000", services=None, ui_store=None, map_embedder=None,
                proposal_adapter=None, metadata_resolver=None, search_diagnostics=None, search_planner=None,
-               deployment=None):
+               deployment=None, retrieval_packs=None):
     # Existing explicit factory arguments remain local unless hosted mode was
     # deliberately configured. An environment cannot silently weaken local rules.
     if deployment is None and os.environ.get("MVP_DEPLOYMENT_MODE", "local") != "local":
@@ -537,6 +537,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         def clear_sidecars(identifier):
             app.state.maps.delete_workspace(identifier)
             app.state.boards.delete_workspace(identifier)
+            if getattr(app.state,'hybrid_retrieval',None) is not None:
+                app.state.hybrid_retrieval.delete_workspace(identifier)
             app.state.preparation_jobs.delete_workspace(identifier)
             app.state.collection_preparation_jobs.delete_workspace(identifier)
         registry.delete_workspace(session["token_hash"], workspace_id, lambda mode, handle: service(mode).clear_workspace_if_present(handle), clear_sidecars)
@@ -574,6 +576,9 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     proposals = CellProposalService(app.state.boards, proposal_adapter)
     install_proposal_routes(app, proposals=proposals, owned=owned, session_for=session_for,
                             dependencies=dependencies)
+    from .retrieval_routes import install_retrieval_routes
+    install_retrieval_routes(app,directory=directory,registry=registry,service=service,owned=owned,
+        session_for=session_for,dependencies=dependencies,packs=retrieval_packs)
     from .collection_preparation_routes import install_collection_preparation_routes
     collection_jobs = install_collection_preparation_routes(app, registry=registry, service=service, owned=owned,
         session_for=session_for, dependencies=dependencies)

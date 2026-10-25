@@ -51,6 +51,7 @@ export function ProposalControls({endpoint,view,changed}:{endpoint:string;view:V
   const cells=papers.length*fields.length;
   return <section className="proposal-controls"><details onToggle={event=>{if(event.currentTarget.open)setActivated(true);}}><summary>Optional AI suggestions</summary>
     <p>Propose values from bounded retrieved context, then inspect and review each cell. Generation does not submit values, declare inspection or change human support. Editing selected cells while generation runs can reject publication.</p>
+    {String(view.definition.retrieval_profile?.profile_id??"").startsWith("hybrid_")&&<Notice>For every selected report and field, open its cell and choose Find relevant passages first. Proposal preparation reuses the latest saved candidates from this exact definition. It starts no hybrid encoder or reranker work; the existing generation budget stays unchanged.</Notice>}
     <SettingsLink section="ai">Configure optional cell proposals</SettingsLink>
     <Failure message={error}/>
     {pendingGeneration&&<GenerationReview key={pendingGeneration.consent.consent_id} consent={pendingGeneration.consent} busy={busy} onAuthorize={authorizeGeneration} onCancel={()=>setPendingGeneration(null)}/>}
@@ -108,7 +109,7 @@ export function CellProposals({endpoint,view,paperId,fieldId,draft,editable,refr
 
 function ProposalCard({endpoint,proposal,readOnly,busy,canAdopt,inspect,adopt,dismiss}:{endpoint:string;proposal:Proposal;readOnly:boolean;busy:boolean;canAdopt:boolean;inspect:(reference:Schema<"BoardReference">)=>Promise<void>;adopt:(proposal:Proposal,value:string|null,reason:string,missing:string)=>Promise<void>;dismiss:(proposal:Proposal,reason:string)=>Promise<void>}) {
   const [value,setValue]=useState(proposal.value??""),[reason,setReason]=useState(proposal.reason),[missing,setMissing]=useState(proposal.missing_information);
-  const [packet,setPacket]=useState<Schema<"ProposalPacket">|null>(null),[contextError,setContextError]=useState(""),[loadingContext,setLoadingContext]=useState(false);
+  const [packet,setPacket]=useState<Schema<"ProposalPacket">|Schema<"HybridProposalPacket">|null>(null),[contextError,setContextError]=useState(""),[loadingContext,setLoadingContext]=useState(false);
   const mounted=useRef(true);
   useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
   async function loadContext(){setLoadingContext(true);setContextError("");try{
@@ -125,7 +126,7 @@ function ProposalCard({endpoint,proposal,readOnly,busy,canAdopt,inspect,adopt,di
     {!proposal.references.length&&<p className="muted">No proposed supporting reference.</p>}
     <button disabled={loadingContext} onClick={()=>loadContext()}>Inspect generation context and coverage</button><Failure message={contextError}/>
     {packet&&<details open><summary>Retained input packet · {packet.source_type} · incomplete retrieved context</summary><p className="meta">{packet.evidence_characters} evidence code points · {packet.omitted_evidence} candidate excerpts omitted by packet limits</p>
-      {packet.fields.map(field=><p className="meta" key={field.field_id}>{field.label}: {field.evidence_ids.length} supplied excerpts · {field.matched_blocks} matched / {field.indexed_blocks} indexed blocks · {field.omitted_matched_blocks} further matches omitted · {field.omitted_evidence} packet omissions</p>)}
+      {packet.fields.map(field=><p className="meta" key={field.field_id}>{field.label}: {field.evidence_ids.length} supplied excerpts · {"indexed_windows" in field?`${field.candidate_count} hybrid candidates / ${field.indexed_windows} indexed windows · component association is not support`:`${field.matched_blocks} matched / ${field.indexed_blocks} indexed blocks · ${field.omitted_matched_blocks} further matches omitted`} · {field.omitted_evidence} packet omissions</p>)}
       <details><summary>Exact packet and excerpt coverage metadata</summary><pre>{JSON.stringify(packet,null,2)}</pre></details>
     </details>}
     {pending&&!readOnly&&<><div className="actions"><button disabled={busy||!canAdopt||!reason.trim()||(!value.trim()&&!missing.trim())} onClick={()=>adopt(proposal,value.trim()?value:null,reason,missing)}>Use in draft</button><button disabled={busy} onClick={()=>dismiss(proposal,reason)}>Dismiss</button></div>{!canAdopt&&<p className="muted">Use in draft requires an editable, empty draft. Existing values and edits are preserved. You can inspect the suggestion and edit your manual draft directly.</p>}</>}

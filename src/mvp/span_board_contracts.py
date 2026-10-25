@@ -18,7 +18,7 @@ from .span_retrieval_contracts import (
 
 LEGACY_BOARD_PROFILE = 'legacy_block_prefix_v1'
 SPAN_BOARD_PROFILE = 'lexical_spans_v1'
-BoardProfileId = Literal['legacy_block_prefix_v1', 'lexical_spans_v1']
+BoardProfileId = Literal['legacy_block_prefix_v1', 'lexical_spans_v1', 'hybrid_qwen3_06b_rrf_rerank_v1', 'hybrid_medcpt_passage_rrf_rerank_v1']
 
 
 class FieldSpanRequirements(Model):
@@ -146,12 +146,13 @@ class SpanBoardCandidates(BoardCandidates):
         return self
 
 
-BoardCandidatesResult = Annotated[BoardCandidates | SpanBoardCandidates, Field(discriminator='schema_version')]
+from .hybrid_app_contracts import HybridBoardCandidates
+BoardCandidatesResult = Annotated[BoardCandidates | SpanBoardCandidates | HybridBoardCandidates, Field(discriminator='schema_version')]
 
 
 class BoardSpanCapability(Model):
     enabled: bool = True
-    profile_ids: list[BoardProfileId] = [LEGACY_BOARD_PROFILE, SPAN_BOARD_PROFILE]
+    profile_ids: list[BoardProfileId] = [LEGACY_BOARD_PROFILE, SPAN_BOARD_PROFILE, 'hybrid_qwen3_06b_rrf_rerank_v1', 'hybrid_medcpt_passage_rrf_rerank_v1']
     default_profile_id: BoardProfileId = LEGACY_BOARD_PROFILE
     max_requirements_per_field: int = MAX_SPAN_REQUIREMENTS
     max_candidates_per_field: int = MAX_SPAN_SELECTIONS

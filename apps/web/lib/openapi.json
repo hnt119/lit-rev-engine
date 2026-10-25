@@ -3561,13 +3561,17 @@
                     },
                     {
                       "$ref": "#/components/schemas/SpanBoardCandidates"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HybridBoardCandidates"
                     }
                   ],
                   "discriminator": {
                     "propertyName": "schema_version",
                     "mapping": {
                       "mvp.board-candidates.v1": "#/components/schemas/BoardCandidates",
-                      "mvp.board-candidates.spans.v2": "#/components/schemas/SpanBoardCandidates"
+                      "mvp.board-candidates.spans.v2": "#/components/schemas/SpanBoardCandidates",
+                      "mvp.board-candidates.hybrid.v1": "#/components/schemas/HybridBoardCandidates"
                     }
                   },
                   "title": "Response Candidates Api V1 Workspaces  Workspace Id  Boards  Board Id  Candidates Post"
@@ -4750,6 +4754,580 @@
             "schema": {
               "type": "string",
               "title": "Revision Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings/retrieval": {
+      "get": {
+        "summary": "Capabilities",
+        "operationId": "capabilities_api_v1_settings_retrieval_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings/retrieval/install": {
+      "post": {
+        "summary": "Install",
+        "operationId": "install_api_v1_settings_retrieval_install_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RetrievalPackAction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings/retrieval/cancel": {
+      "post": {
+        "summary": "Cancel Pack",
+        "operationId": "cancel_pack_api_v1_settings_retrieval_cancel_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RetrievalPackAction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings/retrieval/check-runtime": {
+      "post": {
+        "summary": "Check",
+        "operationId": "check_api_v1_settings_retrieval_check_runtime_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RetrievalPackAction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings/retrieval/remove": {
+      "post": {
+        "summary": "Remove",
+        "operationId": "remove_api_v1_settings_retrieval_remove_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RetrievalPackAction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/hybrid-index/status": {
+      "post": {
+        "summary": "Index Status",
+        "operationId": "index_status_api_v1_workspaces__workspace_id__hybrid_index_status_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HybridScopeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/hybrid-index": {
+      "post": {
+        "summary": "Index",
+        "operationId": "index_api_v1_workspaces__workspace_id__hybrid_index_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HybridScopeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/hybrid-runs": {
+      "post": {
+        "summary": "Retrieve",
+        "operationId": "retrieve_api_v1_workspaces__workspace_id__hybrid_runs_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HybridSearchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HybridSavedRun"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Runs",
+        "operationId": "runs_api_v1_workspaces__workspace_id__hybrid_runs_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HybridRunListing"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/hybrid-runs/{run_id}": {
+      "get": {
+        "summary": "Get Run",
+        "operationId": "get_run_api_v1_workspaces__workspace_id__hybrid_runs__run_id__get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HybridSavedRun"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/hybrid-runs/{run_id}/candidates/{candidate_id}/context": {
+      "get": {
+        "summary": "Context",
+        "operationId": "context_api_v1_workspaces__workspace_id__hybrid_runs__run_id__candidates__candidate_id__context_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "candidate_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Candidate Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HybridSourceContext"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/hybrid-exports": {
+      "get": {
+        "summary": "Export",
+        "operationId": "export_api_v1_workspaces__workspace_id__hybrid_exports_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/hybrid-jobs/{job_id}": {
+      "get": {
+        "summary": "Job",
+        "operationId": "job_api_v1_workspaces__workspace_id__hybrid_jobs__job_id__get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/hybrid-jobs/{job_id}/cancel": {
+      "post": {
+        "summary": "Cancel",
+        "operationId": "cancel_api_v1_workspaces__workspace_id__hybrid_jobs__job_id__cancel_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
             }
           }
         ],
@@ -7290,21 +7868,27 @@
               "type": "string",
               "enum": [
                 "legacy_block_prefix_v1",
-                "lexical_spans_v1"
+                "lexical_spans_v1",
+                "hybrid_qwen3_06b_rrf_rerank_v1",
+                "hybrid_medcpt_passage_rrf_rerank_v1"
               ]
             },
             "type": "array",
             "title": "Profile Ids",
             "default": [
               "legacy_block_prefix_v1",
-              "lexical_spans_v1"
+              "lexical_spans_v1",
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
             ]
           },
           "default_profile_id": {
             "type": "string",
             "enum": [
               "legacy_block_prefix_v1",
-              "lexical_spans_v1"
+              "lexical_spans_v1",
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
             ],
             "title": "Default Profile Id",
             "default": "legacy_block_prefix_v1"
@@ -10447,6 +11031,969 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "HybridBoardCandidates": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.board-candidates.hybrid.v1",
+            "title": "Schema Version",
+            "default": "mvp.board-candidates.hybrid.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "board_id": {
+            "type": "string",
+            "title": "Board Id"
+          },
+          "board_revision_id": {
+            "type": "string",
+            "title": "Board Revision Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "field_id": {
+            "type": "string",
+            "title": "Field Id"
+          },
+          "field_revision_id": {
+            "type": "string",
+            "title": "Field Revision Id"
+          },
+          "preparation_id": {
+            "type": "string",
+            "title": "Preparation Id"
+          },
+          "source_manifest_sha256": {
+            "type": "string",
+            "title": "Source Manifest Sha256"
+          },
+          "retrieval_profile": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Retrieval Profile"
+          },
+          "retrieval_profile_sha256": {
+            "type": "string",
+            "title": "Retrieval Profile Sha256"
+          },
+          "result": {
+            "$ref": "#/components/schemas/HybridResult"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "board_id",
+          "board_revision_id",
+          "paper_id",
+          "field_id",
+          "field_revision_id",
+          "preparation_id",
+          "source_manifest_sha256",
+          "retrieval_profile",
+          "retrieval_profile_sha256",
+          "result"
+        ],
+        "title": "HybridBoardCandidates"
+      },
+      "HybridCandidate": {
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "title": "Candidate Id"
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Rank"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/BoardReference"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "full_text",
+              "abstract"
+            ],
+            "title": "Source Type"
+          },
+          "total_block_characters": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Total Block Characters"
+          },
+          "omitted_before": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Omitted Before"
+          },
+          "omitted_after": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Omitted After"
+          },
+          "component_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Component Ids"
+          },
+          "branch_membership": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "bm25",
+                "dense"
+              ]
+            },
+            "type": "array",
+            "title": "Branch Membership"
+          },
+          "stages": {
+            "items": {
+              "$ref": "#/components/schemas/HybridComponentStages"
+            },
+            "type": "array",
+            "title": "Stages"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "score_meaning": {
+            "type": "string",
+            "const": "reranker_relevance_not_support_probability",
+            "title": "Score Meaning",
+            "default": "reranker_relevance_not_support_probability"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "rank",
+          "reference",
+          "source_type",
+          "total_block_characters",
+          "omitted_before",
+          "omitted_after",
+          "component_ids",
+          "branch_membership",
+          "stages",
+          "score"
+        ],
+        "title": "HybridCandidate"
+      },
+      "HybridComponentReceipt": {
+        "properties": {
+          "requirement": {
+            "$ref": "#/components/schemas/SpanRequirement"
+          },
+          "lexical_matches": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Lexical Matches"
+          },
+          "lexical_candidates": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Lexical Candidates"
+          },
+          "dense_candidates": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Dense Candidates"
+          },
+          "fusion_candidates": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Fusion Candidates"
+          },
+          "reranked_candidates": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Reranked Candidates"
+          },
+          "selected_candidates": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Selected Candidates"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "candidate_association_not_semantic_coverage",
+            "title": "Meaning",
+            "default": "candidate_association_not_semantic_coverage"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "requirement",
+          "lexical_matches",
+          "lexical_candidates",
+          "dense_candidates",
+          "fusion_candidates",
+          "reranked_candidates",
+          "selected_candidates"
+        ],
+        "title": "HybridComponentReceipt"
+      },
+      "HybridComponentStages": {
+        "properties": {
+          "component_id": {
+            "type": "string",
+            "title": "Component Id"
+          },
+          "bm25": {
+            "$ref": "#/components/schemas/HybridStage"
+          },
+          "dense": {
+            "$ref": "#/components/schemas/HybridStage"
+          },
+          "fusion": {
+            "$ref": "#/components/schemas/HybridStage"
+          },
+          "rerank": {
+            "$ref": "#/components/schemas/HybridStage"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "component_id",
+          "bm25",
+          "dense",
+          "fusion",
+          "rerank"
+        ],
+        "title": "HybridComponentStages"
+      },
+      "HybridCoverage": {
+        "properties": {
+          "total_source_blocks": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Total Source Blocks"
+          },
+          "indexed_blocks": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Indexed Blocks"
+          },
+          "total_source_characters": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Total Source Characters"
+          },
+          "indexed_source_characters": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Indexed Source Characters"
+          },
+          "indexed_windows": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Indexed Windows"
+          },
+          "unindexed_characters": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Unindexed Characters"
+          },
+          "complete": {
+            "type": "boolean",
+            "title": "Complete"
+          },
+          "omissions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Omissions"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total_source_blocks",
+          "indexed_blocks",
+          "total_source_characters",
+          "indexed_source_characters",
+          "indexed_windows",
+          "unindexed_characters",
+          "complete",
+          "omissions"
+        ],
+        "title": "HybridCoverage"
+      },
+      "HybridProposalPacket": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.hybrid-proposal-packet.v1",
+            "title": "Schema Version",
+            "default": "mvp.hybrid-proposal-packet.v1"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "question": {
+            "type": "string",
+            "title": "Question"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "full_text",
+              "abstract",
+              "none"
+            ],
+            "title": "Source Type"
+          },
+          "source_status": {
+            "type": "string",
+            "title": "Source Status"
+          },
+          "context_scope": {
+            "type": "string",
+            "const": "retrieved_context_only",
+            "title": "Context Scope",
+            "default": "retrieved_context_only"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/HybridProposalPacketField"
+            },
+            "type": "array",
+            "title": "Fields"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/ProposalEvidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "evidence_characters": {
+            "type": "integer",
+            "title": "Evidence Characters"
+          },
+          "omitted_evidence": {
+            "type": "integer",
+            "title": "Omitted Evidence"
+          },
+          "retrieval_profile_sha256": {
+            "type": "string",
+            "title": "Retrieval Profile Sha256"
+          },
+          "packet_policy": {
+            "type": "string",
+            "const": "hybrid-primary-spans-round-robin.v1",
+            "title": "Packet Policy",
+            "default": "hybrid-primary-spans-round-robin.v1"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "paper_id",
+          "title",
+          "question",
+          "source_type",
+          "source_status",
+          "fields",
+          "evidence",
+          "evidence_characters",
+          "omitted_evidence",
+          "retrieval_profile_sha256"
+        ],
+        "title": "HybridProposalPacket"
+      },
+      "HybridProposalPacketField": {
+        "properties": {
+          "field_id": {
+            "type": "string",
+            "title": "Field Id"
+          },
+          "field_revision_id": {
+            "type": "string",
+            "title": "Field Revision Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "subquestion": {
+            "type": "string",
+            "title": "Subquestion"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Evidence Ids"
+          },
+          "candidate_run_id": {
+            "type": "string",
+            "title": "Candidate Run Id"
+          },
+          "indexed_windows": {
+            "type": "integer",
+            "title": "Indexed Windows"
+          },
+          "candidate_count": {
+            "type": "integer",
+            "title": "Candidate Count"
+          },
+          "component_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Component Ids"
+          },
+          "omitted_evidence": {
+            "type": "integer",
+            "title": "Omitted Evidence",
+            "default": 0
+          },
+          "meaning": {
+            "type": "string",
+            "const": "candidate_association_not_semantic_coverage",
+            "title": "Meaning",
+            "default": "candidate_association_not_semantic_coverage"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "field_id",
+          "field_revision_id",
+          "label",
+          "subquestion",
+          "evidence_ids",
+          "candidate_run_id",
+          "indexed_windows",
+          "candidate_count",
+          "component_ids"
+        ],
+        "title": "HybridProposalPacketField"
+      },
+      "HybridResult": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.hybrid-retrieval.v1",
+            "title": "Schema Version",
+            "default": "mvp.hybrid-retrieval.v1"
+          },
+          "run_id": {
+            "type": "string",
+            "title": "Run Id"
+          },
+          "profile_id": {
+            "type": "string",
+            "enum": [
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
+            ],
+            "title": "Profile Id"
+          },
+          "profile_revision": {
+            "type": "integer",
+            "const": 1,
+            "title": "Profile Revision",
+            "default": 1
+          },
+          "experimental": {
+            "type": "boolean",
+            "title": "Experimental",
+            "default": true
+          },
+          "original_query": {
+            "type": "string",
+            "title": "Original Query"
+          },
+          "requirements": {
+            "items": {
+              "$ref": "#/components/schemas/SpanRequirement"
+            },
+            "type": "array",
+            "title": "Requirements"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/components/schemas/HybridCandidate"
+            },
+            "type": "array",
+            "title": "Candidates"
+          },
+          "requested_count": {
+            "type": "integer",
+            "maximum": 30.0,
+            "minimum": 1.0,
+            "title": "Requested Count"
+          },
+          "returned_count": {
+            "type": "integer",
+            "maximum": 30.0,
+            "minimum": 0.0,
+            "title": "Returned Count"
+          },
+          "operation": {
+            "type": "string",
+            "enum": [
+              "search",
+              "cell"
+            ],
+            "title": "Operation"
+          },
+          "source_manifest": {
+            "items": {
+              "$ref": "#/components/schemas/HybridSourceBinding"
+            },
+            "type": "array",
+            "title": "Source Manifest"
+          },
+          "source_snapshot_sha256": {
+            "type": "string",
+            "title": "Source Snapshot Sha256"
+          },
+          "window_manifest_sha256": {
+            "type": "string",
+            "title": "Window Manifest Sha256"
+          },
+          "coverage": {
+            "$ref": "#/components/schemas/HybridCoverage"
+          },
+          "model_manifest": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Model Manifest"
+          },
+          "profile_parameters": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Profile Parameters"
+          },
+          "component_receipts": {
+            "items": {
+              "$ref": "#/components/schemas/HybridComponentReceipt"
+            },
+            "type": "array",
+            "title": "Component Receipts"
+          },
+          "index_key": {
+            "type": "string",
+            "title": "Index Key"
+          },
+          "timings": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Timings"
+          },
+          "runtime": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Runtime"
+          },
+          "terminal_status": {
+            "type": "string",
+            "const": "completed",
+            "title": "Terminal Status",
+            "default": "completed"
+          },
+          "offset_convention": {
+            "type": "string",
+            "const": "half-open-unicode-codepoints",
+            "title": "Offset Convention",
+            "default": "half-open-unicode-codepoints"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "retrieval_candidates_not_inspected_support",
+            "title": "Meaning",
+            "default": "retrieval_candidates_not_inspected_support"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "run_id",
+          "profile_id",
+          "original_query",
+          "requirements",
+          "candidates",
+          "requested_count",
+          "returned_count",
+          "operation",
+          "source_manifest",
+          "source_snapshot_sha256",
+          "window_manifest_sha256",
+          "coverage",
+          "model_manifest",
+          "profile_parameters",
+          "component_receipts",
+          "index_key",
+          "timings",
+          "runtime"
+        ],
+        "title": "HybridResult"
+      },
+      "HybridRunListing": {
+        "properties": {
+          "runs": {
+            "items": {
+              "$ref": "#/components/schemas/HybridSavedRun"
+            },
+            "type": "array",
+            "title": "Runs"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "runs"
+        ],
+        "title": "HybridRunListing"
+      },
+      "HybridSavedRun": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.hybrid-saved-run.v1",
+            "title": "Schema Version",
+            "default": "mvp.hybrid-saved-run.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "preparation_id": {
+            "type": "string",
+            "title": "Preparation Id"
+          },
+          "source_revision": {
+            "type": "integer",
+            "title": "Source Revision"
+          },
+          "board_context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardPassageScope"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "request_sha256": {
+            "type": "string",
+            "title": "Request Sha256"
+          },
+          "result": {
+            "$ref": "#/components/schemas/HybridResult"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "workspace_id",
+          "preparation_id",
+          "source_revision",
+          "board_context",
+          "request_sha256",
+          "result"
+        ],
+        "title": "HybridSavedRun"
+      },
+      "HybridScopeRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "profile_id": {
+            "type": "string",
+            "enum": [
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
+            ],
+            "title": "Profile Id"
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "cpu",
+              "mps"
+            ],
+            "title": "Device",
+            "default": "cpu"
+          },
+          "expected_preparation_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Preparation Id"
+          },
+          "expected_source_revision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expected Source Revision"
+          },
+          "board_context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardPassageScope"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "profile_id",
+          "expected_preparation_id",
+          "expected_source_revision"
+        ],
+        "title": "HybridScopeRequest"
+      },
+      "HybridSearchRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "profile_id": {
+            "type": "string",
+            "enum": [
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
+            ],
+            "title": "Profile Id"
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "cpu",
+              "mps"
+            ],
+            "title": "Device",
+            "default": "cpu"
+          },
+          "expected_preparation_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Preparation Id"
+          },
+          "expected_source_revision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expected Source Revision"
+          },
+          "board_context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardPassageScope"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "question": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Question"
+          },
+          "top_k": {
+            "type": "integer",
+            "maximum": 30.0,
+            "minimum": 5.0,
+            "title": "Top K",
+            "default": 5
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "profile_id",
+          "expected_preparation_id",
+          "expected_source_revision",
+          "question"
+        ],
+        "title": "HybridSearchRequest"
+      },
+      "HybridSourceBinding": {
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "title": "Source Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "source_sha256": {
+            "type": "string",
+            "title": "Source Sha256"
+          },
+          "blocks_sha256": {
+            "type": "string",
+            "title": "Blocks Sha256"
+          },
+          "parser_id": {
+            "type": "string",
+            "title": "Parser Id"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "full_text",
+              "abstract",
+              "none"
+            ],
+            "title": "Source Type"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "source_id",
+          "paper_id",
+          "version",
+          "source_sha256",
+          "blocks_sha256",
+          "parser_id",
+          "source_type"
+        ],
+        "title": "HybridSourceBinding"
+      },
+      "HybridSourceContext": {
+        "properties": {
+          "reference": {
+            "$ref": "#/components/schemas/BoardReference"
+          },
+          "paper": {
+            "$ref": "#/components/schemas/BoardPaper"
+          },
+          "source": {
+            "$ref": "#/components/schemas/BoardSourceBinding"
+          },
+          "freshness": {
+            "type": "string",
+            "enum": [
+              "current",
+              "historical"
+            ],
+            "title": "Freshness"
+          },
+          "block": {
+            "$ref": "#/components/schemas/BoardBlockChunk"
+          },
+          "run_id": {
+            "type": "string",
+            "title": "Run Id"
+          },
+          "candidate_id": {
+            "type": "string",
+            "title": "Candidate Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reference",
+          "paper",
+          "source",
+          "freshness",
+          "block",
+          "run_id",
+          "candidate_id"
+        ],
+        "title": "HybridSourceContext"
+      },
+      "HybridStage": {
+        "properties": {
+          "rank": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rank"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "HybridStage"
+      },
       "ImportCommitRequest": {
         "properties": {
           "request_id": {
@@ -12451,7 +13998,9 @@
             "type": "string",
             "enum": [
               "legacy_block_prefix_v1",
-              "lexical_spans_v1"
+              "lexical_spans_v1",
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
             ],
             "title": "Retrieval Profile Id"
           },
@@ -12524,7 +14073,9 @@
             "type": "string",
             "enum": [
               "legacy_block_prefix_v1",
-              "lexical_spans_v1"
+              "lexical_spans_v1",
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
             ],
             "title": "Retrieval Profile Id"
           },
@@ -13259,7 +14810,14 @@
           },
           "packets": {
             "items": {
-              "$ref": "#/components/schemas/ProposalPacket"
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ProposalPacket"
+                },
+                {
+                  "$ref": "#/components/schemas/HybridProposalPacket"
+                }
+              ]
             },
             "type": "array",
             "title": "Packets"
@@ -13897,6 +15455,66 @@
         ],
         "title": "ResolutionReceipt"
       },
+      "RetrievalPackAction": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "profile_id": {
+            "type": "string",
+            "enum": [
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
+            ],
+            "title": "Profile Id"
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "cpu",
+              "mps"
+            ],
+            "title": "Device",
+            "default": "cpu"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "profile_id"
+        ],
+        "title": "RetrievalPackAction"
+      },
+      "RetrievalPreferences": {
+        "properties": {
+          "profile_id": {
+            "type": "string",
+            "enum": [
+              "legacy_block_prefix_v1",
+              "lexical_spans_v1",
+              "hybrid_qwen3_06b_rrf_rerank_v1",
+              "hybrid_medcpt_passage_rrf_rerank_v1"
+            ],
+            "title": "Profile Id",
+            "default": "legacy_block_prefix_v1"
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "cpu",
+              "mps"
+            ],
+            "title": "Device",
+            "default": "cpu"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "RetrievalPreferences"
+      },
       "ReviewedImportRow": {
         "properties": {
           "id": {
@@ -14239,6 +15857,9 @@
           },
           "maps": {
             "$ref": "#/components/schemas/MapPreferences"
+          },
+          "retrieval": {
+            "$ref": "#/components/schemas/RetrievalPreferences"
           }
         },
         "additionalProperties": false,

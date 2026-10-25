@@ -30,11 +30,17 @@ class _SpanWork:
     run_id: str
 
 
+@dataclass(frozen=True)
+class _HybridWork(_SpanWork):
+    pass
+
+
 class EvidenceBoardService:
     def __init__(self, registry, service_for, store: BoardStore):
         self.registry, self.service_for, self.store = registry, service_for, store
         self.ranker = LexicalRetrieval()
         self.span_ranker = None
+        self.hybrid_retrieval = None
 
     def _with(self, mode, handle, callback, *, write=False):
         def guarded(state):
@@ -54,6 +60,17 @@ class EvidenceBoardService:
         return self.span_ranker
 
     def _profile(self, request=None):
+        if isinstance(request, ProfiledBoardCreateRequest) and request.retrieval_profile_id in {'hybrid_qwen3_06b_rrf_rerank_v1','hybrid_medcpt_passage_rrf_rerank_v1'}:
+            if self.hybrid_retrieval is None:
+                raise MvpError('hybrid_disabled','Optional local retrieval is unavailable in this runtime.')
+            from .hybrid_retrieval import hybrid_profile
+            explicit={value.field_id:value.requirements for value in request.field_requirements}
+            profile=hybrid_profile(request.retrieval_profile_id,self.hybrid_retrieval.packs.manifest(request.retrieval_profile_id))
+            profile.update(device='cpu',requirements_by_field={field.id:[value.model_dump(mode='json') for value in explicit.get(field.id,
+                [SpanRequirement(id='field',label=field.label,query=field.subquestion)])] for field in request.fields},
+                explicit_requirement_field_ids=[value.field_id for value in request.field_requirements],
+                packet_policy='hybrid-primary-spans-round-robin.v1')
+            return profile
         if isinstance(request, ProfiledBoardCreateRequest) and request.retrieval_profile_id == SPAN_BOARD_PROFILE:
             explicit = {value.field_id: value.requirements for value in request.field_requirements}
             profile = self._span().profile()
@@ -128,7 +145,7 @@ class EvidenceBoardService:
         definition = (self._writable(state, db, scope.board_id, scope.board_revision_id)
                       if require_current else self.store.definition(db, state.id, scope.board_id, scope.board_revision_id))
         _, _, sources = self._dependencies(state, definition)
-        if definition.retrieval_profile.get('profile_id', LEGACY_BOARD_PROFILE) not in {LEGACY_BOARD_PROFILE, SPAN_BOARD_PROFILE}:
+        if definition.retrieval_profile.get('profile_id', LEGACY_BOARD_PROFILE) not in {LEGACY_BOARD_PROFILE, SPAN_BOARD_PROFILE, 'hybrid_qwen3_06b_rrf_rerank_v1','hybrid_medcpt_passage_rrf_rerank_v1'}:
             raise MvpError('unsupported_board_profile', 'This comparison retains an unsupported profile. Its sources were not silently replaced.')
         field = self._cell(definition, scope.paper_id, scope.field_id) if scope.paper_id is not None else None
         paper_ids = [scope.paper_id] if field is not None else definition.paper_ids
@@ -167,6 +184,9 @@ class EvidenceBoardService:
             with self.store.connection() as db:
                 self.store.alive(db, state.id)
                 return self._passage_search_context(state, db, scope)
+        definition=self.view(mode,handle,request.board_context.board_id,request.board_context.board_revision_id).definition
+        if definition.retrieval_profile.get('profile_id','').startswith('hybrid_'):
+            raise MvpError('hybrid_route_required','This board pins hybrid retrieval. Use its explicit index and hybrid search actions; lexical fallback was not selected.')
         with self.registry.lifecycle_guard(handle.workspace_id):
             if self.registry.is_deleted(handle.workspace_id):
                 raise unavailable('workspace')
@@ -219,6 +239,27 @@ class EvidenceBoardService:
         return self._with(mode, handle, validate)
 
     def passage_source_context(self, mode, handle, scope, run_id, passage_id):
+        if self.hybrid_retrieval is not None:
+            try:
+                saved=self.hybrid_retrieval.get(handle.workspace_id,run_id)
+            except MvpError as error:
+                if error.code!='unknown_hybrid_run':raise
+            else:
+                if saved.board_context!=scope:
+                    raise MvpError('unrelated_comparison_run','The hybrid receipt belongs to another exact board or cell scope.')
+                inspected=self.hybrid_retrieval.inspect(mode,handle,run_id,passage_id)
+                def hybrid_context(state,db):
+                    definition=self._writable(state,db,scope.board_id,scope.board_revision_id)
+                    self._cell(definition,scope.paper_id,scope.field_id)
+                    ref=self._reference(state,definition,scope.paper_id,BoardReferenceInput.model_validate(inspected.reference.model_dump(include=set(BoardReferenceInput.model_fields))))
+                    if ref.quote!=inspected.reference.quote:raise MvpError('board_integrity','Hybrid passage does not match the retained source.')
+                    source=self._source(state,definition,ref.source_id,scope.paper_id)
+                    block=_find(source.blocks,ref.block_id,'source_block')
+                    return BoardPassageSourceContext(reference=ref,paper=next(p for p in definition.papers if p.id==scope.paper_id),
+                        source=next(s for s in definition.sources if s.source_id==source.id),freshness='current',
+                        block=self._chunk(state,definition,source,block,ref.start),run_id=run_id,passage_id=passage_id,
+                        passage_start=ref.start,passage_end=ref.end,passage_omitted_after=0)
+                return self._with(mode,handle,hybrid_context)
         if scope.paper_id is None:
             raise MvpError('invalid_board_reference', 'Choose an exact comparison cell before opening a passage in its inspector.')
         def inspect(state, db):
@@ -333,7 +374,7 @@ class EvidenceBoardService:
             if self.store.board_head(db, state.id, board_id) != request.expected_revision_id:
                 raise MvpError('stale_board_revision', 'A newer board definition exists. Your inputs were not overwritten.')
             original = self.store.definition(db, state.id, board_id, request.expected_revision_id)
-            if original.retrieval_profile.get('profile_id') == SPAN_BOARD_PROFILE and not isinstance(request, ProfiledBoardCreateRequest):
+            if original.retrieval_profile.get('profile_id',LEGACY_BOARD_PROFILE) != LEGACY_BOARD_PROFILE and not isinstance(request, ProfiledBoardCreateRequest):
                 raise MvpError('explicit_board_profile_required', 'Choose an explicit retrieval profile for this definition revision; a legacy request cannot downgrade a span-profile board.')
             definition = self._definition(state, request, board_id=board_id, parent=request.expected_revision_id)
             self.store.add_definition(db, definition)
@@ -380,6 +421,8 @@ class EvidenceBoardService:
             field = self._cell(definition, request.paper_id, request.field_id)
             source = self._source(state, definition, next(s.source_id for s in definition.sources if s.paper_id == request.paper_id))
             profile_id = definition.retrieval_profile.get('profile_id', LEGACY_BOARD_PROFILE)
+            if profile_id in {'hybrid_qwen3_06b_rrf_rerank_v1','hybrid_medcpt_passage_rrf_rerank_v1'}:
+                return _HybridWork(definition.model_copy(deep=True),source.model_copy(deep=True),field.model_copy(deep=True),request.model_copy(deep=True),fingerprint,new_id())
             if profile_id == SPAN_BOARD_PROFILE:
                 return _SpanWork(definition.model_copy(deep=True), source.model_copy(deep=True), field.model_copy(deep=True),
                     request.model_copy(deep=True), fingerprint, new_id())
@@ -405,9 +448,84 @@ class EvidenceBoardService:
             self.store.record_request(db, state.id, request.request_id, fingerprint, result)
             return result
         result = self._with(mode, handle, run, write=True)
+        if isinstance(result, _HybridWork):
+            return self._hybrid_candidates(mode,handle,board_id,result)
         if isinstance(result, _SpanWork):
             return self._span_candidates(mode, handle, board_id, result)
         return result
+
+    def saved_hybrid_candidates(self,mode,handle,board_id,expected_revision_id,paper_id,field_id):
+        """Read prior explicit cell retrieval without model work or new receipts.
+
+        Proposal preparation reuses this immutable exact input so its existing
+        generation deadline/call budget cannot trigger a hidden neural fan-out.
+        """
+        from .hybrid_app_contracts import HybridBoardCandidates
+        def read(state,db):
+            definition=self._writable(state,db,board_id,expected_revision_id)
+            field=self._cell(definition,paper_id,field_id)
+            if not definition.retrieval_profile.get('profile_id','').startswith('hybrid_'):
+                raise MvpError('unsupported_board_profile','Saved hybrid candidates require this exact hybrid board definition.')
+            for row in db.execute('SELECT * FROM board_candidates WHERE workspace_id=? AND board_id=? AND definition_id=? ORDER BY rowid DESC',
+                                  (state.id,board_id,definition.revision_id)):
+                run=self.store.decode(row,BoardCandidates)
+                if run.paper_id!=paper_id or run.field_id!=field_id:
+                    continue
+                if (not isinstance(run,HybridBoardCandidates) or run.board_revision_id!=definition.revision_id
+                        or run.field_revision_id!=field.revision_id or run.preparation_id!=definition.preparation_id
+                        or run.source_manifest_sha256!=definition.source_manifest_sha256
+                        or run.retrieval_profile!=definition.retrieval_profile
+                        or run.retrieval_profile_sha256!=definition.retrieval_profile_sha256
+                        or run.id!=run.result.run_id
+                        or run.result.profile_id!=definition.retrieval_profile['profile_id']
+                        or run.result.model_manifest!=definition.retrieval_profile['model_manifest']
+                        or run.result.profile_parameters!=definition.retrieval_profile['parameters']
+                        or run.result.operation!='cell' or run.result.original_query!=field.subquestion
+                        or [v.model_dump(mode='json') for v in run.result.requirements]
+                           !=definition.retrieval_profile.get('requirements_by_field',{}).get(field_id)):
+                    raise MvpError('board_integrity','The saved candidate receipt does not match this exact field, source and pinned profile.')
+                for candidate in run.result.candidates:
+                    reference=self._reference(state,definition,paper_id,BoardReferenceInput.model_validate(
+                        candidate.reference.model_dump(include=set(BoardReferenceInput.model_fields))))
+                    if reference!=candidate.reference:
+                        raise MvpError('board_integrity','Saved hybrid quotations do not match their canonical source ranges.')
+                return run
+            raise MvpError('hybrid_candidates_required','Open each selected comparison cell and choose Find relevant passages first. Hybrid proposals reuse those saved candidates; this action starts no neural retrieval.')
+        return self._with(mode,handle,read)
+
+    def _hybrid_candidates(self,mode,handle,board_id,work):
+        from .hybrid_app_contracts import HybridCellSearchRequest,HybridBoardCandidates
+        from .hybrid_contracts import HybridResult
+        profile=work.definition.retrieval_profile
+        if self.hybrid_retrieval is None:
+            raise MvpError('hybrid_disabled','Optional local retrieval is not configured; no lexical fallback was selected.')
+        if profile['model_manifest']!=self.hybrid_retrieval.packs.manifest(profile['profile_id']):
+            raise MvpError('unsupported_board_profile','The installed model manifest differs from this board’s pinned profile; create a definition revision explicitly.')
+        requirements=[SpanRequirement.model_validate(v) for v in profile['requirements_by_field'][work.field.id]]
+        request=HybridCellSearchRequest(request_id=work.request.request_id,profile_id=profile['profile_id'],device=profile['device'],
+            expected_preparation_id=work.definition.preparation_id,expected_source_revision=work.definition.source_revision,
+            board_context=BoardPassageScope(board_id=board_id,board_revision_id=work.definition.revision_id,paper_id=work.request.paper_id,field_id=work.field.id),
+            question=work.field.subquestion,top_k=work.request.top_k)
+        saved=self.hybrid_retrieval.search(mode,handle,request,operation='cell',requirements=requirements)
+        def publish(state,db):
+            prior=self.store.prior(db,state.id,work.request.request_id,work.fingerprint,BoardCandidates)
+            if prior is not None:return prior
+            definition=self._writable(state,db,board_id,work.request.expected_revision_id)
+            if definition!=work.definition:raise MvpError('stale_board_revision','Board changed while retrieval was running; no candidates published.')
+            candidates=[]
+            for candidate in saved.result.candidates:
+                ref=self._reference(state,definition,work.request.paper_id,BoardReferenceInput.model_validate(candidate.reference.model_dump(include=set(BoardReferenceInput.model_fields))))
+                if ref.quote!=candidate.reference.quote:raise MvpError('board_integrity','Hybrid quotation does not match canonical source.')
+                candidates.append(candidate.model_copy(update={'reference':ref}))
+            ranked=HybridResult.model_validate(saved.result.model_copy(update={'candidates':candidates}).model_dump(mode='json'))
+            result=HybridBoardCandidates(id=ranked.run_id,board_id=board_id,board_revision_id=definition.revision_id,paper_id=work.request.paper_id,
+                field_id=work.field.id,field_revision_id=work.field.revision_id,preparation_id=definition.preparation_id,
+                source_manifest_sha256=definition.source_manifest_sha256,retrieval_profile=profile,
+                retrieval_profile_sha256=definition.retrieval_profile_sha256,result=ranked)
+            db.execute('INSERT INTO board_candidates VALUES(?,?,?,?,?,?)',(state.id,board_id,definition.revision_id,result.id,result.model_dump_json(),digest(result.model_dump(mode='json'))))
+            self.store.record_request(db,state.id,work.request.request_id,work.fingerprint,result)
+            return result
+        return self._with(mode,handle,publish,write=True)
 
     def _check_span_replay(self, state, db, definition, request, result):
         row = db.execute('SELECT * FROM board_candidates WHERE workspace_id=? AND board_id=? AND definition_id=? AND id=?',
@@ -669,7 +787,7 @@ class EvidenceBoardService:
             for table, model in (('board_candidates', BoardCandidates), ('board_cells', BoardCellRevision)):
                 for row in db.execute('SELECT * FROM ' + table + ' WHERE workspace_id=? AND board_id=? AND definition_id=?', (state.id, board_id, definition.revision_id)):
                     item = self.store.decode(row, model)
-                    refs = [candidate.reference for candidate in item.candidates] if table == 'board_candidates' else [*item.references, *item.inspected_ranges]
+                    refs = [candidate.reference for candidate in (item.result.candidates if hasattr(item,'result') else item.candidates)] if table == 'board_candidates' else [*item.references, *item.inspected_ranges]
                     found = next((ref for ref in refs if ref.id == reference_id), None)
                     if found:
                         break

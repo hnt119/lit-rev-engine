@@ -86,6 +86,34 @@ class ProposalPacket(Model):
     evidence_characters: int
     omitted_evidence: int
 
+class HybridProposalPacketField(Model):
+    field_id: str
+    field_revision_id: str
+    label: str
+    subquestion: str
+    evidence_ids: list[str]
+    candidate_run_id: str
+    indexed_windows: int
+    candidate_count: int
+    component_ids: list[str]
+    omitted_evidence: int = 0
+    meaning: Literal['candidate_association_not_semantic_coverage'] = 'candidate_association_not_semantic_coverage'
+
+class HybridProposalPacket(Model):
+    schema_version: Literal['mvp.hybrid-proposal-packet.v1'] = 'mvp.hybrid-proposal-packet.v1'
+    paper_id: str
+    title: str
+    question: str
+    source_type: Literal['full_text', 'abstract', 'none']
+    source_status: str
+    context_scope: Literal['retrieved_context_only'] = 'retrieved_context_only'
+    fields: list[HybridProposalPacketField]
+    evidence: list[ProposalEvidence]
+    evidence_characters: int
+    omitted_evidence: int
+    retrieval_profile_sha256: str
+    packet_policy: Literal['hybrid-primary-spans-round-robin.v1'] = 'hybrid-primary-spans-round-robin.v1'
+
 class ProposalQuoteOutput(Model):
     evidence_id: str = Field(min_length=1, max_length=200)
     quote: str = Field(min_length=1, max_length=1200)
@@ -190,7 +218,7 @@ class ProposalRun(Model):
     state: Literal['running', 'succeeded', 'failed'] = 'running'
     failure_code: str | None = None
     failure_message: str | None = None
-    packets: list[ProposalPacket] = Field(default_factory=list)
+    packets: list[ProposalPacket | HybridProposalPacket] = Field(default_factory=list)
     calls: list[ProposalCallReceipt] = Field(default_factory=list)
     proposals: list[CellProposal] = Field(default_factory=list)
     created_at: str = Field(default_factory=now)
