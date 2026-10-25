@@ -16,7 +16,7 @@ from scripts.license_policy import validate_distribution_license
 VERSION = "0.3.0-beta.2"
 NAME = "lit-rev-engine-" + VERSION
 EXACT = {
-    "requirements-hosted.txt", "requirements-web-lock.txt", "requirements-map.txt", "requirements-map-lock.txt",
+    "requirements-hosted.txt", "requirements-web-lock.txt", "requirements-retrieval.txt", "requirements-map.txt", "requirements-map-lock.txt",
     "LICENSE", "THIRD_PARTY_NOTICES.md", "config/local-beta.example.json",
     "apps/web/package.json", "apps/web/pnpm-lock.yaml", "apps/web/tsconfig.json",
     "apps/web/next-env.d.ts", "apps/web/next.config.ts",
@@ -24,14 +24,18 @@ EXACT = {
 }
 TREES = ("src/mvp/", "src/review/", "src/web_api/", "apps/web/app/",
          "apps/web/components/", "apps/web/lib/", "examples/mvp/offline_microbiome_30_v1/")
-TASK_FILES = {"scripts/run_web.py", "scripts/local_preview.py", "scripts/license_policy.py",
+TASK_FILES = {"scripts/retrieval_pack.py", "scripts/run_web.py", "scripts/local_preview.py", "scripts/license_policy.py",
               "scripts/local_beta_settings.py", "scripts/check_local_beta.py", "scripts/run_map_worker.py",
               "apps/web/lib/comparison-passage.ts"}
 DOCUMENTS = {"README.md": "docs/local_preview.md",
              "DISTRIBUTION_TERMS.md": "docs/local_preview_distribution_terms.md",
              "OPTIONAL_FEATURES.md": "docs/local_beta_optional_features.md",
              "CAPABILITIES.md": "docs/local_beta_capabilities.md",
-             "SETTINGS.md": "docs/research_ai_settings.md"}
+             "SETTINGS.md": "docs/research_ai_settings.md",
+             "RETRIEVAL.md": "docs/hybrid_retrieval.md",
+             "MODEL_REFERENCES.md": "docs/hybrid_model_references.md",
+             "notices/QWEN_APACHE_LICENSE.txt": "docs/notices/QWEN_APACHE_LICENSE.txt",
+             "notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt": "docs/notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt"}
 TRACK_B_FILES = {"src/review/pilot.py", "src/mvp/review_pilot.py", "src/web_api/pilot_routes.py",
                  "src/web_api/pilot_contracts.py", "apps/web/components/review-pilot.tsx"}
 LICENSE_NAME = re.compile(r"(?:LICEN[CS]E|COPYING|COPYRIGHT|NOTICE)(?:\.(?:md|txt|rst))?", re.I)
@@ -39,7 +43,7 @@ FORBIDDEN_PARTS = {"node_modules", "__pycache__", ".next", ".git", ".cache", "te
                    "browser-state", "backups", "private-exports", "model-cache", ".preview",
                    ".hosted-state", ".huggingface", ".venv", ".venv-preview", ".venv-map"}
 FORBIDDEN_SUFFIXES = (".sqlite", ".sqlite3", ".db", ".pem", ".key", ".crt", ".cer",
-                      ".p12", ".pfx", ".pyc", ".safetensors", ".gguf", ".pt", ".pth",
+                      ".p12", ".pfx", ".pyc", ".safetensors", ".gguf", ".pt", ".pth", ".bin",
                       ".bak", ".zip", ".tar", ".tar.gz", ".tgz", ".tsbuildinfo", ".log", ".map")
 SECRET_PATTERNS = (
     rb"-----BEGIN (?:[A-Z0-9]+ )?PRIVATE KEY-----",
