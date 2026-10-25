@@ -227,3 +227,10 @@ def test_retrieval_runtime_install_requires_explicit_setup_flag(tmp_path,monkeyp
     assert ('requirements-retrieval.txt' in commands[0]) is with_retrieval
     assert all('retrieval_pack.py' not in command for command in commands)
     assert result['optional_retrieval_dependencies'] is with_retrieval and result['model_downloads']==0
+
+
+def test_regular_operator_file_loads_without_unix_only_nonblock_flag(tmp_path, monkeypatch):
+    target = private_file(tmp_path, config())
+    monkeypatch.delattr(os, "O_NONBLOCK", raising=False)
+    normalized = settings.load_settings(target, tmp_path / "app")
+    assert all(normalized[feature]["enabled"] is False for feature in settings.FEATURES)

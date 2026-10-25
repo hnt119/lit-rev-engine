@@ -99,11 +99,11 @@ def load_settings(path, app_root):
     if any(parent.is_symlink() for parent in (path, *path.parents)):
         _failure('settings must use an ordinary file without symlink paths.')
     try:
-        descriptor = open_private(path, os.O_RDONLY | os.O_NONBLOCK, strict=True)
+        descriptor = open_private(path, os.O_RDONLY | getattr(os, 'O_NONBLOCK', 0), strict=True)
         try:
             info = os.fstat(descriptor)
             if not stat.S_ISREG(info.st_mode) or not owned_fd(descriptor, private=True) or info.st_size > MAX_SETTINGS_BYTES:
-                _failure('settings must be an ordinary file owned by you, mode 0600 and at most 16 KiB. Copy the sample outside the app and run chmod 600 on that private copy.')
+                _failure('settings must be an ordinary file owned by you and at most 16 KiB, with POSIX mode 0600 or a protected Windows current-user ACL. Keep the private copy outside the app; follow the installation guide for your OS.')
             with os.fdopen(descriptor, 'rb', closefd=False) as stream:
                 raw = stream.read(MAX_SETTINGS_BYTES + 1)
         finally:

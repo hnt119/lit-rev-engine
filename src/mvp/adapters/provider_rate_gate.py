@@ -20,7 +20,7 @@ def wait_for_provider(host, interval, *, directory=None):
         raise ProviderFailure("invalid_endpoint", "Unsupported provider rate gate.")
     if isinstance(interval, bool) or not isinstance(interval, (int, float)) or not math.isfinite(interval) or not 0 < interval <= 1:
         raise ValueError("The fixed provider interval must be positive and at most one second")
-    folder = Path(directory) if directory is not None else Path(tempfile.gettempdir()) / ("lit-rev-provider-gates-" + current_user_key())
+    folder = Path(directory) if directory is not None else Path(tempfile.gettempdir()).resolve() / ("lit-rev-provider-gates-" + current_user_key())
     descriptor = None
     acquired = False
     try:

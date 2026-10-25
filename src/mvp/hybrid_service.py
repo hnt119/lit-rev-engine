@@ -4,7 +4,7 @@ Compute runs outside research/lifecycle/SQLite locks. Publication revalidates th
 exact captured scope; deleting a workspace fences late work. No automatic index,
 download, provider call or lexical fallback is performed.
 """
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from pathlib import Path
 from threading import BoundedSemaphore, Event, RLock
 import json

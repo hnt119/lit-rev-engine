@@ -93,3 +93,27 @@ def test_invalid_or_symlink_gate_fails_closed(tmp_path):
     with pytest.raises(ProviderFailure):
         wait_for_provider("eutils.ncbi.nlm.nih.gov", .4, directory=folder)
     assert other.read_text() == "private unchanged"
+
+
+@pytest.mark.skipif(os.name == "nt", reason="POSIX system temporary-directory symlink regression")
+def test_default_gate_resolves_system_temp_alias_without_network(tmp_path, monkeypatch):
+    from src.mvp.adapters import provider_rate_gate
+    actual = tmp_path / "system-temp"
+    actual.mkdir()
+    alias = tmp_path / "system-temp-alias"
+    alias.symlink_to(actual, target_is_directory=True)
+    monkeypatch.setattr(provider_rate_gate.tempfile, "gettempdir", lambda: str(alias))
+    monkeypatch.setattr(provider_rate_gate, "current_user_key", lambda: "isolated-test-user")
+    wait_for_provider("eutils.ncbi.nlm.nih.gov", .01)
+    assert (actual / "lit-rev-provider-gates-isolated-test-user" / "eutils.ncbi.nlm.nih.gov.gate").is_file()
+
+
+@pytest.mark.skipif(os.name == "nt", reason="POSIX explicit-path symlink rejection")
+def test_explicit_gate_directory_alias_still_fails_closed(tmp_path):
+    actual = tmp_path / "system-temp"
+    actual.mkdir()
+    alias = tmp_path / "system-temp-alias"
+    alias.symlink_to(actual, target_is_directory=True)
+    with pytest.raises(ProviderFailure, match="private shared provider gate"):
+        wait_for_provider("eutils.ncbi.nlm.nih.gov", .01, directory=alias / "caller-selected-gates")
+    assert not (actual / "caller-selected-gates").exists()
