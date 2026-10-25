@@ -49,3 +49,39 @@ Post-workflow manifest verification caught Next.js promoting the public license 
 ## Web dependency notice inventory
 
 Next standalone tracing omitted dependency notice files, so the builder separately preserves exact notices from matching locked installed package metadata. Resources/WEB_DEPENDENCY_NOTICES contains per-file hashes, original relative source paths, declared licenses, native component versions and upstream repository/source links, including nested Next compiled packages. The initial inventory covers67 package metadata entries and113 unique notice files. Seven upstream full-notice sources remain explicitly unresolved (including the native libvips package and several Next-compiled packages); source/redistribution obligations and a complete transitive binary SBOM need review before public desktop distribution. This does not change the engine MIT grant or block the separate source-only browser candidate.
+
+
+## Actual internal candidate and local use
+
+The reviewed artifact source is `d2ae854f9626ac2a3f7f38cbcd358d5519cdd562`, version `0.3.0-desktop-preview.1`. It is separate from the setup-required `0.3.0-beta.2` source ZIP. Both are unpublished. See [the exact artifact hashes and capability matrix](releases/v0.3.0-beta.2-review.md) and [executed checks, failures and limits](next_beta_evaluation.md#final-extracted-desktop-execution--d2ae854).
+
+For an owner-reviewed local copy, first verify the matching SHA256SUMS, then extract the ZIP. Open **Literature Review Engine Desktop Preview.app**. The saved/manual application does not require a Terminal window or a separately installed Python/Node/pnpm/Docker. It starts only its packaged production services and opens after ownership/readiness checks. Choose **Saved example · offline** to begin without credentials or models. Use application-menu **Quit** to stop owned services; closing its sole research window also quits. macOS may refuse an unnotarized downloaded copy; do not disable Gatekeeper or remove quarantine to bypass that refusal. This locally tested prototype is not yet a trusted public installer.
+
+Research and profile state live in the separate Desktop Preview application-support directory described above. Keep it private; do not point the prototype at existing browser-beta or pilot state. App replacement after a controlled quit preserves that directory. Do not copy a running database, delete active locks, kill an arbitrary port listener or treat a workspace UUID as authorization. If startup reports an occupied port, close only the positively identified conflicting application and retry; the prototype will not attach to it. A cookie/profile reset or expiry can make retained work inaccessible under the existing access model. Export while access is available; no new recovery/transfer system is included. Backend restart clears cloud keys and they must be re-entered in Settings.
+
+Settings is the same production page as the source beta. Local/OpenAI/DeepSeek generation is optional, default-off and separately consented; no live account/model check was authorized. The desktop has the base API runtime and real adapters, but does not operate a local model server or bundle weights. The map-cache preference is inactive until operator configuration is supplied; it does not install the absent ML stack. Use the source beta for the explicitly supported optional map setup.
+
+The actual core launch used bundled Node **24.22.0** and Python **3.12.15**, with developer PATH entries removed. The compressed ZIP is **163,840,256 bytes**, installed payload **390,961,851 bytes**. The app reported 1.935 s readiness / 2.210 s visible window on its first measured UI run; instrumented first-window total was 6.288 s. Reopen totals were 2.373 s ready / 2.584 s visible / 2.855 s including instrumentation. A separate lifecycle run measured 2.503 s ready and 5.560 s after extraction/replacement. These single-machine timings may benefit from warm disk caches. Sampled process RSS sum was **667.31 MiB idle / 827.42 MiB working**, including shared pages more than once. Visual theme/typography/navigation and keyboard cell-return checks passed against Chrome at the same viewport; pixel equality is not asserted.
+
+Actual native Save dialogs, external citation opening, menu Quit, single-instance handoff, owned-parent crash cleanup, port conflicts, app replacement, data/draft/exports preservation and final signed-bundle immutability passed. Physical sleep/wake and quarantined-device installation were not run. Only macOS arm64 was evaluated.
+
+## Exact public desktop distribution blockers
+
+The seven explicit full-notice gaps are `@img/sharp-libvips-darwin-arm64` 1.3.4, `@next/env` 16.4.2, `client-only` 0.0.1, and Next-vendored `@edge-runtime/cookies`, `@edge-runtime/ponyfill`, `@edge-runtime/primitives` and `string-hash`. Existing declarations/source links are retained; they are not substituted for absent full texts. The original code stays MIT. Before public desktop distribution, resolve the appropriate notices and any binary/source obligations, complete the transitive SBOM/license review, then review hardened-runtime entitlements, Developer ID nested-code signing, notarization/stapling and downloaded/quarantined-device behavior. Publication needs separate owner authorization. No signing account was bought and no operating-system security was bypassed.
+
+## Reproduce a reviewed build
+
+Use a clean checkout of the exact artifact SHA, macOS arm64 and the existing locked build tools. Outputs and runtime caches belong outside the checkout. The source builder refuses dirty/untracked release inputs; the desktop builder checks the exact clean source ZIP and verified runtime hashes. Runtime acquisition is an explicit build-time download, never a model or first-launch download.
+
+```sh
+python3.12 scripts/build_local_preview.py --help
+python3.12 scripts/build_desktop_preview.py --runtime-cache /path/to/runtime-cache --fetch-runtimes
+python3.12 scripts/build_desktop_preview.py \
+  --runtime-cache /path/to/runtime-cache \
+  --source-archive /path/to/lit-rev-engine-0.3.0-beta.2.zip \
+  --expected-source-commit d2ae854f9626ac2a3f7f38cbcd358d5519cdd562 \
+  --output /path/to/new-empty-output \
+  --node /path/to/node24 --pnpm /path/to/pnpm10.20.0
+```
+
+The generated source ZIP was independently reproduced byte-for-byte. The desktop builder records exact source/runtime/file hashes, but byte-for-byte desktop signing/archive reproducibility was not demonstrated. Keep its manifest, checksums and source identity together; do not reuse a superseded archive's checksum.

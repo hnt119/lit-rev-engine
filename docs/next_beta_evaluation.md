@@ -62,7 +62,7 @@ Current official documentation was inspected on 25 October 2026:
 
 ## Actual results
 
-Implementation and independent execution are still in progress. Do not read the acceptance tables as passed checks. Exact commands, outcomes, failures, skips and extracted-package/runtime measurements are appended when executed.
+Implementation and execution are complete for the review candidate below. Acceptance tables describe intended contracts; only the recorded executions establish which checks passed. Published beta.1 remains unchanged.
 
 ### Independent offline checks executed on 25 October 2026
 
@@ -85,7 +85,7 @@ The independent suite traps external socket creation for settings/API checks. Cl
 - Initial independent fixtures incorrectly assumed an uncreated base directory, a 204 workspace-delete response, and an omitted historical receipt schema version. These were test-fixture mistakes corrected to the existing contracts; they are not application failures.
 - A separate initial packaging regression reported by the root agent used a placeholder license-policy module in a synthetic source tree, causing a syntax error. The root owns its fixture correction and final rerun; this record does not convert that report into an independently rerun result.
 
-At this point extracted-successor installation, actual browser walkthrough and desktop bundle/runtime measurements are still pending. The final root report must record them separately and must retain unsupported/not-run labels where applicable.
+At that intermediate checkpoint extracted installation, browser and desktop checks were pending. Their final executions are recorded below; the earlier results keep their original scope.
 
 ### Follow-up checks after the identified repairs
 
@@ -113,4 +113,68 @@ The browser checks exercised settings open/save/key-input clearing, presence-onl
 
 An initial coordinator UI locator waited for a nonexistent heading/link, then a production server still serving an earlier build produced a missing chunk after files were rebuilt. The coordinator stopped only its QA-owned servers and restarted the final production build; the actual isolated browser run above then passed. No application security exception or provider fallback was introduced.
 
-The browser/provider implementation checkpoint is local commit `42b0cbc178442164f6fa348dfa66c7077327268b`. Later packaging/documentation commits are reviewed descendants, not changes to the published beta.1. Extracted-source and desktop artifact results are recorded below when complete.
+The browser/provider implementation checkpoint is local commit `42b0cbc178442164f6fa348dfa66c7077327268b`. Later packaging/documentation commits are reviewed descendants, not changes to the published beta.1. Extracted-source and desktop artifact results follow. The release files remain bound to the exact code candidate, separately from later report-only commits.
+
+
+## Final extracted source candidate — d2ae854
+
+Artifact source: `d2ae854f9626ac2a3f7f38cbcd358d5519cdd562`; source version `0.3.0-beta.2`. These are review assets, not a published successor release. The source ZIP has 233 files including generated metadata; its manifest hashes 232 entries and excludes itself. All 231 application payload files are byte-identical to the fully extracted, freshly installed and workflow-tested `565e0766dda042227dd906863098685363ec09dd` package and the freshly installed/smoke-tested `f812e5a188b8d0c9f1f15c904847d14b3d74dca4` package. Only RELEASE.json and MANIFEST.json changed their recorded source binding. The independent final clean-checkout rebuild reproduced all three d2ae854 source release files byte for byte. We did not relabel earlier full installation/unit executions as fresh d2 executions.
+
+Fresh source setup used Python 3.12.7, Node 24.19.0, pnpm 10.20.0, a new virtual environment and new temporary research state; ordinary package download caches were reused. `scripts/local_preview.py setup`, production `launch --no-browser`, `status`, `stop`, `tests/local_distribution/check_installed_preview.py`, `check_comparison_roundtrip.py` and external settings/provider-configuration QA clients exercised the extracted application. The older check_beta_optional.py client is not claimed as a successor execution. The installed checker made 65 local manual-workflow requests: the public 30-paper example/saved map, three papers × three fields, ten explicit software-QA submitted revisions, seven exact inspections and thirteen privacy-denial probes. Settings and optional-feature checks added nine and ten configuration requests respectively. Optional provider profile checks configured local/OpenAI/DeepSeek with dummy keys; they made no model call. The full round-trip check made 38 local requests, including scoped results, wrong-paper/stale rejection, empty results and save conflicts.
+
+A restart with deliberately inherited hosted/AI environment settings kept local mode, removed those inherited permissions and cleared memory-only keys. Preferences, drafts, source/map identity and export content persisted. Occupied-port rejection and controlled shutdown passed. Exact source integrity/MIT/notice/all-30-public-source attribution audits passed. None of these checks involved original research databases or Track B.
+
+## Final extracted desktop execution — d2ae854
+
+The actual ZIP was extracted into a new location. The production app executed using only its bundled Electron/Node and standalone Python; developer Node, Python, pnpm and provider settings were removed from the app environment. Test drivers are external instruments, not application runtime dependencies.
+
+| Execution | Actual result |
+| --- | --- |
+| Desktop builder/notice unit checks | `python -m pytest tests/local_distribution/test_desktop_packager.py tests/local_distribution/test_desktop_notices.py -q`: 23 passed |
+| Desktop boundary unit checks | `node --test tests/desktop/security.test.cjs`: 4 passed |
+| Actual Electron production UI | 10 checks passed, 103 local API requests, zero page errors and zero model/provider executions |
+| Saved/manual workflow | 30-paper saved example/map; actual public RIS parsing/acceptance without metadata resolution; local API preparation of a three-paper/three-field board; UI cell draft → explicit scoped 20-result passage search → exact source → return to original cell; draft unassessed/unsubmitted, no automatic attachment/support/submission |
+| Navigation/parity | Keyboard return/focus at original table cell; Settings return; refresh/reopen; MIT/About return preserves the cell. Chrome/Electron at 1440 × 968 and DPR 2 matched sampled theme, typography, heading and navigation contracts; paired screenshots inspected, pixel identity not claimed |
+| Native export dialogs | Actual macOS CSV and JSON Save panels succeeded; CSV parsed as header plus nine cells, JSON parsed as an object. Separate HTTP/download automation also passed |
+| Native citation navigation | A public PMID citation opened in Safari while the desktop retained its cell/draft. This was an ordinary citation-page check, not a PubMed API search or connection test |
+| Native quit | Menu Quit exited normally and released both service ports. One automated Cmd-Q attempt did not close the app; keyboard Quit is not claimed as verified |
+| Single instance | Second launch handed off in 0.233 s; original parent/services unchanged |
+| Crash cleanup | Forced termination of the owned parent released owned service ports in 0.315 s |
+| Application replacement | Fresh extraction at another path reopened the same isolated QA root in 5.560 s; same cookie authorization, research records and drafts. Board JSON/both CSV exports stayed byte-identical; only workspace JSON's generated exported_at was normalized for content comparison, with raw hashes retained |
+| Foreign occupied port | Failed closed; zero requests to the foreign listener; no API started; unrelated listener left alive |
+| Post-workflow integrity | Both original and replacement app: 4,100 file/link entries, zero additions/removals/modifications; zero added/missing directories; deep/strict code-signature verification passed |
+
+All QA services were stopped and ports 43000/48765 released. Tests used only the approved public example and isolated temporary software-QA drafts. Research judgments were not supplied by a human researcher and do not constitute usefulness validation.
+
+### Observed desktop size, timing and memory
+
+- ZIP: **163,840,256 bytes** (156.250 MiB); installed files: **390,961,851 bytes** (372.850 MiB). File/link manifest: 4,100 entries, 52 safe internal symlinks.
+- Actual first instrumented UI launch: window 6.288 s including driver attachment; app reported readiness 1.935 s and visible window 2.210 s. Reopen: driver 2.855 s, app readiness 2.373 s and visible window 2.584 s.
+- Separate owned-process lifecycle measurement: first ready 2.503 s, replacement ready 5.560 s. These are single-machine samples; filesystem/runtime caches may be warm. They are not cold-machine benchmarks or performance guarantees.
+- Sampled process RSS sum: **667.31 MiB idle / 827.42 MiB working**. Shared pages are not deduplicated; this is not unique memory or a peak bound.
+- Packaged versions actually observed: Electron 45.0.0 / utility-process Node 24.22.0; CPython 3.12.15+20261021; Next.js 16.4.2. Interpreter/framework executable paths were inside the extracted bundle.
+
+### Packaging failures and their final disposition
+
+Earlier internal archives are superseded and must not be distributed as this candidate. Actual inspection/launch found and repaired: generated build-machine paths/non-relocatable unused console scripts; Electron's unpackaged identity caused by the unchanged Electron executable name; a broad filter dropping required next/dist/trace runtime code; signed-bundle route-cache writes after license navigation; and omitted standalone dependency notices. These repairs are separately committed. The final UI/native/lifecycle and independent immutable-bundle checks exercised the corrected d2ae854 artifact. The unchanged packaged-app/security guards remain enabled.
+
+Two lifecycle harness assumptions also failed before correction: treating Next's rewritten process title as its executable path, and comparing generated workspace export timestamps byte-for-byte. Actual executable paths are now measured through the operating system; only the known exported_at field is normalized for that one comparison. These were test-driver corrections and did not change the application.
+
+### Remaining gates and explicit NOT_RUN
+
+- Actual authenticated OpenAI/DeepSeek/local generation, real planning/proposal outputs, live PubMed API search/test, new embeddings, model downloads and scientific/human usefulness validation: **NOT_RUN** for this release. Saved-map reuse and software vectors are not new embedding execution.
+- Physical OS sleep/wake: **NOT_RUN**. A resume handler exists, but its presence is not an observed sleep/wake pass.
+- Source beta: macOS arm64 tested; Linux installation unverified; Windows unsupported. Desktop prototype: macOS arm64 only; no cross-platform claim.
+- Desktop base includes the core runtimes, not BGE/optional ML packages, weights or an optional-ML installer. New maps require the source beta's explicit optional setup/configuration route; saved maps work in both.
+- Desktop signatures are ad-hoc, not Developer ID or notarization. Downloaded/quarantined-device installation, complete binary/transitive SBOM and source obligations remain unverified. Seven upstream full-notice gaps remain explicit public-desktop distribution blockers; see the desktop guide.
+- Existing cookie/profile/expiry and access-recovery limitations remain. No OS keychain, authenticated transfer, account recovery or automatic updater is claimed.
+- No push, tag, release publication, deployment, website change or paid resource/call was performed. Detailed private QA reports remain local; only normalized non-private summaries accompany review assets.
+
+See [candidate identities, hashes, capability matrix and review gates](releases/v0.3.0-beta.2-review.md). All later documentation-only commits describe these exact assets rather than silently rebinding them.
+
+
+### Final preservation check
+
+Read-only local ref/status and GitHub checks confirmed main `a506ae05fc19c21a1d80beabc26bfc831582441d`, frozen MVP/preview `cb98e3ef843982ebe0cfb65631d8f923a1a4007b`, published Track A `105d98f87ced3e415f77d36305dba7244fc3cf7f` and paused Track B `ce56f9107e9c786ed2fc72b5fd737e6586409a09` unchanged. The original working checkout's 153 baseline status entries were preserved; an additional unrelated untracked document appeared during this work and was not read or edited. Clean published-A/paused-B worktrees remained clean. This is ref/status preservation evidence, not a whole-disk private-database hash audit.
+
+All three local beta.1 artifact hashes matched their frozen values; GitHub's stored asset digests and original published prerelease/tag/source also matched. Published binaries were not downloaded again. Successor beta.2 and desktop-preview tags were absent. No remote write, research-database read, Track B launch, website change or Render operation was involved in this preservation check.

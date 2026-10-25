@@ -1,5 +1,7 @@
 # Literature Review Engine
 
+Track A successor **0.3.0-beta.2 is prepared locally for review, not published**, on `codex/next-local-beta`. Begin with the [candidate, capability matrix, checksums and publication gates](docs/releases/v0.3.0-beta.2-review.md), [Research & AI Settings](docs/research_ai_settings.md) and [separate internal Desktop Preview](docs/desktop_preview.md). These reviewed descendants preserve published beta.1; the historical branch guides below do not replace the Track A starting point.
+
 A Python engine for managing a reproducible review ledger and exploring locally indexed academic papers with an Agnes-powered assistant.
 
 The review ledger stores systematic or scoping review projects, bibliography imports, captured PubMed searches, conservative deduplication, reviewer decisions, manual report/study links, and reconciled counts. It retains immutable TXT/JATS/PDF sources, manual structured findings/appraisals, exact quotations, revision history and independent verification. Project passage retrieval searches those retained sources and returns exact anchors for reviewer inspection. Verified evidence exports use current eligible sources and resolved study associations. PubMed receipts and original response bytes survive export and offline replay. The separate ingestion and retrieval-augmented generation (RAG) pipeline supports exploring paper passages.
