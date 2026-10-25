@@ -79,3 +79,29 @@ def test_job_uses_a_random_protected_name_for_pinned_string_only_api(monkeypatch
     monkeypatch.setattr(windows, 'security_attributes', lambda:'protected-SID-fixture')
     processes.WindowsJob();processes.WindowsJob()
     assert len(calls)==2 and calls[0]!=calls[1]
+
+
+def test_windowless_attached_console_is_not_reallocated():
+    from tests.windows.run_source_acceptance import ensure_terminal_console
+    kernel = SimpleNamespace(GetConsoleProcessList=lambda *_: 3,
+        AllocConsole=lambda: pytest.fail('An attached console must not be replaced'))
+    assert ensure_terminal_console(kernel, get_error=lambda: 0, error_factory=lambda code:OSError(code,'fixture')) == (False,3)
+
+
+def test_only_an_explicitly_absent_console_can_be_allocated():
+    from tests.windows.run_source_acceptance import ensure_terminal_console
+    states = iter([0,1]); called=[]
+    kernel = SimpleNamespace(GetConsoleProcessList=lambda *_: next(states),
+        AllocConsole=lambda: called.append('allocate') or True,
+        FreeConsole=lambda: pytest.fail('Do not free the successfully attached fixture early'))
+    assert ensure_terminal_console(kernel, get_error=lambda:6, error_factory=lambda code:OSError(code,'fixture')) == (True,1)
+    assert called == ['allocate']
+
+
+def test_console_access_denial_is_not_treated_as_absence():
+    from tests.windows.run_source_acceptance import ensure_terminal_console
+    kernel = SimpleNamespace(GetConsoleProcessList=lambda *_: 0,
+        AllocConsole=lambda:pytest.fail('Unknown/denied console state must fail closed'))
+    with pytest.raises(OSError) as error:
+        ensure_terminal_console(kernel, get_error=lambda:5, error_factory=lambda code:OSError(code,'fixture'))
+    assert error.value.errno == 5

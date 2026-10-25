@@ -67,6 +67,28 @@ def free_pair():
         for item in sockets: item.close()
 
 
+def ensure_terminal_console(kernel, *, get_error, error_factory=None):
+    """Test fixture only: detect attachment independently of a visible HWND."""
+    import ctypes
+    from ctypes import wintypes
+    errors = error_factory or ctypes.WinError
+    buffer = (wintypes.DWORD * 1)()
+    count = kernel.GetConsoleProcessList(buffer, 1)
+    if count:
+        return False, count
+    code = get_error()
+    if code != 6:  # ERROR_INVALID_HANDLE means this process has no console.
+        raise errors(code)
+    if not kernel.AllocConsole():
+        raise errors(get_error())
+    count = kernel.GetConsoleProcessList(buffer, 1)
+    if not count:
+        code = get_error()
+        kernel.FreeConsole()  # Only the console this fixture just allocated.
+        raise errors(code)
+    return True, count
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--models', action='store_true', help='Explicit official pinned existing-pack downloads and CPU checks')
@@ -79,10 +101,13 @@ def main():
     # terminal fixture so CTRL_BREAK tests the source CLI's normal terminal
     # route. This is test-only, never hidden production-console allocation.
     import ctypes
-    console_fixture = False
-    if not ctypes.windll.kernel32.GetConsoleWindow():
-        if not ctypes.windll.kernel32.AllocConsole(): raise ctypes.WinError()
-        console_fixture = True
+    from ctypes import wintypes
+    kernel = ctypes.WinDLL('kernel32', use_last_error=True)
+    kernel.GetConsoleProcessList.argtypes = [ctypes.POINTER(wintypes.DWORD), wintypes.DWORD]
+    kernel.GetConsoleProcessList.restype = wintypes.DWORD
+    kernel.AllocConsole.argtypes = []; kernel.AllocConsole.restype = wintypes.BOOL
+    kernel.FreeConsole.argtypes = []; kernel.FreeConsole.restype = wintypes.BOOL
+    console_fixture, console_process_count = ensure_terminal_console(kernel, get_error=ctypes.get_last_error)
     commit = command(['git', 'rev-parse', 'HEAD']).decode().strip()
     qa = private_tempdir(prefix='litrev-windows-', parent=Path(os.environ['RUNNER_TEMP']).resolve())
     report = {'schema': 'litrev.windows-source-acceptance.v1', 'source_commit': commit,
@@ -91,6 +116,7 @@ def main():
         'research_usefulness': 'NOT_RUN', 'native_desktop': 'NOT_RUN', 'actual_browser': 'NOT_RUN',
         'private_artifacts_uploaded': False, 'checks': {}}
     report['terminal_console_fixture_allocated'] = console_fixture
+    report['terminal_console_process_count'] = console_process_count
     process = None; log = None; started = time.monotonic()
     try:
         phase('clean-source-package-and-independent-audit')
@@ -259,7 +285,7 @@ def main():
             try: process.wait(timeout=10)
             except subprocess.TimeoutExpired: process.kill(); process.wait(timeout=5)
         if log: log.close()
-        if console_fixture: ctypes.windll.kernel32.FreeConsole()
+        if console_fixture: kernel.FreeConsole()
         report['seconds'] = round(time.monotonic() - started, 3)
         # Only this sanitized report enters ordinary public CI logs. Runtime
         # metadata contains model IDs/hashes/versions, never cookies/source text.

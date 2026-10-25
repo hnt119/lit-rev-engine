@@ -10,7 +10,7 @@ const cookiesPath = path.join(qa, 'browser-state.json');
 const marker = 'SOFTWARE QA Windows browser unsent draft — not a research judgment';
 
 (async()=>{
-  const browser = await chromium.launch({headless:true});
+  const browser = await chromium.launch({headless:true,chromiumSandbox:true});
   const context = await browser.newContext({viewport:{width:1440,height:1000},acceptDownloads:true,
     ...(phase==='verify'?{storageState:cookiesPath}:{})});
   const requests=[], errors=[];
