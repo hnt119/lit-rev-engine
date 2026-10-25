@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 import hashlib
 import hmac
 import os
+from src.platform_support import open_private, restrict_fd, is_link
 from pathlib import Path
 import re
 import secrets
@@ -38,10 +39,10 @@ class HostedAdmissionStore:
         self.path, self.invite_sha256, self.clock = Path(path), invite_sha256, clock
         private_directory(self.path.parent)
         for suffix in ("", "-wal", "-shm", "-journal"):
-            if Path(str(self.path) + suffix).is_symlink():
+            if is_link(Path(str(self.path) + suffix)):
                 raise ValueError("Admission storage must not contain symlinks.")
-        descriptor = os.open(self.path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
-        os.fchmod(descriptor, 0o600)
+        descriptor = open_private(self.path, os.O_CREAT | os.O_RDWR | 0, 0o600)
+        restrict_fd(descriptor, 0o600)
         os.close(descriptor)
         with self.connection() as db:
             db.executescript("""

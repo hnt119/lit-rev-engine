@@ -9,6 +9,8 @@ from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 import json
 import os
+from src.platform_support import atomic_replace
+from src.platform_support import private_directory, open_private, owned_path, assert_no_links
 from pathlib import Path
 import re
 import secrets
@@ -101,13 +103,9 @@ class SettingsTest(Model):
 class RuntimeSettings:
     def __init__(self, directory, *, clock=None):
         self.directory = Path(directory).expanduser().absolute() / 'session-settings'
-        if any(item.is_symlink() for item in (self.directory, *self.directory.parents)):
-            raise MvpError('settings_storage', 'Private settings paths must not contain symlinks.')
-        self.directory.mkdir(mode=0o700, exist_ok=True)
-        info = self.directory.lstat()
-        if not stat.S_ISDIR(info.st_mode) or info.st_uid != os.getuid():
-            raise MvpError('settings_storage', 'Use a private owned settings directory.')
-        self.directory.chmod(0o700)
+        try: private_directory(self.directory)
+        except (OSError, ValueError):
+            raise MvpError('settings_storage', 'Use a private owned settings directory without links.') from None
         self._lock = RLock()
         self._secrets, self._tests, self._permits = {}, {}, {}
         # All settings revisions and sessions share this single outbound slot.
@@ -124,10 +122,10 @@ class RuntimeSettings:
         if not path.exists():
             return {'revision': 0, 'configured': False, 'preferences': RuntimePreferences().model_dump(mode='json')}
         info = path.lstat()
-        if not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid() or stat.S_IMODE(info.st_mode) != 0o600 or info.st_size > 16384:
+        if not stat.S_ISREG(info.st_mode) or not owned_path(path, private=True) or info.st_size > 16384:
             raise MvpError('settings_storage', 'Private settings metadata is unsafe; it was not opened.')
         try:
-            value = json.loads(path.read_text())
+            value = json.loads(path.read_text(encoding='utf-8'))
             if set(value) != {'revision', 'configured', 'preferences'}:
                 raise ValueError('unsupported settings fields')
             value['preferences'] = RuntimePreferences.model_validate(value['preferences']).model_dump(mode='json')
@@ -184,11 +182,11 @@ class RuntimeSettings:
                      'preferences': request.preferences.model_dump(mode='json')}
             path = self._path(owner)
             temporary = path.with_suffix('.new-' + secrets.token_hex(8))
-            fd = os.open(temporary, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+            fd = open_private(temporary, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
             try:
-                with os.fdopen(fd, 'w') as stream:
+                with os.fdopen(fd, 'w', encoding='utf-8') as stream:
                     stream.write(canonical(value) + '\n'); stream.flush(); os.fsync(stream.fileno())
-                os.replace(temporary, path)
+                atomic_replace(temporary, path)
             finally:
                 temporary.unlink(missing_ok=True)
             self._secrets[owner] = keys

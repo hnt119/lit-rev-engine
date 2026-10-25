@@ -42,3 +42,8 @@ Optional installation and configuration do not remove upstream obligations.
 Repackaging third-party runtimes, binaries, weights, images or other sources is
 outside this source-only distribution and needs its own notice/rights review.
 Publication approval is an operator workflow, not an added restriction on MIT.
+
+The Windows source-launcher prerequisite pywin32==312 is separately installed,
+not bundled. Its upstream package/license notices remain with that installation:
+https://pypi.org/project/pywin32/312/. Native Windows binary redistribution has
+not been reviewed or authorized by this source-portability checkpoint.

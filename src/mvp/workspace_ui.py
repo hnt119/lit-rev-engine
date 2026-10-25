@@ -8,10 +8,11 @@ Existing v0.1 workspace tables are neither rewritten nor migrated here.
 from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 import hashlib
-import fcntl
+from src.platform_support import locks as fcntl
 import hmac
 import json
 import os
+from src.platform_support import open_private, restrict_fd, private_directory as platform_private_directory, is_link
 from pathlib import Path
 import re
 import secrets
@@ -29,13 +30,8 @@ def _unavailable():
 
 
 def private_directory(path: Path) -> Path:
-    path = path.expanduser().absolute()
-    # The application owns only this dedicated directory; do not chmod parents.
-    if any(item.is_symlink() for item in [path, *path.parents]):
-        raise ValueError("Private web storage paths must not contain symlinks")
-    path.mkdir(mode=0o700, parents=True, exist_ok=True)
-    path.chmod(0o700)
-    return path
+    # Dedicated per-user storage; Windows uses a protected current-SID DACL.
+    return platform_private_directory(path)
 
 
 class WorkspaceUIStore:
@@ -44,10 +40,10 @@ class WorkspaceUIStore:
         self.path = Path(path).expanduser().absolute()
         private_directory(self.path.parent)
         for suffix in ("", "-wal", "-shm", "-journal"):
-            if Path(str(self.path) + suffix).is_symlink():
+            if is_link(Path(str(self.path) + suffix)):
                 raise ValueError("Private web credential database must not be a symlink")
-        descriptor = os.open(self.path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
-        os.fchmod(descriptor, 0o600)
+        descriptor = open_private(self.path, os.O_CREAT | os.O_RDWR | 0, 0o600)
+        restrict_fd(descriptor, 0o600)
         os.close(descriptor)
         self._delete_locks = private_directory(self.path.parent / (self.path.name + ".delete-locks"))
         self.max_draft_bytes, self.max_workspace_draft_bytes = max_draft_bytes, max_workspace_draft_bytes
@@ -230,7 +226,7 @@ class WorkspaceUIStore:
     @contextmanager
     def _delete_lock(self, workspace_id):
         name = hashlib.sha256(workspace_id.encode("utf-8")).hexdigest()
-        descriptor = os.open(self._delete_locks / name, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+        descriptor = open_private(self._delete_locks / name, os.O_CREAT | os.O_RDWR | 0, 0o600)
         try:
             fcntl.flock(descriptor, fcntl.LOCK_EX)
             yield

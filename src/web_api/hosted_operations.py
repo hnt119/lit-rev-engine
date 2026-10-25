@@ -5,10 +5,12 @@ whole-application consistency boundary, not a claim that arbitrary live file
 copies or independently launched API processes are safe.
 """
 from contextlib import contextmanager
-import fcntl
+from src.platform_support import locks as fcntl
 import hashlib
 import json
 import os
+from src.platform_support import publish_new, sync_directory
+from src.platform_support import open_private, restrict_fd, restrict_path, private_directory as platform_private_directory, is_link
 from pathlib import Path, PurePosixPath
 import shutil
 import sqlite3
@@ -30,12 +32,12 @@ class OperationError(ValueError):
 def hosted_lock(root):
     """Nonblocking OS lock, retained through child reaping and shutdown."""
     root = Path(root)
-    if not root.is_dir() or root.is_symlink() or root.resolve() != root.absolute():
+    if not root.is_dir() or is_link(root) or root.resolve() != root.absolute():
         raise OperationError("The persistent root must be an existing real directory.")
     path = root / ".litrev-instance.lock"
-    fd = os.open(path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+    fd = open_private(path, os.O_CREAT | os.O_RDWR | 0, 0o600)
     try:
-        os.fchmod(fd, 0o600)
+        restrict_fd(fd, 0o600)
         try:
             fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
@@ -50,7 +52,7 @@ def _safe_tree(directory):
     entries, total = [], 0
     for path in sorted(directory.rglob("*")):
         mode = path.lstat().st_mode
-        if stat.S_ISLNK(mode) or not (stat.S_ISREG(mode) or stat.S_ISDIR(mode)) or (stat.S_ISREG(mode) and path.stat().st_nlink != 1):
+        if is_link(path) or not (stat.S_ISREG(mode) or stat.S_ISDIR(mode)) or (stat.S_ISREG(mode) and path.stat().st_nlink != 1):
             raise OperationError("Data contains a link or special file; backup was refused.")
         if stat.S_ISDIR(mode):
             continue
@@ -90,36 +92,37 @@ def _sha256(path):
     return digest.hexdigest()
 
 
-def create_backup(root, directory, output, *, validate_storage=None):
+def create_backup(root, directory, output, *, validate_storage=None, operation_lock=None):
     """All stores, registry, drafts, jobs and artifacts in one stopped snapshot."""
     root, directory, output = (Path(value).absolute() for value in (root, directory, output))
     if (not directory.is_dir() or root.resolve() != root or directory.resolve() != directory
             or not directory.is_relative_to(root) or directory == root):
         raise OperationError("Backup requires a private data directory below the persistent root.")
-    if output.is_relative_to(root.resolve()) or output.exists() or output.is_symlink():
+    if output.is_relative_to(root.resolve()) or output.exists() or is_link(output):
         raise OperationError("Use a new output file outside the persistent disk, then protect the off-service copy.")
     if not output.parent.is_dir() or output.parent.resolve() != output.parent:
         raise OperationError("The backup output parent must already exist.")
-    with hosted_lock(root):
+    with (hosted_lock(root) if operation_lock is None else operation_lock):
         if validate_storage is not None:
             validate_storage()
         entries = _safe_tree(directory)
         # Validate a copy, never the only original. Some SQLite journal modes
         # need writable derived SHM state even for a read-only connection.
         snapshot = Path(tempfile.mkdtemp(prefix=".litrev-snapshot-", dir=output.parent))
+        platform_private_directory(snapshot)
         fd, temporary = tempfile.mkstemp(prefix=".litrev-backup-", dir=output.parent)
         try:
             for path, relative, _ in entries:
                 target = snapshot / relative
-                target.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
-                with path.open("rb") as source, target.open("xb") as destination:
-                    os.chmod(target, 0o600)
+                platform_private_directory(target.parent)
+                with path.open("rb") as source, os.fdopen(open_private(target, os.O_CREAT | os.O_EXCL | os.O_WRONLY), "wb") as destination:
+                    restrict_path(target, 0o600)
                     shutil.copyfileobj(source, destination, length=1024 * 1024)
             _check_databases(snapshot)
             entries = _safe_tree(snapshot)
             manifest = {"schema": "litrev.stopped-backup.v1", "files": {
                 relative: {"size": size, "sha256": _sha256(path)} for path, relative, size in entries}}
-            os.fchmod(fd, 0o600)
+            restrict_fd(fd, 0o600)
             raw_stream = os.fdopen(fd, "wb")
             fd = None
             with raw_stream as raw:
@@ -140,7 +143,7 @@ def create_backup(root, directory, output, *, validate_storage=None):
                 os.fsync(raw.fileno())
             # Hard-link publication is atomic and refuses an output created by
             # another operator after initial validation. No overwrite fallback.
-            os.link(temporary, output)
+            publish_new(temporary, output)
             _fsync_directory(output.parent)
         finally:
             if fd is not None:
@@ -151,24 +154,20 @@ def create_backup(root, directory, output, *, validate_storage=None):
 
 
 def _fsync_directory(directory):
-    fd = os.open(directory, os.O_RDONLY | os.O_DIRECTORY)
-    try:
-        os.fsync(fd)
-    finally:
-        os.close(fd)
+    sync_directory(directory)
 
 
-def restore_backup(root, archive_path, destination, *, validate_storage=None):
+def restore_backup(root, archive_path, destination, *, validate_storage=None, operation_lock=None):
     """Verify into a new directory; never overwrite or replace the only copy."""
     root, archive_path, destination = (Path(value).absolute() for value in (root, archive_path, destination))
     if (root.resolve() != root or destination == root or not destination.is_relative_to(root) or destination.exists()
-            or destination.is_symlink() or destination.parent != root or archive_path.is_symlink()):
+            or is_link(destination) or destination.parent != root or is_link(archive_path)):
         raise OperationError("Restore requires a new direct child directory of the persistent root.")
-    with hosted_lock(root):
+    with (hosted_lock(root) if operation_lock is None else operation_lock):
         if validate_storage is not None:
             validate_storage()
         staging = Path(tempfile.mkdtemp(prefix=".litrev-restore-", dir=root))
-        os.chmod(staging, 0o700)
+        platform_private_directory(staging)
         try:
             with tarfile.open(archive_path, "r:gz") as archive:
                 members, names, total = [], set(), 0
@@ -177,6 +176,8 @@ def restore_backup(root, archive_path, destination, *, validate_storage=None):
                     if (not member.isfile() or name.is_absolute() or ".." in name.parts
                             or str(name) != member.name or member.name in names or member.size > MAX_FILE_BYTES):
                         raise OperationError("Unsafe or duplicate archive entry; restoration was refused.")
+                    if os.name == 'nt' and ('\\' in member.name or ':' in member.name):
+                        raise OperationError('This archive contains unsupported Windows path components; restoration was refused.')
                     names.add(member.name)
                     if member.name != MANIFEST and (len(name.parts) < 2 or name.parts[0] != "data"):
                         raise OperationError("Unexpected archive entry; restoration was refused.")
@@ -198,9 +199,9 @@ def restore_backup(root, archive_path, destination, *, validate_storage=None):
                         continue
                     relative = member.name[5:]
                     target = staging / relative
-                    target.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
-                    with archive.extractfile(member) as source, target.open("xb") as output:
-                        os.chmod(target, 0o600)
+                    platform_private_directory(target.parent)
+                    with archive.extractfile(member) as source, os.fdopen(open_private(target, os.O_CREAT | os.O_EXCL | os.O_WRONLY), "wb") as output:
+                        restrict_path(target, 0o600)
                         shutil.copyfileobj(source, output, length=1024 * 1024)
                         output.flush()
                         os.fsync(output.fileno())
@@ -209,9 +210,9 @@ def restore_backup(root, archive_path, destination, *, validate_storage=None):
             _check_databases(staging)
             # Serialized by the same lock; destination cannot be a live hosted
             # directory. Refuse any concurrently created path before publish.
-            if destination.exists() or destination.is_symlink():
+            if destination.exists() or is_link(destination):
                 raise OperationError("Restore destination now exists; nothing was overwritten.")
-            os.rename(staging, destination)
+            publish_new(staging, destination, directory=True)
             _fsync_directory(root)
             return {"files": len(manifest["files"]), "bytes": total - manifest_member.size}
         except (tarfile.TarError, json.JSONDecodeError, UnicodeError, KeyError, TypeError) as error:

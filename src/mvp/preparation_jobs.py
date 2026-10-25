@@ -6,9 +6,10 @@ research transaction can replace the previously usable preparation.
 """
 from __future__ import annotations
 
-import fcntl
+from src.platform_support import locks as fcntl
 import hashlib
 import os
+from src.platform_support import open_private
 import secrets
 import threading
 import time
@@ -145,7 +146,7 @@ class PreparationWorker:
             locked.add(identity)
             name = hashlib.sha256(identity.encode()).hexdigest()[:20]
             path = store.path.parent / ('preparation-worker-' + name + '.lock')
-            descriptor = os.open(path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+            descriptor = open_private(path, os.O_CREAT | os.O_RDWR | 0, 0o600)
             try:
                 fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
             except BlockingIOError:

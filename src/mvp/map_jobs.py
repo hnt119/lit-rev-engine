@@ -4,9 +4,10 @@ Only immutable saved paper metadata enters map jobs. No provider calls, source
 preparation, passage retrieval, assessments or exports are performed here.
 """
 from __future__ import annotations
-import fcntl
+from src.platform_support import locks as fcntl
 import math
 import os
+from src.platform_support import open_private
 from pathlib import Path
 import secrets
 import threading
@@ -152,7 +153,7 @@ class MapWorker:
 
     def _acquire(self):
         path = self.maps.store.path.parent / "paper-map-worker.lock"
-        descriptor = os.open(path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+        descriptor = open_private(path, os.O_CREAT | os.O_RDWR | 0, 0o600)
         try:
             fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:

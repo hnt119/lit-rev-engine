@@ -12,7 +12,6 @@ from hashlib import sha256
 import json
 import math
 from pathlib import Path
-import resource
 import subprocess
 import sys
 import time
@@ -214,7 +213,8 @@ def run(cache_dir, *, device='cpu', include_public=False, case_ids=None, operati
                 regressions.append({'case_id':case['id'],'lane':row['lane'],'anchors_covered':row['metrics']['anchors_covered'],
                     'lexical_anchors_covered':baseline['metrics']['anchors_covered'],'anchors_expected':row['metrics']['anchors_expected']})
     if code_hashes!={name:sha256((ROOT/name).read_bytes()).hexdigest() for name in code_paths}:raise ValueError('Evaluation code changed during measurement; retain partial output but do not call the run frozen.')
-    rss=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    from src.platform_support.processes import peak_rss_bytes
+    rss=peak_rss_bytes()
     try:commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     except (OSError,subprocess.CalledProcessError):commit=None
     return {'schema_version':'mvp.hybrid-development-evaluation.v1','created_at':now(),'source_commit':commit,'code_sha256':code_hashes,
@@ -226,7 +226,7 @@ def run(cache_dir, *, device='cpu', include_public=False, case_ids=None, operati
         'inventories':{key:value.model_dump(mode='json') for key,value in inventories.items()},'index_receipts':index_receipts,
         'records':records,'summaries':summaries,'anchor_regressions_against_A':regressions,
         'actual_runtime':{profile:adapter.runtime_metadata() for profile,adapter in adapters.items()},
-        'wall_seconds':time.perf_counter()-started,'peak_whole_process_rss_bytes':rss if sys.platform=='darwin' else rss*1024,
+        'wall_seconds':time.perf_counter()-started,'peak_whole_process_rss_bytes':rss,
         'resource_scope':'process high-water memory; includes Python/model loads; not incremental model memory',
         'sufficient_support_retrieval_at5':'NOT_RUN; human support labels missing; exact-anchor search proxy reported separately' if operation=='search' else 'NOT_RUN; per-cell output maximum3', 'sufficient_support_retrieval_at10':'NOT_RUN; human support labels missing; exact-anchor search proxy reported separately' if operation=='search' else 'NOT_RUN; per-cell output maximum3',
         'human_correction_time':'NOT_RUN','held_out_validation':'NOT_RUN','human_graded_relevance':'NOT_RUN','semantic_entailment':'NOT_RUN',

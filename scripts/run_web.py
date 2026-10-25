@@ -14,8 +14,11 @@ import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
+from src.platform_support import IS_WINDOWS
+from src.platform_support.processes import WindowsJob, windows_listener_owned
 SAFE_ENVIRONMENT = {"PATH", "HOME", "USER", "LOGNAME", "TMPDIR", "TMP", "TEMP",
-                    "LANG", "LC_ALL", "LC_CTYPE", "DISPLAY", "WAYLAND_DISPLAY", "XDG_RUNTIME_DIR"}
+                    "LANG", "LC_ALL", "LC_CTYPE", "DISPLAY", "WAYLAND_DISPLAY", "XDG_RUNTIME_DIR", "SYSTEMROOT", "WINDIR", "LOCALAPPDATA", "APPDATA", "USERPROFILE", "HOMEDRIVE", "HOMEPATH", "PATHEXT"}
 
 
 class LocalLaunchError(ValueError):
@@ -36,7 +39,7 @@ def check_ports_available(api_port, web_port):
             sockets.append(connection)
             # Match the servers' address reuse after a recently closed TCP
             # connection. This does not permit sharing an active listener.
-            connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            connection.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE if IS_WINDOWS else socket.SO_REUSEADDR, 1)
             try:
                 connection.bind(("127.0.0.1", port))
             except OSError:
@@ -81,6 +84,10 @@ def server_commands(root, python, node, api_port, web_port, production):
         raise LocalLaunchError("Setup required: install the locked web dependencies first.")
     if production and not (root / "apps/web/.next/BUILD_ID").is_file():
         raise LocalLaunchError("Setup required: build the production web application first.")
+    if IS_WINDOWS:
+        return [([str(python), '-m', 'src.platform_support.windows_api', '--port', str(api_port)], root),
+            ([str(node), str(root / 'src/platform_support/windows_web.cjs'), 'start' if production else 'dev',
+              '--hostname', '127.0.0.1', '--port', str(web_port)], root / 'apps/web')]
     return [
         ([str(python), "-m", "uvicorn", "src.web_api.app:app_factory", "--factory", "--host", "127.0.0.1",
           "--port", str(api_port), "--workers", "1", "--no-access-log", "--no-proxy-headers",
@@ -92,6 +99,8 @@ def server_commands(root, python, node, api_port, web_port, production):
 
 def listener_owned(pid, port):
     """Check the spawned PID owns this exact IPv4 loopback listening socket."""
+    if IS_WINDOWS:
+        return windows_listener_owned(pid, port)
     if sys.platform == "darwin":
         result = subprocess.run(["/usr/sbin/lsof", "-nP", "-a", "-p", str(pid),
                                  "-iTCP@127.0.0.1:" + str(port), "-sTCP:LISTEN", "-F", "pn"],
@@ -137,11 +146,20 @@ class LocalServers:
         self.browser_host = browser_host
         self.children = []
         self.pass_fds = tuple(pass_fds)
+        self.job = None
+        self.shutdown_result = None
 
     def start(self):
         check_ports_available(self.api_port, self.web_port)
-        for command, cwd in self.commands:
-            self.children.append(subprocess.Popen(command, cwd=cwd, env=self.env, start_new_session=True, pass_fds=self.pass_fds))
+        if IS_WINDOWS:
+            self.job = WindowsJob()
+        try:
+            for command, cwd in self.commands:
+                child = self.job.spawn(command, cwd, self.env) if IS_WINDOWS else subprocess.Popen(command, cwd=cwd, env=self.env, start_new_session=True, pass_fds=self.pass_fds)
+                self.children.append(child)
+        except BaseException:
+            self.stop()
+            raise
 
     def check_children(self):
         if any(child.poll() is not None for child in self.children):
@@ -151,10 +169,10 @@ class LocalServers:
         deadline = time.monotonic() + timeout
         while not stop.is_set() and time.monotonic() < deadline:
             self.check_children()
-            owned = all(listener_owned(child.pid, port) for child, port in zip(self.children, (self.api_port, self.web_port)))
+            owned = all(listener_owned(child if IS_WINDOWS else child.pid, port) for child, port in zip(self.children, (self.api_port, self.web_port)))
             if owned and health_ready(self.api_port, "/readyz", {"ready": True}) and health_ready(self.web_port, "/healthz", {"status": "ok"}, self.browser_host):
                 self.check_children()
-                if all(listener_owned(child.pid, port) for child, port in zip(self.children, (self.api_port, self.web_port))):
+                if all(listener_owned(child if IS_WINDOWS else child.pid, port) for child, port in zip(self.children, (self.api_port, self.web_port))):
                     return True
             stop.wait(.15)
         if stop.is_set():
@@ -162,6 +180,10 @@ class LocalServers:
         raise LocalLaunchError("Local startup did not become ready in time. Check this terminal, unused ports and setup; no browser was opened.")
 
     def stop(self):
+        if IS_WINDOWS:
+            if self.job is not None:
+                self.shutdown_result = self.job.close(self.shutdown_seconds); self.job = None
+            return
         # External stop clients never signal a recorded PID. Only our direct
         # Popen children started in fresh sessions receive group signals.
         for child in self.children:
