@@ -22,6 +22,7 @@ from scripts.local_preview import reject_web_env_files
 
 VERSION='0.3.0-desktop-preview.1'
 APP='Literature Review Engine Desktop Preview.app'
+EXECUTABLE='LiteratureReviewEngineDesktopPreview'
 
 def run(args,**kwargs):
     subprocess.run([str(a) for a in args],check=True,**kwargs)
@@ -166,8 +167,11 @@ def build(args):
     # Do not include optional ML packages, source maps, workspace state or caches.
     for path in resources.rglob('__pycache__'):
         if path.is_dir():shutil.rmtree(path)
+    # Electron derives packaged identity from its executable basename. Keep the
+    # real check enabled and rename the product, rather than forcing its result.
+    (app/'Contents/MacOS/Electron').rename(app/'Contents/MacOS'/EXECUTABLE)
     info=app/'Contents/Info.plist'
-    value=plistlib.loads(info.read_bytes());value.update(CFBundleName='Literature Review Engine Desktop Preview',CFBundleDisplayName='Literature Review Engine Desktop Preview',CFBundleIdentifier='org.hnt119.litrev.desktop-preview',CFBundleShortVersionString='0.3.0',CFBundleVersion='1',LitrevPrototypeVersion=VERSION,NSHighResolutionCapable=True)
+    value=plistlib.loads(info.read_bytes());value.update(CFBundleExecutable=EXECUTABLE,CFBundleName='Literature Review Engine Desktop Preview',CFBundleDisplayName='Literature Review Engine Desktop Preview',CFBundleIdentifier='org.hnt119.litrev.desktop-preview',CFBundleShortVersionString='0.3.0',CFBundleVersion='1',LitrevPrototypeVersion=VERSION,NSHighResolutionCapable=True)
     info.write_bytes(plistlib.dumps(value))
     notices='''# Desktop Preview runtime notices\n\nThe owner original engine code is MIT; LICENSE and THIRD_PARTY_NOTICES.md are in engine/. This internal macOS arm64 prototype bundles additional runtimes. Their terms remain separate.\n\nElectron45.0.0 includes Chromium/Node/V8 and upstream codecs; retain Resources/LICENSE and LICENSES.chromium.html and the framework license files. Python3.12.15+20261021 is the pinned python-build-standalone distribution; retain all Python licenses in python/ and the exact upstream binary-dependency license texts/provenance in python/UPSTREAM_LICENSES/. Installed Python/Next/React dependency license and dist-info files are retained. No model weights or ML stacks are included.\n\nThis bundle is ad-hoc signed for internal tests, not Developer ID signed or Apple-notarized. It is not approved for public distribution. A complete binary SBOM/license review and nested-code Developer ID signing/notarization must precede a trusted public desktop release. Do not disable operating-system protections.\n'''
     (resources/'DESKTOP_NOTICES.md').write_text(notices)
