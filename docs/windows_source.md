@@ -7,14 +7,22 @@ an ordinary non-administrator account. Windows ARM, network shares, FAT/exFAT,
 junction/reparse data paths and a native Windows desktop package are unsupported.
 Linux installation remains unverified.
 
-Actual Windows x64 validation passed on the **Windows Server 2025** standard
-GitHub runner at portability baseline
-`aec9277d8cf2199026ff933da86ca3c8d3ea7b52`,
-[Actions run 40214350818](https://github.com/hnt119/lit-rev-engine/actions/runs/40214350818).
-That run is evidence for its exact baseline, not an inherited pass for the newer
-comparison UI, combined source or beta.4 ZIP. Their final gates are in
-VALIDATION.md. **Physical Windows 11 testing is NOT_RUN.** No claim follows from
-macOS tests or Windows mocks alone.
+The combined 8cf4379 Windows candidate in
+[run 40217061799](https://github.com/hnt119/lit-rev-engine/actions/runs/40217061799)
+passed its Core production/browser/restart/export/backup checks but ended
+**overall FAIL**: the actual Qwen production index returned HTTP 422
+`retrieval_model_failed` after its tiny component check passed. MedCPT was
+**NOT_RUN in that combined run**. Windows neural retrieval is not qualified.
+
+The runner label was `windows-2025`; observed OS release was **`2022Server`**,
+version **10.0.26100**, architecture AMD64. Do not infer the product OS from the
+runner label. The earlier portability baseline
+`aec9277d8cf2199026ff933da86ca3c8d3ea7b52` passed
+[run 40214350818](https://github.com/hnt119/lit-rev-engine/actions/runs/40214350818),
+but does not erase this later failure. A fresh macOS candidate passed separately.
+Final merged-archive gates remain pending in VALIDATION.md. **Physical Windows
+11 testing is NOT_RUN.** No qualification follows from macOS tests or Windows
+mocks alone.
 
 ## Verify the source download
 
@@ -192,9 +200,12 @@ Both packs/cache and research data stay outside replaceable application files.
 Core and saved maps keep working without them. No default change downloads,
 indexes, searches or infers; no provider fallback exists.
 
-The baseline runner actually executed Qwen and MedCPT CPU checks, each with one
-query encoding, two document encodings and two reranker pairs. Synthetic runtime
-checks are not clinical/biomedical relevance or retrieval-quality validation.
+The historical baseline executed Qwen and MedCPT CPU component checks, each with
+one query encoding, two document encodings and two reranker pairs. The later
+combined run passed the Qwen component check but failed its actual production
+index (HTTP 422 `retrieval_model_failed`); MedCPT then did not run. These results
+must not be presented as a working Windows neural-retrieval workflow. Synthetic
+runtime checks are not clinical/biomedical relevance or retrieval-quality validation.
 Apple MPS is not a Windows option. Fresh Windows BGE map fitting, real generation
 and live providers remain **NOT_RUN**. Read VALIDATION.md for combined/final
 source gates; neither historical Mac model results nor this earlier runner

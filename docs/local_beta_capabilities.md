@@ -32,9 +32,12 @@ mock checks, actual live-provider calls and actual real-model execution. Real
 execution not performed remains `NOT_RUN`. Earlier working-tree tests do not
 qualify a later archive automatically.
 
-macOS arm64 has historical actual checks. Windows x64 has actual Windows Server
-2025 runner checks at baseline aec9277 (run 40214350818); current combined source
-and final archive checks are separate gates in VALIDATION.md. Physical Windows
+Fresh macOS 26.6.2 arm64 candidate 8cf4379 checks passed. Windows x64 candidate
+run 40217061799 passed Core/production checks but ended FAIL: Qwen's actual
+index returned HTTP 422 `retrieval_model_failed`; MedCPT was NOT_RUN afterward.
+Windows neural retrieval is not qualified. Observed OS release/version were
+`2022Server` / `10.0.26100` (runner label `windows-2025`). Final exact-archive
+checks remain pending in VALIDATION.md. Physical Windows
 11 is NOT_RUN. Linux installation is unverified; Intel Mac and Windows ARM
 are unqualified. Cookie/hostname/profile access limitations, force-killed
 controller recovery and the bounded 4,000-code-point inspector remain documented

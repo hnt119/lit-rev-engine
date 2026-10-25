@@ -14,11 +14,14 @@ on your own computer. Hosted deployment is deferred.
 - A writable application folder, a private per-user data folder and two unused
   loopback ports. Internet access is needed for locked dependency installation.
 
-macOS **26.6.2 arm64 is tested**, with Python 3.12.7 and Node 24.19.0. Fresh
-release checks are recorded separately from historical working-tree results;
-these checks do not imply testing on all macOS versions. Windows x64 has actual
-Windows Server 2025 runner validation at the earlier portability baseline; this
-combined source and its final extracted archive need their own gates in
+macOS **26.6.2 arm64** passed a fresh extracted **8cf4379 candidate** check with
+Python 3.12.7, Node 24.19.0 and Chrome 155.0.8059.85. Final merged-archive checks
+remain separate in VALIDATION.md; no other macOS version is implied. Windows x64
+candidate 8cf4379 passed Core production/browser checks, but its overall run
+failed on an actual Qwen index request (HTTP 422 `retrieval_model_failed`);
+MedCPT was NOT_RUN in that run. The runner label was `windows-2025`, while its
+observed OS release/version were `2022Server` / `10.0.26100`. Windows neural
+retrieval is not qualified, and final exact-archive checks remain pending in
 VALIDATION.md. Physical Windows 11 testing is NOT_RUN. Linux installation is
 unverified; Intel Mac and Windows ARM are unqualified. No Docker or native
 desktop framework is needed.
