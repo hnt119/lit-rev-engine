@@ -19,6 +19,8 @@ Navigation hints reuse one bounded workspace UI draft per exact board revision (
 
 The initial combined API/MVP pytest collection hit duplicate module basenames before running tests. Separate test processes passed. The independent computer-control tool could not attach reliably to the dedicated Chrome profile; that observation was NOT_RUN, not an application failure. A separate actual-browser harness completed the checks above.
 
+A subsequent final-gate run exposed three evaluation-fixture races (192/195): void UI handlers had not completed their draft/fingerprint/action work when the tests immediately asserted response or save state. The original failed log is retained. The tests now wait for actual enabled editor controls, rendered candidate/error results and immutable save acknowledgements, and settle fixture work before unmount. The first complete run after this test-only correction passed all 195 tests; TypeScript passed. Application code and reviewer data were unchanged. This is distinct from the earlier extracted-browser harness readiness issue.
+
 ## Optional retrieval clarity
 
 Settings distinguish installed weights from metadata-only dependency availability; checking availability imports no model stack and executes no inference. Existing hybrid jobs expose sanitized phases and actual completed batch/item/window counts. Progress/cancel/retry is visible in Passage search and the comparison cell; retry is an explicit new request after failure. A completing batch cannot erase acknowledged cancellation intent. Restart marks unfinished work interrupted while retaining its last counters. Computation stays outside mutation locks; deleted/stale inputs still cannot publish.
