@@ -20,11 +20,11 @@ beta.4 artifact or download URL.
 | Exact beta.4 gate | Status at documentation preparation |
 | --- | --- |
 | Package/license/link | Preparation working tree: 44 offline tests PASS; final reviewed commit gate pending |
-| Independent source archive audit | Candidate 8cf4379: 270 files PASS; final clean commit/archive pending |
+| Independent source archive audit | 8cf4379 and c27aea0 candidates: 270 files PASS with their own exact source/hash bindings; final clean commit/archive pending |
 | Combined software suites | Frontend 199 PASS; API 114 PASS; platform 112 PASS; MVP 738 PASS / 13 optional Streamlit skips; overlapping counts, not cumulative |
 | Fresh extracted macOS arm64 setup, production/browser, drafts, source round trip, exports, restart/replacement | Exact 8cf4379 candidate PASS; final merged archive pending |
-| Combined Windows x64 source | 8cf4379 run 40217061799 overall FAIL: Core/production workflow PASS, Qwen component check PASS but production index HTTP 422; MedCPT NOT_RUN in this run |
-| Final merged archive | PENDING fresh exact-source checks; no candidate hash is a final artifact |
+| Combined Windows x64 source | c27aea0 run 40222652682 PASS: Core workflow plus both real CPU component and bounded production HTTP retrieval cases; earlier failures retained below |
+| Final merged archive | PENDING fresh exact-source checks; external RELEASE_ACCEPTANCE.json is generated after the final build; no candidate hash is a final artifact |
 | Physical Windows 11 machine | NOT_RUN |
 | Linux installation, Intel Mac, Windows ARM | Unverified / unqualified; Windows ARM unsupported |
 | Fresh Windows BGE semantic-map fitting | NOT_RUN; saved maps/Core require no new fit |
@@ -33,9 +33,12 @@ beta.4 artifact or download URL.
 
 Preparation command: `python -m pytest -q tests/local_distribution/test_release_packager.py tests/local_distribution/test_license_policy.py tests/local_distribution/test_release_links.py` — 44 passed, no failures/skips (27.63 seconds), in disposable synthetic repositories. This does not execute the application or qualify a final archive. `git diff --check` passed. That initial packaging/documentation task ran no build, Windows execution, model/provider call or live PubMed check. Subsequent observed executions are recorded separately below.
 
-The release owner must append observed final command/results, failures/skips,
-source identity and extraction checks before treating this as a passed release
-gate. A successful source build alone does not exercise installation or browser
+The release owner must generate an external **RELEASE_ACCEPTANCE.json** after
+building/checking the final merged archive. It records that exact SHA, artifact
+hashes and fresh results, separate from these candidate observations. It is not
+embedded in the ZIP or its self-bound manifest; no archive/self-hash loop is
+introduced. At this documentation checkpoint that final supplement is PENDING.
+A successful source build alone does not exercise installation or browser
 behavior. No new provider/model execution is implied by preparing this guide.
 
 ## Combined software checks and fresh macOS candidate
@@ -88,6 +91,69 @@ and existing release assets were untouched. Real neural retrieval, generation,
 live providers/PubMed and scientific/human usefulness evaluation were NOT_RUN
 by this extracted candidate check. A new merged SHA/archive still needs its own
 fresh acceptance; neither this hash nor these statuses may be silently reused.
+
+## Current Windows candidate c27aea0 — actual Core and neural HTTP PASS
+
+[Run 40222652682](https://github.com/hnt119/lit-rev-engine/actions/runs/40222652682)
+passed at exact source **`c27aea059cde4371bed48026b2bcee284c35e09f`**. This was a
+new actual Windows execution, not an inherited pass. The clean 270-file candidate
+ZIP was 1,919,772 bytes, SHA256
+`eba6039c5386d13ab94a4e9dcd18ba6dcc84a8156ff2e6a97b001fdb1d4ccf18`.
+Its archive audit matched the selected commit/source snapshot. This is still a
+candidate identity; the final merged ZIP has its own future integrity and
+RELEASE_ACCEPTANCE.json record.
+
+The requested runner label was `windows-2025`; Python actually reported OS
+release **`2022Server`**, version **`10.0.26100`**, architecture **AMD64**. This
+does not establish physical Windows 11 testing or an OS product identity from
+the runner label. Native/policy/API tests passed **128 checks**, with two
+existing warnings; both Node signal-adapter tests passed. Earlier suite counts
+remain recorded at their original checkpoints and must not be summed.
+
+The full Core production/browser, 30-paper / three-prepared-report / nine-cell
+comparison, explicit revision, exact-source, authorization, drafts, restart,
+exports, app replacement, foreign-listener/owned-process and stopped backup/
+new-directory restore checks passed again. Fresh setup took 59.953 seconds,
+production readiness 1.563 seconds and authenticated stop 0.484 seconds. The
+existing console had four processes, so the fixture allocated none. Four
+recorded normal stops sent two console breaks, produced child exits 0/143,
+forced no primary process and closed their owned job. The whole run took
+524.156 seconds; these are one runner's observations, not latency guarantees.
+
+Both pinned CPU model families passed their tiny component checks (one query,
+two document encodings and two reranker pairs each), **and** both then passed
+actual production HTTP indexing/query/reranking through the existing API:
+
+| Profile | Tiny component seconds | HTTP index seconds | HTTP search seconds | Result |
+| --- | ---: | ---: | ---: | --- |
+| Qwen hybrid + reranking | 8.657 | 11.922 | 10.891 | PASS |
+| Experimental MedCPT passage hybrid + reranking | 5.688 | 6.906 | 4.984 | PASS |
+
+Each HTTP case prepared **two approved public abstract-only reports**, retained
+their attribution and deliberately omitted identity-resolution identifiers to
+keep the case abstract-only. The board contained two reports; retrieval ranked
+**one selected report**, not both papers or full text. Its one retained abstract
+block contained **1,435 characters**, indexed as **two windows**; both windows
+were returned. Successful source/cell return, wrong-paper rejection, retained
+run replay/history/exports and **no cell-draft, inspection, support or submission
+writes from retrieval/navigation** were checked. Coverage was complete for that
+exact selected abstract only; it is not whole-paper/full-library completeness.
+
+The username environment field is now preserved as a verified Windows runtime
+prerequisite. The later run passed, but that temporal sequence does **not** prove
+it caused the earlier unknown model-loading error; the earlier failure and
+unresolved causal diagnosis are retained below. Model computation, templates,
+profiles, batch/token/thread settings, ranking and budgets remain unchanged.
+
+Both pack cleanup and owned model-app stop checks passed; no private artifacts
+were uploaded. These are bounded software/runtime demonstrations, not a human-
+gold relevance benchmark, biomedical advantage or superiority over lexical
+retrieval. Real generative planning/proposals, live providers/PubMed, fresh BGE
+map fitting, physical Windows 11, native desktop and scientific/human usefulness
+validation remain NOT_RUN / NOT_EVALUATED. Saved maps/Core still need no new fit.
+
+The following failed attempts are historical evidence. This new pass does not
+rewrite them or automatically qualify a later final merged archive.
 
 ## Combined Windows candidate — Core passed, neural gate failed
 

@@ -7,30 +7,39 @@ an ordinary non-administrator account. Windows ARM, network shares, FAT/exFAT,
 junction/reparse data paths and a native Windows desktop package are unsupported.
 Linux installation remains unverified.
 
-The combined 8cf4379 Windows candidate in
-[run 40217061799](https://github.com/hnt119/lit-rev-engine/actions/runs/40217061799)
-passed its Core production/browser/restart/export/backup checks but ended
-**overall FAIL**: the actual Qwen production index returned HTTP 422
-`retrieval_model_failed` after its tiny component check passed. MedCPT was
-**NOT_RUN in that combined run**. Windows neural retrieval is not qualified.
+Exact candidate `c27aea059cde4371bed48026b2bcee284c35e09f` passed
+[run 40222652682](https://github.com/hnt119/lit-rev-engine/actions/runs/40222652682):
+Core production/browser/restart/export/backup checks and actual bounded Qwen
+and MedCPT CPU indexing/query/reranking through the production API. Those cases
+used two public abstract-only reports and ranked one selected 1,435-character
+abstract/two windows; they do not validate full-paper latency or scientific
+quality. Earlier 8cf4379/9ed6bc5/dfb8399 failures remain in VALIDATION.md rather
+than being relabeled or erased.
 
 The runner label was `windows-2025`; observed OS release was **`2022Server`**,
 version **10.0.26100**, architecture AMD64. Do not infer the product OS from the
-runner label. The earlier portability baseline
-`aec9277d8cf2199026ff933da86ca3c8d3ea7b52` passed
-[run 40214350818](https://github.com/hnt119/lit-rev-engine/actions/runs/40214350818),
-but does not erase this later failure. A fresh macOS candidate passed separately.
-Final merged-archive gates remain pending in VALIDATION.md. **Physical Windows
-11 testing is NOT_RUN.** No qualification follows from macOS tests or Windows
-mocks alone.
+runner label. A fresh macOS candidate passed separately. Final merged-archive
+gates remain pending; their external RELEASE_ACCEPTANCE.json is generated after
+the final build. **Physical Windows 11 testing is NOT_RUN.** No qualification
+follows from macOS tests or Windows mocks alone.
 
 ## Verify the source download
 
 Install Python **3.12** with `venv`/pip, Node.js **24** and pnpm **10.20.0** from
-their normal trusted distributions. They must be available in your terminal;
-setup can also take explicit `--node` / `--pnpm` executable paths. The app does
+their normal trusted distributions. The PowerShell commands require the Windows
+Python launcher: verify `py -3.12 --version`. If `py` is missing, include the
+launcher when installing/repairing Python 3.12; do not change execution policy.
+The tools must be available in your terminal; setup can also take explicit
+`--node` / `--pnpm` executable paths. The app does
 not fetch these runtimes or model weights automatically. Do not disable TLS,
 SmartScreen, antivirus or PowerShell execution policy to use it.
+
+If pnpm is absent, trusted Node's `npm.cmd install --global pnpm@10.20.0` can
+install the pinned tool in your usual per-user npm prefix without elevation.
+Use `npm.cmd` / `pnpm.cmd` from PowerShell if a `.ps1` wrapper is blocked;
+verify `pnpm.cmd --version`. Do not weaken script policy, install app Python
+packages globally, or use an administrator shell as a workaround. A permission
+failure should be fixed by selecting a supported own-user tool installation.
 
 Keep the purpose-built ZIP, matching manifest and SHA256SUMS together in the
 download directory. GitHub's automatic source ZIP is a different artifact. In
@@ -200,16 +209,17 @@ Both packs/cache and research data stay outside replaceable application files.
 Core and saved maps keep working without them. No default change downloads,
 indexes, searches or infers; no provider fallback exists.
 
-The historical baseline executed Qwen and MedCPT CPU component checks, each with
-one query encoding, two document encodings and two reranker pairs. The later
-combined run passed the Qwen component check but failed its actual production
-index (HTTP 422 `retrieval_model_failed`); MedCPT then did not run. These results
-must not be presented as a working Windows neural-retrieval workflow. Synthetic
-runtime checks are not clinical/biomedical relevance or retrieval-quality validation.
-Apple MPS is not a Windows option. Fresh Windows BGE map fitting, real generation
-and live providers remain **NOT_RUN**. Read VALIDATION.md for combined/final
-source gates; neither historical Mac model results nor this earlier runner
-qualifies a new archive automatically.
+Candidate c27aea0 actually passed both Qwen and MedCPT CPU component checks and
+bounded production HTTP index/query/rerank cases, including exact-source/cell
+return, wrong-paper rejection, replay/export and no automatic human-review
+writes. The earlier failed production attempts remain historical; the verified
+username prerequisite and later pass are not causal proof of their unknown
+loading error. Model computation, frozen profiles and budgets were unchanged.
+The demonstrated abstracts are not a clinical/biomedical relevance or quality
+benchmark. Apple MPS is not a Windows option. Fresh Windows BGE map fitting,
+real generation and live providers remain **NOT_RUN**. Read VALIDATION.md and
+the future final RELEASE_ACCEPTANCE.json for exact candidate/final source gates;
+no earlier runner qualifies a new archive automatically.
 
 The public-repository standard `windows-2025` job uses read-only repository
 permissions. Its authorized optional checks can download only the existing
