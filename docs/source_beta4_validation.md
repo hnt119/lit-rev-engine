@@ -145,6 +145,31 @@ did not provision or deploy a hosted service, modify the research engine or
 qualify a native executable. The final release still needs its own exact source
 and artifact binding.
 
+## Diagnostic replay 9ed6bc5 — failed before model execution
+
+[Run 40219519382](https://github.com/hnt119/lit-rev-engine/actions/runs/40219519382)
+used exact source `9ed6bc56b0de3e6c41b25d6f1be6953e7b96da5c`. Native/policy checks
+passed (84 tests, two existing warnings), as did two Node checks and the
+production HTTP/source/security workflow. The browser then failed with an
+AssertionError at `return-focus-and-export`; model execution and the newly
+added model diagnostic were **NOT_RUN**. This does not replace the earlier
+8cf4379 production Qwen failure.
+
+That checkpoint combined several assertions, so the exact failed assertion was
+not established by its sanitized report. Review identified an immediate focus
+read after asynchronous navigation as a test-wait risk. The follow-up driver
+waits boundedly for the intended visible focus target, retains all export/count/
+identity assertions, and records separate focus/JSON/CSV checkpoints. It does
+not force focus or change the app. A fresh local production-browser create and
+restart/reopen passed; an actual Windows replay remains required.
+
+The adapter diagnostic changes only failure reporting: static allowlisted
+phase/kind/category/system-code values, no original exception payload or private
+source text. Typed errors, model/template/batch/token/runtime limits and profile
+metadata are unchanged. An affected suite using the installed optional tensor
+runtime passed 88 checks (two existing warnings); fake weights and small tensors
+are not trained-model execution or relevance validation.
+
 ## Historical Windows baseline — actually executed, different source
 
 [Actions run 40214350818](https://github.com/hnt119/lit-rev-engine/actions/runs/40214350818)

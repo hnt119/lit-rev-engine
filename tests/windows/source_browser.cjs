@@ -32,6 +32,13 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
     }catch{} // Diagnostics observe already-requested reads; they perform no new work.
   });
   const button=name=>page.getByRole('button',{name,exact:true});
+  const waitForIntendedFocus=async locator=>{
+    await locator.waitFor({state:'visible',timeout:5000});
+    const target=await locator.elementHandle();
+    try{await page.waitForFunction(node=>node===document.activeElement,target,{timeout:5000});}
+    finally{await target?.dispose();}
+    assert.equal(await locator.evaluate(node=>node===document.activeElement),true);
+  };
   const readyEditor=async()=>{
     await page.locator('.board-cell-editor').waitFor();
     await page.locator('.board-cell-editor').getByText('Draft: saved',{exact:true}).waitFor();
@@ -101,7 +108,7 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
         await page.locator('.board-cell-editor .source-text').waitFor();
         await button('I have read this excerpt — use it').click();
         await page.getByRole('textbox',{name:'Manual cell value',exact:true}).waitFor();
-        assert.equal(await page.getByRole('textbox',{name:'Manual cell value',exact:true}).evaluate(node=>node===document.activeElement),true);
+        await waitForIntendedFocus(page.getByRole('textbox',{name:'Manual cell value',exact:true}));
         await page.getByRole('textbox',{name:'Manual cell value',exact:true}).fill(`SOFTWARE QA unassessed Windows cell ${i}`);
         await page.getByRole('textbox',{name:'Reason',exact:true}).fill('Mechanical software exercise only; no researcher support judgment.');
         await button('Review entry before saving').click();
@@ -139,9 +146,11 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
       assert.equal(await page.getByRole('textbox',{name:'Evidence question',exact:true}).inputValue(),'microbiome');
       assert.equal(await page.getByLabel('Maximum passages for next search',{exact:true}).inputValue(),'10');
       await button('Back to cell').click();await readyEditor();await assertDraft();
-      checkpoint('return-focus-and-export');
+      checkpoint('return-table-visible-and-focus');
       await button('Back to table').first().click();
-      assert.equal(await page.locator('button[data-board-cell]').first().evaluate(node=>node===document.activeElement),true);
+      await page.locator('.comparison-table-pane').waitFor({state:'visible',timeout:5000});
+      await waitForIntendedFocus(page.locator('button[data-board-cell]').first());
+      checkpoint('export-board-json-count-and-identity');
       await page.getByText('Comparison tools and revision history',{exact:true}).click();
       const downloadWait=page.waitForEvent('download');
       await page.getByRole('link',{name:'Download board audit JSON',exact:true}).click();
@@ -149,6 +158,7 @@ const checkpoint=name=>{browserStep=name;console.log(JSON.stringify({browser_ste
       const exported=JSON.parse(fs.readFileSync(jsonPath,'utf8'));
       assert.equal(exported.table.length,9);assert.equal(exported.cell_revisions.length,3);
       assert.ok(exported.cell_revisions.every(v=>v.semantic_assessment==='unassessed'&&v.paper_id===firstPaper));
+      checkpoint('export-board-csv');
       const csvWait=page.waitForEvent('download');await page.getByRole('link',{name:'Download board CSV',exact:true}).click();
       await (await csvWait).saveAs(path.join(qa,'browser-board-export.csv'));
       // Genuine browser citation upload/preview/commit; no metadata resolution.
