@@ -15,6 +15,7 @@ import {BoardCandidates,type BoardCandidateResult} from "./board-candidates";
 import type {Navigate} from "./workspace-app";
 import {cellReviewSteps,derivedCellStep,sameExcerpt,type CellReviewStep} from "../lib/cell-review";
 import RetainedExcerpt from "./retained-excerpt";
+import {PollingHybridJobStatus} from "./hybrid-job-progress";
 
 type View=Schema<"BoardView">;
 type Definition=View["definition"];
@@ -183,10 +184,27 @@ function CellEditor({endpoint,view,paperId,fieldId,requestedRun,requestedPassage
   useEffect(()=>{if(draft.ready&&head&&draft.expectedHead===head.id&&draft.version>0)setEditing(true);},[draft.ready,draft.version,draft.expectedHead,head]);
   const editable=!readOnly&&editing&&draft.ready;
   async function action(operation:()=>Promise<void>){if(actionPending.current)return;actionPending.current=true;setBusy(true);setError("");try{await operation();}catch(error){setError((error as Error).message);}finally{actionPending.current=false;setBusy(false);}}
-  async function retrieve(){await action(async()=>{await draft.save();const payload={expected_revision_id:definition.revision_id,paper_id:paperId,field_id:fieldId,top_k:3};const result=await api<BoardCandidateResult>(endpoint+"/candidates","POST",{...payload,request_id:await requestId(endpoint+":"+paperId+":"+fieldId+":candidates",payload)});if((result.schema_version==="mvp.board-candidates.spans.v2"||result.schema_version==="mvp.board-candidates.hybrid.v1")&&(result.board_id!==definition.board_id||result.board_revision_id!==definition.revision_id||result.paper_id!==paperId||result.field_id!==fieldId||result.field_revision_id!==field.revision_id||result.preparation_id!==definition.preparation_id||result.source_manifest_sha256!==definition.source_manifest_sha256||result.retrieval_profile_sha256!==definition.retrieval_profile_sha256))throw new Error("The span candidates do not match this exact cell, source preparation and retrieval profile.");setCandidates(result);});}
   const hybrid=String(definition.retrieval_profile.profile_id??"").startsWith("hybrid_");
   const [indexMessage,setIndexMessage]=useState("Index not checked for this exact cell source.");
-  async function indexCell(){await action(async()=>{await draft.save();const value=await api<{state:string}>(workspacePath(definition.workspace_id)+"/hybrid-index","POST",{request_id:crypto.randomUUID(),profile_id:definition.retrieval_profile.profile_id,device:definition.retrieval_profile.device??"cpu",expected_preparation_id:definition.preparation_id,expected_source_revision:definition.source_revision,board_context:{board_id:definition.board_id,board_revision_id:definition.revision_id,paper_id:paperId,field_id:fieldId}});setIndexMessage("Exact cell source index: "+value.state);});}
+  const [retrievalJob,setRetrievalJob]=useState(""),[retrievalActive,setRetrievalActive]=useState(false),[retrievalFailed,setRetrievalFailed]=useState(false);
+  async function retrieve(){await action(async()=>{
+    await draft.save();
+    const payload={expected_revision_id:definition.revision_id,paper_id:paperId,field_id:fieldId,top_k:3};
+    const jobId=await requestId(endpoint+":"+paperId+":"+fieldId+":candidates",payload,hybrid&&retrievalFailed);
+    if(hybrid){setRetrievalJob(jobId);setRetrievalActive(true);}
+    try{
+      const result=await api<BoardCandidateResult>(endpoint+"/candidates","POST",{...payload,request_id:jobId});
+      if((result.schema_version==="mvp.board-candidates.spans.v2"||result.schema_version==="mvp.board-candidates.hybrid.v1")&&(result.board_id!==definition.board_id||result.board_revision_id!==definition.revision_id||result.paper_id!==paperId||result.field_id!==fieldId||result.field_revision_id!==field.revision_id||result.preparation_id!==definition.preparation_id||result.source_manifest_sha256!==definition.source_manifest_sha256||result.retrieval_profile_sha256!==definition.retrieval_profile_sha256))throw new Error("The span candidates do not match this exact cell, source preparation and retrieval profile.");
+      setCandidates(result);setRetrievalFailed(false);
+    }catch(error){if(hybrid)setRetrievalFailed(true);throw error;}finally{setRetrievalActive(false);}
+  });}
+  async function indexCell(){await action(async()=>{
+    await draft.save();const jobId=crypto.randomUUID();setRetrievalJob(jobId);setRetrievalActive(true);
+    try{
+      const value=await api<{state:string}>(workspacePath(definition.workspace_id)+"/hybrid-index","POST",{request_id:jobId,profile_id:definition.retrieval_profile.profile_id,device:definition.retrieval_profile.device??"cpu",expected_preparation_id:definition.preparation_id,expected_source_revision:definition.source_revision,board_context:{board_id:definition.board_id,board_revision_id:definition.revision_id,paper_id:paperId,field_id:fieldId}});
+      setIndexMessage("Exact cell source index: "+value.state);
+    }catch(error){setIndexMessage("Index attempt failed or was cancelled. Inspect its status; retry explicitly.");throw error;}finally{setRetrievalActive(false);}
+  });}
   function retainLabel(reference:Reference){setReferenceLabels(previous=>new Map(previous).set(canonical(input(reference)),reference.quote));}
   async function inspect(reference?:ReferenceInput,offset=0,start=0,blockId?:string){if(!source)return;await action(async()=>{
     const params=new URLSearchParams({revision_id:definition.revision_id,offset:String(offset),limit:"3",start:String(start)});if(reference||blockId)params.set("block_id",reference?.block_id??blockId!);if(reference)params.set("start",String(reference.start));
@@ -252,7 +270,8 @@ function CellEditor({endpoint,view,paperId,fieldId,requestedRun,requestedPassage
     <div className="cell-review-panels">
     <section className="cell-evidence-stage" hidden={step!=="evidence"} aria-label="Select evidence"><h3>1. Select evidence</h3><p className="muted">Find candidate excerpts, read their exact source, then explicitly choose what to use. Finding or opening an excerpt does not mark it inspected or supported.</p>
       {hybrid&&<details><summary>Optional source index</summary><p role="status">{indexMessage}</p><button disabled={busy||readOnly||!source||source.source_type==="none"} onClick={()=>void indexCell()}>Index this cell’s source</button><p className="muted">Install and check the optional pack in Research &amp; AI Settings first. A failed hybrid run does not fall back to another profile.</p></details>}
-      <div className="actions"><button className="primary" disabled={busy||readOnly||!source||source.source_type==="none"} onClick={()=>void retrieve()}>Find excerpts in this paper</button><button disabled={busy||!source||source.source_type==="none"} onClick={()=>void inspect()}>Browse this source</button></div>
+      <div className="actions"><button className="primary" disabled={busy||readOnly||!source||source.source_type==="none"} onClick={()=>void retrieve()}>{hybrid&&retrievalFailed?"Retry excerpts in this paper":"Find excerpts in this paper"}</button><button disabled={busy||!source||source.source_type==="none"} onClick={()=>void inspect()}>Browse this source</button></div>
+      {hybrid&&<PollingHybridJobStatus endpoint={workspacePath(definition.workspace_id)} jobId={retrievalJob} active={retrievalActive}/>}
       {candidates&&<BoardCandidates result={candidates} busy={busy} onInspect={reference=>inspect(reference)}/>}
       <h3 ref={sourceHeading} tabIndex={-1} className="board-inspector-heading">Exact retained source</h3>{requestedPassage&&context&&<p role="status" className="notice">Returned passage opened for inspection only. Use it explicitly after reading; your cell value and judgments are unchanged.</p>}{requestedPassage&&context&&returnedOmitted>0&&<Notice>This saved passage exceeds the displayed excerpt by {returnedOmitted} code points. Only the displayed range may be used; inspect subsequent ranges to read the rest.</Notice>}
       {activeBlock?<><p className="meta">{citation}</p><div className="source-text">{rangeValid?(()=>{const parts=highlightParts(activeBlock.text,rangeStart-activeBlock.start,rangeEnd-activeBlock.start);return <>{parts[0]}<mark>{parts[1]}</mark>{parts[2]}</>;})():activeBlock.text}</div>

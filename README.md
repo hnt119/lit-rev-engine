@@ -40,7 +40,7 @@ Use **Research & AI Settings → Evidence retrieval**. Installation, runtime che
 
 1. Open a comparison cell and **Find excerpts in this paper** or **Browse this source**.
 2. Read the exact context and choose **I have read this excerpt — use it**.
-3. Comment and judge support, then **Review & save → Save reviewed entry**.
+3. Comment and judge support, then **Review entry before saving → Save reviewed entry**.
 4. Choose **Next unfinished cell**, or return to the table; correct saved entries through explicit revisions.
 
 The excerpt stays beside your comment in the same editor. Draft-only notes remain unsubmitted. Missing information uses an explicit limitation, not a fabricated quotation or a claim of whole-paper absence.

@@ -11,13 +11,23 @@ Navigation hints reuse one bounded workspace UI draft per exact board revision (
 ## Observed software checks (macOS arm64)
 
 - TypeScript check and production Next.js build: PASS.
-- Frontend suite: 191 passed, zero failed/skipped, including 10 independently added acceptance tests. Earlier implementation-only suite had 189; these counts overlap and must not be added.
-- New editor navigation API tests: 14 passed. Separate focused API and MVP regressions also passed; those counts overlap these checks.
-- Published-link metadata tests: 9 passed. Validation is offline; a metadata flag does not itself verify public publication.
+- Integrated frontend suite: 195 passed, zero failed/skipped, including independent excerpt/progress integration tests. Earlier checkpoints reported 189, 191 and 194; these counts overlap and must not be added.
+- Combined focused API regressions: 95 passed (two existing Starlette/anyio deprecation warnings), including the 14 editor-navigation tests and 24 hybrid progress/ownership tests. These counts overlap. Earlier separate focused MVP regressions: 50 passed.
+- Source packaging/license/link gate: 44 passed, including 9 published-link metadata tests. These checks are offline; a metadata flag does not itself verify public publication.
 - Actual isolated production Chrome workflow: seven checks passed: exact inline source with no automatic attachment/judgment; explicit excerpt acknowledgement and comment focus; explicit submission; draft-only note plus refreshed step/text; 390px stacking and keyboard table return; explicit missing-information entry; existing CSV/JSON exports with two submitted entries and a separate unsent note. No page errors, external requests, provider or model calls were observed.
 - Independent component cases include delayed acknowledgement, Unicode/4,000-code-point clipping, missing/unavailable sources, multi-reference removal, empty/provider failures, navigation conflict preserving research text, historical views and wrong-paper bindings. They are software checks, not human usefulness evidence.
 
 The initial combined API/MVP pytest collection hit duplicate module basenames before running tests. Separate test processes passed. The independent computer-control tool could not attach reliably to the dedicated Chrome profile; that observation was NOT_RUN, not an application failure. A separate actual-browser harness completed the checks above.
+
+## Optional retrieval clarity
+
+Settings distinguish installed weights from metadata-only dependency availability; checking availability imports no model stack and executes no inference. Existing hybrid jobs expose sanitized phases and actual completed batch/item/window counts. Progress/cancel/retry is visible in Passage search and the comparison cell; retry is an explicit new request after failure. A completing batch cannot erase acknowledged cancellation intent. Restart marks unfinished work interrupted while retaining its last counters. Computation stays outside mutation locks; deleted/stale inputs still cannot publish.
+
+The same retrieval algorithms, manifest/profile bindings, model input policy, receipt/export formats and 600-second product budget remain. Native/profile/pack/pipeline regressions: 57 passed with the optional tensor runtime installed, no skips. These use synthetic inputs/test doubles; no trained model weights, live providers or generation were executed by that suite. A first invocation found pytest absent from this disposable runtime; it ran after adding the same pinned test runner. An earlier invocation from the wrong directory could not find TypeScript; the correct frontend-directory invocation and production build passed.
+
+The previous one-article Qwen CPU attempt (33,942 code points) exceeded its 180-second QA deadline and remains a recorded failure. That is not the product's 600-second budget. This checkpoint adds observability/cancellation, not a latency or quality claim; a fresh full-text real-model diagnosis is still NOT_RUN. Historical successful CPU/MPS encoder/reranker checks are retained in HISTORICAL_RETRIEVAL_VALIDATION.md with their earlier source identity. They are not relabeled as fresh beta.3 executions.
+
+Progress is associated with the current synchronous request, not a guaranteed background service. Full refresh does not rediscover its prior job identifier automatically; server records remain retained. Active forwards may take time before cooperative cancellation. Core lexical remains independent of optional runtimes, weights and generation credentials.
 
 ## Reviewer retest
 
