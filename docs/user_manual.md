@@ -6,14 +6,16 @@ Use the normal application for this guide. Track B's protocol pilot, the legacy 
 
 The source app is setup-required: Python 3.12 (venv/pip), Node 24 and pnpm 10.20.0. macOS Apple Silicon is tested. Windows x64 portability is under development; there is no tested Windows download at this checkpoint. Linux installation, Intel Mac and Windows ARM are unqualified. No public desktop installer is available. Do not disable Gatekeeper/SmartScreen or execute a package that claims those untested capabilities.
 
-Get the purpose-built ZIP, manifest and SHA256SUMS from the exact pre-release linked in the repository README. GitHub's automatic source archive is not the tested distribution. In a terminal in the extracted folder, verify the matching checksums, then set up:
+Get the purpose-built ZIP, manifest and SHA256SUMS from the exact pre-release linked in the repository README. GitHub's automatic source archive is not the tested distribution. Keep those three files together in the download folder and verify them there:
 
 ```sh
 shasum -a 256 -c lit-rev-engine-<version>.SHA256SUMS
+unzip lit-rev-engine-<version>.zip
+cd lit-rev-engine-<version>
 python3.12 scripts/local_preview.py setup
 ```
 
-Replace `<version>` with the downloaded version. Setup creates its own runtime/build files, installs pinned dependencies and builds the production interface. It does not search, infer, download weights or migrate research. Missing tools/version errors explain the prerequisite to fix. Do not bypass TLS errors. Keep this app folder writable; research and models live outside it.
+Replace `<version>` with the downloaded version. The first command runs beside the downloaded ZIP and sidecar files; setup runs inside the extracted application folder. Setup creates its own runtime/build files, installs pinned dependencies and builds the production interface. It does not search, infer, download weights or migrate research. Missing tools/version errors explain the prerequisite to fix. Do not bypass TLS errors. Keep this app folder writable; research and models live outside it.
 
 ## Start, stop and reopen
 

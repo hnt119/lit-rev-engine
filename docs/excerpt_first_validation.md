@@ -25,7 +25,7 @@ Settings distinguish installed weights from metadata-only dependency availabilit
 
 The same retrieval algorithms, manifest/profile bindings, model input policy, receipt/export formats and 600-second product budget remain. Native/profile/pack/pipeline regressions: 57 passed with the optional tensor runtime installed, no skips. These use synthetic inputs/test doubles; no trained model weights, live providers or generation were executed by that suite. A first invocation found pytest absent from this disposable runtime; it ran after adding the same pinned test runner. An earlier invocation from the wrong directory could not find TypeScript; the correct frontend-directory invocation and production build passed.
 
-The previous one-article Qwen CPU attempt (33,942 code points) exceeded its 180-second QA deadline and remains a recorded failure. That is not the product's 600-second budget. This checkpoint adds observability/cancellation, not a latency or quality claim; a fresh full-text real-model diagnosis is still NOT_RUN. Historical successful CPU/MPS encoder/reranker checks are retained in HISTORICAL_RETRIEVAL_VALIDATION.md with their earlier source identity. They are not relabeled as fresh beta.3 executions.
+The previous one-article Qwen CPU attempt (33,942 code points) exceeded its 180-second QA deadline and remains a recorded failure. That is not the product's 600-second budget. This checkpoint adds observability/cancellation, not a latency or quality claim; a fresh full-text real-model diagnosis was NOT_RUN at that checkpoint; subsequent observed results follow below. Historical successful CPU/MPS encoder/reranker checks are retained in HISTORICAL_RETRIEVAL_VALIDATION.md with their earlier source identity. They are not relabeled as fresh beta.3 executions.
 
 Progress is associated with the current synchronous request, not a guaranteed background service. Full refresh does not rediscover its prior job identifier automatically; server records remain retained. Active forwards may take time before cooperative cancellation. Core lexical remains independent of optional runtimes, weights and generation credentials.
 
@@ -38,6 +38,21 @@ On macOS arm64, Python 3.12.7 and Node 24.19.0, a new extracted ZIP, private tem
 The actual browser workflow passed 9 checks (three excerpt cells, notes/null path, real conflict barrier, exact passage round trip, refresh/Back, keyboard/narrow layout, Settings return and exports); Settings passed 9 checks. These counts overlap the orchestration result, not additional user trials. The first restart browser harness read the disabled initial query prefill before its asynchronous draft was ready. Retained server data was correct. The failed harness record is preserved; after waiting for the acknowledged enabled state, a completely fresh full run passed without a product change. QA services were stopped. Reviewer data/window remained untouched.
 
 The packaged application-input digest for that candidate is `7d11aa3ca4195eaef7c154facf246a7507040558227d705db58156588c871c80` (source, web, scripts, requirements, configuration and public fixture entries; documentation/release metadata are separate). Final publication must rebuild from the exact merged SHA, compare these application inputs and repeat extracted acceptance. Use the final release identity/integrity files and release notes; this candidate record does not itself claim a later ZIP passed.
+
+## Subsequent cached-model execution (separate from software mocks)
+
+At exact source `c4f57c557fe20ab45a4031c849cff2b3c15c5783`, the same 33,942-code-point / 34-block retained public full-text report produced 52 source-bound windows. Actual Qwen CPU indexing completed in 39.81 seconds: 26 two-item batches, 52 document encodings, 11,473 document tokens, visible progress and a final completed job. Manual cells stayed unchanged. The 180-second QA cutoff and 600-second product budget were unchanged; cancellation was NOT_TRIGGERED and full-text query/reranking was NOT_RUN by this index check. The old failure report is preserved. The earlier timeout was not reproduced; its cause remains unresolved. This one completion is not evidence of a general latency fix or an uncontended benchmark.
+
+Four separate tiny cached checks actually executed one query encoding, two document encodings and two reranker pairs each:
+
+| Profile | Device | Observed seconds | Result |
+| --- | --- | ---: | --- |
+| Qwen | CPU | 9.94 | PASS |
+| Qwen | Apple MPS | 14.11 | PASS |
+| MedCPT | CPU | 6.36 | PASS |
+| MedCPT | Apple MPS | 6.14 | PASS |
+
+Checks ran serially at lower process priority on macOS arm64 with the existing pinned runtime and cached manifests. Whole-process peak RSS for the full-text case was 2,654,339,072 bytes; this is not isolated model/GPU allocation. All 46 original/clone model files matched hashes, originals retained inode/mtime, clone inodes were distinct, code was unchanged and all owned diagnostic processes exited. No network attempt, download, provider/generation call or reviewer-data access occurred. Windows/model quality/scientific usefulness are not established. The sanitized report has SHA256 `c24bed59445335dc2cd5098b3e3046ce61fca27dedb316075250f8a4728e8e97`; the release supplement preserves its actual source identity rather than relabeling a later documentation-only source.
 
 ## Reviewer retest
 
