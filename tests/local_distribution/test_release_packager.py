@@ -40,6 +40,7 @@ def source(tmp_path):
     for name in package.EXACT | package.TASK_FILES | set(package.DOCUMENTS.values()):
         path = root / name; path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text('Synthetic local preview setup fixture.\n')
+    shutil.copy2(ROOT/'scripts/license_policy.py', root/'scripts/license_policy.py')
     (root/'LICENSE').write_text(MIT_LICENSE_TEXT)
     (root/'THIRD_PARTY_NOTICES.md').write_text(THIRD_PARTY_BOUNDARY+'\n')
     (root/'docs/local_preview_distribution_terms.md').write_text('SPDX-License-Identifier: MIT\n'+THIRD_PARTY_BOUNDARY+'\n')

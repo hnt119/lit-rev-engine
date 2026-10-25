@@ -9,6 +9,7 @@ import json
 import queue
 import threading
 import time
+from contextlib import nullcontext
 from datetime import datetime, timezone
 from pydantic import ValidationError
 from .proposal_contracts import *
@@ -68,6 +69,7 @@ class CellProposalService:
             draft_sha256=digest(draft.model_dump(mode='json')))
 
     def _unchanged(self, state, db, run):
+        getattr(self.adapter, 'validate_current', lambda: None)()
         if (getattr(self.adapter, 'enabled', False) is not True or self._profile() != run.model_profile
                 or getattr(self.adapter, 'prompt_version', PROMPT_VERSION) != run.prompt_version):
             raise MvpError('proposal_stale_inputs', _SAFE_FAILURES['proposal_stale_inputs'])
@@ -156,7 +158,7 @@ class CellProposalService:
                     run = self._receipt(run, index, receipt)
                     self._persist_running(mode, handle, run)
                     try:
-                        result = self._call(packet, min(10.0, remaining))
+                        result = self._call(packet, min(float(getattr(self.adapter, 'max_call_seconds', 10)), remaining))
                     except MvpError as exc:
                         outcome = 'timeout' if exc.code == 'proposal_timeout' else ('invalid_output' if exc.code == 'proposal_invalid_output' else 'provider_failure')
                         run = self._receipt(run, index, receipt.model_copy(update={'outcome': outcome, 'elapsed_seconds': time.monotonic() - before}))
@@ -200,7 +202,8 @@ class CellProposalService:
                     result = run.model_copy(update={'state': 'succeeded', 'proposals': proposals, 'completed_at': now()})
                     self.store.put_run(db, state.id, result)
                     return result
-                return self._run(mode, handle, publish, write=True)
+                with getattr(self.adapter, 'publication_guard', nullcontext)():
+                    return self._run(mode, handle, publish, write=True)
             except Exception as exc:
                 return self._fail(mode, handle, run, self._failure_code(exc))
         finally:
@@ -302,7 +305,7 @@ class CellProposalService:
         if code in {'proposal_invalid_evidence', 'proposal_output'}:
             return 'proposal_invalid_output'
         if code in {'stale_board_revision', 'stale_source_revision', 'board_integrity', 'invalid_board_reference',
-                    'unknown_source', 'unknown_preparation', 'unknown_board_source', 'unknown_board_revision'}:
+                    'unknown_source', 'unknown_preparation', 'unknown_board_source', 'unknown_board_revision', 'stale_settings'}:
             return 'proposal_stale_inputs'
         if code in {'board_storage_limit', 'board_limit'}:
             return 'proposal_storage_limit'

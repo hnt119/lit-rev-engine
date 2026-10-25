@@ -7,18 +7,21 @@ import Discover from "./discover";
 import Evidence from "./evidence";
 import History from "./history";
 import Compare from "./compare";
+import ResearchSettings from "./research-settings";
+import {SettingsNavigationContext,SearchDefaultsContext,settingsDestination,researchDestination,type SettingsSection} from "../lib/settings-navigation";
+import {readRuntimeSettings} from "../lib/runtime-settings";
 
-export type Destination="workspaces"|"discover"|"compare"|"evidence"|"history";
-export type LocationState={page:Destination;workspace?:string;search?:string;collection?:string;plan?:string;planRevision?:string;run?:string;map?:string;board?:string;revision?:string;paper?:string;field?:string;intake?:"search"|"import"|"collections";preparation?:string;handoff?:string;setup?:"new";focusResult?:string;passage?:string;returnTo?:"cell"|"comparison"};
+export type Destination="workspaces"|"discover"|"compare"|"evidence"|"history"|"settings";
+export type LocationState={page:Destination;workspace?:string;search?:string;collection?:string;plan?:string;planRevision?:string;run?:string;map?:string;board?:string;revision?:string;paper?:string;field?:string;intake?:"search"|"import"|"collections";preparation?:string;handoff?:string;setup?:"new";focusResult?:string;passage?:string;returnTo?:"cell"|"comparison";settingsReturn?:Exclude<Destination,"settings">;settingsSection?:SettingsSection};
 export type NavigationOutcome={status:"success"}|{status:"blocked";message:string};
 export type Navigate=(next:LocationState)=>Promise<NavigationOutcome|void>;
 function locationState():LocationState {
   const p=new URLSearchParams(window.location.search),value=p.get("page");
-  return {page:["workspaces","discover","compare","evidence","history"].includes(value??"")?value as Destination:"workspaces",workspace:p.get("workspace")??undefined,search:p.get("search")??undefined,collection:p.get("collection")??undefined,plan:p.get("plan")??undefined,planRevision:p.get("planRevision")??undefined,run:p.get("run")??undefined,map:p.get("map")??undefined,board:p.get("board")??undefined,revision:p.get("revision")??undefined,paper:p.get("paper")??undefined,field:p.get("field")??undefined,intake:["search","import","collections"].includes(p.get("intake")??"")?p.get("intake") as LocationState["intake"]:undefined,preparation:p.get("preparation")??undefined,handoff:p.get("handoff")??undefined,setup:p.get("setup")==="new"?"new":undefined,focusResult:p.get("focusResult")??undefined,passage:p.get("passage")??undefined,returnTo:["cell","comparison"].includes(p.get("returnTo")??"")?p.get("returnTo") as LocationState["returnTo"]:undefined};
+  return {page:["workspaces","discover","compare","evidence","history","settings"].includes(value??"")?value as Destination:"workspaces",workspace:p.get("workspace")??undefined,search:p.get("search")??undefined,collection:p.get("collection")??undefined,plan:p.get("plan")??undefined,planRevision:p.get("planRevision")??undefined,run:p.get("run")??undefined,map:p.get("map")??undefined,board:p.get("board")??undefined,revision:p.get("revision")??undefined,paper:p.get("paper")??undefined,field:p.get("field")??undefined,intake:["search","import","collections"].includes(p.get("intake")??"")?p.get("intake") as LocationState["intake"]:undefined,preparation:p.get("preparation")??undefined,handoff:p.get("handoff")??undefined,setup:p.get("setup")==="new"?"new":undefined,focusResult:p.get("focusResult")??undefined,passage:p.get("passage")??undefined,returnTo:["cell","comparison"].includes(p.get("returnTo")??"")?p.get("returnTo") as LocationState["returnTo"]:undefined,settingsReturn:["workspaces","discover","compare","evidence","history"].includes(p.get("settingsReturn")??"")?p.get("settingsReturn") as LocationState["settingsReturn"]:undefined,settingsSection:["sources","ai","privacy"].includes(p.get("settingsSection")??"")?p.get("settingsSection") as SettingsSection:undefined};
 }
 function locationURL(next:LocationState) {
   const p=new URLSearchParams({page:next.page});
-  for(const key of ["workspace","search","collection","plan","planRevision","run","map","board","revision","paper","field","intake","preparation","handoff","setup","focusResult","passage","returnTo"] as const)if(next[key])p.set(key,next[key]!);
+  for(const key of ["workspace","search","collection","plan","planRevision","run","map","board","revision","paper","field","intake","preparation","handoff","setup","focusResult","passage","returnTo","settingsReturn","settingsSection"] as const)if(next[key])p.set(key,next[key]!);
   return "/?"+p;
 }
 export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
@@ -29,6 +32,7 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
   const [workspace,setWorkspace]=useState<Schema<"WorkspaceSummary">|null>(null);
   const [error,setError]=useState("");const [blocked,setBlocked]=useState<{next:LocationState;message:string}|null>(null);const [recovering,setRecovering]=useState(false);const [ready,setReady]=useState(false);const [busy,setBusy]=useState(false);
   const [newQuestion,setNewQuestion]=useState("");const [newMode,setNewMode]=useState<"saved_example"|"live">("saved_example");
+  const [searchDefaults,setSearchDefaults]=useState<{max_results:number;sort:"relevance"|"pub_date"}>({max_results:30,sort:"relevance"});
   const [boardOrigin,setBoardOrigin]=useState<{scope:string;collection:boolean}|null>(null);
   const boardScope=JSON.stringify([location.workspace,location.board,location.revision]);
   const reportBoardOrigin=useCallback((collection:boolean)=>setBoardOrigin(previous=>previous?.scope===boardScope&&previous.collection===collection?previous:{scope:boardScope,collection}),[boardScope]);
@@ -48,6 +52,8 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
     if(!next.map&&!next.focusResult&&!sameBoard)window.scrollTo({top:0,behavior:"instant"});
     setLocation(next);return {status:"success"};
   },[]);
+  const openSettings=useCallback(async(section:SettingsSection="ai")=>{await navigate(settingsDestination(currentLocation.current,section));},[navigate]);
+  async function returnFromSettings(){const outcome=await navigate(researchDestination(currentLocation.current));if(outcome&&outcome.status==="blocked")return;setCapabilities(await api<Schema<"Capabilities">>("capabilities"));const settings=await readRuntimeSettings();if(settings.configured)setSearchDefaults(settings.preferences.defaults);}
   async function recoverNavigation(mode:"retry"|"restore"){
     if(!blocked||recovering)return;
     if(mode==="restore"&&!window.confirm("Discard unsaved local edits and restore the latest saved drafts before leaving? Saved research records are retained."))return;
@@ -61,7 +67,7 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
     historyIndex.current=window.history.state?.index??0;
     window.history.replaceState({...window.history.state,index:historyIndex.current},"",window.location.href);
     initializeSession().then(async()=>{
-      setCapabilities(await api<Schema<"Capabilities">>("capabilities"));setLocation(locationState());setReady(true);
+      setCapabilities(await api<Schema<"Capabilities">>("capabilities"));if(!hosted){const settings=await readRuntimeSettings().catch(()=>null);if(settings?.configured)setSearchDefaults(settings.preferences.defaults);}setLocation(locationState());setReady(true);
     }).catch(error=>setError(error.message));
     const back=()=>{
       if(restoringHistory.current){restoringHistory.current=false;return;}
@@ -92,12 +98,12 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
   if(location.page==="evidence")origin=selectedRun?("collection_ref" in selectedRun?"collection":"legacy"):location.run?"loading":collectionPreparation?"collection":"legacy";
   if(location.page==="compare")origin=location.board?(boardOrigin?.scope===boardScope?(boardOrigin.collection?"collection":"legacy"):"loading"):collectionPreparation?"collection":"legacy";
   if(location.page==="history"&&(active?.preparations.some(item=>"collection_ref" in item)||active?.runs.some(item=>"collection_ref" in item)))origin="mixed";
-  return <><a className="skip-link" href="#main">Skip to workspace</a>
-    <header className="site-header"><a className="wordmark" href="/?page=workspaces" onClick={event=>{event.preventDefault();void navigate({page:"workspaces"});}}>LITERATURE REVIEW ENGINE</a><span className="meta">{hosted?"HOSTED BETA":"LOCAL WORKSPACE"} · v0.3.0-beta.1</span></header>
+  return <SettingsNavigationContext.Provider value={hosted?null:openSettings}><SearchDefaultsContext.Provider value={searchDefaults}><a className="skip-link" href="#main">Skip to workspace</a>
+    <header className="site-header"><a className="wordmark" href="/?page=workspaces" onClick={event=>{event.preventDefault();void navigate({page:"workspaces"});}}>LITERATURE REVIEW ENGINE</a><span className="meta">{hosted?"HOSTED BETA":"LOCAL WORKSPACE"} · v0.3.0-beta.2</span></header>
     <div className={location.page==="workspaces"?"app-shell landing":"app-shell"}>
       <nav aria-label="Research workflow"><button aria-current={location.page==="workspaces"?"page":undefined} onClick={()=>void navigate({page:"workspaces"})}>Workspaces</button>
-        {([["discover","Discover & explore"],["compare","Comparison board"],["evidence","Passage search"],["history","History & export"]] as const).map(([page,label])=><button key={page} disabled={!location.workspace} aria-current={location.page===page?"page":undefined} onClick={()=>void navigate({page,workspace:location.workspace})}>{label}</button>)}</nav>
-      <main id="main">{blocked&&<aside className="notice error" role="alert" aria-label="Navigation needs draft recovery"><p>Your draft could not be saved. You are still on the current page. {blocked.message}</p><div className="actions"><button disabled={recovering} onClick={()=>void recoverNavigation("retry")}>Retry and continue</button><button disabled={recovering} onClick={()=>setBlocked(null)}>Stay here</button><button disabled={recovering} onClick={()=>void recoverNavigation("restore")}>Restore saved drafts and continue…</button></div></aside>}<Failure message={error}/>{!ready?<><h1>Follow the evidence.</h1><p>Connecting to the local Python service…</p>{error&&<button onClick={()=>window.location.reload()}>Retry connection</button>}</>:location.page==="workspaces"?<>
+        {([["discover","Discover & explore"],["compare","Comparison board"],["evidence","Passage search"],["history","History & export"]] as const).map(([page,label])=><button key={page} disabled={!location.workspace} aria-current={location.page===page?"page":undefined} onClick={()=>void navigate({page,workspace:location.workspace})}>{label}</button>)}{!hosted&&<button aria-current={location.page==="settings"?"page":undefined} onClick={()=>void openSettings()}>Research &amp; AI Settings</button>}</nav>
+      <main id="main">{blocked&&<aside className="notice error" role="alert" aria-label="Navigation needs draft recovery"><p>Your draft could not be saved. You are still on the current page. {blocked.message}</p><div className="actions"><button disabled={recovering} onClick={()=>void recoverNavigation("retry")}>Retry and continue</button><button disabled={recovering} onClick={()=>setBlocked(null)}>Stay here</button><button disabled={recovering} onClick={()=>void recoverNavigation("restore")}>Restore saved drafts and continue…</button></div></aside>}<Failure message={error}/>{!ready?<><h1>Follow the evidence.</h1><p>Connecting to the local Python service…</p>{error&&<button onClick={()=>window.location.reload()}>Retry connection</button>}</>:location.page==="settings"?hosted?<Notice>Research &amp; AI Settings are available only in the local application.</Notice>:<ResearchSettings section={location.settingsSection} onReturn={returnFromSettings}/>:location.page==="workspaces"?<>
         <p className="eyebrow">EVIDENCE YOU CAN INSPECT</p><h1>Follow the evidence.</h1><p className="intro">Ask a research question, explore a bounded search preview, and inspect the source behind every passage.</p>
         <section><h2>Create a workspace</h2><form onSubmit={event=>{event.preventDefault();void create();}}>
           <label>Research question<textarea value={newQuestion} onChange={event=>setNewQuestion(event.target.value)} rows={3} maxLength={10000} placeholder="How does diet relate to the gut microbiome in Asian women?"/></label>
@@ -111,5 +117,5 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
         {location.page==="compare"&&<Compare key={active.id} workspace={active} requestedBoard={location.board} requestedRevision={location.revision} requestedPaper={location.paper} requestedField={location.field} requestedRun={location.run} requestedPassage={location.passage} requestedReturn={location.returnTo} requestedPreparation={location.preparation} requestedHandoff={location.handoff} requestedSetup={location.setup} navigate={navigate} onOriginChange={reportBoardOrigin} retrievalCapability={capabilities!.board_span_profiles??undefined}/>}
         {location.page==="evidence"&&<Evidence key={[active.id,location.board,location.revision,location.paper,location.field].join(":")} workspace={active} requestedRun={location.run} comparison={location.board?{board_id:location.board,board_revision_id:location.revision??"",paper_id:location.paper,field_id:location.field}:undefined} maxPassages={capabilities!.limits.max_passages??5} refresh={refresh} navigate={navigate}/>}
         {location.page==="history"&&<History workspace={active} refresh={refresh} navigate={navigate}/>}
-      </>}</main></div><footer>Exploratory evidence workspace · Human judgments are self-declared and are not independent verification. <a href="/license" target="_blank" rel="noopener noreferrer">MIT license &amp; about</a></footer></>;
+      </>}</main></div><footer>Exploratory evidence workspace · Human judgments are self-declared and are not independent verification. <a href="/license" target="_blank" rel="noopener noreferrer">MIT license &amp; about</a></footer></SearchDefaultsContext.Provider></SettingsNavigationContext.Provider>;
 }

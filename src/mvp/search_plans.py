@@ -1,6 +1,6 @@
 """Reviewable intent plans; explicit, revision-safe provider/model operations."""
 import hashlib
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 
 from .contracts import SearchPreview, SearchRequest, digest
 from .ports import MvpError
@@ -276,13 +276,14 @@ class SearchPlanService:
             return self._read_event(handle, plan_id, replay['id'], 'proposal', SearchPlanProposalReceipt)
         revision, _ = capture
         try:
-            result = SearchPlanningResult.model_validate(self.planner.propose(request.original_question, timeout_seconds=10))
+            call_seconds = min(30, getattr(self.planner, 'max_call_seconds', 10))
+            result = SearchPlanningResult.model_validate(self.planner.propose(request.original_question, timeout_seconds=call_seconds))
             if (result.draft.original_question != request.original_question
                     or result.draft.input_mode != 'natural_question' or result.draft.manual_strategy is not None
                     or result.prompt_version != PLANNER_PROMPT_VERSION
                     or result.question_sha256 != hashlib.sha256(request.original_question.encode('utf-8')).hexdigest()
                     or result.model_profile != self.planner.capability().model_profile
-                    or not 0 <= result.elapsed_seconds <= 10
+                    or not 0 <= result.elapsed_seconds <= call_seconds
                     or any(term.state != 'proposed' or term.origin != 'model_proposed' for concept in result.draft.concepts for term in concept.terms)
                     or any(concept.promoted_to_query for concept in result.draft.concepts)
                     or any(item.resolved for item in result.draft.ambiguities)):
@@ -291,7 +292,10 @@ class SearchPlanService:
             def publish(db, _):
                 self.store.insert_event(db, handle.workspace_id, plan_id, revision.revision_id, 'proposal', value.id, value.model_dump(mode='json'))
                 return {'id': value.id}
-            outcome = self._finish(handle, plan_id, request, operation, fingerprint, publish)
+            # Runtime settings may be edited while network work is in flight.
+            # Hold only the short publication barrier, never the model call.
+            with getattr(self.planner, 'publication_guard', nullcontext)():
+                outcome = self._finish(handle, plan_id, request, operation, fingerprint, publish)
             return self._read_event(handle, plan_id, outcome['id'], 'proposal', SearchPlanProposalReceipt)
         except Exception as error:
             raise self._failed(handle, operation, request, fingerprint, error) from None
@@ -326,6 +330,8 @@ class SearchPlanService:
                 execution = SearchPlanExecution(plan_id=plan_id, revision_id=revision.revision_id,
                     candidate_id=candidate.id, candidate_sha256=candidate.candidate_sha256,
                     approval_id=request.approval_id, search_id=value['id'], search_snapshot_sha256=digest(value))
+                execution = execution.model_copy(update={'requested_max_results': request.max_results,
+                    'configuration_profile': getattr(self.engine._discovery, 'configuration_profile', None)})
                 self.store.insert_event(db, handle.workspace_id, plan_id, revision.revision_id, 'execution', execution.id, execution.model_dump(mode='json'))
                 self.store.save_request(db, handle.workspace_id, operation, request.request_id, fingerprint, 'succeeded', {'id': execution.id})
                 self.store.limits(db, handle.workspace_id)

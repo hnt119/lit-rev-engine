@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.license_policy import validate_distribution_license
 
-VERSION = "0.3.0-beta.1"
+VERSION = "0.3.0-beta.2"
 NAME = "lit-rev-engine-" + VERSION
 EXACT = {
     "requirements-hosted.txt", "requirements-web-lock.txt", "requirements-map.txt", "requirements-map-lock.txt",
@@ -30,7 +30,8 @@ TASK_FILES = {"scripts/run_web.py", "scripts/local_preview.py", "scripts/license
 DOCUMENTS = {"README.md": "docs/local_preview.md",
              "DISTRIBUTION_TERMS.md": "docs/local_preview_distribution_terms.md",
              "OPTIONAL_FEATURES.md": "docs/local_beta_optional_features.md",
-             "CAPABILITIES.md": "docs/local_beta_capabilities.md"}
+             "CAPABILITIES.md": "docs/local_beta_capabilities.md",
+             "SETTINGS.md": "docs/research_ai_settings.md"}
 TRACK_B_FILES = {"src/review/pilot.py", "src/mvp/review_pilot.py", "src/web_api/pilot_routes.py",
                  "src/web_api/pilot_contracts.py", "apps/web/components/review-pilot.tsx"}
 LICENSE_NAME = re.compile(r"(?:LICEN[CS]E|COPYING|COPYRIGHT|NOTICE)(?:\.(?:md|txt|rst))?", re.I)
@@ -138,7 +139,7 @@ def build(root, output, *, expected_source_commit=None, allow_working_tree=False
         "code_license_present": code_license_present,
         "distribution_terms": "DISTRIBUTION_TERMS.md; source article licenses remain separate from project code",
         "root_notice_files": required_notices,
-        "optional_feature_configuration": "config/local-beta.example.json; private external --config file; all features off by default",
+        "optional_feature_configuration": "Research & AI Settings: session-owned non-secret preferences + memory-only credentials; existing private external --config remains supported; generation defaults off",
         "tested_platform": "macOS Apple Silicon; Python 3.12.7 and Node 24.19.0",
         "other_platforms": "Linux unverified; Windows unsupported in this beta",
         "setup_requires_network": "Python/JavaScript package installation only; no model downloads",

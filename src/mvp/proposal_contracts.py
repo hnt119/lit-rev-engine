@@ -29,7 +29,9 @@ class ProposalCapability(Model):
     max_output_bytes: int = MAX_OUTPUT_BYTES
     max_runtime_seconds: float = MAX_RUN_SECONDS
     retries: int = 0
-    paid_calls: Literal[False] = False
+    paid_calls: bool = False
+    settings_revision: int | None = None
+    provider: str | None = None
 
 class ProposalGenerateRequest(Model):
     request_id: str = Field(min_length=1, max_length=200)

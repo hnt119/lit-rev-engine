@@ -1,6 +1,6 @@
 # Literature Review Engine — Local beta, setup required
 
-Version: **0.3.0-beta.1**. This is a source distribution of the existing
+Version: **0.3.0-beta.2** (successor candidate, not yet published). This is a source distribution of the existing
 Next.js/FastAPI application. It is not a standalone installer and contains no
 Python, Node.js, Docker, model weights, credentials or research workspaces.
 The public website demonstration is read-only; the research application runs
@@ -28,9 +28,9 @@ comparison, source inspection or exports.
 Keep the ZIP, matching manifest and `SHA256SUMS` together. Before extraction:
 
 ```sh
-shasum -a 256 -c lit-rev-engine-0.3.0-beta.1.SHA256SUMS
-unzip lit-rev-engine-0.3.0-beta.1.zip
-cd lit-rev-engine-0.3.0-beta.1
+shasum -a 256 -c lit-rev-engine-0.3.0-beta.2.SHA256SUMS
+unzip lit-rev-engine-0.3.0-beta.2.zip
+cd lit-rev-engine-0.3.0-beta.2
 python3.12 scripts/local_preview.py setup
 ```
 
@@ -174,3 +174,7 @@ Actual results, failed attempts, skips and remaining limitations belong in the
 separate local-preview evaluation report. Software checks do not establish
 human usefulness, scientific support or clinical validity. No hosted service,
 paid inference or release publication is part of this beta preparation.
+
+## Research & AI Settings
+
+Use Research & AI Settings for session-owned PubMed and optional local/OpenAI/DeepSeek generation configuration. Per-search scientific specifications remain beside each query. Saving settings makes no external request. Read SETTINGS.md for fixed endpoints, key lifetime, explicit one-run cost/data consent and limits. Existing private --config launch settings remain supported and are not silently imported or rewritten. Core saved/manual research works without an LLM.

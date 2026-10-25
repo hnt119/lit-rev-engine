@@ -1,8 +1,11 @@
 "use client";
-import {useEffect,useLayoutEffect,useRef,useState} from "react";
+import {useContext,useEffect,useLayoutEffect,useRef,useState} from "react";
 import {api,requestId,acknowledgeRequest,workspacePath,type Schema} from "../lib/api";
 import {useDraft,DraftStatus} from "../lib/drafts";
 import {Failure,Notice,Time} from "./ui";
+import {SettingsLink,SearchDefaultsContext} from "../lib/settings-navigation";
+import type {GenerationConsent} from "../lib/runtime-settings";
+import GenerationReview from "./generation-review";
 
 function textareaValue(raw:string){return raw.replace(/\r\n?/g,"\n");}
 function rawOffset(raw:string,domOffset:number){
@@ -110,7 +113,10 @@ export default function SearchPlanner(props:Props){return <PlannerEditor key={pr
 
 function PlannerEditor({workspace,initialQuestion,requestedPlan,requestedRevision,onOpen,onExecuted}:Props){
   const base=workspacePath(workspace.id),endpoint=base+"/search-plans";
-  const [capability,setCapability]=useState<Capability|null>(null),[plans,setPlans]=useState<Schema<"SearchPlanSummary">[]>([]),[view,setView]=useState<View|null>(null),[draft,setDraft]=useState<Draft>(()=>emptyDraft(initialQuestion));
+  const searchDefaults=useContext(SearchDefaultsContext),newDraft=()=>({...emptyDraft(initialQuestion),sort:searchDefaults.sort});
+  const [capability,setCapability]=useState<Capability|null>(null),[plans,setPlans]=useState<Schema<"SearchPlanSummary">[]>([]),[view,setView]=useState<View|null>(null),[draft,setDraft]=useState<Draft>(newDraft);
+  const [pendingGeneration,setPendingGeneration]=useState<{consent:GenerationConsent;current:View;payload:{original_question:string;expected_revision_id:string;settings_revision:number;request_id:string};scope:string}|null>(null);
+  const [newAttemptRequired,setNewAttemptRequired]=useState(false);
   const [dirty,setDirty]=useState(false),[busy,setBusy]=useState(""),[loading,setLoading]=useState(false),[error,setError]=useState("");
   const [advanced,setAdvanced]=useState(false),[manualFocus,setManualFocus]=useState(0),[advancedFocus,setAdvancedFocus]=useState(0);
   const manualControl=useRef<HTMLDivElement>(null),advancedControl=useRef<HTMLDetailsElement>(null);
@@ -118,16 +124,16 @@ function PlannerEditor({workspace,initialQuestion,requestedPlan,requestedRevisio
   useLayoutEffect(()=>{if(manualFocus){const control=manualControl.current?.querySelector<HTMLTextAreaElement>("textarea");control?.focus({preventScroll:true});control?.scrollIntoView({behavior:"instant",block:"center"});}},[manualFocus]);
   const [heuristic,setHeuristic]=useState<{question:string;query:string;explanation:string}|null>(null),[latestInspection,setLatestInspection]=useState<View|null>(null);
   const draftRef=useRef(draft),viewRef=useRef<View|null>(null),dirtyRef=useRef(false),alive=useRef(false),readGeneration=useRef(0),editGeneration=useRef(0),acting=useRef(false);
-  const durable=useDraft(workspace.id,"search-plan-editor:"+(requestedPlan??"new"),{draft:view?.revision.draft??emptyDraft(initialQuestion),plan_id:requestedPlan??null,base_revision_id:view?.revision.revision_id??null});
-  function install(value:View|null){viewRef.current=value;setView(value);const next=value?.revision.draft??emptyDraft(initialQuestion);draftRef.current=next;setDraft(next);dirtyRef.current=false;setDirty(false);editGeneration.current++;setHeuristic(null);setLatestInspection(null);setError("");}
-  function edit(update:(previous:Draft)=>Draft){const next=update(draftRef.current);if(next===draftRef.current)return;draftRef.current=next;setDraft(next);durable.setData({draft:next,plan_id:requestedPlan??null,base_revision_id:viewRef.current?.revision.revision_id??null});dirtyRef.current=true;setDirty(true);editGeneration.current++;setHeuristic(null);setError("");}
+  const durable=useDraft(workspace.id,"search-plan-editor:"+(requestedPlan??"new"),{draft:view?.revision.draft??newDraft(),plan_id:requestedPlan??null,base_revision_id:view?.revision.revision_id??null});
+  function install(value:View|null){viewRef.current=value;setView(value);const next=value?.revision.draft??newDraft();draftRef.current=next;setDraft(next);dirtyRef.current=false;setDirty(false);editGeneration.current++;setPendingGeneration(null);setNewAttemptRequired(false);setHeuristic(null);setLatestInspection(null);setError("");}
+  function edit(update:(previous:Draft)=>Draft){const next=update(draftRef.current);if(next===draftRef.current)return;draftRef.current=next;setDraft(next);durable.setData({draft:next,plan_id:requestedPlan??null,base_revision_id:viewRef.current?.revision.revision_id??null});dirtyRef.current=true;setDirty(true);editGeneration.current++;setPendingGeneration(null);setNewAttemptRequired(false);setHeuristic(null);setError("");}
   useEffect(()=>{
     if(!durable.ready)return;
     if(viewRef.current&&!requestedPlan&&!dirtyRef.current)return;
     if(viewRef.current&&viewRef.current.revision.revision_id!==viewRef.current.current_revision_id)return;
     const next=durable.data.draft;
     draftRef.current=next;setDraft(next);
-    const changed=JSON.stringify(next)!==JSON.stringify(viewRef.current?.revision.draft??emptyDraft(initialQuestion));
+    const changed=JSON.stringify(next)!==JSON.stringify(viewRef.current?.revision.draft??newDraft());
     dirtyRef.current=changed;setDirty(changed);editGeneration.current++;
   },[durable.ready,durable.data]);
   useEffect(()=>{
@@ -166,7 +172,7 @@ function PlannerEditor({workspace,initialQuestion,requestedPlan,requestedRevisio
       if(!alive.current||token!==readGeneration.current)return;
       if(edited!==editGeneration.current)throw new Error("The saved revision is retained, but newer local edits remain here. Reload the saved plan only after preserving those edits.");
       install(value);acknowledgeRequest(scope);setPlans(previous=>[{plan_id:value.revision.plan_id,revision_id:value.revision.revision_id,revision:value.revision.revision,original_question:value.revision.draft.original_question,input_mode:value.revision.draft.input_mode,candidate_count:value.revision.compiled.candidates.length,ready_count:value.revision.compiled.candidates.filter(item=>item.status==="ready_for_approval").length,created_at:value.revision.created_at},...previous.filter(item=>item.plan_id!==value.revision.plan_id)]);
-      durable.setData(requestedPlan?{draft:value.revision.draft,plan_id:requestedPlan,base_revision_id:value.revision.revision_id}:{draft:emptyDraft(initialQuestion),plan_id:null,base_revision_id:null});await durable.save();
+      durable.setData(requestedPlan?{draft:value.revision.draft,plan_id:requestedPlan,base_revision_id:value.revision.revision_id}:{draft:newDraft(),plan_id:null,base_revision_id:null});await durable.save();
       return value;
   }
   async function save(){if(historical||!capability?.manual_enabled)return;return perform("save",async()=>{const value=await persistRevision();if(value)await onOpen(value.revision.plan_id);});}
@@ -191,38 +197,48 @@ function PlannerEditor({workspace,initialQuestion,requestedPlan,requestedRevisio
       }
     });
   }
-  async function buildSearch(){
+  async function buildSearch(fresh=false){
     if(historical||!capability?.planner.enabled||draftRef.current.input_mode!=="natural_question"||draftRef.current.manual_strategy!==null||!draftRef.current.original_question.trim())return;
     return perform("propose",async()=>{
       const current=!viewRef.current||dirtyRef.current?await persistRevision():viewRef.current;
       if(!current||!alive.current)return;
-      const payload={original_question:current.revision.draft.original_question,expected_revision_id:current.revision.revision_id},scope=workspace.id+":search-plan:"+current.revision.plan_id+":propose",request_id=await requestId(scope,payload,current.proposals.length>0);
-      const value=await api<Schema<"SearchPlanProposalReceipt">>(endpoint+"/"+encodeURIComponent(current.revision.plan_id)+"/propose","POST",{...payload,request_id});
-      if(!alive.current)return;if(value.revision_id!==current.revision.revision_id||value.plan_id!==current.revision.plan_id||value.result.draft.original_question!==current.revision.draft.original_question)throw new Error("The model proposal does not match this exact saved question revision.");if(viewRef.current?.revision.revision_id!==value.revision_id)return;
-      setView(previous=>{if(!previous)return previous;const next={...previous,proposals:[value,...previous.proposals.filter(item=>item.id!==value.id)]};viewRef.current=next;return next;});acknowledgeRequest(scope);
-      if(!requestedPlan&&!dirtyRef.current)await onOpen(current.revision.plan_id);
+      const runtime=capability.planner as Capability["planner"]&{settings_revision?:number|null};
+      const payload={original_question:current.revision.draft.original_question,expected_revision_id:current.revision.revision_id,...(runtime.settings_revision!=null?{settings_revision:runtime.settings_revision}:{})},scope=workspace.id+":search-plan:"+current.revision.plan_id+":propose",request_id=await requestId(scope,payload,fresh||current.proposals.length>0);
+      setNewAttemptRequired(false);
+      if(runtime.settings_revision!=null){const prepared={...payload,settings_revision:runtime.settings_revision,request_id};const consent=await api<GenerationConsent>(endpoint+"/"+encodeURIComponent(current.revision.plan_id)+"/prepare-generation","POST",prepared);if(alive.current)setPendingGeneration({consent,current,payload:prepared,scope});return;}
+      await executePlanning(current,{...payload,request_id},scope);
     });
   }
+  async function executePlanning(current:View,payload:Record<string,unknown>,scope:string){
+    let value:Schema<"SearchPlanProposalReceipt">;
+    try{value=await api<Schema<"SearchPlanProposalReceipt">>(endpoint+"/"+encodeURIComponent(current.revision.plan_id)+"/propose","POST",payload);}catch(error){if(alive.current)setNewAttemptRequired(true);throw error;}
+    if(!alive.current)return;if(value.revision_id!==current.revision.revision_id||value.plan_id!==current.revision.plan_id||value.result.draft.original_question!==current.revision.draft.original_question)throw new Error("The model proposal does not match this exact saved question revision.");if(viewRef.current?.revision.revision_id!==value.revision_id)return;
+    setView(previous=>{if(!previous)return previous;const next={...previous,proposals:[value,...previous.proposals.filter(item=>item.id!==value.id)]};viewRef.current=next;return next;});acknowledgeRequest(scope);setPendingGeneration(null);
+    if(!requestedPlan&&!dirtyRef.current)await onOpen(current.revision.plan_id);
+  }
+  async function authorizePlanning(){const pending=pendingGeneration;if(!pending)return;setPendingGeneration(null);await perform("propose",()=>executePlanning(pending.current,{...pending.payload,consent_id:pending.consent.consent_id},pending.scope));}
   async function heuristicProposal(){return perform("heuristic",async()=>{const question=draftRef.current.original_question,token=editGeneration.current;const value=await api<Schema<"QuerySuggestion">>(base+"/query-suggestions","POST",{question});if(alive.current&&token===editGeneration.current)setHeuristic({question,query:value.query,explanation:value.explanation});});}
   const editingDisabled=historical||loading||!capability?.manual_enabled||["save","open","execute"].includes(busy);
   function reviewFilters(){setAdvanced(true);setAdvancedFocus(value=>value+1);}
   function editFinalQuery(query:string){edit(previous=>({...previous,input_mode:"manual_strategy",manual_strategy:query}));setManualFocus(value=>value+1);}
   return <section aria-label="Structured search planning"><h2>Build your paper search</h2><Failure message={error}/><DraftStatus draft={durable}/>{!capability||!durable.ready?<p role="status">Loading local search-planning capabilities…</p>:<>
-    <p>Research question → Build search → Review proposed search → Check matches → Search papers.</p><p className="muted">Review each proposed term and restriction before approving the exact query. Saving an editable draft never searches papers or calls a model.</p>
+    <p>Research question → Build search → Review proposed search → Check matches → Search papers.</p><p className="muted">Review each proposed term and restriction before approving the exact query. Saving an editable draft never searches papers or calls a model. Paper-provider configuration is independent of AI selection.</p><SettingsLink section="ai">Configure optional query planning</SettingsLink>
+    {pendingGeneration&&<GenerationReview key={pendingGeneration.consent.consent_id} consent={pendingGeneration.consent} busy={!!busy} onAuthorize={authorizePlanning} onCancel={()=>setPendingGeneration(null)}/>}
+    {newAttemptRequired&&<aside className="notice"><p>The earlier AI attempt failed or its result is unknown. It may have incurred provider charges. Your manual plan remains available; reopening this page does not retry generation.</p><button type="button" disabled={!!busy||historical||!capability.planner.enabled} onClick={()=>buildSearch(true)}>Prepare a new AI attempt · possible additional charges</button><p className="muted">This deliberately creates a new request. Session-configured providers still need a new data/cost authorization before execution.</p></aside>}
     <details><summary>Saved searches and revisions</summary><div className="control-row"><label>Saved intent plan<select value={view?.revision.plan_id??""} disabled={!!busy||loading} onChange={event=>open(event.target.value||undefined)}><option value="">New manual plan</option>{plans.map(plan=><option value={plan.plan_id} key={plan.plan_id}>{plan.original_question.slice(0,90)||"Specialist strategy"} · revision {plan.revision}</option>)}</select></label>{view&&<label>Plan revision<select value={view.revision.revision_id} disabled={!!busy||loading} onChange={event=>open(view.revision.plan_id,event.target.value)}>{[...view.revisions].reverse().map(item=><option key={item.revision_id} value={item.revision_id}>Revision {item.revision}{item.revision_id===view.current_revision_id?" · latest":" · historical"} · {new Date(item.created_at).toLocaleString()}</option>)}</select></label>}</div></details>
     <p className="meta" role="status">{loading?"LOADING SAVED REVISION":historical?"HISTORICAL PLAN · READ ONLY":dirty?"LOCAL EDITS · SAVE BEFORE APPROVAL OR EXECUTION":view?`SAVED PLAN REVISION ${view.revision.revision}`:"NEW MANUAL PLAN · NOT YET SAVED"}</p>
     {historical&&<Notice>This revision retains its original query candidates and receipts. <button type="button" disabled={!!busy} onClick={()=>open(view!.revision.plan_id)}>Open latest revision to edit</button></Notice>}
     <form onSubmit={event=>{event.preventDefault();return save();}}>
       <label>Original research question<textarea rows={3} value={draft.original_question} maxLength={capability.limits.max_question_characters} disabled={editingDisabled} onChange={event=>edit(previous=>({...previous,original_question:event.target.value}))}/></label>
-      <div className="actions"><button type="button" className={draft.input_mode==="natural_question"?"primary":undefined} disabled={editingDisabled||!!busy||!capability.planner.enabled||!draft.original_question.trim()||draft.input_mode!=="natural_question"||draft.manual_strategy!==null} onClick={buildSearch}>{busy==="propose"?"Building search…":"Build search"}</button><button type="button" aria-pressed={draft.input_mode==="manual_strategy"} disabled={editingDisabled||!!busy} onClick={()=>{edit(previous=>({...previous,input_mode:"manual_strategy",manual_strategy:previous.manual_strategy??""}));setManualFocus(value=>value+1);}}>Paste my own query</button>{draft.input_mode==="manual_strategy"&&<button type="button" disabled={editingDisabled||!!busy} onClick={()=>edit(previous=>({...previous,input_mode:"natural_question",manual_strategy:previous.manual_strategy===""?null:previous.manual_strategy}))}>Plan from my question</button>}</div>
-      <p className="muted">{capability.planner.enabled?"Build search saves the exact question version when needed, then makes one bounded local planning request. Suggestions need your review; no paper search runs yet.":`Build search is unavailable: ${capability.planner.reason} Paste your own query or edit concepts in Advanced.`}</p>
+      <div className="actions"><button type="button" className={draft.input_mode==="natural_question"?"primary":undefined} disabled={editingDisabled||!!busy||!capability.planner.enabled||!draft.original_question.trim()||draft.input_mode!=="natural_question"||draft.manual_strategy!==null||newAttemptRequired} onClick={()=>buildSearch()}>{busy==="propose"?"Building search…":"Build search"}</button><button type="button" aria-pressed={draft.input_mode==="manual_strategy"} disabled={editingDisabled||!!busy} onClick={()=>{edit(previous=>({...previous,input_mode:"manual_strategy",manual_strategy:previous.manual_strategy??""}));setManualFocus(value=>value+1);}}>Paste my own query</button>{draft.input_mode==="manual_strategy"&&<button type="button" disabled={editingDisabled||!!busy} onClick={()=>edit(previous=>({...previous,input_mode:"natural_question",manual_strategy:previous.manual_strategy===""?null:previous.manual_strategy}))}>Plan from my question</button>}</div>
+      <p className="muted">{capability.planner.enabled?"Build search saves the exact question version when needed. Session-configured AI first prepares a bounded packet for your explicit review and one-run authorization. Suggestions need your review; no paper search runs yet.":`Build search is unavailable: ${capability.planner.reason} Paste your own query or edit concepts in Advanced.`}</p>
       {!capability.planner.enabled&&<details><summary>Set up optional local planning</summary><p>The local planning endpoint, model and revision must be explicitly configured by the person running this application. Ask them to follow the optional search-planning setup in the project documentation. This workspace will keep manual query editing available.</p><p className="meta">{capability.planner.reason}</p></details>}
       {draft.input_mode==="natural_question"&&draft.manual_strategy!==null&&<Notice>Your separate pasted query is retained. Review it in Advanced and explicitly remove it before asking for a different proposal. <button type="button" onClick={reviewFilters}>Review retained query</button></Notice>}
       {draft.input_mode==="manual_strategy"&&<div ref={manualControl}><RawStrategyEditor value={draft.manual_strategy??""} onChange={value=>edit(previous=>({...previous,manual_strategy:value}))} disabled={editingDisabled} maxLength={capability.limits.max_query_characters??20000}/></div>}
       {draft.input_mode==="natural_question"&&draft.concepts.length>0&&<IntentSummary draft={draft}/>}
       {draft.input_mode==="natural_question"&&draft.concepts.some(concept=>concept.terms.some(term=>term.state!=="approved"&&term.field!=="mesh"))&&<><p>After reading the displayed terms, you can approve those exact terms together. Requirements, preferences, exclusions and any deferred constraints still need separate review.</p><button type="button" disabled={editingDisabled||!!busy} onClick={()=>edit(previous=>({...previous,concepts:previous.concepts.map(concept=>({...concept,terms:concept.terms.map(term=>term.field==="mesh"?term:{...term,state:"approved"})}))}))}>Approve displayed terms for compilation</button><p className="muted">Proposed MeSH names require terminology validation and are not approved by this action.</p></>}
       <details ref={advancedControl} open={advanced} onToggle={event=>setAdvanced(event.currentTarget.open)}><summary>Advanced concepts, relationships, filters and exact question spans</summary><IntentPlanEditor draft={draft} onEdit={edit} limits={capability.limits} disabled={editingDisabled} embedded/></details>
-      <div className="actions"><button type="submit" className={draft.input_mode==="manual_strategy"?"primary":undefined} disabled={historical||loading||!!busy||!capability.manual_enabled||!!view&&!dirty||(draft.input_mode==="manual_strategy"?!draft.manual_strategy?.trim():draft.concepts.length===0)}>{busy==="save"?"Saving and compiling…":view?"Save revised search":"Save search for review"}</button>{dirty&&<button type="button" disabled={!!busy} onClick={()=>{if(window.confirm("Replace unfinished planner edits with the saved plan revision?")){install(viewRef.current);durable.setData({draft:viewRef.current?.revision.draft??emptyDraft(initialQuestion),plan_id:requestedPlan??null,base_revision_id:viewRef.current?.revision.revision_id??null});}}}>Restore saved revision / reset unsaved plan</button>}{view&&<button type="button" disabled={!!busy||loading} onClick={inspectLatest}>Inspect latest saved revision</button>}</div>
+      <div className="actions"><button type="submit" className={draft.input_mode==="manual_strategy"?"primary":undefined} disabled={historical||loading||!!busy||!capability.manual_enabled||!!view&&!dirty||(draft.input_mode==="manual_strategy"?!draft.manual_strategy?.trim():draft.concepts.length===0)}>{busy==="save"?"Saving and compiling…":view?"Save revised search":"Save search for review"}</button>{dirty&&<button type="button" disabled={!!busy} onClick={()=>{if(window.confirm("Replace unfinished planner edits with the saved plan revision?")){install(viewRef.current);durable.setData({draft:viewRef.current?.revision.draft??newDraft(),plan_id:requestedPlan??null,base_revision_id:viewRef.current?.revision.revision_id??null});}}}>Restore saved revision / reset unsaved plan</button>}{view&&<button type="button" disabled={!!busy||loading} onClick={inspectLatest}>Inspect latest saved revision</button>}</div>
       {error&&<div role="status"><Failure message={error}/><p>Your question and query edits remain here. Review the saved revision or edit the query before another explicit attempt.</p></div>}
     </form>
     {latestInspection&&<aside aria-label="Inspected latest intent revision"><h3>Latest saved revision {latestInspection.revision.revision}</h3><p className="muted">Your local edits remain above. Review the saved content before explicitly choosing its head as the basis of your next revision. The server will check that head again when you save.</p><pre tabIndex={0}>{JSON.stringify(latestInspection.revision,null,2)}</pre><button type="button" disabled={!!busy||!dirty||latestInspection.revision.plan_id!==view?.revision.plan_id} onClick={()=>{viewRef.current=latestInspection;setView(latestInspection);setLatestInspection(null);durable.setData({draft:draftRef.current,plan_id:requestedPlan??null,base_revision_id:latestInspection.revision.revision_id});editGeneration.current++;}}>Keep local edits against this inspected latest head</button><button type="button" disabled={!!busy} onClick={()=>setLatestInspection(null)}>Close revision inspection</button></aside>}
@@ -233,10 +249,11 @@ function PlannerEditor({workspace,initialQuestion,requestedPlan,requestedRevisio
 }
 
 function CandidateReview({candidate,view,workspace,capability,disabled,onAction,onEditQuery,onReviewFilters}:{candidate:Candidate;view:View;workspace:Schema<"WorkspaceSummary">;capability:Capability;disabled:boolean;onAction:(kind:"approve"|"diagnose"|"execute",body:Record<string,unknown>)=>Promise<void>;onEditQuery:()=>void;onReviewFilters:()=>void}){
+  const searchDefaults=useContext(SearchDefaultsContext);
   const intentVariant=view.revision.draft.variants.find(value=>value.id===candidate.id);
   const approval=view.approvals.find(value=>value.revision_id===view.revision.revision_id&&value.candidate_id===candidate.id&&value.candidate_sha256===candidate.candidate_sha256);
   const deferred=[...new Set([...candidate.deferred_required_ids,...candidate.deferred_excluded_ids])];
-  const [acknowledged,setAcknowledged]=useState<string[]>(approval?.acknowledged_deferred_concept_ids??[]),[split,setSplit]=useState(approval?.accept_subquestion_split??false),[unparsed,setUnparsed]=useState(approval?.acknowledge_unparsed_strategy??false),[maximum,setMaximum]=useState(Math.min(30,capability.limits.max_discovery_records));
+  const [acknowledged,setAcknowledged]=useState<string[]>(approval?.acknowledged_deferred_concept_ids??[]),[split,setSplit]=useState(approval?.accept_subquestion_split??false),[unparsed,setUnparsed]=useState(approval?.acknowledge_unparsed_strategy??false),[maximum,setMaximum]=useState(Math.min(searchDefaults.max_results,capability.limits.max_discovery_records));
   const [seeds,setSeeds]=useState<{id:string;pmid:string;doi:string;purpose:"construction"|"held_out";approved:boolean}[]>([]),[preview,setPreview]=useState("");
   const accepted=deferred.every(id=>acknowledged.includes(id))&&(!candidate.requires_split_approval||split)&&(!candidate.unparsed_constraints.length||unparsed),ready=candidate.status==="ready_for_approval";
   const diagnostics=view.diagnostics.filter(value=>value.revision_id===view.revision.revision_id&&value.candidate_id===candidate.id&&value.candidate_sha256===candidate.candidate_sha256);

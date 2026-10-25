@@ -4,7 +4,7 @@ export function allowedRoute(method: string, path: string): boolean {
   const w = `workspaces/${id}`;
   const b = `${w}/boards/${id}`;
   const rules: Record<string, RegExp[]> = {
-    GET: [ /^admission\/status$/, /^session$/, /^capabilities$/, /^workspaces$/, new RegExp(`^${w}$`),
+    GET: [ /^admission\/status$/, /^session$/, /^capabilities$/, /^settings$/, /^workspaces$/, new RegExp(`^${w}$`),
       new RegExp(`^${w}/searches/${id}/papers$`), new RegExp(`^${w}/source-preparations/${id}$`),
       new RegExp(`^${w}/source-preparations/${id}/papers$`),new RegExp(`^${w}/runs/${id}/papers$`),
       new RegExp(`^${w}/runs/${id}$`), new RegExp(`^${w}/runs/${id}/passages/${id}/context$`),
@@ -23,15 +23,15 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${b}/sources/${id}/blocks$`),new RegExp(`^${b}/references/${id}/context$`),new RegExp(`^${b}/exports$`),
       new RegExp(`^${b}/(proposal-capabilities|proposals|proposal-audit)$`),new RegExp(`^${b}/proposal-runs/${id}$`),
       new RegExp(`^${b}/proposals/${id}/references/${id}/context$`) ],
-    POST: [ /^admission\/(login|logout)$/, /^workspaces$/, new RegExp(`^${w}/(query-suggestions|searches|source-preparations|preparation-jobs|evidence-runs|assessments|maps)$`),
+    POST: [ /^admission\/(login|logout)$/, /^settings\/test-pubmed$/, /^workspaces$/, new RegExp(`^${w}/(query-suggestions|searches|source-preparations|preparation-jobs|evidence-runs|assessments|maps)$`),
       new RegExp(`^${w}/preparation-jobs/${id}/cancel$`),
       new RegExp(`^${w}/(collection-preparation-jobs|collection-maps)$`),new RegExp(`^${w}/collection-preparation-jobs/${id}/cancel$`),new RegExp(`^${w}/collection-map-jobs/${id}/cancel$`),
-      new RegExp(`^${w}/search-plans$`),new RegExp(`^${w}/search-plans/${id}/(approve|diagnose|execute|propose)$`),
+      new RegExp(`^${w}/search-plans$`),new RegExp(`^${w}/search-plans/${id}/(approve|diagnose|execute|propose|prepare-generation)$`),
       new RegExp(`^${w}/imports/(csv|ris|identifiers)$`),new RegExp(`^${w}/imports/${id}/(mapping|resolve|edit-row|commit)$`),
       new RegExp(`^${w}/collections/(combine-preview|combine)$`),
-      new RegExp(`^${w}/jobs/${id}/cancel$`),new RegExp(`^${w}/boards$`),new RegExp(`^${b}/(revisions|candidates|cell-revisions|proposal-runs)$`),
+      new RegExp(`^${w}/jobs/${id}/cancel$`),new RegExp(`^${w}/boards$`),new RegExp(`^${b}/(revisions|candidates|cell-revisions|proposal-runs|prepare-generation)$`),
       new RegExp(`^${b}/proposals/${id}/(adopt|dismiss)$`) ],
-    PUT: [new RegExp(`^${w}/drafts/${id}$`),new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${w}/search-plans/${id}$`)],
+    PUT: [/^settings$/,new RegExp(`^${w}/drafts/${id}$`),new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${w}/search-plans/${id}$`)],
     DELETE: [new RegExp(`^${w}$`)],
   };
   return !!rules[method]?.some(rule => rule.test(path));

@@ -339,6 +339,8 @@ class SearchPlanExecution(Model):
     approval_id: str
     search_id: str
     search_snapshot_sha256: str
+    requested_max_results: int | None = Field(default=None, ge=1, le=MAX_DISCOVERY_RESULTS, exclude_if=lambda value: value is None)
+    configuration_profile: dict | None = Field(default=None, exclude_if=lambda value: value is None)
     created_at: str = Field(default_factory=now)
 
 
@@ -367,8 +369,10 @@ class SearchPlanningCapability(Model):
     reason: str = 'Optional local search planning is disabled. Manual intent editing and deterministic compilation remain available.'
     model_profile: dict | None = None
     max_calls: Literal[1] = 1
-    max_runtime_seconds: Literal[10] = 10
+    max_runtime_seconds: int = Field(default=10, ge=1, le=30)
     max_input_bytes: Literal[24576] = 24576
     max_output_bytes: Literal[24576] = 24576
     retries: Literal[0] = 0
-    paid_calls: Literal[False] = False
+    paid_calls: bool = False
+    settings_revision: int | None = None
+    provider: str | None = None

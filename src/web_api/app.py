@@ -90,7 +90,18 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     def service(mode):
         # build_service itself shares provider objects and rate gates per process.
         if mode not in services:
-            services[mode] = build_service(mode, directory)
+            try:
+                services[mode] = build_service(mode, directory)
+            except MvpError as error:
+                if mode != 'live' or error.code != 'live_not_configured':
+                    raise
+                # Retained/manual work needs no discovery credential. Session
+                # snapshots select discovery only for explicit operations.
+                from src.mvp.service import MVPService
+                from src.mvp.adapters.europe_pmc import EuropePmcSourceProvider
+                from .settings_routes import DisabledDiscovery
+                services[mode] = MVPService(build_service('saved_example', directory)._storage,
+                    DisabledDiscovery(), EuropePmcSourceProvider())
         return services[mode]
 
     def bounded():
@@ -185,7 +196,12 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
 
     def owned(workspace_id, session):
         mode, handle = registry.workspace(session["token_hash"], workspace_id)
-        return mode, handle, service(mode)
+        engine = service(mode)
+        settings = getattr(app.state, 'runtime_settings', None)
+        if settings is not None:
+            from .settings_routes import engine_for
+            engine = engine_for(settings, session['token_hash'], mode, engine)
+        return mode, handle, engine
 
     def find(items, identifier, kind):
         item = next((item for item in items if item.id == identifier), None)
@@ -251,11 +267,18 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         return SessionInfo(csrf_token=session["csrf"], expires_at=session["expires_at"])
 
     @app.get(PREFIX + "/capabilities", response_model=Capabilities, dependencies=dependencies)
-    def capabilities():
+    def capabilities(request: Request):
         from .contracts import MapCapability
         from src.mvp.span_board_contracts import BoardSpanCapability
         ready, reason = app.state.maps.readiness()
-        return Capabilities(**public_runtime_info(), map=MapCapability(ready=ready, reason=reason),
+        runtime = public_runtime_info()
+        settings = getattr(app.state, 'runtime_settings', None)
+        session = registry.resolve_session(request.cookies.get(cookie_name))
+        if settings is not None and session is not None:
+            snapshot, _ = settings.snapshot(session['token_hash'])
+            if snapshot['configured']:
+                runtime['live_available'] = snapshot['preferences']['pubmed']['enabled']
+        return Capabilities(**runtime, map=MapCapability(ready=ready, reason=reason),
                             preparation_jobs_ready=app.state.preparation_jobs_ready,
                             search_plans_ready=app.state.search_plans_ready,
                             board_span_profiles=BoardSpanCapability())
@@ -519,6 +542,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         registry.delete_workspace(session["token_hash"], workspace_id, lambda mode, handle: service(mode).clear_workspace_if_present(handle), clear_sidecars)
         return ClearResult()
 
+    from .settings_routes import install_settings_routes
+    install_settings_routes(app, directory=directory, session_for=session_for, dependencies=dependencies)
     from .collection_routes import install_collection_routes
     install_collection_routes(app, service=service, owned=owned, session_for=session_for,
                               dependencies=dependencies, metadata_resolver=metadata_resolver)

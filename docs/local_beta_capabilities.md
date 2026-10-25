@@ -1,6 +1,6 @@
 # Track A beta capability matrix
 
-Version `0.3.0-beta.1`, **Local beta — setup required**. This source distribution
+Version `0.3.0-beta.2`, **Local beta — setup required**. This source distribution
 contains the current Next.js/FastAPI Track A product, not Track B or a standalone
 installer. MIT applies to the owner's original code; dependencies, papers, data
 and optional weights retain separate licenses. No maturity label adds a use,
@@ -37,3 +37,7 @@ Windows unsupported. Cookie/hostname/profile access limitations, force-killed
 controller recovery and the bounded 4,000-code-point inspector remain documented
 in the installation guide. No cloud service, new native framework or model
 provider is introduced by this beta.
+
+## Successor settings and generation access
+
+Research & AI Settings is included in this browser/source package. Session-owned settings and memory-only keys are separate from per-search scientific specifications and research exports. PubMed can be configured independently without an API key. Optional explicit local/OpenAI/DeepSeek generation delegates to the existing typed planning/proposal services and needs one-run data/cost consent. No live authenticated/provider/model checks are implied by the software tests; see SETTINGS.md and the successor evaluation record. The Electron experiment is a separate artifact, not included in this setup-required ZIP.

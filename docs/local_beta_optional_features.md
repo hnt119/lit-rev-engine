@@ -1,6 +1,6 @@
-# Optional capabilities in Local beta 0.3.0-beta.1
+# Optional capabilities in Local beta 0.3.0-beta.2
 
-All current Track A Next.js/FastAPI research capabilities are included. Normal
+The existing Track A Next.js/FastAPI research capabilities are included. For runtime session settings and optional own-key OpenAI/DeepSeek access, read SETTINGS.md. The private launch-file path below stays supported and intentionally permits literal-loopback generation only. Normal
 setup/launch is offline/manual and does not download weights, call a model or
 contact a literature provider. Historical CLI, Streamlit, arXiv and Kaggle tools
 are separate entry points; this beta does not package them as additional apps.

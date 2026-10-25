@@ -381,6 +381,41 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/settings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get */
+        get: operations["get_api_v1_settings_get"];
+        /** Put */
+        put: operations["put_api_v1_settings_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/settings/test-pubmed": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Test Pubmed */
+        post: operations["test_pubmed_api_v1_settings_test_pubmed_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/workspaces/{workspace_id}/imports/{format}": {
         parameters: {
             query?: never;
@@ -613,6 +648,23 @@ export interface paths {
         get: operations["paper_api_v1_workspaces__workspace_id__collections__collection_id__paper_get"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/search-plans/{plan_id}/prepare-generation": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Prepare Generation */
+        post: operations["prepare_generation_api_v1_workspaces__workspace_id__search_plans__plan_id__prepare_generation_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1118,6 +1170,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/prepare-generation": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Prepare Generation */
+        post: operations["prepare_generation_api_v1_workspaces__workspace_id__boards__board_id__prepare_generation_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposal-capabilities": {
         parameters: {
             query?: never;
@@ -1362,6 +1431,40 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** AIPreferences */
+        AIPreferences: {
+            /**
+             * Provider
+             * @default none
+             * @enum {string}
+             */
+            provider: "none" | "local" | "openai" | "deepseek";
+            /**
+             * Model
+             * @default
+             */
+            model: string;
+            /**
+             * Model Revision
+             * @default
+             */
+            model_revision: string;
+            /**
+             * Local Url
+             * @default http://127.0.0.1:8080/v1/chat/completions
+             */
+            local_url: string;
+            /**
+             * Planning Enabled
+             * @default false
+             */
+            planning_enabled: boolean;
+            /**
+             * Proposals Enabled
+             * @default false
+             */
+            proposals_enabled: boolean;
+        };
         /** AdmissionLogin */
         AdmissionLogin: {
             /** Code */
@@ -3652,6 +3755,14 @@ export interface components {
             /** Jobs */
             jobs: components["schemas"]["MapJobView"][];
         };
+        /** MapPreferences */
+        MapPreferences: {
+            /**
+             * Cache Dir
+             * @default
+             */
+            cache_dir: string;
+        };
         /** MapSubmission */
         MapSubmission: {
             job: components["schemas"]["MapJobView"];
@@ -4283,9 +4394,12 @@ export interface components {
             /**
              * Paid Calls
              * @default false
-             * @constant
              */
-            paid_calls: false;
+            paid_calls: boolean;
+            /** Settings Revision */
+            settings_revision?: number | null;
+            /** Provider */
+            provider?: string | null;
         };
         /** ProposalCellBaseline */
         ProposalCellBaseline: {
@@ -4346,17 +4460,6 @@ export interface components {
             total_block_characters: number;
             /** Omitted Characters */
             omitted_characters: number;
-            /** Field Ids */
-            field_ids: string[];
-        };
-        /** ProposalGenerateRequest */
-        ProposalGenerateRequest: {
-            /** Request Id */
-            request_id: string;
-            /** Expected Revision Id */
-            expected_revision_id: string;
-            /** Paper Ids */
-            paper_ids: string[];
             /** Field Ids */
             field_ids: string[];
         };
@@ -4541,14 +4644,18 @@ export interface components {
              */
             measured: boolean;
         };
-        /** ProposeSearchPlanRequest */
-        ProposeSearchPlanRequest: {
-            /** Request Id */
-            request_id: string;
-            /** Original Question */
-            original_question: string;
-            /** Expected Revision Id */
-            expected_revision_id?: string | null;
+        /** PubMedPreferences */
+        PubMedPreferences: {
+            /**
+             * Enabled
+             * @default false
+             */
+            enabled: boolean;
+            /**
+             * Email
+             * @default
+             */
+            email: string;
         };
         /** QueryDiagnosticMessage */
         QueryDiagnosticMessage: {
@@ -4788,6 +4895,41 @@ export interface components {
             /** Next Assessment Offset */
             next_assessment_offset: number | null;
         };
+        /** RuntimePlanRequest */
+        RuntimePlanRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Original Question */
+            original_question: string;
+            /** Expected Revision Id */
+            expected_revision_id?: string | null;
+            /** Settings Revision */
+            settings_revision?: number | null;
+            /** Consent Id */
+            consent_id?: string | null;
+        };
+        /** RuntimePreferences */
+        RuntimePreferences: {
+            pubmed?: components["schemas"]["PubMedPreferences"];
+            ai?: components["schemas"]["AIPreferences"];
+            defaults?: components["schemas"]["SearchDefaults"];
+            maps?: components["schemas"]["MapPreferences"];
+        };
+        /** RuntimeProposalRequest */
+        RuntimeProposalRequest: {
+            /** Request Id */
+            request_id: string;
+            /** Expected Revision Id */
+            expected_revision_id: string;
+            /** Paper Ids */
+            paper_ids: string[];
+            /** Field Ids */
+            field_ids: string[];
+            /** Settings Revision */
+            settings_revision?: number | null;
+            /** Consent Id */
+            consent_id?: string | null;
+        };
         /** SaveAssessmentRequest */
         SaveAssessmentRequest: {
             /** Request Id */
@@ -4912,6 +5054,20 @@ export interface components {
             date_from: string;
             /** Date To */
             date_to: string;
+        };
+        /** SearchDefaults */
+        SearchDefaults: {
+            /**
+             * Max Results
+             * @default 30
+             */
+            max_results: number;
+            /**
+             * Sort
+             * @default relevance
+             * @enum {string}
+             */
+            sort: "relevance" | "pub_date";
         };
         /** SearchInputRef */
         SearchInputRef: {
@@ -5048,6 +5204,12 @@ export interface components {
             search_id: string;
             /** Search Snapshot Sha256 */
             search_snapshot_sha256: string;
+            /** Requested Max Results */
+            requested_max_results?: number | null;
+            /** Configuration Profile */
+            configuration_profile?: {
+                [key: string]: unknown;
+            } | null;
             /** Created At */
             created_at?: string;
         };
@@ -5232,9 +5394,8 @@ export interface components {
             /**
              * Max Runtime Seconds
              * @default 10
-             * @constant
              */
-            max_runtime_seconds: 10;
+            max_runtime_seconds: number;
             /**
              * Max Input Bytes
              * @default 24576
@@ -5256,9 +5417,12 @@ export interface components {
             /**
              * Paid Calls
              * @default false
-             * @constant
              */
-            paid_calls: false;
+            paid_calls: boolean;
+            /** Settings Revision */
+            settings_revision?: number | null;
+            /** Provider */
+            provider?: string | null;
         };
         /** SearchPlanningResult */
         SearchPlanningResult: {
@@ -5360,6 +5524,12 @@ export interface components {
             mode: "live" | "saved_example" | "test";
             /** Errors */
             errors?: components["schemas"]["StructuredError"][];
+            /** Requested Max Results */
+            requested_max_results?: number | null;
+            /** Configuration Profile */
+            configuration_profile?: {
+                [key: string]: unknown;
+            } | null;
         };
         /** SearchRequest */
         SearchRequest: {
@@ -5497,6 +5667,21 @@ export interface components {
             csrf_token: string;
             /** Expires At */
             expires_at: string;
+        };
+        /** SettingsPut */
+        SettingsPut: {
+            /** Expected Revision */
+            expected_revision: number;
+            preferences: components["schemas"]["RuntimePreferences"];
+            /** Ncbi Api Key */
+            ncbi_api_key?: string | null;
+            /** Ai Api Key */
+            ai_api_key?: string | null;
+        };
+        /** SettingsTest */
+        SettingsTest: {
+            /** Expected Revision */
+            expected_revision: number;
         };
         /** SourceMetadata */
         SourceMetadata: {
@@ -6510,6 +6695,92 @@ export interface operations {
             };
         };
     };
+    get_api_v1_settings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    put_api_v1_settings_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SettingsPut"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    test_pubmed_api_v1_settings_test_pubmed_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SettingsTest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     upload_api_v1_workspaces__workspace_id__imports__format__post: {
         parameters: {
             query?: never;
@@ -6994,6 +7265,42 @@ export interface operations {
             };
         };
     };
+    prepare_generation_api_v1_workspaces__workspace_id__search_plans__plan_id__prepare_generation_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                plan_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RuntimePlanRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     capabilities_api_v1_workspaces__workspace_id__search_plan_capabilities_get: {
         parameters: {
             query?: never;
@@ -7281,7 +7588,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["ProposeSearchPlanRequest"];
+                "application/json": components["schemas"]["RuntimePlanRequest"];
             };
         };
         responses: {
@@ -8207,6 +8514,42 @@ export interface operations {
             };
         };
     };
+    prepare_generation_api_v1_workspaces__workspace_id__boards__board_id__prepare_generation_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                board_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RuntimeProposalRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     capabilities_api_v1_workspaces__workspace_id__boards__board_id__proposal_capabilities_get: {
         parameters: {
             query?: never;
@@ -8251,7 +8594,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["ProposalGenerateRequest"];
+                "application/json": components["schemas"]["RuntimeProposalRequest"];
             };
         };
         responses: {

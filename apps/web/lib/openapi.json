@@ -1040,6 +1040,92 @@
         }
       }
     },
+    "/api/v1/settings": {
+      "get": {
+        "summary": "Get",
+        "operationId": "get_api_v1_settings_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Put",
+        "operationId": "put_api_v1_settings_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SettingsPut"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings/test-pubmed": {
+      "post": {
+        "summary": "Test Pubmed",
+        "operationId": "test_pubmed_api_v1_settings_test_pubmed_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SettingsTest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/imports/{format}": {
       "post": {
         "summary": "Upload",
@@ -1849,6 +1935,62 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/search-plans/{plan_id}/prepare-generation": {
+      "post": {
+        "summary": "Prepare Generation",
+        "operationId": "prepare_generation_api_v1_workspaces__workspace_id__search_plans__plan_id__prepare_generation_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Plan Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuntimePlanRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/search-plan-capabilities": {
       "get": {
         "summary": "Capabilities",
@@ -2297,7 +2439,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProposeSearchPlanRequest"
+                "$ref": "#/components/schemas/RuntimePlanRequest"
               }
             }
           }
@@ -4047,6 +4189,62 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/prepare-generation": {
+      "post": {
+        "summary": "Prepare Generation",
+        "operationId": "prepare_generation_api_v1_workspaces__workspace_id__boards__board_id__prepare_generation_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuntimeProposalRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/boards/{board_id}/proposal-capabilities": {
       "get": {
         "summary": "Capabilities",
@@ -4124,7 +4322,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProposalGenerateRequest"
+                "$ref": "#/components/schemas/RuntimeProposalRequest"
               }
             }
           }
@@ -4980,6 +5178,52 @@
   },
   "components": {
     "schemas": {
+      "AIPreferences": {
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "none",
+              "local",
+              "openai",
+              "deepseek"
+            ],
+            "title": "Provider",
+            "default": "none"
+          },
+          "model": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Model",
+            "default": ""
+          },
+          "model_revision": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Model Revision",
+            "default": ""
+          },
+          "local_url": {
+            "type": "string",
+            "maxLength": 500,
+            "title": "Local Url",
+            "default": "http://127.0.0.1:8080/v1/chat/completions"
+          },
+          "planning_enabled": {
+            "type": "boolean",
+            "title": "Planning Enabled",
+            "default": false
+          },
+          "proposals_enabled": {
+            "type": "boolean",
+            "title": "Proposals Enabled",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "AIPreferences"
+      },
       "AdmissionLogin": {
         "properties": {
           "code": {
@@ -10781,6 +11025,19 @@
         ],
         "title": "MapListing"
       },
+      "MapPreferences": {
+        "properties": {
+          "cache_dir": {
+            "type": "string",
+            "maxLength": 1000,
+            "title": "Cache Dir",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "MapPreferences"
+      },
       "MapSubmission": {
         "properties": {
           "job": {
@@ -12515,9 +12772,30 @@
           },
           "paid_calls": {
             "type": "boolean",
-            "const": false,
             "title": "Paid Calls",
             "default": false
+          },
+          "settings_revision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settings Revision"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
           }
         },
         "additionalProperties": false,
@@ -12694,49 +12972,6 @@
           "field_ids"
         ],
         "title": "ProposalEvidence"
-      },
-      "ProposalGenerateRequest": {
-        "properties": {
-          "request_id": {
-            "type": "string",
-            "maxLength": 200,
-            "minLength": 1,
-            "title": "Request Id"
-          },
-          "expected_revision_id": {
-            "type": "string",
-            "maxLength": 200,
-            "minLength": 1,
-            "title": "Expected Revision Id"
-          },
-          "paper_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "maxItems": 3,
-            "minItems": 1,
-            "title": "Paper Ids"
-          },
-          "field_ids": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "maxItems": 6,
-            "minItems": 1,
-            "title": "Field Ids"
-          }
-        },
-        "additionalProperties": false,
-        "type": "object",
-        "required": [
-          "request_id",
-          "expected_revision_id",
-          "paper_ids",
-          "field_ids"
-        ],
-        "title": "ProposalGenerateRequest"
       },
       "ProposalListing": {
         "properties": {
@@ -13249,40 +13484,23 @@
         "type": "object",
         "title": "ProposalUsage"
       },
-      "ProposeSearchPlanRequest": {
+      "PubMedPreferences": {
         "properties": {
-          "request_id": {
-            "type": "string",
-            "maxLength": 200,
-            "minLength": 1,
-            "title": "Request Id"
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "default": false
           },
-          "original_question": {
+          "email": {
             "type": "string",
-            "maxLength": 10000,
-            "minLength": 1,
-            "title": "Original Question"
-          },
-          "expected_revision_id": {
-            "anyOf": [
-              {
-                "type": "string",
-                "maxLength": 200
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Expected Revision Id"
+            "maxLength": 254,
+            "title": "Email",
+            "default": ""
           }
         },
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "request_id",
-          "original_question"
-        ],
-        "title": "ProposeSearchPlanRequest"
+        "title": "PubMedPreferences"
       },
       "QueryDiagnosticMessage": {
         "properties": {
@@ -13949,6 +14167,151 @@
         ],
         "title": "RunView"
       },
+      "RuntimePlanRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "original_question": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Original Question"
+          },
+          "expected_revision_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Revision Id"
+          },
+          "settings_revision": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settings Revision"
+          },
+          "consent_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Consent Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "original_question"
+        ],
+        "title": "RuntimePlanRequest"
+      },
+      "RuntimePreferences": {
+        "properties": {
+          "pubmed": {
+            "$ref": "#/components/schemas/PubMedPreferences"
+          },
+          "ai": {
+            "$ref": "#/components/schemas/AIPreferences"
+          },
+          "defaults": {
+            "$ref": "#/components/schemas/SearchDefaults"
+          },
+          "maps": {
+            "$ref": "#/components/schemas/MapPreferences"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "RuntimePreferences"
+      },
+      "RuntimeProposalRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_revision_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Paper Ids"
+          },
+          "field_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Field Ids"
+          },
+          "settings_revision": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settings Revision"
+          },
+          "consent_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Consent Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_revision_id",
+          "paper_ids",
+          "field_ids"
+        ],
+        "title": "RuntimeProposalRequest"
+      },
       "SaveAssessmentRequest": {
         "properties": {
           "request_id": {
@@ -14264,6 +14627,29 @@
           "date_to"
         ],
         "title": "SearchDateFilter"
+      },
+      "SearchDefaults": {
+        "properties": {
+          "max_results": {
+            "type": "integer",
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Max Results",
+            "default": 30
+          },
+          "sort": {
+            "type": "string",
+            "enum": [
+              "relevance",
+              "pub_date"
+            ],
+            "title": "Sort",
+            "default": "relevance"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "SearchDefaults"
       },
       "SearchInputRef": {
         "properties": {
@@ -14646,6 +15032,31 @@
             "type": "string",
             "title": "Search Snapshot Sha256"
           },
+          "requested_max_results": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 50.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Requested Max Results"
+          },
+          "configuration_profile": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration Profile"
+          },
           "created_at": {
             "type": "string",
             "title": "Created At"
@@ -14994,7 +15405,8 @@
           },
           "max_runtime_seconds": {
             "type": "integer",
-            "const": 10,
+            "maximum": 30.0,
+            "minimum": 1.0,
             "title": "Max Runtime Seconds",
             "default": 10
           },
@@ -15018,9 +15430,30 @@
           },
           "paid_calls": {
             "type": "boolean",
-            "const": false,
             "title": "Paid Calls",
             "default": false
+          },
+          "settings_revision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settings Revision"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
           }
         },
         "additionalProperties": false,
@@ -15261,6 +15694,31 @@
             },
             "type": "array",
             "title": "Errors"
+          },
+          "requested_max_results": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 50.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Requested Max Results"
+          },
+          "configuration_profile": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration Profile"
           }
         },
         "additionalProperties": false,
@@ -15621,6 +16079,64 @@
           "expires_at"
         ],
         "title": "SessionInfo"
+      },
+      "SettingsPut": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "preferences": {
+            "$ref": "#/components/schemas/RuntimePreferences"
+          },
+          "ncbi_api_key": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 512
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ncbi Api Key"
+          },
+          "ai_api_key": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 512
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ai Api Key"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "preferences"
+        ],
+        "title": "SettingsPut"
+      },
+      "SettingsTest": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Revision"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision"
+        ],
+        "title": "SettingsTest"
       },
       "SourceMetadata": {
         "properties": {

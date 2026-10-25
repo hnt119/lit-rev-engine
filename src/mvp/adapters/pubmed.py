@@ -155,5 +155,7 @@ class PubMedPreviewProvider:
                 result["warnings"].append("Preview identifiers were discovered, but citation retrieval failed; no unverified citations were added.")
         result["warnings"].append("Exploratory preview only; this is not a complete PubMed capture or a comprehensive review.")
         return SearchPreview(query=request.query, searched_at=timestamp, sort=request.sort,
+                             requested_max_results=request.max_results,
+                             configuration_profile=getattr(self, 'configuration_profile', None),
                              date_from=request.date_from, date_to=request.date_to,
                              fetched_count=fetched_count, papers=papers, errors=errors, **result)

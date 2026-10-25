@@ -1,7 +1,11 @@
 import {fingerprint} from "./helpers";
 import type {components} from "./generated-api";
-// FastAPI response models include their defaults; do not duplicate those models.
-type ResponseDefaults<T> = T extends object ? {[P in keyof T]-?:ResponseDefaults<T[P]>}:T;
+// FastAPI includes ordinary defaults. Additive capture fields deliberately omit
+// null values so immutable historical captures retain their original digests.
+type OmittedNullDefault="requested_max_results"|"configuration_profile";
+type ResponseDefaults<T> = T extends readonly unknown[] ? {[P in keyof T]:ResponseDefaults<T[P]>}:T extends object ?
+  {[P in keyof T as P extends OmittedNullDefault?never:P]-?:ResponseDefaults<T[P]>}&
+  {[P in keyof T as P extends OmittedNullDefault?P:never]?:ResponseDefaults<T[P]>}:T;
 export type Schema<K extends keyof components["schemas"]> = ResponseDefaults<components["schemas"][K]>;
 export class APIError extends Error {
   constructor(public status:number, public code:string, message:string){super(message);}

@@ -132,6 +132,10 @@ class SearchPreview(Model):
     provider: str = "pubmed"
     mode: Literal["live", "saved_example", "test"] = "live"
     errors: list[StructuredError] = Field(default_factory=list)
+    # Absent in historical captures. Omit absent metadata from serialization so
+    # frozen snapshot digests and historical planned-search receipts stay valid.
+    requested_max_results: int | None = Field(default=None, ge=1, le=MAX_DISCOVERY_RESULTS, exclude_if=lambda value: value is None)
+    configuration_profile: dict | None = Field(default=None, exclude_if=lambda value: value is None)
 
 
 class Block(Model):
