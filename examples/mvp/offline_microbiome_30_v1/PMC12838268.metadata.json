@@ -1,0 +1,341 @@
+{
+  "abstractText": "<b>Background:</b> Gut microbiota dysbiosis has been associated with childhood asthma; however, its role in adult bronchial asthma (BA), particularly in Japanese populations, remains unclear. The potential influence of sex-based differences also warrants investigation. We aimed to investigate the association between gut microbiota composition and adult BA in a Japanese cohort, focusing on sex-specific differences. <b>Methods:</b> Stool samples from 108 Japanese adults with BA (48 male and 60 female individuals) and 210 healthy controls (90 male and 120 female individuals) were analyzed using 16S rRNA gene sequencing. Analyses were stratified by sex. β-diversity was assessed using non-metric multidimensional scaling and permutational multivariate analysis of variance. Genus-level taxonomic comparisons were conducted using the ANOVA-Like Differential Expression version 2 tool on centered log-ratio-transformed data. <b>Results:</b> β-diversity significantly differed between the groups among both male and female individuals. In male individuals, 11 taxa had absolute effect sizes of ≥0.2. In female individuals, 19 taxa met this threshold, with 8 reaching significance after Benjamini-Hochberg correction. <i>Streptococcus</i> and <i>Blautia</i> were enriched in the BA group in both sexes, whereas other taxa showed sex-specific patterns, such as <i>Veillonella</i> in male and <i>Flavonifractor</i> and <i>Eggerthella</i> in female individuals. Several short-chain fatty acid (SCFA)-producing taxa were depleted in the BA group. <b>Conclusions:</b> Our findings suggest that gut microbiota dysbiosis occurs in Japanese adults with BA, characterized by enrichment of taxa associated with respiratory diseases and depletion of SCFA-producing bacteria. The observed patterns highlight the importance of considering sex-specific differences in future research.",
+  "affiliation": "Symbiosis Solutions Inc., Tokyo 101-0064, Japan.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-8532-9670"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0001-9425-0278"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-1461-4797"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-0118-342X"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-0514-3054"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-3805-8083"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-4472-3625"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0009-4071-823X"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0009-4071-823X"
+        },
+        "firstName": "Chihiro",
+        "fullName": "Hirano C",
+        "initials": "C",
+        "lastName": "Hirano"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-4472-3625"
+        },
+        "firstName": "Yutaka",
+        "fullName": "Kozu Y",
+        "initials": "Y",
+        "lastName": "Kozu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "firstName": "Yusuke",
+        "fullName": "Jinno Y",
+        "initials": "Y",
+        "lastName": "Jinno"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "firstName": "Yusuke",
+        "fullName": "Kurosawa Y",
+        "initials": "Y",
+        "lastName": "Kurosawa"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "firstName": "Shiho",
+        "fullName": "Yamada S",
+        "initials": "S",
+        "lastName": "Yamada"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-1461-4797"
+        },
+        "firstName": "Kouta",
+        "fullName": "Hatayama K",
+        "initials": "K",
+        "lastName": "Hatayama"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-3805-8083"
+        },
+        "firstName": "Kanako",
+        "fullName": "Kono K",
+        "initials": "K",
+        "lastName": "Kono"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-8532-9670"
+        },
+        "firstName": "Kenji",
+        "fullName": "Mizumura K",
+        "initials": "K",
+        "lastName": "Mizumura"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "firstName": "Motoyasu",
+        "fullName": "Iikura M",
+        "initials": "M",
+        "lastName": "Iikura"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-0118-342X"
+        },
+        "firstName": "Shuichiro",
+        "fullName": "Maruoka S",
+        "initials": "S",
+        "lastName": "Maruoka"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-9425-0278"
+        },
+        "firstName": "Hiroaki",
+        "fullName": "Masuyama H",
+        "initials": "H",
+        "lastName": "Masuyama"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-0514-3054"
+        },
+        "firstName": "Yasuhiro",
+        "fullName": "Gon Y",
+        "initials": "Y",
+        "lastName": "Gon"
+      }
+    ]
+  },
+  "authorString": "Hirano C, Kozu Y, Jinno Y, Kurosawa Y, Yamada S, Hatayama K, Kono K, Mizumura K, Iikura M, Maruoka S, Masuyama H, Gon Y.",
+  "citedByCount": 1,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-01-28",
+  "dateOfCreation": "2026-01-28",
+  "dateOfRevision": "2026-01-31",
+  "doi": "10.3390/biomedicines14010125",
+  "electronicPublicationDate": "2026-01-08",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-01-28",
+  "firstPublicationDate": "2026-01-08",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12838268"
+    ]
+  },
+  "fullTextReceivedDate": "2026-01-28",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/biomedicines14010125"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12838268"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12838268?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "41595661",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 Jan",
+    "issue": "1",
+    "journal": {
+      "essn": "2227-9059",
+      "isoabbreviation": "Biomedicines",
+      "issn": "2227-9059",
+      "medlineAbbreviation": "Biomedicines",
+      "nlmid": "101691304",
+      "title": "Biomedicines"
+    },
+    "journalIssueId": 4103291,
+    "monthOfPublication": 1,
+    "printPublicationDate": "2026-01-01",
+    "volume": "14",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Sex differences",
+      "Bronchial Asthma",
+      "Gut Microbiota",
+      "Dysbiosis",
+      "Short-chain Fatty Acids"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "125",
+  "pmcid": "PMC12838268",
+  "pmid": "41595661",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Sex-Specific Differences in Gut Microbiota Composition in Adult Patients with Bronchial Asthma.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "abstractText": "<b>Background/Objectives</b>: Nontuberculous mycobacterial pulmonary disease (NTM-PD) is treated using a combination of multiple antimicrobial agents and prolonged therapy; however, recurrence and reinfection rates remain high. Susceptibility to NTM-PD is not fully understood. We aimed to investigate the association between NTM-PD and gut microbiota and determine the impact of antimicrobial therapy on the composition of the gut microbiota. <b>Methods:</b> We analyzed the gut microbiota of 20 Japanese females with NTM-PD (mean age: 67.9 years; range: 50-80 years) at different treatment stages-before, during, and at recurrence-alongside 20 healthy individuals, using 16S rRNA gene amplicon sequencing. <b>Results:</b> Subgroup A (pre-treatment) showed a small difference in β-diversity when compared with the healthy control (HC) group, while no significant differences in α-diversity were observed. Subgroup B (during treatment) exhibited a larger difference in β-diversity compared with the HC group, along with a decrease in α-diversity. The α-diversity of the gut microbiota in Subgroup C (at recurrence) was lower than that in Subgroup A but higher than that in Subgroup B. In Subgroups A and C, the bacterial taxa <i>Sutterella</i>, <i>Adlercreutzia</i>, <i>Odoribacter</i>, and <i>Prevotella</i> had decreased relative abundance, while <i>Erysipelatoclostridium</i>, <i>Massilimicrobiota</i>, <i>Flavonifractor</i>, <i>Eggerthella</i>, and <i>Fusobacterium</i> had increased relative abundance compared to those in the HC group. <b>Conclusions:</b> The loss of normal resident gut bacteria may hinder reacquisition. Treatment may be associated with the persistence of a dysbiotic gut microbiota, fostering susceptibility to NTM-PD. Gut microbiota dysbiosis may heighten susceptibility to NTM-PD, complicate treatment outcomes, and increase the risk of microbiological recurrence following therapy.",
+  "affiliation": "Symbiosis Solutions Inc., 2-8-11 Kandasarugakucho, Chiyoda-ku, Tokyo 101-0064, Japan.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-8532-9670"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0001-9425-0278"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-1461-4797"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-0118-342X"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-0514-3054"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-3805-8083"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-4472-3625"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0008-5610-4710"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., 2-8-11 Kandasarugakucho, Chiyoda-ku, Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-3805-8083"
+        },
+        "firstName": "Kanako",
+        "fullName": "Kono K",
+        "initials": "K",
+        "lastName": "Kono"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, 30-1 Ohyaguchi-Kamicho, Itabashi-ku, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-4472-3625"
+        },
+        "firstName": "Yutaka",
+        "fullName": "Kozu Y",
+        "initials": "Y",
+        "lastName": "Kozu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, 30-1 Ohyaguchi-Kamicho, Itabashi-ku, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0008-5610-4710"
+        },
+        "firstName": "Shun",
+        "fullName": "Yokota S",
+        "initials": "S",
+        "lastName": "Yokota"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., 2-8-11 Kandasarugakucho, Chiyoda-ku, Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-1461-4797"
+        },
+        "firstName": "Kouta",
+        "fullName": "Hatayama K",
+        "initials": "K",
+        "lastName": "Hatayama"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, 30-1 Ohyaguchi-Kamicho, Itabashi-ku, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-8532-9670"
+        },
+        "firstName": "Kenji",
+        "fullName": "Mizumura K",
+        "initials": "K",
+        "lastName": "Mizumura"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, 30-1 Ohyaguchi-Kamicho, Itabashi-ku, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-0118-342X"
+        },
+        "firstName": "Shuichiro",
+        "fullName": "Maruoka S",
+        "initials": "S",
+        "lastName": "Maruoka"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Symbiosis Solutions Inc., 2-8-11 Kandasarugakucho, Chiyoda-ku, Tokyo 101-0064, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-9425-0278"
+        },
+        "firstName": "Hiroaki",
+        "fullName": "Masuyama H",
+        "initials": "H",
+        "lastName": "Masuyama"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Respiratory Medicine, Department of Internal Medicine, Nihon University School of Medicine, 30-1 Ohyaguchi-Kamicho, Itabashi-ku, Tokyo 173-8610, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-0514-3054"
+        },
+        "firstName": "Yasuhiro",
+        "fullName": "Gon Y",
+        "initials": "Y",
+        "lastName": "Gon"
+      }
+    ]
+  },
+  "authorString": "Kono K, Kozu Y, Yokota S, Hatayama K, Mizumura K, Maruoka S, Masuyama H, Gon Y.",
+  "citedByCount": 2,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "altmetrics",
+      "supporting_data"
+    ]
+  },
+  "dateOfCreation": "2025-05-28",
+  "dateOfRevision": "2025-05-31",
+  "doi": "10.3390/biomedicines13051264",
+  "electronicPublicationDate": "2025-05-21",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2025-05-28",
+  "firstPublicationDate": "2025-05-21",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12108648"
+    ]
+  },
+  "fullTextReceivedDate": "2025-12-03",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/biomedicines13051264"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12108648"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12108648?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "40427090",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 May",
+    "issue": "5",
+    "journal": {
+      "essn": "2227-9059",
+      "isoabbreviation": "Biomedicines",
+      "issn": "2227-9059",
+      "medlineAbbreviation": "Biomedicines",
+      "nlmid": "101691304",
+      "title": "Biomedicines"
+    },
+    "journalIssueId": 3948062,
+    "monthOfPublication": 5,
+    "printPublicationDate": "2025-05-01",
+    "volume": "13",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "Gut Microbiota",
+      "Nontuberculous Mycobacteria",
+      "16s Rrna Sequencing",
+      "Microbiome Dysbiosis",
+      "Nontuberculous Mycobacterial Pulmonary Disease",
+      "Japanese Female Patients"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "1264",
+  "pmcid": "PMC12108648",
+  "pmid": "40427090",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Gut Microbiota Dysbiosis in Japanese Female Patients with Nontuberculous Mycobacteria-Associated Lung Disease: An Observational Study.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

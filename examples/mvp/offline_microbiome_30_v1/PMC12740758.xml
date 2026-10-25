@@ -1,0 +1,1078 @@
+
+<!DOCTYPE article
+  PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with MathML3 v1.4 20241031//EN" "JATS-archivearticle1-4-mathml3.dtd">
+<article xml:lang="en" article-type="review-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Front Oncol</journal-id><journal-id journal-id-type="iso-abbrev">Front Oncol</journal-id><journal-id journal-id-type="pmc-domain-id">1755</journal-id><journal-id journal-id-type="pmc-domain">frontonco</journal-id><journal-id journal-id-type="nlm-id">101568867</journal-id><journal-id journal-id-type="publisher-id">Front. Oncol.</journal-id><journal-title-group><journal-title>Frontiers in Oncology</journal-title></journal-title-group><issn pub-type="epub">2234-943X</issn><?publisher_abbrev frontiers?><publisher><publisher-name>Frontiers Media SA</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12740758</article-id><article-id pub-id-type="pmcid-ver">PMC12740758.1</article-id><article-id pub-id-type="pmcaid">12740758</article-id><article-id pub-id-type="pmcaiid">12740758</article-id><article-id pub-id-type="pmid">41458603</article-id><article-id pub-id-type="doi">10.3389/fonc.2025.1666830</article-id><article-version-alternatives><article-version article-version-type="pmc-version">1</article-version><article-version article-version-type="Version of Record" vocab="NISO-RP-8-2008"/></article-version-alternatives><article-categories><subj-group subj-group-type="heading"><subject>Mini Review</subject></subj-group></article-categories><title-group><article-title>The gut microbiome as a potential predictive biomarker for breast cancer: emerging association and geographic differences</article-title></title-group><contrib-group><contrib contrib-type="author" corresp="yes"><name name-style="western"><surname>Oh</surname><given-names initials="B">Byeongsang</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><xref rid="aff5" ref-type="aff">
+<sup>5</sup>
+</xref><xref rid="c001" ref-type="corresp">
+<sup>*</sup>
+</xref><uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://loop.frontiersin.org/people/429404/overview"/><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Data curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">Data curation</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Project-administration" vocab-term-identifier="https://credit.niso.org/contributor-roles/project-administration/">Project administration</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="validation" vocab-term-identifier="https://credit.niso.org/contributor-roles/validation/">Validation</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – original draft" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Lamoury</surname><given-names initials="G">Gillian</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Carroll</surname><given-names initials="S">Susan</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Morgia</surname><given-names initials="M">Marita</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Boyle</surname><given-names initials="F">Frances</given-names></name><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Pavlakis</surname><given-names initials="N">Nick</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://loop.frontiersin.org/people/3262287/overview"/><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Clarke</surname><given-names initials="S">Stephen</given-names></name><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://loop.frontiersin.org/people/771181/overview"/><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Guminski</surname><given-names initials="A">Alexander</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://loop.frontiersin.org/people/1523421/overview"/><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Menzies</surname><given-names initials="A">Alexander</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Diakos</surname><given-names initials="C">Connie</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Moore</surname><given-names initials="K">Katrina</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Baron-Hay</surname><given-names initials="S">Sally</given-names></name><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – original draft" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-original-draft/">Writing – original draft</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Eade</surname><given-names initials="T">Thomas</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Molloy</surname><given-names initials="M">Mark</given-names></name><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff5" ref-type="aff">
+<sup>5</sup>
+</xref><uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://loop.frontiersin.org/people/853598/overview"/><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="validation" vocab-term-identifier="https://credit.niso.org/contributor-roles/validation/">Validation</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib><contrib contrib-type="author"><name name-style="western"><surname>Back</surname><given-names initials="M">Michael</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal analysis</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="resources" vocab-term-identifier="https://credit.niso.org/contributor-roles/resources/">Resources</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="supervision" vocab-term-identifier="https://credit.niso.org/contributor-roles/supervision/">Supervision</role><role vocab="credit" vocab-identifier="https://credit.niso.org/" vocab-term="Writing – review &amp; editing" vocab-term-identifier="https://credit.niso.org/contributor-roles/writing-review-editing/">Writing – review &amp; editing</role></contrib></contrib-group><aff id="aff1"><label>1</label><institution>Northern Sydney Cancer Center, Royal North Shore Hospital</institution>, <city>St Leonards</city>, <state>NSW</state>, <country country="au">Australia</country></aff><aff id="aff2"><label>2</label><institution>The Mater Hospital</institution>, <city>North Sydney</city>, <state>NSW</state>, <country country="au">Australia</country></aff><aff id="aff3"><label>3</label><institution>Faculty of Medicine and Health, University of Sydney</institution>, <city>Sydney</city>, <state>NSW</state>, <country country="au">Australia</country></aff><aff id="aff4"><label>4</label><institution>Genesis Care, North Shore Health Hub</institution>, <city>St Leonard</city>, <state>NSW</state>, <country country="au">Australia</country></aff><aff id="aff5"><label>5</label><institution>Bowel Cancer and Biomarker Laboratory, Kolling Institute</institution>, <city>St Leonard</city>, <state>NSW</state>, <country country="au">Australia</country></aff><author-notes><corresp id="c001"><label>*</label>Correspondence: Byeongsang Oh, <email xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="mailto:byeong.oh@sydney.edu.au">byeong.oh@sydney.edu.au</email></corresp></author-notes><pub-date publication-format="electronic" date-type="pub" iso-8601-date="2025-12-12"><day>12</day><month>12</month><year>2025</year></pub-date><pub-date publication-format="electronic" date-type="collection"><year>2025</year></pub-date><volume>15</volume><issue-id pub-id-type="pmc-issue-id">480898</issue-id><elocation-id>1666830</elocation-id><history><date date-type="received"><day>15</day><month>7</month><year>2025</year></date><date date-type="accepted"><day>17</day><month>11</month><year>2025</year></date><date date-type="rev-recd"><day>19</day><month>9</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>12</day><month>12</month><year>2025</year></date></event><event event-type="pmc-live"><date><day>27</day><month>12</month><year>2025</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-09-25 22:01:56.050"><day>25</day><month>09</month><year>2026</year></date></event></pub-history><permissions><copyright-statement>Copyright © 2025 Oh, Lamoury, Carroll, Morgia, Boyle, Pavlakis, Clarke, Guminski, Menzies, Diakos, Moore, Baron-Hay, Eade, Molloy and Back.</copyright-statement><copyright-year>2025</copyright-year><copyright-holder>Oh, Lamoury, Carroll, Morgia, Boyle, Pavlakis, Clarke, Guminski, Menzies, Diakos, Moore, Baron-Hay, Eade, Molloy and Back</copyright-holder><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense" start_date="2025-12-12">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open-access article distributed under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License (CC BY)</ext-link>. The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="fonc-15-1666830.pdf"><?pdf-name fonc-15-1666830.pdf?><?pdf-size 1107096?><?pdf-md5 5d11bee53bb539c11425ed70ee88c881?><?pdf-image-server-status NEVER_LOAD?><?pdf-cloudpmc-urn urn:app:c896/12740758/5d11bee53bb5/fonc-15-1666830.pdf?></self-uri><abstract><sec><title>Background</title><p>The gut microbiome may influence breast cancer (BC) development by modulating estrogen metabolism, immune responses, and microbial metabolites. Altered microbial patterns have been reported in BC, but their value as predictive biomarkers remains uncertain.</p></sec><sec><title>Methods</title><p>We reviewed 13 case–control studies that compared gut microbiome composition in women with and without BC, focusing on diversity, compositional shifts, and geographic variation.</p></sec><sec><title>Results</title><p>Reduced microbial richness (<italic toggle="yes">alpha diversity</italic>, the number and balance of bacterial species) was observed in more than half of the studies, although findings were not uniform. Differences in community composition (<italic toggle="yes">beta diversity</italic>) were common. Across studies, BC was consistently associated with elevated <italic toggle="yes">Bacteroides</italic> and reduced <italic toggle="yes">Faecalibacterium</italic>, a genus linked to anti-inflammatory effects. Other recurrent findings included enrichment of <italic toggle="yes">Eggerthella</italic> and <italic toggle="yes">Blautia</italic> in BC, though results for several taxa were inconsistent. Geographic variation was evident: <italic toggle="yes">Eggerthella</italic> was enriched in U.S. cohorts, <italic toggle="yes">Blautia</italic> in European cohorts, and in Chinese cohorts, <italic toggle="yes">Prevotella</italic> was elevated while <italic toggle="yes">Akkermansia</italic> was reduced.</p></sec><sec><title>Conclusions</title><p>Despite heterogeneity, converging evidence supports reduced diversity and shifts in select taxa, particularly enrichment of <italic toggle="yes">Bacteroides</italic> and depletion of <italic toggle="yes">Faecalibacterium</italic>, as emerging features of the BC microbiome. Geographic differences underscore the influence of host and environmental factors. These findings suggest biomarker potential but highlight the need for larger, longitudinal, and standardized studies to establish causality and clinical utility.</p></sec></abstract><kwd-group><kwd>breast cancer</kwd><kwd>gut microbiome</kwd><kwd>predictive biomarker</kwd><kwd>geographical variation</kwd><kwd>estrogen metabolism</kwd><kwd>precision oncology</kwd></kwd-group><funding-group><funding-statement>The author(s) declared that financial support was not received for this work and/or its publication.</funding-statement></funding-group><counts><fig-count count="2"/><table-count count="2"/><equation-count count="0"/><ref-count count="70"/><page-count count="14"/><word-count count="4948"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>section-at-acceptance</meta-name><meta-value>Breast Cancer</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec sec-type="intro" id="s1"><label>1</label><title>Introduction</title><p>Breast cancer (BC) is the most prevalent cancer among women globally and remains a leading cause of cancer-related morbidity and mortality, despite significant advancements in early detection and treatment (<xref rid="B1" ref-type="bibr">1</xref>). Innovations such as advanced imaging techniques, minimally invasive surgeries, targeted therapies, immunotherapies, personalized medicine, radiation therapy, and multidisciplinary approaches have contributed to improved survival outcomes (<xref rid="B2" ref-type="bibr">2</xref>). However, approximately 20-30% of women diagnosed with early-stage BC, depending on the subtype, experience recurrence, often manifesting as metastatic disease (<xref rid="B3" ref-type="bibr">3</xref>, <xref rid="B4" ref-type="bibr">4</xref>). This highlights the critical need for enhanced early detection strategies and innovative prognostic tools to improve therapeutic efficacy and survival outcomes.</p><p>Emerging evidence highlights the pivotal role of the gut microbiome in several cancers, including BC, where dysbiosis has been implicated in disease initiation, progression, and therapeutic response (<xref rid="B5" ref-type="bibr">5</xref>–<xref rid="B9" ref-type="bibr">9</xref>). Current evidence suggests that the gut microbiome influences BC risk by modulating systemic estrogen levels (<xref rid="B10" ref-type="bibr">10</xref>), metabolite production (<xref rid="B11" ref-type="bibr">11</xref>), and inflammatory responses. Elevated estrogen levels are well-documented risk factors for BC, with β-glucuronidase enzymes produced by certain gut bacteria facilitating estrogen reabsorption into the bloodstream, thereby contributing to BC pathogenesis (<xref rid="B10" ref-type="bibr">10</xref>, <xref rid="B12" ref-type="bibr">12</xref>). Recent mechanistic studies also demonstrate that gut microbiota can regulate steroid hormone activity, immune modulation, and therapeutic response in BC, further underscoring their potential role as biomarkers and therapeutic targets (<xref rid="B7" ref-type="bibr">7</xref>, <xref rid="B13" ref-type="bibr">13</xref>–<xref rid="B15" ref-type="bibr">15</xref>).</p><p>Several reviews have investigated the relationship between gut microbiome composition and BC. A systematic review of 10 case studies reported that BC patients exhibit decreased relative abundance of beneficial bacteria such as <italic toggle="yes">Prevotellaceae, Ruminococcus, Roseburia</italic> inulinivorans, and <italic toggle="yes">Faecalibacterium prausnitzii</italic>, alongside increased abundance of <italic toggle="yes">Bacteroides</italic> and <italic toggle="yes">Erysipelotrichaceae</italic> (<xref rid="B16" ref-type="bibr">16</xref>). However, findings across studies remain inconsistent, with variability linked to cancer stage, molecular subtype (<xref rid="B11" ref-type="bibr">11</xref>, <xref rid="B17" ref-type="bibr">17</xref>, <xref rid="B18" ref-type="bibr">18</xref>), menopausal status (<xref rid="B10" ref-type="bibr">10</xref>, <xref rid="B19" ref-type="bibr">19</xref>), ethnicity, body mass index (<xref rid="B20" ref-type="bibr">20</xref>), diet (<xref rid="B13" ref-type="bibr">13</xref>), and medication use (<xref rid="B21" ref-type="bibr">21</xref>). Moreover, although prior reviews have highlighted mechanistic links between microbiota, estrogen metabolism, and BC progression, they have not adequately addressed how these associations may differ across geographical regions. This review, therefore, aims to fill this gap by synthesizing evidence on gut microbiome variations in BC across China, the USA, and Europe. By critically examining geographical differences, we seek to identify consistent microbial signatures, evaluate their potential as predictive biomarkers (<xref rid="B22" ref-type="bibr">22</xref>), and highlight directions for future research. Ultimately, this analysis may contribute to the development of microbiome-informed strategies that support personalized approaches to BC management.</p></sec><sec id="s2"><label>2</label><title>Methods</title><p>We performed a mini-review of the literature through structured searches of PubMed, Medline, and ScienceDirect from database inception through December 2024. The search strategy included the terms “gut microbiome,” “gut microbiota,” “breast cancer,” and related synonyms. Reference lists of eligible articles were also screened. Eligible studies were peer-reviewed, English-language, human case–control studies comparing gut microbiome composition in adult women with BC and healthy controls. We excluded animal and preclinical studies, reviews, editorials, conference abstracts, and non-English publications. Data extracted from each study included participant characteristics, geographic setting, sequencing platform, measures of microbial diversity, and taxonomic findings. Owing to heterogeneity in study design, sequencing methodology (16S rRNA <italic toggle="yes">vs</italic>. metagenomics), and reported outcomes, quantitative meta-analysis was not feasible. Instead, we undertook a narrative synthesis, with emphasis on consistent and divergent findings and on geographic patterns across cohorts from China, Europe, and the United States.</p></sec><sec sec-type="results" id="s3"><label>3</label><title>Results</title><sec id="s3_1"><label>3.1</label><title>Demographics and characteristics of studies</title><p>The studies were published from 2018 to 2024 and involved research from various regions, including China (n=5) (<xref rid="B19" ref-type="bibr">19</xref>, <xref rid="B23" ref-type="bibr">23</xref>–<xref rid="B26" ref-type="bibr">26</xref>), the USA (n=3) (<xref rid="B27" ref-type="bibr">27</xref>–<xref rid="B29" ref-type="bibr">29</xref>), the Netherlands (n=1) (<xref rid="B30" ref-type="bibr">30</xref>), France (n=1) (<xref rid="B31" ref-type="bibr">31</xref>), Poland (n=1) (<xref rid="B32" ref-type="bibr">32</xref>), Taiwan (n=1) (<xref rid="B33" ref-type="bibr">33</xref>), and Ghana (n=1) (<xref rid="B34" ref-type="bibr">34</xref>). The study population includes premenopausal (n=2) (<xref rid="B23" ref-type="bibr">23</xref>), postmenopausal (n=1) (<xref rid="B19" ref-type="bibr">19</xref>), and mixed pre/post-menopausal (n=7) BC populations (<xref rid="B33" ref-type="bibr">33</xref>). Three studies did not describe the menopausal status (<xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B34" ref-type="bibr">34</xref>). Specific populations were BC with/without bone metastasis (n=1) (<xref rid="B25" ref-type="bibr">25</xref>) while two studies not reported study populations were either pre- or post-menopausal BC. Sample sizes ranged from 22 to 379. Common participants’ immunohistochemistry was ER+ (n=10) followed by HER2+ (n=5), and triple-negative breast cancer (TNBC) (n=2). Four studies did not report their participants’ immunohistochemistry data (<xref rid="B24" ref-type="bibr">24</xref>). Feces were collected and universally used across studies for microbiota analysis, while each study collected saliva (<xref rid="B28" ref-type="bibr">28</xref>) and blood (<xref rid="B24" ref-type="bibr">24</xref>) in addition to feces. Microbiota analysis was commonly performed with 16S rRNA sequencing (n=11) (<xref rid="B23" ref-type="bibr">23</xref>–<xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B33" ref-type="bibr">33</xref>, <xref rid="B34" ref-type="bibr">34</xref>) while two were conducted with shotgun metagenomics (<xref rid="B19" ref-type="bibr">19</xref>, <xref rid="B29" ref-type="bibr">29</xref>) and one study used PacBio (<xref rid="B26" ref-type="bibr">26</xref>) (<xref rid="T1" ref-type="table"><bold>Table 1</bold></xref>).</p><table-wrap position="float" id="T1" orientation="portrait"><label>Table 1</label><caption><p>Characteristics of studies.</p></caption><table frame="hsides" rules="groups"><thead><tr><th valign="middle" rowspan="2" align="left" colspan="1">Author year country</th><th valign="middle" rowspan="2" align="left" colspan="1">Study population</th><th valign="middle" colspan="2" align="left" rowspan="1">Sample size, age</th><th valign="middle" rowspan="2" align="left" colspan="1">Immuno- histochemistry</th><th valign="middle" rowspan="2" align="left" colspan="1">Biospecimen collection</th><th valign="middle" rowspan="2" align="left" colspan="1">Microbiota analysis</th><th valign="middle" rowspan="2" align="left" colspan="1">Results</th></tr><tr><th valign="middle" align="left" rowspan="1" colspan="1">BC</th><th valign="middle" align="left" rowspan="1" colspan="1">HC</th></tr></thead><tbody><tr><td valign="middle" align="left" rowspan="1" colspan="1">Aarnoutse et al., 2021<break/>Netherlands (<xref rid="B30" ref-type="bibr">30</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Post-menopausal BC</td><td valign="middle" align="left" rowspan="1" colspan="1">81<break/>62 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">67<break/>62 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">ER + Her 2 −</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v4</td><td valign="middle" align="left" rowspan="1" colspan="1">While an increased relative abundance of <bold><italic toggle="yes">Dialister</italic></bold> and <bold><italic toggle="yes">Veillonellaceae</italic></bold> was observed in BC patients scheduled for adjuvant treatment—potentially attributable to prophylactic antibiotic administration—no significant differences in microbiota richness, diversity, or overall composition were identified between postmenopausal BC patients and control groups.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Bobin-Dubigeon et al., 2021<break/>France (<xref rid="B31" ref-type="bibr">31</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Newly diagnosed<break/>Pre and post-menopausal BC</td><td valign="middle" align="left" rowspan="1" colspan="1">25<break/>63 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">30<break/>53 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">ER + Her 2 −</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v3-v4</td><td valign="middle" align="left" rowspan="1" colspan="1">Alpha diversity was significantly lower in the BC group compared to controls. A tendency towards a decreased relative abundance <bold>of <italic toggle="yes">Odoribacter</italic> sp.<italic toggle="yes">, Butyricimonas</italic> sp.<italic toggle="yes">, and Coprococcus</italic> sp.</bold> was observed. These findings suggest that BC patients may exhibit distinct differences in their intestinal bacterial composition compared to healthy individuals.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Zeber-Lubecka et al.,<break/>2024<break/>Poland (<xref rid="B32" ref-type="bibr">32</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre, peri and post-menopausal BC<break/>174</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre/peri-BC (n=47)<break/>Post-BC (n=41)</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre/peri (n=51)<break/>Post (n=35)</td><td valign="middle" align="left" rowspan="1" colspan="1">ER+(n=54)<break/>HER2+(n=21)<break/>TNBC (n=12)</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">Shotgun metagenomics</td><td valign="middle" align="left" rowspan="1" colspan="1">The study results did not identify an association between changes in the overall microbiota composition and selected taxa with menopausal status in BC patients and controls. However, the findings confirmed distinct differences in the gut microbiota between premenopausal and postmenopausal BC patients and their respective control groups</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Altinok Dindar et al.,<break/>2023<break/>USA (<xref rid="B27" ref-type="bibr">27</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre and post-menopausal BC</td><td valign="middle" align="left" rowspan="1" colspan="1">42<break/>6o yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">44<break/>58 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v4</td><td valign="middle" align="left" rowspan="1" colspan="1">Associations between significant microbial genera identified from BC patients and healthy control groups highlight the potential of the gut microbiome as a valuable source of biomarkers for breast cancer risk assessment.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Shrode et al.,<break/>2023,<break/>USA (<xref rid="B29" ref-type="bibr">29</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre and post-menopausal BC</td><td valign="middle" align="left" rowspan="1" colspan="1">22<break/>67 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">19<break/>56 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">ER + (n=18)<break/>HER2+ (n=1)<break/>TNBC (n=4)</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v3-v4<break/>Metagenomic sequencing</td><td valign="middle" align="left" rowspan="1" colspan="1">The study observed gut dysbiosis in BC patients, characterized by the depletion of SCFA-producing gut bacteria, suggesting their potential role in the pathobiology of BC. A deeper mechanistic understanding of gut bacterial dysbiosis in BC could pave the way for refined strategies in prevention and treatment.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">McCune et al.,<break/>2024<break/>USA (<xref rid="B28" ref-type="bibr">28</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">BC and DCIS</td><td valign="middle" align="left" rowspan="1" colspan="1">BC (n= 66),<break/>56 yrs<break/>DCIS (n=29)<break/>54 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">42<break/>53 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">N/R</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces and Saliva</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v4</td><td valign="middle" align="left" rowspan="1" colspan="1">The study identified several distinguishing features in the gut microbiota associated with BC and DCIS, suggesting that alterations in the gut microbiota may serve as a foundation for interventions targeting the gut microbiome to enhance treatment outcomes and improve long-term prognosis.</td></tr><tr><td valign="middle" rowspan="2" align="left" colspan="1">Zhu et al.,<break/>2018<break/>China (<xref rid="B19" ref-type="bibr">19</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Premenopausal BC</td><td valign="middle" align="left" rowspan="1" colspan="1">N=62<break/>Pre (n=18)<break/>37 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">71<break/>Pre (n=25)<break/>35 yrs</td><td valign="middle" rowspan="2" align="left" colspan="1">N/R</td><td valign="middle" rowspan="2" align="left" colspan="1">Faeces</td><td valign="middle" rowspan="1" align="left" colspan="1">Shotgun metagenomics</td><td valign="middle" rowspan="1" align="left" colspan="1">The microbiota profiles differ between postmenopausal BC in women and healthy controls but not in premenopausal women. The gut microbiota may regulate or respond to host immunity and metabolic balance.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Postmenopausal BC</td><td valign="middle" align="left" rowspan="1" colspan="1">Post (n=44)<break/>57 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">Post (n=46)<break/>56 yrs</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">He et al.,<break/>2021<break/>China (<xref rid="B23" ref-type="bibr">23</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Premenopausal BC</td><td valign="middle" align="left" rowspan="1" colspan="1">54<break/>39 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">28<break/>37 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">N/R</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v3-v4</td><td valign="middle" align="left" rowspan="1" colspan="1">The study revealed significant differences in the composition and symbiosis of gut microbiota between premenopausal BC patients and healthy premenopausal women. The abundance of short-chain fatty acid (SCFA)– producing bacteria and key SCFA-producing enzymes were significantly reduced in BC patients. Furthermore, <italic toggle="yes">Pediococcus and Desulfovibrio</italic> were identified as potential microbial markers capable of distinguishing premenopausal breast cancer patients from healthy individuals.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Hou et al.,<break/>2021<break/>Taiwan (<xref rid="B33" ref-type="bibr">33</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre and post-menopausal BC</td><td valign="middle" align="left" rowspan="1" colspan="1">200<break/>Pre (n=100)<break/>41 yrs<break/>Post (n=100)<break/>60 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">67<break/>Pre (n=50)<break/>35 yrs<break/>Post (n=17)<break/>61 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">ER+ (n=167)<break/>HER+ (n=50)</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v4</td><td valign="middle" align="left" rowspan="1" colspan="1">These findings provide the first evidence that the gut microbiota in premenopausal BC patients differs significantly from that in postmenopausal patients, highlighting menopausal-specific microbial markers for diagnosis and investigation. This research underscores the potential for a non-invasive approach to BC detection and offers a novel strategy for preventing premenopausal BC.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Ma et al.,<break/>2022<break/>China (<xref rid="B24" ref-type="bibr">24</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">BC</td><td valign="middle" align="left" rowspan="1" colspan="1">BC (n=26)<break/>49 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">HC (n=20)<break/>46 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">N/R</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v3-v4</td><td valign="middle" align="left" rowspan="1" colspan="1">This study reveals a decreasing trend in gut microbiota diversity of BC and benign breast legion subjects compared to healthy individuals. Compared with healthy individuals, the levels of <italic toggle="yes">Porphyromonas and Peptoniphilus</italic> were higher in BC patients, whereas <italic toggle="yes">Escherichia and Lactobacillus</italic> were more enriched in the benign breast lesion (BBL) group. This indicates that patients with BC and BBLs may undergo significant changes in intestinal microbiota.</td></tr><tr><td valign="middle" rowspan="2" align="left" colspan="1">Wenhui et al.,<break/>2022<break/>China (<xref rid="B25" ref-type="bibr">25</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">BC with no bone metastasis (BN)</td><td valign="middle" align="left" rowspan="1" colspan="1">BC (n=32)<break/>52 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">25<break/>54 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">ER+ (n=23)<break/>HER+ (n=24)</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" rowspan="1" align="left" colspan="1">16S rRNA region v4</td><td valign="middle" rowspan="1" align="left" colspan="1">This study demonstrated that variations in gut microbiota are associated with BC occurrence and bone metastasis, providing attractive targets for developing therapeutic and diagnostic methods. Streptococcus, <italic toggle="yes">Campylobacter and Moraxellaceae</italic> showed higher abundances in BNs and BMs than in HCs. The lack of <italic toggle="yes">Megamonas and Akkermansia</italic> in the BM compared with those in the NC and BN groups was considered related to bone metastasis.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">BC with bone metastasis (BM)</td><td valign="middle" align="left" rowspan="1" colspan="1">BM(n=22)<break/>50 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">ER+ (n=16)<break/>ER+ (n=14)</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Jiang et al,<break/>2023<break/>China (<xref rid="B26" ref-type="bibr">26</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Menopausal<break/>Pre-menopause</td><td valign="middle" align="left" rowspan="1" colspan="1">43</td><td valign="middle" align="left" rowspan="1" colspan="1">30</td><td valign="middle" align="left" rowspan="1" colspan="1">ER+ (n=34)<break/>HER2+ (n=21)</td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">PacBio -16S full length</td><td valign="middle" align="left" rowspan="1" colspan="1">This study suggests that BC is associated with changes in the composition and function of intestinal flora. These microflora and functional differences may be biomarkers or new targets for diagnosing and treating BC.</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Byrd et al., 2021<break/>Ghana (<xref rid="B34" ref-type="bibr">34</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre and post-menopausal BC<break/>Antibiotic use</td><td valign="middle" align="left" rowspan="1" colspan="1">379<break/>50 yrs<break/>(18–74 yrs)</td><td valign="middle" align="left" rowspan="1" colspan="1">414<break/>46 yrs</td><td valign="middle" align="left" rowspan="1" colspan="1">ER + Her 2 − </td><td valign="middle" align="left" rowspan="1" colspan="1">Faeces</td><td valign="middle" align="left" rowspan="1" colspan="1">16S rRNA region v4</td><td valign="middle" align="left" rowspan="1" colspan="1">Fecal bacteria characteristics are associated with BC and non-malignant breast disease.<break/><italic toggle="yes">Bacteroides and Flavonifractor</italic> are positively associated with BC.<break/><italic toggle="yes">Romboutsia and Coprococcus, Prevotella,Faecalibacterium, Eubacterium, Dorea, and Collinsella</italic> are inversely associated with BC.</td></tr></tbody></table><table-wrap-foot><fn><p>BC, Breast cancer; DCIS; Ductal carcinoma <italic toggle="yes">in-situ</italic>; HC, Healthy control; F, Faeces; <bold>↓</bold> decreased/low, <bold>↑</bold>increased/high, NS, No significant difference; HR, hormone receptor; HER2, human epidermal growth factor receptor 2; TNBC, triple negative breast cancer; Firmicutes/Bacteroidetes, LEfSe, Linear discriminant analysis effect size; AUC, Area under receiver operating curve; NR, Not reported; DCIS, Ductal carcinoma <italic toggle="yes">in situ</italic>; N/R, Not reported</p></fn></table-wrap-foot></table-wrap></sec><sec id="s3_2"><label>3.2</label><title>Gut microbiota diversity and composition between the BC and HC</title><sec id="s3_2_1"><label>3.2.1</label><title>Diversity</title><p>Of 13 studies, 7 reported lower alpha diversity in BC compared with HC, while 2 reported higher diversity and 4 reported no significant differences. Variability was partly attributed to menopausal status and diversity indices applied (Shannon v.s. Chao). For beta diversity, 7 studies found significant differences in overall microbial structure between BC and HC, whereas 4 reported no differences (<xref rid="T2" ref-type="table"><bold>Table 2</bold></xref>).</p><table-wrap position="float" id="T2" orientation="portrait"><label>Table 2</label><caption><p>Gut microbiome differences between BC and controls.</p></caption><table frame="hsides" rules="groups"><thead><tr><th valign="middle" rowspan="2" align="left" colspan="1"/><th valign="middle" colspan="2" align="center" rowspan="1">Diversity</th><th valign="middle" colspan="2" align="center" rowspan="1">Pylum</th><th valign="middle" colspan="2" align="center" rowspan="1">Genus/Genera</th><th valign="middle" colspan="2" align="center" rowspan="1">Species</th></tr><tr><th valign="middle" align="left" rowspan="1" colspan="1">Alpha</th><th valign="middle" align="left" rowspan="1" colspan="1">Beta</th><th valign="middle" align="left" rowspan="1" colspan="1">BCa</th><th valign="middle" align="left" rowspan="1" colspan="1">Control</th><th valign="middle" align="left" rowspan="1" colspan="1">BCa</th><th valign="middle" align="left" rowspan="1" colspan="1">Control</th><th valign="middle" align="left" rowspan="1" colspan="1">BCa</th><th valign="middle" align="left" rowspan="1" colspan="1">Control</th></tr></thead><tbody><tr><td valign="middle" align="left" rowspan="1" colspan="1">Aarnoutse<break/>et al., 2021<break/>Netherlands (<xref rid="B30" ref-type="bibr">30</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Bobin-Dubigeon et al., 2021<break/>France (<xref rid="B31" ref-type="bibr">31</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↓</bold>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">NR</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold> Firmicutes</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold>Bacteroidetes</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Clostridium</italic> cluster IV<break/><bold>↑</bold><italic toggle="yes">Clostridium</italic> cluster XIVa<break/><bold>↑</bold><italic toggle="yes">Blautia</italic> sp.</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Bifidobacterium</italic> sp.,<break/><bold>↑</bold><italic toggle="yes">Odoribacter</italic> sp.,<break/><bold>↑</bold><italic toggle="yes">Butyricimonas</italic>.sp.,<break/><bold>↑</bold><italic toggle="yes">Coprococcus</italic> sp.</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Zeber-Lubecka et al.,<break/>2024<break/>Poland (<xref rid="B32" ref-type="bibr">32</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">NS -Pre</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>NS-</bold>F/B ratio<break/><bold>↓</bold><italic toggle="yes">Actinobacteria</italic></td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Synergistetes</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Coprobacter</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Gemmiger</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Bifidobacterium</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Ruthenibacterium</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Anaeromassilibacillus</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Anaeromassilibacillus</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↓</bold>
+<italic toggle="yes">Collinsella_massiliensis</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Gemmiger_formicilis</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Collinsella_stercoris</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">NS -Post</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Coprobacter</italic><break/><bold>↑</bold><italic toggle="yes">Parabacteroides</italic><break/><bold>↑</bold><italic toggle="yes">Dorea</italic><break/><bold>↑</bold><italic toggle="yes">Blautia</italic><break/><bold>↑</bold><italic toggle="yes">Barnesiella</italic><break/><bold>↑</bold><italic toggle="yes">Bacteroides</italic><break/><bold>↓</bold><italic toggle="yes">Agathobaculum</italic><break/><bold>↓</bold><italic toggle="yes">Harryflintia</italic><break/><bold>↓</bold><italic toggle="yes">Enterorhabdus</italic><break/><bold>↓</bold><italic toggle="yes">Rothia</italic><break/><bold>↓</bold><italic toggle="yes">Allisonella</italic><break/>↓<italic toggle="yes">Bifidobacterium</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Coprobacter_fastidiosus</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Bacteroides_thetaiotaomicron</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Parabacteroides_distasonis</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Blautia_obeum</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Phascolarctobacterium_faecium</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Clostridium_sp_CAG_167</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Barnesiella_intestinihominis</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Dorea_formicigenerans</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Collinsella_intestinalis</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Agathobaculum_butyriciproducens</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">Pre and post</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Altinok Dindar et al.,<break/>2023<break/>USA (<xref rid="B27" ref-type="bibr">27</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↓</bold>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Acidaminococcus</italic>,<break/><bold>↑</bold><italic toggle="yes">Tyzzerella</italic>,<break/><bold>↑</bold><italic toggle="yes">Hungatella</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Christensenellaceae</italic>,<break/><bold>↑</bold><italic toggle="yes">UCG-005</italic>,<break/><bold>↑</bold><italic toggle="yes">Oscillospirales</italic>,<break/><bold>↑</bold><italic toggle="yes">NK4A14 group</italic>,<break/><bold>↑</bold><italic toggle="yes">Dialister</italic>,<break/><bold>↑</bold><italic toggle="yes">Gastranaerophilales</italic>, <bold>↑</bold><italic toggle="yes">Romboutsia</italic>,<break/><bold>↑</bold><italic toggle="yes">Coriobacteriales</italic>,<break/><bold>↑</bold><italic toggle="yes">Anaerofilum</italic>,<break/><bold>↑</bold><italic toggle="yes">Flavobacterials</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Shrode et al., 2023,<break/>USA (<xref rid="B29" ref-type="bibr">29</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1">Different</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold> Firmicutes<break/><bold>↑</bold>F/B ratio</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold>Bacteroidetes</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Intestinibacter</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Faecalitalea</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Eggerthella</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Turicibacter</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Erysipelotrichaceae UCG 003</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Lachnospiraceae NK$A136_group</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Intestinibacter bartlettii</italic><break/><bold>↑</bold><italic toggle="yes">Faecalitalea</italic> sp<italic toggle="yes">ecies</italic><break/><bold>↑</bold><italic toggle="yes">Eggerthella lenta</italic><break/>Random forest analysis<break/><bold>↑</bold><italic toggle="yes">Oscillospiraceae</italic> sp<italic toggle="yes">ecies</italic><break/><bold>↑</bold><italic toggle="yes">Actinomyces</italic> sp<italic toggle="yes">ecies</italic><break/><bold>↑</bold><italic toggle="yes">Eggerthella lenta</italic><break/><bold>↑</bold><italic toggle="yes">Faecalitalea</italic> sp<italic toggle="yes">ecies</italic><break/><bold>↑</bold><italic toggle="yes">Intestinibacter bartlettii</italic><break/><bold>↑</bold><italic toggle="yes">Blautia</italic> sp<italic toggle="yes">ecies</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Parabacteroides merdae</italic><break/><bold>↑</bold><italic toggle="yes">Erysipelotrichaceae UCG 003 bacterium</italic><break/><bold>↑</bold><italic toggle="yes">Faecalibacterium prausnitzii</italic>, <bold>↑</bold><italic toggle="yes">Erysipelotrichaceae UCG 003 bacterium</italic>,<break/><bold>↑</bold><italic toggle="yes">Lachnoclostridium edouardi</italic>,<break/><bold>↑</bold><italic toggle="yes">Oscillibacter</italic> sp<italic toggle="yes">ecies</italic>,<break/><bold>↑</bold><italic toggle="yes">Lachnospiraceae UCG 010</italic> sp<italic toggle="yes">ecies</italic>,<break/><bold>↑</bold><italic toggle="yes">Lachnospira pectinoshiza</italic>,<break/><bold>↑</bold><italic toggle="yes">Alistipes</italic> sp<italic toggle="yes">ecies</italic>,<break/><bold>↑</bold><italic toggle="yes">Parabacteroides merdae</italic></td></tr><tr><td valign="middle" rowspan="4" align="left" colspan="1">McCune et al.,<break/>2024<break/>USA (<xref rid="B28" ref-type="bibr">28</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">BC<break/><bold>↓</bold></td><td valign="middle" align="left" rowspan="1" colspan="1">Different</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Tenericutes</italic><break/><bold>↓</bold>F/B ratio</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Firmicutes</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Bacteroides</italic>,<break/><bold>↑</bold><italic toggle="yes">Finegoldia</italic></td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Anaerostipes</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Coprococcus</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Coprobacillus</italic>,<break/><bold>↑</bold><italic toggle="yes">Parabacteroides</italic>,<break/><bold>↑</bold><italic toggle="yes">Streptococcus</italic>,<break/><bold>↑</bold><italic toggle="yes">WAL</italic>,<break/><bold>↑</bold><italic toggle="yes">Corynebacterium</italic>,<break/><bold>↑</bold><italic toggle="yes">Anaerococcus</italic>,<break/><bold>↑</bold><italic toggle="yes">Acidaminococcus</italic>,<break/><bold>↑</bold><italic toggle="yes">Eggerthella</italic>,<break/><bold>↑</bold><italic toggle="yes">Peptoniphilus</italic><break/><bold>↑</bold><italic toggle="yes">Bacteroides</italic>,<break/><bold>↑</bold><italic toggle="yes">Finegoldia</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">DCIS<break/>NS</td><td valign="middle" align="left" rowspan="1" colspan="1">Different</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Actinobacteria</italic><break/><bold>↓</bold>F/B ratio</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Megamonas</italic>,<break/><bold>↑</bold><italic toggle="yes">Corynebacterium</italic>,<break/><bold>↑</bold><italic toggle="yes">Varibaculum;</italic><break/><bold>↑</bold><italic toggle="yes">Dialister</italic></td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Faecalibacterium</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Megamonas</italic>,<break/><bold>↑</bold><italic toggle="yes">Finegoldia</italic>,<break/><bold>↑</bold><italic toggle="yes">Varibaculum;</italic><break/><bold>↑</bold><italic toggle="yes">Peptoniphilus</italic>,<break/><bold>↑</bold><italic toggle="yes">Corynebacterium</italic>,<break/><bold>↑</bold><italic toggle="yes">Anaerococcus</italic>,<break/><bold>↑</bold><italic toggle="yes">Porphyromonas</italic><break/><bold>↑</bold><italic toggle="yes">Actinomyces</italic>,<break/><bold>↑</bold><italic toggle="yes">Odoribacter.</italic>,<break/><bold>↑</bold><italic toggle="yes">WAL</italic>,<break/><bold>↑</bold><italic toggle="yes">Streptococcus</italic><break/><bold>↑</bold><italic toggle="yes">Eggerthella</italic></td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Prevotella</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" rowspan="2" align="left" colspan="1">Zhu et al.,<break/>2018<break/>China (<xref rid="B19" ref-type="bibr">19</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre<break/>Chao-NS<break/>Shannon-<bold>↑</bold></td><td valign="middle" align="left" rowspan="1" colspan="1">Pre<break/>NS</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Post<break/>Chao-↑<break/>Shannon-NS</td><td valign="middle" align="left" rowspan="1" colspan="1">Post<break/><bold>↑</bold></td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">14 optimal species markers- <bold>Post-menopause</bold><break/><bold>↑</bold><italic toggle="yes">Fusobacterium_varium</italic><break/><bold>↑</bold><italic toggle="yes">Shigella_sp_D9</italic><break/><bold>↑</bold><italic toggle="yes">Desulfovibrio_piger</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_sp_1_1_43</italic><break/><bold>↑</bold><italic toggle="yes">Shigella_sonnei</italic><break/><bold>↑</bold><italic toggle="yes">Eubacterium_eligens</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_sp_3_2_53FAA</italic><break/><bold>↑</bold><italic toggle="yes">Vibrio_cholerae</italic><break/><bold>↑</bold><italic toggle="yes">Acinetobacter_baumannii</italic><break/><bold>↑</bold><italic toggle="yes">Proteus_mirabilis</italic><break/><bold>↑</bold><italic toggle="yes">Fusobacterium_nucleatum</italic><break/><bold>↑</bold><italic toggle="yes">Campylobacter_concisus</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_coli</italic><break/><bold>↑</bold><italic toggle="yes">Porphyromonas_uenonis</italic><break/>Post menopausal<break/>38 species were enriched in patients, including<break/><bold>↑</bold><italic toggle="yes">Escherichia_coli</italic><break/><bold>↑</bold><italic toggle="yes">Shigella_sp_D9</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_sp_3_2_53FAA</italic><break/><bold>↑</bold><italic toggle="yes">Shigella_sonnei</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_sp_1_1_43</italic><break/><bold>↑</bold><italic toggle="yes">Proteus_mirabilis</italic><break/><bold>↑</bold><italic toggle="yes">Shigella_boydii</italic><break/><bold>↑</bold><italic toggle="yes">Vibrio_cholerae</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_fergusonii</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_sp_4_1_40B</italic><break/><bold>↑</bold><italic toggle="yes">Shigella_flexneri</italic><break/><bold>↑</bold><italic toggle="yes">Acinetobacter_baumannii</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_sp_TW09276</italic><break/><bold>↑</bold><italic toggle="yes">Actinomyces_sp_HPA0247</italic><break/><bold>↑</bold><italic toggle="yes">Acinetobacter_johnsonii</italic><break/><bold>↑</bold><italic toggle="yes">Providencia_rettgeri</italic><break/><bold>↑</bold><italic toggle="yes">Lactobacillus_mucosae</italic><break/><italic toggle="yes">unclassified_Citrobacter_sp._30_2</italic><break/><bold>↑</bold><italic toggle="yes">Citrobacter_sp_30_2</italic><break/><bold>↑</bold><italic toggle="yes">Porphyromonas_uenonis</italic><break/><bold>↑</bold><italic toggle="yes">Citrobacter_koseri</italic><break/><bold>↑</bold><italic toggle="yes">Desulfovibrio_piger</italic><break/><bold>↑</bold><italic toggle="yes">Klebsiella_sp_1_1_55</italic><break/><bold>↑</bold><italic toggle="yes">Enterococcus_gallinarum</italic><break/><bold>↑</bold><italic toggle="yes">Salmonella_enterica</italic><break/><bold>↑</bold><italic toggle="yes">Erwinia_amylovora</italic><break/><bold>↑</bold><italic toggle="yes">Sodalis_glossinidius</italic><break/><bold>↑</bold><italic toggle="yes">Acinetobacter_radioresistens</italic><break/><bold>↑</bold><italic toggle="yes">Fusobacterium_varium</italic><break/><bold>↑</bold><italic toggle="yes">Acidaminococcus_intestini</italic><break/><bold>↑</bold><italic toggle="yes">Prevotella_amnii</italic><break/><bold>↑</bold><italic toggle="yes">Yersinia_enterocolitica</italic><break/><italic toggle="yes">unclassified_</italic><break/><bold>↑</bold><italic toggle="yes">Fusobacterium</italic><break/><italic toggle="yes">unclassified_Prevotella_sp._oral_taxon_299</italic><break/><bold>↑</bold><italic toggle="yes">Anaerococcus_vaginalis</italic><break/><bold>↑</bold><italic toggle="yes">Shewanella_putrefaciens</italic><break/><bold>↑</bold><italic toggle="yes">Fusobacterium_nucleatum</italic><break/><bold>↑</bold><italic toggle="yes">Escherichia_sp_TW11588</italic><break/><bold>7 species were reduced in patients, including</bold><break/><bold>↓</bold><italic toggle="yes">Eubacterium eligens</italic><break/><bold>↓</bold><italic toggle="yes">Escherichia_albertii</italic><break/><bold>↓</bold><italic toggle="yes">Campylobacter_concisus</italic><break/><bold>↓</bold><italic toggle="yes">Roseburia inulinivorans</italic><break/><bold>↓</bold><italic toggle="yes">Brucella_melitensis</italic><break/><bold>↓</bold><italic toggle="yes">Lactobacillus vaginalis</italic><break/><bold>↓</bold><italic toggle="yes">unclassified_Enterobacteriaceae_bacterium_9_2_54FAA</italic></td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>Tenfold cross-validation</bold>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Eubacterium eligens</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Roseburia inulinivorans</italic>
+</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">He et al.,<break/>2021<break/>China (<xref rid="B23" ref-type="bibr">23</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1">Different</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold>F/B ratio</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Providencia</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Romboutsia</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Desulfovibrio</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Pediococcu</italic>
+<bold>
+<italic toggle="yes">s</italic>
+</bold>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Enterococcus</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Fusobacterium</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Megamonas</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Collinsella</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Abiotrophia</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Allisonella</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Providencia_vermicola</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Dialister_invisus</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Romboutsia_sedimentorum</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Megamonas_funiformis</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Bacteroides_plebeius</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Dialister_succinatiphilus</italic>
+</td></tr><tr><td valign="middle" rowspan="3" align="left" colspan="1">Hou et al.,<break/>2021<break/>Taiwan (<xref rid="B33" ref-type="bibr">33</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">Pre<break/><bold>↓</bold></td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">
+<italic toggle="yes">Actinobacteria</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Haemophilus</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Fusobacterium</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Sutterella</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Bacteroides_</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Ruminococcus</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Prevotella_</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Dialister</italic><break/><bold>↑</bold><italic toggle="yes">Streptococcus</italic><break/><bold>↑</bold><italic toggle="yes">Megasphaera</italic><break/><bold>↑</bold><italic toggle="yes">Coprococuccus</italic><break/><bold>↑</bold><italic toggle="yes">Parabacteroides</italic><break/><bold>↑</bold><italic toggle="yes">Collinsella</italic><break/><bold>↑</bold><italic toggle="yes">Bifidobacterium</italic><break/><bold>↑</bold><italic toggle="yes">Akkermansia</italic><break/><bold>↑</bold><italic toggle="yes">Alistipes</italic>,<break/><bold>↑</bold><italic toggle="yes">Enterococcus</italic><break/><bold>↑</bold><italic toggle="yes">Rothia</italic>,<break/><bold>↑</bold><italic toggle="yes">Oxalobacter</italic>,<break/><bold>↑</bold><italic toggle="yes">Enterobacter</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↓</bold><italic toggle="yes">Bifidobacterium longum</italic>,<break/><bold>↓</bold><italic toggle="yes">Bifidobacterium bifidum</italic>,<break/><bold>↓</bold><italic toggle="yes">Bifidobacterium adolescentis</italic><break/><bold>↑</bold><italic toggle="yes">Anaerostipes</italic><break/><bold>↑</bold><italic toggle="yes">Bacteroides fragilis</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Collinsella aerofaciens</italic><break/><bold>↑</bold><italic toggle="yes">Bifidobacterium longum</italic>,<break/><bold>↑</bold><italic toggle="yes">Eubacterium bifome</italic><break/><bold>↑</bold><italic toggle="yes">Bifidobacterium adolescentis</italic><break/><bold>↑</bold><italic toggle="yes">Akkermansia muciniphila</italic><break/><bold>↑</bold><italic toggle="yes">Parabacteroides distasonis</italic><break/><bold>↑</bold><italic toggle="yes">Bifidobacterium bifidum</italic>,<break/><bold>↑</bold><italic toggle="yes">Alistipes indistinctus</italic><break/><bold>↑</bold><italic toggle="yes">Rothia mucilaginosa</italic></td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Post<break/>NS</td><td valign="middle" align="left" rowspan="1" colspan="1">Different</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<italic toggle="yes">Proteobacteria</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<italic toggle="yes">Verrucomicrobia</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Actinomyces</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Mitsuokella</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Haemophilus</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Sutterella</italic>
+<break/>
+<bold>
+<italic toggle="yes">↓</italic>
+</bold>
+<italic toggle="yes">Phascolarctobacterium</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Akkermansia</italic><break/><bold>↑</bold><italic toggle="yes">Phascolarctobacterium</italic><break/><bold>↑</bold><italic toggle="yes">Streptococcus</italic><break/><bold>↑</bold><italic toggle="yes">Ruminococcus</italic><break/><bold>↑</bold><italic toggle="yes">Bilophila</italic><break/><bold>↑</bold><italic toggle="yes">Alistipes</italic>,<break/><bold>↑</bold><italic toggle="yes">Oxalobacter</italic>,<break/><bold>↑</bold><italic toggle="yes">Eggerthella</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Mitsuokella multacida</italic><break/><bold>↑</bold><italic toggle="yes">Haemophilus parainfluebzae</italic><break/><bold>↑</bold><italic toggle="yes">Bifidobacterium longum</italic>,<break/><bold>↓</bold><italic toggle="yes">Bifidobacterium bifidum</italic>,<break/><bold>↓</bold><italic toggle="yes">Bifidobacterium adolescentis</italic><break/><bold>↑</bold><italic toggle="yes">Anaerostipes</italic><break/><bold>↓</bold><italic toggle="yes">Bacteroides fragilis</italic><break/><bold><italic toggle="yes">↓</italic></bold><italic toggle="yes">Akkermansia muciniphila</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Akkermansia muciniphila</italic><break/><bold>↑</bold><italic toggle="yes">Collinsella aerofaciens</italic><break/><bold>↑</bold><italic toggle="yes">Bacteroides coprophilus</italic><break/><bold>↑</bold><italic toggle="yes">Parabacteroides distasonis</italic><break/><bold>↑</bold><italic toggle="yes">Eubacterium bifome</italic><break/><bold>↑</bold><italic toggle="yes">Oxalobacter</italic> formigenes<break/><bold>↑</bold><italic toggle="yes">Alistipes indistinctus</italic><break/><bold>↑</bold><italic toggle="yes">Eggerthella lenta</italic><break/><bold>↑</bold><italic toggle="yes">Alistipes massiliensis</italic></td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Both Pre+<break/>post</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Sutterella</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Haemophilus parainfluenzae</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↓</bold>
+<italic toggle="yes">Sutterella</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Haemophilus parainfluenzae</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↓</bold>
+<italic toggle="yes">Faecalibacterium prausnitzii</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Ruminococcus gnavus</italic>
+<break/>
+<bold>↓</bold>
+<italic toggle="yes">Rothia mucilaginosa</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Faecalibacterium prausnitzii</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Ruminococcus gnavus</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Rothia mucilaginosa</italic>
+</td></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Ma et al.,<break/>2022<break/>China (<xref rid="B24" ref-type="bibr">24</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↓</bold>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">Different</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↓</bold>Firmicutes<break/><bold>↑</bold> Bacteroidetes</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Prevotella</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Porphyromonas</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Peptoniphilus</italic>
+<break/>
+<bold>↑</bold>
+<italic toggle="yes">Megamonas</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Eubacterium</italic><break/><bold>↑</bold><italic toggle="yes">Alistipes</italic><break/><bold>↑</bold><italic toggle="yes">Christensenella</italic><break/><bold>↑</bold><italic toggle="yes">Oxalobacter</italic><break/><bold>↑</bold><italic toggle="yes">Collinsella</italic><break/><bold>↑</bold><italic toggle="yes">Acidaminococcus</italic><break/><bold>↑</bold><italic toggle="yes">Tissierella</italic><break/><bold>↑</bold><italic toggle="yes">Butyricimonas</italic><break/><bold>↑</bold><italic toggle="yes">Hydrogenoanaerobacterium</italic><break/><bold>↑</bold><italic toggle="yes">Cloacibacillus</italic>,<break/><bold>↑</bold><italic toggle="yes">Asaccharobacter</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" rowspan="2" align="left" colspan="1">Wenhui et al., 2022<break/>China (<xref rid="B25" ref-type="bibr">25</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">BC with no metastasis<break/>NS</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↓</bold> Bacteroidetes</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold>Proteobacteria,<break/><bold>↑</bold><italic toggle="yes">Staphylococcus</italic>,<break/><bold>↑</bold><italic toggle="yes">Campylobacter</italic>,<break/><bold>↓</bold><italic toggle="yes">Paraprevotella</italic></td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+<italic toggle="yes">Paraprevotella</italic>
+</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Bone metastasis <bold>↓</bold></td><td valign="middle" align="left" rowspan="1" colspan="1">Different</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↓</bold> Firmicutes</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold>Bacilli,<break/><bold>↑</bold>Veillonella,<break/><bold>↑</bold><italic toggle="yes">Streptococcus</italic>,<break/><bold>↑</bold><italic toggle="yes">Campylobacter</italic>,<break/><bold>↑</bold>Acinetobacter,<break/><bold>↑</bold>Collinsella</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold>Megamonas,<break/><bold>↑</bold><italic toggle="yes">Clostridia</italic>,<break/><bold>↑</bold><italic toggle="yes">Akkermansia</italic>,<break/><bold>↑</bold>Gemmiger,<break/><bold>↑</bold>Paraprevotella</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Jiang et al, 2023<break/>China (<xref rid="B26" ref-type="bibr">26</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1">
+<bold>↑</bold>
+</td><td valign="middle" align="left" rowspan="1" colspan="1">NS</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold> Firmicutes</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold>Bacteroidetes</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Lachnospira</italic>,<break/><bold>↑</bold><italic toggle="yes">Ruminococcaceae_UCG_013</italic>,<break/><bold>↑</bold><italic toggle="yes">Family_XIII_UCG_001</italic>,<break/><bold>↑</bold><italic toggle="yes">Coprococcus</italic>,<break/><bold>↑</bold><italic toggle="yes">Ruminococcaceae_UCG_002</italic>,<break/><bold>↑</bold><italic toggle="yes">Christensenella</italic>,<break/><bold>↑</bold><italic toggle="yes">Butyricicoccus</italic>,<break/><bold>↑</bold><italic toggle="yes">Erysipe lotrichaceae_UCG_003</italic>,<break/><bold>↑</bold><italic toggle="yes">Lachnospiraceae_NK4A136_group</italic>,<break/><bold>↑</bold><italic toggle="yes">Christense nellaceae_R_7_group</italic>,<break/><bold>↑</bold><italic toggle="yes">Tyzzerella</italic><break/><bold>↑</bold><italic toggle="yes">Faecalibacterium</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Bacteroides</italic>,<break/><bold>↑</bold><italic toggle="yes">Veillonella</italic>,<break/><bold>↑</bold><italic toggle="yes">Clostridium</italic>, <bold>↑</bold><italic toggle="yes">Ruminococcus_torques_group</italic>,<break/><bold>↑</bold><italic toggle="yes">Eggerthella</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr><tr><td valign="middle" align="left" rowspan="1" colspan="1">Byrd et al., 2021<break/>Ghana (<xref rid="B34" ref-type="bibr">34</xref>)</td><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↓</bold>BC</td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"><bold>↑</bold><italic toggle="yes">Bacteroides</italic>,<break/><bold>↑</bold><italic toggle="yes">Flavonifractor</italic><break/><bold>↓</bold><italic toggle="yes">Romboutsia and</italic><bold>↓</bold><italic toggle="yes">Coprococcus,Prevotella</italic>,<break/><bold>↓</bold><italic toggle="yes">Faecalibacterium</italic>,<break/><bold>↓</bold><italic toggle="yes">Eubacterium</italic>,<break/><bold>↓</bold><italic toggle="yes">Dorea</italic>,<break/><bold>↓</bold><italic toggle="yes">Collinsella</italic></td><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/><td valign="middle" align="left" rowspan="1" colspan="1"/></tr></tbody></table></table-wrap></sec></sec><sec id="s3_3"><label>3.3</label><title>The difference in gut microbiota composition between the BC and HC</title><sec id="s3_3_1"><label>3.3.1</label><title>Phylum level</title><p>At the phylum level, dysbiosis in BC was variably reported. Four studies (<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B26" ref-type="bibr">26</xref>, <xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B31" ref-type="bibr">31</xref>) observed an increased abundance of Firmicutes and higher Firmicutes/Bacteroidetes (F/B) ratios in BC compared with controls, while three studies (<xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B28" ref-type="bibr">28</xref>) reported decreased ratios. The remaining investigations found no significant or inconclusive differences. Actinobacteria findings were also inconsistent, with some studies reporting enrichment (<xref rid="B28" ref-type="bibr">28</xref>) and others depletion (<xref rid="B32" ref-type="bibr">32</xref>), underscoring methodological heterogeneity and population-specific effects.</p></sec><sec id="s3_3_2"><label>3.3.2</label><title>Genus level</title><p>“At the genus level, several taxa showed consistent patterns across studies (<xref rid="f1" ref-type="fig"><bold>Figure 1</bold></xref>). <italic toggle="yes">Bacteroides</italic> was enriched in BC in four studies (<xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B32" ref-type="bibr">32</xref>–<xref rid="B34" ref-type="bibr">34</xref>), while <italic toggle="yes">Collinsella</italic> was reduced in four studies (<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B33" ref-type="bibr">33</xref>, <xref rid="B34" ref-type="bibr">34</xref>), suggesting potential roles as risk- and protective-associated genera, respectively. <italic toggle="yes">Blautia</italic> (<xref rid="B31" ref-type="bibr">31</xref>, <xref rid="B32" ref-type="bibr">32</xref>), <italic toggle="yes">Eggerthella</italic> (<xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B29" ref-type="bibr">29</xref>), <italic toggle="yes">Peptoniphilus</italic> (<xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B28" ref-type="bibr">28</xref>), <italic toggle="yes">Actinomyces</italic> (<xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B33" ref-type="bibr">33</xref>), and <italic toggle="yes">Tyzzerella</italic> (<xref rid="B26" ref-type="bibr">26</xref>, <xref rid="B27" ref-type="bibr">27</xref>) were each reported as increased in BC in at least two independent cohorts. Conversely, <italic toggle="yes">Akkermansia</italic> (<xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B33" ref-type="bibr">33</xref>), <italic toggle="yes">Coprococcus</italic> (<xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B31" ref-type="bibr">31</xref>, <xref rid="B34" ref-type="bibr">34</xref>), and occasionally <italic toggle="yes">Collinsella</italic> (<xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B32" ref-type="bibr">32</xref>, <xref rid="B33" ref-type="bibr">33</xref>) were more abundant in healthy controls, suggesting protective associations. Several genera displayed bidirectional findings across populations: <italic toggle="yes">Megamonas</italic> (2↑, 2↓) (<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B33" ref-type="bibr">33</xref>), <italic toggle="yes">Parabacteroides</italic> (2↑, 1↓) (<xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B32" ref-type="bibr">32</xref>, <xref rid="B33" ref-type="bibr">33</xref>), and <italic toggle="yes">Streptococcus</italic> (2↑, 1↓) (<xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B33" ref-type="bibr">33</xref>), indicating potential context-specific influences such as diet, menopausal status, or methodology (<xref rid="B32" ref-type="bibr">32</xref>).</p><fig position="float" id="f1" orientation="portrait"><label>Figure 1</label><caption><p>Genus-level trends in gut microbiota associated with breast cancer. The figure summarizes the number of studies reporting enrichment of specific genera in breast cancer (BC; red), healthy controls (HC; green), or with bidirectional/inconsistent associations (gray). <italic toggle="yes">Bacteroides, Blautia, Eggerthella</italic>, and <italic toggle="yes">Prevotella</italic> were more frequently reported as enriched in BC, whereas <italic toggle="yes">Akkermansia, Collinsella, Coprococcus</italic>, and <italic toggle="yes">Bifidobacterium</italic> were commonly enriched in HC. Genera such as <italic toggle="yes">Parabacteroides, Streptococcus</italic>, and <italic toggle="yes">Megamonas</italic> showed bidirectional associations, indicating possible context-dependent effects. These variations highlight both reproducible microbial signals and methodological or population-related heterogeneity that warrant validation in larger, standardized cohorts.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="fonc-15-1666830-g001.jpg"><?image-name fonc-15-1666830-g001.jpg?><?image-size 65944?><?image-md5 48b7c6f928dd71c40c1f05780dba6b3c?><?image-image-server-status LOAD_COMPLETED?><?image-original-height 893?><?image-original-width 1949?><?image-scaled-height 357?><?image-scaled-width 779?><?image-cloudpmc-urn urn:cdn:blobs/c896/12740758/48b7c6f928dd/fonc-15-1666830-g001.jpg?><?thumb-name fonc-15-1666830-g001.gif?><?thumb-size 8464?><?thumb-md5 07358dc4ad6d42fed6a8b6f27792da74?><?thumb-image-server-status NEVER_LOAD?><?thumb-scaled-height 80?><?thumb-scaled-width 174?><?thumb-cloudpmc-urn urn:cdn:blobs/c896/12740758/07358dc4ad6d/fonc-15-1666830-g001.gif?><alt-text content-type="machine-generated">Bar chart depicting the number of studies across various bacteria. BC enriched studies (red) include Bacteroides, Blautia, Eggerthella, and Prevotella. HC enriched studies (green) cover Akkermansia, Collinsella, Coprococcus, and Bifidobacterium. Bidirectional studies (gray) involve Parabacteroides, Streptococcus, and Megamonas. Bacteroides and Collinsella have the highest study counts.</alt-text></graphic></fig></sec><sec id="s3_3_3"><label>3.3.3</label><title>Species level</title><p>“At the species level, some consistent patterns emerged. <italic toggle="yes">Faecalibacterium prausnitzii</italic> was consistently depleted in BC patients in multiple studies (<xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B33" ref-type="bibr">33</xref>), supporting its proposed anti-inflammatory and protective role. By contrast, <italic toggle="yes">Eggerthella lenta</italic> (<xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B33" ref-type="bibr">33</xref>) and <italic toggle="yes">Parabacteroides distasonis</italic> (<xref rid="B32" ref-type="bibr">32</xref>, <xref rid="B33" ref-type="bibr">33</xref>) showed bidirectional associations, with some studies reporting enrichment in BC and others showing depletion. Other species, such as <italic toggle="yes">Akkermansia muciniphila</italic> (<xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B33" ref-type="bibr">33</xref>) were more frequently reported as enriched in controls, suggesting a potentially protective influence.</p></sec></sec><sec id="s3_4"><label>3.4</label><title>Geographical comparison of microbiota differences in BC Across China, USA, and Europe</title><p>Distinct geographical patterns in microbiota composition were observed (<xref rid="f2" ref-type="fig"><bold>Figure 2</bold></xref>). In Chinese cohorts, <italic toggle="yes">Prevotella</italic> was enriched in BC patients (<xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B33" ref-type="bibr">33</xref>), while <italic toggle="yes">Akkermansia</italic> (<xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B33" ref-type="bibr">33</xref>) and <italic toggle="yes">Collinsella</italic> (<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B33" ref-type="bibr">33</xref>) were generally depleted, suggesting possible protective roles. However, findings for Streptococcus were inconsistent, with one study showing an increase (<xref rid="B25" ref-type="bibr">25</xref>) and another a decrease (<xref rid="B33" ref-type="bibr">33</xref>). In the USA, <italic toggle="yes">Acidaminococcus</italic> (<xref rid="B27" ref-type="bibr">27</xref>, <xref rid="B28" ref-type="bibr">28</xref>)and <italic toggle="yes">Eggerthella</italic> (<xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B29" ref-type="bibr">29</xref>) were consistently enriched in BC patients, whereas <italic toggle="yes">Dialister</italic> showed contradictory patterns (<xref rid="B27" ref-type="bibr">27</xref>, <xref rid="B28" ref-type="bibr">28</xref>). European studies reported enrichment of <italic toggle="yes">Blautia</italic> (<xref rid="B31" ref-type="bibr">31</xref>, <xref rid="B32" ref-type="bibr">32</xref>) in BC and depletion <italic toggle="yes">of Bifidobacterium</italic> (<xref rid="B31" ref-type="bibr">31</xref>, <xref rid="B32" ref-type="bibr">32</xref>) compared with controls. When considered together, Asian cohorts tended to show enrichment of <italic toggle="yes">Prevotella</italic> and depletion of <italic toggle="yes">Akkermansia/Collinsella</italic>, whereas Western cohorts more often reported enrichment of <italic toggle="yes">Blautia</italic>, <italic toggle="yes">Acidaminococcus</italic>, and <italic toggle="yes">Eggerthella</italic>. These differences likely reflect not only biological variation but also dietary patterns (e.g., high-fiber traditional Asian diets <italic toggle="yes">vs</italic> higher fat Western diets), ethnicity-related host–microbiome interactions, antibiotic use, and methodological heterogeneity. These confounders must be critically accounted for before geographical differences can be translated into predictive or therapeutic applications.</p><fig position="float" id="f2" orientation="portrait"><label>Figure 2</label><caption><p>Geographical variations.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="fonc-15-1666830-g002.jpg"><?image-name fonc-15-1666830-g002.jpg?><?image-size 85991?><?image-md5 359f1b76b56b764f3b6555ea5e993350?><?image-image-server-status LOAD_COMPLETED?><?image-original-height 1062?><?image-original-width 1772?><?image-scaled-height 424?><?image-scaled-width 708?><?image-cloudpmc-urn urn:cdn:blobs/c896/12740758/359f1b76b56b/fonc-15-1666830-g002.jpg?><?thumb-name fonc-15-1666830-g002.gif?><?thumb-size 8968?><?thumb-md5 0e5ee1200942cbbbe758194176258820?><?thumb-image-server-status NEVER_LOAD?><?thumb-scaled-height 80?><?thumb-scaled-width 133?><?thumb-cloudpmc-urn urn:cdn:blobs/c896/12740758/0e5ee1200942/fonc-15-1666830-g002.gif?><alt-text content-type="machine-generated">Diagram showing links between gut bacteria and regions: China/Asia, USA, Europe, and Global. Red lines indicate BC enriched bacteria, green dashed lines show HC enriched bacteria, and dotted lines represent inconsistent bacteria. The bacteria listed are Blautia, Eggerthella, Acidaminococcus, Prevotella, Bacteroides, Peptoniphilus, Actinomyces, Dialister, Streptococcus, Bifidobacterium, Akkermansia, Coprococcus, Faecalibacterium prausnitzii, and Collinsella.</alt-text></graphic></fig></sec></sec><sec sec-type="discussion" id="s4"><label>4</label><title>Discussion</title><p>This review synthesizes emerging evidence on gut microbiota alterations in BC, with a particular emphasis on geographical variation across China, the USA, and Europe. To our knowledge, this is the first review to explicitly examine regional differences in gut microbiome cancer associations while incorporating species-level insights. Our findings highlight consistent signs of dysbiosis, identify potential candidate biomarkers, and point to opportunities for translational application, consistent with previous studies (<xref rid="B35" ref-type="bibr">35</xref>–<xref rid="B37" ref-type="bibr">37</xref>). At the same time, they underscore the methodological heterogeneity, modest evidence base, and predominance of cross-sectional designs that constrain definitive conclusions (<xref rid="B19" ref-type="bibr">19</xref>, <xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B34" ref-type="bibr">34</xref>).</p><p>Overall, alpha diversity was reduced in BC patients in seven of the thirteen included studies (<xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B27" ref-type="bibr">27</xref>, <xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B31" ref-type="bibr">31</xref>, <xref rid="B33" ref-type="bibr">33</xref>, <xref rid="B34" ref-type="bibr">34</xref>), suggesting disrupted microbial homeostasis and a possible link to systemic inflammation (<xref rid="B38" ref-type="bibr">38</xref>, <xref rid="B39" ref-type="bibr">39</xref>). However, two studies found increased alpha diversity (<xref rid="B19" ref-type="bibr">19</xref>, <xref rid="B26" ref-type="bibr">26</xref>) and four reported no significant differences (<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B30" ref-type="bibr">30</xref>, <xref rid="B32" ref-type="bibr">32</xref>). Beta diversity findings were similarly inconsistent; seven studies reported significant community-level shifts (<xref rid="B19" ref-type="bibr">19</xref>, <xref rid="B23" ref-type="bibr">23</xref>–<xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B33" ref-type="bibr">33</xref>), whereas others observed no significant differences. These conflicting results likely reflect heterogeneity in study populations, particularly menopausal status, as well as methodological variability in sequencing approaches and the use of different diversity indices (<xref rid="B40" ref-type="bibr">40</xref>–<xref rid="B42" ref-type="bibr">42</xref>). Standardization of analytic pipelines will be essential to allow comparability across studies.</p><p>At the phylum level, four studies observed increased F/B ratios in BC patients (<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B26" ref-type="bibr">26</xref>, <xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B31" ref-type="bibr">31</xref>), consistent with pro-inflammatory states and altered energy harvesting (<xref rid="B41" ref-type="bibr">41</xref>, <xref rid="B43" ref-type="bibr">43</xref>). In contrast, three studies reported no difference or reduced ratios (<xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B28" ref-type="bibr">28</xref>), highlighting the influences of dietary and methodological influences (<xref rid="B44" ref-type="bibr">44</xref>, <xref rid="B45" ref-type="bibr">45</xref>). These discrepancies highlight the limited utility of broad phylum-level metrics as reliable biomarkers. Such conflicting findings may reflect heterogeneity in host factors and study design, including dietary patterns (e.g., high-fiber <italic toggle="yes">vs</italic>. Western diets), sequencing approaches (16S rRNA <italic toggle="yes">vs</italic>. shotgun metagenomics), and menopausal status, which shapes the hormonal and metabolic milieu. Notably, compositional variability at the taxonomic level may converge functionally, through shared microbial outputs such as short-chain fatty acids or estrogen-modulating enzymes (<xref rid="B10" ref-type="bibr">10</xref>, <xref rid="B46" ref-type="bibr">46</xref>). This functional redundancy suggests that integrative approaches combining compositional and metabolomic analyses are essential to elucidate the biological relevance of microbiome alterations in BC. More informative trends emerged at the genus level. Enrichment of <italic toggle="yes">Bacteroides</italic>, <italic toggle="yes">Blautia</italic>, <italic toggle="yes">Eggerthella</italic> and <italic toggle="yes">Parabacteroides</italic> in BC patients was observed across multiple studies (<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B28" ref-type="bibr">28</xref>, <xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B31" ref-type="bibr">31</xref>, <xref rid="B34" ref-type="bibr">34</xref>). These genera are linked to bile acid metabolism, pro-inflammatory signaling, and estrogen reactivation (<xref rid="B47" ref-type="bibr">47</xref>, <xref rid="B48" ref-type="bibr">48</xref>). <italic toggle="yes">Eggerthella</italic>, in particular, is notable for β-glucuronidase activity, which may increase circulating bioactive estrogens and drive tumor progression (<xref rid="B38" ref-type="bibr">38</xref>, <xref rid="B49" ref-type="bibr">49</xref>). Conversely, protective taxa, including <italic toggle="yes">Akkermansia</italic>, <italic toggle="yes">Collinsella</italic>, and <italic toggle="yes">Coprococcus</italic> were consistently depleted (<xref rid="B19" ref-type="bibr">19</xref>, <xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B32" ref-type="bibr">32</xref>–<xref rid="B34" ref-type="bibr">34</xref>). Of particular note, <italic toggle="yes">Akkermansia muciniphila</italic> was frequently reduced, consistent with its established role as a marker of mucosal health (<xref rid="B50" ref-type="bibr">50</xref>).</p><p>Species-level analysis, although limited to three metagenomic studies (<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B31" ref-type="bibr">31</xref>, <xref rid="B32" ref-type="bibr">32</xref>), yielded greater biomarker specificity. <italic toggle="yes">Faecalibacterium prausnitzii</italic>, a key butyrate producer with anti-inflammatory properties, was consistently reduced in BC patients (<xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B33" ref-type="bibr">33</xref>). By contrast, <italic toggle="yes">Eggerthella lenta</italic> and <italic toggle="yes">Parabacteroides distasonis</italic> showed inconsistent patterns of enrichment and depletion across cohorts (<xref rid="B29" ref-type="bibr">29</xref>, <xref rid="B31" ref-type="bibr">31</xref>–<xref rid="B33" ref-type="bibr">33</xref>). These bidirectional results may reflect population-level dietary differences, strain-level functional variation, or technical inconsistencies (<xref rid="B51" ref-type="bibr">51</xref>, <xref rid="B52" ref-type="bibr">52</xref>). Importantly, different taxonomic changes may converge on similar functional outcomes, such as reduced SCFA production or enhanced estrogen reactivation, suggesting that functional signatures may prove more reliable than taxonomy alone (<xref rid="B53" ref-type="bibr">53</xref>–<xref rid="B55" ref-type="bibr">55</xref>).</p><p>A major and novel contribution of this review is the comparative analysis of geographical variation. In the United States, enrichment of <italic toggle="yes">Acidaminococcus</italic> and <italic toggle="yes">Eggerthella</italic> was consistently reported (<xref rid="B27" ref-type="bibr">27</xref>–<xref rid="B29" ref-type="bibr">29</xref>), plausibly linked to high-fat, high-protein dietary patterns (<xref rid="B45" ref-type="bibr">45</xref>, <xref rid="B56" ref-type="bibr">56</xref>). In Europe, <italic toggle="yes">Blautia</italic> enrichment was observed (<xref rid="B31" ref-type="bibr">31</xref>, <xref rid="B32" ref-type="bibr">32</xref>), suggesting that fiber-driven microbial fermentation may influence breast (<xref rid="B57" ref-type="bibr">57</xref>, <xref rid="B58" ref-type="bibr">58</xref>). In Chinese cohorts, enrichment of <italic toggle="yes">Prevotella</italic> and depletion of <italic toggle="yes">Akkermansia</italic> and <italic toggle="yes">Collinsella</italic> were common (<xref rid="B19" ref-type="bibr">19</xref>, <xref rid="B24" ref-type="bibr">24</xref>, <xref rid="B25" ref-type="bibr">25</xref>, <xref rid="B32" ref-type="bibr">32</xref>, <xref rid="B33" ref-type="bibr">33</xref>, <xref rid="B59" ref-type="bibr">59</xref>, <xref rid="B60" ref-type="bibr">60</xref>) reflecting carbohydrate-rich and fermented food dietary profiles (<xref rid="B44" ref-type="bibr">44</xref>, <xref rid="B45" ref-type="bibr">45</xref>). Taken together, Asian cohorts showed <italic toggle="yes">Prevotella</italic> dominance and reduced SCFA-producing taxa, whereas Western cohorts were more likely to report enrichment of <italic toggle="yes">Blautia, Acidaminococcus, and Eggerthella</italic>. These patterns highlight how diet, ethnicity, and host factors interact with microbial ecology. However, translation into clinical application is premature. Regional differences complicate biomarker standardization but also create opportunities for precision nutrition and region-specific interventions (<xref rid="B9" ref-type="bibr">9</xref>, <xref rid="B61" ref-type="bibr">61</xref>, <xref rid="B62" ref-type="bibr">62</xref>). Contradictory findings, such as divergent F/B ratios or variable <italic toggle="yes">Collinsella</italic> levels, require careful appraisal. These discrepancies can be explained by methodological heterogeneity, including differences in DNA extraction, sequencing platform, and analytic pipelines. Clinical and demographic confounders, such as menopausal status, body mass index, antibiotic exposure, and treatment history, were often incompletely reported yet are known to shape microbiome composition. Importantly, taxonomic variability may still converge on functional similarity: reduced SCFA production, loss of barrier integrity, and enhanced estrogen metabolism are recurrent themes. Future work must therefore integrate metagenomics, metabolomics, and metatranscriptomics to link compositional changes with mechanistic outputs (<xref rid="B8" ref-type="bibr">8</xref>).</p><p>The potential of the gut microbiome as a predictive biomarker in BC should be viewed as preliminary. Current evidence is largely cross-sectional and insufficient to establish causality. Nevertheless, recurring signals, such as depletion of <italic toggle="yes">Faecalibacterium prausnitzii</italic> and <italic toggle="yes">Akkermansia muciniphila</italic>, provide biologically plausible candidate biomarkers that merit validation (<xref rid="B42" ref-type="bibr">42</xref>, <xref rid="B50" ref-type="bibr">50</xref>, <xref rid="B63" ref-type="bibr">63</xref>). Integration with established predictors, including circulating estrogen, inflammatory markers, hormone receptor status, and genomic risk scores, could yield multi-modal models with greater predictive power (<xref rid="B64" ref-type="bibr">64</xref>, <xref rid="B65" ref-type="bibr">65</xref>). In practice, stool-based microbiome profiling could emerge as a low-cost, non-invasive adjunct, but clinical application will require reproducible assays, validated thresholds, and demonstration of incremental benefits (<xref rid="B9" ref-type="bibr">9</xref>, <xref rid="B49" ref-type="bibr">49</xref>). Microbiota-based interventions represent a promising but as yet untested avenue in BC (<xref rid="B63" ref-type="bibr">63</xref>, <xref rid="B66" ref-type="bibr">66</xref>). Evidence from other cancers indicates that dietary fiber, probiotics, and fecal microbiota transplantation can modulate therapeutic response (<xref rid="B62" ref-type="bibr">62</xref>, <xref rid="B66" ref-type="bibr">66</xref>, <xref rid="B67" ref-type="bibr">67</xref>). In breast cancer, dietary modification, particularly fiber enrichment or polyphenol supplementation, may support protective taxa such as <italic toggle="yes">Faecalibacterium and Akkermansia</italic>. Probiotic and prebiotic interventions targeting estrogen metabolism or SCFA production are theoretically attractive but require robust testing in controlled trials (<xref rid="B50" ref-type="bibr">50</xref>, <xref rid="B63" ref-type="bibr">63</xref>, <xref rid="B66" ref-type="bibr">66</xref>).</p><p>This review has several strengths, including its structured literature search, inclusion of species-level analyses, and integration of geographical perspectives, which have been largely overlooked in prior work. However, important limitations must be acknowledged. Only 13 studies met eligibility criteria, reflecting the early stage of this field. Most were small, cross-sectional studies relying on 16S rRNA sequencing, which restricts taxonomic resolution. Only three employed metagenomic approaches, which are needed for functional insight. Menopausal status, body mass index, and antibiotic use were inconsistently reported, limiting comparability. Restriction to English-language publications may have introduced selection bias. A formal risk-of-bias assessment was not conducted, consistent with the Mini Review format, but methodological variability was qualitatively addressed.</p><p>Future research should therefore prioritize prospective designs to establish temporal and causal relationships between dysbiosis and breast cancer (<xref rid="B68" ref-type="bibr">68</xref>). Microbiome signatures should be integrated with established biomarkers in multivariable models to test whether they improve prediction. Region-specific interventions should be trialed, recognizing that microbiome–diet interactions are culturally and geographically contingent (<xref rid="B13" ref-type="bibr">13</xref>). Functional profiling must be incorporated to reconcile taxonomic heterogeneity and clarify biological plausibility. Harmonization of methods for sampling, sequencing, and analysis will be critical to reproducibility (<xref rid="B69" ref-type="bibr">69</xref>). Finally, international collaborations are needed to validate microbial predictors across diverse populations, including underrepresented regions such as Africa and South America, ensuring equitable global translation (<xref rid="B61" ref-type="bibr">61</xref>, <xref rid="B67" ref-type="bibr">67</xref>, <xref rid="B70" ref-type="bibr">70</xref>).</p><p>In conclusion, while the gut microbiome cannot yet be regarded as an established predictive biomarker for BC, the trajectory of current research suggests considerable promise. Consistent signals at genus and species levels, functional links to estrogen metabolism and inflammation, and region-specific variation provide a biologically credible foundation for further study. Translation into clinical practice will depend on large-scale, longitudinal, standardized studies capable of establishing causality and reproducibility. If achieved, microbiome-informed approaches may ultimately contribute to precision oncology by enhancing risk stratification, guiding dietary counselling, and supporting the development of microbiome-targeted interventions.</p></sec></body><back><fn-group><fn id="n1" fn-type="edited-by"><p>Edited by: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://loop.frontiersin.org/people/835956" ext-link-type="uri">Purvi Purohit</ext-link>, All India Institute of Medical Sciences Jodhpur, India</p></fn><fn id="n2" fn-type="reviewed-by"><p>Reviewed by: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://loop.frontiersin.org/people/3184118" ext-link-type="uri">Dipayan Roy</ext-link>, University of Allahabad, India</p></fn></fn-group><sec sec-type="author-contributions" id="s5"><title>Author contributions</title><p>BO: Conceptualization, Data curation, Formal Analysis, Investigation, Methodology, Project administration, Resources, Validation, Writing – original draft, Writing – review &amp; editing. GL: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. SCa: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. MMr: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. FB: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. NP: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. SCl: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. AG: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. AM: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. CD: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. KM: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. SB-H: Writing – original draft, Writing – review &amp; editing. TE: Formal Analysis, Methodology, Resources, Writing – review &amp; editing. MMl: Formal Analysis, Methodology, Resources, Validation, Writing – review &amp; editing. MB: Formal Analysis, Methodology, Resources, Supervision, Writing – review &amp; editing.</p></sec><sec sec-type="COI-statement" id="s7"><title>Conflict of interest</title><p>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p></sec><sec sec-type="ai-statement" id="s10"><title>Generative AI statement</title><p>The author(s) declare that no Generative AI was used in the creation of this manuscript. Any alternative text (alt text) provided alongside figures in this article has been generated by Frontiers with the support of artificial intelligence and reasonable efforts have been made to ensure accuracy, including review by the authors wherever possible. If you identify any issues, please contact us.</p></sec><sec sec-type="disclaimer" id="s8"><title>Publisher’s note</title><p>All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher.</p></sec><ref-list><title>References</title><ref id="B1"><label>1</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Bray</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Laversanne</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Sung</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Ferlay</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Siegel</surname><given-names>RL</given-names></name>
+<name name-style="western"><surname>Soerjomataram</surname><given-names>I</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries</article-title>. <source>CA Cancer J Clin</source>. (<year>2024</year>) <volume>74</volume>:<page-range>229–63</page-range>. doi: <pub-id pub-id-type="doi">10.3322/caac.21834</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">38572751</pub-id>
+</mixed-citation></ref><ref id="B2"><label>2</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Burguin</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Diorio</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Durocher</surname><given-names>F</given-names></name>
+</person-group>. 
+<article-title>Breast cancer treatments: updates and new challenges</article-title>. <source>J Pers Med</source>. (<year>2021</year>) <volume>11</volume>. doi: <pub-id pub-id-type="doi">10.3390/jpm11080808</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34442452</pub-id>
+<pub-id pub-id-type="pmcid">PMC8399130</pub-id></mixed-citation></ref><ref id="B3"><label>3</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Morgan</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>O’Neill</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Shah</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Langselius</surname><given-names>O</given-names></name>
+<name name-style="western"><surname>Su</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Frick</surname><given-names>C</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Metastatic recurrence in women diagnosed with non-metastatic breast cancer: a systematic review and meta-analysis</article-title>. <source>Breast Cancer Res</source>. (<year>2024</year>) <volume>26</volume>:<fpage>171</fpage>. doi: <pub-id pub-id-type="doi">10.1186/s13058-024-01881-y</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">39605105</pub-id>
+<pub-id pub-id-type="pmcid">PMC11603627</pub-id></mixed-citation></ref><ref id="B4"><label>4</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>O'Shaughnessy</surname><given-names>J</given-names></name>
+</person-group>. 
+<article-title>Extending survival with chemotherapy in metastatic breast cancer</article-title>. <source>Oncologist</source>. (<year>2005</year>) <volume>10 Suppl 3</volume>:<page-range>20–9</page-range>. doi: <pub-id pub-id-type="doi">10.1634/theoncologist.10-90003-20</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">16368868</pub-id>
+</mixed-citation></ref><ref id="B5"><label>5</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Toumazi</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>El Daccache</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Constantinou</surname><given-names>C</given-names></name>
+</person-group>. 
+<article-title>An unexpected link: The role of mammary and gut microbiota on breast cancer development and management (Review)</article-title>. <source>Oncol Rep</source>. (<year>2021</year>) <volume>45</volume>. doi: <pub-id pub-id-type="doi">10.3892/or.2021.8031</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">33786630</pub-id>
+</mixed-citation></ref><ref id="B6"><label>6</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Nandi</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Parida</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Sharma</surname><given-names>D</given-names></name>
+</person-group>. 
+<article-title>The gut microbiota in breast cancer development and treatment: The good, the bad, and the useful</article-title>! <source>Gut Microbes</source>. (<year>2023</year>) <volume>15</volume>:<fpage>2221452</fpage>. doi: <pub-id pub-id-type="doi">10.1080/19490976.2023.2221452</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">37305949</pub-id>
+<pub-id pub-id-type="pmcid">PMC10262790</pub-id></mixed-citation></ref><ref id="B7"><label>7</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhao</surname><given-names>L-Y</given-names></name>
+<name name-style="western"><surname>Mei</surname><given-names>J-X</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Lei</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>W-H</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>K</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Role of the gut microbiota in anticancer therapy: from molecular mechanisms to clinical applications</article-title>. <source>Signal Transduction Targeted Ther</source>. (<year>2023</year>) <volume>8</volume>:<fpage>201</fpage>. doi: <pub-id pub-id-type="doi">10.1038/s41392-023-01406-7</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">37179402</pub-id>
+<pub-id pub-id-type="pmcid">PMC10183032</pub-id></mixed-citation></ref><ref id="B8"><label>8</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Aarnoutse</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Ziemons</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Hillege</surname><given-names>LE</given-names></name>
+<name name-style="western"><surname>de Vos-Geelen</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>de Boer</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Bisschop</surname><given-names>SMP</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Changes in intestinal microbiota in postmenopausal oestrogen receptor-positive breast cancer patients treated with (neo)adjuvant chemotherapy</article-title>. <source>NPJ Breast Cancer</source>. (<year>2022</year>) <volume>8</volume>:<fpage>89</fpage>. doi: <pub-id pub-id-type="doi">10.1038/s41523-022-00455-5</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">35906259</pub-id>
+<pub-id pub-id-type="pmcid">PMC9338016</pub-id></mixed-citation></ref><ref id="B9"><label>9</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Arnone</surname><given-names>AA</given-names></name>
+<name name-style="western"><surname>Ansley</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Heeke</surname><given-names>AL</given-names></name>
+<name name-style="western"><surname>Howard-McNatt</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Cook</surname><given-names>KL</given-names></name>
+</person-group>. 
+<article-title>Gut microbiota interact with breast cancer therapeutics to modulate efficacy</article-title>. <source>EMBO Mol Med</source>. (<year>2025</year>) <volume>17</volume>:<page-range>219–34</page-range>. doi: <pub-id pub-id-type="doi">10.1038/s44321-024-00185-0</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">39820166</pub-id>
+<pub-id pub-id-type="pmcid">PMC11822015</pub-id></mixed-citation></ref><ref id="B10"><label>10</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Parida</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Sharma</surname><given-names>D</given-names></name>
+</person-group>. 
+<article-title>The microbiome-estrogen connection and breast cancer risk</article-title>. <source>Cells</source>. (<year>2019</year>) <volume>8</volume>. doi: <pub-id pub-id-type="doi">10.3390/cells8121642</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">31847455</pub-id>
+<pub-id pub-id-type="pmcid">PMC6952974</pub-id></mixed-citation></ref><ref id="B11"><label>11</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Guo</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Dong</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>C</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Bacterial metabolites: Effects on the development of breast cancer and therapeutic efficacy</article-title>. <source>Oncol Lett</source>. (<year>2025</year>) <volume>29</volume>:<fpage>210</fpage>. doi: <pub-id pub-id-type="doi">10.3892/ol.2025.14956</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">40070782</pub-id>
+<pub-id pub-id-type="pmcid">PMC11894516</pub-id></mixed-citation></ref><ref id="B12"><label>12</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Feng</surname><given-names>ZP</given-names></name>
+<name name-style="western"><surname>Xin</surname><given-names>HY</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>ZW</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>CG</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>You</surname><given-names>H</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Gut microbiota homeostasis restoration may become a novel therapy for breast cancer</article-title>. <source>Invest New Drugs</source>. (<year>2021</year>) <volume>39</volume>:<page-range>871–8</page-range>. doi: <pub-id pub-id-type="doi">10.1007/s10637-021-01063-z</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">33454868</pub-id>
+</mixed-citation></ref><ref id="B13"><label>13</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Jiang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Y</given-names></name>
+</person-group>. 
+<article-title>Nutrition intervention and microbiome modulation in the management of breast cancer</article-title>. <source>Nutrients</source>. (<year>2024</year>) <volume>16</volume>. doi: <pub-id pub-id-type="doi">10.3390/nu16162644</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">39203781</pub-id>
+<pub-id pub-id-type="pmcid">PMC11356826</pub-id></mixed-citation></ref><ref id="B14"><label>14</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Gopalakrishnan</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Helmink</surname><given-names>BA</given-names></name>
+<name name-style="western"><surname>Spencer</surname><given-names>CN</given-names></name>
+<name name-style="western"><surname>Reuben</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Wargo</surname><given-names>JA</given-names></name>
+</person-group>. 
+<article-title>The influence of the gut microbiome on cancer, immunity, and cancer immunotherapy</article-title>. <source>Cancer Cell</source>. (<year>2018</year>) <volume>33</volume>:<page-range>570–80</page-range>. doi: <pub-id pub-id-type="doi">10.1016/j.ccell.2018.03.015</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">29634945</pub-id>
+<pub-id pub-id-type="pmcid">PMC6529202</pub-id></mixed-citation></ref><ref id="B15"><label>15</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Xie</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Lau</surname><given-names>HC-H</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>J</given-names></name>
+</person-group>. 
+<article-title>The gut microbiota in cancer immunity and immunotherapy</article-title>. <source>Cell Mol Immunol</source>. (<year>2025</year>) <volume>22</volume>:<page-range>1012–31</page-range>. doi: <pub-id pub-id-type="doi">10.1038/s41423-025-01326-2</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">40770084</pub-id>
+<pub-id pub-id-type="pmcid">PMC12398524</pub-id></mixed-citation></ref><ref id="B16"><label>16</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Luan</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Ge</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Lu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>J</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Changes in the fecal microbiota of breast cancer patients based on 16S rRNA gene sequencing: a systematic review and meta-analysis</article-title>. <source>Clin Transl Oncol</source>. (<year>2024</year>) <volume>26</volume>:<page-range>1480–96</page-range>. doi: <pub-id pub-id-type="doi">10.1007/s12094-023-03373-5</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">38217684</pub-id>
+</mixed-citation></ref><ref id="B17"><label>17</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Huang</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Luo</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Peng</surname><given-names>X</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Gut microbiota reshapes the TNBC immune microenvironment: Emerging immunotherapeutic strategies</article-title>. <source>Pharmacol Res</source>. (<year>2025</year>) <volume>215</volume>:<fpage>107726</fpage>. doi: <pub-id pub-id-type="doi">10.1016/j.phrs.2025.107726</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">40184763</pub-id>
+</mixed-citation></ref><ref id="B18"><label>18</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Hong</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Qiu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Pei</surname><given-names>B</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Gut microbiome causal impacts on the prognosis of breast cancer: a Mendelian randomization study</article-title>. <source>BMC Genomics</source>. (<year>2023</year>) <volume>24</volume>:<fpage>497</fpage>. doi: <pub-id pub-id-type="doi">10.1186/s12864-023-09608-7</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">37644405</pub-id>
+<pub-id pub-id-type="pmcid">PMC10464481</pub-id></mixed-citation></ref><ref id="B19"><label>19</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Liao</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Yao</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Liang</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>J</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Breast cancer in postmenopausal women is associated with an altered gut metagenome</article-title>. <source>Microbiome</source>. (<year>2018</year>) <volume>6</volume>:<fpage>136</fpage>. doi: <pub-id pub-id-type="doi">10.1186/s40168-018-0515-3</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">30081953</pub-id>
+<pub-id pub-id-type="pmcid">PMC6080540</pub-id></mixed-citation></ref><ref id="B20"><label>20</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yende</surname><given-names>AS</given-names></name>
+<name name-style="western"><surname>Sharma</surname><given-names>D</given-names></name>
+</person-group>. 
+<article-title>Obesity, dysbiosis and inflammation: interactions that modulate the efficacy of immunotherapy</article-title>. <source>Front Immunol</source>. (<year>2024</year>) <volume>15</volume>:<elocation-id>1444589</elocation-id>. doi: <pub-id pub-id-type="doi">10.3389/fimmu.2024.1444589</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">39253073</pub-id>
+<pub-id pub-id-type="pmcid">PMC11381382</pub-id></mixed-citation></ref><ref id="B21"><label>21</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Lee</surname><given-names>KA</given-names></name>
+<name name-style="western"><surname>Luong</surname><given-names>MK</given-names></name>
+<name name-style="western"><surname>Shaw</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Nathan</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Bataille</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Spector</surname><given-names>TD</given-names></name>
+</person-group>. 
+<article-title>The gut microbiome: what the oncologist ought to know</article-title>. <source>Br J Cancer</source>. (<year>2021</year>) <volume>125</volume>:<page-range>1197–209</page-range>. doi: <pub-id pub-id-type="doi">10.1038/s41416-021-01467-x</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34262150</pub-id>
+<pub-id pub-id-type="pmcid">PMC8548300</pub-id></mixed-citation></ref><ref id="B22"><label>22</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Amaro-da-Cruz</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Rubio-Tomás</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Álvarez-Mercado</surname><given-names>AI</given-names></name>
+</person-group>. 
+<article-title>Specific microbiome patterns and their association with breast cancer: the intestinal microbiota as a potential biomarker and therapeutic strategy</article-title>. <source>Clin Transl Oncol</source>. (<year>2025</year>) <volume>27</volume>:<fpage>15</fpage>–<lpage>41</lpage>. doi: <pub-id pub-id-type="doi">10.1007/s12094-024-03554-w</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">38890244</pub-id>
+<pub-id pub-id-type="pmcid">PMC11735593</pub-id></mixed-citation></ref><ref id="B23"><label>23</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>He</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Ye</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Yin</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Gu</surname><given-names>J</given-names></name>
+</person-group>. 
+<article-title>Changes of intestinal microflora of breast cancer in premenopausal women</article-title>. <source>Eur J Clin Microbiol Infect Dis</source>. (<year>2021</year>) <volume>40</volume>:<page-range>503–13</page-range>. doi: <pub-id pub-id-type="doi">10.1007/s10096-020-04036-x</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">32936397</pub-id>
+</mixed-citation></ref><ref id="B24"><label>24</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Ma</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Ren</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Shen</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Bi</surname><given-names>F</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Alter between gut bacteria and blood metabolites and the anti-tumor effects of Faecalibacterium prausnitzii in breast cancer</article-title>. <source>BMC Microbiol</source>. (<year>2020</year>) <volume>20</volume>:<fpage>82</fpage>. doi: <pub-id pub-id-type="doi">10.1186/s12866-020-01739-1</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">32272885</pub-id>
+<pub-id pub-id-type="pmcid">PMC7144064</pub-id></mixed-citation></ref><ref id="B25"><label>25</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Wenhui</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Zhongyu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Kai</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Zhaopeng</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Jinteng</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Mengjun</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Variations in the gut microbiota in breast cancer occurrence and bone metastasis</article-title>. <source>Front Microbiol</source>. (<year>2022</year>) <volume>13</volume>:<elocation-id>894283</elocation-id>. doi: <pub-id pub-id-type="doi">10.3389/fmicb.2022.894283</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">35722347</pub-id>
+<pub-id pub-id-type="pmcid">PMC9204246</pub-id></mixed-citation></ref><ref id="B26"><label>26</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Jiang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Gong</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Xian</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Hu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>Z</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>16S full-length gene sequencing analysis of intestinal flora in breast cancer patients in Hainan Province</article-title>. <source>Mol Cell Probes</source>. (<year>2023</year>) <volume>71</volume>:<fpage>101927</fpage>. doi: <pub-id pub-id-type="doi">10.1016/j.mcp.2023.101927</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">37595804</pub-id>
+</mixed-citation></ref><ref id="B27"><label>27</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Altinok Dindar</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Chun</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Palma</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Cheney</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Krieger</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Kasschau</surname><given-names>K</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Association between gut microbiota and breast cancer: diet as a potential modulating factor</article-title>. <source>Nutrients</source>. (<year>2023</year>) <volume>15</volume>. doi: <pub-id pub-id-type="doi">10.3390/nu15214628</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">37960281</pub-id>
+<pub-id pub-id-type="pmcid">PMC10649662</pub-id></mixed-citation></ref><ref id="B28"><label>28</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>McCune</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Sharma</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Johnson</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>O'Meara</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Theiner</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Campos</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Gut and oral microbial compositional differences in women with breast cancer, women with ductal carcinoma in situ, and healthy women</article-title>. <source>mSystems</source>. (<year>2024</year>) <volume>9</volume>:<elocation-id>e0123724</elocation-id>. doi: <pub-id pub-id-type="doi">10.1128/msystems.01237-24</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">39470189</pub-id>
+<pub-id pub-id-type="pmcid">PMC11575313</pub-id></mixed-citation></ref><ref id="B29"><label>29</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Shrode</surname><given-names>RL</given-names></name>
+<name name-style="western"><surname>Knobbe</surname><given-names>JE</given-names></name>
+<name name-style="western"><surname>Cady</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Yadav</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Hoang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Cherwin</surname><given-names>C</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Breast cancer patients from the Midwest region of the United States have reduced levels of short-chain fatty acid-producing gut bacteria</article-title>. <source>Sci Rep</source>. (<year>2023</year>) <volume>13</volume>:<fpage>526</fpage>. doi: <pub-id pub-id-type="doi">10.1038/s41598-023-27436-3</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">36631533</pub-id>
+<pub-id pub-id-type="pmcid">PMC9834383</pub-id></mixed-citation></ref><ref id="B30"><label>30</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Aarnoutse</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Hillege</surname><given-names>LE</given-names></name>
+<name name-style="western"><surname>Ziemons</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>De Vos-Geelen</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>de Boer</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Aerts</surname><given-names>E</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Intestinal microbiota in postmenopausal breast cancer patients and controls</article-title>. <source>Cancers (Basel)</source>. (<year>2021</year>) <volume>13</volume>. doi: <pub-id pub-id-type="doi">10.3390/cancers13246200</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34944820</pub-id>
+<pub-id pub-id-type="pmcid">PMC8699039</pub-id></mixed-citation></ref><ref id="B31"><label>31</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Bobin-Dubigeon</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Luu</surname><given-names>HT</given-names></name>
+<name name-style="western"><surname>Leuillet</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Lavergne</surname><given-names>SN</given-names></name>
+<name name-style="western"><surname>Carton</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Le</surname><given-names>Vacon F</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Faecal microbiota composition varies between patients with breast cancer and healthy women: A comparative case-control study</article-title>. <source>Nutrients</source>. (<year>2021</year>) <volume>13</volume>. doi: <pub-id pub-id-type="doi">10.3390/nu13082705</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34444865</pub-id>
+<pub-id pub-id-type="pmcid">PMC8399700</pub-id></mixed-citation></ref><ref id="B32"><label>32</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zeber-Lubecka</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Kulecka</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Jagiełło-Gruszfeld</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Dąbrowska</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Kluska</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Piątkowska</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Breast cancer but not the menopausal status is associated with small changes of the gut microbiota</article-title>. <source>Front Oncol</source>. (<year>2024</year>) <volume>14</volume>:<elocation-id>1279132</elocation-id>. doi: <pub-id pub-id-type="doi">10.3389/fonc.2024.1279132</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">38327745</pub-id>
+<pub-id pub-id-type="pmcid">PMC10848918</pub-id></mixed-citation></ref><ref id="B33"><label>33</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Hou</surname><given-names>MF</given-names></name>
+<name name-style="western"><surname>Ou-Yang</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>CL</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>FM</given-names></name>
+<name name-style="western"><surname>Chuang</surname><given-names>CH</given-names></name>
+<name name-style="western"><surname>Kan</surname><given-names>JY</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Comprehensive profiles and diagnostic value of menopausal-specific gut microbiota in premenopausal breast cancer</article-title>. <source>Exp Mol Med</source>. (<year>2021</year>) <volume>53</volume>:<page-range>1636–46</page-range>. doi: <pub-id pub-id-type="doi">10.1038/s12276-021-00686-9</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34707191</pub-id>
+<pub-id pub-id-type="pmcid">PMC8569190</pub-id></mixed-citation></ref><ref id="B34"><label>34</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Byrd</surname><given-names>DA</given-names></name>
+<name name-style="western"><surname>Vogtmann</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Han</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Wan</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Clegg-Lamptey</surname><given-names>JN</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Associations of fecal microbial profiles with breast cancer and nonmalignant breast disease in the Ghana Breast Health Study</article-title>. <source>Int J Cancer</source>. (<year>2021</year>) <volume>148</volume>:<page-range>2712–23</page-range>. doi: <pub-id pub-id-type="doi">10.1002/ijc.33473</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">33460452</pub-id>
+<pub-id pub-id-type="pmcid">PMC8386185</pub-id></mixed-citation></ref><ref id="B35"><label>35</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Xuan</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Shamonki</surname><given-names>JM</given-names></name>
+<name name-style="western"><surname>Chung</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Dinome</surname><given-names>ML</given-names></name>
+<name name-style="western"><surname>Chung</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Sieling</surname><given-names>PA</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Microbial dysbiosis is associated with human breast cancer</article-title>. <source>PloS One</source>. (<year>2014</year>) <volume>9</volume>:<elocation-id>e83744</elocation-id>. doi: <pub-id pub-id-type="doi">10.1371/journal.pone.0083744</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">24421902</pub-id>
+<pub-id pub-id-type="pmcid">PMC3885448</pub-id></mixed-citation></ref><ref id="B36"><label>36</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Esposito</surname><given-names>MV</given-names></name>
+<name name-style="western"><surname>Fosso</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Nunziato</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Casaburi</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>D'Argenio</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Calabrese</surname><given-names>A</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Microbiome composition indicate dysbiosis and lower richness in tumor breast tissues compared to healthy adjacent paired tissue, within the same women</article-title>. <source>BMC Cancer</source>. (<year>2022</year>) <volume>22</volume>:<fpage>30</fpage>. doi: <pub-id pub-id-type="doi">10.1186/s12885-021-09074-y</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34980006</pub-id>
+<pub-id pub-id-type="pmcid">PMC8722097</pub-id></mixed-citation></ref><ref id="B37"><label>37</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Schettini</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Gattazzo</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Nucera</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Garcia</surname><given-names>ER</given-names></name>
+<name name-style="western"><surname>López-Aladid</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Morelli</surname><given-names>L</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Navigating the complex relationship between human gut microbiota and breast cancer: Physiopathological, prognostic and therapeutic implications</article-title>. <source>Cancer Treat Rev</source>. (<year>2024</year>) <volume>130</volume>:<fpage>102816</fpage>. doi: <pub-id pub-id-type="doi">10.1016/j.ctrv.2024.102816</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">39182440</pub-id>
+</mixed-citation></ref><ref id="B38"><label>38</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Laborda-Illanes</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Sanchez-Alcoholado</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Dominguez-Recio</surname><given-names>ME</given-names></name>
+<name name-style="western"><surname>Jimenez-Rodriguez</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Lavado</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Comino-Méndez</surname><given-names>I</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Breast and gut microbiota action mechanisms in breast cancer pathogenesis and treatment</article-title>. <source>Cancers</source>. (<year>2020</year>) <volume>12</volume>:<fpage>2465</fpage>. doi: <pub-id pub-id-type="doi">10.3390/cancers12092465</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">32878124</pub-id>
+<pub-id pub-id-type="pmcid">PMC7565530</pub-id></mixed-citation></ref><ref id="B39"><label>39</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Chen</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Douglass</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Prasath</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Neace</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Atrchian</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Manjili</surname><given-names>MH</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>The microbiome and breast cancer: a review</article-title>. <source>Breast Cancer Res Treat</source>. (<year>2019</year>) <volume>178</volume>:<page-range>493–6</page-range>. doi: <pub-id pub-id-type="doi">10.1007/s10549-019-05407-5</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">31456069</pub-id>
+</mixed-citation></ref><ref id="B40"><label>40</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>An</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Kwon</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Lim</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Kim</surname><given-names>Y-K</given-names></name>
+<name name-style="western"><surname>Moon</surname><given-names>B-I</given-names></name>
+</person-group>. 
+<article-title>Prediction of breast cancer using blood microbiome and identification of foods for breast cancer prevention</article-title>. <source>Sci Rep</source>. (<year>2023</year>) <volume>13</volume>:<fpage>5110</fpage>. doi: <pub-id pub-id-type="doi">10.1038/s41598-023-32227-x</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">36991044</pub-id>
+<pub-id pub-id-type="pmcid">PMC10060235</pub-id></mixed-citation></ref><ref id="B41"><label>41</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Garrett</surname><given-names>WS</given-names></name>
+</person-group>. 
+<article-title>The gut microbiota and colon cancer</article-title>. <source>Science</source>. (<year>2019</year>) <volume>364</volume>:<page-range>1133–5</page-range>. doi: <pub-id pub-id-type="doi">10.1126/science.aaw2367</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">31221845</pub-id>
+</mixed-citation></ref><ref id="B42"><label>42</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Lynch</surname><given-names>SV</given-names></name>
+<name name-style="western"><surname>Pedersen</surname><given-names>O</given-names></name>
+</person-group>. 
+<article-title>The human intestinal microbiome in health and disease</article-title>. <source>N Engl J Med</source>. (<year>2016</year>) <volume>375</volume>:<page-range>2369–79</page-range>. doi: <pub-id pub-id-type="doi">10.1056/NEJMra1600266</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">27974040</pub-id>
+</mixed-citation></ref><ref id="B43"><label>43</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Turnbaugh</surname><given-names>PJ</given-names></name>
+<name name-style="western"><surname>Ley</surname><given-names>RE</given-names></name>
+<name name-style="western"><surname>Mahowald</surname><given-names>MA</given-names></name>
+<name name-style="western"><surname>Magrini</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Mardis</surname><given-names>ER</given-names></name>
+<name name-style="western"><surname>Gordon</surname><given-names>JI</given-names></name>
+</person-group>. 
+<article-title>An obesity-associated gut microbiome with increased capacity for energy harvest</article-title>. <source>Nature</source>. (<year>2006</year>) <volume>444</volume>:<page-range>1027–31</page-range>. doi: <pub-id pub-id-type="doi">10.1038/nature05414</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">17183312</pub-id>
+</mixed-citation></ref><ref id="B44"><label>44</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>David</surname><given-names>LA</given-names></name>
+<name name-style="western"><surname>Maurice</surname><given-names>CF</given-names></name>
+<name name-style="western"><surname>Carmody</surname><given-names>RN</given-names></name>
+<name name-style="western"><surname>Gootenberg</surname><given-names>DB</given-names></name>
+<name name-style="western"><surname>Button</surname><given-names>JE</given-names></name>
+<name name-style="western"><surname>Wolfe</surname><given-names>BE</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Diet rapidly and reproducibly alters the human gut microbiome</article-title>. <source>Nature</source>. (<year>2014</year>) <volume>505</volume>:<page-range>559–63</page-range>. doi: <pub-id pub-id-type="doi">10.1038/nature12820</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">24336217</pub-id>
+<pub-id pub-id-type="pmcid">PMC3957428</pub-id></mixed-citation></ref><ref id="B45"><label>45</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>O'Keefe</surname><given-names>SJ</given-names></name>
+</person-group>. 
+<article-title>Diet, microorganisms and their metabolites, and colon cancer</article-title>. <source>Nat Rev Gastroenterol Hepatol</source>. (<year>2016</year>) <volume>13</volume>:<fpage>691</fpage>–<lpage>706</lpage>. doi: <pub-id pub-id-type="doi">10.1038/nrgastro.2016.165</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">27848961</pub-id>
+<pub-id pub-id-type="pmcid">PMC6312102</pub-id></mixed-citation></ref><ref id="B46"><label>46</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Mirzaei</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Afaghi</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Babakhani</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Sohrabi</surname><given-names>MR</given-names></name>
+<name name-style="western"><surname>Hosseini-Fard</surname><given-names>SR</given-names></name>
+<name name-style="western"><surname>Babolhavaeji</surname><given-names>K</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Role of microbiota-derived short-chain fatty acids in cancer development and prevention</article-title>. <source>BioMed Pharmacother</source>. (<year>2021</year>) <volume>139</volume>:<fpage>111619</fpage>. doi: <pub-id pub-id-type="doi">10.1016/j.biopha.2021.111619</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">33906079</pub-id>
+</mixed-citation></ref><ref id="B47"><label>47</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Abdelqader</surname><given-names>EM</given-names></name>
+<name name-style="western"><surname>Mahmoud</surname><given-names>WS</given-names></name>
+<name name-style="western"><surname>Gebreel</surname><given-names>HM</given-names></name>
+<name name-style="western"><surname>Kamel</surname><given-names>MM</given-names></name>
+<name name-style="western"><surname>Abu-Elghait</surname><given-names>M</given-names></name>
+</person-group>. 
+<article-title>Correlation between gut microbiota dysbiosis, metabolic syndrome and breast cancer</article-title>. <source>Sci Rep</source>. (<year>2025</year>) <volume>15</volume>:<fpage>6652</fpage>. doi: <pub-id pub-id-type="doi">10.1038/s41598-025-89801-8</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">39994329</pub-id>
+<pub-id pub-id-type="pmcid">PMC11850770</pub-id></mixed-citation></ref><ref id="B48"><label>48</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Mima</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Hamada</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Inamura</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Baba</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Ugai</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Ogino</surname><given-names>S</given-names></name>
+</person-group>. 
+<article-title>The microbiome and rise of early-onset cancers: knowledge gaps and research opportunities</article-title>. <source>Gut Microbes</source>. (<year>2023</year>) <volume>15</volume>:<fpage>2269623</fpage>. doi: <pub-id pub-id-type="doi">10.1080/19490976.2023.2269623</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">37902043</pub-id>
+<pub-id pub-id-type="pmcid">PMC10730181</pub-id></mixed-citation></ref><ref id="B49"><label>49</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Ruo</surname><given-names>SW</given-names></name>
+<name name-style="western"><surname>Alkayyali</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Win</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Tara</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Joseph</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Kannan</surname><given-names>A</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Role of gut microbiota dysbiosis in breast cancer and novel approaches in prevention, diagnosis, and treatment</article-title>. <source>Cureus</source>. (<year>2021</year>) <volume>13</volume>. doi: <pub-id pub-id-type="doi">10.7759/cureus.17472</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34513524</pub-id>
+<pub-id pub-id-type="pmcid">PMC8405251</pub-id></mixed-citation></ref><ref id="B50"><label>50</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Cani</surname><given-names>PD</given-names></name>
+<name name-style="western"><surname>de Vos</surname><given-names>WM</given-names></name>
+</person-group>. 
+<article-title>Next-generation beneficial microbes: the case of akkermansia muciniphila</article-title>. <source>Front Microbiol</source>. (<year>2017</year>) <volume>8</volume>:<elocation-id>1765</elocation-id>. doi: <pub-id pub-id-type="doi">10.3389/fmicb.2017.01765</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">29018410</pub-id>
+<pub-id pub-id-type="pmcid">PMC5614963</pub-id></mixed-citation></ref><ref id="B51"><label>51</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhernakova</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Kurilshikov</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Bonder</surname><given-names>MJ</given-names></name>
+<name name-style="western"><surname>Tigchelaar</surname><given-names>EF</given-names></name>
+<name name-style="western"><surname>Schirmer</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Vatanen</surname><given-names>T</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Population-based metagenomics analysis reveals markers for gut microbiome composition and diversity</article-title>. <source>Science</source>. (<year>2016</year>) <volume>352</volume>:<page-range>565–9</page-range>. doi: <pub-id pub-id-type="doi">10.1126/science.aad3369</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">27126040</pub-id>
+<pub-id pub-id-type="pmcid">PMC5240844</pub-id></mixed-citation></ref><ref id="B52"><label>52</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Sonnenburg</surname><given-names>ED</given-names></name>
+<name name-style="western"><surname>Sonnenburg</surname><given-names>JL</given-names></name>
+</person-group>. 
+<article-title>The ancestral and industrialized gut microbiota and implications for human health</article-title>. <source>Nat Rev Microbiol</source>. (<year>2019</year>) <volume>17</volume>:<page-range>383–90</page-range>. doi: <pub-id pub-id-type="doi">10.1038/s41579-019-0191-8</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">31089293</pub-id>
+</mixed-citation></ref><ref id="B53"><label>53</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Thaiss</surname><given-names>CA</given-names></name>
+<name name-style="western"><surname>Zmora</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Levy</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Elinav</surname><given-names>E</given-names></name>
+</person-group>. 
+<article-title>The microbiome and innate immunity</article-title>. <source>Nature</source>. (<year>2016</year>) <volume>535</volume>:<fpage>65</fpage>–<lpage>74</lpage>. doi: <pub-id pub-id-type="doi">10.1038/nature18847</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">27383981</pub-id>
+</mixed-citation></ref><ref id="B54"><label>54</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Bai</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Cao</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>Z</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Landscape of the gut archaeome in association with geography, ethnicity, urbanization, and diet in the Chinese population</article-title>. <source>Microbiome</source>. (<year>2022</year>) <volume>10</volume>:<fpage>147</fpage>. doi: <pub-id pub-id-type="doi">10.1186/s40168-022-01335-7</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">36100953</pub-id>
+<pub-id pub-id-type="pmcid">PMC9469561</pub-id></mixed-citation></ref><ref id="B55"><label>55</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Gupta</surname><given-names>VK</given-names></name>
+<name name-style="western"><surname>Paul</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Dutta</surname><given-names>C</given-names></name>
+</person-group>. 
+<article-title>Geography, ethnicity or subsistence-specific variations in human microbiome composition and diversity</article-title>. <source>Front Microbiol</source>. (<year>2017</year>) <volume>8</volume>. doi: <pub-id pub-id-type="doi">10.3389/fmicb.2017.01162</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">28690602</pub-id>
+<pub-id pub-id-type="pmcid">PMC5481955</pub-id></mixed-citation></ref><ref id="B56"><label>56</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zitvogel</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Raoult</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Kroemer</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Gajewski</surname><given-names>TF</given-names></name>
+</person-group>. 
+<article-title>The microbiome in cancer immunotherapy: Diagnostic tools and therapeutic strategies</article-title>. <source>Science</source>. (<year>2018</year>) <volume>359</volume>:<page-range>1366–70</page-range>. doi: <pub-id pub-id-type="doi">10.1126/science.aar6918</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">29567708</pub-id>
+</mixed-citation></ref><ref id="B57"><label>57</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Chen</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zheng</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>L</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Dietary fibre intake and risk of breast cancer: A systematic review and meta-analysis of epidemiological studies</article-title>. <source>Oncotarget</source>. (<year>2016</year>) <volume>7</volume>:<page-range>80980–9</page-range>. doi: <pub-id pub-id-type="doi">10.18632/oncotarget.13140</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">27829237</pub-id>
+<pub-id pub-id-type="pmcid">PMC5348370</pub-id></mixed-citation></ref><ref id="B58"><label>58</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yatsunenko</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Rey</surname><given-names>FE</given-names></name>
+<name name-style="western"><surname>Manary</surname><given-names>MJ</given-names></name>
+<name name-style="western"><surname>Trehan</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Dominguez-Bello</surname><given-names>MG</given-names></name>
+<name name-style="western"><surname>Contreras</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Human gut microbiome viewed across age and geography</article-title>. <source>Nature</source>. (<year>2012</year>) <volume>486</volume>:<page-range>222–7</page-range>. doi: <pub-id pub-id-type="doi">10.1038/nature11053</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">22699611</pub-id>
+<pub-id pub-id-type="pmcid">PMC3376388</pub-id></mixed-citation></ref><ref id="B59"><label>59</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Lu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Zhai</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Lee</surname><given-names>Y-K</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Chinese gut microbiota and its associations with staple food type, ethnicity, and urbanization</article-title>. <source>NPJ Biofilms Microbiomes</source>. (<year>2021</year>) <volume>7</volume>:<fpage>71</fpage>. doi: <pub-id pub-id-type="doi">10.1038/s41522-021-00245-0</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34489454</pub-id>
+<pub-id pub-id-type="pmcid">PMC8421333</pub-id></mixed-citation></ref><ref id="B60"><label>60</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Xie</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Xi</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Zuo</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Xing</surname><given-names>K</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Global meta-analysis reveals the drivers of gut microbiome variation across vertebrates</article-title>. <source>iMetaOmics</source>. (<year>2024</year>) <volume>1</volume>:<elocation-id>e35</elocation-id>. doi: <pub-id pub-id-type="doi">10.1002/imo2.35</pub-id>
+<pub-id pub-id-type="pmcid">PMC12806492</pub-id><pub-id pub-id-type="pmid">41676124</pub-id></mixed-citation></ref><ref id="B61"><label>61</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zitvogel</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Derosa</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Routy</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Loibl</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Heinzerling</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>de Vries</surname><given-names>IJM</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Impact of the ONCOBIOME network in cancer microbiome research</article-title>. <source>Nat Med</source>. (<year>2025</year>) <volume>31</volume>:<page-range>1085–98</page-range>. doi: <pub-id pub-id-type="doi">10.1038/s41591-025-03608-8</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">40217075</pub-id>
+</mixed-citation></ref><ref id="B62"><label>62</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Roy</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Trinchieri</surname><given-names>G</given-names></name>
+</person-group>. 
+<article-title>Microbiota: a key orchestrator of cancer therapy</article-title>. <source>Nat Rev Cancer</source>. (<year>2017</year>) <volume>17</volume>:<page-range>271–85</page-range>. doi: <pub-id pub-id-type="doi">10.1038/nrc.2017.13</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">28303904</pub-id>
+</mixed-citation></ref><ref id="B63"><label>63</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Di Modica</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Gargari</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Regondi</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Bonizzi</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Arioli</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Belmonte</surname><given-names>B</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Gut microbiota condition the therapeutic efficacy of trastuzumab in HER2-positive breast cancer</article-title>. <source>Cancer Res</source>. (<year>2021</year>) <volume>81</volume>:<page-range>2195–206</page-range>. doi: <pub-id pub-id-type="doi">10.1158/0008-5472.CAN-20-1659</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">33483370</pub-id>
+</mixed-citation></ref><ref id="B64"><label>64</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Feng</surname><given-names>T-Y</given-names></name>
+<name name-style="western"><surname>Azar</surname><given-names>FN</given-names></name>
+<name name-style="western"><surname>Dreger</surname><given-names>SA</given-names></name>
+<name name-style="western"><surname>Rosean</surname><given-names>CB</given-names></name>
+<name name-style="western"><surname>McGinty</surname><given-names>MT</given-names></name>
+<name name-style="western"><surname>Putelo</surname><given-names>AM</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Reciprocal interactions between the gut microbiome and mammary tissue mast cells promote metastatic dissemination of HR+ breast tumors</article-title>. <source>Cancer Immunol Res</source>. (<year>2022</year>) <volume>10</volume>:<page-range>1309–25</page-range>. doi: <pub-id pub-id-type="doi">10.1158/2326-6066.CIR-21-1120</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">36040846</pub-id>
+<pub-id pub-id-type="pmcid">PMC9633553</pub-id></mixed-citation></ref><ref id="B65"><label>65</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Chapadgaonkar</surname><given-names>SS</given-names></name>
+<name name-style="western"><surname>Bajpai</surname><given-names>SS</given-names></name>
+<name name-style="western"><surname>Godbole</surname><given-names>MS</given-names></name>
+</person-group>. 
+<article-title>Gut microbiome influences incidence and outcomes of breast cancer by regulating levels and activity of steroid hormones in women</article-title>. <source>Cancer Rep</source>. (<year>2023</year>) <volume>6</volume>:<elocation-id>e1847</elocation-id>. doi: <pub-id pub-id-type="doi">10.1002/cnr2.1847</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">37311575</pub-id>
+<pub-id pub-id-type="pmcid">PMC10644331</pub-id></mixed-citation></ref><ref id="B66"><label>66</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Fernandes</surname><given-names>MR</given-names></name>
+<name name-style="western"><surname>Aggarwal</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Costa</surname><given-names>RGF</given-names></name>
+<name name-style="western"><surname>Cole</surname><given-names>AM</given-names></name>
+<name name-style="western"><surname>Trinchieri</surname><given-names>G</given-names></name>
+</person-group>. 
+<article-title>Targeting the gut microbiota for cancer therapy</article-title>. <source>Nat Rev Cancer</source>. (<year>2022</year>) <volume>22</volume>:<page-range>703–22</page-range>. doi: <pub-id pub-id-type="doi">10.1038/s41568-022-00513-x</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">36253536</pub-id>
+</mixed-citation></ref><ref id="B67"><label>67</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Routy</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Le</surname><given-names>Chatelier E</given-names></name>
+<name name-style="western"><surname>Derosa</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Duong</surname><given-names>CPM</given-names></name>
+<name name-style="western"><surname>Alou</surname><given-names>MT</given-names></name>
+<name name-style="western"><surname>Daillère</surname><given-names>R</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>Gut microbiome influences efficacy of PD-1-based immunotherapy against epithelial tumors</article-title>. <source>Science</source>. (<year>2018</year>) <volume>359</volume>:<page-range>91–7</page-range>. doi: <pub-id pub-id-type="doi">10.1126/science.aan3706</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">29097494</pub-id>
+</mixed-citation></ref><ref id="B68"><label>68</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Bernardo</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Le Noci</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Di Modica</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Montanari</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Triulzi</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Pupa</surname><given-names>SM</given-names></name>
+<etal/>
+</person-group>. 
+<article-title>The emerging role of the microbiota in breast cancer progression</article-title>. <source>Cells</source>. (<year>2023</year>) <volume>12</volume>:<fpage>1945</fpage>. doi: <pub-id pub-id-type="doi">10.3390/cells12151945</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">37566024</pub-id>
+<pub-id pub-id-type="pmcid">PMC10417285</pub-id></mixed-citation></ref><ref id="B69"><label>69</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Cullin</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Azevedo Antunes</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Straussman</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Stein-Thoeringer</surname><given-names>CK</given-names></name>
+<name name-style="western"><surname>Elinav</surname><given-names>E</given-names></name>
+</person-group>. 
+<article-title>Microbiome and cancer</article-title>. <source>Cancer Cell</source>. (<year>2021</year>) <volume>39</volume>:<page-range>1317–41</page-range>. doi: <pub-id pub-id-type="doi">10.1016/j.ccell.2021.08.006</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">34506740</pub-id>
+</mixed-citation></ref><ref id="B70"><label>70</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Tomasulo</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Simionati</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Facchin</surname><given-names>S</given-names></name>
+</person-group>. 
+<article-title>Microbiome One Health model for a healthy ecosystem</article-title>. <source>Sci One Health</source>. (<year>2024</year>) <volume>3</volume>:<fpage>100065</fpage>. doi: <pub-id pub-id-type="doi">10.1016/j.soh.2024.100065</pub-id>, PMID: 
+<pub-id pub-id-type="pmid">39077385</pub-id>
+<pub-id pub-id-type="pmcid">PMC11262273</pub-id></mixed-citation></ref></ref-list></back></article>

@@ -1,0 +1,407 @@
+{
+  "abstractText": "Gut microbial stability typically decreases with physiological aging. This decline may vary between sexes and can potentially be mitigated by adopting a healthy lifestyle. Microbial guilds, defined as functionally coherent groups of bacteria, may serve as meaningful ecological indicators of aging. This study included 2944 participants aged 51-89 years from the Shanghai Men's and Women's Health Studies. Using 16S rRNA gene sequencing and a guild-based approach, we evaluated the associations between gut microbiota and age in 1353 relatively healthy individuals. We found that women demonstrated a decline in the Chao1 index, an increase in Pielou evenness, and a remarkable shift in Bray-Curtis distance, whereas men exhibited an increase in Bray-Curtis uniqueness. Of the 45 age-related guilds identified, 16 (8 in men and 10 in women) were considered potential aging biomarkers (p<sub>FDR</sub> < 0.05), with Guild_6 (Bifidobacterium sp. dominated) and Guild_118 (Veillonella dispar dominated) being common to both sexes. These guilds were associated with consistent predicted functions, particularly 1,4-dihydroxy-2-naphthoate biosynthesis. We estimated sex-specific microbial age using random forest models and found that women and individuals with major chronic diseases had higher microbial ages. Prospective analysis revealed that an \"old\" microbial age was associated with a higher risk of type 2 diabetes (HR = 2.0, 95% CI: 1.1, 3.7). Individuals with healthier lifestyles had a 0.43-year lower microbial age (95% CI: -0.85, -0.01). Our findings elucidate the sex-differentiated aging patterns of gut microbiota in Chinese adults and imply the potential benefits of healthy lifestyle behaviors in slowing down microbiome aging.",
+  "affiliation": "Department of Epidemiology, NHC Key Laboratory for Health Technology Assessment, Fudan University School of Public Health, Shanghai, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0002-1710-9382"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-1226-070X"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-2045-2218"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Epidemiology, NHC Key Laboratory for Health Technology Assessment, Fudan University School of Public Health, Shanghai, China."
+            }
+          ]
+        },
+        "firstName": "Jiongxing",
+        "fullName": "Fu J",
+        "initials": "J",
+        "lastName": "Fu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Epidemiology, NHC Key Laboratory for Health Technology Assessment, Fudan University School of Public Health, Shanghai, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-2045-2218"
+        },
+        "firstName": "Wanghong",
+        "fullName": "Xu W",
+        "initials": "W",
+        "lastName": "Xu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Epidemiology, Department of Medicine, Vanderbilt University Medical Center, Nashville, Tennessee, USA."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-1710-9382"
+        },
+        "firstName": "Danxia",
+        "fullName": "Yu D",
+        "initials": "D",
+        "lastName": "Yu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Changning District Center for Disease Control and Prevention (Health Supervision Institute), Shanghai, China."
+            }
+          ]
+        },
+        "firstName": "Yu",
+        "fullName": "Jiang Y",
+        "initials": "Y",
+        "lastName": "Jiang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Epidemiology, Department of Medicine, Vanderbilt University Medical Center, Nashville, Tennessee, USA."
+            }
+          ]
+        },
+        "firstName": "Lei",
+        "fullName": "Wang L",
+        "initials": "L",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Epidemiology, Department of Medicine, Vanderbilt University Medical Center, Nashville, Tennessee, USA."
+            }
+          ]
+        },
+        "firstName": "Hui",
+        "fullName": "Cai H",
+        "initials": "H",
+        "lastName": "Cai"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Changning District Center for Disease Control and Prevention (Health Supervision Institute), Shanghai, China."
+            }
+          ]
+        },
+        "firstName": "Qinghua",
+        "fullName": "Xia Q",
+        "initials": "Q",
+        "lastName": "Xia"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Epidemiology, Department of Medicine, Vanderbilt University Medical Center, Nashville, Tennessee, USA."
+            }
+          ]
+        },
+        "firstName": "Xiao-Ou",
+        "fullName": "Shu XO",
+        "initials": "XO",
+        "lastName": "Shu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Division of Epidemiology, Department of Medicine, Vanderbilt University Medical Center, Nashville, Tennessee, USA."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-1226-070X"
+        },
+        "firstName": "Wei",
+        "fullName": "Zheng W",
+        "initials": "W",
+        "lastName": "Zheng"
+      }
+    ]
+  },
+  "authorString": "Fu J, Xu W, Yu D, Jiang Y, Wang L, Cai H, Xia Q, Shu XO, Zheng W.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "RNA, Ribosomal, 16S",
+        "registryNumber": "0"
+      }
+    ]
+  },
+  "citedByCount": 2,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2025-10-08",
+  "dateOfCreation": "2025-08-04",
+  "dateOfRevision": "2026-05-12",
+  "doi": "10.1111/acel.70192",
+  "electronicPublicationDate": "2025-08-04",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2025-08-04",
+  "firstPublicationDate": "2025-08-04",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12507401"
+    ]
+  },
+  "fullTextReceivedDate": "2025-11-24",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1111/acel.70192"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12507401"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12507401?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "acronym": "DK",
+        "agency": "NIDDK NIH HHS",
+        "grantId": "P30 DK058404",
+        "orderIn": 0
+      },
+      {
+        "agency": "National Natural Science Foundation of China",
+        "grantId": "81773504",
+        "orderIn": 0
+      },
+      {
+        "agency": "Three-Year Public Health Action Plan of Shanghai",
+        "grantId": "GWVI-11.2-XD05",
+        "orderIn": 0
+      },
+      {
+        "acronym": "CA",
+        "agency": "NCI NIH HHS",
+        "grantId": "R01 CA070867",
+        "orderIn": 0
+      },
+      {
+        "agency": "Three-Year Public Health Action Plan of Shanghai",
+        "grantId": "GWVI-11.1-22",
+        "orderIn": 0
+      },
+      {
+        "acronym": "CA",
+        "agency": "NCI NIH HHS",
+        "grantId": "R01 CA082729",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "40757475",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 Oct",
+    "issue": "10",
+    "journal": {
+      "essn": "1474-9726",
+      "isoabbreviation": "Aging Cell",
+      "issn": "1474-9718",
+      "medlineAbbreviation": "Aging Cell",
+      "nlmid": "101130839",
+      "title": "Aging cell"
+    },
+    "journalIssueId": 4030313,
+    "monthOfPublication": 10,
+    "printPublicationDate": "2025-10-01",
+    "volume": "24",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "Aging",
+      "Chronic disease",
+      "Sex characteristics",
+      "Healthy Lifestyle",
+      "Gastrointestinal Microbiome"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "RNA, Ribosomal, 16S",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Sex Factors",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Aging",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Aged",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Aged, 80 and over",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Middle Aged",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Urban Population",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "China",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Male",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            },
+            {
+              "abbreviation": "PH",
+              "majorTopic_YN": "N",
+              "qualifierName": "physiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Healthy Aging",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "PH",
+              "majorTopic_YN": "N",
+              "qualifierName": "physiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "East Asian People",
+        "majorTopic_YN": "N"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "e70192",
+  "pmcid": "PMC12507401",
+  "pmid": "40757475",
+  "pubModel": "Print-Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "ppublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Sex-Specific Aging Patterns of Gut Microbiota in Urban Chinese Adults: Guild-Based Analysis and Implications for Healthy Aging.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

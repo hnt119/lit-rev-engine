@@ -1,0 +1,368 @@
+{
+  "abstractText": "<h4>Background</h4>Hydroxyurea (HU) is an antitumor drug. However, HU exposure is associated with diminished ovarian reserve (DOR). Zi Chong granules, a Chinese Medicine, can protect against DOR, but little is known regarding its underlying mechanisms of DOR treatment, and thus the target of the present study.<h4>Methods</h4>Seventy-two female Kunming (KM) mice (4-6 weeks old) were randomly divided into three groups: the control group (Con), the hydroxyurea group (HU), and the Zi Chong group (ZC). The Con group received saline, while the HU and ZC groups were administered hydroxyurea (400 mg/kg/d) by gavage for 21 days to induce diminished ovarian reserve (DOR). Subsequently, the Con and HU groups were given saline, while the ZC group was treated with Zi Chong granules (2.72 g/kg/d) for 15 days. Ovaries and uterus of mice were examined histologically by H&E. The levels of anti-Mullerian hormone (AMH), estradiol (E<sub>2</sub>), and progesterone (P) were quantified using ELISA kits. The number and quality of oocytes were assessed, and endometrial receptivity was evaluated by immunohistochemistry. 16 S rDNA gene sequencing was used to analyze the composition and abundance of gut microbiome in feces, and non-targeted metabolomics was performed to detect serum metabolite profiles. Correlation analysis was performed to explore the relationships between different gut microbiota and differential metabolites.<h4>Results</h4>ZC granules increased the number of primordial follicles in the ovaries, reduced excessive follicular atresia, restored low AMH, upregulated estrogen and progesterone secretion, and increased the number of mature oocytes after ovulation promotion. It also increased thickness of uterine endometrium and the number of glands, resulting in increased endometrial microvessel density (MVD), enhanced endometrial blood supply, reduced CD138 expression levels and endometrial inflammation. HU decreased the abundance of Lactobacillus spp. in mouse intestines and decreased arachidonic acid metabolism, tryptophan metabolism, spermidine and spermine biosynthesis, steroidogenesis, and nicotinate and nicotinamide metabolism. Correlation analysis revealed that HU exerted its side effects by altering the gut microbiome and bacteria-derived metabolites, while ZC granules could reverse DOR partly depends on regulating gut microbiota and metabolites.<h4>Conclusions</h4>ZC granules may be a potential therapy for alleviating HU-induced DOR.",
+  "affiliation": "Chengdu University of Traditional Chinese Medicine, Chengdu, China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Chengdu University of Traditional Chinese Medicine, Chengdu, China."
+            },
+            {
+              "affiliation": "Beijing University of Chinese Medicine, Beijing, China."
+            }
+          ]
+        },
+        "firstName": "Wenran",
+        "fullName": "Dong W",
+        "initials": "W",
+        "lastName": "Dong"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Key Laboratory of Bio-Resource and Eco-Environment of Ministry of Education, College of Life Sciences, Sichuan University, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Xinyu",
+        "fullName": "Guo X",
+        "initials": "X",
+        "lastName": "Guo"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Chengdu University of Traditional Chinese Medicine, Chengdu, China. sccd3@proton.me."
+            }
+          ]
+        },
+        "firstName": "Hua",
+        "fullName": "Lu H",
+        "initials": "H",
+        "lastName": "Lu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Key Laboratory of Bio-Resource and Eco-Environment of Ministry of Education, College of Life Sciences, Sichuan University, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Zhibin",
+        "fullName": "Liu Z",
+        "initials": "Z",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Medical Systems Biology Research Center, School of Medicine, Tsinghua University, Beijing, China."
+            },
+            {
+              "affiliation": "National Engineering Research Center for Beijing Biochip Technology, Beijing, China."
+            }
+          ]
+        },
+        "firstName": "Lan",
+        "fullName": "Xie L",
+        "initials": "L",
+        "lastName": "Xie"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Chengdu University of Traditional Chinese Medicine, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Yi",
+        "fullName": "Liu Y",
+        "initials": "Y",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Chengdu Neo-Life Hope Medical Testing Lab. Co. Ltd, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Qian",
+        "fullName": "Wan Q",
+        "initials": "Q",
+        "lastName": "Wan"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "China Resources Sanjiu Medical & Pharmaceutical CO., LTD, Huizhou, China."
+            }
+          ]
+        },
+        "firstName": "Ren",
+        "fullName": "Chen R",
+        "initials": "R",
+        "lastName": "Chen"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Traditional Chinese Medicine Hospital of Qionghai, Qionghai, China."
+            }
+          ]
+        },
+        "firstName": "Sui",
+        "fullName": "Liu S",
+        "initials": "S",
+        "lastName": "Liu"
+      }
+    ]
+  },
+  "authorString": "Dong W, Guo X, Lu H, Liu Z, Xie L, Liu Y, Wan Q, Chen R, Liu S.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "Drugs, Chinese Herbal",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Hydroxyurea",
+        "registryNumber": "X6Q56QN5QC"
+      }
+    ]
+  },
+  "citedByCount": 2,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "altmetrics",
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2025-12-17",
+  "dateOfCreation": "2025-12-16",
+  "dateOfRevision": "2025-12-19",
+  "doi": "10.1186/s13048-025-01846-5",
+  "electronicPublicationDate": "2025-12-16",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2025-12-17",
+  "firstPublicationDate": "2025-12-16",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12709716"
+    ]
+  },
+  "fullTextReceivedDate": "2025-12-23",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1186/s13048-025-01846-5"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12709716"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12709716?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "Ministry of Science and Technology of the People&apos;s Republic of China",
+        "grantId": "2018YFC1704305",
+        "orderIn": 0
+      },
+      {
+        "agency": "Ministry of Science and Technology of the People's Republic of China",
+        "grantId": "2018YFC1704305",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "N",
+  "hasTextMinedTerms": "Y",
+  "id": "41402854",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 Dec",
+    "issue": "1",
+    "journal": {
+      "essn": "1757-2215",
+      "isoabbreviation": "J Ovarian Res",
+      "issn": "1757-2215",
+      "medlineAbbreviation": "J Ovarian Res",
+      "nlmid": "101474849",
+      "title": "Journal of ovarian research"
+    },
+    "journalIssueId": 4064048,
+    "monthOfPublication": 12,
+    "printPublicationDate": "2025-12-01",
+    "volume": "18",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "Hydroxyurea",
+      "Metabolomics",
+      "Gut Microbiome",
+      "Diminished Ovarian Reserve",
+      "Zi Chong Granules"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Ovary",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Animals",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Animals, Outbred Strains",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Mice",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Hydroxyurea",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "AE",
+              "majorTopic_YN": "N",
+              "qualifierName": "adverse effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Drugs, Chinese Herbal",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "PD",
+              "majorTopic_YN": "N",
+              "qualifierName": "pharmacology"
+            },
+            {
+              "abbreviation": "TU",
+              "majorTopic_YN": "N",
+              "qualifierName": "therapeutic use"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Metabolomics",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Ovarian Reserve",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Multiomics",
+        "majorTopic_YN": "N"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "295",
+  "pmcid": "PMC12709716",
+  "pmid": "41402854",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Therapeutic mechanisms of Zi Chong granules against hydroxyurea-induced diminished ovarian reserve based on integrated multi-omics analyses."
+}

@@ -1,0 +1,251 @@
+{
+  "abstractText": "<h4>Objective</h4>Alzheimer's disease (AD) is often accompanied by motor dysfunction, impaired limb strength, and gut microbiota disturbances. This study aimed to evaluate the effects of Qifuyin (QFY), a traditional Chinese medicine formula, on motor deficits, limb strength, aging, and gut microbiota composition in 3xTg-AD mice, a widely used model of AD.<h4>Methods</h4>Male and female 3xTg-AD mice were administered QFY at low, medium, or high doses. Motor function was assessed using grip strength and rotarod tests. Aging was evaluated through aging scores. Gut microbiota composition was analyzed at the phylum, family, genus, and species levels. Functional profiling of microbiota was performed using KEGG, eggNOG, and carbohydrate-active enzyme (CAZyme) databases. Pearson correlation analyses were conducted to explore relationships between microbiota composition and motor performance.<h4>Results</h4>QFY treatment significantly improved both absolute and normalized grip strength in male and female 3xTg-AD mice. Similarly, motor coordination, as assessed by latency to fall on the rotarod, was significantly enhanced in the groups of QFY. Aging scores were significantly reduced after the treatment of QFY. Microbiome analysis revealed that QFY treatment restored species diversity and improved the overall composition of gut microbiota, with significant increases in Muribaculaceae and decreases in Alcaligenaceae, Rhodanobacteraceae, and Spirochaetaceae. Principal component analysis (PCA) indicated that the gut microbiota composition of the QFY group resembled that of the control (Con) group. Functional analyses showed that treatment of QFY restored microbial pathways related to metabolism and genetic information processing, with significant correlations between microbial alterations and improved motor outcomes. Additionally, QFY modulated the abundance of key carbohydrate-active enzymes, including GH43 and GH35, which were positively correlated with grip strength and rotarod performance.<h4>Conclusion</h4>Qifuyin improves motor function, reduces aging-related deficits, and restores gut microbiota homeostasis in 3xTg-AD mice. These findings suggest that QFY may offer therapeutic potential for addressing frailty and motor dysfunction in AD, in association with alterations in gut microbiota composition and predicted microbial functions.",
+  "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Tianhao",
+        "fullName": "Yu T",
+        "initials": "T",
+        "lastName": "Yu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Ying",
+        "fullName": "Yu Y",
+        "initials": "Y",
+        "lastName": "Yu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Junqi",
+        "fullName": "Zhao J",
+        "initials": "J",
+        "lastName": "Zhao"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "He",
+        "fullName": "Li H",
+        "initials": "H",
+        "lastName": "Li"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Hui",
+        "fullName": "Lu H",
+        "initials": "H",
+        "lastName": "Lu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Yangyi",
+        "fullName": "Li Y",
+        "initials": "Y",
+        "lastName": "Li"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Yuqi",
+        "fullName": "Peng Y",
+        "initials": "Y",
+        "lastName": "Peng"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Shixue",
+        "fullName": "Wang S",
+        "initials": "S",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Wendi",
+        "fullName": "Wei W",
+        "initials": "W",
+        "lastName": "Wei"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Innovation Research Institute of Traditional Chinese Medicine, Shandong University of Traditional Chinese Medicine, Jinan, China."
+            }
+          ]
+        },
+        "firstName": "Xiaorui",
+        "fullName": "Cheng X",
+        "initials": "X",
+        "lastName": "Cheng"
+      }
+    ]
+  },
+  "authorString": "Yu T, Yu Y, Zhao J, Li H, Lu H, Li Y, Peng Y, Wang S, Wei W, Cheng X.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "altmetrics",
+      "related_data",
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-04-17",
+  "dateOfCreation": "2026-04-17",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.3389/fmicb.2026.1753643",
+  "electronicPublicationDate": "2026-04-01",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-04-18",
+  "firstPublicationDate": "2026-04-01",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13079586"
+    ]
+  },
+  "fullTextReceivedDate": "2026-04-20",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/fmicb.2026.1753643"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13079586"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13079586?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "41994275",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "journal": {
+      "essn": "1664-302X",
+      "isoabbreviation": "Front Microbiol",
+      "issn": "1664-302X",
+      "medlineAbbreviation": "Front Microbiol",
+      "nlmid": "101548977",
+      "title": "Frontiers in microbiology"
+    },
+    "journalIssueId": 4112147,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "17",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Alzheimer’s disease",
+      "metagenome",
+      "Dysbiosis",
+      "16s Rrna Sequencing",
+      "Physiological Frailty",
+      "Qifuyin"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "1753643",
+  "pmcid": "PMC13079586",
+  "pmid": "41994275",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Qifuyin improves physiological frailty by regulating the intestinal flora in 3xTg-AD mice.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "gen",
+      "brenda",
+      "doi"
+    ]
+  }
+}

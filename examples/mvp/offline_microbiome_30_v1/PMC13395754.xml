@@ -1,0 +1,1186 @@
+
+<!DOCTYPE article
+  PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with MathML3 v1.4 20241031//EN" "JATS-archivearticle1-4-mathml3.dtd">
+<article xml:lang="en" article-type="review-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Exp Biol Med (Maywood)</journal-id><journal-id journal-id-type="iso-abbrev">Exp Biol Med (Maywood)</journal-id><journal-id journal-id-type="pmc-domain-id">2891</journal-id><journal-id journal-id-type="pmc-domain">ebm</journal-id><journal-id journal-id-type="nlm-id">100973463</journal-id><journal-id journal-id-type="publisher-id">Exp. Biol. Med.</journal-id><journal-title-group><journal-title>Experimental Biology and Medicine</journal-title></journal-title-group><issn pub-type="ppub">1535-3702</issn><issn pub-type="epub">1535-3699</issn><?publisher_abbrev frontiers?><publisher><publisher-name>Frontiers Media SA</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13395754</article-id><article-id pub-id-type="pmcid-ver">PMC13395754.1</article-id><article-id pub-id-type="pmcaid">13395754</article-id><article-id pub-id-type="pmcaiid">13395754</article-id><article-id pub-id-type="pmid">42500257</article-id><article-id pub-id-type="doi">10.3389/ebm.2026.11058</article-id><article-id pub-id-type="publisher-id">11058</article-id><article-version-alternatives><article-version article-version-type="pmc-version">1</article-version><article-version article-version-type="Version of Record" vocab="NISO-RP-8-2008"/></article-version-alternatives><article-categories><subj-group subj-group-type="heading"><subject>Review</subject></subj-group></article-categories><title-group><article-title>Gut microbiota and polyendocrine metabolic ovarian syndrome: an integrated gut–metabolism–endocrine–ovary axis</article-title><alt-title alt-title-type="left-running-head">Jin et al.</alt-title><alt-title alt-title-type="right-running-head">
+<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://doi.org/10.3389/ebm.2026.11058" ext-link-type="uri">10.3389/ebm.2026.11058</ext-link>
+</alt-title></title-group><contrib-group><contrib contrib-type="author"><name name-style="western"><surname>Jin</surname><given-names initials="S">Shengyue</given-names></name><xref rid="aff1" ref-type="aff"/><uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://loop.frontiersin.org/people/3400781"/></contrib><contrib contrib-type="author"><name name-style="western"><surname>Zhu</surname><given-names initials="M">Menglei</given-names></name><xref rid="aff1" ref-type="aff"/></contrib><contrib contrib-type="author"><name name-style="western"><surname>Lu</surname><given-names initials="Y">Yiyang</given-names></name><xref rid="aff1" ref-type="aff"/></contrib><contrib contrib-type="author"><name name-style="western"><surname>Zhao</surname><given-names initials="J">Jia</given-names></name><xref rid="aff1" ref-type="aff"/></contrib><contrib contrib-type="author"><name name-style="western"><surname>Zhu</surname><given-names initials="J">Jiayi</given-names></name><xref rid="aff1" ref-type="aff"/></contrib><contrib contrib-type="author" corresp="yes"><name name-style="western"><surname>Fang</surname><given-names initials="X">Xiaohong</given-names></name><xref rid="aff1" ref-type="aff"/><xref rid="c001" ref-type="corresp">*</xref></contrib></contrib-group><aff id="aff1">
+<institution>Department of TCM Gynecology, Hangzhou TCM Hospital of Zhejiang Chinese Medical University (Hangzhou Hospital of Traditional Chinese Medicine)</institution>, <city>Hangzhou</city>, <state>Zhejiang</state>, <country country="CN">China</country>
+</aff><author-notes><corresp id="c001">
+<label>*</label>Correspondence: Xiaohong Fang, <email xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="mailto:13527806@qq.com">13527806@qq.com</email>
+</corresp></author-notes><pub-date publication-format="electronic" date-type="pub" iso-8601-date="2026-07-10"><day>10</day><month>7</month><year>2026</year></pub-date><pub-date publication-format="electronic" date-type="collection"><year>2026</year></pub-date><volume>251</volume><issue-id pub-id-type="pmc-issue-id">506723</issue-id><elocation-id>11058</elocation-id><history><date date-type="received"><day>22</day><month>2</month><year>2026</year></date><date date-type="rev-recd"><day>24</day><month>5</month><year>2026</year></date><date date-type="accepted"><day>23</day><month>6</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>10</day><month>07</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>25</day><month>07</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-08-21 15:25:17.380"><day>21</day><month>08</month><year>2026</year></date></event></pub-history><permissions><copyright-statement>Copyright © 2026 Jin, Zhu, Lu, Zhao, Zhu and Fang.</copyright-statement><copyright-year>2026</copyright-year><copyright-holder>Jin, Zhu, Lu, Zhao, Zhu and Fang</copyright-holder><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense" start_date="2026-07-10">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open-access article distributed under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License (CC BY)</ext-link>. The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ebm-251-11058.pdf"><?pdf-name ebm-251-11058.pdf?><?pdf-size 2152796?><?pdf-md5 8a026c92322cd51c39f2a30de153d937?><?pdf-image-server-status NEVER_LOAD?><?pdf-cloudpmc-urn urn:app:46f0/13395754/8a026c92322c/ebm-251-11058.pdf?></self-uri><abstract><p>Polyendocrine metabolic ovarian syndrome (PMOS), previously known as polycystic ovary syndrome (PCOS), is a common endocrine and metabolic disorder in reproductive-age women, characterized by marked clinical and biological heterogeneity. Accumulating evidence suggests that gut microbiota dysbiosis is associated with metabolic disturbances, hormonal imbalance, and ovarian dysfunction in PMOS. However, the pathways linking gut microbiota alterations to PMOS pathogenesis remain incompletely understood, and most evidence remains associative. This review aims to summarize current evidence regarding interactions between gut microbiota and PMOS, clarify the roles of key microbiota-derived metabolites, and evaluate the potential and limitations of gut microbiota–targeted interventions. A major novelty is the proposal of an integrated gut–metabolism–endocrine–ovary axis incorporating phenotypic heterogeneity, methodological variability, and evidence grading across clinical and preclinical studies. A narrative review with a systematic literature search was conducted. PubMed, Web of Science, Embase, and CNKI were searched from inception to March 2026 using terms related to PMOS, gut microbiota, microbial metabolites, and microbiota-targeted interventions. Eligible studies included human observational or interventional studies, animal experiments exploring microbiota–PMOS mechanisms, and peer-reviewed full-text articles in English or Chinese. Case reports, letters, conference abstracts, non-English publications, and irrelevant studies were excluded. Duplicate records were removed. Two authors independently screened records and resolved disagreements by consensus. No meta-analysis was performed, and clinical registration was not applicable. Gut microbiota dysbiosis may contribute to PMOS through chronic low-grade inflammation, insulin resistance, and hyperandrogenism. Microbiota-derived metabolites link intestinal dysbiosis with metabolic and endocrine dysfunction. Bile acids and short-chain fatty acids exert regulatory effects, whereas amino acid disorders and LPS-mediated endotoxemia amplify metabolic and inflammatory abnormalities. Considerable heterogeneity exists across studies regarding obesity, insulin resistance, hyperandrogenism, diet, ethnicity, region, and methodology. Microbiota-targeted interventions show potential, although evidence quality varies and most findings remain associative. Gut microbiota dysbiosis is a critical regulatory node within the integrated gut–metabolism–endocrine–ovary axis in PMOS. This review highlights phenotypic stratification, evidence hierarchy, and clinical translation potential. Although microbiota-targeted strategies may serve as adjunctive therapies, their causal roles and long-term efficacy require confirmation in well-designed longitudinal and randomized controlled trials.</p></abstract><kwd-group><kwd>bile acids</kwd><kwd>gut microbiota</kwd><kwd>hyperandrogenism</kwd><kwd>insulin resistance</kwd><kwd>microbiota-derived metabolites</kwd><kwd>polycystic ovary syndrome</kwd><kwd>polyendocrine metabolic ovarian syndrome</kwd><kwd>short-chain fatty acids</kwd></kwd-group><funding-group><funding-statement>The author(s) declared that financial support was received for this work and/or its publication. This study was supported by the Key Project of Hangzhou Health Science and Technology Plan (Grant No. ZD20250119), entitled “A Prospective Clinical Study on the Effects of He’s Qingfu Daotan Decoction in Patients with Polycystic Ovary Syndrome Complicated with Insulin Resistance.”</funding-statement></funding-group><counts><fig-count count="1"/><table-count count="1"/><equation-count count="0"/><ref-count count="120"/><page-count count="13"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>section-at-acceptance</meta-name><meta-value>Endocrinology and Nutrition</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="s1"><title>Impact statement</title><p>Polycystic ovary syndrome (PCOS) is a complex disorder with diverse metabolic and reproductive features, yet its underlying mechanisms remain incompletely understood. Growing evidence links changes in gut microorganisms to insulin resistance, hormone imbalance, and ovarian dysfunction in PCOS, but findings have been fragmented. This review integrates current knowledge into a unified “gut-metabolism-endocrine-ovary” framework, highlighting how gut-derived molecules may connect intestinal imbalance with metabolic and reproductive disturbances. We distinguish between microbial factors that help maintain balance and those that may amplify inflammation and metabolic disruption, offering a clearer understanding of disease heterogeneity. By synthesizing mechanistic insights and evaluating emerging microbiota-based interventions, this work advances the field beyond associative observations toward a more structured, system-level perspective. These insights may guide future longitudinal and interventional studies and support the development of more precise, phenotype-oriented strategies for PCOS management.</p></sec><sec sec-type="intro" id="s2"><title>Introduction</title><p>Polyendocrine metabolic ovarian syndrome(PMOS) previously known as polycystic ovary syndrome (PCOS),is a prevalent endocrine and metabolic disorder affecting women of reproductive age, manifesting as menstrual irregularity, alopecia, acne, hirsutism, and infertility [<xref rid="B1" ref-type="bibr">1</xref>, <xref rid="B2" ref-type="bibr">2</xref>]. It is defined by hyperandrogenism, ovulatory dysfunction, and polycystic ovarian morphology, and is frequently accompanied by insulin resistance (IR), obesity, and chronic low-grade inflammation [<xref rid="B3" ref-type="bibr">3</xref>]. Hyperandrogenemia and insulin resistance are core pathogenic drivers that disrupt endocrine function and promote adiposity, exacerbating obesity-related complications. These disturbances not only directly impair endocrine homeostasis but also aggravate fat accumulation, thereby exacerbating the progression of obesity [<xref rid="B4" ref-type="bibr">4</xref>]. Globally, PMOS affects 10%–15% of reproductive-age women and is diagnosed using the Rotterdam criteria [<xref rid="B5" ref-type="bibr">5</xref>]. As the most widely accepted diagnostic standard, the Rotterdam criteria specify that PMOS can be diagnosed when two of the following three conditions are present, after excluding other etiologies of androgen excess: oligo-ovulation or anovulation; clinical and biochemical hyperandrogenemia; and polycystic ovarian morphology(PCOM) [<xref rid="B6" ref-type="bibr">6</xref>]. Long-term complications include cardiovascular disease and type 2 diabetes, imposing a considerable health burden [<xref rid="B7" ref-type="bibr">7</xref>]. Despite extensive research, the pathophysiological basis of PMOS remains incompletely understood due to high phenotypic heterogeneity.</p><p>In recent years, many reviews have addressed gut microbiota in PMOS. However, most prior reviews remain descriptive, lack an integrated mechanistic framework, and fail to systematically evaluate clinical evidence quality, phenotypic stratification, and causal uncertainty [<xref rid="B8" ref-type="bibr">8</xref>]. The present review fills these gaps by establishing a unified gut–metabolism–endocrine–ovary axis and by critically appraising evidence with explicit attention to clinical translatability and phenotypic specificity. This represents a key improvement over existing reviews.</p><p>Recent studies have provided growing evidence suggesting a significant association between the pathogenesis of PMOS and dysregulations in the composition and function of the gut microbiota [<xref rid="B9" ref-type="bibr">9</xref>]. The gut microbiota, a complex community of microorganisms residing within the gastrointestinal tract, plays a crucial role in maintaining metabolic, immune, and endocrine homeostasis [<xref rid="B10" ref-type="bibr">10</xref>]. The gut microbiota of PMOS patients may be associated with the development and occurrence of hyperandrogenism, IR, chronic inflammation, and metabolic syndrome, and may influence the clinical manifestations of PMOS via bile acids (BAs), short-chain fatty acids (SCFAs), amino acids (AAs) and lipopolysaccharides(LPS) [<xref rid="B11" ref-type="bibr">11</xref>, <xref rid="B12" ref-type="bibr">12</xref>]. Alterations in the gut microbiome may influence the reproductive endocrine system, potentially affecting follicular development and ovulatory function, and thereby impacting reproductive outcomes in PMOS patients [<xref rid="B13" ref-type="bibr">13</xref>].</p><p>Current therapeutic strategies for PMOS primarily focus on symptomatic management, including lifestyle interventions and hormonal therapies to regulate menstrual cycles [<xref rid="B14" ref-type="bibr">14</xref>]. However, these treatments fail to address the underlying pathophysiological mechanisms of PMOS, such as insulin resistance, metabolic dysfunction, and gut microbiota dysbiosis. Based on the available evidence, we propose an integrated “gut–metabolism–endocrine–ovary axis” framework for PMOS. Gut microbiota dysbiosis and impaired intestinal barrier function may alter the profile of microbiota-derived metabolites, thereby potentially driving chronic low-grade inflammation and insulin resistance. These alterations may subsequently promote hyperandrogenic states and exacerbate follicular development impairment and ovulatory dysfunction. Conversely, hyperandrogenism, insulin resistance, and obesity may reciprocally reshape gut microbial ecology, forming a self-reinforcing pathological cycle.</p><p>Elucidating key nodes and causal relationships within gut microbiota–metabolite–host signaling pathways across different PMOS phenotypes may not only help explain the marked clinical heterogeneity of the syndrome but also provide critical insights for development of microbiota-based, stratified intervention strategies. Accordingly, this review systematically summarizes recent advances in understanding PMOS–gut microbiota interactions, with particular focus on driving factors of microbial dysbiosis, mechanistic networks mediated by key microbiota-derived metabolites, and progress in microbiota-targeted therapeutic approaches. In addition, current research limitations and future directions are discussed to offer new perspectives and potential clinical implications for improving metabolic and reproductive outcomes in patients with PMOS. The key microbiota-derived metabolites and related evidence are summarized in <xref rid="T1" ref-type="table">Table 1</xref>, and the proposed integrated gut–metabolism–endocrine–ovary axis is illustrated in <xref rid="F1" ref-type="fig">Figure 1</xref>.</p><table-wrap position="float" id="T1" orientation="portrait"><label>TABLE 1</label><caption><p>Key microbiota-derived metabolites and related evidence in the integrated gut–metabolism–endocrine–ovary axis in PMOS.</p></caption><table frame="hsides" rules="groups"><thead valign="top"><tr><th align="center" rowspan="1" colspan="1">Metabolite</th><th align="center" rowspan="1" colspan="1">Core mechanisms</th><th align="center" rowspan="1" colspan="1">Clinical evidence in humans</th><th align="center" rowspan="1" colspan="1">Evidence level</th><th align="center" rowspan="1" colspan="1">Representative interventions</th></tr></thead><tbody valign="top"><tr><td align="center" rowspan="1" colspan="1">Bile acids</td><td align="center" rowspan="1" colspan="1">Regulate FXR/TGR5 signaling; modulate insulin sensitivity; associated with hyperandrogenism and ovarian dysfunction</td><td align="center" rowspan="1" colspan="1">Altered profiles in PMOS; limited clinical intervention data</td><td align="center" rowspan="1" colspan="1">Limited clinical evidence</td><td align="center" rowspan="1" colspan="1">Bile acid modulation, UDCA, dietary intervention</td></tr><tr><td align="center" rowspan="1" colspan="1">Short-chain fatty acids</td><td align="center" rowspan="1" colspan="1">Enhance intestinal barrier; reduce inflammation; improve insulin sensitivity; regulate immune balance</td><td align="center" rowspan="1" colspan="1">Reduced butyrate levels in PMOS; few clinical trials</td><td align="center" rowspan="1" colspan="1">Preclinical + small human studies</td><td align="center" rowspan="1" colspan="1">Probiotics, prebiotics, dietary fiber</td></tr><tr><td align="center" rowspan="1" colspan="1">Branched-chain amino acids</td><td align="center" rowspan="1" colspan="1">Promote IR; activate mTOR signaling; correlate with hyperandrogenism and metabolic severity</td><td align="center" rowspan="1" colspan="1">Elevated in PMOS; linked to IR and obesity</td><td align="center" rowspan="1" colspan="1">Moderate clinical association</td><td align="center" rowspan="1" colspan="1">Dietary control, microbiota modulation</td></tr><tr><td align="center" rowspan="1" colspan="1">Lipopolysaccharide (LPS)</td><td align="center" rowspan="1" colspan="1">Induces metabolic endotoxemia; activates TLR4/NF-κB; aggravates inflammation and IR</td><td align="center" rowspan="1" colspan="1">Elevated circulating LPS; strong association only</td><td align="center" rowspan="1" colspan="1">Strong association; no causal proof</td><td align="center" rowspan="1" colspan="1">Gut barrier protectors, anti-inflammatory agents</td></tr></tbody></table></table-wrap><fig position="float" id="F1" orientation="portrait"><label>FIGURE 1</label><caption><p>Schematic overview of the integrated gut–metabolism–endocrine–ovary axis in PMOS.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="ebm-251-11058-g001.jpg"><?image-name ebm-251-11058-g001.jpg?><?image-size 125990?><?image-md5 b0ccfba4474c0d5e7e129e19e28c5e4c?><?image-image-server-status LOAD_COMPLETED?><?image-original-height 1252?><?image-original-width 1649?><?image-scaled-height 500?><?image-scaled-width 659?><?image-cloudpmc-urn urn:cdn:blobs/46f0/13395754/b0ccfba4474c/ebm-251-11058-g001.jpg?><?thumb-name ebm-251-11058-g001.gif?><?thumb-size 14972?><?thumb-md5 a01d35543d06b2f851d440f9c23fd2fe?><?thumb-image-server-status NEVER_LOAD?><?thumb-scaled-height 80?><?thumb-scaled-width 105?><?thumb-cloudpmc-urn urn:cdn:blobs/46f0/13395754/a01d35543d06/ebm-251-11058-g001.gif?><alt-text content-type="machine-generated">Infographic illustrating the integrated gut-metabolism-endocrine-ovary axis in PMOS, depicting gut dysbiosis leading to increased intestinal permeability, altered metabolites, systemic effects, ovarian dysfunction, and intervention options including probiotics, fecal transplant, phytochemicals, and metabolic drugs, all linked by a vicious cycle.</alt-text></graphic></fig></sec><sec id="s3"><title>Literature search strategy and review methods</title><p>This article was designed as a narrative review with a systematic literature search, aiming to summarize current evidence on the association between gut microbiota and PMOS, previously known as PCOS, based on peer-reviewed literature. Literature retrieval was carried out across four electronic databases: PubMed, Embase, Web of Science, and China National Knowledge Infrastructure (CNKI). The search period covered all available publications from the inception of each database up to March 2026. The search strategy was constructed using combinations of key terms related to PMOS, gut microbiota, microbial metabolites, and microbiota-targeted interventions.</p><p>Studies were considered eligible if they focused on the composition, function, or metabolic profiles of gut microbiota in patients with PMOS or in corresponding animal models, investigated mechanistic pathways connecting gut microbiota to metabolic regulation, endocrine homeostasis, inflammatory activation, and ovarian function, or assessed the therapeutic effects of interventions targeting the gut microbiota, including probiotics, prebiotics, fecal microbiota transplantation, lifestyle modification, natural compounds, and pharmacological agents. Only full-text peer-reviewed articles written in English or Chinese were included.</p><p>Studies were excluded if they were case reports, editorials, letters, expert comments, conference abstracts, or publications with no clear relevance to gut microbiota or the pathogenesis of PMOS. Duplicate records and articles with incomplete or unreliable data were also excluded from the final analysis.</p><p>Two independent reviewers performed initial screening of all retrieved records based on titles and abstracts. Records deemed potentially eligible were further evaluated through full-text assessment. Any discrepancies during the screening process were resolved through discussion with a third reviewer until a unanimous consensus was achieved. Relevant information was extracted systematically, including study design, study population or animal model, characteristics of gut microbiota, key microbial metabolites, types of intervention measures, and major outcome indicators.</p></sec><sec id="s4"><title>The relationship between gut microbiota and PMOS</title><p>The gut microbiota, commonly described as the host’s “second genome,” is primarily composed of the phyla Bacteroidetes and Firmicutes, with additional contributions from Proteobacteria, Verrucomicrobia, Actinobacteria, Clostridia, and Cyanobacteria [<xref rid="B15" ref-type="bibr">15</xref>]. This microbiota plays a critical role in digestion, nutrient uptake, energy harvest, vitamin synthesis, inflammatory modulation and host immune status [<xref rid="B16" ref-type="bibr">16</xref>]. Furthermore, the gut microbiota has been recognized as an endocrine-like organ that contributes to the regulation of host metabolic and hormonal homeostasis. The gut microbiota influences the reproductive endocrine system through interactions with sex hormones and metabolic regulators, including estrogen, androgens, and insulin [<xref rid="B17" ref-type="bibr">17</xref>]. A marker of good gut health is high bacterial diversity and functional diversity, along with an intact intestinal barrier [<xref rid="B18" ref-type="bibr">18</xref>]. A healthy gut harbors greater abundance of Bifidobacterium and <italic toggle="yes">Lactobacillus</italic> species, which enhance the intestinal barrier, modulate immune responses, and antagonize pathogens [<xref rid="B19" ref-type="bibr">19</xref>]. In contrast, dysbiosis refers to an imbalance in the composition and function of the gut microbiota, characterized by a reduction in beneficial microbes and an overgrowth of potentially harmful ones [<xref rid="B15" ref-type="bibr">15</xref>].</p><p>Accumulating evidence indicates that PMOS is associated with decreased microbiota diversity, reduced beneficial bacteria, and increased pro-inflammatory species [<xref rid="B20" ref-type="bibr">20</xref>, <xref rid="B21" ref-type="bibr">21</xref>]. A recent review further summarized that altered gut microbial composition in PCOS is closely associated with metabolic abnormalities, including insulin resistance, obesity-related metabolic dysfunction, and chronic inflammation [<xref rid="B22" ref-type="bibr">22</xref>]. This dysbiosis may contribute to the development of hallmark features of PMOS, such as metabolic dysfunction, hormonal imbalance, and chronic low-grade inflammation [<xref rid="B23" ref-type="bibr">23</xref>, <xref rid="B24" ref-type="bibr">24</xref>]. Under physiological conditions, the integrity of the intestinal barrier is essential for nutrient absorption, pathogen defense, and maintenance of gut homeostasis. Intestinal epithelial cells preserve barrier integrity through tight junction proteins [<xref rid="B25" ref-type="bibr">25</xref>]. Moreover, gut microbes enhance intestinal barrier function by upregulating tight junction protein expression, reducing circulating endotoxins, and stabilizing gut immunity [<xref rid="B26" ref-type="bibr">26</xref>]. However, dysbiosis can exacerbate inflammatory responses by triggering the release of inflammatory cytokines, compromising intestinal barrier integrity, and facilitating the translocation of lipopolysaccharides (LPS) into the systemic circulation [<xref rid="B27" ref-type="bibr">27</xref>]. In conclusion, the gut microbiota may influence the pathogenesis of PMOS through mechanisms such as hyperandrogenism, IR, and chronic inflammation, thereby affecting follicular development, sex hormone levels, and metabolic state.</p><sec id="s4-1"><title>Impact of PMOS on gut microbiota</title><sec id="s4-1-1"><title>Effect of sex hormones on gut microbiota</title><p>Sex hormones are known to regulate gut microbiota composition in a sex-dependent manner. Elevated androgen levels have been associated with reduced gut microbiota diversity, characterized by an increased Firmicutes-to-Bacteroidetes ratio, enrichment of genera such as <italic toggle="yes">Clostridium</italic>, Dorea, and Bilophila, and a marked reduction in beneficial bacteria, including <italic toggle="yes">Lactobacillus</italic> species [<xref rid="B28" ref-type="bibr">28</xref>]. Studies using dihydrotestosterone-induced PMOS rat models have shown increased body weight, fat deposition, and decreased intestinal flora diversity, indicating that the gut microbiota is related to high androgen levels [<xref rid="B29" ref-type="bibr">29</xref>]. Sex hormone status significantly alters intestinal flora structure and metabolite profiles, including short-chain fatty acids and indole derivatives, suggesting that hyperandrogenism in PMOS may disrupt flora homeostasis and alter metabolic output, leading to metabolic disorders [<xref rid="B30" ref-type="bibr">30</xref>].</p><p>Hyperandrogenism in PMOS patients is mainly driven by enhanced ovarian steroidogenesis, increased adrenal 11-oxidized androgen secretion, and IR, which further promote androgen production and reduce sex hormone-binding globulin levels, exacerbating androgen excess [<xref rid="B31" ref-type="bibr">31</xref>]. The intestinal flora of women with PMOS shows increased abundance of Catenibacterium and Kandleria genera, and bacterial diversity indices are positively correlated with serum androgen concentrations and negatively correlated with estradiol levels [<xref rid="B32" ref-type="bibr">32</xref>]. Estrogen and progesterone preserve bacterial diversity and metabolic balance, while PMOS patients frequently exhibit elevated estrogen and insufficient progesterone. The hormonal imbalance, together with high androgen levels, alters gut microbiota composition, increase proinflammatory bacteria, reduces probiotics, and worsens metabolic disorders [<xref rid="B33" ref-type="bibr">33</xref>].</p><p>Collectively, the hormonal dysregulation observed in patients with PMOS may profoundly alter metabolic pathways, disrupt intestinal barrier integrity, and modulate immune responses, thereby potentially influencing the composition of gut metabolites and microbiota. However, these observations are largely associative and predominantly derived from cross-sectional studies and animal models. Causal evidence from large prospective cohorts or randomized trials is lacking. Furthermore, microbial signatures vary considerably according to obesity status, androgen severity, dietary intake, ethnicity, and geographic region, leading to inconsistent findings across studies.</p></sec><sec id="s4-1-2"><title>Effect of IR on gut microbiota</title><p>IR is one of the most prevalent metabolic abnormalities in patients with PMOS, affecting approximately 50–70% of this population to varying degrees [<xref rid="B20" ref-type="bibr">20</xref>]. IR exacerbates disturbances in glucose and lipid metabolism and contributes to hyperandrogenemia [<xref rid="B34" ref-type="bibr">34</xref>]. The presence of IR may significantly influence the diversity of gut microbiota and the abundance of specific bacterial taxa in patients with PMOS. Among women with IR, the relative abundance of <italic toggle="yes">Bacteroidaceae</italic> increased, whereas <italic toggle="yes">Prevotellaceae</italic> decreases compared with PMOS women without IR [<xref rid="B35" ref-type="bibr">35</xref>]. Increased Bacteroidaceae is positively correlated with inflammation and insulin resistance severity [<xref rid="B36" ref-type="bibr">36</xref>].</p><p>Experimental studies show that <italic toggle="yes">Enterococcus</italic> and Rothia are markedly increased in PMOS patients with IR and positively linked with waist circumference, free fatty acids, and HOMA-IR index, whereas Prevotella is dramatically diminished. IR may be associated with impaired GLP-1 signaling, aggravated lipid metabolic dysfunction, and enhanced inflammatory responses [<xref rid="B37" ref-type="bibr">37</xref>]. IR also affects functional alterations within the gut microbiota; patients with insulin resistance exhibit elevated LPS biosynthesis pathways and heightened inflammatory cytokines, suggesting increased inflammatory risk [<xref rid="B36" ref-type="bibr">36</xref>]. IR-induced gut dysbiosis potentiates branched-chain amino acid production and impairs their clearance, contributing to their accumulation [<xref rid="B11" ref-type="bibr">11</xref>]. Moreover, IR and compensatory hyperinsulinemia can lead to hyperandrogenism, further exacerbating intestinal flora imbalance and metabolic disorders [<xref rid="B38" ref-type="bibr">38</xref>].</p><p>Therefore, IR may aggravate intestinal flora imbalance in PMOS patients, and the intestinal flora may represent a potential metabolic regulatory target for PMOS-related IR [<xref rid="B39" ref-type="bibr">39</xref>]. Nonetheless, causal relationships remain unconfirmed. Most studies are observational and limited by small sample sizes, cross-sectional design, and insufficient adjustment for confounders including diet, medication, and body composition. Heterogeneity in insulin resistance severity and PMOS phenotype further reduces comparability across investigations.</p></sec><sec id="s4-1-3"><title>Effect of obesity on gut microbiota</title><p>There is a bidirectional relationship between obesity and PMOS, with approximately 50%–60% of women with PMOS being overweight or obese. Mendelian randomization studies have identified body mass index(BMI) as a potential causal factor in the development of PMOS [<xref rid="B40" ref-type="bibr">40</xref>]. Notably, compared with non-obese PMOS patients, obese PMOS patients exhibit more pronounced alterations in the composition and diversity of their gut microbiota [<xref rid="B6" ref-type="bibr">6</xref>]. Visceral obesity substantially modifies intestinal microbiota composition, leading to increased <italic toggle="yes">Prevotella</italic>, <italic toggle="yes">Dialister</italic>, and <italic toggle="yes">Phascolarctobacterium</italic>, alongside alterations in lipid metabolism-related functional pathways. These alterations may exacerbate fat accumulation and insulin resistance, suggesting that the gut microbiota may act as an important mediator linking obesity-related PMOS and metabolic disorders [<xref rid="B41" ref-type="bibr">41</xref>].</p><p>
+<italic toggle="yes">Prevotella</italic> and <italic toggle="yes">Bacteroides</italic> are elevated in obese PMOS whereas beneficial microbes including <italic toggle="yes">Akkermansia</italic> and <italic toggle="yes">Ruminococcaceae are</italic> reduced [<xref rid="B42" ref-type="bibr">42</xref>]. Obese PMOS patients show higher concentrations of LBP, GLP-2, succinate, and zonulin family peptides, implying heightened intestinal permeability and compromised barrier function, which contribute to endotoxemia and systemic inflammation. Obesity exacerbates the detrimental impacts of intestinal microbiota and barrier impairment in PMOS, hastening the onset of metabolic diseases [<xref rid="B43" ref-type="bibr">43</xref>]. Disruptions in gut flora might result in diminished amounts of SCFAs, a microbiome metabolite, and lowered leptin concentrations, thereby hastening the advancement of obesity. Elevated Gram-negative bacteria increase LPS levels, precipitating metabolic endotoxemia [<xref rid="B44" ref-type="bibr">44</xref>]. Reduced gut microbiota diversity associated with obesity may reduce resource utilization efficiency and increase vulnerability to dysbiosis [<xref rid="B45" ref-type="bibr">45</xref>].</p><p>Consequently, obesity appears to be a key factor exacerbating gut microbiota dysbiosis in patients with PMOS. It is important to emphasize that these relationships are associative, not definitively causal. Obese and non-obese PMOS subgroups exhibit distinct microbial profiles, and differences in dietary behavior, physical activity, and socioeconomic background further confound interpretations [<xref rid="B46" ref-type="bibr">46</xref>]. Methodological differences in sequencing and bioinformatics also contribute to inconsistent results.</p></sec></sec><sec id="s4-2"><title>Impact of gut microbiota on PMOS</title><sec id="s4-2-1"><title>Effects of bile acids in PMOS</title><p>Bile acids (BAs) represent an important class of microbiota-derived metabolites and signaling molecules that influence gut microbiota composition and host metabolism in individuals with PMOS [<xref rid="B47" ref-type="bibr">47</xref>]. BAs regulate metabolic homeostasis primarily through activation of bile acid receptors including TGR5 and FXR. Alterations in BA levels may result in metabolic disorders frequently observed in PMOS [<xref rid="B16" ref-type="bibr">16</xref>], such as elevated cholesterol, triglycerides, and low-density lipoprotein [<xref rid="B48" ref-type="bibr">48</xref>]. Intestinal microbiota can activate Fibroblast Growth Factor 15/19 signaling and suppress cytochrome P450 7A1(CYP7A1) and 8B1(CYP8B1) enzymes implicated in bile acid synthesis, thus modulating triglyceride(TG), LDL, and glucose homeostasis [<xref rid="B49" ref-type="bibr">49</xref>].</p><p>Animal studies show that ursodeoxycholic acid(UDCA) administration enhances ovarian morphology and decreases testosterone and insulin levels [<xref rid="B50" ref-type="bibr">50</xref>]. Clinical studies show that elevated <italic toggle="yes">Bacteroides</italic>, glycodeoxycholic acid, and tauroursodeoxycholic acid correlate with insulin resistance and ovarian dysfunction and exacerbate metabolic and reproductive impairment [<xref rid="B51" ref-type="bibr">51</xref>]. Bile acids enhance IL-22 secretion by activating the GATA3 pathway in ILC3s, implying that IL-22 may ameliorate insulin resistance, ovarian function, and estrous cycle abnormalities. Primary bile acid proportions are positively correlated with total testosterone and free androgen index, indicating a link with hyperandrogenism [<xref rid="B52" ref-type="bibr">52</xref>]. Glycochenodeoxycholic acid is positively correlated with FSH and LH, and chenodeoxycholic acid-3-β-d-glucuronide increases with antral follicle count, implying roles in follicular development and ovulatory disorders [<xref rid="B53" ref-type="bibr">53</xref>].</p><p>Based on available experimental and clinical evidence, bile acids may function as a signaling hub linking the gut microbiota with host metabolic and endocrine regulation, exerting modulatory effects on the development of insulin resistance and hyperandrogenic phenotypes in PMOS. However, most clinical evidence remains correlational. Variability in bile acid profiling methods, patient ethnicity, body weight, and PMOS subtype limits generalizability. Causal validation in humans is still limited.</p></sec><sec id="s4-2-2"><title>Effects of short-chain fatty acids in PMOS</title><p>SCFAs are metabolites generated during intestinal microbial fermentation of dietary fiber, mainly including acetic acid(AA), propionic acid(PA), butyric acid(BA), and valeric acid(VA). These compounds are essential for maintaining microbial homeostasis and intestinal mucosal barrier integrity [<xref rid="B54" ref-type="bibr">54</xref>]. Circulating butyrate levels are significantly reduced in obese patients with PMOS and closely associated with gut microbial dysbiosis [<xref rid="B55" ref-type="bibr">55</xref>]. BA impedes METTL3-mediated FOSL2 m6A methylation, obstructing NLRP3 inflammasome activation and pro-inflammatory cytokines, implying that reduced short-chain fatty acid levels may result in intestinal microbiota dysbiosis and mucosal barrier impairment, exacerbating chronic inflammation [<xref rid="B56" ref-type="bibr">56</xref>].</p><p>SCFAs can enhance IL-22 secretion via GPR41 signaling and HDAC inhibition, fortifying the intestinal mucosal barrier and mitigating inflammation [<xref rid="B57" ref-type="bibr">57</xref>]. They limit pro-inflammatory response in dendritic cells and macrophages by activating GPR41/43 and GPR109A receptors, decreasing IL-6 and IL-12, and facilitating Treg differentiation and IL-10 secretion to sustain immunological homeostasis [<xref rid="B58" ref-type="bibr">58</xref>]. Given that patients with PMOS display Treg/Th17 imbalance and abnormal HSP70 expression [<xref rid="B59" ref-type="bibr">59</xref>], SCFA-mediated enhancement of IL-22 synthesis and restoration of Treg function may represent a viable strategy to ameliorate immune dysregulation and chronic inflammation in PMOS. The development and reinstatement of Treg function could serve as a possible method for ameliorating immune dysregulation and chronic inflammation associated with PMOS. Furthermore, SCFAs participate in metabolic regulation by enhancing glucose-stimulated insulin secretion and improving insulin sensitivity. Specifically, SCFAs stimulate incretin production via FFAR2/3, thereby augmenting glucose-dependent insulin secretion. SCFA supplementation has been shown to improve fasting insulin levels and HOMA-IR [<xref rid="B60" ref-type="bibr">60</xref>]. Research indicates that SCFAs enhance the secretion of multiple gut hormones, including GLP-1, PYY, and 5-HT, through activating FFA2/3 receptors. This effect partially corrects gut hormone secretion disorders in patients with PMOS, thereby sustaining insulin homeostasis and augmenting insulin sensitivity [<xref rid="B61" ref-type="bibr">61</xref>].</p><p>In summary, SCFAs maintain intestinal barrier integrity and immune homeostasis, thereby attenuating chronic low-grade inflammation and enhancing insulin sensitivity, which may slow the progression of PMOS. However, current evidence is predominantly derived from preclinical studies, whereas clinical data in humans remain limited and inconsistent. Optimal concentrations, administration routes, and long-term safety profiles of SCFA interventions in humans have not been established. Moreover, most existing evidence indicates associations rather than definitive causal relationships.</p></sec><sec id="s4-2-3"><title>Effects of amino acids in PMOS</title><p>AAs are nitrogen-containing organic compounds that serve as the building blocks of proteins and participate in the tricarboxylic acid(TCA) cycle and mitochondrial oxidative phosphorylation [<xref rid="B62" ref-type="bibr">62</xref>], regulating lipid and glucose metabolism and influencing insulin signaling. Women with PMOS exhibit significant AA metabolic dysfunction, with specific AAs intimately associated with increased risks of obesity, insulin resistance, and metabolic syndrome [<xref rid="B63" ref-type="bibr">63</xref>]. BCAAs, including valine, isoleucine, and leucine, are strongly correlated with metabolic abnormalities in PMOS [<xref rid="B64" ref-type="bibr">64</xref>].</p><p>The branched-chain amino acid metabolite 3-HIB enhances transendothelial fatty acid transport and uptake, stimulating lipid deposition in skeletal muscle and contributing to insulin resistance [<xref rid="B65" ref-type="bibr">65</xref>]. Excess BCAAs and abnormal breakdown trigger the mTORC1/S6K1 pathway and disrupt mitochondrial function and insulin signaling [<xref rid="B66" ref-type="bibr">66</xref>, <xref rid="B67" ref-type="bibr">67</xref>]. Elevated plasma BCAA levels are positively correlated with androgen levels, antral follicles, and menstrual irregularity. Defects in BCAA metabolism can exacerbate IR, hyperandrogenism, and obesity, with Mg<sup>2+</sup>/Mn<sup>2+</sup>-dependent protein phosphatase 1K(PPM1K) identified as a causative gene [<xref rid="B68" ref-type="bibr">68</xref>]. Furthermore, BCAAs may also exacerbate chronic inflammation by stimulating pro-inflammatory gene expression [<xref rid="B11" ref-type="bibr">11</xref>].</p><p>Current evidence suggests that abnormalities in amino acid metabolism may contribute to the development of metabolic phenotypes in PMOS; however, compared with bile acids and short-chain fatty acids, their causal role within the gut microbiota–PMOS axis remains less well defined. These alterations are therefore more likely to function as amplifying factors of metabolic dysregulation rather than as primary initiating drivers of the disease process. Furthermore, most human studies are observational and do not exclude confounding by diet, obesity, or insulin resistance. Causal mechanistic data are largely restricted to animal models.</p></sec><sec id="s4-2-4"><title>Effects of lipopolysaccharide in PMOS</title><p>LPS is a major structural component of Gram-negative bacteria and a powerful stimulator of inflammatory responses. Heightened intestinal permeability in PMOS patients facilitates entry of excess LPS into the bloodstream, resulting in endotoxemia that aggravates metabolic disorders and chronic inflammation [<xref rid="B69" ref-type="bibr">69</xref>]. High-fat diet increases circulating LPS in mice, and LPS administration induces insulin resistance and obesity [<xref rid="B70" ref-type="bibr">70</xref>]. PMOS patients exhibit systemic low-grade inflammation marked by increased peripheral blood LPS and inflammatory markers, which correlate positively with insulin resistance indices.</p><p>LPS activates the LPS/TLR4 inflammatory pathway, promote NF-κB activation, and enhances inflammatory responses contributing to insulin resistance [<xref rid="B71" ref-type="bibr">71</xref>]. LPS enhances TLR2 expression, stimulates pro-inflammatory mediators including TNF-α, IL-1β, IL-6, and IL-8 in granulosa cells, and initiates oxidative stress [<xref rid="B72" ref-type="bibr">72</xref>]. LPS also stimulates the PI3K/AKT/mTOR pathway, facilitating inflammatory molecule production and suppressing autophagy [<xref rid="B73" ref-type="bibr">73</xref>]. Fecal metagenomic data suggest that reduced Bacteroidales may elevate pro-inflammatory LPS levels in follicles, correlating with follicular hypoplasia, recruitment difficulties, and elevated AMH levels, indicating an intimate link between gut microbiota and reproductive function [<xref rid="B74" ref-type="bibr">74</xref>].</p><p>Consequently, LPS-mediated endotoxemia is more likely to function as a key amplifying pathway linking intestinal barrier dysfunction with systemic inflammatory responses, thereby exerting a sustained aggravating effect on metabolic abnormalities and disruption of the ovarian microenvironment in PMOS. While LPS-induced endotoxemia is considered an important amplifier of inflammation and metabolic disorders in PMOS, direct clinical evidence supporting causality remains limited. Most studies are observational or based on animal models, and factors such as intestinal barrier function, microbial source, and individual differences may affect the consistency of results.</p><p>Gut microbiota dysbiosis impairs intestinal barrier function and alters the production of key microbial metabolites, including bile acids, short-chain fatty acids, branched-chain amino acids, and lipopolysaccharide. These changes trigger systemic low-grade inflammation and insulin resistance, which further promote hyperandrogenism, follicular developmental arrest, and ovulatory dysfunction. Conversely, hyperandrogenism, insulin resistance, and obesity reciprocally remodel gut microbiota composition, forming a self-reinforcing pathological cycle. Microbiota-targeted interventions may break this cycle and improve PMOS-related phenotypes.</p></sec></sec></sec><sec id="s5"><title>Gut microbiota–based interventions for PMOS</title><sec id="s5-1"><title>Lifestyle interventions</title><p>Recent international evidence-based guidelines for PMOS indicate that lifestyle intervention is fundamental to PMOS management [<xref rid="B75" ref-type="bibr">75</xref>], with diet and exercise as critical components. Dietary habits alter gut microbiota and significantly influence weight management, insulin sensitivity, and inflammatory markers [<xref rid="B76" ref-type="bibr">76</xref>]. Ketogenic diets improve anthropometric and metabolic indices and sex hormone profiles by reducing insulin, suppressing inflammation, and decreasing fat mass [<xref rid="B77" ref-type="bibr">77</xref>]. The Mediterranean diet alleviates chronic inflammation, improves insulin sensitivity, and lowers androgen levels, reducing long-term cardiometabolic and reproductive risks [<xref rid="B78" ref-type="bibr">78</xref>].</p><p>Various exercise modalities including continuous aerobic exercise, high-intensity interval training, and yoga [<xref rid="B79" ref-type="bibr">79</xref>–<xref rid="B81" ref-type="bibr">81</xref>]improve cardio-metabolic performance, insulin sensitivity, and menstrual regularity. Exercise combined with dietary management improves HOMA-IR, lipid profiles, BMI, waist circumference, and body fat percentage [<xref rid="B82" ref-type="bibr">82</xref>]. However, insufficient data prevent direct comparisons between exercise and dietary therapy or between combined interventions and diet alone.</p><p>Despite the well-recognized benefits of lifestyle interventions in improving metabolic and reproductive parameters in women with PMOS, it remains difficult to determine whether such beneficial effects are directly mediated by alterations in gut microbiota composition or function, or indirectly attributed to weight reduction, improved energy metabolism, and reduced systemic inflammation. Most existing studies lack strict control over dietary fiber intake, dietary patterns, physical activity intensity, and other confounding factors, and few investigations adopt microbiota-targeted indicators as primary endpoints. These limitations restrict the mechanistic evidence linking lifestyle modifications to gut microbiota regulation in PMOS management.</p></sec><sec id="s5-2"><title>Microbiota-based interventions</title><p>Gut microbiota–targeted interventions including fecal microbiota transplantation (FMT), probiotics, and prebiotics have gained attention as potential strategies to restore microbial balance and ameliorate metabolic and reproductive dysfunctions in PMOS. FMT transfers healthy donor fecal material to recipients to address dysbiosis-related disorders [<xref rid="B83" ref-type="bibr">83</xref>]. Given the consistent association between gut microbial dysbiosis and the core pathophysiological features of PMOS, reconstruction of a healthy gut microbiota community via FMT represents a theoretically feasible intervention for this syndrome.</p><p>A previous study using a DHT-induced PMOS mouse model has shown that FMT from healthy mice effectively modified the gut microbiota composition of PMOS mice, aligning it closer to that of healthy controls. Although FMT did not significantly improve overall PMOS-related phenotypic features, it partially reduced fat accumulation and modified the relative abundance of several metabolism-associated bacteria, including <italic toggle="yes">Barnesiella</italic>, <italic toggle="yes">Parabacteroides</italic>, and <italic toggle="yes">Alistipes</italic> [<xref rid="B84" ref-type="bibr">84</xref>]. Another study conducted in letrozole-induced PMOS rats enhanced estrous cyclicity, decreased serum androgen concentrations, reinstated normal ovarian morphological structure, and normalized the composition of gut microbiota [<xref rid="B85" ref-type="bibr">85</xref>]. Nevertheless, no clinical trials or human observational studies have yet evaluated the safety and efficacy of FMT in women with PMOS, and all available evidence is restricted to preclinical animal models. As a multisystem endocrine and metabolic disorder, PMOS shares overlapping metabolic disturbances with obesity and type 2 diabetes, conditions in which FMT has shown preliminary therapeutic potential [<xref rid="B86" ref-type="bibr">86</xref>]. Therefore, FMT remains a promising exploratory strategy for PMOS management, yet its clinical value cannot be confirmed until rigorous human studies are performed.</p><p>Similarly, probiotics, defined as “live microorganisms that, when administered in adequate amounts, confer health benefits on the host”, have attracted extensive attention for their potential to ameliorate metabolic and endocrine disorders in PMOS [<xref rid="B87" ref-type="bibr">87</xref>]. Accumulating evidence indicates that probiotics improve metabolic profiles and attenuate IR by promoting the production of SCFAs, regulating inflammatory and oxidative stress pathways, and inhibiting the release of proinflammatory cytokines [<xref rid="B88" ref-type="bibr">88</xref>]. The probiotic strains with documented beneficial effects in PMOS models mainly belong to the genera <italic toggle="yes">Bifidobacterium</italic>, <italic toggle="yes">Lactobacillus</italic>, <italic toggle="yes">Clostridium</italic>, <italic toggle="yes">Enterococcus</italic>, and other lactic acid bacteria [<xref rid="B89" ref-type="bibr">89</xref>]. Research indicates that Bifidobacterium longum subsp. Longum BL21 can mitigate PMOS by enhancing hormonal levels in PMOS mice via the brain-gut-ovary axis, curtailing weight gain, diminishing inflammatory markers, and optimizing microbial composition. However, this study did not fully elucidate the interactive mechanisms among dietary metabolism, gut microbiota, and PMOS pathogenesis [<xref rid="B90" ref-type="bibr">90</xref>].</p><p>He et al. [<xref rid="B91" ref-type="bibr">91</xref>] employed a letrozole-induced PMOS rat model to systematically evaluate the therapeutic effects of eight lactic acid bacterial strains. The results showed that <italic toggle="yes">Lactobacillus</italic> plantarum HL2 and Bifidobacterium longum HB3 significantly ameliorated ovarian pathological alterations, diminished testosterone levels, and partially restored LH, FSH, and their abnormal ratios. Furthermore, these strains modulated gut microbiota associated with sex hormones, including <italic toggle="yes">Akkermansia</italic>, <italic toggle="yes">Prevotella</italic>, and <italic toggle="yes">Staphylococcus</italic>.</p><p>Prebiotics are specialized substrates that are selectively utilized by host microorganisms and confer beneficial effects on host health [<xref rid="B87" ref-type="bibr">87</xref>]. Indigenous intestinal microorganisms ferment prebiotics to produce bioactive metabolites, among which oligofructose and oligogalactose are the most widely studied for their health-promoting properties [<xref rid="B92" ref-type="bibr">92</xref>]. Certain studies indicate that prebiotics can mitigate hyperandrogenism, enhance insulin sensitivity, and lower cardiometabolic risk by fostering the synthesis of SCFAs in the colon, ameliorating inflammatory conditions, and optimizing energy metabolism [<xref rid="B93" ref-type="bibr">93</xref>].</p><p>Animal studies have shown that inulin supplementation improves glucose tolerance, insulin sensitivity, and ovarian morphology in PMOS models, while reducing serum testosterone, AMH, and LH levels. These effects were accompanied by increased abundance of SCFA-producing bacteria, enhanced acetate, propionate, and butyrate production, improved intestinal barrier function, and suppression of inflammatory mediators such as IL-1β, IL-18, and LBP. A clinical investigation including women with PMOS has shown that supplementation with 10 g of inulin over three consecutive months improved hyperandrogenism, IR, and dyslipidemia, while increasing <italic toggle="yes">Bifidobacterium</italic> abundance and decreasing <italic toggle="yes">Escherichia coli</italic> and <italic toggle="yes">Shigella</italic> levels [<xref rid="B27" ref-type="bibr">27</xref>]. A further investigation assessed the impact of resistant dextrin on enhancing metabolic indices, androgen levels, and clinical symptoms, including hirsutism and menstrual cycle abnormalities, in women with PMOS [<xref rid="B94" ref-type="bibr">94</xref>].</p><p>Based on current evidence from animal models and limited human studies, gut microbiota–targeted interventions—including fecal microbiota transplantation, probiotics, and prebiotics—are more likely to exert adjunctive therapeutic effects in PMOS by improving the metabolic and inflammatory microenvironment, rather than serving as independent or definitive treatment modalities. Although the observed beneficial effects provide indirect support for the causal involvement of gut microbiota in PMOS pathophysiology, the stability, efficacy reproducibility, and clinical generalizability of these interventions remain to be validated through well-designed, large-sample, and long-term randomized controlled trials with strict phenotypic stratification. A recent systematic review and meta-analysis of randomized controlled trials further suggested that microbiota-related interventions may improve several metabolic, hormonal, and inflammatory outcomes, but heterogeneity in intervention type, duration, and outcome definitions remains an important limitation [<xref rid="B95" ref-type="bibr">95</xref>].</p></sec><sec id="s5-3"><title>Natural plant-derived compounds</title><p>Natural plant-derived compounds, including polyphenols and traditional Chinese medicines (TCM) show considerable potential in modulating gut microbiota composition, alleviating inflammation, and improving metabolic and endocrine disturbances in PMOS. These substances promote beneficial bacteria, restore homeostasis, and attenuate systemic inflammation, contributing to improved hormonal balance, insulin sensitivity, and lipid metabolism [<xref rid="B96" ref-type="bibr">96</xref>]. Polyphenols are a large class of plant secondary metabolites, mainly including resveratrol, anthocyanins, catechins and other components. Numerous studies indicate that resveratrol enhances insulin sensitivity by activating SIRT1/AMPK and PI3K/Akt signaling pathways [<xref rid="B97" ref-type="bibr">97</xref>, <xref rid="B98" ref-type="bibr">98</xref>], modulates PPAR-γ and lipid metabolism-related variables, and mitigates dyslipidemia. Simultaneously, resveratrol can reduce androgen synthesis by inhibiting the activities of CYP17A1 and HMG-CoA reductase [<xref rid="B99" ref-type="bibr">99</xref>]. In addition, resveratrol can improve chronic low-grade inflammation by blocking NF-κB and VEGF signaling pathways, and restore normal ovulatory function and follicle morphology [<xref rid="B100" ref-type="bibr">100</xref>]. Notably, resveratrol also exerts a prebiotic-like effect, which can improve gut microbiota dysbiosis associated with PMOS, thus indirectly alleviating metabolic disorders. Although the safety of resveratrol <italic toggle="yes">in vivo</italic> is satisfactory, its clinical efficacy as an adjuvant therapy for PMOS still needs to be confirmed by high-quality randomized controlled trials [<xref rid="B99" ref-type="bibr">99</xref>].</p><p>Anthocyanins have been proved to improve ovarian steroid hormone imbalance in androgen-induced PMOS mice, regulate steroid synthase and antioxidant enzyme levels, and address inflammatory marker abnormalities, demonstrating potential therapeutic effects [<xref rid="B101" ref-type="bibr">101</xref>]. Research indicates that catechins in oolong tea can improve ovarian dysfunction and insulin resistance in PMOS mice by inhibiting the p-STAT3 signaling pathway, reduce uterine inflammation and matrix degradation [<xref rid="B102" ref-type="bibr">102</xref>]. Green tea is abundant in catechins, and green tea extract can enhance IR and ovarian morphology in PMOS model rats while decreasing testosterone levels [<xref rid="B103" ref-type="bibr">103</xref>].</p><p>Traditional Chinese medicine has gradually formed a unique therapeutic system for PMOS under long-term clinical practice. This system is guided by the holistic view and treatment based on syndrome differentiation, and has the characteristics of multi-target and multi-pathway regulation. A large number of studies have confirmed that TCM can significantly ameliorate endocrine disorders in PMOS patients by regulating ovarian blood flow dynamics, improving serum hormone levels and normalizing menstrual cycles, so as to increase ovulation rate and clinical pregnancy rate.</p><p>In recent years, the regulatory effect of TCM and its components on gut microbiota has been gradually revealed. Studies have shown that Bailing capsule can improve ovarian dysfunction, reduce IR, and enhance sex hormone levels in mice with PMOS. BL modulates the intestinal microbiota and inflammatory response in PMOS model mice. Bailing capsule can improve gut microbiota disturbance and inflammatory response in PMOS mice by regulating LPS-TLR4 inflammatory pathway [<xref rid="B104" ref-type="bibr">104</xref>]. Other TCM formulations, including HeQi San, Bu Shen Hua Zhuo formula, Zishen Qingre Lishi Huayu formulation, and Yulin Tong Bu compound, have also been shown to alleviate PMOS-like phenotypes in animal or clinical studies by improving ovarian function, enhancing insulin sensitivity, increasing gut microbiota diversity, and enriching beneficial and SCFA-producing bacteria [<xref rid="B105" ref-type="bibr">105</xref>–<xref rid="B108" ref-type="bibr">108</xref>].</p><p>In terms of single component of TCM, berberine, an isoquinoline alkaloid derived from Coptis chinensis, can successfully restore the diversity and structure of gut microbiota, regulate microbial metabolites, and ameliorate gut microbial imbalance in patients with PMOS [<xref rid="B109" ref-type="bibr">109</xref>]. Research indicates that quercetin can systematically lower insulin, blood glucose, cholesterol, and TG levels, modulate pituitary-ovarian axis function, mitigate oxidative stress damage associated with PMOS, manage the metabolic environment of patients, and treat PMOS symptoms [<xref rid="B110" ref-type="bibr">110</xref>].</p><p>Overall, polyphenols and TCM can improve PMOS through multi-dimensional pathways such as restoring gut microbiota balance, ameliorating metabolic dysfunction and suppressing inflammatory responses, showing comprehensive therapeutic potential. However, it is worth noting that current evidence that natural plant compounds and traditional Chinese medicines for improve PMOS by regulating gut microbiota is still mainly from animal experiments. The key molecular targets, the dependence of therapeutic effects on gut microbiota, and the exact clinical benefits in humans still need to be further clarified. Therefore, such interventions are still at the exploratory and adjunctive therapeutic level, and cannot be used as the first-line and definitive treatment for PMOS. In the future, more in-depth mechanism studies and large-sample, long-term clinical trials are needed to clarify the molecular targets, efficacy and safety of these compounds, so as to promote their clinical transformation and application.</p></sec><sec id="s5-4"><title>Glucose-lowering and anti-obesity drugs</title><p>PMOS patients with insulin resistance are accompanied by impaired insulin receptor-related signaling pathways, which will be further aggravated by obesity and its related phenotypes such as visceral fat accumulation, chronic inflammation and oxidative stress response. Metformin and GLP-1 receptor agonists can not only induce therapeutic effects via weight reduction but also influence the mechanisms underlying IR, potentially serving as useful treatment alternatives for obese patients with PMOS.</p><p>Among these agents, metformin can decrease weight, enhance insulin sensitivity, regulate menstrual cycle and reduce androgen level [<xref rid="B111" ref-type="bibr">111</xref>]. In recent years, the regulatory effect of metformin on gut microbiota has attracted increasing attention. Research indicates that metformin can improve metabolic disorders and restore ovulatory function in PMOS rats by activating intestinal AMPK, regulating gut microbiota and increasing the production of beneficial metabolites such as I3A [<xref rid="B112" ref-type="bibr">112</xref>]. Clinical studies have confirmed that metformin treatment can effectively reduce body fat rate and visceral fat content in PMOS patients, and improve IR and persistent low-grade inflammation.</p><p>Simultaneously, metformin can enhance <italic toggle="yes">Akkermansia muciniphila</italic>, <italic toggle="yes">Clostridium leptum</italic> group, <italic toggle="yes">Faecalibacterium prausnitzii</italic> and other beneficial bacteria, reduce the proportion of harmful bacteria, and rebuild the structure of gut microbiota. Xue et al. [<xref rid="B113" ref-type="bibr">113</xref>] discovered that metformin can mitigate PMOS by regulating gut microbiota, decreasing plasma LPS levels, and lowering the concentration of inflammatory mediators, including tumor necrosis factor α, interleukin 6, and interleukin 17A, in individuals with PMOS. Significantly, metformin treatment may normalize altered fecal SCFA levels in patients with PMOS, suggesting that metformin can improve intestinal microenvironment by regulating SCFA metabolism [<xref rid="B114" ref-type="bibr">114</xref>]. Nonetheless, metformin is prone to gastrointestinal adverse reactions, which limits the long-term medication compliance of patients.</p><p>The weight-loss and metabolic enhancement benefits of GLP-1 receptor agonists provide unique potential for expanding the treatment options of PMOS. Semaglutide can reestablish the movement rhythm of PMOS mice via the PI3K/AKT/mTOR pathway, rectify serum hormone imbalances, enhance glucose tolerance, and mitigate autophagy and ovarian oxidative damage in PMOS animals [<xref rid="B115" ref-type="bibr">115</xref>]. Semaglutide can also reduce ovarian tissue inflammation and enhance PMOS phenotype through AMPK/SIRT1/NF-κB signaling pathway [<xref rid="B116" ref-type="bibr">116</xref>].</p><p>In a clinical study, 3 mg liraglutide was given daily to obese and non-diabetic PMOS women for 32 consecutive days. After short-term treatment, improvements in body weight, hyperandrogenism and menstrual cyclicity were observed [<xref rid="B117" ref-type="bibr">117</xref>]. Exenatide combined with metformin has a good effect in reducing body weight, decreasing BMI and waist circumference, and improving blood glucose and insulin sensitivity in overweight or obese PMOS women, with acceptable short-term adverse reactions [<xref rid="B118" ref-type="bibr">118</xref>]. Nonetheless, the precise mechanism of GLP-1 receptor agonists in improving metabolic and reproductive abnormalities related to PMOS is still not fully elucidated, and most of the existing studies lack long-term follow-up data. The persistence of weight-loss effect and the long-term metabolic benefit of GLP-1 receptor agonists still need more clinical verification [<xref rid="B119" ref-type="bibr">119</xref>].</p><p>Orlistat plays an anti-obesity role by inhibiting gastrointestinal lipases and reducing the absorption of dietary fat. Current randomized controlled trial data confirm that orlistat has a certain effect in reducing weight, decreasing HOMA-IR index, insulin level and testosterone concentration in PMOS patients, but the incidence of adverse reactions related to orlistat is high [<xref rid="B120" ref-type="bibr">120</xref>].</p><p>Metformin, GLP-1 receptor agonists, orlistat and other hypoglycemic and weight-loss drugs have been confirmed to reduce body weight, improve insulin sensitivity and normalize metabolic disorders, so they provide feasible treatment choices for obese PMOS patients.</p><p>Although various pharmacological treatments will be accompanied by alterations in gut microbiota composition and function, it remains difficult to distinguish the extent to which these changes directly mediate therapeutic effect, or are the secondary consequences of improved metabolism and weight loss. In this context, gut microbiota is more likely to serve a dual role as both a mediator of treatment effects and a responsive biomarker.</p></sec></sec><sec sec-type="discussion" id="s6"><title>Discussion</title><sec id="s6-1"><title>Limitations of current research</title><p>Despite the comprehensive synthesis of evidence regarding the associations among gut microbiota, microbial metabolites, and PMOS, this narrative review and the underlying primary literature have several notable limitations that should be acknowledged.</p><p>At the review level, although this article adopted a systematic literature search strategy, it remains a narrative review rather than a formal scoping review or systematic review. Therefore, the evidence synthesis may still be influenced by narrative interpretation and selection heterogeneity. To address this concern, detailed information on database sources, search time frame, keyword strategies, inclusion and exclusion criteria, as well as the study selection process has been supplemented in the revised manuscript to enhance methodological rigor and transparency.</p><p>At the primary research level, most of the included studies are observational or cross-sectional in design, with a scarcity of large-scale randomized controlled trials and long-term prospective cohort data. Consequently, the causal inference linking gut microbiota dysbiosis to the onset and progression of PMOS remains weak, and most conclusions are restricted to associative relationships rather than definitive causal pathways.</p><p>In addition, substantial heterogeneity exists across included studies in terms of microbial detection techniques, with some studies using 16S rRNA gene sequencing and others adopting metagenomic or metabolomic approaches. Study populations differ significantly in ethnicity, obesity status, age, and PMOS phenotypic classification, and the application of Rotterdam criteria also varies across research centers. These inconsistencies contribute to divergent microbial signatures and metabolic profiles, limiting cross-study comparability and the generalizability of conclusions.</p><p>Mechanistically, most studies focus on correlative analysis between microbial alterations and clinical phenotypes, whereas detailed and validated signaling pathways through which key microbial metabolites regulate insulin sensitivity, androgen synthesis, inflammatory responses, and ovarian function remain insufficiently clarified. The functional validation of specific bacterial genera and critical metabolites is mostly derived from animal models, lacking direct and reliable evidence in humans.</p><p>Finally, most microbiota-targeted interventions, including probiotics, prebiotics, fecal microbiota transplantation, natural compounds, and related pharmacological agents, are supported by preclinical experiments or small-scale preliminary clinical trials. Issues such as optimal strain selection, therapeutic dosage, intervention duration, clinical reproducibility, long-term efficacy, and safety profiles have not been systematically elucidated, hindering the translation of microbiota-based strategies into routine clinical practice for PMOS.</p></sec><sec id="s6-2"><title>Conclusion and future perspectives</title><p>In summary, accumulating evidence indicates that gut microbiota and PMOS are linked through complex and tightly interconnected interactions, with gut microbial dysbiosis emerging as a critical regulatory node bridging metabolic abnormalities, endocrine dysfunction, and ovarian impairment. During the onset and progression of PMOS, alterations in gut microbiota may contribute to the development of core phenotypes, including insulin resistance, hyperandrogenism, and obesity, by modulating insulin sensitivity, chronic low-grade inflammation, and androgen homeostasis. An increasing body of evidence further suggests that microbiota-derived metabolites act as key mediators in gut microbiota-host interactions. Through the regulation of metabolic pathways, immune responses, and endocrine signaling networks, these metabolites collectively drive the pathophysiological changes associated with PMOS. Microbiota-targeted interventions have shown promising potential in improving metabolic and endocrine outcomes; however, their underlying mechanisms, causal relevance, and clinical benefits remain to be fully elucidated.</p><p>This narrative review was performed using a systematic and transparent literature search strategy with well-defined database sources, search terms, time frame, and rigorous inclusion and exclusion criteria, which greatly improved the methodological reliability and quality of evidence synthesis. Future research should therefore prioritize well-designed studies with clearly defined disease phenotypes, integrating longitudinal follow-up, causal inference approaches, and multi-omics analyses to systematically delineate the key regulatory pathways through which gut microbiota and their metabolites contribute to PMOS. As understanding of the gut–metabolism–endocrine–ovary axis continues to advance, precision intervention strategies based on individual gut microbiota characteristics may offer new theoretical foundations and therapeutic directions for the long-term management of PMOS and the improvement of overall patient health outcomes.</p></sec></sec><sec id="s7"><title>Plain language summary</title><p>Polyendocrine metabolic ovarian syndrome (PMOS), is a common condition affecting many women of reproductive age and is often accompanied by hormonal imbalance, metabolic disorders, and fertility challenges. In recent years, increasing research has suggested that the gut microbiota—the community of microorganisms in the digestive tract—may play an important role in the development of PMOS.</p><p>This review summarizes current findings on the relationship between gut microbiota and PMOS and explores how changes in gut microbes may affect metabolism, hormone regulation, and ovarian function. We propose a unified biological pathway called the “gut–metabolism–endocrine–ovary axis” to explain how the gut interacts with multiple systems to influence PMOS.</p><p>Understanding these interactions may improve our knowledge of PMOS and support the development of new prevention and treatment strategies.</p></sec></body><back><sec sec-type="author-contributions" id="s8"><title>Author contributions</title><p>SJ: Conceptualization, Literature search, Data curation, Visualization, and Writing – original draft. MZ, YL, JZ, and JyZ: Literature search, Data curation, and Writing – review and editing. XF: Conceptualization, Supervision, Funding acquisition, and Writing – review and editing. All authors reviewed and approved the final version of the manuscript.</p></sec><sec sec-type="COI-statement" id="s10"><title>Conflict of interest</title><p>The author(s) declared no potential conflicts of interest with respect to the research, authorship, and/or publication of this article.</p></sec><sec sec-type="ai-statement" id="s11"><title>Generative AI statement</title><p>The author(s) declared that generative AI was not used in the creation of this manuscript.</p><p>Any alternative text (alt text) provided alongside figures in this article has been generated by Frontiers with the support of artificial intelligence and reasonable efforts have been made to ensure accuracy, including review by the authors wherever possible. If you identify any issues, please contact us.</p></sec><ref-list><title>References</title><ref id="B1"><label>1.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Kulkarni</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Gupta</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Ratre</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Mishra</surname><given-names>PK</given-names></name>
+<name name-style="western"><surname>Singh</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Biharee</surname><given-names>A</given-names></name>
+<etal/>
+</person-group>
+<article-title>Polycystic ovary syndrome: current scenario and future insights</article-title>. <source>Drug Discov Today</source> (<year>2023</year>) <volume>28</volume>:<fpage>103821</fpage>. <pub-id pub-id-type="doi">10.1016/j.drudis.2023.103821</pub-id>
+<pub-id pub-id-type="pmid">37935329</pub-id>
+</mixed-citation></ref><ref id="B2"><label>2.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Teede</surname><given-names>HJ</given-names></name>
+<name name-style="western"><surname>Khomami</surname><given-names>MB</given-names></name>
+<name name-style="western"><surname>Morman</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Laven</surname><given-names>JSE</given-names></name>
+<name name-style="western"><surname>Joham</surname><given-names>AE</given-names></name>
+<name name-style="western"><surname>Costello</surname><given-names>MF</given-names></name>
+<etal/>
+</person-group>
+<article-title>Polyendocrine metabolic ovarian syndrome, the new name for polycystic ovary syndrome: a multistep global consensus process</article-title>. <source>Lancet</source> (<year>2026</year>) <volume>S0140-6736</volume>(<issue>26</issue>):<fpage>00717</fpage>–<lpage>8</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S0140-6736(26)00717-8</pub-id><pub-id pub-id-type="pmid">42119588</pub-id></mixed-citation></ref><ref id="B3"><label>3.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Teede</surname><given-names>HJ</given-names></name>
+<name name-style="western"><surname>Misso</surname><given-names>ML</given-names></name>
+<name name-style="western"><surname>Costello</surname><given-names>MF</given-names></name>
+<name name-style="western"><surname>Dokras</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Laven</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Moran</surname><given-names>L</given-names></name>
+<etal/>
+</person-group>
+<article-title>Recommendations from the international evidence-based guideline for the assessment and management of polycystic ovary syndrome</article-title>. <source>Fertil Steril</source> (<year>2018</year>) <volume>110</volume>:<fpage>364</fpage>–<lpage>79</lpage>. <pub-id pub-id-type="doi">10.1016/j.fertnstert.2018.05.004</pub-id>
+<pub-id pub-id-type="pmid">30033227</pub-id>
+<pub-id pub-id-type="pmcid">PMC6939856</pub-id></mixed-citation></ref><ref id="B4"><label>4.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zeng</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Xie</surname><given-names>YJ</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>YT</given-names></name>
+<name name-style="western"><surname>Long</surname><given-names>SL</given-names></name>
+<name name-style="western"><surname>Mo</surname><given-names>ZC</given-names></name>
+</person-group>. <article-title>Polycystic ovarian syndrome: correlation between hyperandrogenism, insulin resistance and obesity</article-title>. <source>Clin Chim Acta</source>
+<volume>502</volume>:<fpage>214</fpage>–<lpage>221</lpage>. <pub-id pub-id-type="doi">10.1016/j.cca.2019.11.003</pub-id>
+<pub-id pub-id-type="pmid">31733195</pub-id></mixed-citation></ref><ref id="B5"><label>5.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Teede</surname><given-names>HJ</given-names></name>
+<name name-style="western"><surname>Tay</surname><given-names>CT</given-names></name>
+<name name-style="western"><surname>Laven</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Dokras</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Moran</surname><given-names>LJ</given-names></name>
+<name name-style="western"><surname>Piltonen</surname><given-names>TT</given-names></name>
+<etal/>
+</person-group>
+<article-title>Recommendations from the 2023 international evidence-based guideline for the assessment and management of polycystic ovary syndrome</article-title>. <source>Fertil Steril</source> (<year>2023</year>) <volume>120</volume>:<fpage>767</fpage>–<lpage>93</lpage>. <pub-id pub-id-type="doi">10.1093/ejendo/lvad096</pub-id>
+<pub-id pub-id-type="pmid">37589624</pub-id>
+</mixed-citation></ref><ref id="B6"><label>6.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhang</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Butoyi</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Yuan</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Jia</surname><given-names>J</given-names></name>
+</person-group>. <article-title>Exploring the role of gut microbiota in obesity and PCOS: current updates and future prospects</article-title>. <source>Diabetes Res Clin Pract</source> (<year>2023</year>) <volume>202</volume>:<fpage>110781</fpage>. <pub-id pub-id-type="doi">10.1016/j.diabres.2023.110781</pub-id>
+<pub-id pub-id-type="pmid">37331521</pub-id>
+</mixed-citation></ref><ref id="B7"><label>7.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yang</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Liao</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Ren</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Zheng</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>
+<article-title>Potential therapeutic application and mechanism of gut microbiota-derived extracellular vesicles in polycystic ovary syndrome</article-title>. <source>Biomed Pharmacother</source> (<year>2024</year>) <volume>180</volume>:<fpage>117504</fpage>. <pub-id pub-id-type="doi">10.1016/j.biopha.2024.117504</pub-id>
+<pub-id pub-id-type="pmid">39341079</pub-id>
+</mixed-citation></ref><ref id="B8"><label>8.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhao</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Hu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Xie</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Zhou</surname><given-names>F</given-names></name>
+</person-group>. <article-title>Gut-ovary axis in polycystic ovary syndrome: mechanistic insights and gut microbiota-targeted therapeutic strategies</article-title>. <source>Front Endocrinol</source> (<year>2025</year>) <volume>16</volume>:<fpage>1684492</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2025.1684492</pub-id>
+<pub-id pub-id-type="pmcid">PMC12626779</pub-id><pub-id pub-id-type="pmid">41268164</pub-id></mixed-citation></ref><ref id="B9"><label>9.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Sun</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Kan</surname><given-names>Z</given-names></name>
+</person-group>. <article-title>Causal relationship between gut microbiota and polycystic ovary syndrome: a literature review and mendelian randomization study</article-title>. <source>Front Endocrinol</source> (<year>2024</year>) <volume>15</volume>:<fpage>1280983</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2024.1280983</pub-id>
+<pub-id pub-id-type="pmcid">PMC10867277</pub-id><pub-id pub-id-type="pmid">38362275</pub-id></mixed-citation></ref><ref id="B10"><label>10.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>de Vos</surname><given-names>WM</given-names></name>
+<name name-style="western"><surname>Tilg</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Van Hul</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Cani</surname><given-names>PD</given-names></name>
+</person-group>. <article-title>Gut microbiome and health: mechanistic insights</article-title>. <source>Gut</source> (<year>2022</year>) <volume>71</volume>:<fpage>1020</fpage>–<lpage>32</lpage>. <pub-id pub-id-type="doi">10.1136/gutjnl-2021-326789</pub-id>
+<pub-id pub-id-type="pmid">35105664</pub-id>
+<pub-id pub-id-type="pmcid">PMC8995832</pub-id></mixed-citation></ref><ref id="B11"><label>11.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhang</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Hu</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Zhou</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>Z</given-names></name>
+<etal/>
+</person-group>
+<article-title>Present and future: crosstalks between polycystic ovary syndrome and gut metabolites relating to gut Microbiota</article-title>. <source>Front Endocrinol</source> (<year>2022</year>) <volume>13</volume>:<fpage>933110</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2022.933110</pub-id>
+<pub-id pub-id-type="pmcid">PMC9343597</pub-id><pub-id pub-id-type="pmid">35928893</pub-id></mixed-citation></ref><ref id="B12"><label>12.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Li</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Qiao</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Qin</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Lao</surname><given-names>K</given-names></name>
+<etal/>
+</person-group>
+<article-title>Metabolic disorders in polycystic ovary syndrome: from gut microbiota biodiversity to clinical intervention</article-title>. <source>Front Endocrinol</source> (<year>2025</year>) <volume>16</volume>:<fpage>1526468</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2025.1526468</pub-id>
+<pub-id pub-id-type="pmcid">PMC12066289</pub-id><pub-id pub-id-type="pmid">40357203</pub-id></mixed-citation></ref><ref id="B13"><label>13.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Qi</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Yun</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Pang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Qiao</surname><given-names>J</given-names></name>
+</person-group>. <article-title>The impact of the gut microbiota on the reproductive and metabolic endocrine system</article-title>. <source>Gut Microbes</source> (<year>2021</year>) <volume>13</volume>:<fpage>1</fpage>–<lpage>21</lpage>. <pub-id pub-id-type="doi">10.1080/19490976.2021.1894070</pub-id>
+<pub-id pub-id-type="pmcid">PMC7971312</pub-id><pub-id pub-id-type="pmid">33722164</pub-id></mixed-citation></ref><ref id="B14"><label>14.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Stańczak</surname><given-names>NA</given-names></name>
+<name name-style="western"><surname>Grywalska</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Dudzińska</surname><given-names>E</given-names></name>
+</person-group>. <article-title>The latest reports and treatment methods on polycystic ovary syndrome</article-title>. <source>Ann Med</source> (<year>2024</year>) <volume>56</volume>:<fpage>2357737</fpage>. <pub-id pub-id-type="doi">10.1080/07853890.2024.2357737</pub-id>
+<pub-id pub-id-type="pmid">38965663</pub-id>
+<pub-id pub-id-type="pmcid">PMC11229724</pub-id></mixed-citation></ref><ref id="B15"><label>15.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Hou</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>Z-X</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>X-Y</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>J-Q</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Xiao</surname><given-names>C</given-names></name>
+<etal/>
+</person-group>
+<article-title>Microbiota in health and diseases</article-title>. <source>Signal Transduct Target Ther</source> (<year>2022</year>) <volume>7</volume>:<fpage>135</fpage>. <pub-id pub-id-type="doi">10.1038/s41392-022-00974-4</pub-id>
+<pub-id pub-id-type="pmid">35461318</pub-id>
+<pub-id pub-id-type="pmcid">PMC9034083</pub-id></mixed-citation></ref><ref id="B16"><label>16.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Van Hul</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Cani</surname><given-names>PD</given-names></name>
+<name name-style="western"><surname>Petitfils</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>De Vos</surname><given-names>WM</given-names></name>
+<name name-style="western"><surname>Tilg</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>El-Omar</surname><given-names>EM</given-names></name>
+</person-group>. <article-title>What defines a healthy gut microbiome?</article-title>
+<source>Gut</source> (<year>2024</year>) <volume>73</volume>:<fpage>1893</fpage>–<lpage>908</lpage>. <pub-id pub-id-type="doi">10.1136/gutjnl-2024-333378</pub-id>
+<pub-id pub-id-type="pmid">39322314</pub-id>
+<pub-id pub-id-type="pmcid">PMC11503168</pub-id></mixed-citation></ref><ref id="B17"><label>17.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Senthilkumar</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Arumugam</surname><given-names>M</given-names></name>
+</person-group>. <article-title>Gut microbiota: a hidden player in polycystic ovary syndrome</article-title>. <source>J Transl Med</source> (<year>2025</year>) <volume>23</volume>:<fpage>443</fpage>. <pub-id pub-id-type="doi">10.1186/s12967-025-06315-7</pub-id>
+<pub-id pub-id-type="pmid">40234859</pub-id>
+<pub-id pub-id-type="pmcid">PMC11998441</pub-id></mixed-citation></ref><ref id="B18"><label>18.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Safarchi</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Al-Qadami</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Tran</surname><given-names>CD</given-names></name>
+<name name-style="western"><surname>Conlon</surname><given-names>M</given-names></name>
+</person-group>. <article-title>Understanding dysbiosis and resilience in the human gut microbiome: biomarkers, interventions, and challenges</article-title>. <source>Front Microbiol</source> (<year>2025</year>) <volume>16</volume>:<fpage>1559521</fpage>. <pub-id pub-id-type="doi">10.3389/fmicb.2025.1559521</pub-id>
+<pub-id pub-id-type="pmid">40104586</pub-id>
+<pub-id pub-id-type="pmcid">PMC11913848</pub-id></mixed-citation></ref><ref id="B19"><label>19.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Xiao</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Zhai</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Hill</surname><given-names>C</given-names></name>
+</person-group>. <article-title>Gut colonization mechanisms of lactobacillus and bifidobacterium: an argument for personalized designs</article-title>. <source>Annu Rev Food Sci Technol</source> (<year>2021</year>) <volume>12</volume>:<fpage>213</fpage>–<lpage>33</lpage>. <pub-id pub-id-type="doi">10.1146/annurev-food-061120-014739</pub-id>
+<pub-id pub-id-type="pmid">33317320</pub-id>
+</mixed-citation></ref><ref id="B20"><label>20.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>H</given-names></name>
+</person-group>. <article-title>Unraveling intestinal microbiota’s dominance in polycystic ovary syndrome pathogenesis over vaginal microbiota</article-title>. <source>Front Cell Infect Microbiol</source> (<year>2024</year>) <volume>14</volume>:<fpage>1364097</fpage>. <pub-id pub-id-type="doi">10.3389/fcimb.2024.1364097</pub-id>
+<pub-id pub-id-type="pmid">38606298</pub-id>
+<pub-id pub-id-type="pmcid">PMC11007073</pub-id></mixed-citation></ref><ref id="B21"><label>21.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Hanna</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Abbas</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Yassine</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>AlBush</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Bilen</surname><given-names>M</given-names></name>
+</person-group>. <article-title>Systematic review of gut microbiota composition, metabolic alterations, and the effects of treatments on PCOS and gut microbiota across human and animal studies</article-title>. <source>Front Microbiol</source> (<year>2025</year>) <volume>16</volume>:<fpage>1549499</fpage>. <pub-id pub-id-type="doi">10.3389/fmicb.2025.1549499</pub-id>
+<pub-id pub-id-type="pmid">40438215</pub-id>
+<pub-id pub-id-type="pmcid">PMC12116390</pub-id></mixed-citation></ref><ref id="B22"><label>22.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Liu</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Cheng</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>S</given-names></name>
+</person-group>. <article-title>Characteristics of gut microbiota in patients with polycystic ovary syndrome and its association with metabolic abnormalities: a review</article-title>. <source>Int J Womens Health</source> (<year>2025</year>) <volume>17</volume>:<fpage>2165</fpage>–<lpage>74</lpage>. <pub-id pub-id-type="doi">10.2147/IJWH.S522708</pub-id>
+<pub-id pub-id-type="pmid">40698041</pub-id>
+<pub-id pub-id-type="pmcid">PMC12282534</pub-id></mixed-citation></ref><ref id="B23"><label>23.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Graham</surname><given-names>ME</given-names></name>
+<name name-style="western"><surname>Herbert</surname><given-names>WG</given-names></name>
+<name name-style="western"><surname>Song</surname><given-names>SD</given-names></name>
+<name name-style="western"><surname>Raman</surname><given-names>HN</given-names></name>
+<name name-style="western"><surname>Zhu</surname><given-names>JE</given-names></name>
+<name name-style="western"><surname>Gonzalez</surname><given-names>PE</given-names></name>
+<etal/>
+</person-group>
+<article-title>Gut and vaginal microbiomes on steroids: implications for women’s health</article-title>. <source>Trends Endocrinol Metab TEM</source> (<year>2021</year>) <volume>32</volume>:<fpage>554</fpage>–<lpage>65</lpage>. <pub-id pub-id-type="doi">10.1016/j.tem.2021.04.014</pub-id>
+<pub-id pub-id-type="pmid">34049772</pub-id>
+<pub-id pub-id-type="pmcid">PMC8282721</pub-id></mixed-citation></ref><ref id="B24"><label>24.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Sun</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Gao</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Ye</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>W</given-names></name>
+</person-group>. <article-title>Gut microbiota dysbiosis in polycystic ovary syndrome: mechanisms of progression and clinical applications</article-title>. <source>Front Cell Infect Microbiol</source> (<year>2023</year>) <volume>13</volume>:<fpage>1142041</fpage>. <pub-id pub-id-type="doi">10.3389/fcimb.2023.1142041</pub-id>
+<pub-id pub-id-type="pmid">36909735</pub-id>
+<pub-id pub-id-type="pmcid">PMC9998696</pub-id></mixed-citation></ref><ref id="B25"><label>25.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Chelakkot</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Ghim</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Ryu</surname><given-names>SH</given-names></name>
+</person-group>. <article-title>Mechanisms regulating intestinal barrier integrity and its pathological implications</article-title>. <source>Exp Mol Med</source> (<year>2018</year>) <volume>50</volume>:<fpage>1</fpage>–<lpage>9</lpage>. <pub-id pub-id-type="doi">10.1038/s12276-018-0126-x</pub-id>
+<pub-id pub-id-type="pmid">30115904</pub-id>
+<pub-id pub-id-type="pmcid">PMC6095905</pub-id></mixed-citation></ref><ref id="B26"><label>26.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Wade</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Pan</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Duan</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Kaluzny</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Pandey</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Fatumoju</surname><given-names>L</given-names></name>
+<etal/>
+</person-group>
+<article-title>Akkermansia muciniphila and its membrane protein ameliorates intestinal inflammatory stress and promotes epithelial wound healing <italic toggle="yes">via</italic> CREBH and miR-143/145</article-title>. <source>J Biomed Sci</source> (<year>2023</year>) <volume>30</volume>:<fpage>38</fpage>. <pub-id pub-id-type="doi">10.1186/s12929-023-00935-1</pub-id>
+<pub-id pub-id-type="pmid">37287024</pub-id>
+<pub-id pub-id-type="pmcid">PMC10249216</pub-id></mixed-citation></ref><ref id="B27"><label>27.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Geng</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Ran</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zhou</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Ye</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>
+<article-title>Gut microbiota modulation by inulin improves metabolism and ovarian function in polycystic ovary syndrome</article-title>. <source>Adv Sci</source> (<year>2025</year>) <volume>12</volume>:<fpage>2412558</fpage>. <pub-id pub-id-type="doi">10.1002/advs.202412558</pub-id>
+<pub-id pub-id-type="pmcid">PMC12120758</pub-id><pub-id pub-id-type="pmid">40192074</pub-id></mixed-citation></ref><ref id="B28"><label>28.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Markle</surname><given-names>JGM</given-names></name>
+<name name-style="western"><surname>Frank</surname><given-names>DN</given-names></name>
+<name name-style="western"><surname>Mortin-Toth</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Robertson</surname><given-names>CE</given-names></name>
+<name name-style="western"><surname>Feazel</surname><given-names>LM</given-names></name>
+<name name-style="western"><surname>Rolle-Kampczyk</surname><given-names>U</given-names></name>
+<etal/>
+</person-group>
+<article-title>Sex differences in the gut microbiome drive hormone-dependent regulation of autoimmunity</article-title>. <source>Science</source> (<year>2013</year>) <volume>339</volume>:<fpage>1084</fpage>–<lpage>8</lpage>. <pub-id pub-id-type="doi">10.1126/science.1233521</pub-id>
+<pub-id pub-id-type="pmid">23328391</pub-id>
+</mixed-citation></ref><ref id="B29"><label>29.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhang</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Cui</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Tamadon</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>He</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Huo</surname><given-names>C</given-names></name>
+<etal/>
+</person-group>
+<article-title>Diversity of the gut microbiota in dihydrotestosterone-induced PCOS rats and the pharmacologic effects of diane-35, probiotics, and berberine</article-title>. <source>Front Microbiol</source> (<year>2019</year>) <volume>10</volume>:<fpage>175</fpage>. <pub-id pub-id-type="doi">10.3389/fmicb.2019.00175</pub-id>
+<pub-id pub-id-type="pmid">30800111</pub-id>
+<pub-id pub-id-type="pmcid">PMC6375883</pub-id></mixed-citation></ref><ref id="B30"><label>30.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Organski</surname><given-names>AC</given-names></name>
+<name name-style="western"><surname>Rajwa</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Reddivari</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Jorgensen</surname><given-names>JS</given-names></name>
+<name name-style="western"><surname>Cross</surname><given-names>T-WL</given-names></name>
+</person-group>. <article-title>Gut microbiome-driven regulation of sex hormone homeostasis: a potential neuroendocrine connection</article-title>. <source>Gut Microbes</source> (<year>2025</year>) <volume>17</volume>:<fpage>2476562</fpage>. <pub-id pub-id-type="doi">10.1080/19490976.2025.2476562</pub-id>
+<pub-id pub-id-type="pmid">40071861</pub-id>
+<pub-id pub-id-type="pmcid">PMC11913384</pub-id></mixed-citation></ref><ref id="B31"><label>31.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Wang</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>Y</given-names></name>
+</person-group>. <article-title>Androgen excess: a hallmark of polycystic ovary syndrome</article-title>. <source>Front Endocrinol</source> (<year>2023</year>) <volume>14</volume>:<fpage>1273542</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2023.1273542</pub-id>
+<pub-id pub-id-type="pmcid">PMC10751361</pub-id><pub-id pub-id-type="pmid">38152131</pub-id></mixed-citation></ref><ref id="B32"><label>32.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Insenser</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Murri</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Del Campo</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Martínez-García</surname><given-names>MÁ</given-names></name>
+<name name-style="western"><surname>Fernández-Durán</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Escobar-Morreale</surname><given-names>HF</given-names></name>
+</person-group>. <article-title>Gut microbiota and the polycystic ovary syndrome: influence of sex, sex hormones, and obesity</article-title>. <source>J Clin Endocrinol Metab</source> (<year>2018</year>) <volume>103</volume>:<fpage>2552</fpage>–<lpage>62</lpage>. <pub-id pub-id-type="doi">10.1210/jc.2017-02799</pub-id>
+<pub-id pub-id-type="pmid">29897462</pub-id>
+</mixed-citation></ref><ref id="B33"><label>33.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Thackray</surname><given-names>VG</given-names></name>
+</person-group>. <article-title>Sex, microbes, and polycystic ovary syndrome</article-title>. <source>Trends Endocrinol Metab TEM</source> (<year>2019</year>) <volume>30</volume>:<fpage>54</fpage>–<lpage>65</lpage>. <pub-id pub-id-type="doi">10.1016/j.tem.2018.11.001</pub-id>
+<pub-id pub-id-type="pmid">30503354</pub-id>
+<pub-id pub-id-type="pmcid">PMC6309599</pub-id></mixed-citation></ref><ref id="B34"><label>34.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Amisi</surname><given-names>CA</given-names></name>
+</person-group>. <article-title>Markers of insulin resistance in polycystic ovary syndrome women: an update</article-title>. <source>World J Diabetes</source> (<year>2022</year>) <volume>13</volume>:<fpage>129</fpage>–<lpage>49</lpage>. <pub-id pub-id-type="doi">10.4239/wjd.v13.i3.129</pub-id>
+<pub-id pub-id-type="pmid">35432749</pub-id>
+<pub-id pub-id-type="pmcid">PMC8984569</pub-id></mixed-citation></ref><ref id="B35"><label>35.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Sherman</surname><given-names>SB</given-names></name>
+<name name-style="western"><surname>Sarsour</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Salehi</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Schroering</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Mell</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Joe</surname><given-names>B</given-names></name>
+<etal/>
+</person-group>
+<article-title>Prenatal androgen exposure causes hypertension and gut microbiota dysbiosis</article-title>. <source>Gut Microbes</source> (<year>2018</year>) <volume>9</volume>:<fpage>400</fpage>–<lpage>21</lpage>. <pub-id pub-id-type="doi">10.1080/19490976.2018.1441664</pub-id>
+<pub-id pub-id-type="pmid">29469650</pub-id>
+<pub-id pub-id-type="pmcid">PMC6219642</pub-id></mixed-citation></ref><ref id="B36"><label>36.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zeng</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Lai</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Z</given-names></name>
+<etal/>
+</person-group>
+<article-title>Structural and functional profiles of the gut microbial community in polycystic ovary syndrome with insulin resistance (IR-PCOS): a pilot study</article-title>. <source>Res Microbiol</source> (<year>2019</year>) <volume>170</volume>:<fpage>43</fpage>–<lpage>52</lpage>. <pub-id pub-id-type="doi">10.1016/j.resmic.2018.09.002</pub-id>
+<pub-id pub-id-type="pmid">30292647</pub-id>
+</mixed-citation></ref><ref id="B37"><label>37.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>He</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Y</given-names></name>
+</person-group>. <article-title>The gut microbial composition in polycystic ovary syndrome with insulin resistance: findings from a normal‐weight population</article-title>. <source>J Ovarian Res</source> (<year>2021</year>) <volume>14</volume>:<fpage>50</fpage>. <pub-id pub-id-type="doi">10.1186/s13048-021-00799-9</pub-id>
+<pub-id pub-id-type="pmid">33773586</pub-id>
+<pub-id pub-id-type="pmcid">PMC8005233</pub-id></mixed-citation></ref><ref id="B38"><label>38.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Giampaolino</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Foreste</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Di Filippo</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Gallo</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Mercorio</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Serafino</surname><given-names>P</given-names></name>
+<etal/>
+</person-group>
+<article-title>Microbiome and PCOS: state-of-art and future aspects</article-title>. <source>Int J Mol Sci</source> (<year>2021</year>) <volume>22</volume>:<fpage>2048</fpage>. <pub-id pub-id-type="doi">10.3390/ijms22042048</pub-id>
+<pub-id pub-id-type="pmid">33669557</pub-id>
+<pub-id pub-id-type="pmcid">PMC7922491</pub-id></mixed-citation></ref><ref id="B39"><label>39.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Mehta</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Saha</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Das</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Das</surname><given-names>BK</given-names></name>
+</person-group>. <article-title>Gut microbiota in diabetic-linked polycystic ovarian syndrome: mechanisms and therapeutic insights</article-title>. <source>Tissue Cell</source> (<year>2025</year>) <volume>95</volume>:<fpage>102870</fpage>. <pub-id pub-id-type="doi">10.1016/j.tice.2025.102870</pub-id>
+<pub-id pub-id-type="pmid">40154106</pub-id>
+</mixed-citation></ref><ref id="B40"><label>40.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Li</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>S</given-names></name>
+</person-group>. <article-title>Bariatric surgery impact on women with polycystic ovary syndrome: a prospective cohort study</article-title>. <source>Research</source> (<year>2025</year>) <volume>8</volume>:<fpage>664</fpage>. <pub-id pub-id-type="doi">10.34133/research.0664</pub-id>
+<pub-id pub-id-type="pmcid">PMC11979338</pub-id><pub-id pub-id-type="pmid">40207015</pub-id></mixed-citation></ref><ref id="B41"><label>41.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Bai</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Qiu</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>H</given-names></name>
+<etal/>
+</person-group>
+<article-title>Impact of visceral obesity on structural and functional alterations of gut microbiota in polycystic ovary syndrome (PCOS): a pilot study using metagenomic analysis</article-title>. <source>Diabetes Metab Syndr Obes</source> (<year>2023</year>) <volume>16</volume>:<fpage>1</fpage>–<lpage>14</lpage>. <pub-id pub-id-type="doi">10.2147/DMSO.S388067</pub-id>
+<pub-id pub-id-type="pmid">36760592</pub-id>
+<pub-id pub-id-type="pmcid">PMC9843473</pub-id></mixed-citation></ref><ref id="B42"><label>42.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Jobira</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Frank</surname><given-names>DN</given-names></name>
+<name name-style="western"><surname>Pyle</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Silveira</surname><given-names>LJ</given-names></name>
+<name name-style="western"><surname>Kelsey</surname><given-names>MM</given-names></name>
+<name name-style="western"><surname>Garcia-Reyes</surname><given-names>Y</given-names></name>
+<etal/>
+</person-group>
+<article-title>Obese adolescents with PCOS have altered biodiversity and relative abundance in gastrointestinal microbiota</article-title>. <source>J Clin Endocrinol Metab</source> (<year>2020</year>) <volume>105</volume>:<fpage>e2134</fpage>–<lpage>2144</lpage>. <pub-id pub-id-type="doi">10.1210/clinem/dgz263</pub-id>
+<pub-id pub-id-type="pmid">31970418</pub-id>
+<pub-id pub-id-type="pmcid">PMC7147870</pub-id></mixed-citation></ref><ref id="B43"><label>43.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Martínez-García</surname><given-names>MÁ</given-names></name>
+<name name-style="western"><surname>Quintero-Tobar</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>De Lope Quiñones</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Insenser</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Fernández-Durán</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Escobar-Morreale</surname><given-names>HF</given-names></name>
+<etal/>
+</person-group>
+<article-title>Obesity and polycystic ovary syndrome influence on intestinal permeability at fasting, and modify the effect of diverse macronutrients on the gut barrier</article-title>. <source>Food Res Int</source> (<year>2024</year>) <volume>186</volume>:<fpage>114338</fpage>. <pub-id pub-id-type="doi">10.1016/j.foodres.2024.114338</pub-id>
+<pub-id pub-id-type="pmid">38729719</pub-id>
+</mixed-citation></ref><ref id="B44"><label>44.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Turpin</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Thouvenot</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Gonthier</surname><given-names>M-P</given-names></name>
+</person-group>. <article-title>Adipokines and bacterial metabolites: a pivotal molecular bridge linking obesity and gut microbiota dysbiosis to target</article-title>. <source>Biomolecules</source> (<year>2023</year>) <volume>13</volume>:<fpage>1692</fpage>. <pub-id pub-id-type="doi">10.3390/biom13121692</pub-id>
+<pub-id pub-id-type="pmid">38136564</pub-id>
+<pub-id pub-id-type="pmcid">PMC10742113</pub-id></mixed-citation></ref><ref id="B45"><label>45.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Lozupone</surname><given-names>CA</given-names></name>
+<name name-style="western"><surname>Stombaugh</surname><given-names>JI</given-names></name>
+<name name-style="western"><surname>Gordon</surname><given-names>JI</given-names></name>
+<name name-style="western"><surname>Jansson</surname><given-names>JK</given-names></name>
+<name name-style="western"><surname>Knight</surname><given-names>R</given-names></name>
+</person-group>. <article-title>Diversity, stability and resilience of the human gut microbiota</article-title>. <source>Nature</source> (<year>2012</year>) <volume>489</volume>:<fpage>220</fpage>–<lpage>30</lpage>. <pub-id pub-id-type="doi">10.1038/nature11550</pub-id>
+<pub-id pub-id-type="pmid">22972295</pub-id>
+<pub-id pub-id-type="pmcid">PMC3577372</pub-id></mixed-citation></ref><ref id="B46"><label>46.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Su</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Cao</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>J</given-names></name>
+</person-group>. <article-title>BMI-stratified phenotypes of polycystic ovary syndrome: advances in gut microbiota research and personalized management strategies</article-title>. <source>Front Endocrinol</source> (<year>2026</year>) <volume>17</volume>:<fpage>1734041</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2026.1734041</pub-id>
+<pub-id pub-id-type="pmcid">PMC12920190</pub-id><pub-id pub-id-type="pmid">41727680</pub-id></mixed-citation></ref><ref id="B47"><label>47.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Wu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Qi</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zhou</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Lu</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>
+<article-title>The intestinal fungus Aspergillus tubingensis promotes polycystic ovary syndrome through a secondary metabolite</article-title>. <source>Cell Host Microbe</source> (<year>2025</year>) <volume>33</volume>:<fpage>119</fpage>–<lpage>36.e11</lpage>. <pub-id pub-id-type="doi">10.1016/j.chom.2024.12.006</pub-id>
+<pub-id pub-id-type="pmid">39788092</pub-id>
+</mixed-citation></ref><ref id="B48"><label>48.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Wild</surname><given-names>RA</given-names></name>
+<name name-style="western"><surname>Rizzo</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Clifton</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Carmina</surname><given-names>E</given-names></name>
+</person-group>. <article-title>Lipid levels in polycystic ovary syndrome: systematic review and meta-analysis</article-title>. <source>Fertil Steril</source> (<year>2011</year>) <volume>95</volume>:<fpage>1073</fpage>–<lpage>9</lpage>. <pub-id pub-id-type="doi">10.1016/j.fertnstert.2010.12.027</pub-id>
+<pub-id pub-id-type="pmid">21247558</pub-id>
+</mixed-citation></ref><ref id="B49"><label>49.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Gautam</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Maan</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Patel</surname><given-names>AK</given-names></name>
+<name name-style="western"><surname>Vasudevan</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Arora</surname><given-names>T</given-names></name>
+</person-group>. <article-title>Unveiling the complex interplay between gut microbiota and polycystic ovary syndrome: a narrative review</article-title>. <source>Clin Nutr</source> (<year>2024</year>) <volume>43</volume>:<fpage>199</fpage>–<lpage>208</lpage>. <pub-id pub-id-type="doi">10.1016/j.clnu.2024.10.028</pub-id>
+<pub-id pub-id-type="pmid">39481287</pub-id>
+</mixed-citation></ref><ref id="B50"><label>50.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Gozukara</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Dokuyucu</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Özgür</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Özcan</surname><given-names>O</given-names></name>
+<name name-style="western"><surname>Pınar</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Kurt</surname><given-names>RK</given-names></name>
+<etal/>
+</person-group>
+<article-title>Histopathologic and metabolic effect of ursodeoxycholic acid treatment on PCOS rat model</article-title>. <source>Gynecol Endocrinol Off J Int Soc Gynecol Endocrinol</source> (<year>2016</year>) <volume>32</volume>:<fpage>492</fpage>–<lpage>7</lpage>. <pub-id pub-id-type="doi">10.3109/09513590.2015.1134478</pub-id>
+<pub-id pub-id-type="pmid">26772475</pub-id>
+</mixed-citation></ref><ref id="B51"><label>51.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Qi</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Yun</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Xia</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Y</given-names></name>
+<etal/>
+</person-group>
+<article-title>Gut microbiota–bile acid–interleukin-22 axis orchestrates polycystic ovary syndrome</article-title>. <source>Nat Med</source> (<year>2019</year>) <volume>25</volume>:<fpage>1225</fpage>–<lpage>33</lpage>. <pub-id pub-id-type="doi">10.1038/s41591-019-0509-0</pub-id>
+<pub-id pub-id-type="pmid">31332392</pub-id>
+<pub-id pub-id-type="pmcid">PMC7376369</pub-id></mixed-citation></ref><ref id="B52"><label>52.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Lin</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Fu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Y</given-names></name>
+<etal/>
+</person-group>
+<article-title>Altered bile acids profile is a risk factor for hyperandrogenism in lean women with PCOS: a case control study</article-title>. <source>Sci Rep</source> (<year>2024</year>) <volume>14</volume>:<fpage>26215</fpage>. <pub-id pub-id-type="doi">10.1038/s41598-024-77645-7</pub-id>
+<pub-id pub-id-type="pmid">39482365</pub-id>
+<pub-id pub-id-type="pmcid">PMC11528117</pub-id></mixed-citation></ref><ref id="B53"><label>53.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yang</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Qi</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Fu</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Song</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Y</given-names></name>
+<etal/>
+</person-group>
+<article-title>Profile of bile acid metabolomics in the follicular fluid of PCOS patients</article-title>. <source>Metabolites</source> (<year>2021</year>) <volume>11</volume>:<fpage>845</fpage>. <pub-id pub-id-type="doi">10.3390/metabo11120845</pub-id>
+<pub-id pub-id-type="pmid">34940603</pub-id>
+<pub-id pub-id-type="pmcid">PMC8703527</pub-id></mixed-citation></ref><ref id="B54"><label>54.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Chadchan</surname><given-names>SB</given-names></name>
+<name name-style="western"><surname>Singh</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Kommagani</surname><given-names>R</given-names></name>
+</person-group>. <article-title>Female reproductive dysfunctions and the gut microbiota</article-title>. <source>J Mol Endocrinol</source> (<year>2022</year>) <volume>69</volume>:<fpage>R81</fpage>–<lpage>R94</lpage>. <pub-id pub-id-type="doi">10.1530/JME-21-0238</pub-id>
+<pub-id pub-id-type="pmid">35900833</pub-id>
+<pub-id pub-id-type="pmcid">PMC10031513</pub-id></mixed-citation></ref><ref id="B55"><label>55.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Liu</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>He</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Cui</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Gao</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>
+<article-title>Short-chain fatty acid-butyric acid ameliorates granulosa cells inflammation through regulating METTL3-mediated N6-methyladenosine modification of FOSL2 in polycystic ovarian syndrome</article-title>. <source>Clin Epigenetics</source> (<year>2023</year>) <volume>15</volume>:<fpage>86</fpage>. <pub-id pub-id-type="doi">10.1186/s13148-023-01487-9</pub-id>
+<pub-id pub-id-type="pmid">37179374</pub-id>
+<pub-id pub-id-type="pmcid">PMC10183145</pub-id></mixed-citation></ref><ref id="B56"><label>56.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Lin</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Wen</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Wen</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Xiang</surname><given-names>G</given-names></name>
+</person-group>. <article-title>Effects of sleeve gastrectomy on fecal gut microbiota and short-chain fatty acid content in a rat model of polycystic ovary syndrome</article-title>. <source>Front Endocrinol</source> (<year>2021</year>) <volume>12</volume>:<fpage>747888</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2021.747888</pub-id>
+<pub-id pub-id-type="pmcid">PMC8631770</pub-id><pub-id pub-id-type="pmid">34858330</pub-id></mixed-citation></ref><ref id="B57"><label>57.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yang</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Bilotta</surname><given-names>AJ</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Lu</surname><given-names>Y</given-names></name>
+<etal/>
+</person-group>
+<article-title>Intestinal microbiota-derived short-chain fatty acids regulation of immune cell IL-22 production and gut immunity</article-title>. <source>Nat Commun</source> (<year>2020</year>) <volume>11</volume>:<fpage>4457</fpage>. <pub-id pub-id-type="doi">10.1038/s41467-020-18262-6</pub-id>
+<pub-id pub-id-type="pmid">32901017</pub-id>
+<pub-id pub-id-type="pmcid">PMC7478978</pub-id></mixed-citation></ref><ref id="B58"><label>58.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Mann</surname><given-names>ER</given-names></name>
+<name name-style="western"><surname>Lam</surname><given-names>YK</given-names></name>
+<name name-style="western"><surname>Uhlig</surname><given-names>HH</given-names></name>
+</person-group>. <article-title>Short-chain fatty acids: linking diet, the microbiome and immunity</article-title>. <source>Nat Rev Immunol</source> (<year>2024</year>) <volume>24</volume>:<fpage>577</fpage>–<lpage>95</lpage>. <pub-id pub-id-type="doi">10.1038/s41577-024-01014-8</pub-id>
+<pub-id pub-id-type="pmid">38565643</pub-id>
+</mixed-citation></ref><ref id="B59"><label>59.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Xia</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>J</given-names></name>
+</person-group>. <article-title>The abnormal level of HSP70 is related to treg/Th17 imbalance in PCOS patients</article-title>. <source>J Ovarian Res</source> (<year>2021</year>) <volume>14</volume>:<fpage>155</fpage>. <pub-id pub-id-type="doi">10.1186/s13048-021-00867-0</pub-id>
+<pub-id pub-id-type="pmid">34781996</pub-id>
+<pub-id pub-id-type="pmcid">PMC8591891</pub-id></mixed-citation></ref><ref id="B60"><label>60.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Pham</surname><given-names>NHT</given-names></name>
+<name name-style="western"><surname>Joglekar</surname><given-names>MV</given-names></name>
+<name name-style="western"><surname>Wong</surname><given-names>WKM</given-names></name>
+<name name-style="western"><surname>Nassif</surname><given-names>NT</given-names></name>
+<name name-style="western"><surname>Simpson</surname><given-names>AM</given-names></name>
+<name name-style="western"><surname>Hardikar</surname><given-names>AA</given-names></name>
+</person-group>. <article-title>Short-chain fatty acids and insulin sensitivity: a systematic review and meta-analysis</article-title>. <source>Nutr Rev</source> (<year>2023</year>) <volume>82</volume>:<fpage>193</fpage>–<lpage>209</lpage>. <pub-id pub-id-type="doi">10.1093/nutrit/nuad042</pub-id>
+<pub-id pub-id-type="pmcid">PMC10777678</pub-id><pub-id pub-id-type="pmid">37290429</pub-id></mixed-citation></ref><ref id="B61"><label>61.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Bolognini</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Tobin</surname><given-names>AB</given-names></name>
+<name name-style="western"><surname>Milligan</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Hodge</surname><given-names>D</given-names></name>
+</person-group>. <article-title>The pharmacology and function of receptors for short-chain fatty acids</article-title>. <source>Mol Pharmacol</source> (<year>2016</year>) <volume>89</volume>:<fpage>388</fpage>–<lpage>98</lpage>. <pub-id pub-id-type="doi">10.1124/mol.115.102301</pub-id>
+<pub-id pub-id-type="pmid">26719580</pub-id>
+</mixed-citation></ref><ref id="B62"><label>62.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Kelly</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Pearce</surname><given-names>EL</given-names></name>
+</person-group>. <article-title>Amino assets: how amino acids support immunity</article-title>. <source>Cell Metab</source> (<year>2020</year>) <volume>32</volume>:<fpage>154</fpage>–<lpage>75</lpage>. <pub-id pub-id-type="doi">10.1016/j.cmet.2020.06.010</pub-id>
+<pub-id pub-id-type="pmid">32649859</pub-id>
+</mixed-citation></ref><ref id="B63"><label>63.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Ye</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>Y</given-names></name>
+<etal/>
+</person-group>
+<article-title>Amino acid signatures in relation to polycystic ovary syndrome and increased risk of different metabolic disturbances</article-title>. <source>Reprod Biomed Online</source> (<year>2022</year>) <volume>44</volume>:<fpage>737</fpage>–<lpage>46</lpage>. <pub-id pub-id-type="doi">10.1016/j.rbmo.2021.11.012</pub-id>
+<pub-id pub-id-type="pmid">35131170</pub-id>
+</mixed-citation></ref><ref id="B64"><label>64.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Nie</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>He</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>X</given-names></name>
+</person-group>. <article-title>Branched chain amino acids: beyond nutrition metabolism</article-title>. <source>Int J Mol Sci</source> (<year>2018</year>) <volume>19</volume>:<fpage>954</fpage>. <pub-id pub-id-type="doi">10.3390/ijms19040954</pub-id>
+<pub-id pub-id-type="pmid">29570613</pub-id>
+<pub-id pub-id-type="pmcid">PMC5979320</pub-id></mixed-citation></ref><ref id="B65"><label>65.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Jang</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Oh</surname><given-names>SF</given-names></name>
+<name name-style="western"><surname>Wada</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Rowe</surname><given-names>GC</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Chan</surname><given-names>MC</given-names></name>
+<etal/>
+</person-group>
+<article-title>A branched chain amino acid metabolite drives vascular transport of fat and causes insulin resistance</article-title>. <source>Nat Med</source> (<year>2016</year>) <volume>22</volume>:<fpage>421</fpage>–<lpage>6</lpage>. <pub-id pub-id-type="doi">10.1038/nm.4057</pub-id>
+<pub-id pub-id-type="pmid">26950361</pub-id>
+<pub-id pub-id-type="pmcid">PMC4949205</pub-id></mixed-citation></ref><ref id="B66"><label>66.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Lynch</surname><given-names>CJ</given-names></name>
+<name name-style="western"><surname>Adams</surname><given-names>SH</given-names></name>
+</person-group>. <article-title>Branched-chain amino acids in metabolic signalling and insulin resistance</article-title>. <source>Nat Rev Endocrinol</source> (<year>2014</year>) <volume>10</volume>:<fpage>723</fpage>–<lpage>36</lpage>. <pub-id pub-id-type="doi">10.1038/nrendo.2014.171</pub-id>
+<pub-id pub-id-type="pmid">25287287</pub-id>
+<pub-id pub-id-type="pmcid">PMC4424797</pub-id></mixed-citation></ref><ref id="B67"><label>67.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Newgard</surname><given-names>CB</given-names></name>
+</person-group>. <article-title>Interplay between lipids and branched-chain amino acids in development of insulin resistance</article-title>. <source>Cell Metab</source> (<year>2012</year>) <volume>15</volume>:<fpage>606</fpage>–<lpage>14</lpage>. <pub-id pub-id-type="doi">10.1016/j.cmet.2012.01.024</pub-id>
+<pub-id pub-id-type="pmid">22560213</pub-id>
+<pub-id pub-id-type="pmcid">PMC3695706</pub-id></mixed-citation></ref><ref id="B68"><label>68.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Mu</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Ye</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Hu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>H</given-names></name>
+<etal/>
+</person-group>
+<article-title>PPM1K-regulated impaired catabolism of branched-chain amino acids orchestrates polycystic ovary syndrome</article-title>. <source>Ebiomedicine</source> (<year>2023</year>) <volume>89</volume>:<fpage>104492</fpage>. <pub-id pub-id-type="doi">10.1016/j.ebiom.2023.104492</pub-id>
+<pub-id pub-id-type="pmid">36863088</pub-id>
+<pub-id pub-id-type="pmcid">PMC9986518</pub-id></mixed-citation></ref><ref id="B69"><label>69.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Mishra</surname><given-names>SP</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Jain</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Ding</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Rejeski</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Furdui</surname><given-names>CM</given-names></name>
+<etal/>
+</person-group>
+<article-title>A mechanism by which gut microbiota elevates permeability and inflammation in obese/diabetic mice and human gut</article-title>. <source>Gut</source> (<year>2023</year>) <volume>72</volume>:<fpage>1848</fpage>–<lpage>65</lpage>. <pub-id pub-id-type="doi">10.1136/gutjnl-2022-327365</pub-id>
+<pub-id pub-id-type="pmid">36948576</pub-id>
+<pub-id pub-id-type="pmcid">PMC10512000</pub-id></mixed-citation></ref><ref id="B70"><label>70.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Fang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Zeng</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>He</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Q</given-names></name>
+</person-group>. <article-title>Effects of dietary tannic acid on obesity and gut microbiota in C57BL/6J mice fed with high-fat diet</article-title>. <source>Foods Basel Switz</source> (<year>2022</year>) <volume>11</volume>:<fpage>3325</fpage>. <pub-id pub-id-type="doi">10.3390/foods11213325</pub-id>
+<pub-id pub-id-type="pmcid">PMC9659306</pub-id><pub-id pub-id-type="pmid">36359937</pub-id></mixed-citation></ref><ref id="B71"><label>71.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhang</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>He</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Chao</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Cheng</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Mao</surname><given-names>J</given-names></name>
+<etal/>
+</person-group>
+<article-title>Cordyceps polysaccharide improves polycystic ovary syndrome by inhibiting gut-derived LPS/TLR4 pathway to attenuates insulin resistance</article-title>. <source>Int J Biol Macromol</source> (<year>2024</year>) <volume>280</volume>:<fpage>135844</fpage>. <pub-id pub-id-type="doi">10.1016/j.ijbiomac.2024.135844</pub-id>
+<pub-id pub-id-type="pmid">39326591</pub-id>
+</mixed-citation></ref><ref id="B72"><label>72.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yuan</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Luo</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Feng</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Mao</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Luo</surname><given-names>B</given-names></name>
+</person-group>. <article-title>Resveratrol regulates the inflammation and oxidative stress of granulosa cells in PCOS <italic toggle="yes">via</italic> targeting TLR2</article-title>. <source>J Bioenerg Biomembr</source> (<year>2022</year>) <volume>54</volume>:<fpage>191</fpage>–<lpage>201</lpage>. <pub-id pub-id-type="doi">10.1007/s10863-022-09942-7</pub-id>
+<pub-id pub-id-type="pmid">35836030</pub-id>
+</mixed-citation></ref><ref id="B73"><label>73.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Sun</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Qin</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Feng</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Hou</surname><given-names>D-X</given-names></name>
+<etal/>
+</person-group>
+<article-title>Fisetin inhibits inflammation and induces autophagy by mediating PI3K/AKT/mTOR signaling in LPS-induced RAW264.7 cells</article-title>. <source>Food Nutr Res</source> (<year>2021</year>) <volume>65</volume>:<fpage>6355</fpage>. <pub-id pub-id-type="doi">10.29219/fnr.v65.6355</pub-id>
+<pub-id pub-id-type="pmcid">PMC8009086</pub-id><pub-id pub-id-type="pmid">33841067</pub-id></mixed-citation></ref><ref id="B74"><label>74.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Chu</surname><given-names>W</given-names></name>
+<name name-style="western"><surname>Han</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>W</given-names></name>
+<etal/>
+</person-group>
+<article-title>Metagenomic analysis identified microbiome alterations and pathological association between intestinal microbiota and polycystic ovary syndrome</article-title>. <source>Fertil Steril</source> (<year>2020</year>) <volume>113</volume>:<fpage>1286</fpage>–<lpage>98.e4</lpage>. <pub-id pub-id-type="doi">10.1016/j.fertnstert.2020.01.027</pub-id>
+<pub-id pub-id-type="pmid">32482258</pub-id>
+</mixed-citation></ref><ref id="B75"><label>75.</label><mixed-citation publication-type="journal">
+<collab>Polycystic ovary syndrome</collab>. <source>Nat Rev Dis Primers</source> (<year>2024</year>) <volume>10</volume>:<fpage>28</fpage>. <pub-id pub-id-type="doi">10.1038/s41572-024-00517-x</pub-id>
+<pub-id pub-id-type="pmid">38637590</pub-id></mixed-citation></ref><ref id="B76"><label>76.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Gautam</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Maan</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Jyoti</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Kumar</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Malhotra</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Arora</surname><given-names>T</given-names></name>
+</person-group>. <article-title>The role of lifestyle interventions in PCOS management: a systematic review</article-title>. <source>Nutrients</source> (<year>2025</year>) <volume>17</volume>:<fpage>310</fpage>. <pub-id pub-id-type="doi">10.3390/nu17020310</pub-id>
+<pub-id pub-id-type="pmid">39861440</pub-id>
+<pub-id pub-id-type="pmcid">PMC11767734</pub-id></mixed-citation></ref><ref id="B77"><label>77.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Cannarella</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Rubulotta</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Leonardi</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Crafa</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Calvo</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Barbagallo</surname><given-names>F</given-names></name>
+<etal/>
+</person-group>
+<article-title>Effects of ketogenic diets on polycystic ovary syndrome: a systematic review and meta-analysis</article-title>. <source>Reprod Biol Endocrinol</source> (<year>2025</year>) <volume>23</volume>:<fpage>74</fpage>. <pub-id pub-id-type="doi">10.1186/s12958-025-01411-1</pub-id>
+<pub-id pub-id-type="pmid">40394635</pub-id>
+<pub-id pub-id-type="pmcid">PMC12090672</pub-id></mixed-citation></ref><ref id="B78"><label>78.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Scannell</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Villani</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Moran</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Mantzioris</surname><given-names>E</given-names></name>
+</person-group>. <article-title>The potential role of the Mediterranean diet for the treatment and management of polycystic ovary syndrome: a review of the pathophysiological mechanisms and clinical evidence</article-title>. <source>Proc Nutr Soc</source> (<year>2025</year>) <volume>84</volume>:<fpage>176</fpage>–<lpage>87</lpage>. <pub-id pub-id-type="doi">10.1017/S0029665124007584</pub-id>
+<pub-id pub-id-type="pmid">39558903</pub-id>
+</mixed-citation></ref><ref id="B79"><label>79.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yang</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Pan</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>Z</given-names></name>
+<etal/>
+</person-group>
+<article-title>The efficacy of various weight loss strategies in alleviating polycystic ovary syndrome</article-title>. <source>Curr Obes Rep</source> (<year>2025</year>) <volume>14</volume>:<fpage>57</fpage>. <pub-id pub-id-type="doi">10.1007/s13679-025-00649-5</pub-id>
+<pub-id pub-id-type="pmid">40580384</pub-id>
+</mixed-citation></ref><ref id="B80"><label>80.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Mohseni</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Eghbali</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Bahrami</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Dastaran</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Amini</surname><given-names>L</given-names></name>
+</person-group>. <article-title>Yoga effects on anthropometric indices and polycystic ovary syndrome symptoms in women undergoing infertility treatment: a randomized controlled clinical trial</article-title>. <source>Evid-based Complement Altern Med Ecam</source> (<year>2021</year>) <volume>2021</volume>:<fpage>5564824</fpage>–<lpage>9</lpage>. <pub-id pub-id-type="doi">10.1155/2021/5564824</pub-id>
+<pub-id pub-id-type="pmcid">PMC8213483</pub-id><pub-id pub-id-type="pmid">34221076</pub-id></mixed-citation></ref><ref id="B81"><label>81.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Patten</surname><given-names>RK</given-names></name>
+<name name-style="western"><surname>McIlvenna</surname><given-names>LC</given-names></name>
+<name name-style="western"><surname>Levinger</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Garnham</surname><given-names>AP</given-names></name>
+<name name-style="western"><surname>Shorakae</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Parker</surname><given-names>AG</given-names></name>
+<etal/>
+</person-group>
+<article-title>High-intensity training elicits greater improvements in cardio-metabolic and reproductive outcomes than moderate-intensity training in women with polycystic ovary syndrome: a randomized clinical trial</article-title>. <source>Hum Reprod</source> (<year>2022</year>) <volume>37</volume>:<fpage>1018</fpage>–<lpage>29</lpage>. <pub-id pub-id-type="doi">10.1093/humrep/deac047</pub-id>
+<pub-id pub-id-type="pmid">35325125</pub-id>
+</mixed-citation></ref><ref id="B82"><label>82.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Kite</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Lahart</surname><given-names>IM</given-names></name>
+<name name-style="western"><surname>Afzal</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Broom</surname><given-names>DR</given-names></name>
+<name name-style="western"><surname>Randeva</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Kyrou</surname><given-names>I</given-names></name>
+<etal/>
+</person-group>
+<article-title>Exercise, or exercise and diet for the management of polycystic ovary syndrome: a systematic review and meta-analysis</article-title>. <source>Syst Rev</source> (<year>2019</year>) <volume>8</volume>:<fpage>51</fpage>. <pub-id pub-id-type="doi">10.1186/s13643-019-0962-3</pub-id>
+<pub-id pub-id-type="pmid">30755271</pub-id>
+<pub-id pub-id-type="pmcid">PMC6371542</pub-id></mixed-citation></ref><ref id="B83"><label>83.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Ianiro</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Punčochář</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Karcher</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Porcari</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Armanini</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Asnicar</surname><given-names>F</given-names></name>
+<etal/>
+</person-group>
+<article-title>Variability of strain engraftment and predictability of microbiome composition after fecal microbiota transplantation across different diseases</article-title>. <source>Nat Med</source> (<year>2022</year>) <volume>28</volume>:<fpage>1913</fpage>–<lpage>23</lpage>. <pub-id pub-id-type="doi">10.1038/s41591-022-01964-3</pub-id>
+<pub-id pub-id-type="pmid">36109637</pub-id>
+<pub-id pub-id-type="pmcid">PMC9499858</pub-id></mixed-citation></ref><ref id="B84"><label>84.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Rodriguez</surname><given-names>PV</given-names></name>
+<name name-style="western"><surname>Wong</surname><given-names>XYD</given-names></name>
+<name name-style="western"><surname>Solon-Biet</surname><given-names>SM</given-names></name>
+<name name-style="western"><surname>Edwards</surname><given-names>MC</given-names></name>
+<name name-style="western"><surname>Aflatounian</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Gilchrist</surname><given-names>RB</given-names></name>
+<etal/>
+</person-group>
+<article-title>The interplay between PCOS pathology and diet on gut microbiota in a mouse model</article-title>. <source>Gut Microbes</source>
+<volume>14</volume>:<fpage>2085961</fpage>. <pub-id pub-id-type="doi">10.1080/19490976.2022.2085961</pub-id>
+<pub-id pub-id-type="pmcid">PMC9450977</pub-id><pub-id pub-id-type="pmid">35787106</pub-id></mixed-citation></ref><ref id="B85"><label>85.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Guo</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Qi</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Wen</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>Y</given-names></name>
+<etal/>
+</person-group>
+<article-title>Association between polycystic ovary syndrome and gut microbiota</article-title>. <source>PLOS One</source> (<year>2016</year>) <volume>11</volume>:<fpage>e0153196</fpage>. <pub-id pub-id-type="doi">10.1371/journal.pone.0153196</pub-id>
+<pub-id pub-id-type="pmid">27093642</pub-id>
+<pub-id pub-id-type="pmcid">PMC4836746</pub-id></mixed-citation></ref><ref id="B86"><label>86.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Duan</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>An</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Jin</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zhou</surname><given-names>R</given-names></name>
+<etal/>
+</person-group>
+<article-title>Gut microbiota as the critical correlation of polycystic ovary syndrome and type 2 diabetes mellitus</article-title>. <source>Biomed Pharmacother</source> (<year>2021</year>) <volume>142</volume>:<fpage>112094</fpage>. <pub-id pub-id-type="doi">10.1016/j.biopha.2021.112094</pub-id>
+<pub-id pub-id-type="pmid">34449321</pub-id>
+</mixed-citation></ref><ref id="B87"><label>87.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Salminen</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Collado</surname><given-names>MC</given-names></name>
+<name name-style="western"><surname>Endo</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Hill</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Lebeer</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Quigley</surname><given-names>EMM</given-names></name>
+<etal/>
+</person-group>
+<article-title>The international scientific association of probiotics and prebiotics (ISAPP) consensus statement on the definition and scope of postbiotics</article-title>. <source>Nat Rev Gastroenterol Hepatol</source> (<year>2021</year>) <volume>18</volume>:<fpage>649</fpage>–<lpage>67</lpage>. <pub-id pub-id-type="doi">10.1038/s41575-021-00440-6</pub-id>
+<pub-id pub-id-type="pmid">33948025</pub-id>
+<pub-id pub-id-type="pmcid">PMC8387231</pub-id></mixed-citation></ref><ref id="B88"><label>88.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Salehi</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Allahverdy</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Pourjafar</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Sarabandi</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Jafari</surname><given-names>SM</given-names></name>
+</person-group>. <article-title>Gut microbiota and polycystic ovary syndrome (PCOS): understanding the pathogenesis and the role of probiotics as a therapeutic strategy</article-title>. <source>Probiotics Antimicrob Proteins</source> (<year>2024</year>) <volume>16</volume>:<fpage>1553</fpage>–<lpage>65</lpage>. <pub-id pub-id-type="doi">10.1007/s12602-024-10223-5</pub-id>
+<pub-id pub-id-type="pmid">38421576</pub-id>
+</mixed-citation></ref><ref id="B89"><label>89.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Ramzan</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Bukhari</surname><given-names>DA</given-names></name>
+<name name-style="western"><surname>Bibi</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Arifullah</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Nawaz</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Rehman</surname><given-names>A</given-names></name>
+<etal/>
+</person-group>
+<article-title>Probiotic supplement for the treatment of polycystic ovarian syndrome</article-title>. <source>Pharmacol Ther</source> (<year>2025</year>) <volume>266</volume>:<fpage>108785</fpage>. <pub-id pub-id-type="doi">10.1016/j.pharmthera.2024.108785</pub-id>
+<pub-id pub-id-type="pmid">39719172</pub-id>
+</mixed-citation></ref><ref id="B90"><label>90.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Dong</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Han</surname><given-names>M</given-names></name>
+<etal/>
+</person-group>
+<article-title>Modulatory impact of bifidobacterium longum subsp. longum BL21 on the gut–brain–ovary axis in polycystic ovary syndrome: insights into metabolic regulation, inflammation mitigation, and neuroprotection</article-title>. <source>Msphere</source> (<year>2025</year>) <volume>10</volume>:<fpage>e00887-24</fpage>. <pub-id pub-id-type="doi">10.1128/msphere.00887-24</pub-id>
+<pub-id pub-id-type="pmid">39898662</pub-id>
+<pub-id pub-id-type="pmcid">PMC11853005</pub-id></mixed-citation></ref><ref id="B91"><label>91.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>He</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>H</given-names></name>
+<etal/>
+</person-group>
+<article-title>Lactic acid bacteria alleviate polycystic ovarian syndrome by regulating sex hormone related gut microbiota</article-title>. <source>Food Funct</source> (<year>2020</year>) <volume>11</volume>:<fpage>5192</fpage>–<lpage>204</lpage>. <pub-id pub-id-type="doi">10.1039/c9fo02554e</pub-id>
+<pub-id pub-id-type="pmid">32441726</pub-id>
+</mixed-citation></ref><ref id="B92"><label>92.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Corrie</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Awasthi</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Kaur</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Vishwas</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Gulati</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Kaur</surname><given-names>IP</given-names></name>
+<etal/>
+</person-group>
+<article-title>Interplay of gut microbiota in polycystic ovarian syndrome: role of gut microbiota, mechanistic pathways and potential treatment strategies</article-title>. <source>Pharmaceuticals</source> (<year>2023</year>) <volume>16</volume>:<fpage>197</fpage>. <pub-id pub-id-type="doi">10.3390/ph16020197</pub-id>
+<pub-id pub-id-type="pmid">37259345</pub-id>
+<pub-id pub-id-type="pmcid">PMC9967581</pub-id></mixed-citation></ref><ref id="B93"><label>93.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Razmpoosh</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Sivanandy</surname><given-names>MS</given-names></name>
+<name name-style="western"><surname>Ehrlich</surname><given-names>AM</given-names></name>
+</person-group>. <article-title>The effect of prebiotics, alone or as part of synbiotics, on cardiometabolic parameters in women with polycystic ovary syndrome: a systematic review and meta-analysis of randomized controlled trials</article-title>. <source>Biomedicines</source> (<year>2025</year>) <volume>13</volume>:<fpage>177</fpage>. <pub-id pub-id-type="doi">10.3390/biomedicines13010177</pub-id>
+<pub-id pub-id-type="pmid">39857760</pub-id>
+<pub-id pub-id-type="pmcid">PMC11760460</pub-id></mixed-citation></ref><ref id="B94"><label>94.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Gholizadeh</surname><given-names>SS</given-names></name>
+<name name-style="western"><surname>Dehgan</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Mohammad-Alizadeh</surname><given-names>CS</given-names></name>
+<name name-style="western"><surname>Aliasgarzadeh</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Mirghafourvand</surname><given-names>M</given-names></name>
+</person-group>. <article-title>The effect of resistant dextrin as a prebiotic on metabolic parameters and androgen level in women with polycystic ovarian syndrome: a randomized, triple-blind, controlled, clinical trial</article-title>. <source>Eur J Nutr</source> (<year>2019</year>) <volume>58</volume>:<fpage>629</fpage>–<lpage>40</lpage>. <pub-id pub-id-type="doi">10.1007/s00394-018-1648-7</pub-id>
+<pub-id pub-id-type="pmid">29480399</pub-id>
+</mixed-citation></ref><ref id="B95"><label>95.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Yin</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Lai</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Lin</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Huang</surname><given-names>K</given-names></name>
+<etal/>
+</person-group>
+<article-title>Gut microbiota, a new approach to management of polycystic ovary syndrome: a systematic review, meta-analysis and meta-evidence of 26 randomized controlled trials</article-title>. <source>J Ovarian Res</source> (<year>2026</year>) <volume>19</volume>:<fpage>87</fpage>. <pub-id pub-id-type="doi">10.1186/s13048-025-01959-x</pub-id>
+<pub-id pub-id-type="pmid">41776555</pub-id>
+<pub-id pub-id-type="pmcid">PMC12964853</pub-id></mixed-citation></ref><ref id="B96"><label>96.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Mirabelli</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Chiefari</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Arcidiacono</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Corigliano</surname><given-names>DM</given-names></name>
+<name name-style="western"><surname>Brunetti</surname><given-names>FS</given-names></name>
+<name name-style="western"><surname>Maggisano</surname><given-names>V</given-names></name>
+<etal/>
+</person-group>
+<article-title>Mediterranean diet nutrients to turn the tide against insulin resistance and related diseases</article-title>. <source>Nutrients</source> (<year>2020</year>) <volume>12</volume>:<fpage>1066</fpage>. <pub-id pub-id-type="doi">10.3390/nu12041066</pub-id>
+<pub-id pub-id-type="pmid">32290535</pub-id>
+<pub-id pub-id-type="pmcid">PMC7230471</pub-id></mixed-citation></ref><ref id="B97"><label>97.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Savova</surname><given-names>MS</given-names></name>
+<name name-style="western"><surname>Mihaylova</surname><given-names>LV</given-names></name>
+<name name-style="western"><surname>Tews</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Wabitsch</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Georgiev</surname><given-names>MI</given-names></name>
+</person-group>. <article-title>Targeting PI3K/AKT signaling pathway in obesity</article-title>. <source>Biomed Pharmacother Biomedecine Pharmacother</source> (<year>2023</year>) <volume>159</volume>:<fpage>114244</fpage>. <pub-id pub-id-type="doi">10.1016/j.biopha.2023.114244</pub-id>
+<pub-id pub-id-type="pmid">36638594</pub-id></mixed-citation></ref><ref id="B98"><label>98.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Tao</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Cai</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Ge</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Deng</surname><given-names>X</given-names></name>
+</person-group>. <article-title>Effects of metformin and exenatide on insulin resistance and AMPKα-SIRT1 molecular pathway in PCOS rats</article-title>. <source>J Ovarian Res</source> (<year>2019</year>) <volume>12</volume>:<fpage>86</fpage>. <pub-id pub-id-type="doi">10.1186/s13048-019-0555-8</pub-id>
+<pub-id pub-id-type="pmid">31526389</pub-id>
+<pub-id pub-id-type="pmcid">PMC6745801</pub-id></mixed-citation></ref><ref id="B99"><label>99.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Chang</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Shi</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Lu</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Guan</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>X</given-names></name>
+</person-group>. <article-title>Effect and mechanism of resveratrol against polycystic ovary syndrome: a review</article-title>. <source>Front Endocrinol</source> (<year>2025</year>) <volume>16</volume>:<fpage>1529231</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2025.1529231</pub-id>
+<pub-id pub-id-type="pmcid">PMC12277147</pub-id><pub-id pub-id-type="pmid">40692591</pub-id></mixed-citation></ref><ref id="B100"><label>100.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Tino</surname><given-names>AB</given-names></name>
+<name name-style="western"><surname>Chitcholtan</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Sykes</surname><given-names>PH</given-names></name>
+<name name-style="western"><surname>Garrill</surname><given-names>A</given-names></name>
+</person-group>. <article-title>Resveratrol and acetyl-resveratrol modulate activity of VEGF and IL-8 in ovarian cancer cell aggregates <italic toggle="yes">via</italic> attenuation of the NF-κB protein</article-title>. <source>J Ovarian Res</source> (<year>2016</year>) <volume>9</volume>:<fpage>84</fpage>. <pub-id pub-id-type="doi">10.1186/s13048-016-0293-0</pub-id>
+<pub-id pub-id-type="pmid">27906095</pub-id>
+<pub-id pub-id-type="pmcid">PMC5134119</pub-id></mixed-citation></ref><ref id="B101"><label>101.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Moshfegh</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Balanejad</surname><given-names>SZ</given-names></name>
+<name name-style="western"><surname>Shahrokhabady</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Attaranzadeh</surname><given-names>A</given-names></name>
+</person-group>. <article-title>Crocus sativus (saffron) petals extract and its active ingredient, anthocyanin improves ovarian dysfunction, regulation of inflammatory genes and antioxidant factors in testosterone-induced PCOS mice</article-title>. <source>J Ethnopharmacol</source> (<year>2022</year>) <volume>282</volume>:<fpage>114594</fpage>. <pub-id pub-id-type="doi">10.1016/j.jep.2021.114594</pub-id>
+<pub-id pub-id-type="pmid">34480994</pub-id>
+</mixed-citation></ref><ref id="B102"><label>102.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Hong</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Ma</surname><given-names>S-T</given-names></name>
+<name name-style="western"><surname>Su</surname><given-names>Z</given-names></name>
+</person-group>. <article-title>Catechins from oolong tea improve uterine defects by inhibiting STAT3 signaling in polycystic ovary syndrome mice</article-title>. <source>Chin Med</source> (<year>2020</year>) <volume>15</volume>:<fpage>125</fpage>. <pub-id pub-id-type="doi">10.1186/s13020-020-00405-y</pub-id>
+<pub-id pub-id-type="pmid">33292347</pub-id>
+<pub-id pub-id-type="pmcid">PMC7708239</pub-id></mixed-citation></ref><ref id="B103"><label>103.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Hazimeh</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Massoud</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Parish</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Singh</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Segars</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Islam</surname><given-names>MS</given-names></name>
+</person-group>. <article-title>Green tea and benign gynecologic disorders: a new trick for an old beverage?</article-title>
+<source>Nutrients</source> (<year>2023</year>) <volume>15</volume>:<fpage>1439</fpage>. <pub-id pub-id-type="doi">10.3390/nu15061439</pub-id>
+<pub-id pub-id-type="pmid">36986169</pub-id>
+<pub-id pub-id-type="pmcid">PMC10054707</pub-id></mixed-citation></ref><ref id="B104"><label>104.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Guan</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>X</given-names></name>
+<etal/>
+</person-group>
+<article-title>Exploring the efficacy and mechanism of bailing capsule to improve polycystic ovary syndrome in mice based on intestinal-derived LPS-TLR4 pathway</article-title>. <source>J Ethnopharmacol</source> (<year>2024</year>) <volume>331</volume>:<fpage>118274</fpage>. <pub-id pub-id-type="doi">10.1016/j.jep.2024.118274</pub-id>
+<pub-id pub-id-type="pmid">38697410</pub-id>
+</mixed-citation></ref><ref id="B105"><label>105.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Li</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Zhao</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Cai</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>H</given-names></name>
+<etal/>
+</person-group>
+<article-title>Chinese medicine compound prescription HeQi San ameliorates chronic inflammatory states and modulates gut flora in dehydroepiandrosterone-induced polycystic ovary syndrome mouse model</article-title>. <source>Int Immunopharmacol</source> (<year>2024</year>) <volume>137</volume>:<fpage>112491</fpage>. <pub-id pub-id-type="doi">10.1016/j.intimp.2024.112491</pub-id>
+<pub-id pub-id-type="pmid">38909499</pub-id>
+</mixed-citation></ref><ref id="B106"><label>106.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Wang</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Xiao</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Tong</surname><given-names>Q</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Qi</surname><given-names>B</given-names></name>
+<etal/>
+</person-group>
+<article-title>Effects of Bu Shen Hua Zhuo formula on the LPS/TLR4 pathway and gut microbiota in rats with letrozole-induced polycystic ovary syndrome</article-title>. <source>Front Endocrinol</source> (<year>2022</year>) <volume>13</volume>:<fpage>891297</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2022.891297</pub-id>
+<pub-id pub-id-type="pmcid">PMC9396283</pub-id><pub-id pub-id-type="pmid">36017323</pub-id></mixed-citation></ref><ref id="B107"><label>107.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Liu</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Fan</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Dai</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Ding</surname><given-names>Z</given-names></name>
+<name name-style="western"><surname>Yi</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Zhan</surname><given-names>X</given-names></name>
+<etal/>
+</person-group>
+<article-title>Integrated microbiome and metabolome analysis reveals that zishen qingre lishi huayu recipe regulates gut microbiota and butyrate metabolism to ameliorate polycystic ovary syndrome</article-title>. <source>Microb Pathog</source> (<year>2025</year>) <volume>204</volume>:<fpage>107533</fpage>. <pub-id pub-id-type="doi">10.1016/j.micpath.2025.107533</pub-id>
+<pub-id pub-id-type="pmid">40185172</pub-id>
+</mixed-citation></ref><ref id="B108"><label>108.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Su</surname><given-names>Y-N</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>M-J</given-names></name>
+<name name-style="western"><surname>Yang</surname><given-names>J-P</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>X-L</given-names></name>
+<name name-style="western"><surname>Xia</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Bao</surname><given-names>M-H</given-names></name>
+<etal/>
+</person-group>
+<article-title>Effects of Yulin Tong Bu formula on modulating gut microbiota and fecal metabolite interactions in mice with polycystic ovary syndrome</article-title>. <source>Front Endocrinol</source> (<year>2023</year>) <volume>14</volume>:<fpage>1122709</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2023.1122709</pub-id>
+<pub-id pub-id-type="pmcid">PMC9939769</pub-id><pub-id pub-id-type="pmid">36814581</pub-id></mixed-citation></ref><ref id="B109"><label>109.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Zhang</surname><given-names>S-W</given-names></name>
+<name name-style="western"><surname>Zhou</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Gober</surname><given-names>H-J</given-names></name>
+<name name-style="western"><surname>Leung</surname><given-names>WT</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>L</given-names></name>
+</person-group>. <article-title>Effect and mechanism of berberine against polycystic ovary syndrome</article-title>. <source>Biomed Pharmacother Biomedecine Pharmacother</source> (<year>2021</year>) <volume>138</volume>:<fpage>111468</fpage>. <pub-id pub-id-type="doi">10.1016/j.biopha.2021.111468</pub-id>
+<pub-id pub-id-type="pmid">33740526</pub-id></mixed-citation></ref><ref id="B110"><label>110.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Su</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Pang</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>Y</given-names></name>
+</person-group>. <article-title>Effects of quercetin on polycystic ovary syndrome in animal models: a systematic review and meta-analysis</article-title>. <source>Reprod Biol Endocrinol RBE</source> (<year>2024</year>) <volume>22</volume>:<fpage>46</fpage>. <pub-id pub-id-type="doi">10.1186/s12958-024-01220-y</pub-id>
+<pub-id pub-id-type="pmcid">PMC11025171</pub-id><pub-id pub-id-type="pmid">38637876</pub-id></mixed-citation></ref><ref id="B111"><label>111.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Saadati</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Mason</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Godini</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Vanky</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Teede</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Mousa</surname><given-names>A</given-names></name>
+</person-group>. <article-title>Metformin use in women with polycystic ovary syndrome (PCOS): opportunities, benefits, and clinical challenges</article-title>. <source>Diabetes Obes Metab</source> (<year>2025</year>) <volume>27</volume>:<fpage>31</fpage>–<lpage>47</lpage>. <pub-id pub-id-type="doi">10.1111/dom.16422</pub-id>
+<pub-id pub-id-type="pmid">40329601</pub-id>
+<pub-id pub-id-type="pmcid">PMC12094230</pub-id></mixed-citation></ref><ref id="B112"><label>112.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Xu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Ning</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Si</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Ren</surname><given-names>Q</given-names></name>
+</person-group>. <article-title>Metformin-mediated intestinal AMPK activation ameliorates PCOS through gut microbiota modulation and metabolic pathways</article-title>. <source>Front Endocrinol</source> (<year>2025</year>) <volume>16</volume>:<fpage>1526109</fpage>. <pub-id pub-id-type="doi">10.3389/fendo.2025.1526109</pub-id>
+<pub-id pub-id-type="pmcid">PMC11876036</pub-id><pub-id pub-id-type="pmid">40041289</pub-id></mixed-citation></ref><ref id="B113"><label>113.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Deng</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Xing</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Zhang</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Xu</surname><given-names>L</given-names></name>
+</person-group>. <article-title>Systematic low-grade chronic inflammation and intrinsic mechanisms in polycystic ovary syndrome</article-title>. <source>Front Immunol</source> (<year>2024</year>) <volume>15</volume>:<fpage>1470283</fpage>. <pub-id pub-id-type="doi">10.3389/fimmu.2024.1470283</pub-id>
+<pub-id pub-id-type="pmid">39749338</pub-id>
+<pub-id pub-id-type="pmcid">PMC11693511</pub-id></mixed-citation></ref><ref id="B114"><label>114.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Kukaev</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Kirillova</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Tokareva</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Rimskaya</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Starodubtseva</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Chernukha</surname><given-names>G</given-names></name>
+<etal/>
+</person-group>
+<article-title>Impact of gut microbiota and SCFAs in the pathogenesis of PCOS and the effect of metformin therapy</article-title>. <source>Int J Mol Sci</source> (<year>2024</year>) <volume>25</volume>:<fpage>10636</fpage>. <pub-id pub-id-type="doi">10.3390/ijms251910636</pub-id>
+<pub-id pub-id-type="pmid">39408965</pub-id>
+<pub-id pub-id-type="pmcid">PMC11477200</pub-id></mixed-citation></ref><ref id="B115"><label>115.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Guo</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Feng</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Xue</surname><given-names>H</given-names></name>
+<etal/>
+</person-group>
+<article-title>Semaglutide alleviates ovarian oxidative stress and autophagy <italic toggle="yes">via</italic> the PI3K/AKT/mTOR pathway in mice with polycystic ovary syndrome</article-title>. <source>Drug Des Devel Ther</source> (<year>2025</year>) <volume>19</volume>:<fpage>4297</fpage>–<lpage>310</lpage>. <pub-id pub-id-type="doi">10.2147/DDDT.S522730</pub-id>
+<pub-id pub-id-type="pmid">40433568</pub-id>
+<pub-id pub-id-type="pmcid">PMC12109608</pub-id></mixed-citation></ref><ref id="B116"><label>116.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Liu</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Guo</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Li</surname><given-names>X</given-names></name>
+<name name-style="western"><surname>Tian</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Yu</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Tang</surname><given-names>L</given-names></name>
+<etal/>
+</person-group>
+<article-title>Semaglutide alleviates ovary inflammation <italic toggle="yes">via</italic> the AMPK/SIRT1/NF-κB signaling pathway in polycystic ovary syndrome mice</article-title>. <source>Drug Des Devel Ther</source> (<year>2024</year>) <volume>18</volume>:<fpage>3925</fpage>–<lpage>38</lpage>. <pub-id pub-id-type="doi">10.2147/DDDT.S484531</pub-id>
+<pub-id pub-id-type="pmid">39247793</pub-id>
+<pub-id pub-id-type="pmcid">PMC11380913</pub-id></mixed-citation></ref><ref id="B117"><label>117.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Elkind-Hirsch</surname><given-names>KE</given-names></name>
+<name name-style="western"><surname>Chappell</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Shaler</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Storment</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Bellanger</surname><given-names>D</given-names></name>
+</person-group>. <article-title>Liraglutide 3 mg on weight, body composition, and hormonal and metabolic parameters in women with obesity and polycystic ovary syndrome: a randomized placebo-controlled-phase 3 study</article-title>. <source>Fertil Steril</source> (<year>2022</year>) <volume>118</volume>:<fpage>371</fpage>–<lpage>81</lpage>. <pub-id pub-id-type="doi">10.1016/j.fertnstert.2022.04.027</pub-id>
+<pub-id pub-id-type="pmid">35710599</pub-id>
+</mixed-citation></ref><ref id="B118"><label>118.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Ma</surname><given-names>R-L</given-names></name>
+<name name-style="western"><surname>Deng</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Wang</surname><given-names>Y-F</given-names></name>
+<name name-style="western"><surname>Zhu</surname><given-names>S-Y</given-names></name>
+<name name-style="western"><surname>Ding</surname><given-names>X-S</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>A-J</given-names></name>
+</person-group>. <article-title>Short-term combined treatment with exenatide and metformin for overweight/obese women with polycystic ovary syndrome</article-title>. <source>Chin Med J (Engl)</source> (<year>2021</year>) <volume>134</volume>:<fpage>2882</fpage>–<lpage>9</lpage>. <pub-id pub-id-type="doi">10.1097/CM9.0000000000001712</pub-id>
+<pub-id pub-id-type="pmid">34732660</pub-id>
+<pub-id pub-id-type="pmcid">PMC8667970</pub-id></mixed-citation></ref><ref id="B119"><label>119.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Diakosavvas</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Oyebode</surname><given-names>O</given-names></name>
+<name name-style="western"><surname>Bhide</surname><given-names>P</given-names></name>
+</person-group>. <article-title>Weight management strategies to reduce metabolic morbidity in women with polycystic ovary syndrome</article-title>. <source>Curr Obes Rep</source> (<year>2025</year>) <volume>14</volume>:<fpage>22</fpage>. <pub-id pub-id-type="doi">10.1007/s13679-025-00614-2</pub-id>
+<pub-id pub-id-type="pmid">40045077</pub-id>
+<pub-id pub-id-type="pmcid">PMC11882674</pub-id></mixed-citation></ref><ref id="B120"><label>120.</label><mixed-citation publication-type="journal">
+<person-group person-group-type="author">
+<name name-style="western"><surname>Goldberg</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Graca</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Rao</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Witchel</surname><given-names>SF</given-names></name>
+<name name-style="western"><surname>Pena</surname><given-names>A</given-names></name>
+<etal/>
+</person-group>
+<article-title>Anti-obesity pharmacological agents for polycystic ovary syndrome: a systematic review and meta-analysis to inform the 2023 international evidence-based guideline</article-title>. <source>Obes Rev</source> (<year>2024</year>) <volume>25</volume>:<fpage>e13704</fpage>. <pub-id pub-id-type="doi">10.1111/obr.13704</pub-id>
+<pub-id pub-id-type="pmid">38355887</pub-id>
+</mixed-citation></ref></ref-list></back></article>

@@ -1,0 +1,24 @@
+[server]
+address = "127.0.0.1"
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = "none"
+
+[theme]
+base = "light"
+primaryColor = "#667358"
+backgroundColor = "#f7f6f2"
+secondaryBackgroundColor = "#f7f6f2"
+textColor = "#272923"
+font = "Arial, Helvetica, sans-serif"
+codeFont = "SFMono-Regular, Consolas, Liberation Mono, monospace"
+borderColor = "#e1e2da"
+baseFontSize = 15
+baseRadius = "none"
+buttonRadius = "none"
+showWidgetBorder = true

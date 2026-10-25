@@ -1,0 +1,42 @@
+{
+  "curation_warning": "One permitted CC BY article was retained from two returned metadata records in a nine-match Europe PMC search. This curated saved example is not a fresh search or complete capture. The other returned article had a CC BY-NC license and was excluded.",
+  "fetched_count": 1,
+  "label": "Real saved Europe PMC example (offline; curated, not a live PubMed search)",
+  "mode": "saved_example",
+  "population_note": "The retained article explicitly describes Chinese pregnant healthy controls and patients with gestational diabetes. Study location and reported population description are separate facts; no ethnicity classification or generalization to all Asian women is inferred.",
+  "provider": "europe_pmc",
+  "query": "(TITLE_ABS:\"gut microbiota\") AND (TITLE_ABS:\"Chinese women\") AND OPEN_ACCESS:Y",
+  "query_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3A%22gut+microbiota%22%29+AND+%28TITLE_ABS%3A%22Chinese+women%22%29+AND+OPEN_ACCESS%3AY&format=json&resultType=core&pageSize=2",
+  "question": "What does this source report about diet, gut microbiota, and gestational diabetes among the studied Chinese pregnant women?",
+  "returned_metadata_count": 2,
+  "schema_version": "mvp.saved-example-manifest.v1",
+  "search_timestamp_precision": "Search response file modification time (recorded below) supplies actual capture time; no server timestamp was returned.",
+  "searched_at": "2026-10-19T02:26:18.558074+00:00",
+  "sort": "Europe PMC default relevance order",
+  "sources": [
+    {
+      "attribution": "Zheng QX, Wang HW, Ge L, Lin Y, Gao X, Zhu Y, Huang L, Jiang XM. Influences of dietary intake on Chinese women with gestational diabetes mellitus by inhibiting gut microbiome on plasma metabolome. Frontiers in Immunology (2026). DOI:10.3389/fimmu.2026.1745459. CC BY 4.0.",
+      "copyright_statement": "Copyright © 2026 Zheng, Wang, Ge, Lin, Gao, Zhu, Huang and Jiang.",
+      "doi": "10.3389/fimmu.2026.1745459",
+      "identity_verification": "Own front/article-meta declares PMID 42051515, PMCID PMC13110953 and DOI 10.3389/fimmu.2026.1745459; references are excluded from identity matching.",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata_file": "PMC13110953.metadata.json",
+      "metadata_sha256": "f9a6bbbcd561f1a4476bdf152affe33210774690ede6ccecfdac84a38d1cddf0",
+      "pmcid": "PMC13110953",
+      "pmid": "42051515",
+      "retrieved_at": "2026-10-19T02:26:35.708047+00:00",
+      "rights_verification": "CORE metadata license cc by and own XML permissions/license link https://creativecommons.org/licenses/by/4.0/ agree. Attribution retained. Images are not fetched or bundled.",
+      "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13110953/fullTextXML",
+      "title": "Influences of dietary intake on Chinese women with gestational diabetes mellitus by inhibiting gut microbiome on plasma metabolome.",
+      "transformations": [
+        "XML bytes retained unchanged from the Europe PMC fullTextXML response.",
+        "Only this permitted article metadata object was retained from the JSON search response; serialized as UTF-8 sorted indented JSON.",
+        "UI citation abstract is extracted from this same CC BY XML, not from a synthetic test fixture.",
+        "Canonical blocks use existing lit-rev-engine.source.v1.jats_xml; XML whitespace is normalized and table rows use tabs."
+      ],
+      "xml_file": "PMC13110953.xml",
+      "xml_sha256": "5995273b1ec0f90910375b24ace3856f4a7bdf974e0fcaca68e9d4f00f336404"
+    }
+  ],
+  "total_reported": 9
+}

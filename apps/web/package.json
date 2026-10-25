@@ -1,0 +1,29 @@
+{
+  "name": "lit-rev-engine-web",
+  "version": "0.3.0-beta.2",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3000",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 3000",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts tests/*.test.tsx",
+    "generate:api": "openapi-typescript lib/openapi.json -o lib/generated-api.ts"
+  },
+  "dependencies": {
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/react-test-renderer": "19.3.0",
+    "openapi-typescript": "7.13.0",
+    "react-test-renderer": "19.3.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "license": "MIT"
+}

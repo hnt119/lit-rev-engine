@@ -1,0 +1,238 @@
+{
+  "abstractText": "Group B Streptococcus (GBS) colonization during pregnancy is a major cause of neonatal infection, yet its microbial determinants remain unclear. This pilot study compared the vaginal and gut microbiota of late-pregnancy women with and without GBS colonization to explore potential microbial cues for peripartum risk stratification. Forty-three Japanese pregnant women (GBS-Negative = 34; GBS-Positive = 9) were enrolled at 35-37 weeks of gestation. Vaginal secretions and stool were analyzed by 16S rRNA (V3-V4) sequencing using QIIME 2 with SILVA annotation and community state type (CST) classification. Vaginal communities were mainly Lactobacillus-dominant. GBS-Positive women showed a non-significant tendency toward more <i>L. iners</i>-dominant CST III and fewer <i>L. crispatus</i>-dominant CST I compared with GBS-Negative women. Prevotella, Atopobium, and Gardnerella were significantly enriched in the GBS-Positive group (false discovery rate < 0.05), whereas gut microbial diversity and composition showed no significant differences between groups. Cross-site gut-vagina genus-level correlations were generally weak and non-significant. These findings suggest that, in late pregnancy, GBS colonization is linked to subtle shifts within Lactobacillus-dominant vaginal communities, with more <i>L. iners</i> and bacterial vaginosis-associated genera, rather than global microbiota disruption. The apparent shift from <i>L. crispatus</i>- to <i>L. iners</i>-dominant communities is hypothesis-generating and should be confirmed in larger cohorts.",
+  "affiliation": "Department of Obstetrics and Gynecology, Hirosaki University Graduate School of Medicine, 5 Zaifu, Hirosaki 036-8562, Aomori, Japan.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-5214-512X"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-0962-1159"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0006-4324-4891"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics and Gynecology, Hirosaki University Graduate School of Medicine, 5 Zaifu, Hirosaki 036-8562, Aomori, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0006-4324-4891"
+        },
+        "firstName": "Shuang",
+        "fullName": "Song S",
+        "initials": "S",
+        "lastName": "Song"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics and Gynecology, Hirosaki University Graduate School of Medicine, 5 Zaifu, Hirosaki 036-8562, Aomori, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-0962-1159"
+        },
+        "firstName": "Kaori",
+        "fullName": "Iino K",
+        "initials": "K",
+        "lastName": "Iino"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics and Gynecology, Hirosaki University Graduate School of Medicine, 5 Zaifu, Hirosaki 036-8562, Aomori, Japan."
+            }
+          ]
+        },
+        "firstName": "Mako",
+        "fullName": "Nakamura M",
+        "initials": "M",
+        "lastName": "Nakamura"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics and Gynecology, Hirosaki University Graduate School of Medicine, 5 Zaifu, Hirosaki 036-8562, Aomori, Japan."
+            }
+          ]
+        },
+        "firstName": "Maki",
+        "fullName": "Sato M",
+        "initials": "M",
+        "lastName": "Sato"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics and Gynecology, Hirosaki University Graduate School of Medicine, 5 Zaifu, Hirosaki 036-8562, Aomori, Japan."
+            }
+          ]
+        },
+        "firstName": "Maika",
+        "fullName": "Oishi M",
+        "initials": "M",
+        "lastName": "Oishi"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics and Gynecology, Hirosaki University Graduate School of Medicine, 5 Zaifu, Hirosaki 036-8562, Aomori, Japan."
+            }
+          ]
+        },
+        "firstName": "Asami",
+        "fullName": "Ito A",
+        "initials": "A",
+        "lastName": "Ito"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics and Gynecology, Hirosaki University Graduate School of Medicine, 5 Zaifu, Hirosaki 036-8562, Aomori, Japan."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-5214-512X"
+        },
+        "firstName": "Yoshihito",
+        "fullName": "Yokoyama Y",
+        "initials": "Y",
+        "lastName": "Yokoyama"
+      }
+    ]
+  },
+  "authorString": "Song S, Iino K, Nakamura M, Sato M, Oishi M, Ito A, Yokoyama Y.",
+  "citedByCount": 0,
+  "dateOfCompletion": "2025-12-31",
+  "dateOfCreation": "2025-12-31",
+  "dateOfRevision": "2026-01-02",
+  "doi": "10.3390/microorganisms13122671",
+  "electronicPublicationDate": "2025-11-24",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-01-02",
+  "firstPublicationDate": "2025-11-24",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12734668"
+    ]
+  },
+  "fullTextReceivedDate": "2025-12-25",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/microorganisms13122671"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12734668"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12734668?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "JMWH Bayer Grant",
+        "grantId": "JMWH Bayer Grant, 2022",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "N",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "N",
+  "hasTextMinedTerms": "Y",
+  "id": "41471874",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 Nov",
+    "issue": "12",
+    "journal": {
+      "essn": "2076-2607",
+      "isoabbreviation": "Microorganisms",
+      "issn": "2076-2607",
+      "medlineAbbreviation": "Microorganisms",
+      "nlmid": "101625893",
+      "title": "Microorganisms"
+    },
+    "journalIssueId": 4080434,
+    "monthOfPublication": 11,
+    "printPublicationDate": "2025-11-01",
+    "volume": "13",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "Chorioamnionitis",
+      "Preterm Birth",
+      "Group B Streptococcus",
+      "16s Rrna Sequencing",
+      "Lactobacillus Iners",
+      "Microbiome Diversity",
+      "Bacterial Vaginosis-associated Bacteria",
+      "Lactobacillus crispatus"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "2671",
+  "pmcid": "PMC12734668",
+  "pmid": "41471874",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Comparative Characterization of Vaginal and Gut Microbiota in Late-Pregnancy Women with or Without Group B Streptococcus Colonization."
+}

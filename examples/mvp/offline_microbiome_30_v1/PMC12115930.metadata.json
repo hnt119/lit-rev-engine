@@ -1,0 +1,282 @@
+{
+  "abstractText": "The breeding of large animals in the family Cervidae in China contributes to achieving two tasks: restoring the provenance of wild populations and providing raw materials for traditional Chinese medicine. Currently, red deer (<i>Cervus elaphus</i>), sika deer (<i>C. nippon</i>), and white-lipped deer (<i>C. albirostris</i>) maintain a large number of breeding populations. Some studies on the relationship between the intestinal microbiota and the feed of these deer have been conducted; however, owing to differences in feeding conditions between studies, it has been impossible to compare the intestinal microecology and related adaptability between species. Therefore, the present study is aiming to investigate whether the differences in intestinal microbiota of the three deer species are related to the distance of phylogenetic relationships under the same feeding environment. On this basis, we discuss whether there are differences in the adaptability of the intestinal microbiota of the three deer species to feed nutrients, deepen the understanding of the relationship between the three deer intestinal microbiota and feed nutrition, and provide basic data for improving the scientific feeding of the three deer species. In this study, 16S rRNA high-throughput sequencing technology was utilized to analyze the intestinal microbiota in feces of the abovementioned healthy deer species. The results of this study indicated that the intestinal microbiota diversity and relative abundance in female white-lipped deer (FWLD) were significantly lower than those in female sika deer (FSD) and female red deer (FRD; <i>p</i> < 0.05); however, there was no significant difference between the latter two groups (<i>p</i> > 0.05). The community compositions of the intestinal microbiota in FSD and FRD were more similar, whereas that of FWLD was significantly different from those of the first two groups. Firmicutes and Bacteroidetes were the most abundant phyla in the intestinal microbiota of all three deer species, and <i>Ruminococcceae_UCG-005</i> was the most abundant genus. No known obligatory pathogenic bacteria were observed in any sample. The relative abundance of the operational taxonomic units <i>Christensenellaceae_R-7_group</i>, <i>Treponema_2</i>, and <i>Akkermansia</i> exhibited significant differences among FSD, FRD, and FWLD, respectively. Therefore, the phylogenetic relatedness of the three deer species appears to play a major role in their intestinal microecology under the same feeding conditions-the greater the phylogenetic relatedness between hosts, the more similar is their intestinal microbiota. In addition, the PICRUSt (Phylogenetic Investigation of Communities by Reconstruction of Unobserved States) function prediction results indicated that FSD were less capable than FRD and FWLD in the functional category of nutrient metabolism, and FWLD were less capable than FSD and FRD in the functional category of intestinal absorption. These results indicated that there may be differences in the nutritional adaptation abilities of the three deer species under different feeding conditions. In summary, these results revealed the differences in intestinal microbiota among the three deer species under the same food conditions, indicating that the intestinal microbiota of the three deer species had significant differences in food adaptation. Based on this, the nutritional supply of feed for the three deer should consider the species differences.",
+  "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-6850-7551"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-2131-8363"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-2131-8363"
+        },
+        "firstName": "Yichen",
+        "fullName": "Wang Y",
+        "initials": "Y",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "firstName": "Minghui",
+        "fullName": "Shi M",
+        "initials": "M",
+        "lastName": "Shi"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "firstName": "Jiahui",
+        "fullName": "Wu J",
+        "initials": "J",
+        "lastName": "Wu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "firstName": "Xiangyu",
+        "fullName": "Han X",
+        "initials": "X",
+        "lastName": "Han"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "firstName": "Mengqi",
+        "fullName": "Li M",
+        "initials": "M",
+        "lastName": "Li"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "firstName": "Yining",
+        "fullName": "Wu Y",
+        "initials": "Y",
+        "lastName": "Wu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "firstName": "Yuanlin",
+        "fullName": "Jiang Y",
+        "initials": "Y",
+        "lastName": "Jiang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-6850-7551"
+        },
+        "firstName": "Haonan",
+        "fullName": "Zhang H",
+        "initials": "H",
+        "lastName": "Zhang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "firstName": "Shuqiang",
+        "fullName": "Liu S",
+        "initials": "S",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "School of Ecology and Nature Conservation, Beijing Forestry University, Beijing 100083, China."
+            }
+          ]
+        },
+        "firstName": "Defu",
+        "fullName": "Hu D",
+        "initials": "D",
+        "lastName": "Hu"
+      }
+    ]
+  },
+  "authorString": "Wang Y, Shi M, Wu J, Han X, Li M, Wu Y, Jiang Y, Zhang H, Liu S, Hu D.",
+  "citedByCount": 1,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCreation": "2025-05-28",
+  "dateOfRevision": "2025-05-31",
+  "doi": "10.3390/vetsci12050438",
+  "electronicPublicationDate": "2025-05-03",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2025-05-28",
+  "firstPublicationDate": "2025-05-03",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12115930"
+    ]
+  },
+  "fullTextReceivedDate": "2025-05-31",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "doi",
+        "site": "Unpaywall",
+        "url": "https://doi.org/10.3390/vetsci12050438"
+      },
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/vetsci12050438"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12115930"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12115930?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "Ministry of Science and Technology of the People's Republic of China",
+        "grantId": "2018YFD0502204",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "40431531",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 May",
+    "issue": "5",
+    "journal": {
+      "essn": "2306-7381",
+      "isoabbreviation": "Vet Sci",
+      "issn": "2306-7381",
+      "medlineAbbreviation": "Vet Sci",
+      "nlmid": "101680127",
+      "title": "Veterinary sciences"
+    },
+    "journalIssueId": 3948210,
+    "monthOfPublication": 5,
+    "printPublicationDate": "2025-05-01",
+    "volume": "12",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "Sika deer (Cervus nippon)",
+      "High-throughput Sequencing",
+      "Red Deer (Cervus Elaphus)",
+      "Gut Microecology",
+      "White-lipped Deer (Cervus Albirostris)"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "438",
+  "pmcid": "PMC12115930",
+  "pmid": "40431531",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Variations in Intestinal Microbiota Among Three Species in the Cervidae Family Under the Same Feeding Conditions.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

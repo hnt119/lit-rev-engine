@@ -1,0 +1,426 @@
+{
+  "abstractText": "<h4>Background</h4>The gut microbiome may influence breast cancer (BC) development by modulating estrogen metabolism, immune responses, and microbial metabolites. Altered microbial patterns have been reported in BC, but their value as predictive biomarkers remains uncertain.<h4>Methods</h4>We reviewed 13 case-control studies that compared gut microbiome composition in women with and without BC, focusing on diversity, compositional shifts, and geographic variation.<h4>Results</h4>Reduced microbial richness (<i>alpha diversity</i>, the number and balance of bacterial species) was observed in more than half of the studies, although findings were not uniform. Differences in community composition (<i>beta diversity</i>) were common. Across studies, BC was consistently associated with elevated <i>Bacteroides</i> and reduced <i>Faecalibacterium</i>, a genus linked to anti-inflammatory effects. Other recurrent findings included enrichment of <i>Eggerthella</i> and <i>Blautia</i> in BC, though results for several taxa were inconsistent. Geographic variation was evident: <i>Eggerthella</i> was enriched in U.S. cohorts, <i>Blautia</i> in European cohorts, and in Chinese cohorts, <i>Prevotella</i> was elevated while <i>Akkermansia</i> was reduced.<h4>Conclusions</h4>Despite heterogeneity, converging evidence supports reduced diversity and shifts in select taxa, particularly enrichment of <i>Bacteroides</i> and depletion of <i>Faecalibacterium</i>, as emerging features of the BC microbiome. Geographic differences underscore the influence of host and environmental factors. These findings suggest biomarker potential but highlight the need for larger, longitudinal, and standardized studies to establish causality and clinical utility.",
+  "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-5817-1222"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0001-9290-0193"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            },
+            {
+              "affiliation": "Bowel Cancer and Biomarker Laboratory, Kolling Institute, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Byeongsang",
+        "fullName": "Oh B",
+        "initials": "B",
+        "lastName": "Oh"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-9290-0193"
+        },
+        "firstName": "Gillian",
+        "fullName": "Lamoury G",
+        "initials": "G",
+        "lastName": "Lamoury"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Susan",
+        "fullName": "Carroll S",
+        "initials": "S",
+        "lastName": "Carroll"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Marita",
+        "fullName": "Morgia M",
+        "initials": "M",
+        "lastName": "Morgia"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Frances",
+        "fullName": "Boyle F",
+        "initials": "F",
+        "lastName": "Boyle"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Nick",
+        "fullName": "Pavlakis N",
+        "initials": "N",
+        "lastName": "Pavlakis"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-5817-1222"
+        },
+        "firstName": "Stephen",
+        "fullName": "Clarke S",
+        "initials": "S",
+        "lastName": "Clarke"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Alexander",
+        "fullName": "Guminski A",
+        "initials": "A",
+        "lastName": "Guminski"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Alexander",
+        "fullName": "Menzies A",
+        "initials": "A",
+        "lastName": "Menzies"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Connie",
+        "fullName": "Diakos C",
+        "initials": "C",
+        "lastName": "Diakos"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Katrina",
+        "fullName": "Moore K",
+        "initials": "K",
+        "lastName": "Moore"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Sally",
+        "fullName": "Baron-Hay S",
+        "initials": "S",
+        "lastName": "Baron-Hay"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "The Mater Hospital, North Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Thomas",
+        "fullName": "Eade T",
+        "initials": "T",
+        "lastName": "Eade"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Bowel Cancer and Biomarker Laboratory, Kolling Institute, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Mark",
+        "fullName": "Molloy M",
+        "initials": "M",
+        "lastName": "Molloy"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Northern Sydney Cancer Center, Royal North Shore Hospital, St Leonards, NSW, Australia."
+            },
+            {
+              "affiliation": "Faculty of Medicine and Health, University of Sydney, Sydney, NSW, Australia."
+            },
+            {
+              "affiliation": "Genesis Care, North Shore Health Hub, St Leonard, NSW, Australia."
+            }
+          ]
+        },
+        "firstName": "Michael",
+        "fullName": "Back M",
+        "initials": "M",
+        "lastName": "Back"
+      }
+    ]
+  },
+  "authorString": "Oh B, Lamoury G, Carroll S, Morgia M, Boyle F, Pavlakis N, Clarke S, Guminski A, Menzies A, Diakos C, Moore K, Baron-Hay S, Eade T, Molloy M, Back M.",
+  "citedByCount": 1,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2025-12-29",
+  "dateOfCreation": "2025-12-29",
+  "dateOfRevision": "2026-09-26",
+  "doi": "10.3389/fonc.2025.1666830",
+  "electronicPublicationDate": "2025-12-12",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-01-02",
+  "firstPublicationDate": "2025-12-12",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12740758"
+    ]
+  },
+  "fullTextReceivedDate": "2025-12-27",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/fonc.2025.1666830"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12740758"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12740758?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "41458603",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 ",
+    "journal": {
+      "essn": "2234-943X",
+      "isoabbreviation": "Front Oncol",
+      "issn": "2234-943X",
+      "medlineAbbreviation": "Front Oncol",
+      "nlmid": "101568867",
+      "title": "Frontiers in oncology"
+    },
+    "journalIssueId": 3894978,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2025-01-01",
+    "volume": "15",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "Breast cancer",
+      "geographical variation",
+      "Estrogen Metabolism",
+      "Predictive Biomarker",
+      "Gut Microbiome",
+      "Precision Oncology"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "1666830",
+  "pmcid": "PMC12740758",
+  "pmid": "41458603",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "review-article",
+      "Review",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "The gut microbiome as a potential predictive biomarker for breast cancer: emerging association and geographic differences.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

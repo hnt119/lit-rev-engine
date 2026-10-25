@@ -1,0 +1,294 @@
+{
+  "abstractText": "<b>Background/Objectives</b>: Menopause is associated with various symptoms. Although hormone replacement therapy (HRT) is commonly used, concerns regarding its side effects have led to the development of alternative treatments. This study evaluated the potential health benefits of Cheonggukjang, a traditional Korean fermented soybean product in alleviating menopausal symptoms and improving metabolic parameters in postmenopausal women. Additionally, the effect of Cheonggukjang on the gut microbiome was assessed using stool analysis. <b>Methods</b>: In this randomized, double-blind clinical trial, 60 postmenopausal women were assigned to three groups: high-beneficial-microorganism content Cheonggukjang (HTC), low-beneficial-microorganism content Cheonggukjang (LTC), and commercially available Cheonggukjang (CC). Participants consumed 3.3 g of Cheonggukjang tablets daily for 8 weeks. We assessed menopausal symptom relief using the Kupperman index, metabolic parameters, and changes in the gut microbiome using stool analysis. <b>Results</b>: The Kupperman index scores significantly decreased across all three groups, with the HTC group showing the greatest improvement. No significant changes were observed in body mass index, weight, or lipid profiles. Blood glucose levels decreased significantly only in the HTC group. Microbiome analysis revealed an increase in beneficial bacteria in the HTC and CC groups and a decrease in harmful bacteria. The Firmicutes-to-Bacteroidetes ratio decreased in both HTC and CC groups, though this change was not significant. <b>Conclusions</b>: Cheonggukjang supplementation significantly alleviated menopausal symptoms, particularly in the HTC group, and improved the gut microbiota composition. These findings suggest that Cheonggukjang, particularly with its high beneficial microorganism content, may offer a promising alternative for managing menopausal symptoms and improving metabolic health in postmenopausal women.",
+  "affiliation": "Department of Family Medicine, Wonkwang University Hospital, Iksan 54538, Republic of Korea.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0002-5164-4995"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-7061-0782"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Family Medicine, Wonkwang University Hospital, Iksan 54538, Republic of Korea."
+            }
+          ]
+        },
+        "firstName": "A-Lum",
+        "fullName": "Han AL",
+        "initials": "AL",
+        "lastName": "Han"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Microbial Institute for Fermentation Industry, Sunchang 56048, Republic of Korea."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-5164-4995"
+        },
+        "firstName": "Myeong-Seon",
+        "fullName": "Ryu MS",
+        "initials": "MS",
+        "lastName": "Ryu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Microbial Institute for Fermentation Industry, Sunchang 56048, Republic of Korea."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-7061-0782"
+        },
+        "firstName": "Hee-Jong",
+        "fullName": "Yang HJ",
+        "initials": "HJ",
+        "lastName": "Yang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Microbial Institute for Fermentation Industry, Sunchang 56048, Republic of Korea."
+            }
+          ]
+        },
+        "firstName": "Do-Youn",
+        "fullName": "Jeong DY",
+        "initials": "DY",
+        "lastName": "Jeong"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Departments of Pathology, Wonkwang University Hospital, Iksan 54538, Republic of Korea."
+            }
+          ]
+        },
+        "firstName": "Keum-Ha",
+        "fullName": "Choi KH",
+        "initials": "KH",
+        "lastName": "Choi"
+      }
+    ]
+  },
+  "authorString": "Han AL, Ryu MS, Yang HJ, Jeong DY, Choi KH.",
+  "citedByCount": 2,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2025-02-13",
+  "dateOfCreation": "2025-02-13",
+  "dateOfRevision": "2025-05-13",
+  "doi": "10.3390/nu17030505",
+  "electronicPublicationDate": "2025-01-30",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2025-02-14",
+  "firstPublicationDate": "2025-01-30",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC11820775"
+    ]
+  },
+  "fullTextReceivedDate": "2025-12-02",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/nu17030505"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC11820775"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC11820775?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "Ministry of Agriculture, Food, and Rural Affairs and the Korea Agro-Fisheries and Food Trade Corporation",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "39940363",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2025 Jan",
+    "issue": "3",
+    "journal": {
+      "essn": "2072-6643",
+      "isoabbreviation": "Nutrients",
+      "issn": "2072-6643",
+      "medlineAbbreviation": "Nutrients",
+      "nlmid": "101521595",
+      "title": "Nutrients"
+    },
+    "journalIssueId": 3901566,
+    "monthOfPublication": 1,
+    "printPublicationDate": "2025-01-01",
+    "volume": "17",
+    "yearOfPublication": 2025
+  },
+  "keywordList": {
+    "keyword": [
+      "Kupperman Index",
+      "Gut Microbiome",
+      "Metabolic Health",
+      "Menopausal Syndrome",
+      "Cheonggukjang"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Feces",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Treatment Outcome",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Double-Blind Method",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Menopause",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Postmenopause",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Soy Foods",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Middle Aged",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Glycine max",
+        "majorTopic_YN": "Y"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "505",
+  "pmcid": "PMC11820775",
+  "pmid": "39940363",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Randomized Controlled Trial",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2025",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "The Efficacy of Cheonggukjang in Alleviating Menopausal Syndrome and Its Effects on the Gut Microbiome: A Randomized, Double-Blind Trial.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

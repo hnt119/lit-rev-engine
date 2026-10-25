@@ -1,0 +1,19 @@
+{
+  "schema_version": "mvp.research-case-protocol.v1",
+  "case_id": "asian-women-microbiome-proposed-2026-10-21",
+  "question": "How does the gut microbiome relate to reproductive and healthy aging in women originating from Asia, with Southeast Asian studies preferred?",
+  "exact_query": "(\"gut microbiome\"[Title/Abstract] OR \"gut microbiota\"[Title/Abstract]) AND (women[Title/Abstract] OR female[MeSH Terms]) AND (Asia[MeSH Terms] OR Asian[Title/Abstract])",
+  "max_results": 30,
+  "sort": "relevance",
+  "date_from": null,
+  "date_to": null,
+  "query_approval": {
+    "status": "pending",
+    "exact_query_sha256": null,
+    "recorded_at": null,
+    "evidence_note": "Proposed syntax only. This example does not grant approval or execute a search."
+  },
+  "selected_paper_ids": [],
+  "known_papers": [],
+  "reviewer_concept_groups": []
+}

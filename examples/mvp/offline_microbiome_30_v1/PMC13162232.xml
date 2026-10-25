@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?><article xml:lang="en" article-type="research-article"><front><journal-meta><journal-id journal-id-type="pmc-domain-id">2082</journal-id><journal-id journal-id-type="pmc-domain">jdrsch</journal-id><journal-title-group><journal-title>Journal of Diabetes Research</journal-title><abbrev-journal-title>J Diabetes Res</abbrev-journal-title></journal-title-group><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13162232</article-id><article-id pub-id-type="pmcaid">13162232</article-id><article-id pub-id-type="pmcaiid">13162232</article-id><article-id pub-id-type="pmid">42117900</article-id><article-id pub-id-type="doi">10.1155/jdr/3036209</article-id><title-group><article-title>16S rRNA Gene Amplicon Sequencing of Gut Microbiota in Gestational Diabetes Mellitus and Type 2 Diabetes Mellitus</article-title></title-group><contrib-group content-type="author"><contrib><name name-style="western"><surname>Qing</surname><given-names initials="Y">Yao</given-names></name><xref ref-type="aff" rid="aff-0001">1</xref></contrib><contrib><name name-style="western"><surname>Zhou</surname><given-names initials="H">Huanyu</given-names></name><xref ref-type="aff" rid="aff-0002">2</xref></contrib><contrib><name name-style="western"><surname>Zhou</surname><given-names initials="C">Chaomeng</given-names></name><xref ref-type="aff" rid="aff-0003">3</xref></contrib><contrib><name name-style="western"><surname>Song</surname><given-names initials="Z">Zhe</given-names></name><xref ref-type="aff" rid="aff-0003">3</xref></contrib><contrib><name name-style="western"><surname>Gao</surname><given-names initials="J">Jianbo</given-names></name><xref ref-type="aff" rid="aff-0004">4</xref><xref ref-type="author-notes" rid="_fncrsp93pmc__">✉</xref></contrib><contrib><name name-style="western"><surname>Wei</surname><given-names initials="J">Jinhua</given-names></name><xref ref-type="aff" rid="aff-0005">5</xref><xref ref-type="author-notes" rid="_fncrsp93pmc__">✉</xref></contrib></contrib-group><contrib-group content-type="editor"><contrib><name name-style="western"><surname>Ahmed</surname><given-names initials="SA">Syed Anees</given-names></name></contrib></contrib-group><aff id="aff-0001">
+<label>
+<sup>1</sup>
+</label>
+Department of Endocrinology, Nanchong Hospital of Beijing Anzhen Hospital Affiliated to Capital Medical University Nanchong Central Hospital, Nanchong, Sichuan, China
+</aff><aff id="aff-0002">
+<label>
+<sup>2</sup>
+</label>
+Department of Gynecology and Obstetrics, Wuxi No. 2 People′s Hospital, Wuxi, Jiangsu, China
+</aff><aff id="aff-0003">
+<label>
+<sup>3</sup>
+</label>
+Department of Obstetrics, Dalian Medical University, Dalian, Liaoning, China, dlmedu.edu.cn
+</aff><aff id="aff-0004">
+<label>
+<sup>4</sup>
+</label>
+Department of Endocrinology and Metabolism, The Affiliated Changzhou No. 2 People′s Hospital of Nanjing Medical University, Changzhou, Jiangsu, China
+</aff><aff id="aff-0005">
+<label>
+<sup>5</sup>
+</label>
+Department of Obstetrics, The Affiliated Changzhou No. 2 People′s Hospital of Nanjing Medical University, Changzhou, Jiangsu, China
+</aff><author-notes><fn id="_fncrsp93pmc__"><label>✉</label><p>Corresponding author.</p></fn></author-notes><pub-date><day>12</day><month>5</month><year>2026</year></pub-date><volume>2026</volume><fpage>3036209</fpage><page-range>3036209</page-range><pub-history><event event-type="pmc-release"><date><day>13</day><month>5</month><year>2026</year></date></event></pub-history><permissions><copyright-statement>Copyright © 2026 Yao Qing et al. Journal of Diabetes Research published by John Wiley &amp; Sons Ltd.</copyright-statement><license><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">https://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JDR-2026-3036209.pdf" content-type="pmc-pdf"><?cloudpmc-path 385c/13162232/c958f5868b25/JDR-2026-3036209.pdf?><?cloudpmc-bucket app?><?size 3829574?></self-uri><abstract id="abstract1"><title>Abstract</title><sec id="sec-0001" disp-level="2"><title>Objective</title><p>The objective of this study was to investigate the characteristics of the gut microbiota (GM) in pregnant women with gestational diabetes mellitus (GDM) and those with Type 2 diabetes mellitus (T2DM).</p></sec><sec id="sec-0002" disp-level="2"><title>Methods</title><p>Clinical data from 33 pregnant Chinese women (15 with GDM and 18 without GDM) and 28 nonpregnant Chinese women (14 with T2DM and 14 without T2DM) were collected and statistically analyzed using SPSS software (Version 21.0). Normally distributed data were compared using an independent samples <italic>t</italic>‐test, whereas nonnormally distributed data were compared using the Mann–Whitney <italic>U</italic> test. All statistical tests were two‐sided, and <italic>p</italic> &lt; 0.05 was considered significant. The 16S rRNA gene amplicons of the GM were sequenced using the Illumina HiSeq 2500 platform and compared for differences in genomic diversity, structure, and abundance using bioinformatics.</p></sec><sec id="sec-0003" disp-level="2"><title>Results</title><p>Significant differences in beta diversity were observed between pregnant women with GDM and healthy pregnant women, as well as between women with T2DM and healthy women. However, pregnant women with GDM and healthy pregnant women did not exhibit significant differences in alpha diversity, whereas women with T2DM and healthy women did. Additionally, the abundance of Firmicutes in pregnant women with GDM was higher than that in healthy pregnant women, whereas the abundances of Bacteroidetes and <italic>Lachnobacterium</italic> were lower (<italic>p</italic> &lt; 0.05). The abundance of <italic>Phascolarctobacterium</italic> in women with T2DM was higher than that in healthy women, whereas the abundances of Proteobacteria, Actinobacteria, <italic>Roseburia</italic>, <italic>Turicibacter</italic>, and <italic>Streptococcus</italic> were lower (<italic>p</italic> &lt; 0.05).</p></sec><sec id="sec-0004" disp-level="2"><title>Conclusion</title><p>The GM in pregnant women with GDM and those with T2DM differed significantly from that in the control group, providing a reference for future clinical attempts to apply intestinal microecological agents in the treatment of GDM and T2DM.</p></sec><sec id="kwd-group1" sec-type="kwd-group" disp-level="2"><p><bold>Keywords:</bold> 16S rRNA high-throughput sequencing, gestational diabetes mellitus, gut microbiota, Type 2 diabetes mellitus</p></sec></abstract><custom-meta-group><custom-meta><meta-name>status</meta-name><meta-value>released</meta-value></custom-meta><custom-meta><meta-name>display-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>is-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-journal-matter</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-scanned</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-retracted</meta-name><meta-value>no</meta-value></custom-meta></custom-meta-group></article-meta><notes notes-type="article-notes"><sec id="historyarticle-meta1" sec-type="history" disp-level="2"><p>Revised 2025 Nov 18; Received 2024 Nov 22; Accepted 2025 Dec 20; Collection date 2026.</p></sec></notes></front><body><sec id="sec-0005" disp-level="1"><title>1. Introduction</title><p>Recently, the incidence of gestational diabetes mellitus (GDM), which has emerged as a global epidemic, has increased [<xref rid="bib-0001" ref-type="bibr">1</xref>, <xref rid="bib-0002" ref-type="bibr">2</xref>]. GDM tends to progress to Type 2 diabetes mellitus (T2DM) after delivery; research suggests that this risk increases approximately sevenfold [<xref rid="bib-0003" ref-type="bibr">3</xref>]. GDM is a metabolic disorder characterized by impaired glucose regulation during pregnancy, which can lead to complications such as cesarean or difficult delivery, large‐for‐gestational‐age infants, and low blood sugar levels [<xref rid="bib-0004" ref-type="bibr">4</xref>, <xref rid="bib-0005" ref-type="bibr">5</xref>]. T2DM is characterized by insulin resistance and chronic low‐grade inflammation, which affect metabolic homeostasis. These conditions can damage vital organs such as the eyes, kidneys, and heart. Serious risks include hyperosmolar hyperglycemic syndrome and diabetic ketoacidosis [<xref rid="bib-0006" ref-type="bibr">6</xref>, <xref rid="bib-0007" ref-type="bibr">7</xref>]. Considering the adverse effects of GDM and T2DM, novel treatments are urgently needed.</p><p>The pathogeneses of GDM and T2DM are remarkably similar and primarily involve insulin resistance [<xref rid="bib-0008" ref-type="bibr">8</xref>]. Recently, the link between the increasing incidence of both conditions and alterations in the gut microbiota (GM) has become a topic of interest [<xref rid="bib-0009" ref-type="bibr">9</xref>–<xref rid="bib-0011" ref-type="bibr">11</xref>]. Healthy GMs are crucial for maintaining the intestinal epithelial barrier integrity. Microbial imbalance can lead to a reduction in the expression of tight junction proteins, thereby increasing intestinal permeability and resulting in “leaky gut” syndrome [<xref rid="bib-0011" ref-type="bibr">11</xref>]. This allows bacterial endotoxins, such as lipopolysaccharide (LPS), to translocate into the bloodstream, where they activate the Toll‐like Receptor 4 (TLR4) signaling pathway, leading to chronic low‐grade inflammation and insulin resistance. Additionally, the GM converts primary bile acids into secondary bile acids through the action of bile acid hydrolases and hydroxysteroid dehydrogenases. These secondary bile acids act as key signaling molecules that activate the Farnesoid X receptor and the G protein–coupled bile acid Receptor 1, subsequently regulating several downstream pathways involved in glucose homeostasis, insulin secretion, energy expenditure, and inflammatory responses, which are crucial for maintaining metabolic health [<xref rid="bib-0012" ref-type="bibr">12</xref>, <xref rid="bib-0013" ref-type="bibr">13</xref>]. Thus, the GM profoundly influences host glucose metabolism and insulin sensitivity through these two mechanisms, which are closely associated with the development and progression of GDM and T2DM.</p><p>Several landmark studies have provided evidence of significant alterations in the GM of patients with T2DM and have identified functional changes in the GM associated with T2DM characteristics. Karlsson et al. identified multiple GM alterations in European women with T2DM, including a significantly increased abundance of four <italic>Lactobacillus</italic> species and a significantly decreased abundance of five <italic>Clostridium</italic> species [<xref rid="bib-0014" ref-type="bibr">14</xref>]. Qin et al. further identified two butyrate‐producing bacteria in the GM of patients with T2DM, <italic>Roseburia intestinalis</italic> and <italic>Faecalibacterium prausnitzii</italic>, which exhibited high discriminatory power for T2DM. Moreover, functional analysis of the GM revealed increased activity in patients with T2DM related to glucose membrane transport, branched‐chain amino acid transport, and intestinal oxidative stress responses. This study represents significant progress in understanding the correlation between GM alterations and T2DM [<xref rid="bib-0015" ref-type="bibr">15</xref>]. Pedersen et al. observed elevated levels of branched‐chain amino acids in patients with insulin resistance [<xref rid="bib-0016" ref-type="bibr">16</xref>]. Further mouse experiments revealed that <italic>Prevotella copri</italic> and <italic>Bacteroides vulgatus</italic>, which are enriched in patients with T2DM, increase circulating branched‐chain amino acid levels and induce insulin resistance in mice [<xref rid="bib-0017" ref-type="bibr">17</xref>]. These two studies provide crucial complementary insights into the relationship between the GM and T2DM.</p><p>Similarly, several studies have revealed the relationship between the GM and GDM. Koren et al. found significant changes in the GM from early to late pregnancy in healthy pregnant women. They transplanted fecal matter from both stages into germ‐free mice. The late‐pregnancy microbiota induced obesity and insulin resistance in mice [<xref rid="bib-0018" ref-type="bibr">18</xref>], suggesting that changes in the GM may promote the development of GDM. Subsequently, Kuang et al. and Crusell et al. observed significant alterations in the GM of pregnant women with GDM compared to healthy pregnant women; Kuang et al. reported increased levels of harmful bacteria (such as <italic>Parabacteroides distasonis</italic>, <italic>Klebsiella variicola</italic>, and <italic>Catenibacterium mitsuokai</italic>) and reduced levels of beneficial bacteria (such as <italic>Bifidobacterium</italic> spp., <italic>Eubacterium</italic> spp., and <italic>Alistipes</italic> spp.) in pregnant women with GDM [<xref rid="bib-0019" ref-type="bibr">19</xref>]. Crusell et al. identified differences at various taxonomic levels, including the phyla and genera, primarily involving Actinobacteria, <italic>Collinsella</italic>, <italic>Rothia</italic>, and <italic>Desulfovibrio</italic> [<xref rid="bib-0020" ref-type="bibr">20</xref>]. Although the results varied, both studies provided strong evidence supporting an association between GM and GDM.</p><p>The GM is believed to be associated with the development of GDM and T2DM; however, its specific mechanisms of action remain unclear. Therefore, this study is aimed at investigating the GM of patients with GDM and T2DM, determining the possible causes, and identifying microbiota with large differences. The objective was to lay the foundation for the use of gut microecological agents in the treatment of GDM and T2DM.</p></sec><sec id="sec-0006" disp-level="1"><title>2. Materials and Methods</title><sec id="sec-0007" disp-level="2"><title>2.1. Study Groups and Characteristics</title><p>Between February 2018 and March 2021, 61 eligible participants visited the Departments of Obstetrics, Endocrinology, or Physical Examination at the Second People′s Hospital of Changzhou, affiliated with Nanjing Medical University. Of these, 15 pregnant women with GDM were enrolled in Group G and met the World Health Organization (WHO)/International Association of Diabetes and Pregnancy Study Group 2013 guidelines [<xref rid="bib-0021" ref-type="bibr">21</xref>], whereas 18 healthy pregnant women were enrolled in Group N. Another 14 patients with T2DM were enrolled in Group D, who met the 1999 WHO diagnostic criteria [<xref rid="bib-0022" ref-type="bibr">22</xref>], and 14 healthy women were enrolled in Group A. The inclusion criteria for the four groups were as follows: (1) Chinese females aged 20–40 years; (2) no antibiotic treatment within 1 month before sampling and no probiotic preparation within 2 weeks; (3) no irritable bowel syndrome, inflammatory bowel disease, or other gastrointestinal diseases; (4) no history of tumor diseases or organ insufficiencies, such as heart, kidney, or liver disease; and (5) no endocrine diseases, such as thyroid or autoimmune diseases. Written informed consent was obtained from all participants, which was approved by the Ethics Committee of Changzhou Second People′s Hospital, affiliated with Nanjing Medical University (Approval No. 2021 KY011‐01). The study adhered to the principles outlined in the Declaration of Helsinki.</p></sec><sec id="sec-0008" disp-level="2"><title>2.2. Sample and Data Collection</title><p>Fresh stool samples were collected from participants early in the morning. To avoid contamination of surfaces and urine, 3–5 g of feces were collected in sterile, airtight tubes using sterile spoons and immediately stored in a −80°C refrigerator. Patient demographics, including age, weight, height, and blood pressure, were also collected.</p></sec><sec id="sec-0009" disp-level="2"><title>2.3. Sample DNA Extraction and Gene Sequencing</title><p>The QIAamp PowerFecal Pro DNA Kit (QIAGEN, Hilden, Germany) was used to extract total bacterial DNA from the fecal samples. DNA concentration was measured using a Qubit fluorometer, and quality was assessed by running an aliquot on a 1% agarose gel. A PCR system was then configured with a 30‐ng sample of genomic DNA of known mass and corresponding fusion primers, with PCR parameters set for amplification. The V4 region of the bacterial 16S rRNA gene was amplified using degenerate PCR primers 515F (5′‐GTG CCA GCM GCC GCG GTA A‐3′) and 806R (5′‐GGA CTA CHV GGG TWT CTA AT‐3′). The obtained PCR products were subjected to high‐throughput sequencing (using paired‐end sequencing) on an Illumina HiSeq 2500 platform, and sequencing libraries were constructed. Sequencing was performed by BGI Genomics (BGI Research Institute, Wuhan, China).</p></sec><sec id="sec-0010" disp-level="2"><title>2.4. Bioinformatics Analysis</title><p>Raw read data were filtered to remove adapter sequences, low‐quality bases, and uncertain bases. The resulting sequences were assembled into tags and clustered into operational taxonomic units (OTUs) based on overlapping relationships. This step was performed using the USEARCH software (Version 7.0.1090) at a similarity threshold of 97%. Representative OTU sequences were classified using the Ribosomal Database Project Classifier (RDP Classifier, V2.2) with a minimum confidence threshold of 0.6. Species annotation was performed using the Greengenes database (Version 2.01305) in QIIME (Version 1.8.0). Finally, species diversity and intergroup differences were analyzed based on the OTU and species annotation results.</p></sec><sec id="sec-0011" disp-level="2"><title>2.5. Statistical Analyses</title><p>The results were analyzed using SPSS software (Version 21.0). Data that satisfied a normal distribution were represented as the mean ± standard deviation, and group comparisons were performed using the independent samples <italic>t</italic>‐test. Data that did not fit the normal distribution were presented as the median (minimum, maximum), and group comparisons were performed using the Mann–Whitney <italic>U</italic> test. All statistical tests were two‐sided, and <italic>p</italic> &lt; 0.05 was considered significant.</p></sec></sec><sec id="sec-0012" disp-level="1"><title>3. Results</title><sec id="sec-0013" disp-level="2"><title>3.1. Clinical Characteristics of Participants</title><p>Group G had significantly higher 1‐ and 2‐h oral glucose tolerance test glucose levels than Group N (<italic>p</italic> &lt; 0.001). No discrepancies were observed in gestational week, height, weight, systolic blood pressure, diastolic blood pressure, fasting blood glucose, triglyceride, or total cholesterol levels (<italic>p</italic> &gt; 0.05), except for elevated body mass index (BMI) and age (<italic>p</italic> &lt; 0.05; Table S1a). Furthermore, Group D exhibited considerably higher fasting blood glucose levels (<italic>p</italic> &lt; 0.001). However, no differences in age, height, systolic blood pressure, diastolic blood pressure, triglyceride, or total cholesterol levels were observed when compared with Group A (<italic>p</italic> &gt; 0.05), except for increased weight and BMI (<italic>p</italic> &lt; 0.05; Table S1b).</p></sec><sec id="sec-0014" disp-level="2"><title>3.2. Identification and Analysis of OTUs Among Groups</title><p>A Venn diagram was created based on the distribution of OTU numbers among the four groups. The number of OTUs shared by Groups G and N, as well as Groups D and A, was 538 and 461, respectively, indicating a high level of similarity between the groups. The numbers of OTUs specific to Groups G, N, D, and A were 76, 92, 70, and 155, respectively, indicating differences in species distribution (Figure <xref rid="fig-0001" ref-type="fig">1</xref>).</p><fig id="fig-0001" position="float"><?disp-level 3?><label>Figure 1</label><caption><p>A: Group A (healthy women); N: Group N (healthy pregnant women); G: Group G (pregnant women with GDM); and D: Group D (patients with T2DM). OTU petal diagram. Different colors represent different groups. The overlapping section indicates the number of OTUs shared between the two groups. The nonoverlapping part indicates the number of OTUs that are unique to each group.</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="image" id="jats-graphic-1" xlink:href="JDR-2026-3036209-g007.jpg"><?cloudpmc-path blobs/385c/13162232/83e20c694840/JDR-2026-3036209-g007.jpg?><?cloudpmc-bucket cdn?><?image-server-status NEVER_LOAD?><?original-height 544?><?original-width 600?><?scaled-height 544?><?scaled-width 600?></graphic><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="thumb" xlink:href="JDR-2026-3036209-g007.gif"><?cloudpmc-path blobs/385c/13162232/0ddde58e59b5/JDR-2026-3036209-g007.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig></sec><sec id="sec-0015" disp-level="2"><title>3.3. Analysis of GM Diversity Between Groups</title><p>The GM diversity analysis was divided into alpha and beta diversity analyses. The alpha diversity of Groups G, N, D, and A was analyzed separately. The observed species index level in Group D was lower than that in Group A (<italic>p</italic> &lt; 0.05), indicating that the species richness in patients with T2DM was lower than that in healthy women. The observed species and Shannon indices in Groups G and N, as well as the Shannon indices in Groups D and A, did not differ significantly (<italic>p</italic> &gt; 0.05). This finding suggests that the GM alpha diversity did not differ between pregnant women with GDM and healthy pregnant women, nor was a difference in species diversity observed between patients with T2DM and healthy women (Figure <xref rid="fig-0002" ref-type="fig">2</xref>).</p><fig id="fig-0002" position="float"><?disp-level 3?><label>Figure 2</label><caption><p>A: Group A (healthy women); N: Group N (healthy pregnant women); G: Group G (pregnant women with GDM); and D: Group D (patients with T2DM). Alpha diversity box plot. The horizontal coordinates indicate the group, and the vertical coordinates indicate the values of the alpha diversity indices, including the observed species index (species richness) and the Shannon index (species diversity). The five lines in the boxes from the bottom to the top represent the minimum, first quartile, median, third quartile, and maximum, respectively. The Wilcoxon rank‐sum test was used for statistical analyses.</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="image" id="jats-graphic-3" xlink:href="JDR-2026-3036209-g006.jpg"><?cloudpmc-path blobs/385c/13162232/72ffc42c4f78/JDR-2026-3036209-g006.jpg?><?cloudpmc-bucket cdn?><?image-server-status NEVER_LOAD?><?original-height 310?><?original-width 600?><?scaled-height 310?><?scaled-width 600?></graphic><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="thumb" xlink:href="JDR-2026-3036209-g006.gif"><?cloudpmc-path blobs/385c/13162232/40910285fea8/JDR-2026-3036209-g006.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig><p>In contrast, partial least squares discriminant analysis revealed that the GM of Groups G and N collaborated and differed from the GM of Groups D and A. Further analysis of diversity between these groups revealed that the GM of Groups G and N, as well as Groups D and A, were distinct, indicating differences in the way the GM was organized between pregnant women with GDM and healthy pregnant women and between patients with T2DM and healthy women (Figure <xref rid="fig-0003" ref-type="fig">3</xref>).</p><fig id="fig-0003" position="float"><?disp-level 3?><label>Figure 3</label><caption><p>A: Group A (healthy women); N: Group N (healthy pregnant women); G: Group G (pregnant women with GDM); and D: Group D (patients with T2DM). PLS‐DA analysis. The horizontal and vertical coordinates indicate the relative distances, which have no practical significance. A point represents a sample, and a large oval indicates that the GM of each group is differentiated by its respective aggregation.</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="image" id="jats-graphic-5" xlink:href="JDR-2026-3036209-g005.jpg"><?cloudpmc-path blobs/385c/13162232/025e1a4af58f/JDR-2026-3036209-g005.jpg?><?cloudpmc-bucket cdn?><?image-server-status NEVER_LOAD?><?original-height 670?><?original-width 600?><?scaled-height 670?><?scaled-width 600?></graphic><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="thumb" xlink:href="JDR-2026-3036209-g005.gif"><?cloudpmc-path blobs/385c/13162232/c24615290d46/JDR-2026-3036209-g005.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig></sec><sec id="sec-0016" disp-level="2"><title>3.4. Composition and Comparison of GM in Groups</title><p>The 12 phyla in the four groups included Firmicutes, Bacteroidetes, Proteobacteria, Actinobacteria, and Verrucomicrobia. The four groups were composed primarily of Bacteroidetes, Firmicutes, and Proteobacteria (Figure <xref rid="fig-0004" ref-type="fig">4</xref>). In contrast to Group N, the abundance of Firmicutes was significantly increased, whereas that of Bacteroidetes was significantly decreased in Group G (<italic>p</italic> &lt; 0.05; Table S2a). Correspondingly, the abundance of Proteobacteria and Actinobacteria in Group D was significantly lower than that in Group A (<italic>p</italic> &lt; 0.05; Table S2b).</p><fig id="fig-0004" position="float"><?disp-level 3?><label>Figure 4</label><caption><p>A: Group A (healthy women); N: Group N (healthy pregnant women); G: Group G (pregnant women with GDM); and D: Group D (patients with T2DM). Distribution graph of GM frequency at the phylum level. The horizontal axis shows the sample name, the vertical axis shows the relative abundance of annotated species, and the colors on the right show different species. Unannotated species at each taxonomic level are combined as “unclassified,” and species with &lt; 0.5% abundance in all samples are combined as “others.”</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="image" id="jats-graphic-7" xlink:href="JDR-2026-3036209-g004.jpg"><?cloudpmc-path blobs/385c/13162232/d4cc0b12a4a1/JDR-2026-3036209-g004.jpg?><?cloudpmc-bucket cdn?><?image-server-status NEVER_LOAD?><?original-height 391?><?original-width 600?><?scaled-height 391?><?scaled-width 600?></graphic><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="thumb" xlink:href="JDR-2026-3036209-g004.gif"><?cloudpmc-path blobs/385c/13162232/a80f8bc5f3f1/JDR-2026-3036209-g004.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig></sec><sec id="sec-0017" disp-level="2"><title>3.5. Differential Alteration of GM Across Groups</title><p>Linear discriminant analysis effect size revealed that the GM of Groups G and N were similar and distinct from that of Groups D and A (Figure <xref rid="figpt-0001" ref-type="fig">5a</xref>). Furthermore, partial least squares discriminant analysis revealed significant differences in the abundances of Firmicutes, Clostridia, Clostridiales, Bacteroidia, Bacteroidales, <italic>Bacteroides</italic>, and <italic>Lachnobacterium</italic> between Groups G and N (Figure <xref rid="figpt-0002" ref-type="fig">5b</xref>). At the genus level, <italic>Lachnobacterium</italic> abundance was significantly lower in Group G than in Group N (<italic>p</italic> &lt; 0.05). Similarly, the following genera differed significantly between the two groups: Acidaminococcaceae, <italic>Phascolarctobacterium</italic>, Ruminococcaceae, Lachnospiraceae, <italic>Roseburia</italic>, Lactobacillales, and 49 others (Figure <xref rid="figpt-0003" ref-type="fig">5c</xref>). At the genus level, Group D had more <italic>Phascolarctobacterium</italic> and fewer butyrate‐producing bacteria (e.g., <italic>Roseburia</italic> and <italic>Turicibacter</italic>) than Group A. Additionally, Group D had fewer <italic>Streptococcus</italic>, <italic>Actinomyces</italic>, <italic>Coprococcus</italic>, and <italic>Proteus</italic>, as well as many other human commensal bacteria. The differences between the two groups were significant (<italic>p</italic> &lt; 0.05).</p><fig-group id="fig-0005" position="float"><?disp-level 3?><label>Figure 5</label><caption><p>A: Group A (healthy women); N: Group N (healthy pregnant women); G: Group G (pregnant women with GDM); and D: Group D (patients with T2DM). LEfSe analysis. (a) Five circles representing the taxonomic groups (phylum, class, order, family, and genus) from the innermost to the outermost circle. Different colors indicate different groups. Nodes with the same color as the group indicate the microbial groups that play a crucial role in the group. Each node represents a group of bacteria, and its specific name is shown in the upper‐right corner of the figure. Yellow nodes indicate microbial groups that did not play a crucial role. LDA analysis. (b, c) The groups with LDA scores greater than two (the LDA segmentation threshold). These differences were significant. Different colors represent different groups. The corresponding biological labels played a significant role in these differences. The length indicates the size of a group′s effect on these differences.</p></caption><fig id="figpt-0001" position="anchor"><caption><p>(a)</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="image" id="jats-graphic-9" xlink:href="JDR-2026-3036209-g003.jpg"><?cloudpmc-path blobs/385c/13162232/e7f2c2b744e8/JDR-2026-3036209-g003.jpg?><?cloudpmc-bucket cdn?><?image-server-status LOAD_COMPLETED?><?original-height 1147?><?original-width 600?><?scaled-height 1147?><?scaled-width 600?></graphic><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="thumb" xlink:href="JDR-2026-3036209-g003.gif"><?cloudpmc-path blobs/385c/13162232/961833f36cad/JDR-2026-3036209-g003.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig><fig id="figpt-0002" position="anchor"><caption><p>(b)</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="image" id="jats-graphic-11" xlink:href="JDR-2026-3036209-g002.jpg"><?cloudpmc-path blobs/385c/13162232/4d3b53d4cfcc/JDR-2026-3036209-g002.jpg?><?cloudpmc-bucket cdn?><?image-server-status NEVER_LOAD?><?original-height 434?><?original-width 600?><?scaled-height 434?><?scaled-width 600?></graphic><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="thumb" xlink:href="JDR-2026-3036209-g002.gif"><?cloudpmc-path blobs/385c/13162232/8b3b02a72cf1/JDR-2026-3036209-g002.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig><fig id="figpt-0003" position="anchor"><caption><p>(c)</p></caption><alternatives><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="image" id="jats-graphic-13" xlink:href="JDR-2026-3036209-g001.jpg"><?cloudpmc-path blobs/385c/13162232/ba13c00236fc/JDR-2026-3036209-g001.jpg?><?cloudpmc-bucket cdn?><?image-server-status LOAD_COMPLETED?><?original-height 1319?><?original-width 600?><?scaled-height 1319?><?scaled-width 600?></graphic><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="thumb" xlink:href="JDR-2026-3036209-g001.gif"><?cloudpmc-path blobs/385c/13162232/e84328a866b8/JDR-2026-3036209-g001.gif?><?cloudpmc-bucket cdn?></graphic></alternatives></fig></fig-group></sec></sec><sec id="sec-0018" disp-level="1"><title>4. Discussion</title><p>Major hormonal, immune, and metabolic changes occur during normal pregnancy, with subsequent adaptive changes observed in the maternal GM [<xref rid="bib-0023" ref-type="bibr">23</xref>–<xref rid="bib-0025" ref-type="bibr">25</xref>]. The GM is more likely to cause obesity and insulin insensitivity in late pregnancy than in early pregnancy [<xref rid="bib-0018" ref-type="bibr">18</xref>]. Notably, pregnant women with GDM have reduced insulin sensitivity and significantly dysregulated GM compared to healthy pregnant women [<xref rid="bib-0026" ref-type="bibr">26</xref>]. Low‐grade systemic inflammation and insulin resistance are caused by both commensal and pathogenic bacteria [<xref rid="bib-0027" ref-type="bibr">27</xref>]. Ferrocino et al. reported that <italic>Blautia</italic> was abundant in pregnant women with GDM. This bacterium was associated with a lower risk of insulin resistance. However, <italic>Bacteroides</italic> was less abundant in pregnant women with GDM. <italic>Bacteroides</italic> was associated with glycated hemoglobin levels [<xref rid="bib-0028" ref-type="bibr">28</xref>], suggesting a link between inflammation and metabolic disorders.</p><p>The findings of this study suggest a difference in the GM of pregnant women with GDM compared to that of healthy pregnant women at the phylum and genus levels, exhibiting an enriched abundance of Firmicutes and a reduced abundance of Bacteroidetes and <italic>Lachnobacterium</italic>. Firmicutes and Bacteroidetes are the predominant phyla in the human GM, and both contribute to maintaining the body′s energy balance by regulating carbohydrate, fat, and bile acid metabolism [<xref rid="bib-0029" ref-type="bibr">29</xref>]. Firmicutes were significantly more abundant in obese populations, whereas Bacteroidetes were less abundant [<xref rid="bib-0030" ref-type="bibr">30</xref>]. The increased abundance of Firmicutes showed a significant positive correlation with carbohydrate metabolites such as fructose, galactose, mannitol, and starch, suggesting that it may play a pivotal role in glucose metabolic disorders [<xref rid="bib-0027" ref-type="bibr">27</xref>]. Glucose‐related pathways, such as membrane transport and the phosphotransferase system, can transport glucose and catalyze the absorption of carbohydrates through intracellular and outer membranes, stimulating the GM to accelerate glucose conversion into energy [<xref rid="bib-0031" ref-type="bibr">31</xref>].</p><p>
+<italic>Lachnobacterium</italic> belongs to the Firmicutes phylum and the Lachnospiraceae family. Various diseases have been linked to a decrease in the number of <italic>Lachnobacterium</italic> in the intestine. For example, a lower number of <italic>Lachnobacterium</italic> during the first 3 months of life was associated with preschool asthma in Canadian children [<xref rid="bib-0032" ref-type="bibr">32</xref>]. <italic>Lachnobacterium</italic> has also been associated with the severity of depressive symptoms [<xref rid="bib-0033" ref-type="bibr">33</xref>], and this genus was linked to a diminished risk of developing systemic lupus erythematosus [<xref rid="bib-0034" ref-type="bibr">34</xref>]. In this study, pregnant women with GDM had significantly lower levels of <italic>Lachnobacterium</italic>, which likely produced fewer short‐chain fatty acids. This finding suggests that harmful bacteria cannot be inhibited and the body produces more substances that cause inflammation. When intestinal inflammatory factors enter the bloodstream, the body produces a constant, mild inflammatory reaction, which can disrupt the structure and function of cells in the pancreas that produce insulin, leading to insufficient insulin secretion and the development of GDM or T2DM [<xref rid="bib-0035" ref-type="bibr">35</xref>]. In summary, <italic>Lachnobacterium</italic> is an important GM that requires further exploration in larger cohorts to elucidate the mechanism of action of diabetes.</p><p>The number of bacteria in the GM of patients with T2DM was lower than that in healthy women. Additionally, the <italic>β</italic>‐diversity and composition of the GM differed significantly between the two groups at the phylum and genus levels.</p><p>Diet is among the most critical environmental factors influencing the structure of the GM [<xref rid="bib-0036" ref-type="bibr">36</xref>, <xref rid="bib-0037" ref-type="bibr">37</xref>]. For example, European children who consumed calorie‐rich, fat‐rich, and fiber‐poor diets had higher numbers of Proteobacteria than those in Burkina Faso [<xref rid="bib-0038" ref-type="bibr">38</xref>]. Certain dietary components, such as artificial sweeteners and emulsifiers (food additives), impair glucose metabolism in the body and can potentially lead to Proteobacteria blooms [<xref rid="bib-0039" ref-type="bibr">39</xref>]. Notably, Proteobacteria were enriched in patients with T2DM. This study found that the abundance of Proteobacteria in patients with T2DM was lower than that in healthy women. This may be due to population heterogeneity, disease stage, or methodological differences. Proteobacteria‐derived LPS can induce metabolic endotoxemia and activate systemic, chronic, and low‐grade inflammation. This represents a key pathway in the pathogenesis of T2DM [<xref rid="bib-0040" ref-type="bibr">40</xref>]. The core mechanism pathways are as follows [<xref rid="bib-0011" ref-type="bibr">11</xref>]: (i) The “Western diet” promotes the growth of gram‐negative bacteria such as Proteobacteria, leading to an expansion of the LPS‐producing “bacterial reservoir” and compromising intestinal barrier integrity; (ii) LPS translocates through the damaged intestinal mucosa into the bloodstream, causing endotoxemia; (iii) circulating LPS binds to LPS‐binding protein and interacts with receptor complexes (CD14/TLR4/MD2) on immune cell surfaces, thereby activating downstream inflammatory signaling pathways; and (iv) multiple inflammatory mediators such as tumor necrosis factor‐<italic>α</italic>, interleukin‐1<italic>β</italic>, and interleukin‐6 interfere with insulin signaling through various molecular mechanisms, leading to insulin resistance, inducing <italic>β</italic>‐cell dysfunction and apoptosis, and ultimately resulting in T2DM. In summary, alterations in Proteobacteria abundance revealed the complexity of GM dysbiosis in patients with T2DM. Future studies should integrate metagenomics and LPS activity measurements to elucidate the effect of changes in Proteobacteria on systemic inflammation.</p><p>The Actinobacteria phylum is another major component of human GM [<xref rid="bib-0041" ref-type="bibr">41</xref>]. <italic>Bifidobacterium</italic>, classically beneficial bacteria, are important members of the intestinal flora of humans and animals [<xref rid="bib-0042" ref-type="bibr">42</xref>]. The number of <italic>Bifidobacterium</italic> increased significantly after a dietary intervention aimed at reducing body mass in obese children [<xref rid="bib-0043" ref-type="bibr">43</xref>]. In addition, the GM of normal and slim mice was transplanted into obese mice, and the abundance of Actinobacteria in the obese mice increased after transplantation with GM from slim mice [<xref rid="bib-0044" ref-type="bibr">44</xref>]. In the present study, the abundance of Actinobacteria was reduced in patients with T2DM. Significantly higher total bile acid levels in the plasma were observed in patients with T2DM than in healthy controls, and a decrease in total and secondary bile acid levels and an increase in primary bile acid levels were noted with the use of glucose‐lowering drugs, accompanied by changes in GM, as evidenced by an increase in the abundance of Actinobacteria [<xref rid="bib-0045" ref-type="bibr">45</xref>, <xref rid="bib-0046" ref-type="bibr">46</xref>]. Therefore, Actinobacteria may play a role in T2DM by influencing bile acid and glycolipid metabolism.</p><p>
+<italic>Phascolarctobacterium</italic> is typically positively correlated with health status, and its abundance is often reduced in patients with diabetes or in obese individuals [<xref rid="bib-0047" ref-type="bibr">47</xref>, <xref rid="bib-0048" ref-type="bibr">48</xref>]. Notably, in this study, an increase in <italic>Phascolarctobacterium</italic> genus abundance was observed in the T2DM cohort. This discrepancy may highlight the context‐dependent nature of GM associations with disease. The following factors may explain this phenomenon: (i) the unique demographic and dietary backgrounds of the current study population, which may shape a distinct microbial ecology; (ii) potential functional heterogeneity at the species or strain level within this genus that cannot be resolved by 16S rRNA sequencing, warranting further metagenomic investigation; and (iii) specific disease status or complications in the enrolled patients. Therefore, the findings of this study highlight the need to validate microbial biomarkers across diverse populations and investigate their functions at a higher resolution to fully understand their roles in the pathogenesis of T2DM.</p><p>
+<italic>Roseburia</italic> and <italic>Turicibacter</italic> are the two primary bacteria that produce butyric acid. The hypothesis that butyric acid promotes the insulin response is supported by an independent clinical study, which is a trial of GM intervention in 35 healthy individuals, showing that reducing the levels of butyrate‐producing bacteria through supplementation with probiotics adversely affected glucose metabolism [<xref rid="bib-0046" ref-type="bibr">46</xref>]. This study holds great promise for the therapeutic regulation of blood glucose, such as butyrate production, through GM intervention, as well as for early T2DM treatment and prevention.</p><p>Additionally, a healthy GM is characterized by an abundance of bacteria, a complex and stable structure, and a strong resistance to external environmental stresses, such as drugs, foods, and physiological changes in the human body [<xref rid="bib-0049" ref-type="bibr">49</xref>]. Patients with T2DM in this study had lower OTU abundance and species richness as well as fewer genera than healthy women, indicating that the GM structure of patients with T2DM was drastically altered. Therefore, treatment of T2DM in the future may be possible by regulating the GM.</p><p>GM evolves with age and is primarily characterized by reduced diversity and changes in the core microbiota [<xref rid="bib-0050" ref-type="bibr">50</xref>]. Notably, obesity is a potent driver of gut dysbiosis, typically characterized by decreased microbial diversity, altered Firmicutes/Bacteroidetes ratios, and increased proinflammatory bacteria [<xref rid="bib-0051" ref-type="bibr">51</xref>]. This “age‐ or obesity‐associated microbiota” may substantially overlap with the microbial profiles observed in T2DM and GDM [<xref rid="bib-0011" ref-type="bibr">11</xref>]. Wu et al. adjusted for multiple covariates, including BMI and age, to analyze the association between the GM and T2DM. The association between certain microbiota and T2DM weakened or even disappeared [<xref rid="bib-0052" ref-type="bibr">52</xref>], highlighting the importance of age and BMI as confounding factors. Crusell et al. noted that the GM of women with GDM differs from that of healthy pregnant women. They specifically highlighted that the prepregnancy BMI is a major factor influencing the composition of the microbiota. After adjustment, the GM of women with GDM exhibited distinct patterns, yet specific microbial biomarkers persisted (e.g., enrichment of the <italic>Collinsella</italic> genus) [<xref rid="bib-0020" ref-type="bibr">20</xref>]. This finding suggests that some microbial alterations occur independent of BMI, whereas others are BMI‐dependent. In summary, age and BMI must be controlled for as confounding factors when conducting studies on the association between GM and GDM or T2DM. However, the current study did not control for age and BMI, and these variables were not sufficiently adjusted in the model, which may have introduced potential confounding effects on the GM association results. Therefore, future studies with larger sample sizes and matched designs will be conducted to validate the findings.</p><p>This study has several advantages. First, the study population was divided into four groups: GDM, healthy pregnant women, T2DM, and healthy women, allowing comprehensive and convincing data analysis. Second, the study population tended to be young (20–40 years old), which leaves room for guidance in preventing the development of GDM into T2DM in terms of disease plasticity. However, this study had some limitations. First, the sample size was relatively small; however, it can be expanded later to confirm the results more definitively. Second, age and weight were not fully controlled for, as age and obesity are independent risk factors for GDM and T2DM [<xref rid="bib-0037" ref-type="bibr">37</xref>], which are more challenging to control when samples are collected. Future studies should recruit a larger number of participants. Although the study lacked dietary data, all participants were long‐term residents of Changzhou City, Jiangsu Province, China. Data collection was conducted at the Changzhou Second People′s Hospital, affiliated with Nanjing Medical University, with participants matched for baseline characteristics such as age and sex that may influence dietary patterns. Although this cannot entirely rule out dietary differences, it helps to mitigate potential systematic biases. Future studies should incorporate detailed dietary assessments to validate and expand the preliminary findings. Finally, this study employed 16S rRNA gene sequencing, which makes it challenging to detect differences below the genus level of GM. Macroeconomic analysis or other more accurate assays can be used to conduct further studies.</p></sec><sec id="sec-0019" disp-level="1"><title>5. Conclusion</title><p>Pregnant women with GDM had more Firmicutes, and fewer Bacteroidetes and <italic>Lachnobacterium</italic> were noted compared to healthy individuals. Significant changes in the numbers of other bacteria were also noted in patients with T2DM. If these findings are validated in future studies with larger sample sizes, they will provide new avenues for the application of intestinal microecological agents in the treatment of GDM and T2DM.</p></sec><sec id="sec-0020" disp-level="1"><title>Author Contributions</title><p>Yao Qing′s and Huanyu Zhou′s contributions to this work were equal.</p></sec><sec id="sec-0022" disp-level="1"><title>Funding</title><p>Jiangsu Provincial Maternal and Child Health Association (FYX201807), Changzhou Health Bureau (ZD201811), and Changzhou Science and Technology Bureau (CZ20210025 and MH202508).</p></sec><sec id="sec-0023" disp-level="1"><title>Disclosure</title><p>The funders had no role in the study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p></sec><sec id="sec-0024" disp-level="1"><title>Ethics Statement</title><p>This study was approved by the Ethics Committee of the Second People′s Hospital of Changzhou, affiliated with Nanjing Medical University, and adhered to the principles of the Declaration of Helsinki. The research protocol was approved under the following number: [2021] KY011‐01. All the participants provided informed consent. The registry was approved, and the study/trial registration number was not applicable (N/A).</p></sec><sec id="sec-0025" disp-level="1"><title>Conflicts of Interest</title><p>The authors declare no conflicts of interest.</p></sec><sec id="sec-0028" disp-level="1"><title>Author Biographies</title><p>
+<bold>Jinhua Wei</bold> is currently an associate professor at Changzhou Second People′s Hospital. She underwent a year of training in the Department of Medicine at Yale University. Her research focuses on microbes in the human gut and methods for identifying and diagnosing diabetes, as well as gestational diabetes.</p><p>
+<bold>Jianbo Gao</bold> earned his Ph.D. from Nanjing Medical University. He is currently the chief physician in the endocrinology department at the Second People′s Hospital of Changzhou and an associate professor and master′s supervisor at the Third Affiliated Hospital of Nanjing Medical University. His research interests include diabetes, gestational diabetes mellitus, insulin sensitivity, and insulin resistance.</p><p>
+<bold>Yao Qing</bold> currently works at Nanchong Central Hospital as a hospital doctor. Her research interests include the gut microbiota, diabetes, and gestational diabetes mellitus.</p><p>
+<bold>Huanyu Zhou</bold> currently works at Wuxi No. 2 People′s Hospital as a hospital doctor. Her research interests include the gut microbiota, gestational diabetes mellitus, and lactation.</p><p>
+<bold>Chaomeng Zhou</bold> currently works at Shenzhen Luohu Maternity and Child Healthcare Hospital as a hospital doctor. Her research interests include the gut microbiota, gestational diabetes mellitus, and lactation.</p><p>
+<bold>Zhe Song</bold> currently works at Jiangyin Maternal and Child Health Hospital as a hospital doctor. Her research interests include gestational diabetes mellitus and lactation.</p></sec><sec id="sec26" disp-level="1"><title>Supporting information</title><supplementary-material id="link-0001" position="float"><caption><p>
+<bold>????</bold> Additional supporting information can be found online in the Supporting Information section. Table S1: (a) Comparison of clinical data between Groups G and N. (b) Comparison of clinical data between Groups D and A. Table S2: (a) Analysis of GM differences between Groups G and N at the phylum level. (b) Analysis of GM differences between Groups D and A at the phylum level.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JDR-2026-3036209-s001.docx" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document"><?cloudpmc-path 385c/13162232/a93d72d59b1c/JDR-2026-3036209-s001.docx?><?cloudpmc-bucket app?><?size 20981?></media></supplementary-material></sec><sec id="sec-0021" sec-type="ack" disp-level="1"><title>Acknowledgments</title><p>The authors thank BGI Genomics (BGI‐Wuhan, Wuhan, China) for their assistance.</p></sec><sec id="notes1" disp-level="1"><p>
+
+
+Qing, Yao
+, 
+
+Zhou, Huanyu
+, 
+
+Zhou, Chaomeng
+, 
+
+Song, Zhe
+, 
+
+Gao, Jianbo
+, 
+
+Wei, Jinhua
+, 
+16S rRNA Gene Amplicon Sequencing of Gut Microbiota in Gestational Diabetes Mellitus and Type 2 Diabetes Mellitus, 
+Journal of Diabetes Research, 2026, 3036209, 10 pages, 2026. 
+10.1155/jdr/3036209
+
+</p><sec id="fn-group1" sec-type="fn-group" disp-level="2"><fn-group><fn id="note-0001"><p>
+<bold>Academic Editor:</bold> Syed Anees Ahmed</p></fn></fn-group></sec></sec><sec id="_ci93_" xml:lang="en" sec-type="contrib-info" disp-level="1"><title>Contributor Information</title><p>Jianbo Gao, Email: czgaojb@126.com.</p><p>Jinhua Wei, Email: czweijh@126.com.</p><p>Syed Anees Ahmed, Email: syedanees.cdri@gmail.com.</p></sec><sec id="sec-0027" disp-level="1"><title>Data Availability Statement</title><p>The data that support the findings of this study are available on request from the corresponding authors. The data are not publicly available due to privacy or ethical restrictions.</p></sec><sec id="ref-list1" sec-type="ref-list" disp-level="1"><title>References</title><sec id="ref-list1_sec2" disp-level="2"><ref-list><ref id="bib-0001"><label>1.</label><mixed-citation id="cit-0001"><named-content content-type="citation-string">
+Zhu Y. and 
+Zhang C., Prevalence of Gestational Diabetes and Risk of Progression to Type 2 Diabetes: A Global Perspective, Current Diabetes Reports. (2016) 16, no. 1, 10.1007/s11892-015-0699-x, 2-s2.0-84953385415, 26742932.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s11892-015-0699-x"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC6675405"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="26742932"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Current Diabetes Reports&amp;title=Prevalence of Gestational Diabetes and Risk of Progression to Type 2 Diabetes: A Global Perspective&amp;author=Y. Zhu&amp;author=C. Zhang&amp;volume=16&amp;publication_year=2016&amp;pmid=26742932&amp;doi=10.1007/s11892-015-0699-x&amp;"/></mixed-citation></ref><ref id="bib-0002"><label>2.</label><mixed-citation id="cit-0002"><named-content content-type="citation-string">
+Chiefari E., 
+Arcidiacono B., 
+Foti D., and 
+Brunetti A., Gestational Diabetes Mellitus: An Updated Overview, Journal of Endocrinological Investigation. (2017) 40, no. 9, 899–909, 10.1007/s40618-016-0607-5, 2-s2.0-85019087746, 28283913.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s40618-016-0607-5"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="28283913"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Journal of Endocrinological Investigation&amp;title=Gestational Diabetes Mellitus: An Updated Overview&amp;author=E. Chiefari&amp;author=B. Arcidiacono&amp;author=D. Foti&amp;author=A. Brunetti&amp;volume=40&amp;publication_year=2017&amp;pages=899-909&amp;pmid=28283913&amp;doi=10.1007/s40618-016-0607-5&amp;"/></mixed-citation></ref><ref id="bib-0003"><label>3.</label><mixed-citation id="cit-0003"><named-content content-type="citation-string">
+Bellamy L., 
+Casas J. P., 
+Hingorani A. D., and 
+Williams D., Type 2 Diabetes Mellitus After Gestational Diabetes: A Systematic Review and Meta-Analysis, Lancet. (2009) 373, no. 9677, 1773–1779, 10.1016/S0140-6736(09)60731-5, 2-s2.0-65649084159, 19465232.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/S0140-6736(09)60731-5"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="19465232"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Lancet&amp;title=Type 2 Diabetes Mellitus After Gestational Diabetes: A Systematic Review and Meta-Analysis&amp;author=L. Bellamy&amp;author=J. P. Casas&amp;author=A. D. Hingorani&amp;author=D. Williams&amp;volume=373&amp;publication_year=2009&amp;pages=1773-1779&amp;pmid=19465232&amp;doi=10.1016/S0140-6736(09)60731-5&amp;"/></mixed-citation></ref><ref id="bib-0004"><label>4.</label><mixed-citation id="cit-0004"><named-content content-type="citation-string">
+American Diabetes Association, Diagnosis and Classification of Diabetes Mellitus, Diabetes Care. (2013) 36, no. 1, S67–S74, 10.2337/dc13-S067, 2-s2.0-84871941957, 23264425.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.2337/dc13-S067"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC3537273"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="23264425"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Diabetes Care&amp;title=Diagnosis and Classification of Diabetes Mellitus&amp;author= American Diabetes Association&amp;volume=36&amp;publication_year=2013&amp;pages=S67-S74&amp;pmid=23264425&amp;doi=10.2337/dc13-S067&amp;"/></mixed-citation></ref><ref id="bib-0005"><label>5.</label><mixed-citation id="cit-0005"><named-content content-type="citation-string">
+McIntyre H. D., 
+Catalano P., 
+Zhang C., 
+Desoye G., 
+Mathiesen E. R., and 
+Damm P., Gestational Diabetes Mellitus, Nature Reviews. Disease Primers. (2019) 5, no. 1, 10.1038/s41572-019-0098-8, 2-s2.0-85068918533, 31296866.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/s41572-019-0098-8"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="31296866"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature Reviews. Disease Primers&amp;title=Gestational Diabetes Mellitus&amp;author=H. D. McIntyre&amp;author=P. Catalano&amp;author=C. Zhang&amp;author=G. Desoye&amp;author=E. R. Mathiesen&amp;volume=5&amp;publication_year=2019&amp;pmid=31296866&amp;doi=10.1038/s41572-019-0098-8&amp;"/></mixed-citation></ref><ref id="bib-0006"><label>6.</label><mixed-citation id="cit-0006"><named-content content-type="citation-string">
+Donath M. Y. and 
+Shoelson S. E., Type 2 Diabetes as an Inflammatory Disease, Nature Reviews. Immunology. (2011) 11, no. 2, 98–107, 10.1038/nri2925, 2-s2.0-79151478555, 21233852.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/nri2925"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="21233852"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature Reviews. Immunology&amp;title=Type 2 Diabetes as an Inflammatory Disease&amp;author=M. Y. Donath&amp;author=S. E. Shoelson&amp;volume=11&amp;publication_year=2011&amp;pages=98-107&amp;pmid=21233852&amp;doi=10.1038/nri2925&amp;"/></mixed-citation></ref><ref id="bib-0007"><label>7.</label><mixed-citation id="cit-0007"><named-content content-type="citation-string">
+Velmurugan G., 
+Ramprasath T., 
+Gilles M., 
+Swaminathan K., and 
+Ramasamy S., Gut Microbiota, Endocrine-Disrupting Chemicals, and the Diabetes Epidemic, Trends in Endocrinology and Metabolism. (2017) 28, no. 8, 612–625, 10.1016/j.tem.2017.05.001, 2-s2.0-85019765571, 28571659.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/j.tem.2017.05.001"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="28571659"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Trends in Endocrinology and Metabolism&amp;title=Gut Microbiota, Endocrine-Disrupting Chemicals, and the Diabetes Epidemic&amp;author=G. Velmurugan&amp;author=T. Ramprasath&amp;author=M. Gilles&amp;author=K. Swaminathan&amp;author=S. Ramasamy&amp;volume=28&amp;publication_year=2017&amp;pages=612-625&amp;pmid=28571659&amp;doi=10.1016/j.tem.2017.05.001&amp;"/></mixed-citation></ref><ref id="bib-0008"><label>8.</label><mixed-citation id="cit-0008"><named-content content-type="citation-string">
+Tobias D. K., Prediction and Prevention of Type 2 Diabetes in Women With a History of GDM, Current Diabetes Reports. (2018) 18, no. 10, 10.1007/s11892-018-1063-8, 2-s2.0-85051694193, 30117058.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s11892-018-1063-8"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="30117058"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Current Diabetes Reports&amp;title=Prediction and Prevention of Type 2 Diabetes in Women With a History of GDM&amp;author=D. K. Tobias&amp;volume=18&amp;publication_year=2018&amp;pmid=30117058&amp;doi=10.1007/s11892-018-1063-8&amp;"/></mixed-citation></ref><ref id="bib-0009"><label>9.</label><mixed-citation id="cit-0009"><named-content content-type="citation-string">
+Kasher-Meron M. and 
+Grajower M. M., Preventing Progression From Gestational Diabetes Mellitus to Diabetes: A Thought-Filled Review, Diabetes Metabolism Research and Reviews. (2017) 33, no. 7, 10.1002/dmrr.2909, 2-s2.0-85020543064, 28544499.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1002/dmrr.2909"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="28544499"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Diabetes Metabolism Research and Reviews&amp;title=Preventing Progression From Gestational Diabetes Mellitus to Diabetes: A Thought-Filled Review&amp;author=M. Kasher-Meron&amp;author=M. M. Grajower&amp;volume=33&amp;publication_year=2017&amp;pmid=28544499&amp;doi=10.1002/dmrr.2909&amp;"/></mixed-citation></ref><ref id="bib-0010"><label>10.</label><mixed-citation id="cit-0010"><named-content content-type="citation-string">
+Jiao N., 
+Baker S. S., 
+Nugent C. A., 
+Tsompana M., 
+Cai L., 
+Wang Y., 
+Buck M. J., 
+Genco R. J., 
+Baker R. D., 
+Zhu R., and 
+Zhu L., Gut Microbiome May Contribute to Insulin Resistance and Systemic Inflammation in Obese Rodents: A Meta-Analysis, Physiological Genomics. (2018) 50, no. 4, 244–254, 10.1152/physiolgenomics.00114.2017, 2-s2.0-85054701111, 29373083.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1152/physiolgenomics.00114.2017"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29373083"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Physiological Genomics&amp;title=Gut Microbiome May Contribute to Insulin Resistance and Systemic Inflammation in Obese Rodents: A Meta-Analysis&amp;author=N. Jiao&amp;author=S. S. Baker&amp;author=C. A. Nugent&amp;author=M. Tsompana&amp;author=L. Cai&amp;volume=50&amp;publication_year=2018&amp;pages=244-254&amp;pmid=29373083&amp;doi=10.1152/physiolgenomics.00114.2017&amp;"/></mixed-citation></ref><ref id="bib-0011"><label>11.</label><mixed-citation id="cit-0011"><named-content content-type="citation-string">
+Tilg H., 
+Zmora N., 
+Adolph T. E., and 
+Elinav E., The Intestinal Microbiota Fuelling Metabolic Inflammation, Nature Reviews. Immunology. (2020) 20, no. 1, 40–54, 10.1038/s41577-019-0198-4, 2-s2.0-85070302082, 31388093.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/s41577-019-0198-4"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="31388093"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature Reviews. Immunology&amp;title=The Intestinal Microbiota Fuelling Metabolic Inflammation&amp;author=H. Tilg&amp;author=N. Zmora&amp;author=T. E. Adolph&amp;author=E. Elinav&amp;volume=20&amp;publication_year=2020&amp;pages=40-54&amp;pmid=31388093&amp;doi=10.1038/s41577-019-0198-4&amp;"/></mixed-citation></ref><ref id="bib-0012"><label>12.</label><mixed-citation id="cit-0012"><named-content content-type="citation-string">
+Hotamisligil G. S., Inflammation, Metaflammation and Immunometabolic Disorders, Nature. (2017) 542, no. 7640, 177–185, 10.1038/nature21363, 2-s2.0-85012115740, 28179656.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/nature21363"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="28179656"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature&amp;title=Inflammation, Metaflammation and Immunometabolic Disorders&amp;author=G. S. Hotamisligil&amp;volume=542&amp;publication_year=2017&amp;pages=177-185&amp;pmid=28179656&amp;doi=10.1038/nature21363&amp;"/></mixed-citation></ref><ref id="bib-0013"><label>13.</label><mixed-citation id="cit-0013"><named-content content-type="citation-string">
+Hasain Z., 
+Mokhtar N. M., 
+Kamaruddin N. A., 
+Mohamed Ismail N. A., 
+Razalli N. H., 
+Gnanou J. V., and 
+Raja Ali R. A., Gut Microbiota and Gestational Diabetes Mellitus: A Review of Host-Gut Microbiota Interactions and Their Therapeutic Potential, Frontiers in Cellular and Infection Microbiology. (2020) 10, 10.3389/fcimb.2020.00188, 32500037.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.3389/fcimb.2020.00188"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC7243459"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="32500037"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Frontiers in Cellular and Infection Microbiology&amp;title=Gut Microbiota and Gestational Diabetes Mellitus: A Review of Host-Gut Microbiota Interactions and Their Therapeutic Potential&amp;author=Z. Hasain&amp;author=N. M. Mokhtar&amp;author=N. A. Kamaruddin&amp;author=N. A. Mohamed Ismail&amp;author=N. H. Razalli&amp;volume=10&amp;publication_year=2020&amp;pmid=32500037&amp;doi=10.3389/fcimb.2020.00188&amp;"/></mixed-citation></ref><ref id="bib-0014"><label>14.</label><mixed-citation id="cit-0014"><named-content content-type="citation-string">
+Karlsson F. H., 
+Tremaroli V., 
+Nookaew I., 
+Bergström G., 
+Behre C. J., 
+Fagerberg B., 
+Nielsen J., and 
+Bäckhed F., Gut Metagenome in European Women With Normal, Impaired and Diabetic Glucose Control, Nature. (2013) 498, no. 7452, 99–103, 10.1038/nature12198, 2-s2.0-84878709716, 23719380.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/nature12198"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="23719380"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature&amp;title=Gut Metagenome in European Women With Normal, Impaired and Diabetic Glucose Control&amp;author=F. H. Karlsson&amp;author=V. Tremaroli&amp;author=I. Nookaew&amp;author=G. Bergström&amp;author=C. J. Behre&amp;volume=498&amp;publication_year=2013&amp;pages=99-103&amp;pmid=23719380&amp;doi=10.1038/nature12198&amp;"/></mixed-citation></ref><ref id="bib-0015"><label>15.</label><mixed-citation id="cit-0015"><named-content content-type="citation-string">
+Qin J., 
+Li Y., 
+Cai Z., 
+Li S., 
+Zhu J., 
+Zhang F., 
+Liang S., 
+Zhang W., 
+Guan Y., 
+Shen D., 
+Peng Y., 
+Zhang D., 
+Jie Z., 
+Wu W., 
+Qin Y., 
+Xue W., 
+Li J., 
+Han L., 
+Lu D., 
+Wu P., 
+Dai Y., 
+Sun X., 
+Li Z., 
+Tang A., 
+Zhong S., 
+Li X., 
+Chen W., 
+Xu R., 
+Wang M., 
+Feng Q., 
+Gong M., 
+Yu J., 
+Zhang Y., 
+Zhang M., 
+Hansen T., 
+Sanchez G., 
+Raes J., 
+Falony G., 
+Okuda S., 
+Almeida M., 
+LeChatelier E., 
+Renault P., 
+Pons N., 
+Batto J. M., 
+Zhang Z., 
+Chen H., 
+Yang R., 
+Zheng W., 
+Li S., 
+Yang H., 
+Wang J., 
+Ehrlich S. D., 
+Nielsen R., 
+Pedersen O., 
+Kristiansen K., and 
+Wang J., A Metagenome-Wide Association Study of Gut Microbiota in Type 2 Diabetes, Nature. (2012) 490, no. 7418, 55–60, 10.1038/nature11450, 2-s2.0-84867074831, 23023125.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/nature11450"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="23023125"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature&amp;title=A Metagenome-Wide Association Study of Gut Microbiota in Type 2 Diabetes&amp;author=J. Qin&amp;author=Y. Li&amp;author=Z. Cai&amp;author=S. Li&amp;author=J. Zhu&amp;volume=490&amp;publication_year=2012&amp;pages=55-60&amp;pmid=23023125&amp;doi=10.1038/nature11450&amp;"/></mixed-citation></ref><ref id="bib-0016"><label>16.</label><mixed-citation id="cit-0016"><named-content content-type="citation-string">
+Pedersen H. K., 
+Gudmundsdottir V., 
+Nielsen H. B., 
+Hyotylainen T., 
+Nielsen T., 
+Jensen B. A., 
+Forslund K., 
+Hildebrand F., 
+Prifti E., 
+Falony G., 
+Le Chatelier E., 
+Levenez F., 
+Doré J., 
+Mattila I., 
+Plichta D. R., 
+Pöhö P., 
+Hellgren L. I., 
+Arumugam M., 
+Sunagawa S., 
+Vieira-Silva S., 
+Jørgensen T., 
+Holm J. B., 
+Trošt K., 
+Kristiansen K., 
+Brix S., 
+Raes J., 
+Wang J., 
+Hansen T., 
+Bork P., 
+Brunak S., 
+Oresic M., 
+Ehrlich S. D., and 
+Pedersen O., Human Gut Microbes Impact Host Serum Metabolome and Insulin Sensitivity, Nature. (2016) 535, no. 7612, 376–381, 27409811.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/nature18646"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="27409811"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature&amp;title=Human Gut Microbes Impact Host Serum Metabolome and Insulin Sensitivity&amp;author=H. K. Pedersen&amp;author=V. Gudmundsdottir&amp;author=H. B. Nielsen&amp;author=T. Hyotylainen&amp;author=T. Nielsen&amp;volume=535&amp;publication_year=2016&amp;pages=376-381&amp;pmid=27409811&amp;doi=10.1038/nature18646&amp;"/></mixed-citation></ref><ref id="bib-0017"><label>17.</label><mixed-citation id="cit-0017"><named-content content-type="citation-string">
+Kashyap P. and 
+Farrugia G., Oxidative Stress: Key Player in Gastrointestinal Complications of Diabetes, Neurogastroenterology and Motility. (2011) 23, no. 2, 111–114, 10.1111/j.1365-2982.2010.01659.x, 2-s2.0-78651426671, 21226884.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1111/j.1365-2982.2010.01659.x"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC4441525"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="21226884"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Neurogastroenterology and Motility&amp;title=Oxidative Stress: Key Player in Gastrointestinal Complications of Diabetes&amp;author=P. Kashyap&amp;author=G. Farrugia&amp;volume=23&amp;publication_year=2011&amp;pages=111-114&amp;pmid=21226884&amp;doi=10.1111/j.1365-2982.2010.01659.x&amp;"/></mixed-citation></ref><ref id="bib-0018"><label>18.</label><mixed-citation id="cit-0018"><named-content content-type="citation-string">
+Koren O., 
+Goodrich J. K., 
+Cullender T. C., 
+Spor A., 
+Laitinen K., 
+Bäckhed H. K., 
+Gonzalez A., 
+Werner J. J., 
+Angenent L. T., 
+Knight R., 
+Bäckhed F., 
+Isolauri E., 
+Salminen S., and 
+Ley R. E., Host Remodeling of the Gut Microbiome and Metabolic Changes During Pregnancy, Cell. (2012) 150, no. 3, 470–480, 10.1016/j.cell.2012.07.008, 2-s2.0-84864614787, 22863002.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/j.cell.2012.07.008"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC3505857"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="22863002"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Cell&amp;title=Host Remodeling of the Gut Microbiome and Metabolic Changes During Pregnancy&amp;author=O. Koren&amp;author=J. K. Goodrich&amp;author=T. C. Cullender&amp;author=A. Spor&amp;author=K. Laitinen&amp;volume=150&amp;publication_year=2012&amp;pages=470-480&amp;pmid=22863002&amp;doi=10.1016/j.cell.2012.07.008&amp;"/></mixed-citation></ref><ref id="bib-0019"><label>19.</label><mixed-citation id="cit-0019"><named-content content-type="citation-string">
+Kuang Y. S., 
+Lu J. H., 
+Li S. H., 
+Li J. H., 
+Yuan M. Y., 
+He J. R., 
+Chen N. N., 
+Xiao W. Q., 
+Shen S. Y., 
+Qiu L., 
+Wu Y. F., 
+Hu C. Y., 
+Wu Y. Y., 
+Li W. D., 
+Chen Q. Z., 
+Deng H. W., 
+Papasian C. J., 
+Xia H. M., and 
+Qiu X., Connections Between the Human Gut Microbiome and Gestational Diabetes Mellitus, GigaScience. (2017) 6, no. 8, 1–12, 10.1093/gigascience/gix058, 2-s2.0-85042194585, 28873967.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1093/gigascience/gix058"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC5597849"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="28873967"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=GigaScience&amp;title=Connections Between the Human Gut Microbiome and Gestational Diabetes Mellitus&amp;author=Y. S. Kuang&amp;author=J. H. Lu&amp;author=S. H. Li&amp;author=J. H. Li&amp;author=M. Y. Yuan&amp;volume=6&amp;publication_year=2017&amp;pages=1-12&amp;pmid=28873967&amp;doi=10.1093/gigascience/gix058&amp;"/></mixed-citation></ref><ref id="bib-0020"><label>20.</label><mixed-citation id="cit-0020"><named-content content-type="citation-string">
+Crusell M. K. W., 
+Hansen T. H., 
+Nielsen T., 
+Allin K. H., 
+Rühlemann M. C., 
+Damm P., 
+Vestergaard H., 
+Rørbye C., 
+Jørgensen N. R., 
+Christiansen O. B., 
+Heinsen F. A., 
+Franke A., 
+Hansen T., 
+Lauenborg J., and 
+Pedersen O., Gestational Diabetes Is Associated With Change in the Gut Microbiota Composition in Third Trimester of Pregnancy and Postpartum, Microbiome. (2018) 6, no. 1, 10.1186/s40168-018-0472-x, 2-s2.0-85055908017, 29764499.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1186/s40168-018-0472-x"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC5952429"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29764499"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Microbiome&amp;title=Gestational Diabetes Is Associated With Change in the Gut Microbiota Composition in Third Trimester of Pregnancy and Postpartum&amp;author=M. K. W. Crusell&amp;author=T. H. Hansen&amp;author=T. Nielsen&amp;author=K. H. Allin&amp;author=M. C. Rühlemann&amp;volume=6&amp;publication_year=2018&amp;pmid=29764499&amp;doi=10.1186/s40168-018-0472-x&amp;"/></mixed-citation></ref><ref id="bib-0021"><label>21.</label><mixed-citation id="cit-0021"><named-content content-type="citation-string">
+Harreiter J., 
+Simmons D., 
+Desoye G., 
+Corcoy R., 
+Adelantado J. M., 
+Devlieger R., 
+van Assche A., 
+Galjaard S., 
+Damm P., 
+Mathiesen E. R., 
+Jensen D. M., 
+Andersen L. L., 
+Dunne F., 
+Lapolla A., 
+Dalfra M. G., 
+Bertolotto A., 
+Mantaj U., 
+Wender-Ozegowska E., 
+Zawiejska A., 
+Hill D., 
+Jelsma J. G., 
+Snoek F. J., 
+Worda C., 
+Bancher-Todesca D., 
+van Poppel M. N., 
+Kautzky-Willer A., and 
+DALI Core Investigator group, IADPSG and WHO 2013 Gestational Diabetes Mellitus Criteria Identify Obese Women With Marked Insulin Resistance in Early Pregnancy, Diabetes Care. (2016) 39, no. 7, e90–e92, 10.2337/dc16-0200, 2-s2.0-84975865503, 27208336.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.2337/dc16-0200"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="27208336"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Diabetes Care&amp;title=IADPSG and WHO 2013 Gestational Diabetes Mellitus Criteria Identify Obese Women With Marked Insulin Resistance in Early Pregnancy&amp;author=J. Harreiter&amp;author=D. Simmons&amp;author=G. Desoye&amp;author=R. Corcoy&amp;author=J. M. Adelantado&amp;volume=39&amp;publication_year=2016&amp;pages=e90-e92&amp;pmid=27208336&amp;doi=10.2337/dc16-0200&amp;"/></mixed-citation></ref><ref id="bib-0022"><label>22.</label><mixed-citation id="cit-0022"><named-content content-type="citation-string">
+Sato J., 
+Kanazawa A., and 
+Watada H., Type 2 Diabetes and Bacteremia, Annals of Nutrition &amp; Metabolism. (2017) 71, no. Suppl 1, 17–22, 10.1159/000479919, 2-s2.0-85030224139.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1159/000479919"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="28950280"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Annals of Nutrition &amp; Metabolism&amp;title=Type 2 Diabetes and Bacteremia&amp;author=J. Sato&amp;author=A. Kanazawa&amp;author=H. Watada&amp;volume=71&amp;publication_year=2017&amp;pages=17-22&amp;pmid=28950280&amp;doi=10.1159/000479919&amp;"/></mixed-citation></ref><ref id="bib-0023"><label>23.</label><mixed-citation id="cit-0023"><named-content content-type="citation-string">
+Di Cianni G., 
+Miccoli R., 
+Volpe L., 
+Lencioni C., and 
+Del Prato S., Intermediate Metabolism in Normal Pregnancy and in Gestational Diabetes, Diabetes Metabolism Research and Reviews. (2003) 19, no. 4, 259–270, 10.1002/dmrr.390, 2-s2.0-0042093521, 12879403.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1002/dmrr.390"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="12879403"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Diabetes Metabolism Research and Reviews&amp;title=Intermediate Metabolism in Normal Pregnancy and in Gestational Diabetes&amp;author=G. Di Cianni&amp;author=R. Miccoli&amp;author=L. Volpe&amp;author=C. Lencioni&amp;author=S. Del Prato&amp;volume=19&amp;publication_year=2003&amp;pages=259-270&amp;pmid=12879403&amp;doi=10.1002/dmrr.390&amp;"/></mixed-citation></ref><ref id="bib-0024"><label>24.</label><mixed-citation id="cit-0024"><named-content content-type="citation-string">
+Mor G. and 
+Cardenas I., The Immune System in Pregnancy: A Unique Complexity, American Journal of Reproductive Immunology. (2010) 63, no. 6, 425–433, 10.1111/j.1600-0897.2010.00836.x, 2-s2.0-77953951242, 20367629.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1111/j.1600-0897.2010.00836.x"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC3025805"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="20367629"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=American Journal of Reproductive Immunology&amp;title=The Immune System in Pregnancy: A Unique Complexity&amp;author=G. Mor&amp;author=I. Cardenas&amp;volume=63&amp;publication_year=2010&amp;pages=425-433&amp;pmid=20367629&amp;doi=10.1111/j.1600-0897.2010.00836.x&amp;"/></mixed-citation></ref><ref id="bib-0025"><label>25.</label><mixed-citation id="cit-0025"><named-content content-type="citation-string">
+Gregor M. F. and 
+Hotamisligil G. S., Inflammatory Mechanisms in Obesity, Annual Review of Immunology. (2011) 29, 415–445, 10.1146/annurev-immunol-031210-101322, 2-s2.0-79953046341, 21219177.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1146/annurev-immunol-031210-101322"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="21219177"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Annual Review of Immunology&amp;title=Inflammatory Mechanisms in Obesity&amp;author=M. F. Gregor&amp;author=G. S. Hotamisligil&amp;volume=29&amp;publication_year=2011&amp;pages=415-445&amp;pmid=21219177&amp;doi=10.1146/annurev-immunol-031210-101322&amp;"/></mixed-citation></ref><ref id="bib-0026"><label>26.</label><mixed-citation id="cit-0026"><named-content content-type="citation-string">
+Hod M., 
+Kapur A., 
+Sacks D. A., 
+Hadar E., 
+Agarwal M., 
+Di Renzo G. C., 
+Cabero Roura L., 
+McIntyre H. D., 
+Morris J. L., and 
+Divakar H., The International Federation of Gynecology and Obstetrics (FIGO) Initiative on Gestational Diabetes Mellitus: A Pragmatic Guide for Diagnosis, Management, and Care, International Journal of Gynaecology and Obstetrics. (2015) 131 Suppl 3, no. 3, S173–S211, 10.1016/S0020-7292(15)30033-3, 26433807.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/S0020-7292(15)30033-3"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29644654"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=International Journal of Gynaecology and Obstetrics&amp;title=The International Federation of Gynecology and Obstetrics (FIGO) Initiative on Gestational Diabetes Mellitus: A Pragmatic Guide for Diagnosis, Management, and Care&amp;author=M. Hod&amp;author=A. Kapur&amp;author=D. A. Sacks&amp;author=E. Hadar&amp;author=M. Agarwal&amp;volume=131 Suppl 3&amp;publication_year=2015&amp;pages=S173-S211&amp;pmid=29644654&amp;doi=10.1016/S0020-7292(15)30033-3&amp;"/></mixed-citation></ref><ref id="bib-0027"><label>27.</label><mixed-citation id="cit-0027"><named-content content-type="citation-string">
+Wei J., 
+Qing Y., 
+Zhou H., 
+Liu J., 
+Qi C., and 
+Gao J., 16S rRNA Gene Amplicon Sequencing of Gut Microbiota in Gestational Diabetes Mellitus and Their Correlation With Disease Risk Factors, Journal of Endocrinological Investigation. (2022) 45, no. 2, 279–289, 10.1007/s40618-021-01595-4, 34302684.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s40618-021-01595-4"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC8308075"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="34302684"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Journal of Endocrinological Investigation&amp;title=16S rRNA Gene Amplicon Sequencing of Gut Microbiota in Gestational Diabetes Mellitus and Their Correlation With Disease Risk Factors&amp;author=J. Wei&amp;author=Y. Qing&amp;author=H. Zhou&amp;author=J. Liu&amp;author=C. Qi&amp;volume=45&amp;publication_year=2022&amp;pages=279-289&amp;pmid=34302684&amp;doi=10.1007/s40618-021-01595-4&amp;"/></mixed-citation></ref><ref id="bib-0028"><label>28.</label><mixed-citation id="cit-0028"><named-content content-type="citation-string">
+Ferrocino I., 
+Ponzo V., 
+Gambino R., 
+Zarovska A., 
+Leone F., 
+Monzeglio C., 
+Goitre I., 
+Rosato R., 
+Romano A., 
+Grassi G., 
+Broglio F., 
+Cassader M., 
+Cocolin L., and 
+Bo S., Changes in the Gut Microbiota Composition During Pregnancy in Patients With Gestational Diabetes Mellitus (GDM), Scientific Reports. (2018) 8, no. 1, 10.1038/s41598-018-30735-9, 2-s2.0-85051630836, 30111822.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/s41598-018-30735-9"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC6093919"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="30111822"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Scientific Reports&amp;title=Changes in the Gut Microbiota Composition During Pregnancy in Patients With Gestational Diabetes Mellitus (GDM)&amp;author=I. Ferrocino&amp;author=V. Ponzo&amp;author=R. Gambino&amp;author=A. Zarovska&amp;author=F. Leone&amp;volume=8&amp;publication_year=2018&amp;pmid=30111822&amp;doi=10.1038/s41598-018-30735-9&amp;"/></mixed-citation></ref><ref id="bib-0029"><label>29.</label><mixed-citation id="cit-0029"><named-content content-type="citation-string">
+Laksmana T., 
+Kittichotirat W., 
+Huang Y., 
+Chen W., 
+Jorgensen M., 
+Bumgarner R., and 
+Chen C., Metagenomic Analysis of Subgingival Microbiota Following Non-Surgical Periodontal Therapy: A Pilot Study, Open Dentistry Journal. (2012) 6, 255–261, 10.2174/1874210601206010255, 2-s2.0-84884195506, 23341849.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.2174/1874210601206010255"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC3547359"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="23341849"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Open Dentistry Journal&amp;title=Metagenomic Analysis of Subgingival Microbiota Following Non-Surgical Periodontal Therapy: A Pilot Study&amp;author=T. Laksmana&amp;author=W. Kittichotirat&amp;author=Y. Huang&amp;author=W. Chen&amp;author=M. Jorgensen&amp;volume=6&amp;publication_year=2012&amp;pages=255-261&amp;pmid=23341849&amp;doi=10.2174/1874210601206010255&amp;"/></mixed-citation></ref><ref id="bib-0030"><label>30.</label><mixed-citation id="cit-0030"><named-content content-type="citation-string">
+Bäckhed F., 
+Ding H., 
+Wang T., 
+Hooper L. V., 
+Koh G. Y., 
+Nagy A., 
+Semenkovich C. F., and 
+Gordon J. I., The Gut Microbiota as an Environmental Factor That Regulates Fat Storage, Proceedings of the National Academy of Sciences of the United States of America. (2004) 101, no. 44, 15718–15723, 10.1073/pnas.040707610, 15505215.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1073/pnas.040707610"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC524219"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="15505215"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Proceedings of the National Academy of Sciences of the United States of America&amp;title=The Gut Microbiota as an Environmental Factor That Regulates Fat Storage&amp;author=F. Bäckhed&amp;author=H. Ding&amp;author=T. Wang&amp;author=L. V. Hooper&amp;author=G. Y. Koh&amp;volume=101&amp;publication_year=2004&amp;pages=15718-15723&amp;pmid=15505215&amp;doi=10.1073/pnas.040707610&amp;"/></mixed-citation></ref><ref id="bib-0031"><label>31.</label><mixed-citation id="cit-0031"><named-content content-type="citation-string">
+Ponzo V., 
+Fedele D., 
+Goitre I., 
+Leone F., 
+Lezo A., 
+Monzeglio C., 
+Finocchiaro C., 
+Ghigo E., and 
+Bo S., Diet-Gut Microbiota Interactions and Gestational Diabetes Mellitus (GDM), Nutrients. (2019) 11, no. 2, 10.3390/nu11020330, 2-s2.0-85061118364, 30717458.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.3390/nu11020330"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC6413040"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="30717458"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nutrients&amp;title=Diet-Gut Microbiota Interactions and Gestational Diabetes Mellitus (GDM)&amp;author=V. Ponzo&amp;author=D. Fedele&amp;author=I. Goitre&amp;author=F. Leone&amp;author=A. Lezo&amp;volume=11&amp;publication_year=2019&amp;pmid=30717458&amp;doi=10.3390/nu11020330&amp;"/></mixed-citation></ref><ref id="bib-0032"><label>32.</label><mixed-citation id="cit-0032"><named-content content-type="citation-string">
+Maskarinec G., 
+Raquinio P., 
+Kristal B. S., 
+Setiawan V. W., 
+Wilkens L. R., 
+Franke A. A., 
+Lim U., 
+Le Marchand L., 
+Randolph T. W., 
+Lampe J. W., and 
+Hullar M. A. J., The Gut Microbiome and Type 2 Diabetes Status in the Multiethnic Cohort, PLoS One. (2021) 16, no. 6, e0250855, 10.1371/journal.pone.0250855, 34161346.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1371/journal.pone.0250855"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC8221508"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="34161346"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=PLoS One&amp;title=The Gut Microbiome and Type 2 Diabetes Status in the Multiethnic Cohort&amp;author=G. Maskarinec&amp;author=P. Raquinio&amp;author=B. S. Kristal&amp;author=V. W. Setiawan&amp;author=L. R. Wilkens&amp;volume=16&amp;publication_year=2021&amp;pages=e0250855&amp;pmid=34161346&amp;doi=10.1371/journal.pone.0250855&amp;"/></mixed-citation></ref><ref id="bib-0033"><label>33.</label><mixed-citation id="cit-0033"><named-content content-type="citation-string">
+Ye X., 
+Wang D., 
+Zhu H., 
+Wang D., 
+Li J., 
+Tang Y., and 
+Wu J., Gut Microbiota Changes in Patients With Major Depressive Disorder Treated With Vortioxetine, Frontiers in Psychiatry. (2021) 12, 641491, 10.3389/fpsyt.2021.641491, 34025474.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.3389/fpsyt.2021.641491"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC8138160"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="34025474"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Frontiers in Psychiatry&amp;title=Gut Microbiota Changes in Patients With Major Depressive Disorder Treated With Vortioxetine&amp;author=X. Ye&amp;author=D. Wang&amp;author=H. Zhu&amp;author=D. Wang&amp;author=J. Li&amp;volume=12&amp;publication_year=2021&amp;pages=641491&amp;pmid=34025474&amp;doi=10.3389/fpsyt.2021.641491&amp;"/></mixed-citation></ref><ref id="bib-0034"><label>34.</label><mixed-citation id="cit-0034"><named-content content-type="citation-string">
+Xiang K., 
+Wang P., 
+Xu Z., 
+Hu Y. Q., 
+He Y. S., 
+Chen Y., 
+Feng Y. T., 
+Yin K. J., 
+Huang J. X., 
+Wang J., 
+Wu Z. D., 
+Yang X. K., 
+Wang D. G., 
+Ye D. Q., and 
+Pan H. F., Causal Effects of Gut Microbiome on Systemic Lupus Erythematosus: A Two-Sample Mendelian Randomization Study, Frontiers in Immunology. (2021) 12, 667097, 10.3389/fimmu.2021.667097, 34557183.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.3389/fimmu.2021.667097"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC8453215"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="34557183"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Frontiers in Immunology&amp;title=Causal Effects of Gut Microbiome on Systemic Lupus Erythematosus: A Two-Sample Mendelian Randomization Study&amp;author=K. Xiang&amp;author=P. Wang&amp;author=Z. Xu&amp;author=Y. Q. Hu&amp;author=Y. S. He&amp;volume=12&amp;publication_year=2021&amp;pages=667097&amp;pmid=34557183&amp;doi=10.3389/fimmu.2021.667097&amp;"/></mixed-citation></ref><ref id="bib-0035"><label>35.</label><mixed-citation id="cit-0035"><named-content content-type="citation-string">
+Meijnikman A. S., 
+Gerdes V. E., 
+Nieuwdorp M., and 
+Herrema H., Evaluating Causality of Gut Microbiota in Obesity and Diabetes in Humans, Endocrine Reviews. (2018) 39, no. 2, 133–153, 10.1210/er.2017-00192, 2-s2.0-85045852366, 29309555.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1210/er.2017-00192"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29309555"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Endocrine Reviews&amp;title=Evaluating Causality of Gut Microbiota in Obesity and Diabetes in Humans&amp;author=A. S. Meijnikman&amp;author=V. E. Gerdes&amp;author=M. Nieuwdorp&amp;author=H. Herrema&amp;volume=39&amp;publication_year=2018&amp;pages=133-153&amp;pmid=29309555&amp;doi=10.1210/er.2017-00192&amp;"/></mixed-citation></ref><ref id="bib-0036"><label>36.</label><mixed-citation id="cit-0036"><named-content content-type="citation-string">
+Wu G. D., 
+Chen J., 
+Hoffmann C., 
+Bittinger K., 
+Chen Y. Y., 
+Keilbaugh S. A., 
+Bewtra M., 
+Knights D., 
+Walters W. A., 
+Knight R., 
+Sinha R., 
+Gilroy E., 
+Gupta K., 
+Baldassano R., 
+Nessel L., 
+Li H., 
+Bushman F. D., and 
+Lewis J. D., Linking Long-Term Dietary Patterns With Gut Microbial Enterotypes, Science. (2011) 334, no. 6052, 105–108, 10.1126/science.1208344, 2-s2.0-80053618114, 21885731.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1126/science.1208344"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC3368382"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="21885731"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Science&amp;title=Linking Long-Term Dietary Patterns With Gut Microbial Enterotypes&amp;author=G. D. Wu&amp;author=J. Chen&amp;author=C. Hoffmann&amp;author=K. Bittinger&amp;author=Y. Y. Chen&amp;volume=334&amp;publication_year=2011&amp;pages=105-108&amp;pmid=21885731&amp;doi=10.1126/science.1208344&amp;"/></mixed-citation></ref><ref id="bib-0037"><label>37.</label><mixed-citation id="cit-0037"><named-content content-type="citation-string">
+David L. A., 
+Maurice C. F., 
+Carmody R. N., 
+Gootenberg D. B., 
+Button J. E., 
+Wolfe B. E., 
+Ling A. V., 
+Devlin A. S., 
+Varma Y., 
+Fischbach M. A., 
+Biddinger S. B., 
+Dutton R. J., and 
+Turnbaugh P. J., Diet Rapidly and Reproducibly Alters the Human Gut Microbiome, Nature. (2014) 505, no. 7484, 559–563, 10.1038/nature12820, 2-s2.0-84892828465, 24336217.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/nature12820"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC3957428"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="24336217"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature&amp;title=Diet Rapidly and Reproducibly Alters the Human Gut Microbiome&amp;author=L. A. David&amp;author=C. F. Maurice&amp;author=R. N. Carmody&amp;author=D. B. Gootenberg&amp;author=J. E. Button&amp;volume=505&amp;publication_year=2014&amp;pages=559-563&amp;pmid=24336217&amp;doi=10.1038/nature12820&amp;"/></mixed-citation></ref><ref id="bib-0038"><label>38.</label><mixed-citation id="cit-0038"><named-content content-type="citation-string">
+De Filippo C., 
+Cavalieri D., 
+Di Paola M., 
+Ramazzotti M., 
+Poullet J. B., 
+Massart S., 
+Collini S., 
+Pieraccini G., and 
+Lionetti P., Impact of Diet in Shaping Gut Microbiota Revealed by a Comparative Study in Children From Europe and Rural Africa, Proceedings of the National Academy of Sciences of the United States of America. (2010) 107, no. 33, 14691–14696, 10.1073/pnas.1005963107, 2-s2.0-77957075815, 20679230.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1073/pnas.1005963107"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC2930426"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="20679230"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Proceedings of the National Academy of Sciences of the United States of America&amp;title=Impact of Diet in Shaping Gut Microbiota Revealed by a Comparative Study in Children From Europe and Rural Africa&amp;author=C. De Filippo&amp;author=D. Cavalieri&amp;author=M. Di Paola&amp;author=M. Ramazzotti&amp;author=J. B. Poullet&amp;volume=107&amp;publication_year=2010&amp;pages=14691-14696&amp;pmid=20679230&amp;doi=10.1073/pnas.1005963107&amp;"/></mixed-citation></ref><ref id="bib-0039"><label>39.</label><mixed-citation id="cit-0039"><named-content content-type="citation-string">
+Shin N. R., 
+Whon T. W., and 
+Bae J. W., Proteobacteria: Microbial Signature of Dysbiosis in Gut Microbiota, Trends in Biotechnology. (2015) 33, no. 9, 496–503, 10.1016/j.tibtech.2015.06.011, 2-s2.0-84940451011, 26210164.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/j.tibtech.2015.06.011"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="26210164"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Trends in Biotechnology&amp;title=Proteobacteria: Microbial Signature of Dysbiosis in Gut Microbiota&amp;author=N. R. Shin&amp;author=T. W. Whon&amp;author=J. W. Bae&amp;volume=33&amp;publication_year=2015&amp;pages=496-503&amp;pmid=26210164&amp;doi=10.1016/j.tibtech.2015.06.011&amp;"/></mixed-citation></ref><ref id="bib-0040"><label>40.</label><mixed-citation id="cit-0040"><named-content content-type="citation-string">
+Liang H., 
+Lum H., 
+Alvarez A., 
+Garduno-Garcia J. J., 
+Daniel B. J., and 
+Musi N., A Low Dose Lipid Infusion Is Sufficient to Induce Insulin Resistance and a Pro-Inflammatory Response in Human Subjects, PLoS One. (2018) 13, no. 4, e0195810, 10.1371/journal.pone.0195810, 2-s2.0-85045447759, 29649324.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1371/journal.pone.0195810"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC5897027"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29649324"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=PLoS One&amp;title=A Low Dose Lipid Infusion Is Sufficient to Induce Insulin Resistance and a Pro-Inflammatory Response in Human Subjects&amp;author=H. Liang&amp;author=H. Lum&amp;author=A. Alvarez&amp;author=J. J. Garduno-Garcia&amp;author=B. J. Daniel&amp;volume=13&amp;publication_year=2018&amp;pages=e0195810&amp;pmid=29649324&amp;doi=10.1371/journal.pone.0195810&amp;"/></mixed-citation></ref><ref id="bib-0041"><label>41.</label><mixed-citation id="cit-0041"><named-content content-type="citation-string">
+Costea P. I., 
+Hildebrand F., 
+Arumugam M., 
+Bäckhed F., 
+Blaser M. J., 
+Bushman F. D., 
+de Vos W. M., 
+Ehrlich S. D., 
+Fraser C. M., 
+Hattori M., 
+Huttenhower C., 
+Jeffery I. B., 
+Knights D., 
+Lewis J. D., 
+Ley R. E., 
+Ochman H., 
+O′Toole P. W., 
+Quince C., 
+Relman D. A., 
+Shanahan F., 
+Sunagawa S., 
+Wang J., 
+Weinstock G. M., 
+Wu G. D., 
+Zeller G., 
+Zhao L., 
+Raes J., 
+Knight R., and 
+Bork P., Enterotypes in the Landscape of Gut Microbial Community Composition, Nature Microbiology. (2018) 3, no. 1, 8–16, 10.1038/s41564-017-0072-8, 2-s2.0-85038558113, 29255284.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/s41564-017-0072-8"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC5832044"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29255284"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature Microbiology&amp;title=Enterotypes in the Landscape of Gut Microbial Community Composition&amp;author=P. I. Costea&amp;author=F. Hildebrand&amp;author=M. Arumugam&amp;author=F. Bäckhed&amp;author=M. J. Blaser&amp;volume=3&amp;publication_year=2018&amp;pages=8-16&amp;pmid=29255284&amp;doi=10.1038/s41564-017-0072-8&amp;"/></mixed-citation></ref><ref id="bib-0042"><label>42.</label><mixed-citation id="cit-0042"><named-content content-type="citation-string">
+Kolodziejczyk A. A., 
+Zheng D., and 
+Elinav E., Diet-Microbiota Interactions and Personalized Nutrition, Nature Reviews. Microbiology. (2019) 17, no. 12, 742–753, 10.1038/s41579-019-0256-8, 2-s2.0-85074029234, 31541197.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/s41579-019-0256-8"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="31541197"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nature Reviews. Microbiology&amp;title=Diet-Microbiota Interactions and Personalized Nutrition&amp;author=A. A. Kolodziejczyk&amp;author=D. Zheng&amp;author=E. Elinav&amp;volume=17&amp;publication_year=2019&amp;pages=742-753&amp;pmid=31541197&amp;doi=10.1038/s41579-019-0256-8&amp;"/></mixed-citation></ref><ref id="bib-0043"><label>43.</label><mixed-citation id="cit-0043"><named-content content-type="citation-string">
+Hou Y. P., 
+He Q. Q., 
+Ouyang H. M., 
+Peng H. S., 
+Wang Q., 
+Li J., 
+Lv X. F., 
+Zheng Y. N., 
+Li S. C., 
+Liu H. L., and 
+Yin A. H., Human Gut Microbiota Associated With Obesity in Chinese Children and Adolescents, BioMed Research International. (2017) 2017, 7585989, 10.1155/2017/7585989, 2-s2.0-85042112381.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1155/2017/7585989"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC5682041"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29214176"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=BioMed Research International&amp;title=Human Gut Microbiota Associated With Obesity in Chinese Children and Adolescents&amp;author=Y. P. Hou&amp;author=Q. Q. He&amp;author=H. M. Ouyang&amp;author=H. S. Peng&amp;author=Q. Wang&amp;volume=2017&amp;publication_year=2017&amp;pages=7585989&amp;pmid=29214176&amp;doi=10.1155/2017/7585989&amp;"/></mixed-citation></ref><ref id="bib-0044"><label>44.</label><mixed-citation id="cit-0044"><named-content content-type="citation-string">
+Wang S., 
+Huang M., 
+You X., 
+Zhao J., 
+Chen L., 
+Wang L., 
+Luo Y., and 
+Chen Y., Gut Microbiota Mediates the Anti-Obesity Effect of Calorie Restriction in Mice, Scientific Reports. (2018) 8, no. 1, 13037, 10.1038/s41598-018-31353-1, 2-s2.0-85052656933, 30158649.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1038/s41598-018-31353-1"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC6115465"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="30158649"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Scientific Reports&amp;title=Gut Microbiota Mediates the Anti-Obesity Effect of Calorie Restriction in Mice&amp;author=S. Wang&amp;author=M. Huang&amp;author=X. You&amp;author=J. Zhao&amp;author=L. Chen&amp;volume=8&amp;publication_year=2018&amp;pages=13037&amp;pmid=30158649&amp;doi=10.1038/s41598-018-31353-1&amp;"/></mixed-citation></ref><ref id="bib-0045"><label>45.</label><mixed-citation id="cit-0045"><named-content content-type="citation-string">
+Koh A., 
+De Vadder F., 
+Kovatcheva-Datchary P., and 
+Bäckhed F., From Dietary Fiber to Host Physiology: Short-Chain Fatty Acids as Key Bacterial Metabolites, Cell. (2016) 165, no. 6, 1332–1345, 10.1016/j.cell.2016.05.041, 2-s2.0-84971519476, 27259147.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/j.cell.2016.05.041"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="27259147"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Cell&amp;title=From Dietary Fiber to Host Physiology: Short-Chain Fatty Acids as Key Bacterial Metabolites&amp;author=A. Koh&amp;author=F. De Vadder&amp;author=P. Kovatcheva-Datchary&amp;author=F. Bäckhed&amp;volume=165&amp;publication_year=2016&amp;pages=1332-1345&amp;pmid=27259147&amp;doi=10.1016/j.cell.2016.05.041&amp;"/></mixed-citation></ref><ref id="bib-0046"><label>46.</label><mixed-citation id="cit-0046"><named-content content-type="citation-string">
+Oluwagbemigun K., 
+O′Donovan A. N., 
+Berding K., 
+Lyons K., 
+Alexy U., 
+Schmid M., 
+Clarke G., 
+Stanton C., 
+Cryan J., and 
+Nöthlings U., Long-Term Dietary Intake From Infancy to Late Adolescence Is Associated With Gut Microbiota Composition in Young Adulthood, American Journal of Clinical Nutrition. (2021) 113, no. 3, 647–656, 10.1093/ajcn/nqaa340, 33471048.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1093/ajcn/nqaa340"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC7948843"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="33471048"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=American Journal of Clinical Nutrition&amp;title=Long-Term Dietary Intake From Infancy to Late Adolescence Is Associated With Gut Microbiota Composition in Young Adulthood&amp;author=K. Oluwagbemigun&amp;author=A. N. O′Donovan&amp;author=K. Berding&amp;author=K. Lyons&amp;author=U. Alexy&amp;volume=113&amp;publication_year=2021&amp;pages=647-656&amp;pmid=33471048&amp;doi=10.1093/ajcn/nqaa340&amp;"/></mixed-citation></ref><ref id="bib-0047"><label>47.</label><mixed-citation id="cit-0047"><named-content content-type="citation-string">
+Hooper L. V., 
+Wong M. H., 
+Thelin A., 
+Hansson L., 
+Falk P. G., and 
+Gordon J. I., Molecular Analysis of Commensal Host-Microbial Relationships in the Intestine, Science. (2001) 291, no. 5505, 881–884, 10.1126/science.291.5505.881, 2-s2.0-0035793372, 11157169.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1126/science.291.5505.881"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="11157169"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Science&amp;title=Molecular Analysis of Commensal Host-Microbial Relationships in the Intestine&amp;author=L. V. Hooper&amp;author=M. H. Wong&amp;author=A. Thelin&amp;author=L. Hansson&amp;author=P. G. Falk&amp;volume=291&amp;publication_year=2001&amp;pages=881-884&amp;pmid=11157169&amp;doi=10.1126/science.291.5505.881&amp;"/></mixed-citation></ref><ref id="bib-0048"><label>48.</label><mixed-citation id="cit-0048"><named-content content-type="citation-string">
+Wu F., 
+Guo X., 
+Zhang J., 
+Zhang M., 
+Ou Z., and 
+Peng Y., Phascolarctobacterium faecium Abundant Colonization in Human Gastrointestinal Tract, Experimental and Therapeutic Medicine. (2017) 14, no. 4, 3122–3126, 10.3892/etm.2017.4878, 2-s2.0-85028611736, 28912861.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.3892/etm.2017.4878"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC5585883"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="28912861"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Experimental and Therapeutic Medicine&amp;title=Phascolarctobacterium faecium Abundant Colonization in Human Gastrointestinal Tract&amp;author=F. Wu&amp;author=X. Guo&amp;author=J. Zhang&amp;author=M. Zhang&amp;author=Z. Ou&amp;volume=14&amp;publication_year=2017&amp;pages=3122-3126&amp;pmid=28912861&amp;doi=10.3892/etm.2017.4878&amp;"/></mixed-citation></ref><ref id="bib-0049"><label>49.</label><mixed-citation id="cit-0049"><named-content content-type="citation-string">
+Klein S., 
+Gastaldelli A., 
+Yki-Järvinen H., and 
+Scherer P. E., Why Does Obesity Cause Diabetes?, Cell Metabolism. (2022) 34, no. 1, 11–20, 10.1016/j.cmet.2021.12.012, 34986330.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/j.cmet.2021.12.012"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC8740746"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="34986330"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Cell Metabolism&amp;title=Why Does Obesity Cause Diabetes?&amp;author=S. Klein&amp;author=A. Gastaldelli&amp;author=H. Yki-Järvinen&amp;author=P. E. Scherer&amp;volume=34&amp;publication_year=2022&amp;pages=11-20&amp;pmid=34986330&amp;doi=10.1016/j.cmet.2021.12.012&amp;"/></mixed-citation></ref><ref id="bib-0050"><label>50.</label><mixed-citation id="cit-0050"><named-content content-type="citation-string">
+Cortez R. V., 
+Taddei C. R., 
+Sparvoli L. G., 
+Ângelo A. G. S., 
+Padilha M., 
+Mattar R., and 
+Daher S., Microbiome and Its Relation to Gestational Diabetes, Endocrine. (2019) 64, no. 2, 254–264, 10.1007/s12020-018-1813-z, 2-s2.0-85056592233, 30421135.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s12020-018-1813-z"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="30421135"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Endocrine&amp;title=Microbiome and Its Relation to Gestational Diabetes&amp;author=R. V. Cortez&amp;author=C. R. Taddei&amp;author=L. G. Sparvoli&amp;author=A. G. S. Ângelo&amp;author=M. Padilha&amp;volume=64&amp;publication_year=2019&amp;pages=254-264&amp;pmid=30421135&amp;doi=10.1007/s12020-018-1813-z&amp;"/></mixed-citation></ref><ref id="bib-0051"><label>51.</label><mixed-citation id="cit-0051"><named-content content-type="citation-string">
+Wu S., 
+Jin J., 
+Hu K. L., 
+Wu Y., and 
+Zhang D., Prevention of Gestational Diabetes Mellitus and Gestational Weight Gain Restriction in Overweight/Obese Pregnant Women: A Systematic Review and Network Meta-Analysis, Nutrients. (2022) 14, no. 12, 10.3390/nu14122383, 35745114.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.3390/nu14122383"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC9231262"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="35745114"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Nutrients&amp;title=Prevention of Gestational Diabetes Mellitus and Gestational Weight Gain Restriction in Overweight/Obese Pregnant Women: A Systematic Review and Network Meta-Analysis&amp;author=S. Wu&amp;author=J. Jin&amp;author=K. L. Hu&amp;author=Y. Wu&amp;author=D. Zhang&amp;volume=14&amp;publication_year=2022&amp;pmid=35745114&amp;doi=10.3390/nu14122383&amp;"/></mixed-citation></ref><ref id="bib-0052"><label>52.</label><mixed-citation id="cit-0052"><named-content content-type="citation-string">
+Wu J., 
+Wang K., 
+Wang X., 
+Pang Y., and 
+Jiang C., The Role of the Gut Microbiome and Its Metabolites in Metabolic Diseases, Protein &amp; Cell. (2021) 12, no. 5, 360–373, 10.1007/s13238-020-00814-7, 33346905.
+</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s13238-020-00814-7"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC8106557"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="33346905"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Protein &amp; Cell&amp;title=The Role of the Gut Microbiome and Its Metabolites in Metabolic Diseases&amp;author=J. Wu&amp;author=K. Wang&amp;author=X. Wang&amp;author=Y. Pang&amp;author=C. Jiang&amp;volume=12&amp;publication_year=2021&amp;pages=360-373&amp;pmid=33346905&amp;doi=10.1007/s13238-020-00814-7&amp;"/></mixed-citation></ref></ref-list></sec></sec><sec id="_ad93_" xml:lang="en" sec-type="associated-data" disp-level="1"><title>Associated Data</title><sec id="_adsm93_" xml:lang="en" sec-type="supplementary-materials" disp-level="2"><title>Supplementary Materials</title><supplementary-material id="db_ds_supplementary-material1_reqid_" position="float"><caption><p>
+<bold>????</bold> Additional supporting information can be found online in the Supporting Information section. Table S1: (a) Comparison of clinical data between Groups G and N. (b) Comparison of clinical data between Groups D and A. Table S2: (a) Analysis of GM differences between Groups G and N at the phylum level. (b) Analysis of GM differences between Groups D and A at the phylum level.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JDR-2026-3036209-s001.docx" mimetype="application" mime-subtype="vnd.openxmlformats-officedocument.wordprocessingml.document"><?cloudpmc-path 385c/13162232/a93d72d59b1c/JDR-2026-3036209-s001.docx?><?cloudpmc-bucket app?><?size 20981?></media></supplementary-material></sec><sec id="_adda93_" xml:lang="en" sec-type="data-availability-statement" disp-level="2"><title>Data Availability Statement</title><p>The data that support the findings of this study are available on request from the corresponding authors. The data are not publicly available due to privacy or ethical restrictions.</p></sec></sec></body></article>

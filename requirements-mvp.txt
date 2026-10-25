@@ -1,0 +1,4 @@
+# CPU-only MVP installation; intentionally independent of requirements.txt.
+streamlit==1.66.0
+pydantic==2.13.4
+certifi==2026.10.18

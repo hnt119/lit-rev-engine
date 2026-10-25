@@ -1,0 +1,270 @@
+{
+  "abstractText": "Polyendocrine metabolic ovarian syndrome (PMOS), previously known as polycystic ovary syndrome (PCOS), is a common endocrine and metabolic disorder in reproductive-age women, characterized by marked clinical and biological heterogeneity. Accumulating evidence suggests that gut microbiota dysbiosis is associated with metabolic disturbances, hormonal imbalance, and ovarian dysfunction in PMOS. However, the pathways linking gut microbiota alterations to PMOS pathogenesis remain incompletely understood, and most evidence remains associative. This review aims to summarize current evidence regarding interactions between gut microbiota and PMOS, clarify the roles of key microbiota-derived metabolites, and evaluate the potential and limitations of gut microbiota-targeted interventions. A major novelty is the proposal of an integrated gut-metabolism-endocrine-ovary axis incorporating phenotypic heterogeneity, methodological variability, and evidence grading across clinical and preclinical studies. A narrative review with a systematic literature search was conducted. PubMed, Web of Science, Embase, and CNKI were searched from inception to March 2026 using terms related to PMOS, gut microbiota, microbial metabolites, and microbiota-targeted interventions. Eligible studies included human observational or interventional studies, animal experiments exploring microbiota-PMOS mechanisms, and peer-reviewed full-text articles in English or Chinese. Case reports, letters, conference abstracts, non-English publications, and irrelevant studies were excluded. Duplicate records were removed. Two authors independently screened records and resolved disagreements by consensus. No meta-analysis was performed, and clinical registration was not applicable. Gut microbiota dysbiosis may contribute to PMOS through chronic low-grade inflammation, insulin resistance, and hyperandrogenism. Microbiota-derived metabolites link intestinal dysbiosis with metabolic and endocrine dysfunction. Bile acids and short-chain fatty acids exert regulatory effects, whereas amino acid disorders and LPS-mediated endotoxemia amplify metabolic and inflammatory abnormalities. Considerable heterogeneity exists across studies regarding obesity, insulin resistance, hyperandrogenism, diet, ethnicity, region, and methodology. Microbiota-targeted interventions show potential, although evidence quality varies and most findings remain associative. Gut microbiota dysbiosis is a critical regulatory node within the integrated gut-metabolism-endocrine-ovary axis in PMOS. This review highlights phenotypic stratification, evidence hierarchy, and clinical translation potential. Although microbiota-targeted strategies may serve as adjunctive therapies, their causal roles and long-term efficacy require confirmation in well-designed longitudinal and randomized controlled trials.",
+  "affiliation": "Department of TCM Gynecology, Hangzhou TCM Hospital of Zhejiang Chinese Medical University (Hangzhou Hospital of Traditional Chinese Medicine), Hangzhou, Zhejiang, China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of TCM Gynecology, Hangzhou TCM Hospital of Zhejiang Chinese Medical University (Hangzhou Hospital of Traditional Chinese Medicine), Hangzhou, Zhejiang, China."
+            }
+          ]
+        },
+        "firstName": "Shengyue",
+        "fullName": "Jin S",
+        "initials": "S",
+        "lastName": "Jin"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of TCM Gynecology, Hangzhou TCM Hospital of Zhejiang Chinese Medical University (Hangzhou Hospital of Traditional Chinese Medicine), Hangzhou, Zhejiang, China."
+            }
+          ]
+        },
+        "firstName": "Menglei",
+        "fullName": "Zhu M",
+        "initials": "M",
+        "lastName": "Zhu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of TCM Gynecology, Hangzhou TCM Hospital of Zhejiang Chinese Medical University (Hangzhou Hospital of Traditional Chinese Medicine), Hangzhou, Zhejiang, China."
+            }
+          ]
+        },
+        "firstName": "Yiyang",
+        "fullName": "Lu Y",
+        "initials": "Y",
+        "lastName": "Lu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of TCM Gynecology, Hangzhou TCM Hospital of Zhejiang Chinese Medical University (Hangzhou Hospital of Traditional Chinese Medicine), Hangzhou, Zhejiang, China."
+            }
+          ]
+        },
+        "firstName": "Jia",
+        "fullName": "Zhao J",
+        "initials": "J",
+        "lastName": "Zhao"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of TCM Gynecology, Hangzhou TCM Hospital of Zhejiang Chinese Medical University (Hangzhou Hospital of Traditional Chinese Medicine), Hangzhou, Zhejiang, China."
+            }
+          ]
+        },
+        "firstName": "Jiayi",
+        "fullName": "Zhu J",
+        "initials": "J",
+        "lastName": "Zhu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of TCM Gynecology, Hangzhou TCM Hospital of Zhejiang Chinese Medical University (Hangzhou Hospital of Traditional Chinese Medicine), Hangzhou, Zhejiang, China."
+            }
+          ]
+        },
+        "firstName": "Xiaohong",
+        "fullName": "Fang X",
+        "initials": "X",
+        "lastName": "Fang"
+      }
+    ]
+  },
+  "authorString": "Jin S, Zhu M, Lu Y, Zhao J, Zhu J, Fang X.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-07-25",
+  "dateOfCreation": "2026-07-25",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.3389/ebm.2026.11058",
+  "electronicPublicationDate": "2026-07-10",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-07-26",
+  "firstPublicationDate": "2026-07-10",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13395754"
+    ]
+  },
+  "fullTextReceivedDate": "2026-09-03",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/ebm.2026.11058"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13395754"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13395754?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42500257",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "journal": {
+      "essn": "1535-3699",
+      "isoabbreviation": "Exp Biol Med (Maywood)",
+      "issn": "1535-3702",
+      "medlineAbbreviation": "Exp Biol Med (Maywood)",
+      "nlmid": "100973463",
+      "title": "Experimental biology and medicine (Maywood, N.J.)"
+    },
+    "journalIssueId": 4117509,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "251",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Insulin resistance",
+      "Bile acids",
+      "Polycystic ovary syndrome",
+      "Gut Microbiota",
+      "Short-chain Fatty Acids",
+      "Hyperandrogenism",
+      "Microbiota-derived Metabolites",
+      "Polyendocrine Metabolic Ovarian Syndrome"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Ovary",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Animals",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Polycystic Ovary Syndrome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            },
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Dysbiosis",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "PH",
+              "majorTopic_YN": "N",
+              "qualifierName": "physiology"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "11058",
+  "pmcid": "PMC13395754",
+  "pmid": "42500257",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "review-article",
+      "Review",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Gut microbiota and polyendocrine metabolic ovarian syndrome: an integrated gut-metabolism-endocrine-ovary axis.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

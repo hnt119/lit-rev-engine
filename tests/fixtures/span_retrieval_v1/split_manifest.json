@@ -1,0 +1,78 @@
+{
+  "assignments": [
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "public:PMC11058859",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "public:PMC11820775",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "public:PMC12844664",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "synthetic-abstract-only",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "synthetic-late",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "synthetic-multicohort",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "synthetic-negation",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "synthetic-no-answer",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "synthetic-origin-versus-affiliation",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "synthetic-table",
+      "split": "development"
+    },
+    {
+      "human_adjudication": "NOT_RUN",
+      "label_origin": "agent_authored",
+      "related_study_group": "synthetic-unicode-crlf",
+      "split": "development"
+    }
+  ],
+  "future_human_evaluation": {
+    "independent_reviewers": [],
+    "rule": "Assign whole related-study groups to development or held-out before labels are used for tuning; add a second topic before broad claims.",
+    "status": "NOT_RUN"
+  },
+  "held_out_groups": [],
+  "schema_version": "mvp.span-development-splits.v1",
+  "source_manifest_sha256": "437888582ab4fb82ee647b24b4e40f9a2c1ca9b4ff34a5bd6120fa28fb81390e"
+}

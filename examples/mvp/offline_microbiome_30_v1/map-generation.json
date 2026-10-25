@@ -1,0 +1,23 @@
+{
+  "blocked_connection_attempts": 0,
+  "bundle_id": "offline-microbiome-30-v1",
+  "completed_at": "2026-10-21T03:00:47.891558+00:00",
+  "coordinate_sha256": "f33bee282b88782074f71c15ce5156dbce3a6ae55a26a7cdbc904642e463f934",
+  "dimension": 384,
+  "elapsed_scope": "profile hashing, model loading, embedding, projection and validation; not isolated inference latency",
+  "elapsed_seconds": 18.34575229138136,
+  "embedding_profile_sha256": "a1a78133b8491cdadc8dc2a95546a6bb0457d59040013072ffc95fca4c99991f",
+  "model": "BAAI/bge-small-en-v1.5",
+  "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "multi_window_papers": 15,
+  "network_policy": "Python socket connections denied; Hugging Face offline and local-files-only",
+  "paid_inference_calls": 0,
+  "paper_count": 30,
+  "projection_method": "umap_cosine_v1",
+  "schema_version": "mvp.saved-example-map-generation.v1",
+  "scientific_relevance_and_map_usefulness": "NOT_ASSESSED",
+  "started_at": "2026-10-21T03:00:29.545677+00:00",
+  "status": "REAL_PINNED_LOCAL_CPU_RUN",
+  "token_count": 15808,
+  "window_count": 45
+}

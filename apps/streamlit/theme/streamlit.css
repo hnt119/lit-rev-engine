@@ -1,0 +1,229 @@
+/* Presentation adapter for Streamlit 1.66. Native controls retain their
+   semantics, keyboard behavior and icon fonts. */
+html { scroll-padding-top: 32px; }
+body, .stApp, [data-testid="stAppViewContainer"] {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: #dfe4d7; color: var(--ink); }
+[data-testid="stHeader"] { background: var(--paper); }
+.stMainBlockContainer {
+  max-width: 1240px;
+  padding: 56px 32px 88px;
+}
+.stMainBlockContainer:has(.st-key-landing) { max-width: 760px; }
+.stMainBlockContainer:has(.st-key-workspace) { max-width: 1240px; }
+.st-key-landing, .st-key-workspace { min-width: 0; }
+
+.stApp h1, .stApp h2, .stApp h3 {
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  overflow-wrap: break-word;
+}
+.stApp h1 { font-size: 42px; line-height: 1.2; letter-spacing: -1.5px; }
+.st-key-landing h1 { font-weight: 700; }
+.stApp h2 { font-size: 24px; line-height: 1.4; letter-spacing: -.6px; }
+.stApp h3 { font-size: 19px; line-height: 1.4; letter-spacing: -.45px; }
+[data-testid="stMarkdownContainer"] p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+}
+[data-testid="stCaptionContainer"] p {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .35px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+[data-testid="stText"], [data-testid="stText"] pre {
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+[data-testid="stWidgetLabel"] p { font-size: 12px; line-height: 1.6; }
+.stApp a {
+  color: var(--accent);
+  text-decoration-color: var(--line);
+  text-underline-offset: 5px;
+}
+.stApp a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.stApp hr { border-color: var(--line); margin-block: 24px; }
+
+[data-testid="stSidebar"] {
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+}
+[data-testid="stSidebarUserContent"] { padding: 32px 24px 40px; }
+[data-testid="stSidebar"] h1 { font-size: 22px; letter-spacing: -.6px; }
+[data-testid="stSidebar"] [data-testid="stRadio"] label {
+  min-height: 44px;
+  padding-block: 8px;
+  color: var(--muted);
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label:hover,
+[data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) {
+  color: var(--accent);
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) p {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
+.stApp button, .stApp input, .stApp textarea { font-family: Arial, Helvetica, sans-serif; }
+.stApp button { border-radius: 0; box-shadow: none; }
+.stApp button[kind="secondary"], .stApp button[kind="secondaryFormSubmit"] {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  min-height: 44px;
+}
+[data-testid="stLinkButton"] a {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+}
+[data-testid="stLinkButton"] a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: transparent;
+}
+.stApp button[kind="primary"], .stApp button[kind="primaryFormSubmit"] {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--paper);
+  min-height: 44px;
+}
+.stApp button[kind="secondary"]:hover:not(:disabled),
+.stApp button[kind="secondaryFormSubmit"]:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: transparent;
+}
+.stApp button[kind="primary"]:hover:not(:disabled),
+.stApp button[kind="primaryFormSubmit"]:hover:not(:disabled) {
+  background: #4f5d44;
+  border-color: #4f5d44;
+  color: var(--paper);
+}
+.stApp button:disabled { opacity: .5; }
+.stApp :is(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+[data-testid="stRadio"] label:has(input:focus-visible),
+[data-testid="stCheckbox"] label:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+[data-baseweb="input"], [data-baseweb="textarea"], [data-baseweb="select"] > div {
+  background: var(--paper);
+  border-color: var(--line);
+  border-radius: 0;
+  box-shadow: none;
+}
+[data-baseweb="input"]:focus-within,
+[data-baseweb="textarea"]:focus-within,
+[data-baseweb="select"]:focus-within > div { border-color: var(--accent); }
+[data-baseweb="popover"] [role="option"] { font-family: Arial, Helvetica, sans-serif; }
+[data-baseweb="popover"] [role="option"]:hover,
+[data-baseweb="popover"] [role="option"][aria-selected="true"] {
+  background: #dfe4d7;
+  color: var(--ink);
+}
+[data-testid="stForm"] {
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  padding: 24px 0 0;
+}
+[data-testid="stExpander"] {
+  border-color: var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+[data-testid="stExpander"] summary { min-height: 44px; }
+[data-testid="stAlert"] {
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+}
+[data-testid="stAlert"] svg { color: var(--accent); }
+[data-testid="stAlertContainer"] {
+  background: transparent;
+  color: var(--ink);
+}
+[data-testid="stAlertContainer"] [data-testid^="stAlertContent"],
+[data-testid="stAlertContainer"] [data-testid^="stAlertContent"] p {
+  color: var(--ink);
+}
+[data-testid="stAlert"] p { font-size: 13px; }
+
+.st-key-evidence-columns { margin-top: 24px; }
+.st-key-retrieved-passages, .st-key-reviewer-judgments { min-width: 0; }
+.st-key-evidence-columns [data-testid="stForm"] {
+  border-top: 0;
+  padding-top: 0;
+}
+.st-key-source-context-section {
+  border-top: 1px solid var(--line);
+  margin-top: 36px;
+  padding-top: 28px;
+}
+.source-context {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--accent);
+  padding: 24px;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+}
+.source-context mark { background: #dfe4d7; color: var(--ink); }
+
+@media (max-width: 900px) {
+  .st-key-evidence-columns [data-testid="stHorizontalBlock"] { flex-wrap: wrap; }
+  .st-key-evidence-columns [data-testid="stColumn"] {
+    width: 100%;
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+}
+@media (max-width: 480px) {
+  .stMainBlockContainer { padding: 40px 24px 64px; }
+  .stApp h1 { font-size: 32px; letter-spacing: -1px; }
+  .stApp h2 { font-size: 22px; }
+  [data-testid="stMarkdownContainer"] p, [data-testid="stText"],
+  [data-testid="stText"] pre, .source-context { font-size: 14px; }
+  .source-context { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .stApp *, .stApp *::before, .stApp *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

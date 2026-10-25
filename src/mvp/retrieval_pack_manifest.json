@@ -1,0 +1,367 @@
+{
+  "hybrid_qwen3_06b_rrf_rerank_v1": {
+    "pack_id": "qwen3-06b-v1",
+    "label": "Qwen hybrid + reranking",
+    "license": "Apache-2.0 (model cards); upstream notice retained",
+    "models": [
+      {
+        "repo": "Qwen/Qwen3-Embedding-0.6B",
+        "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+        "files": [
+          {
+            "path": "README.md",
+            "bytes": 17237,
+            "sha256": "c34d9b7e5a267ad3fdd13227a253686bc90844ff4744a2a6a86c7c905e3d06f3",
+            "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/resolve/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/README.md",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "config.json",
+            "bytes": 727,
+            "sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9",
+            "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/resolve/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "generation_config.json",
+            "bytes": 117,
+            "sha256": "28396d421a2108acce96383f6a7de78008f7f1b17f807958f3c14c51dbfb65fb",
+            "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/resolve/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/generation_config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "merges.txt",
+            "bytes": 1671853,
+            "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+            "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/resolve/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/merges.txt",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "model.safetensors",
+            "bytes": 1191586416,
+            "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd",
+            "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/resolve/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/model.safetensors",
+            "hash_source": "HF LFS metadata; bytes not downloaded"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 11423705,
+            "sha256": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a",
+            "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/resolve/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/tokenizer.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 9706,
+            "sha256": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0",
+            "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/resolve/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/tokenizer_config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "vocab.json",
+            "bytes": 2776833,
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+            "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/resolve/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/vocab.json",
+            "hash_source": "downloaded nonweight file"
+          }
+        ],
+        "selected_bytes": 1207486594
+      },
+      {
+        "repo": "Qwen/Qwen3-Reranker-0.6B",
+        "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+        "files": [
+          {
+            "path": "README.md",
+            "bytes": 14742,
+            "sha256": "5bba8c734f6dd3ae48317b4139317e45a7fce48fc55e15670b23a0dd15492ab6",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/README.md",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "chat_template.jinja",
+            "bytes": 741,
+            "sha256": "6f682162495ec5b39fd9005c01b6aa2a74669379fe967039f1e2cbbe8752369d",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/chat_template.jinja",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "config.json",
+            "bytes": 727,
+            "sha256": "d479c427a9ca5295218063d4f9aca4f297ab4ac27487cca7af42c84643d51ef0",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "generation_config.json",
+            "bytes": 214,
+            "sha256": "81051cd3f6e77013827148d0b8a6ead93f8ac390d5ab805f849199f0af6a08db",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/generation_config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "merges.txt",
+            "bytes": 1671853,
+            "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/merges.txt",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "model.safetensors",
+            "bytes": 1191588280,
+            "sha256": "27cd75a405b9c1b46b59abfd88aaa209e6fed2a1972cde9b70e7659537c5e65b",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/model.safetensors",
+            "hash_source": "HF LFS metadata; bytes not downloaded"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 11422654,
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/tokenizer.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 9706,
+            "sha256": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/tokenizer_config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "vocab.json",
+            "bytes": 2776833,
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+            "url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/resolve/e61197ed45024b0ed8a2d74b80b4d909f1255473/vocab.json",
+            "hash_source": "downloaded nonweight file"
+          }
+        ],
+        "selected_bytes": 1207485750
+      }
+    ],
+    "schema_version": "litrev.model-pack.v1",
+    "download_bytes": 2414972344,
+    "quality_status": "experimental_not_validated",
+    "prepared_on": "2026-10-25"
+  },
+  "hybrid_medcpt_passage_rrf_rerank_v1": {
+    "pack_id": "medcpt-passage-v1",
+    "label": "Biomedical hybrid + reranking \u2014 experimental passage adaptation",
+    "license": "Public domain (upstream model cards); Cross LICENSE is empty at pinned revision; retain Query/Article public-domain notices",
+    "models": [
+      {
+        "repo": "ncbi/MedCPT-Query-Encoder",
+        "revision": "d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc",
+        "files": [
+          {
+            "path": "LICENSE",
+            "bytes": 1239,
+            "sha256": "76b0009b86bfcb6dbbe5d51aa95a8103ddb2e9d582dca41c3d88e371175ce34e",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/LICENSE",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "README.md",
+            "bytes": 4121,
+            "sha256": "4451e5399fe6e8c5a4b9db86ad9ae324e2b337f0f4c7e963aaf6131b3e8dd635",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/README.md",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "added_tokens.json",
+            "bytes": 74,
+            "sha256": "691a5ce0135045c12b8410af8d472ff8de864094df40ac9af418d6c644c7588d",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/added_tokens.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "config.json",
+            "bytes": 608,
+            "sha256": "3fea00b31d018d676d6b7e2f6cddcfe1abc69bcb88f5f09f51b848212e1671d1",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "model.safetensors",
+            "bytes": 437951328,
+            "sha256": "19d78c0d5eaee2f81e6c47c5425bbadcc0c6af016cbb5da4a000d64e59d6e342",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/model.safetensors",
+            "hash_source": "HF LFS metadata; bytes not downloaded"
+          },
+          {
+            "path": "special_tokens_map.json",
+            "bytes": 125,
+            "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/special_tokens_map.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 706277,
+            "sha256": "6e046044df8a2fcedb10607075dca187cae61d806c0d80a96c5b81017edc90c9",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/tokenizer.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 1488,
+            "sha256": "cabeefb4bbba68c42d40a56bfc1e73dd2e5dfb6e0ca90a66349519c375452d1e",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/tokenizer_config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "vocab.txt",
+            "bytes": 226150,
+            "sha256": "79489a52be45e6fa033521e8ce8e4f62aedc0a742ee2aa6fc04667e5b0b1454d",
+            "url": "https://huggingface.co/ncbi/MedCPT-Query-Encoder/resolve/d83a36cc6b8e3a5c5e9d9d6ba156808c1643dcbc/vocab.txt",
+            "hash_source": "downloaded nonweight file"
+          }
+        ],
+        "selected_bytes": 438891410
+      },
+      {
+        "repo": "ncbi/MedCPT-Article-Encoder",
+        "revision": "d05a736da4bb84ee4057b7f7999485be6ed85465",
+        "files": [
+          {
+            "path": "LICENSE",
+            "bytes": 1239,
+            "sha256": "76b0009b86bfcb6dbbe5d51aa95a8103ddb2e9d582dca41c3d88e371175ce34e",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/LICENSE",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "README.md",
+            "bytes": 4909,
+            "sha256": "27328ae1218fb0167e8ac00b70de513446ebae73a8640083595e24fb08deefa5",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/README.md",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "added_tokens.json",
+            "bytes": 74,
+            "sha256": "691a5ce0135045c12b8410af8d472ff8de864094df40ac9af418d6c644c7588d",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/added_tokens.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "config.json",
+            "bytes": 608,
+            "sha256": "3fea00b31d018d676d6b7e2f6cddcfe1abc69bcb88f5f09f51b848212e1671d1",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "model.safetensors",
+            "bytes": 437951328,
+            "sha256": "a5d5ffe4d8666c1d0aa15f371b94fc3492ca8f927e5621abd4b3ee9fc845b0f3",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/model.safetensors",
+            "hash_source": "HF LFS metadata; bytes not downloaded"
+          },
+          {
+            "path": "special_tokens_map.json",
+            "bytes": 125,
+            "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/special_tokens_map.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 706277,
+            "sha256": "6e046044df8a2fcedb10607075dca187cae61d806c0d80a96c5b81017edc90c9",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/tokenizer.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 1488,
+            "sha256": "cabeefb4bbba68c42d40a56bfc1e73dd2e5dfb6e0ca90a66349519c375452d1e",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/tokenizer_config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "vocab.txt",
+            "bytes": 226150,
+            "sha256": "79489a52be45e6fa033521e8ce8e4f62aedc0a742ee2aa6fc04667e5b0b1454d",
+            "url": "https://huggingface.co/ncbi/MedCPT-Article-Encoder/resolve/d05a736da4bb84ee4057b7f7999485be6ed85465/vocab.txt",
+            "hash_source": "downloaded nonweight file"
+          }
+        ],
+        "selected_bytes": 438892198
+      },
+      {
+        "repo": "ncbi/MedCPT-Cross-Encoder",
+        "revision": "71caf65d4927987813984f54c284405a13fcca49",
+        "files": [
+          {
+            "path": "LICENSE",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/LICENSE",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "README.md",
+            "bytes": 4236,
+            "sha256": "8ab1ceed3beea346789e0b9cd7e04d6373dcf8b738fb63b996c7d97bb25df2ec",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/README.md",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "added_tokens.json",
+            "bytes": 74,
+            "sha256": "691a5ce0135045c12b8410af8d472ff8de864094df40ac9af418d6c644c7588d",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/added_tokens.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "config.json",
+            "bytes": 741,
+            "sha256": "1f375c7e8081f043c99fdb9c80059c44ed757cce7b05d333b7f3c81b1b713a42",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "pytorch_model.bin",
+            "bytes": 437998062,
+            "sha256": "61d5ccd48869e03500544525fc231641d7daa9ba267b202c82724750038dc1e0",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/pytorch_model.bin",
+            "hash_source": "HF LFS metadata; bytes not downloaded"
+          },
+          {
+            "path": "special_tokens_map.json",
+            "bytes": 228,
+            "sha256": "cb63d0cbbf45160dc9cd786a257759593b798ae0c72957011016dbc3972df4e4",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/special_tokens_map.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 706277,
+            "sha256": "6e046044df8a2fcedb10607075dca187cae61d806c0d80a96c5b81017edc90c9",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/tokenizer.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 1556,
+            "sha256": "25e63abb25f637aa24981117b13394370693dd7bc140903d95008599b3abc1a9",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/tokenizer_config.json",
+            "hash_source": "downloaded nonweight file"
+          },
+          {
+            "path": "vocab.txt",
+            "bytes": 226150,
+            "sha256": "79489a52be45e6fa033521e8ce8e4f62aedc0a742ee2aa6fc04667e5b0b1454d",
+            "url": "https://huggingface.co/ncbi/MedCPT-Cross-Encoder/resolve/71caf65d4927987813984f54c284405a13fcca49/vocab.txt",
+            "hash_source": "downloaded nonweight file"
+          }
+        ],
+        "selected_bytes": 438937324
+      }
+    ],
+    "schema_version": "litrev.model-pack.v1",
+    "download_bytes": 1316720932,
+    "quality_status": "experimental_not_validated",
+    "prepared_on": "2026-10-25"
+  }
+}

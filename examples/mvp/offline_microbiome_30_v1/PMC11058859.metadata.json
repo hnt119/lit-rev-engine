@@ -1,0 +1,392 @@
+{
+  "abstractText": "Gut microbiome dysbiosis contributes to the pathophysiology of both gestational diabetes mellitus (GDM) and its associated adverse outcomes in the woman and offspring. Even though GDM prevalence, complications, and outcomes vary among different ethnic groups, limited information is available about the influence of ethnicity on gut microbiome dysbiosis in pregnancies complicated by GDM. This pilot prospective cohort study examined the impact of ethnicity on gut dysbiosis in GDM among three Asian ethnic groups (Chinese, Malay, Indian) living in Singapore, and investigated the potential modulatory roles of diet and lifestyle modifications on gut microbiome post-GDM diagnosis. Women with GDM (n = 53) and without GDM (n = 16) were recruited. Fecal samples were collected at 24-28- and 36-40-weeks' gestation and analyzed by targeted 16S rRNA gene-based amplicon sequencing. Permutational multivariate analysis of variance (PERMANOVA) analysis was performed to evaluate differences between groups. Differentially abundant taxa were identified by DeSeq2 based analysis. Functional prediction was performed using the phylogenetic investigation of communities by reconstruction of unobserved states (PICRUSt2). Among women with GDM, gut microbiome from different ethnicities harbored common microbial features. However, among those without GDM, there was contrasting microbiome composition between ethnic groups. Microbial members such as Collinsella, Blautia, Ruminococcus, Ruminococcus gnavus, Ruminococcus torques, and Eubacterium hallii groups were differentially enriched (p < 0.05) in women with GDM compared to those without. Among women with GDM, no differences in alpha- and beta- diversity were observed when comparing 24-28 weeks' samples with 36-40 weeks' samples, a period covering intense dietary and lifestyle modification, suggesting an inability to modulate gut microbiota through classic GDM management. Women with GDM have a distinct gut microbiome profile which harbours common features across different Asian ethnic groups, consistent with the notion that specific microbes are involved in the pathogenesis of insulin resistance, pro-inflammatory conditions, and other metabolic dysregulation known to be present in GDM.",
+  "affiliation": "Singapore Centre For Environmental Life Sciences Engineering (SCELSE), National University of Singapore, Singapore, Singapore. a_gupta7@nus.edu.sg.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0002-6402-3709"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Singapore Centre For Environmental Life Sciences Engineering (SCELSE), National University of Singapore, Singapore, Singapore. a_gupta7@nus.edu.sg."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-6402-3709"
+        },
+        "firstName": "Abhishek",
+        "fullName": "Gupta A",
+        "initials": "A",
+        "lastName": "Gupta"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics and Gynaecology, Yong Loo Lin School of Medicine, National University of Singapore, Singapore, Singapore."
+            },
+            {
+              "affiliation": "Agency for Science, Technology and Research (A*STAR), Singapore Institute for Clinical Sciences (SICS), Singapore, Singapore."
+            }
+          ]
+        },
+        "firstName": "Shiao Yng",
+        "fullName": "Chan SY",
+        "initials": "SY",
+        "lastName": "Chan"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Neonatology, Khoo Teck Puat-National University Children's Medical Institute, National University Hospital, National University Health System, Singapore, Singapore."
+            }
+          ]
+        },
+        "firstName": "Rachel",
+        "fullName": "Toh R",
+        "initials": "R",
+        "lastName": "Toh"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Neonatology, Khoo Teck Puat-National University Children's Medical Institute, National University Hospital, National University Health System, Singapore, Singapore. jia_ming_low@nuhs.edu.sg."
+            },
+            {
+              "affiliation": "Department of Paediatrics, Yong Loo Lin School of Medicine, National University of Singapore, Singapore, Singapore. jia_ming_low@nuhs.edu.sg."
+            }
+          ]
+        },
+        "firstName": "Jia Ming",
+        "fullName": "Low JM",
+        "initials": "JM",
+        "lastName": "Low"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Neonatology, Khoo Teck Puat-National University Children's Medical Institute, National University Hospital, National University Health System, Singapore, Singapore."
+            }
+          ]
+        },
+        "firstName": "Isabella Ming Zhen",
+        "fullName": "Liu IMZ",
+        "initials": "IMZ",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Dietetics, National University Hospital, National University Health System, Singapore, Singapore."
+            }
+          ]
+        },
+        "firstName": "Su Lin",
+        "fullName": "Lim SL",
+        "initials": "SL",
+        "lastName": "Lim"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Foundation Healthcare Holdings, Singapore, Singapore."
+            }
+          ]
+        },
+        "firstName": "Le Ye",
+        "fullName": "Lee LY",
+        "initials": "LY",
+        "lastName": "Lee"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Singapore Centre For Environmental Life Sciences Engineering (SCELSE), National University of Singapore, Singapore, Singapore."
+            },
+            {
+              "affiliation": "Department of Biological Sciences, National University of Singapore, Singapore, Singapore."
+            },
+            {
+              "affiliation": "NUS Environmental Research Institute, National University of Singapore, Singapore, Singapore."
+            }
+          ]
+        },
+        "firstName": "Sanjay",
+        "fullName": "Swarup S",
+        "initials": "S",
+        "lastName": "Swarup"
+      }
+    ]
+  },
+  "authorString": "Gupta A, Chan SY, Toh R, Low JM, Liu IMZ, Lim SL, Lee LY, Swarup S.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "RNA, Ribosomal, 16S",
+        "registryNumber": "0"
+      }
+    ]
+  },
+  "citedByCount": 13,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2024-04-29",
+  "dateOfCreation": "2024-04-29",
+  "dateOfRevision": "2025-07-30",
+  "doi": "10.1038/s41598-024-60386-y",
+  "electronicPublicationDate": "2024-04-29",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2024-04-30",
+  "firstPublicationDate": "2024-04-29",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC11058859"
+    ]
+  },
+  "fullTextReceivedDate": "2025-02-05",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "doi",
+        "site": "Unpaywall",
+        "url": "https://doi.org/10.1038/s41598-024-60386-y"
+      },
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1038/s41598-024-60386-y"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC11058859"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC11058859?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "38684759",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2024 Apr",
+    "issue": "1",
+    "journal": {
+      "essn": "2045-2322",
+      "isoabbreviation": "Sci Rep",
+      "issn": "2045-2322",
+      "medlineAbbreviation": "Sci Rep",
+      "nlmid": "101563288",
+      "title": "Scientific reports"
+    },
+    "journalIssueId": 3747240,
+    "monthOfPublication": 4,
+    "printPublicationDate": "2024-04-01",
+    "volume": "14",
+    "yearOfPublication": 2024
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Feces",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Bacteria",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "CL",
+              "majorTopic_YN": "N",
+              "qualifierName": "classification"
+            },
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            },
+            {
+              "abbreviation": "IP",
+              "majorTopic_YN": "N",
+              "qualifierName": "isolation & purification"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Diabetes, Gestational",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "RNA, Ribosomal, 16S",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Diet",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Prospective Studies",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Pilot Projects",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Pregnancy",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Singapore",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "EP",
+              "majorTopic_YN": "N",
+              "qualifierName": "epidemiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Dysbiosis",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Ethnicity",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Asian People",
+        "majorTopic_YN": "N"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "9855",
+  "pmcid": "PMC11058859",
+  "pmid": "38684759",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "Research Support, Non-U.S. Gov't",
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2024",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Gestational diabetes-related gut microbiome dysbiosis is not influenced by different Asian ethnicities and dietary interventions: a pilot study.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+.showcase { margin: 32px 0 40px; color: var(--ink); scroll-margin-top: 24px; }
+.label { display: block; font-family: var(--mono); color: var(--muted); font-size: 10px; line-height: 1.7; }
+.showcase .demoHeader h2 { margin: 12px 0 12px; font-size: 25px; line-height: 1.35; letter-spacing: -.6px; }
+.showcase .intro { margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.showcase .flow { display: flex; flex-wrap: wrap; gap: 22px; margin: 24px 0 38px; padding: 0; list-style: none; }
+.flow li { display: flex; align-items: center; gap: 22px; margin: 0; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.flow li:not(:last-child)::after { content: '→'; }
+.flow a { padding: 10px 0; }
+.showcase section + section { margin-top: 38px; padding-top: 30px; border-top: 1px solid var(--line); }
+.showcase section h3 { margin: 0 0 18px; font-size: 17px; line-height: 1.5; letter-spacing: -.2px; scroll-margin-top: 24px; }
+.filterLabel { display: block; color: var(--muted); font-family: var(--mono); font-size: 10px; margin-bottom: 8px; }
+.filter { display: block; width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); font: inherit; font-size: 13px; }
+.filter::placeholder { color: var(--muted); opacity: 1; }
+.showcase .hint { margin: 8px 0 14px; font-size: 11px; color: var(--muted); line-height: 1.75; }
+.showcase .count { margin: 16px 0 8px; font-family: var(--mono); font-size: 10px; color: var(--muted); }
+.showcase .paperList { margin: 0; padding: 0; list-style: none; }
+.paperList li { margin: 0; border-bottom: 1px solid var(--line); }
+.paperButton { width: 100%; display: block; padding: 15px 12px 15px 0; border: 0; border-left: 2px solid transparent; background: transparent; text-align: left; cursor: pointer; color: var(--ink); }
+.paperButton[aria-pressed='true'] { border-left-color: var(--accent); padding-left: 12px; }
+.paperButton:hover .paperHeading { color: var(--accent); }
+.paperHeading { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; line-height: 1.5; }
+.paperYear { color: var(--muted); font-family: var(--mono); font-size: 10px; padding-top: 3px; }
+.paperTitle { display: block; font-size: 12px; line-height: 1.7; color: var(--muted); margin-top: 6px; }
+.paperTags { display: block; margin-top: 8px; font-family: var(--mono); font-size: 9px; color: var(--muted); line-height: 1.7; }
+.showcase .question { margin: 0 0 12px; font-size: 16px; line-height: 1.7; }
+.tableFrame { max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
+.board { width: 100%; min-width: 650px; border-collapse: collapse; table-layout: fixed; text-align: left; }
+.board caption { text-align: left; padding: 0 0 12px; font-family: var(--mono); font-size: 9px; color: var(--muted); line-height: 1.7; }
+.board th { padding: 12px 8px; font-size: 11px; line-height: 1.7; font-weight: 400; vertical-align: top; }
+.board thead th { color: var(--muted); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.board th:first-child { width: 110px; padding-left: 0; }
+.board td { padding: 0; vertical-align: top; border-bottom: 1px solid var(--line); }
+.board tbody th { border-bottom: 1px solid var(--line); }
+.cellButton { display: flex; flex-direction: column; gap: 10px; width: 100%; min-height: 158px; padding: 13px 10px; border: 1px solid transparent; border-radius: 0; background: transparent; color: var(--ink); text-align: left; font-size: 12px; line-height: 1.7; cursor: pointer; }
+.cellButton[aria-pressed='true'] { border-color: var(--accent); }
+.cellButton:hover { color: var(--accent); }
+.cellState { display: block; font-family: var(--mono); color: var(--muted); font-size: 9px; line-height: 1.7; }
+.inspectLabel { margin-top: auto; color: var(--accent); font-size: 10px; }
+.showcase .selection { margin: 0 0 18px; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.savedPassage { padding: 18px 0 4px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.savedPassage h4 { margin: 10px 0 12px; font-size: 13px; font-weight: 400; line-height: 1.75; }
+.savedPassage p { margin: 10px 0 14px; font-size: 12px; line-height: 1.85; }
+.journeyActions { display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 8px 0 14px; }
+.journeyActions button { min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--accent); font: inherit; font-size: 11px; text-align: left; cursor: pointer; }
+.journeyActions button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.showcase .quote { margin: 12px 0 16px; padding: 0 0 0 16px; border-left: 1px solid var(--accent); }
+.showcase .quote p { margin: 0; font-size: 17px; line-height: 1.85; letter-spacing: -.15px; }
+.showcase .result { font-size: 12px; line-height: 1.85; color: var(--muted); margin: 0 0 16px; }
+.context, .attribution { font-size: 11px; color: var(--muted); }
+.context { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 6px 0; }
+.context summary, .attribution summary { width: fit-content; min-height: 44px; padding: 10px 0; cursor: pointer; color: var(--ink); line-height: 1.8; }
+.showcase .contextText { margin: 10px 0 22px; font-size: 13px; line-height: 1.9; color: var(--muted); }
+.contextText mark { color: var(--ink); background: #e7ebdf; padding: 1px 0; }
+.anchors { display: grid; grid-template-columns: 115px minmax(0, 1fr); gap: 8px 16px; margin: 0 0 18px; font-size: 10px; line-height: 1.7; }
+.anchors dt { color: var(--ink); }
+.anchors dd { margin: 0; font-family: var(--mono); overflow-wrap: anywhere; }
+.citation { padding-top: 22px; }
+.showcase .citation p { margin: 8px 0 12px; font-size: 11px; line-height: 1.85; color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 11px; }
+.links a { display: inline-flex; align-items: center; min-height: 44px; }
+.attribution { margin-top: 2px; }
+.actions { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 24px; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; }
+.actions a { min-height: 44px; display: inline-flex; align-items: center; }
+.actions span { color: var(--muted); font-size: 11px; }
+.showcase .downloadNotice { margin: 6px 0 8px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.downloadDetails { color: var(--muted); font-size: 11px; }
+.downloadDetails summary { width: fit-content; min-height: 44px; padding: 10px 0; color: var(--ink); cursor: pointer; }
+.showcase .downloadDetails p { margin: 8px 0 14px; font-size: 11px; line-height: 1.8; }
+.showcase .downloadHash { display: block; margin: 6px 0 20px; padding: 0; background: transparent; font-size: 10px; line-height: 1.8; overflow-wrap: anywhere; }
+.showcase .boundary { margin: 12px 0 0; font-size: 11px; color: var(--muted); line-height: 1.8; }
+.showcase a:hover { color: var(--accent); }
+.showcase button:focus-visible, .showcase input:focus-visible, .showcase summary:focus-visible, .tableFrame:focus-visible, .inspector h3:focus, .passageSection h3:focus { outline: 1px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 520px) {
+  .showcase .demoHeader h2 { font-size: 22px; }
+  .flow li, .showcase .flow { gap: 14px; }
+  .showcase .quote p { font-size: 15px; }
+  .anchors { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .anchors dd { margin-bottom: 9px; }
+  .actions { display: block; }
+  .actions span { display: block; margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .showcase, .showcase * { scroll-behavior: auto; transition: none; animation: none; }
+}

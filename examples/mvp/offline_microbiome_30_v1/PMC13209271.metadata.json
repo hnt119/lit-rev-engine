@@ -1,0 +1,348 @@
+{
+  "abstractText": "<b>Background:</b> Metabolic syndrome (MetS) is a cluster of cardiometabolic abnormalities linked to increased risk of type 2 diabetes and cardiovascular disease. Emerging evidence implicates gut microbiota dysbiosis in MetS pathophysiology; however, human clinical data on seaweed-based dietary interventions remain scarce. <b>Methods:</b> Twenty-four older women were stratified into a MetS group (n = 13) and a control group (n = 11) per NCEP-ATP III criteria with Korean-specific waist circumference cutoffs. All participants consumed 4 g of dried laver (<i>Porphyra tenera</i>) per day for 12 weeks. Fecal DNA was subjected to 16S rRNA gene amplicon sequencing (V4 region; Illumina iSeq 100). Bioinformatic processing used QIIME2 and MicrobiomeAnalyst; alpha diversity was quantified by Chao1 and Fisher indices; beta diversity by Bray-Curtis, Jensen-Shannon, and UniFrac metrics; and differential abundance by LEfSe. <b>Results:</b> The Firmicutes/Bacteroidetes ratio declined 0.81-fold in the control group and 0.54-fold in the MetS group. Alpha diversity (Chao1 and Fisher indices) increased significantly in both groups (<i>p</i> < 0.001 and <i>p</i> < 0.05, respectively). Unweighted UniFrac distance showed significant compositional differences (R<sup>2</sup> = 0.141, <i>p</i> = 0.001). LEfSe identified four FDR-significant genera: CAG_873 in the control group and Muribaculaceae, <i>Paraprevotella</i>, and <i>Tyzzerella</i> in the MetS group. <b>Conclusions:</b> Twelve-week dried laver supplementation produced measurable shifts in gut microbial diversity and community composition in older women, with potentially greater responsiveness in those with MetS. These preliminary findings justify adequately powered randomized controlled trials to evaluate laver as a gut-microbiome-targeted dietary strategy for MetS.",
+  "affiliation": "Department of Nutritional Science and Food Management, College of Science and Industry Convergence, Ewha Womans University, Seoul 03760, Republic of Korea.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0001-6691-476X"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-0828-184X"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-4655-1521"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0003-4963-4816"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0002-1471-2204"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Nutritional Science and Food Management, College of Science and Industry Convergence, Ewha Womans University, Seoul 03760, Republic of Korea."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-0828-184X"
+        },
+        "firstName": "Dayeon",
+        "fullName": "Shin D",
+        "initials": "D",
+        "lastName": "Shin"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Food and Nutrition, College of Natural Sciences, Inha University, Incheon 22212, Republic of Korea."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0002-1471-2204"
+        },
+        "firstName": "Suyeon",
+        "fullName": "Lee S",
+        "initials": "S",
+        "lastName": "Lee"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Health and Exercise Science, College of Graduate School, Inha University, Incheon 22212, Republic of Korea."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0001-6691-476X"
+        },
+        "firstName": "Byunghun",
+        "fullName": "So B",
+        "initials": "B",
+        "lastName": "So"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Health and Exercise Science, College of Graduate School, Inha University, Incheon 22212, Republic of Korea."
+            },
+            {
+              "affiliation": "Department of Physical Education, College of Education, Inha University, Incheon 22212, Republic of Korea."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-4963-4816"
+        },
+        "firstName": "Chounghun",
+        "fullName": "Kang C",
+        "initials": "C",
+        "lastName": "Kang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Dongjak-gu Public Health Center, Seoul 06925, Republic of Korea."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0003-4655-1521"
+        },
+        "firstName": "Kyung Ju",
+        "fullName": "Lee KJ",
+        "initials": "KJ",
+        "lastName": "Lee"
+      }
+    ]
+  },
+  "authorString": "Shin D, Lee S, So B, Kang C, Lee KJ.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "RNA, Ribosomal, 16S",
+        "registryNumber": "0"
+      }
+    ]
+  },
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-07-17",
+  "dateOfCreation": "2026-05-27",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.3390/nu18101535",
+  "electronicPublicationDate": "2026-05-12",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-05-28",
+  "firstPublicationDate": "2026-05-12",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13209271"
+    ]
+  },
+  "fullTextReceivedDate": "2026-05-27",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3390/nu18101535"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13209271"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13209271?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "National Research Foundation of Korea",
+        "grantId": "RS-2024-00340086",
+        "orderIn": 0
+      },
+      {
+        "agency": "Ministry of Oceans and Fisheries",
+        "grantId": "20220027",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42196995",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 May",
+    "issue": "10",
+    "journal": {
+      "essn": "2072-6643",
+      "isoabbreviation": "Nutrients",
+      "issn": "2072-6643",
+      "medlineAbbreviation": "Nutrients",
+      "nlmid": "101521595",
+      "title": "Nutrients"
+    },
+    "journalIssueId": 4201715,
+    "monthOfPublication": 5,
+    "printPublicationDate": "2026-05-01",
+    "volume": "18",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "alpha diversity",
+      "Porphyra tenera",
+      "metabolic syndrome",
+      "Gut Microbiota",
+      "Short-chain Fatty Acids (Scfas)"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Feces",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Porphyra",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "RNA, Ribosomal, 16S",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Diet",
+        "majorTopic_YN": "Y"
+      },
+      {
+        "descriptorName": "Pilot Projects",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Aged",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Metabolic Syndrome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DH",
+              "majorTopic_YN": "N",
+              "qualifierName": "diet therapy"
+            },
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Edible Seaweeds",
+        "majorTopic_YN": "N"
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "1535",
+  "pmcid": "PMC13209271",
+  "pmid": "42196995",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Dietary Dried Laver (Porphyra tenera) Modulates Gut Microbiota Composition and Diversity in Older Women with and Without Metabolic Syndrome: An Exploratory Pilot Study.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "coordinate_sha256": "f33bee282b88782074f71c15ce5156dbce3a6ae55a26a7cdbc904642e463f934",
+  "coordinates_by_paper_id": {
+    "pmid:37554965": [
+      -6.024425029754639,
+      9.298324584960938
+    ],
+    "pmid:38684759": [
+      -7.6382951736450195,
+      9.70844841003418
+    ],
+    "pmid:39940363": [
+      -6.586979389190674,
+      12.470813751220703
+    ],
+    "pmid:40427090": [
+      -6.874749183654785,
+      9.313544273376465
+    ],
+    "pmid:40431531": [
+      -6.981893062591553,
+      9.865516662597656
+    ],
+    "pmid:40757475": [
+      -5.997077941894531,
+      10.839984893798828
+    ],
+    "pmid:40993726": [
+      -8.371074676513672,
+      10.337492942810059
+    ],
+    "pmid:41156517": [
+      -6.674839496612549,
+      10.29703140258789
+    ],
+    "pmid:41156855": [
+      -5.684823513031006,
+      11.210959434509277
+    ],
+    "pmid:41402854": [
+      -8.064404487609863,
+      11.95685863494873
+    ],
+    "pmid:41458603": [
+      -7.297895431518555,
+      8.949945449829102
+    ],
+    "pmid:41471874": [
+      -8.025864601135254,
+      9.36933708190918
+    ],
+    "pmid:41595661": [
+      -6.492727756500244,
+      9.413204193115234
+    ],
+    "pmid:41599832": [
+      -6.026612758636475,
+      10.45419692993164
+    ],
+    "pmid:41654729": [
+      -6.436814308166504,
+      8.890851974487305
+    ],
+    "pmid:41674055": [
+      -7.360354900360107,
+      12.545602798461914
+    ],
+    "pmid:41735946": [
+      -6.518573760986328,
+      11.097299575805664
+    ],
+    "pmid:41994275": [
+      -6.792014122009277,
+      11.558985710144043
+    ],
+    "pmid:42042084": [
+      -7.604470252990723,
+      11.807799339294434
+    ],
+    "pmid:42051515": [
+      -8.16768741607666,
+      10.613218307495117
+    ],
+    "pmid:42064155": [
+      -6.0991597175598145,
+      9.744340896606445
+    ],
+    "pmid:42117900": [
+      -7.858619213104248,
+      9.91289234161377
+    ],
+    "pmid:42196995": [
+      -7.297139644622803,
+      11.185441017150879
+    ],
+    "pmid:42197548": [
+      -7.520872116088867,
+      10.819414138793945
+    ],
+    "pmid:42232906": [
+      -7.094442844390869,
+      12.20403003692627
+    ],
+    "pmid:42294648": [
+      -8.001949310302734,
+      12.337186813354492
+    ],
+    "pmid:42500257": [
+      -8.603767395019531,
+      11.336880683898926
+    ],
+    "pmid:42614183": [
+      -7.007225513458252,
+      10.74899673461914
+    ],
+    "pmid:42614262": [
+      -6.643037796020508,
+      11.969255447387695
+    ],
+    "pmid:42683105": [
+      -8.525066375732422,
+      11.92814826965332
+    ]
+  },
+  "created_at": "2026-10-21T03:00:47.874942+00:00",
+  "dependency_versions": {
+    "huggingface-hub": "1.19.0",
+    "numpy": "2.4.6",
+    "scikit-learn": "1.9.0",
+    "sentence-transformers": "5.5.1",
+    "torch": "2.12.0",
+    "transformers": "5.12.0",
+    "umap-learn": "0.5.12"
+  },
+  "embedding_profile": {
+    "content_window_tokens": 510,
+    "dimension": 384,
+    "files_sha256": {
+      "1_Pooling/config.json": "d1caf60c96f5fba2157c0c26b76d80818fad6cf0b8eb5e73ec372ff9818eba5c",
+      "config.json": "094f8e891b932f2000c92cfc663bac4c62069f5d8af5b5278c4306aef3084750",
+      "config_sentence_transformers.json": "940d5f50db195fa6e5e6a4f122c095f77880de259d74b14a65779ed48bdd7c56",
+      "model.safetensors": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "sentence_bert_config.json": "84e39fda68ccbff05bfa723ae9c0e70e23e2ec373b76e0f8c6e71af72a693cbf",
+      "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    "id": "paper_bge_v1",
+    "input_preprocessing": "str.strip on title and abstract; paper-title-abstract-v1",
+    "input_template": "title: {title}\nabstract: {abstract}",
+    "length_policy": "all-token-id-windows-disjoint-v1",
+    "local_files_only": true,
+    "max_sequence_tokens": 512,
+    "model": "BAAI/bge-small-en-v1.5",
+    "model_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "normalization": "unit-window-vectors; content-token-weighted-mean; final-unit-l2-v1",
+    "runtime_versions": {
+      "huggingface-hub": "1.19.0",
+      "numpy": "2.4.6",
+      "scikit-learn": "1.9.0",
+      "sentence-transformers": "5.5.1",
+      "torch": "2.12.0",
+      "transformers": "5.12.0",
+      "umap-learn": "0.5.12"
+    },
+    "tokenizer_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "trust_remote_code": false
+  },
+  "embedding_profile_sha256": "a1a78133b8491cdadc8dc2a95546a6bb0457d59040013072ffc95fca4c99991f",
+  "embedding_set_sha256": "b10f23437dfcc92c630688f406eccc970d20c045fff0949c2c24896b1bbd1f83",
+  "excluded_papers_with_reasons": [],
+  "map_id": "offline-microbiome-30-v1-map",
+  "ordered_paper_ids": [
+    "pmid:42051515",
+    "pmid:42683105",
+    "pmid:42196995",
+    "pmid:41654729",
+    "pmid:42614183",
+    "pmid:42064155",
+    "pmid:41599832",
+    "pmid:41595661",
+    "pmid:42500257",
+    "pmid:38684759",
+    "pmid:41994275",
+    "pmid:42232906",
+    "pmid:42294648",
+    "pmid:41735946",
+    "pmid:41156517",
+    "pmid:41402854",
+    "pmid:37554965",
+    "pmid:42042084",
+    "pmid:39940363",
+    "pmid:42117900",
+    "pmid:40993726",
+    "pmid:41674055",
+    "pmid:40757475",
+    "pmid:40427090",
+    "pmid:42197548",
+    "pmid:41471874",
+    "pmid:41458603",
+    "pmid:42614262",
+    "pmid:41156855",
+    "pmid:40431531"
+  ],
+  "paper_input_hashes": {
+    "pmid:37554965": "b2cacb0aa876cfc8203b8805ab72cbfa78a9916b7181e01f17a2f6dd6bb88c0a",
+    "pmid:38684759": "6b6ece1308a9e76dc2f9db3bd0f919c44d04273cfe4c4a3e677d2a4d34813ae9",
+    "pmid:39940363": "a5da002fba2e116fcf16c3accf9a45f1920b4fb096d2980027b34c51ba723060",
+    "pmid:40427090": "91f01682c0159801c5eb5c7ad4bc9ac821d2fde6bbf3b4bc7f11a22e394d22ec",
+    "pmid:40431531": "5446f145644a30c7d5a1dfb6258521e9588027a9df10329340c5c43df1e4039a",
+    "pmid:40757475": "71fff4de7bbd8d20dd48287e240f932f30cb0b6d19c4743723a00ee6aa8a4977",
+    "pmid:40993726": "748a70ce6d9ba6495932e56ce9654c53f2196c3600a911f0ca95a40e04cdcd74",
+    "pmid:41156517": "83931f6cdf8de0a9f5061c020ebdabd01daa7bf9c5342d63e63c936fe84d7330",
+    "pmid:41156855": "aa3b14fb271d9dc9afad6fc2dab6ea00d69279975dbcf483e300b57be4c52acd",
+    "pmid:41402854": "e565ca09a6f957d9337abf743dee6faba166544f5a43eb9eb9c17157729b7fc2",
+    "pmid:41458603": "000b6995dbde0d4bcb8a6c3b3abad09ad30c07003df6e5fc8edb225302a52fa7",
+    "pmid:41471874": "a8ceac4f9546b29baae6bb9e94c6a2474ee48adf9c80c473181e64d875ab3a69",
+    "pmid:41595661": "93251d5e8428b08ac538d2a167ce3b2e24f9e712ff5b70614dc3e7128e6f2887",
+    "pmid:41599832": "574ba32f20a8f5126021f16a5e6de65b20add159accacb430613d5f2e497b5e7",
+    "pmid:41654729": "aa1721ff3b5fcfd5a08722a30cda34a664005b4d240420f302dfd90a8e5d0f50",
+    "pmid:41674055": "8b01acc6121dfb6253edf1a1900b89df159aef81be56a3b206ed58ca315d5a5c",
+    "pmid:41735946": "dcba0e5a2ca956d43328b5583159af4456906aac95db560146b38c12d704732d",
+    "pmid:41994275": "b55631f91f29d801bfebbd4d858f08e117f03b0fd5932255127a0a9993c1ef3d",
+    "pmid:42042084": "26fdd92b6334855f0c8c8bcf7f78ca5590443fd18bde86ef7f6012a22fdc00e7",
+    "pmid:42051515": "4685722aa26708609a6124a0abd2998e1958e4bb8bcf65f2adbc1f7408a13432",
+    "pmid:42064155": "98f08e2780801dab81185d47748a5f3002455ea4f120bff58e7229eaf659a3fb",
+    "pmid:42117900": "0efb0d76d3e4121e7c89b3d3159681e6855ea66e944ae8f6b78e44f65058c08d",
+    "pmid:42196995": "1c2fbf4b82239080910ad8785c356ac52af005f4cb1b01a7fbee95bd107b313e",
+    "pmid:42197548": "d39120c3c67dda1cd6f98236a851d7f4c44f4f1da4ab3e79b1771e76e9673f6b",
+    "pmid:42232906": "b214101f730f73418fbfe2766e1e8d7a0e17f8ecc9a955e006228f834aa9d998",
+    "pmid:42294648": "b19da3e199ea4ea40b459efcf0a777928973168a42b61056a5c91785ffdb51d5",
+    "pmid:42500257": "8416c29f72018d8509f56f358b3db260c58263b8339f355918aac1c428c55d73",
+    "pmid:42614183": "95ed9e4012b81bd9fab60031abd645d17453b5888a6bb1f006e7fcec5b3c8fe7",
+    "pmid:42614262": "a7081e1155c722b101972cf26ffc534b544c78e2e27506f5fc7b37fc5d7f02cf",
+    "pmid:42683105": "5e6c75042fd4a264a09713ac36b2a7d76cb76d462e59e8b75866599cb1d7816b"
+  },
+  "projection_method": "umap_cosine_v1",
+  "projection_parameters": {
+    "duplicate_policy": "identical vectors share one saved coordinate; no jitter",
+    "init": "random",
+    "metric": "cosine",
+    "min_dist": 0.1,
+    "n_components": 2,
+    "n_jobs": 1,
+    "n_neighbors": 15,
+    "overlap_groups": [],
+    "random_state": 42,
+    "rank": 29,
+    "transform_seed": 42,
+    "unique_vectors": 30
+  },
+  "representation_by_paper_id": {
+    "pmid:37554965": "title_abstract",
+    "pmid:38684759": "title_abstract",
+    "pmid:39940363": "title_abstract",
+    "pmid:40427090": "title_abstract",
+    "pmid:40431531": "title_abstract",
+    "pmid:40757475": "title_abstract",
+    "pmid:40993726": "title_abstract",
+    "pmid:41156517": "title_abstract",
+    "pmid:41156855": "title_abstract",
+    "pmid:41402854": "title_abstract",
+    "pmid:41458603": "title_abstract",
+    "pmid:41471874": "title_abstract",
+    "pmid:41595661": "title_abstract",
+    "pmid:41599832": "title_abstract",
+    "pmid:41654729": "title_abstract",
+    "pmid:41674055": "title_abstract",
+    "pmid:41735946": "title_abstract",
+    "pmid:41994275": "title_abstract",
+    "pmid:42042084": "title_abstract",
+    "pmid:42051515": "title_abstract",
+    "pmid:42064155": "title_abstract",
+    "pmid:42117900": "title_abstract",
+    "pmid:42196995": "title_abstract",
+    "pmid:42197548": "title_abstract",
+    "pmid:42232906": "title_abstract",
+    "pmid:42294648": "title_abstract",
+    "pmid:42500257": "title_abstract",
+    "pmid:42614183": "title_abstract",
+    "pmid:42614262": "title_abstract",
+    "pmid:42683105": "title_abstract"
+  },
+  "schema_version": "mvp.paper-map.v1",
+  "search_id": "offline-microbiome-30-v1-preview",
+  "search_snapshot_sha256": "a3edef41409671909e42b0160bde8f45ae0b5a1a99e73c35d2aaa99a70a8aeb5",
+  "status": "ready",
+  "warning": "Approximate semantic layout of this search preview; not all literature and not evidence quality.",
+  "workspace_id": "offline-microbiome-30-v1-generation"
+}

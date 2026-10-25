@@ -1,0 +1,939 @@
+{
+  "budgets": {
+    "budget_tokenizer": "unicode-word-or-nonspace-punctuation-v1",
+    "max_budget_tokens": 1200,
+    "max_characters": 3600,
+    "max_characters_per_reference": 1200,
+    "max_references": 3,
+    "max_tokens_per_reference": 400
+  },
+  "cases": [
+    {
+      "anchors": [
+        {
+          "block_id": "synthetic-late:b1",
+          "component_id": "sample",
+          "end": 2057,
+          "id": "late-participant-qualifiers:a1",
+          "quote": "64 Japanese women",
+          "start": 2040
+        },
+        {
+          "block_id": "synthetic-late:b1",
+          "component_id": "origin",
+          "end": 2057,
+          "id": "late-participant-qualifiers:a2",
+          "quote": "Japanese women",
+          "start": 2043
+        },
+        {
+          "block_id": "synthetic-late:b1",
+          "component_id": "age",
+          "end": 2074,
+          "id": "late-participant-qualifiers:a3",
+          "quote": "aged 55–74 years",
+          "start": 2058
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "late-participant-qualifiers",
+      "id": "late-participant-qualifiers",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-late",
+      "question": "What were the intervention cohort sample size, sex, population origin and age range?",
+      "related_study_group": "synthetic-late",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "late-participant-qualifiers:a1"
+          ],
+          "id": "sample",
+          "text": "intervention cohort sample size women"
+        },
+        {
+          "anchor_ids": [
+            "late-participant-qualifiers:a2"
+          ],
+          "id": "origin",
+          "text": "Japanese population origin"
+        },
+        {
+          "anchor_ids": [
+            "late-participant-qualifiers:a3"
+          ],
+          "id": "age",
+          "text": "age range years"
+        }
+      ],
+      "source_id": "synthetic-late",
+      "split": "development",
+      "tags": [
+        "late_over_1200",
+        "shared_span_components"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "synthetic-unicode-crlf:b1",
+          "component_id": "population",
+          "end": 97,
+          "id": "unicode-crlf-negation:a1",
+          "quote": "Among 18 Thai women",
+          "start": 78
+        },
+        {
+          "block_id": "synthetic-unicode-crlf:b1",
+          "component_id": "effect",
+          "end": 144,
+          "id": "unicode-crlf-negation:a2",
+          "quote": "naïve α-diversity did not increase (Δ = −0.7)",
+          "start": 99
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "unicode-crlf-negation",
+      "id": "unicode-crlf-negation",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-unicode-crlf",
+      "question": "Among Thai women, how did α-diversity change?",
+      "related_study_group": "synthetic-unicode-crlf",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "unicode-crlf-negation:a1"
+          ],
+          "id": "population",
+          "text": "Thai women population"
+        },
+        {
+          "anchor_ids": [
+            "unicode-crlf-negation:a2"
+          ],
+          "id": "effect",
+          "text": "α-diversity change increase"
+        }
+      ],
+      "source_id": "synthetic-unicode-crlf",
+      "split": "development",
+      "tags": [
+        "unicode",
+        "crlf",
+        "negation"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "synthetic-negation:b1",
+          "component_id": "ovarian-reserve",
+          "end": 98,
+          "id": "negation-outcome:a1",
+          "quote": "did not improve ovarian reserve",
+          "start": 67
+        },
+        {
+          "block_id": "synthetic-negation:b1",
+          "component_id": "hormone",
+          "end": 136,
+          "id": "negation-outcome:a2",
+          "quote": "anti-Müllerian hormone was unchanged",
+          "start": 100
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "negation-outcome",
+      "id": "negation-outcome",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-negation",
+      "question": "Did the intervention improve ovarian reserve and anti-Müllerian hormone?",
+      "related_study_group": "synthetic-negation",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "negation-outcome:a1"
+          ],
+          "id": "ovarian-reserve",
+          "text": "intervention ovarian reserve improvement"
+        },
+        {
+          "anchor_ids": [
+            "negation-outcome:a2"
+          ],
+          "id": "hormone",
+          "text": "anti-Müllerian hormone change"
+        }
+      ],
+      "source_id": "synthetic-negation",
+      "split": "development",
+      "tags": [
+        "negation"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "synthetic-origin-versus-affiliation:b2",
+          "component_id": "origin",
+          "end": 48,
+          "id": "population-not-author-affiliation:a1",
+          "quote": "36 adult women born in Vietnam",
+          "start": 18
+        },
+        {
+          "block_id": "synthetic-origin-versus-affiliation:b2",
+          "component_id": "setting",
+          "end": 82,
+          "id": "population-not-author-affiliation:a2",
+          "quote": "recruited in Ho Chi Minh City",
+          "start": 53
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "population-not-author-affiliation",
+      "id": "population-not-author-affiliation",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-origin-versus-affiliation",
+      "question": "What were the participant population origin and recruitment setting?",
+      "related_study_group": "synthetic-origin-versus-affiliation",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "population-not-author-affiliation:a1"
+          ],
+          "id": "origin",
+          "text": "participant women born population origin"
+        },
+        {
+          "anchor_ids": [
+            "population-not-author-affiliation:a2"
+          ],
+          "id": "setting",
+          "text": "participants recruited recruitment setting"
+        }
+      ],
+      "source_id": "synthetic-origin-versus-affiliation",
+      "split": "development",
+      "tags": [
+        "population_vs_affiliation"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "synthetic-multicohort:b2",
+          "component_id": "cohort",
+          "end": 30,
+          "id": "external-validation-cohort:a1",
+          "quote": "external validation cohort",
+          "start": 4
+        },
+        {
+          "block_id": "synthetic-multicohort:b2",
+          "component_id": "sample-population",
+          "end": 70,
+          "id": "external-validation-cohort:a2",
+          "quote": "42 Korean postmenopausal women",
+          "start": 40
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "external-validation-cohort",
+      "id": "external-validation-cohort",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-multicohort",
+      "question": "What were the external validation cohort sample size and population?",
+      "related_study_group": "synthetic-multicohort",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "external-validation-cohort:a1"
+          ],
+          "id": "cohort",
+          "text": "external validation cohort"
+        },
+        {
+          "anchor_ids": [
+            "external-validation-cohort:a2"
+          ],
+          "id": "sample-population",
+          "text": "validation sample size Korean postmenopausal women"
+        }
+      ],
+      "source_id": "synthetic-multicohort",
+      "split": "development",
+      "tags": [
+        "multicohort"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "synthetic-table:b1",
+          "component_id": "heading",
+          "end": 55,
+          "id": "table-heading-row-footnote:a1",
+          "quote": "Validation cohort: Korean postmenopausal women",
+          "start": 9
+        },
+        {
+          "block_id": "synthetic-table:b2",
+          "component_id": "row",
+          "end": 65,
+          "id": "table-heading-row-footnote:a2",
+          "quote": "Fibre supplementation | Bifidobacterium | +2.4 percentage points*",
+          "start": 0
+        },
+        {
+          "block_id": "synthetic-table:b3",
+          "component_id": "footnote",
+          "end": 83,
+          "id": "table-heading-row-footnote:a3",
+          "quote": "Adjusted between-group difference at 12 weeks; n = 42; values are not fold changes",
+          "start": 1
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "table-heading-row-footnote",
+      "id": "table-heading-row-footnote",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-table",
+      "question": "In the validation cohort table, what was the Bifidobacterium change with fibre supplementation, including units, sample size and timing?",
+      "related_study_group": "synthetic-table",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "table-heading-row-footnote:a1"
+          ],
+          "id": "heading",
+          "text": "Table validation cohort Korean postmenopausal women"
+        },
+        {
+          "anchor_ids": [
+            "table-heading-row-footnote:a2"
+          ],
+          "id": "row",
+          "text": "Fibre supplementation Bifidobacterium percentage points"
+        },
+        {
+          "anchor_ids": [
+            "table-heading-row-footnote:a3"
+          ],
+          "id": "footnote",
+          "text": "Adjusted difference weeks sample n fold changes"
+        }
+      ],
+      "source_id": "synthetic-table",
+      "split": "development",
+      "tags": [
+        "table_heading",
+        "table_row",
+        "table_footnote",
+        "units",
+        "denominator"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "synthetic-abstract-only:b1",
+          "component_id": "population",
+          "end": 103,
+          "id": "abstract-population:a1",
+          "quote": "52 Chinese women",
+          "start": 87
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "abstract-population",
+      "id": "abstract-population",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-abstract-only",
+      "question": "What population and sample size were described in the retained abstract?",
+      "related_study_group": "synthetic-abstract-only",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "abstract-population:a1"
+          ],
+          "id": "population",
+          "text": "Chinese women sample population"
+        }
+      ],
+      "source_id": "synthetic-abstract-only",
+      "split": "development",
+      "tags": [
+        "abstract_only"
+      ]
+    },
+    {
+      "anchors": [],
+      "answerability": "insufficient_retained_context",
+      "field_id": "abstract-missing-covariates",
+      "id": "abstract-missing-covariates",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-abstract-only",
+      "question": "Which adjustment covariates were used for the diet–diversity association?",
+      "related_study_group": "synthetic-abstract-only",
+      "requirements": [],
+      "source_id": "synthetic-abstract-only",
+      "split": "development",
+      "tags": [
+        "abstract_only",
+        "missing_information"
+      ]
+    },
+    {
+      "anchors": [],
+      "answerability": "insufficient_retained_context",
+      "field_id": "unreported-fracture-number",
+      "id": "unreported-fracture-number",
+      "label_status": "agent_authored_development",
+      "paper_id": "synthetic-paper:synthetic-no-answer",
+      "question": "What proportion of participants experienced a confirmed fracture after 24 months?",
+      "related_study_group": "synthetic-no-answer",
+      "requirements": [],
+      "source_id": "synthetic-no-answer",
+      "split": "development",
+      "tags": [
+        "no_answer"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+          "component_id": "sample-age",
+          "end": 62,
+          "id": "public-shokuyo-population:a1",
+          "quote": "19 female participants aged between 60 and 79 years",
+          "start": 11
+        },
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[3]/sec[1]/p[1]",
+          "component_id": "ethnicity",
+          "end": 919,
+          "id": "public-shokuyo-population:a2",
+          "quote": "ethnicity (Japanese), residential region (Japan), sex (female), and age (60–79 years)",
+          "start": 834
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "public-shokuyo-population",
+      "id": "public-shokuyo-population",
+      "label_status": "agent_authored_development",
+      "paper_id": "pmid:41599832",
+      "question": "What were the Shokuyo diet group sample size, sex, age range and ethnic population?",
+      "related_study_group": "public:PMC12844664",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "public-shokuyo-population:a1"
+          ],
+          "id": "sample-age",
+          "text": "Shokuyo diet group female sample age years"
+        },
+        {
+          "anchor_ids": [
+            "public-shokuyo-population:a2"
+          ],
+          "id": "ethnicity",
+          "text": "Shokuyo diet ethnicity population Japanese"
+        }
+      ],
+      "source_id": "public:PMC12844664",
+      "split": "development",
+      "tags": [
+        "public_pack",
+        "population",
+        "development_only"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+          "component_id": "gdm",
+          "end": 534,
+          "id": "public-gdm-stratified-negation:a1",
+          "quote": "among women with GDM, no significant differences were observed between the different ethnic groups",
+          "start": 436
+        },
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[1]",
+          "component_id": "non-gdm",
+          "end": 898,
+          "id": "public-gdm-stratified-negation:a2",
+          "quote": "amongst women without GDM, those of Indian ethnicity were found to be different from those of Chinese and Malay ethnicities",
+          "start": 775
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "public-gdm-stratified-negation",
+      "id": "public-gdm-stratified-negation",
+      "label_status": "agent_authored_development",
+      "paper_id": "pmid:38684759",
+      "question": "Did ethnic-group microbiome differences differ between women with GDM and those without GDM?",
+      "related_study_group": "public:PMC11058859",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "public-gdm-stratified-negation:a1"
+          ],
+          "id": "gdm",
+          "text": "women with GDM ethnic group differences significant"
+        },
+        {
+          "anchor_ids": [
+            "public-gdm-stratified-negation:a2"
+          ],
+          "id": "non-gdm",
+          "text": "women without GDM Indian Chinese Malay ethnicity differences"
+        }
+      ],
+      "source_id": "public:PMC11058859",
+      "split": "development",
+      "tags": [
+        "public_pack",
+        "negation",
+        "multicohort",
+        "development_only"
+      ]
+    },
+    {
+      "anchors": [
+        {
+          "block_id": "xml:/article[1]/body[1]/sec[2]/sec[2]/p[4]",
+          "component_id": "enrollment",
+          "end": 112,
+          "id": "public-cheonggukjang-enrollment-dose:a1",
+          "quote": "Of the 62 participants initially enrolled, 2 withdrew, leaving 60 participants who completed the clinical trial.",
+          "start": 0
+        },
+        {
+          "block_id": "xml:/article[1]/front[1]/article-meta[1]/abstract[1]/p[1]",
+          "component_id": "dose-duration",
+          "end": 880,
+          "id": "public-cheonggukjang-enrollment-dose:a2",
+          "quote": "Participants consumed 3.3 g of Cheonggukjang tablets daily for 8 weeks.",
+          "start": 809
+        }
+      ],
+      "answerability": "answerable",
+      "field_id": "public-cheonggukjang-enrollment-dose",
+      "id": "public-cheonggukjang-enrollment-dose",
+      "label_status": "agent_authored_development",
+      "paper_id": "pmid:39940363",
+      "question": "How many participants initially enrolled and completed the Cheonggukjang trial, and what were the intervention dose and duration?",
+      "related_study_group": "public:PMC11820775",
+      "requirements": [
+        {
+          "anchor_ids": [
+            "public-cheonggukjang-enrollment-dose:a1"
+          ],
+          "id": "enrollment",
+          "text": "participants initially enrolled withdrew completed clinical trial"
+        },
+        {
+          "anchor_ids": [
+            "public-cheonggukjang-enrollment-dose:a2"
+          ],
+          "id": "dose-duration",
+          "text": "Cheonggukjang daily dose g weeks duration"
+        }
+      ],
+      "source_id": "public:PMC11820775",
+      "split": "development",
+      "tags": [
+        "public_pack",
+        "denominator",
+        "dose",
+        "duration",
+        "development_only"
+      ]
+    }
+  ],
+  "created_at": "2026-10-22T00:00:00+00:00",
+  "frozen_before_b1_runs": true,
+  "label_status": "synthetic_and_agent_authored_public_development_not_human_gold",
+  "limitations": [
+    "All labels are agent-authored development labels; none are human gold or held out.",
+    "Related cases from the same source remain in one development group. No held-out score is claimed.",
+    "Exact fixed-anchor coverage is a narrow software/development metric, not semantic recall, entailment, human usefulness or comparative product superiority.",
+    "No-answer nonempty candidates are reported; retrieval alone makes no unsupported narrative claims."
+  ],
+  "schema_version": "mvp.span-source-first-development.v1",
+  "sources": [
+    {
+      "id": "synthetic-late",
+      "kind": "synthetic",
+      "related_study_group": "synthetic-late",
+      "source": {
+        "attribution": null,
+        "blocks": [
+          {
+            "id": "synthetic-late:b1",
+            "locator": {
+              "label": "Agent-authored development block 1",
+              "type": "synthetic_block"
+            },
+            "ordinal": 1,
+            "text": "Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. The intervention cohort comprised 64 Japanese women aged 55–74 years."
+          }
+        ],
+        "blocks_sha256": "fc45f9ba2d27ab69a90b5c026885dbce32e1003aeaffbc01fa12dd28fffe215f",
+        "error": null,
+        "id": "synthetic-late",
+        "license": "Synthetic fixture authored for software testing",
+        "paper_id": "synthetic-paper:synthetic-late",
+        "parser_id": "synthetic-exact-codepoints.v1",
+        "parser_metadata": {},
+        "provider": "synthetic-agent-authored-development",
+        "retained_content_utf8": "Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. Laboratory calibration records were archived for an audit. The intervention cohort comprised 64 Japanese women aged 55–74 years.",
+        "retrieved_at": "2026-10-22T00:00:00+00:00",
+        "source_identifiers": {},
+        "source_sha256": "d439039cc6cbf0e8feac100fdf9935c2a22a78628424fa2c818d033543ddff20",
+        "source_type": "full_text",
+        "source_url": "https://example.invalid/synthetic-development-fixture",
+        "status": "full_text_retrieved",
+        "version": "1",
+        "warnings": []
+      },
+      "split": "development"
+    },
+    {
+      "id": "synthetic-unicode-crlf",
+      "kind": "synthetic",
+      "related_study_group": "synthetic-unicode-crlf",
+      "source": {
+        "attribution": null,
+        "blocks": [
+          {
+            "id": "synthetic-unicode-crlf:b1",
+            "locator": {
+              "label": "Agent-authored development block 1",
+              "type": "synthetic_block"
+            },
+            "ordinal": 1,
+            "text": "Préface 🧬 — café and women’s health.\r\nThe protocol used a β-diversity assay.\r\nAmong 18 Thai women, naïve α-diversity did not increase (Δ = −0.7).\r\nThe comparison lasted twelve weeks."
+          }
+        ],
+        "blocks_sha256": "53c4a0299a28184b35f930b5bf681b8fa7fc277025c285460105032f865ff0e5",
+        "error": null,
+        "id": "synthetic-unicode-crlf",
+        "license": "Synthetic fixture authored for software testing",
+        "paper_id": "synthetic-paper:synthetic-unicode-crlf",
+        "parser_id": "synthetic-exact-codepoints.v1",
+        "parser_metadata": {},
+        "provider": "synthetic-agent-authored-development",
+        "retained_content_utf8": "Préface 🧬 — café and women’s health.\r\nThe protocol used a β-diversity assay.\r\nAmong 18 Thai women, naïve α-diversity did not increase (Δ = −0.7).\r\nThe comparison lasted twelve weeks.",
+        "retrieved_at": "2026-10-22T00:00:00+00:00",
+        "source_identifiers": {},
+        "source_sha256": "4ea0fcf56612d394c226b25c7267e552b5ec545fec2a6aebe9f4fdc985355e17",
+        "source_type": "full_text",
+        "source_url": "https://example.invalid/synthetic-development-fixture",
+        "status": "full_text_retrieved",
+        "version": "1",
+        "warnings": []
+      },
+      "split": "development"
+    },
+    {
+      "id": "synthetic-negation",
+      "kind": "synthetic",
+      "related_study_group": "synthetic-negation",
+      "source": {
+        "attribution": null,
+        "blocks": [
+          {
+            "id": "synthetic-negation:b1",
+            "locator": {
+              "label": "Agent-authored development block 1",
+              "type": "synthetic_block"
+            },
+            "ordinal": 1,
+            "text": "The investigators anticipated improved fertility. The intervention did not improve ovarian reserve; anti-Müllerian hormone was unchanged. The absence of improvement applies to the intervention group at twelve weeks."
+          }
+        ],
+        "blocks_sha256": "3638d0baaf880cda14457b8911816edaa508d2edb20e35990dc8cc15f439136b",
+        "error": null,
+        "id": "synthetic-negation",
+        "license": "Synthetic fixture authored for software testing",
+        "paper_id": "synthetic-paper:synthetic-negation",
+        "parser_id": "synthetic-exact-codepoints.v1",
+        "parser_metadata": {},
+        "provider": "synthetic-agent-authored-development",
+        "retained_content_utf8": "The investigators anticipated improved fertility. The intervention did not improve ovarian reserve; anti-Müllerian hormone was unchanged. The absence of improvement applies to the intervention group at twelve weeks.",
+        "retrieved_at": "2026-10-22T00:00:00+00:00",
+        "source_identifiers": {},
+        "source_sha256": "69a02531f96934b136f63e1bf111257d9bfb83677b97a6a4814ff908efc6515a",
+        "source_type": "full_text",
+        "source_url": "https://example.invalid/synthetic-development-fixture",
+        "status": "full_text_retrieved",
+        "version": "1",
+        "warnings": []
+      },
+      "split": "development"
+    },
+    {
+      "id": "synthetic-origin-versus-affiliation",
+      "kind": "synthetic",
+      "related_study_group": "synthetic-origin-versus-affiliation",
+      "source": {
+        "attribution": null,
+        "blocks": [
+          {
+            "id": "synthetic-origin-versus-affiliation:b1",
+            "locator": {
+              "label": "Agent-authored development block 1",
+              "type": "synthetic_block"
+            },
+            "ordinal": 1,
+            "text": "Author affiliation: Department of Women’s Health, Singapore. The team studies Asian microbiome populations."
+          },
+          {
+            "id": "synthetic-origin-versus-affiliation:b2",
+            "locator": {
+              "label": "Agent-authored development block 2",
+              "type": "synthetic_block"
+            },
+            "ordinal": 2,
+            "text": "Participants were 36 adult women born in Vietnam and recruited in Ho Chi Minh City. No participants were recruited in Singapore."
+          }
+        ],
+        "blocks_sha256": "5f269b9856a8fcb9a8c40dc503306aaa8a7cd0e3bee96135a9bde9d0b691b753",
+        "error": null,
+        "id": "synthetic-origin-versus-affiliation",
+        "license": "Synthetic fixture authored for software testing",
+        "paper_id": "synthetic-paper:synthetic-origin-versus-affiliation",
+        "parser_id": "synthetic-exact-codepoints.v1",
+        "parser_metadata": {},
+        "provider": "synthetic-agent-authored-development",
+        "retained_content_utf8": "Author affiliation: Department of Women’s Health, Singapore. The team studies Asian microbiome populations.\n\nParticipants were 36 adult women born in Vietnam and recruited in Ho Chi Minh City. No participants were recruited in Singapore.",
+        "retrieved_at": "2026-10-22T00:00:00+00:00",
+        "source_identifiers": {},
+        "source_sha256": "ceae754732d86a08a00b6fe484fc3320964614e792c837c15c227720f39da839",
+        "source_type": "full_text",
+        "source_url": "https://example.invalid/synthetic-development-fixture",
+        "status": "full_text_retrieved",
+        "version": "1",
+        "warnings": []
+      },
+      "split": "development"
+    },
+    {
+      "id": "synthetic-multicohort",
+      "kind": "synthetic",
+      "related_study_group": "synthetic-multicohort",
+      "source": {
+        "attribution": null,
+        "blocks": [
+          {
+            "id": "synthetic-multicohort:b1",
+            "locator": {
+              "label": "Agent-authored development block 1",
+              "type": "synthetic_block"
+            },
+            "ordinal": 1,
+            "text": "The development cohort contained 128 Chinese adults, including 48 women. The development sample trained the association model."
+          },
+          {
+            "id": "synthetic-multicohort:b2",
+            "locator": {
+              "label": "Agent-authored development block 2",
+              "type": "synthetic_block"
+            },
+            "ordinal": 2,
+            "text": "The external validation cohort included 42 Korean postmenopausal women. Validation specimens were collected at baseline."
+          }
+        ],
+        "blocks_sha256": "73eec3133248355e60c71b41f02c1937c18e5dab9586136913a024d04f396bc1",
+        "error": null,
+        "id": "synthetic-multicohort",
+        "license": "Synthetic fixture authored for software testing",
+        "paper_id": "synthetic-paper:synthetic-multicohort",
+        "parser_id": "synthetic-exact-codepoints.v1",
+        "parser_metadata": {},
+        "provider": "synthetic-agent-authored-development",
+        "retained_content_utf8": "The development cohort contained 128 Chinese adults, including 48 women. The development sample trained the association model.\n\nThe external validation cohort included 42 Korean postmenopausal women. Validation specimens were collected at baseline.",
+        "retrieved_at": "2026-10-22T00:00:00+00:00",
+        "source_identifiers": {},
+        "source_sha256": "5ca9800f714a29636167f603b04409fcdb530ec72a3a4c84b9b1dc56c6cca3f3",
+        "source_type": "full_text",
+        "source_url": "https://example.invalid/synthetic-development-fixture",
+        "status": "full_text_retrieved",
+        "version": "1",
+        "warnings": []
+      },
+      "split": "development"
+    },
+    {
+      "id": "synthetic-table",
+      "kind": "synthetic",
+      "related_study_group": "synthetic-table",
+      "source": {
+        "attribution": null,
+        "blocks": [
+          {
+            "id": "synthetic-table:b1",
+            "locator": {
+              "label": "Agent-authored development block 1",
+              "type": "synthetic_block"
+            },
+            "ordinal": 1,
+            "text": "Table 2. Validation cohort: Korean postmenopausal women; between-group intestinal microbiome changes."
+          },
+          {
+            "id": "synthetic-table:b2",
+            "locator": {
+              "label": "Agent-authored development block 2",
+              "type": "synthetic_block"
+            },
+            "ordinal": 2,
+            "text": "Fibre supplementation | Bifidobacterium | +2.4 percentage points*"
+          },
+          {
+            "id": "synthetic-table:b3",
+            "locator": {
+              "label": "Agent-authored development block 3",
+              "type": "synthetic_block"
+            },
+            "ordinal": 3,
+            "text": "*Adjusted between-group difference at 12 weeks; n = 42; values are not fold changes."
+          }
+        ],
+        "blocks_sha256": "dd2ce2a1110b10c15343f9ff4c65eeef00f74fbc3b8ed199fee6df15c461b4ab",
+        "error": null,
+        "id": "synthetic-table",
+        "license": "Synthetic fixture authored for software testing",
+        "paper_id": "synthetic-paper:synthetic-table",
+        "parser_id": "synthetic-exact-codepoints.v1",
+        "parser_metadata": {},
+        "provider": "synthetic-agent-authored-development",
+        "retained_content_utf8": "Table 2. Validation cohort: Korean postmenopausal women; between-group intestinal microbiome changes.\n\nFibre supplementation | Bifidobacterium | +2.4 percentage points*\n\n*Adjusted between-group difference at 12 weeks; n = 42; values are not fold changes.",
+        "retrieved_at": "2026-10-22T00:00:00+00:00",
+        "source_identifiers": {},
+        "source_sha256": "838e263817393ee65896cabb5baaa4fcd3b79b6c0c1a66ab94044accb0cf48bc",
+        "source_type": "full_text",
+        "source_url": "https://example.invalid/synthetic-development-fixture",
+        "status": "full_text_retrieved",
+        "version": "1",
+        "warnings": []
+      },
+      "split": "development"
+    },
+    {
+      "id": "synthetic-abstract-only",
+      "kind": "synthetic",
+      "related_study_group": "synthetic-abstract-only",
+      "source": {
+        "attribution": null,
+        "blocks": [
+          {
+            "id": "synthetic-abstract-only:b1",
+            "locator": {
+              "label": "Agent-authored development block 1",
+              "type": "synthetic_block"
+            },
+            "ordinal": 1,
+            "text": "This abstract reports an association between dietary fibre intake and gut diversity in 52 Chinese women. It does not describe adjustment covariates."
+          }
+        ],
+        "blocks_sha256": "a2b295e30dd98362a211d48cfec99b418eacf45c09e61662b1d2ad7efbf00303",
+        "error": null,
+        "id": "synthetic-abstract-only",
+        "license": "Synthetic fixture authored for software testing",
+        "paper_id": "synthetic-paper:synthetic-abstract-only",
+        "parser_id": "synthetic-exact-codepoints.v1",
+        "parser_metadata": {},
+        "provider": "synthetic-agent-authored-development",
+        "retained_content_utf8": "This abstract reports an association between dietary fibre intake and gut diversity in 52 Chinese women. It does not describe adjustment covariates.",
+        "retrieved_at": "2026-10-22T00:00:00+00:00",
+        "source_identifiers": {},
+        "source_sha256": "21791f506148618ddd8e23fdb4b6212d2db66f3b9067d9c7bcfcea283a20037b",
+        "source_type": "abstract",
+        "source_url": "https://example.invalid/synthetic-development-fixture",
+        "status": "abstract_only",
+        "version": "1",
+        "warnings": []
+      },
+      "split": "development"
+    },
+    {
+      "id": "synthetic-no-answer",
+      "kind": "synthetic",
+      "related_study_group": "synthetic-no-answer",
+      "source": {
+        "attribution": null,
+        "blocks": [
+          {
+            "id": "synthetic-no-answer:b1",
+            "locator": {
+              "label": "Agent-authored development block 1",
+              "type": "synthetic_block"
+            },
+            "ordinal": 1,
+            "text": "The dietary microbiome study measured stool diversity at baseline. Bone health and fracture risk were discussed as motivations. No fracture follow-up measurements are included in this synthetic retained text."
+          }
+        ],
+        "blocks_sha256": "079ec69ec8dbf366fe0c616175f10a56844055e7eb68b0b942816cffa6a101f5",
+        "error": null,
+        "id": "synthetic-no-answer",
+        "license": "Synthetic fixture authored for software testing",
+        "paper_id": "synthetic-paper:synthetic-no-answer",
+        "parser_id": "synthetic-exact-codepoints.v1",
+        "parser_metadata": {},
+        "provider": "synthetic-agent-authored-development",
+        "retained_content_utf8": "The dietary microbiome study measured stool diversity at baseline. Bone health and fracture risk were discussed as motivations. No fracture follow-up measurements are included in this synthetic retained text.",
+        "retrieved_at": "2026-10-22T00:00:00+00:00",
+        "source_identifiers": {},
+        "source_sha256": "d5419ee47aeda062340b2dd9bdcd00356f318af5e247e8bcf445c789af6ff8eb",
+        "source_type": "full_text",
+        "source_url": "https://example.invalid/synthetic-development-fixture",
+        "status": "full_text_retrieved",
+        "version": "1",
+        "warnings": []
+      },
+      "split": "development"
+    },
+    {
+      "blocks_sha256": "faf35919a9e04118146d27d7e605f246bce6993beff57792f6191cb025bcbc37",
+      "fixture_bundle_id": "offline-microbiome-30-v1",
+      "id": "public:PMC12844664",
+      "kind": "public_development",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "paper_id": "pmid:41599832",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "pmcid": "PMC12844664",
+      "related_study_group": "public:PMC12844664",
+      "source_sha256": "5babc32658dac1f86b202e26c28cdf5838aa308aff1c3191a7d6af2676c3ddd0",
+      "split": "development"
+    },
+    {
+      "blocks_sha256": "64d9abde234f6ff45b68e29a9b6cbbd5bfe9d99e97adddfe6bbdda0e26055ab1",
+      "fixture_bundle_id": "offline-microbiome-30-v1",
+      "id": "public:PMC11058859",
+      "kind": "public_development",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "paper_id": "pmid:38684759",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "pmcid": "PMC11058859",
+      "related_study_group": "public:PMC11058859",
+      "source_sha256": "fc00181532963154df388353a51a68827a147024b5d518af663f538f82a81095",
+      "split": "development"
+    },
+    {
+      "blocks_sha256": "7a44b8d23e21c391d274964c30d3de170854e01c209660d0fa72f2c266c7116a",
+      "fixture_bundle_id": "offline-microbiome-30-v1",
+      "id": "public:PMC11820775",
+      "kind": "public_development",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "paper_id": "pmid:39940363",
+      "parser_id": "lit-rev-engine.source.v1.jats_xml",
+      "pmcid": "PMC11820775",
+      "related_study_group": "public:PMC11820775",
+      "source_sha256": "a734f911fd243db53fe6f64b425619c8d64ddd4299c99f3c993ee4cd6eff1b10",
+      "split": "development"
+    }
+  ]
+}

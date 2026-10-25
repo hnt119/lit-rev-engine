@@ -1,0 +1,352 @@
+{
+  "abstractText": "<h4>Objective</h4>The objective of this study was to investigate the characteristics of the gut microbiota (GM) in pregnant women with gestational diabetes mellitus (GDM) and those with Type 2 diabetes mellitus (T2DM).<h4>Methods</h4>Clinical data from 33 pregnant Chinese women (15 with GDM and 18 without GDM) and 28 nonpregnant Chinese women (14 with T2DM and 14 without T2DM) were collected and statistically analyzed using SPSS software (Version 21.0). Normally distributed data were compared using an independent samples t-test, whereas nonnormally distributed data were compared using the Mann-Whitney U test. All statistical tests were two-sided, and p < 0.05 was considered significant. The 16S rRNA gene amplicons of the GM were sequenced using the Illumina HiSeq 2500 platform and compared for differences in genomic diversity, structure, and abundance using bioinformatics.<h4>Results</h4>Significant differences in beta diversity were observed between pregnant women with GDM and healthy pregnant women, as well as between women with T2DM and healthy women. However, pregnant women with GDM and healthy pregnant women did not exhibit significant differences in alpha diversity, whereas women with T2DM and healthy women did. Additionally, the abundance of Firmicutes in pregnant women with GDM was higher than that in healthy pregnant women, whereas the abundances of Bacteroidetes and Lachnobacterium were lower (p < 0.05). The abundance of Phascolarctobacterium in women with T2DM was higher than that in healthy women, whereas the abundances of Proteobacteria, Actinobacteria, Roseburia, Turicibacter, and Streptococcus were lower (p < 0.05).<h4>Conclusion</h4>The GM in pregnant women with GDM and those with T2DM differed significantly from that in the control group, providing a reference for future clinical attempts to apply intestinal microecological agents in the treatment of GDM and T2DM.",
+  "affiliation": "Department of Endocrinology, Nanchong Hospital of Beijing Anzhen Hospital Affiliated to Capital Medical University Nanchong Central Hospital, Nanchong, Sichuan, China.",
+  "authMan": "N",
+  "authorIdList": {
+    "authorId": [
+      {
+        "type": "ORCID",
+        "value": "0000-0002-0769-9999"
+      },
+      {
+        "type": "ORCID",
+        "value": "0000-0002-6518-8468"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0005-2483-3538"
+      },
+      {
+        "type": "ORCID",
+        "value": "0009-0005-8594-1057"
+      }
+    ]
+  },
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Endocrinology, Nanchong Hospital of Beijing Anzhen Hospital Affiliated to Capital Medical University Nanchong Central Hospital, Nanchong, Sichuan, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0005-2483-3538"
+        },
+        "firstName": "Yao",
+        "fullName": "Qing Y",
+        "initials": "Y",
+        "lastName": "Qing"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Gynecology and Obstetrics, Wuxi No. 2 People's Hospital, Wuxi, Jiangsu, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-0769-9999"
+        },
+        "firstName": "Huanyu",
+        "fullName": "Zhou H",
+        "initials": "H",
+        "lastName": "Zhou"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics, Dalian Medical University, Dalian, Liaoning, China, dlmedu.edu.cn."
+            }
+          ]
+        },
+        "firstName": "Chaomeng",
+        "fullName": "Zhou C",
+        "initials": "C",
+        "lastName": "Zhou"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics, Dalian Medical University, Dalian, Liaoning, China, dlmedu.edu.cn."
+            }
+          ]
+        },
+        "firstName": "Zhe",
+        "fullName": "Song Z",
+        "initials": "Z",
+        "lastName": "Song"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Endocrinology and Metabolism, The Affiliated Changzhou No. 2 People's Hospital of Nanjing Medical University, Changzhou, Jiangsu, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0009-0005-8594-1057"
+        },
+        "firstName": "Jianbo",
+        "fullName": "Gao J",
+        "initials": "J",
+        "lastName": "Gao"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Obstetrics, The Affiliated Changzhou No. 2 People's Hospital of Nanjing Medical University, Changzhou, Jiangsu, China."
+            }
+          ]
+        },
+        "authorId": {
+          "type": "ORCID",
+          "value": "0000-0002-6518-8468"
+        },
+        "firstName": "Jinhua",
+        "fullName": "Wei J",
+        "initials": "J",
+        "lastName": "Wei"
+      }
+    ]
+  },
+  "authorString": "Qing Y, Zhou H, Zhou C, Song Z, Gao J, Wei J.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "RNA, Ribosomal, 16S",
+        "registryNumber": "0"
+      }
+    ]
+  },
+  "citedByCount": 0,
+  "dateOfCompletion": "2026-07-16",
+  "dateOfCreation": "2026-05-12",
+  "dateOfRevision": "2026-09-26",
+  "doi": "10.1155/jdr/3036209",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-05-14",
+  "firstPublicationDate": "2026-01-01",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13162232"
+    ]
+  },
+  "fullTextReceivedDate": "2026-05-20",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.1155/jdr/3036209"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13162232"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13162232?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "Changzhou Sci&Tech Program",
+        "grantId": "CZ20210025",
+        "orderIn": 0
+      },
+      {
+        "agency": "Changzhou Health Bureau",
+        "grantId": "ZD201811",
+        "orderIn": 0
+      },
+      {
+        "agency": "Maternal and Child HealthCare Association of Jiangsu Province",
+        "grantId": "FYx201807",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "N",
+  "hasTextMinedTerms": "Y",
+  "id": "42117900",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "issue": "1",
+    "journal": {
+      "essn": "2314-6753",
+      "isoabbreviation": "J Diabetes Res",
+      "issn": "2314-6745",
+      "medlineAbbreviation": "J Diabetes Res",
+      "nlmid": "101605237",
+      "title": "Journal of diabetes research"
+    },
+    "journalIssueId": 4148321,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "2026",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Type 2 diabetes mellitus",
+      "Gestational Diabetes Mellitus",
+      "Gut Microbiota",
+      "16S Rrna High-throughput Sequencing"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Humans",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Bacteria",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "CL",
+              "majorTopic_YN": "N",
+              "qualifierName": "classification"
+            },
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Diabetes, Gestational",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Diabetes Mellitus, Type 2",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "MI",
+              "majorTopic_YN": "N",
+              "qualifierName": "microbiology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "RNA, Ribosomal, 16S",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Case-Control Studies",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Pregnancy",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Adult",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "China",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "e3036209",
+  "pmcid": "PMC13162232",
+  "pmid": "42117900",
+  "pubModel": "Print",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "ppublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "16S rRNA Gene Amplicon Sequencing of Gut Microbiota in Gestational Diabetes Mellitus and Type 2 Diabetes Mellitus."
+}

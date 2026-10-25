@@ -1,0 +1,169 @@
+{
+  "abstractText": "<h4>Background</h4>Sarcopenic obesity (SO) in perimenopausal women-characterized by the paradoxical coexistence of skeletal muscle loss and visceral adiposity-represents a complex metabolic challenge that conventional estrogen replacement therapies have failed to fully address. Emerging evidence from traditional Chinese medicine (TCM) suggests that the \"spleen governing muscle\" theory may offer a unique lens through which to understand this condition, with the gut microbiota serving as a critical mechanistic link between spleen deficiency and musculoskeletal deterioration.<h4>Objective</h4>To systematically review the mechanisms linking spleen deficiency, gut microbiota dysbiosis, and sarcopenic obesity risk in perimenopausal women, integrating TCM theory with modern biomedical evidence.<h4>Methods</h4>We synthesized findings from clinical observational studies, randomized controlled trials (RCTs), and mechanistic investigations examining the \"spleen-gut-muscle\" axis, with particular attention to studies employing 16S rRNA sequencing, metabolomics, and multi-omics approaches.<h4>Results</h4>Spleen deficiency-manifesting as impaired transformation and transportation of nutrients-correlates with characteristic alterations in gut microbiota composition, including reduced diversity, elevated <i>Firmicutes</i>/Bacteroidetes ratios, and depletion of short-chain fatty acid (SCFA)-producing taxa. These microbial changes propagate systemic inflammation through lipopolysaccharide (LPS)-TLR4 signaling, activate muscle protein degradation <i>via MuRF1</i> upregulation, and compromise insulin sensitivity through diminished GLP-1 secretion. Notably, TCM interventions-including herbal formulations (Sijunzi decoction, Buzhong Yiqi decoction), acupuncture, moxibustion, catgut embedding, and tuina massage-demonstrate potential to restore microbial homeostasis, increase SCFA production, and improve muscle mass and function. However, the evidence quality remains modest, with methodological limitations including inadequate blinding, small sample sizes, and short follow-up durations.<h4>Conclusion</h4>The \"spleen-gut-muscle\" axis represents a promising therapeutic target for perimenopausal sarcopenic obesity, bridging TCM theory with modern microbiome science. Nevertheless, current evidence is predominantly associative rather than causally definitive, derived largely from small-scale trials and preclinical models. Rigorous, large-scale RCTs with standardized TCM protocols, multi-omics endpoints, and extended follow-up are essential to establish efficacy and safety before microbiota-based TCM interventions can be recommended as adjunctive or standalone therapies.",
+  "affiliation": "Department of Acupuncture and Moxibustion, Zhejiang Hospital, Hangzhou, China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Acupuncture and Moxibustion, Zhejiang Hospital, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Yuanyuan",
+        "fullName": "Jin Y",
+        "initials": "Y",
+        "lastName": "Jin"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Acupuncture and Moxibustion, Zhejiang Hospital, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Jianfang",
+        "fullName": "Zhu J",
+        "initials": "J",
+        "lastName": "Zhu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Nutrition, Zhejiang Hospital, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Dan",
+        "fullName": "Liao D",
+        "initials": "D",
+        "lastName": "Liao"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Department of Acupuncture and Moxibustion, Zhejiang Hospital, Hangzhou, China."
+            }
+          ]
+        },
+        "firstName": "Xiaoqing",
+        "fullName": "Jin X",
+        "initials": "X",
+        "lastName": "Jin"
+      }
+    ]
+  },
+  "authorString": "Jin Y, Zhu J, Liao D, Jin X.",
+  "citedByCount": 1,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-06-03",
+  "dateOfCreation": "2026-06-03",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.3389/fmicb.2026.1817839",
+  "electronicPublicationDate": "2026-05-18",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-06-03",
+  "firstPublicationDate": "2026-05-18",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13222942"
+    ]
+  },
+  "fullTextReceivedDate": "2026-06-04",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/fmicb.2026.1817839"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13222942"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13222942?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42232906",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "journal": {
+      "essn": "1664-302X",
+      "isoabbreviation": "Front Microbiol",
+      "issn": "1664-302X",
+      "medlineAbbreviation": "Front Microbiol",
+      "nlmid": "101548977",
+      "title": "Frontiers in microbiology"
+    },
+    "journalIssueId": 4112147,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "17",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Gut Microbiota",
+      "perimenopause",
+      "Sarcopenic Obesity",
+      "Multi-modal Intervention",
+      "Spleen Governing Muscle"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "1817839",
+  "pmcid": "PMC13222942",
+  "pmid": "42232906",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "review-article",
+      "Review",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "From \"spleen governing muscle\" to gut microbiota: mechanisms of sarcopenic obesity in perimenopausal women.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

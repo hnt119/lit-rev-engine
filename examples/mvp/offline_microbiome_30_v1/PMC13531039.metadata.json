@@ -1,0 +1,235 @@
+{
+  "abstractText": "Ovarian aging profoundly affects female reproductive lifespan and quality of life, and gut microbiota serves as a key regulator of reproductive aging. Accumulating studies have proven that gut microbiota dysbiosis is closely associated with ovarian aging, and restoring disturbed gut microbiota can effectively delay this process. Nevertheless, most current researches focus on a single subtype of ovarian aging, and relevant targeted interventions have not been systematically summarized. This review elaborates the alterations of gut microbiota during physiological and pathological ovarian aging, and explores the core mechanisms by which microbiota dysbiosis drives ovarian aging, including dysfunction of the \"estrobolome,\" deficiency of short-chain fatty acids (SCFAs), abnormal metabolism of bile acids (BAs) and tryptophan (TRP), as well as chronic low-grade inflammation caused by intestinal barrier impairment. We also comprehensively summarize gut microbiota-targeted prevention and treatment strategies, including conventional approaches such as probiotics, prebiotics, synbiotics, fecal microbiota transplantation (FMT), metabolite supplementation and Chinese herbal medicines, as well as emerging therapies like stem cell therapy, extracellular vesicle and exosome therapy. In addition, we discuss the limitations of existing studies and challenges in clinical translation, and prospect future research directions including multi-omics analysis and precise clinical intervention. This review aims to provide a theoretical basis for developing novel strategies to retard ovarian aging and improve female reproductive health.",
+  "affiliation": "The First Hospital of Hunan University of Chinese Medicine, Changsha, Hunan, China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The First Hospital of Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            },
+            {
+              "affiliation": "Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            }
+          ]
+        },
+        "firstName": "Yao",
+        "fullName": "Chen Y",
+        "initials": "Y",
+        "lastName": "Chen"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            }
+          ]
+        },
+        "firstName": "Sainan",
+        "fullName": "Tian S",
+        "initials": "S",
+        "lastName": "Tian"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The First Hospital of Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            }
+          ]
+        },
+        "firstName": "Jing",
+        "fullName": "Zeng J",
+        "initials": "J",
+        "lastName": "Zeng"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The First Hospital of Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            },
+            {
+              "affiliation": "Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            }
+          ]
+        },
+        "firstName": "Meifang",
+        "fullName": "Wu M",
+        "initials": "M",
+        "lastName": "Wu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The First Hospital of Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            },
+            {
+              "affiliation": "Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            }
+          ]
+        },
+        "firstName": "Pei",
+        "fullName": "Tang P",
+        "initials": "P",
+        "lastName": "Tang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The First Hospital of Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            },
+            {
+              "affiliation": "Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            }
+          ]
+        },
+        "firstName": "Lei",
+        "fullName": "Lei L",
+        "initials": "L",
+        "lastName": "Lei"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The First Hospital of Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            }
+          ]
+        },
+        "firstName": "Wen'e",
+        "fullName": "Liu W",
+        "initials": "W",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "The First Hospital of Hunan University of Chinese Medicine, Changsha, Hunan, China."
+            }
+          ]
+        },
+        "firstName": "Li",
+        "fullName": "Tang L",
+        "initials": "L",
+        "lastName": "Tang"
+      }
+    ]
+  },
+  "authorString": "Chen Y, Tian S, Zeng J, Wu M, Tang P, Lei L, Liu W, Tang L.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-09-02",
+  "dateOfCreation": "2026-09-02",
+  "dateOfRevision": "2026-09-03",
+  "doi": "10.3389/fmicb.2026.1890866",
+  "electronicPublicationDate": "2026-08-18",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-09-03",
+  "firstPublicationDate": "2026-08-18",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13531039"
+    ]
+  },
+  "fullTextReceivedDate": "2026-09-11",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/fmicb.2026.1890866"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13531039"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13531039?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "N",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42683105",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "journal": {
+      "essn": "1664-302X",
+      "isoabbreviation": "Front Microbiol",
+      "issn": "1664-302X",
+      "medlineAbbreviation": "Front Microbiol",
+      "nlmid": "101548977",
+      "title": "Frontiers in microbiology"
+    },
+    "journalIssueId": 4112147,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "17",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Pathogenic mechanisms",
+      "Gut Microbiota",
+      "Therapeutic strategies",
+      "Premature Ovarian Insufficiency",
+      "Diminished Ovarian Reserve",
+      "Ovarian Aging",
+      "Anti-Ovarian Aging"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "1890866",
+  "pmcid": "PMC13531039",
+  "pmid": "42683105",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "review-article",
+      "Review",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Pathogenic mechanisms and comprehensive therapeutic strategies of ovarian aging: targeting gut microbiota.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

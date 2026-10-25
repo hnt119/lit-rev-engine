@@ -1,0 +1,645 @@
+{
+  "date_from": null,
+  "date_to": null,
+  "errors": [],
+  "fetched_count": 30,
+  "id": "offline-microbiome-30-v1-preview",
+  "mode": "saved_example",
+  "ordered_identifiers": [
+    "42051515",
+    "42683105",
+    "42196995",
+    "41654729",
+    "42614183",
+    "42064155",
+    "41599832",
+    "41595661",
+    "42500257",
+    "38684759",
+    "41994275",
+    "42232906",
+    "42294648",
+    "41735946",
+    "41156517",
+    "41402854",
+    "37554965",
+    "42042084",
+    "39940363",
+    "42117900",
+    "40993726",
+    "41674055",
+    "40757475",
+    "40427090",
+    "42197548",
+    "41471874",
+    "41458603",
+    "42614262",
+    "41156855",
+    "40431531"
+  ],
+  "papers": [
+    {
+      "abstract": "Lines of evidence indicate that microbiome and its derived metabolites are implicated in gestational diabetes mellitus (GDM) etiology through the regulation of insulin resistance and inflammatory responses, and pregnant women with GDM have significant gut dysbiosis and metabolic disturbance. Although the gut microbiota and gut metabolites in pregnant women with GDM are extensively studied, the trilateral relationship between diet, gut microbiota, and plasma metabolites in patients with GDM remains unclear. Therefore, the aim of this study was to systematically analyze the associations between diet, gut microbiome, and plasma metabolome among Chinese pregnant healthy controls and patients with GDM.\n\nThe study is a prospective cohort study conducted at two maternal and child hospitals in China from 8 October 2021 to 31 December 2022. We compared the daily dietary intake, microbial compositions, and plasma metabolic signatures of 173 patients with GDM and 47 pregnant healthy individuals. A food frequency questionnaire was used to investigate the dietary intake of pregnant healthy controls and patients with GDM. 16S rRNA sequencing and liquid chromatography–tandem mass spectrometry (LC-MS/MS) were used to sequence the gut microbiome and plasma metabolome, respectively.\n\nWe found that women with GDM had higher intakes of whole grains, red meat, poultry, and eggs compared with normal pregnant women. Women with GDM had lower amounts of Klebsiella, Lactiplantibacillus, and Sphingomonas, and higher amounts of Desulfovibrio; they also had higher amounts of D-mannose, D-ribose, homo-L-arginine, and norophthalmic acid in plasma. Moreover, whole grains negatively influenced Sphingomonas, Klebsiella, and Lactiplantibacillus; red meat had a negative influence on Sphingomonas; and eggs had a positive impact on Desulfovibrio; these gut microbiota affected D-mannose, D-ribose, homo-L-arginine, and norophthalmic acid.\n\nOverall, this study provided information about the influences of dietary intake on Chinese women with GDM by inhibiting gut microbiome on plasma metabolome, and their interactions play vital roles in GDM pathogenesis. These findings may be useful for patients with GDM in terms of dietary counseling and glucose control during pregnancy.",
+      "authors": [
+        "Zheng QX",
+        "Wang HW",
+        "Ge L",
+        "Lin Y",
+        "Gao X",
+        "Zhu Y",
+        "Huang L",
+        "Jiang XM"
+      ],
+      "doi": "10.3389/fimmu.2026.1745459",
+      "id": "pmid:42051515",
+      "pmcid": "PMC13110953",
+      "pmid": "42051515",
+      "title": "Influences of dietary intake on Chinese women with gestational diabetes mellitus by inhibiting gut microbiome on plasma metabolome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42051515/",
+      "year": 2026
+    },
+    {
+      "abstract": "Ovarian aging profoundly affects female reproductive lifespan and quality of life, and gut microbiota serves as a key regulator of reproductive aging. Accumulating studies have proven that gut microbiota dysbiosis is closely associated with ovarian aging, and restoring disturbed gut microbiota can effectively delay this process. Nevertheless, most current researches focus on a single subtype of ovarian aging, and relevant targeted interventions have not been systematically summarized. This review elaborates the alterations of gut microbiota during physiological and pathological ovarian aging, and explores the core mechanisms by which microbiota dysbiosis drives ovarian aging, including dysfunction of the “estrobolome,” deficiency of short-chain fatty acids (SCFAs), abnormal metabolism of bile acids (BAs) and tryptophan (TRP), as well as chronic low-grade inflammation caused by intestinal barrier impairment. We also comprehensively summarize gut microbiota-targeted prevention and treatment strategies, including conventional approaches such as probiotics, prebiotics, synbiotics, fecal microbiota transplantation (FMT), metabolite supplementation and Chinese herbal medicines, as well as emerging therapies like stem cell therapy, extracellular vesicle and exosome therapy. In addition, we discuss the limitations of existing studies and challenges in clinical translation, and prospect future research directions including multi-omics analysis and precise clinical intervention. This review aims to provide a theoretical basis for developing novel strategies to retard ovarian aging and improve female reproductive health.",
+      "authors": [
+        "Chen Y",
+        "Tian S",
+        "Zeng J",
+        "Wu M",
+        "Tang P",
+        "Lei L",
+        "Liu W",
+        "Tang L"
+      ],
+      "doi": "10.3389/fmicb.2026.1890866",
+      "id": "pmid:42683105",
+      "pmcid": "PMC13531039",
+      "pmid": "42683105",
+      "title": "Pathogenic mechanisms and comprehensive therapeutic strategies of ovarian aging: targeting gut microbiota.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42683105/",
+      "year": 2026
+    },
+    {
+      "abstract": "Background: Metabolic syndrome (MetS) is a cluster of cardiometabolic abnormalities linked to increased risk of type 2 diabetes and cardiovascular disease. Emerging evidence implicates gut microbiota dysbiosis in MetS pathophysiology; however, human clinical data on seaweed-based dietary interventions remain scarce. Methods: Twenty-four older women were stratified into a MetS group (n = 13) and a control group (n = 11) per NCEP-ATP III criteria with Korean-specific waist circumference cutoffs. All participants consumed 4 g of dried laver (Porphyra tenera) per day for 12 weeks. Fecal DNA was subjected to 16S rRNA gene amplicon sequencing (V4 region; Illumina iSeq 100). Bioinformatic processing used QIIME2 and MicrobiomeAnalyst; alpha diversity was quantified by Chao1 and Fisher indices; beta diversity by Bray–Curtis, Jensen–Shannon, and UniFrac metrics; and differential abundance by LEfSe. Results: The Firmicutes/Bacteroidetes ratio declined 0.81-fold in the control group and 0.54-fold in the MetS group. Alpha diversity (Chao1 and Fisher indices) increased significantly in both groups (p < 0.001 and p < 0.05, respectively). Unweighted UniFrac distance showed significant compositional differences (R2 = 0.141, p = 0.001). LEfSe identified four FDR-significant genera: CAG_873 in the control group and Muribaculaceae, Paraprevotella, and Tyzzerella in the MetS group. Conclusions: Twelve-week dried laver supplementation produced measurable shifts in gut microbial diversity and community composition in older women, with potentially greater responsiveness in those with MetS. These preliminary findings justify adequately powered randomized controlled trials to evaluate laver as a gut-microbiome-targeted dietary strategy for MetS.\n\nKeywords: Porphyra tenera, gut microbiota, metabolic syndrome, alpha diversity, short-chain fatty acids (SCFAs)",
+      "authors": [
+        "Shin D",
+        "Lee S",
+        "So B",
+        "Kang C",
+        "Lee KJ"
+      ],
+      "doi": "10.3390/nu18101535",
+      "id": "pmid:42196995",
+      "pmcid": "PMC13209271",
+      "pmid": "42196995",
+      "title": "Dietary Dried Laver (Porphyra tenera) Modulates Gut Microbiota Composition and Diversity in Older Women with and Without Metabolic Syndrome: An Exploratory Pilot Study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42196995/",
+      "year": 2026
+    },
+    {
+      "abstract": "Prior research has demonstrated sex-specific differences in hypertension (HTN). The gut microbiota (GM) and its metabolic functions have emerged as key players in the development of HTN. To explore potential sex-based heterogeneity in gut bacteria among hypertensive patients, we conducted this study with the aim of validating sex differences in the gut flora associated with HTN.\n\nHere, we leveraged a metagenomic dataset comprising 106 fecal samples from a Chinese cohort of individuals with essential HTN to systematically analyze and compare alterations in the gut microbiome between male and female patients, as well as relative to a healthy control group.\n\nOur study confirmed a statistically significant difference in the β-diversity of GM between hypertensive patients and healthy controls. When the subjects were further stratified by sex, significant differences in the distribution of gut flora were observed exclusively in females, whereas none was noted between groups in males. It was observed that certain genera of GM exhibit negative correlations with blood pressure. Notably, the relative abundance of these bacterial genera, including Lachnospira, Faecalibacterium, and Roseburia, was significantly diminished in female hypertensive patients. These organisms are primarily involved in the biosynthesis of short-chain fatty acids (SCFAs), with a notable emphasis on butyrate production. Ruminococcus gnavus was specifically enriched in hypertensive males, whereas certain bacteria, such as Lactobacillus, were notably depleted. The abnormality of the SCFAs-producing flora in female hypertensive patients may be related to that women are more likely to develop hypertensive organ damage.\n\nThe findings of our study indicate that GM dysbiosis is more significantly associated with HTN in females. Consequently, sex constitutes a critical factor in evaluating the role of intestinal flora in the pathogenesis of HTN.\n\nThe online version contains supplementary material available at 10.1186/s12866-025-04500-8.",
+      "authors": [
+        "Wang P",
+        "Yao Y",
+        "Yan K",
+        "Wang S",
+        "Wang M",
+        "Liu X",
+        "Hu C",
+        "Dong Y",
+        "Li J"
+      ],
+      "doi": "10.1186/s12866-025-04500-8",
+      "id": "pmid:41654729",
+      "pmcid": "PMC13001194",
+      "pmid": "41654729",
+      "title": "A validation for sex differences in gut microbiome of essential hypertension based on cohort analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41654729/",
+      "year": 2026
+    },
+    {
+      "abstract": "Although the gut microbiome is involved in the pathogenesis of knee osteoarthritis (OA), the effects of dietary supplementation remain controversial. Probiotics are a promising option for lifestyle management of inflammatory diseases. This study aimed to investigate the effects of dietary supplementation with probiotics on subjective symptoms and the gut microbiome in adults with knee pre-OA.\n\nFor the in vitro laboratory selection of probiotic strains, 110 strains of lactic acid bacteria and bifidobacteria were serially examined for expression profiles of OA-related genes in interleukin-1β–stimulated SW982 cells. The clinical trial was a double-blind, placebo-controlled, randomized clinical trial of Japanese adults with knee pre-OA based on Kellgren–Lawrence grade 0 or 1 and subjective symptoms. Probiotics or a placebo were administered during a 12-week intervention from January to April 2024. The primary outcomes were pain, stiffness, and discomfort in both knees, assessed using the visual analog scale (VAS). Secondary outcomes included subjective assessments, gut microbiome, blood biochemistry, and safety profiles, including adverse events.\n\nLigilactobacillus salivarius SBT2687 (LS2687) was identified in the analysis of gene expression profiles of SW982 cells. For the clinical trial, 108 participants (median age 52.0 years [IQR 47.0–57.0], 65.7% female) were included in the study. A greater reduction was observed in VAS scores for all symptoms in the LS2687 group than in the placebo group at 12 weeks (pain: −2.9 ± 6.1 vs. −1.7 ± 4.8, P = 0.048; stiffness: −3.6 ± 7.1 vs. −1.3 ± 5.1, P = 0.014; discomfort: −3.8 ± 7.5 vs. −1.7 ± 5.3, P = 0.016), although the between-group improvements did not survive baseline adjustment (ANCOVA P = 0.14–0.24). The species-level relative abundance of Lactobacillus salivarius increased in the LS2687 group (from 3.63% to 35.49%; P < 0.001 and 0.005 in within- and between-group comparisons, respectively). No adverse events were associated with this intervention throughout the study.\n\nLS2687 supplementation was well-tolerated and provided new insights into the probiotic management of knee pre-OA. The gut-knee axis should be considered in the management of symptoms with knee pre-OA.\n\nhttps://center6.umin.ac.jp/cgi-open-bin/ctr/ctr_view.cgi?recptno=R000059864, identifier [R000059864].\n\nKeywords: gut microbiome, knee osteoarthritis, Ligilactobacillus salivarius, pre-osteoarthritis, probiotics, randomized controlled trial",
+      "authors": [
+        "Ushizawa E",
+        "Yasueda T",
+        "Nakano A",
+        "Sugino T",
+        "Fukuda M",
+        "Ueno HM"
+      ],
+      "doi": "10.3389/fnut.2026.1863405",
+      "id": "pmid:42614183",
+      "pmcid": "PMC13481194",
+      "pmid": "42614183",
+      "title": "Laboratory-selected, probiotic &lt;i&gt;Ligilactobacillus salivarius&lt;/i&gt; SBT2687 supplementation is associated with subjective knee symptoms and the gut microbiome in adults with pre-osteoarthritis: a randomized controlled trial in Japanese.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42614183/",
+      "year": 2026
+    },
+    {
+      "abstract": "Emerging evidence suggests a possible link between anorexia nervosa (AN) and alterations in the gut microbiota. This study aimed to characterize the gut microbiota profile in a cohort of Chinese female patients with AN.\n\nA comparative analysis of the gut microbiota was conducted between 30 female patients with AN and 30 sex- and age-matched healthy controls (HCs). Fecal samples were collected for 16S rRNA gene sequencing analysis. All participants were assessed using the Eating Disorder Inventory (EDI) and the Childhood Trauma Questionnaire (CTQ). Bioinformatics analysis was performed using QIIME2, and statistical analyses were carried out with SPSS 26.0 and R software. Correlations between microbiota differences and body mass index (BMI), EDI, and CTQ were further investigated.\n\nThe analysis revealed differences in beta diversity and the abundances of specific microbial taxa between the two groups; however, no significant differences were observed in alpha diversity nor in the associations between gut microbiota and BMI, disease severity, or childhood trauma.\n\nThis study identified limited differences in the gut microbiota composition between patients with AN and HCs. Critically, no robust associations between gut microbiota and clinical features were found after rigorous multiple comparison correction. While nominal (uncorrected) correlations were observed between the specific microbiota and psychological traits, these results are exploratory and should be considered hypothesis-generating. They highlight a potential avenue for future research but require validation in larger, longitudinal cohorts to determine their reproducibility and biological significance.\n\nKeywords: eating disorder, anorexia nervosa, childhood trauma, diversity, gut microbiota",
+      "authors": [
+        "Wang M",
+        "Wang Y",
+        "Ma J",
+        "Liu Y",
+        "Li J",
+        "Zhang L"
+      ],
+      "doi": "10.3389/fpsyt.2026.1759115",
+      "id": "pmid:42064155",
+      "pmcid": "PMC13125984",
+      "pmid": "42064155",
+      "title": "Gut microbiota profiles in anorexia nervosa: associations with disease severity, BMI, and history of childhood trauma.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42064155/",
+      "year": 2026
+    },
+    {
+      "abstract": "Background/Objectives: Some Japanese people still adhere to a systematic traditional Japanese diet pattern (the Shokuyo diet) consisting mainly of brown rice, vegetables, legumes, and small amounts of fish. We investigated the impact of this dietary pattern on the intestinal microbiota of its female consumers. Methods: The intestinal microbiota of 19 Japanese females in their 60s and 70s consuming the Shokuyo diet (Shokuyo diet group) and 50 females of the same age consuming a normal Japanese diet (NJ diet group) were compared. The NJ diet group was further subdivided into a healthy NJ diet H subgroup, comprising females (n = 19) without any diseases, and an unhealthy NJ diet UH subgroup (n = 31) consisting of females with certain diseases, and a subgroup analysis was performed. Intestinal microbiota analysis was performed using 16S rRNA gene amplicon sequencing. Results: The β-diversity of the intestinal microbiota significantly differed between the Shokuyo diet and NJ diet groups. Similarly, in the subgroup analysis, β-diversity also significantly differed between the NJ diet UH subgroup and the Shokuyo diet group. However, no significant difference was observed between the NJ diet H and Shokuyo diet groups. These results indicate that the intestinal microbial composition of the Shokuyo diet group resembled that of the healthy participants, and that differences in intestinal microbial composition between the Shokuyo and NJ diet groups were strongly influenced by the presence of participants with diseases in the NJ diet group. That is, differences in β-diversity may have been strongly mediated by the health status of the participants. Conclusions: Consumption of the Shokuyo diet may be associated with a healthy intestinal microbial composition in older Japanese female, suggesting its potential as a viable dietary intervention option.\n\nKeywords: intestinal microbiota, gut microbiota, Shokuyo diet, traditional Japanese diet, brown rice, Japanese older adults, dietary patterns",
+      "authors": [
+        "Hatayama K",
+        "Ebara A",
+        "Hirano C",
+        "Kono K",
+        "Masuyama H",
+        "Ashikari I"
+      ],
+      "doi": "10.3390/nu18020219",
+      "id": "pmid:41599832",
+      "pmcid": "PMC12844664",
+      "pmid": "41599832",
+      "title": "Intestinal Microbiota of Older Japanese Females Adhering to a Traditional Japanese Brown Rice-Based Diet Pattern.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41599832/",
+      "year": 2026
+    },
+    {
+      "abstract": "Background: Gut microbiota dysbiosis has been associated with childhood asthma; however, its role in adult bronchial asthma (BA), particularly in Japanese populations, remains unclear. The potential influence of sex-based differences also warrants investigation. We aimed to investigate the association between gut microbiota composition and adult BA in a Japanese cohort, focusing on sex-specific differences. Methods: Stool samples from 108 Japanese adults with BA (48 male and 60 female individuals) and 210 healthy controls (90 male and 120 female individuals) were analyzed using 16S rRNA gene sequencing. Analyses were stratified by sex. β-diversity was assessed using non-metric multidimensional scaling and permutational multivariate analysis of variance. Genus-level taxonomic comparisons were conducted using the ANOVA-Like Differential Expression version 2 tool on centered log-ratio-transformed data. Results: β-diversity significantly differed between the groups among both male and female individuals. In male individuals, 11 taxa had absolute effect sizes of ≥0.2. In female individuals, 19 taxa met this threshold, with 8 reaching significance after Benjamini–Hochberg correction. Streptococcus and Blautia were enriched in the BA group in both sexes, whereas other taxa showed sex-specific patterns, such as Veillonella in male and Flavonifractor and Eggerthella in female individuals. Several short-chain fatty acid (SCFA)-producing taxa were depleted in the BA group. Conclusions: Our findings suggest that gut microbiota dysbiosis occurs in Japanese adults with BA, characterized by enrichment of taxa associated with respiratory diseases and depletion of SCFA-producing bacteria. The observed patterns highlight the importance of considering sex-specific differences in future research.\n\nKeywords: bronchial asthma, dysbiosis, gut microbiota, sex differences, short-chain fatty acids",
+      "authors": [
+        "Hirano C",
+        "Kozu Y",
+        "Jinno Y",
+        "Kurosawa Y",
+        "Yamada S",
+        "Hatayama K",
+        "Kono K",
+        "Mizumura K",
+        "Iikura M",
+        "Maruoka S",
+        "Masuyama H",
+        "Gon Y"
+      ],
+      "doi": "10.3390/biomedicines14010125",
+      "id": "pmid:41595661",
+      "pmcid": "PMC12838268",
+      "pmid": "41595661",
+      "title": "Sex-Specific Differences in Gut Microbiota Composition in Adult Patients with Bronchial Asthma.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41595661/",
+      "year": 2026
+    },
+    {
+      "abstract": "Polyendocrine metabolic ovarian syndrome (PMOS), previously known as polycystic ovary syndrome (PCOS), is a common endocrine and metabolic disorder in reproductive-age women, characterized by marked clinical and biological heterogeneity. Accumulating evidence suggests that gut microbiota dysbiosis is associated with metabolic disturbances, hormonal imbalance, and ovarian dysfunction in PMOS. However, the pathways linking gut microbiota alterations to PMOS pathogenesis remain incompletely understood, and most evidence remains associative. This review aims to summarize current evidence regarding interactions between gut microbiota and PMOS, clarify the roles of key microbiota-derived metabolites, and evaluate the potential and limitations of gut microbiota–targeted interventions. A major novelty is the proposal of an integrated gut–metabolism–endocrine–ovary axis incorporating phenotypic heterogeneity, methodological variability, and evidence grading across clinical and preclinical studies. A narrative review with a systematic literature search was conducted. PubMed, Web of Science, Embase, and CNKI were searched from inception to March 2026 using terms related to PMOS, gut microbiota, microbial metabolites, and microbiota-targeted interventions. Eligible studies included human observational or interventional studies, animal experiments exploring microbiota–PMOS mechanisms, and peer-reviewed full-text articles in English or Chinese. Case reports, letters, conference abstracts, non-English publications, and irrelevant studies were excluded. Duplicate records were removed. Two authors independently screened records and resolved disagreements by consensus. No meta-analysis was performed, and clinical registration was not applicable. Gut microbiota dysbiosis may contribute to PMOS through chronic low-grade inflammation, insulin resistance, and hyperandrogenism. Microbiota-derived metabolites link intestinal dysbiosis with metabolic and endocrine dysfunction. Bile acids and short-chain fatty acids exert regulatory effects, whereas amino acid disorders and LPS-mediated endotoxemia amplify metabolic and inflammatory abnormalities. Considerable heterogeneity exists across studies regarding obesity, insulin resistance, hyperandrogenism, diet, ethnicity, region, and methodology. Microbiota-targeted interventions show potential, although evidence quality varies and most findings remain associative. Gut microbiota dysbiosis is a critical regulatory node within the integrated gut–metabolism–endocrine–ovary axis in PMOS. This review highlights phenotypic stratification, evidence hierarchy, and clinical translation potential. Although microbiota-targeted strategies may serve as adjunctive therapies, their causal roles and long-term efficacy require confirmation in well-designed longitudinal and randomized controlled trials.",
+      "authors": [
+        "Jin S",
+        "Zhu M",
+        "Lu Y",
+        "Zhao J",
+        "Zhu J",
+        "Fang X"
+      ],
+      "doi": "10.3389/ebm.2026.11058",
+      "id": "pmid:42500257",
+      "pmcid": "PMC13395754",
+      "pmid": "42500257",
+      "title": "Gut microbiota and polyendocrine metabolic ovarian syndrome: an integrated gut-metabolism-endocrine-ovary axis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42500257/",
+      "year": 2026
+    },
+    {
+      "abstract": "Gut microbiome dysbiosis contributes to the pathophysiology of both gestational diabetes mellitus (GDM) and its associated adverse outcomes in the woman and offspring. Even though GDM prevalence, complications, and outcomes vary among different ethnic groups, limited information is available about the influence of ethnicity on gut microbiome dysbiosis in pregnancies complicated by GDM. This pilot prospective cohort study examined the impact of ethnicity on gut dysbiosis in GDM among three Asian ethnic groups (Chinese, Malay, Indian) living in Singapore, and investigated the potential modulatory roles of diet and lifestyle modifications on gut microbiome post-GDM diagnosis. Women with GDM (n = 53) and without GDM (n = 16) were recruited. Fecal samples were collected at 24–28- and 36–40-weeks’ gestation and analyzed by targeted 16S rRNA gene-based amplicon sequencing. Permutational multivariate analysis of variance (PERMANOVA) analysis was performed to evaluate differences between groups. Differentially abundant taxa were identified by DeSeq2 based analysis. Functional prediction was performed using the phylogenetic investigation of communities by reconstruction of unobserved states (PICRUSt2). Among women with GDM, gut microbiome from different ethnicities harbored common microbial features. However, among those without GDM, there was contrasting microbiome composition between ethnic groups. Microbial members such as Collinsella, Blautia, Ruminococcus, Ruminococcus gnavus, Ruminococcus torques, and Eubacterium hallii groups were differentially enriched (p < 0.05) in women with GDM compared to those without. Among women with GDM, no differences in alpha- and beta- diversity were observed when comparing 24–28 weeks’ samples with 36–40 weeks’ samples, a period covering intense dietary and lifestyle modification, suggesting an inability to modulate gut microbiota through classic GDM management. Women with GDM have a distinct gut microbiome profile which harbours common features across different Asian ethnic groups, consistent with the notion that specific microbes are involved in the pathogenesis of insulin resistance, pro-inflammatory conditions, and other metabolic dysregulation known to be present in GDM.\n\nSubject terms: Metabolic disorders, Molecular biology",
+      "authors": [
+        "Gupta A",
+        "Chan SY",
+        "Toh R",
+        "Low JM",
+        "Liu IMZ",
+        "Lim SL",
+        "Lee LY",
+        "Swarup S"
+      ],
+      "doi": "10.1038/s41598-024-60386-y",
+      "id": "pmid:38684759",
+      "pmcid": "PMC11058859",
+      "pmid": "38684759",
+      "title": "Gestational diabetes-related gut microbiome dysbiosis is not influenced by different Asian ethnicities and dietary interventions: a pilot study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38684759/",
+      "year": 2024
+    },
+    {
+      "abstract": "Alzheimer’s disease (AD) is often accompanied by motor dysfunction, impaired limb strength, and gut microbiota disturbances. This study aimed to evaluate the effects of Qifuyin (QFY), a traditional Chinese medicine formula, on motor deficits, limb strength, aging, and gut microbiota composition in 3xTg-AD mice, a widely used model of AD.\n\nMale and female 3xTg-AD mice were administered QFY at low, medium, or high doses. Motor function was assessed using grip strength and rotarod tests. Aging was evaluated through aging scores. Gut microbiota composition was analyzed at the phylum, family, genus, and species levels. Functional profiling of microbiota was performed using KEGG, eggNOG, and carbohydrate-active enzyme (CAZyme) databases. Pearson correlation analyses were conducted to explore relationships between microbiota composition and motor performance.\n\nQFY treatment significantly improved both absolute and normalized grip strength in male and female 3xTg-AD mice. Similarly, motor coordination, as assessed by latency to fall on the rotarod, was significantly enhanced in the groups of QFY. Aging scores were significantly reduced after the treatment of QFY. Microbiome analysis revealed that QFY treatment restored species diversity and improved the overall composition of gut microbiota, with significant increases in Muribaculaceae and decreases in Alcaligenaceae, Rhodanobacteraceae, and Spirochaetaceae. Principal component analysis (PCA) indicated that the gut microbiota composition of the QFY group resembled that of the control (Con) group. Functional analyses showed that treatment of QFY restored microbial pathways related to metabolism and genetic information processing, with significant correlations between microbial alterations and improved motor outcomes. Additionally, QFY modulated the abundance of key carbohydrate-active enzymes, including GH43 and GH35, which were positively correlated with grip strength and rotarod performance.\n\nQifuyin improves motor function, reduces aging-related deficits, and restores gut microbiota homeostasis in 3xTg-AD mice. These findings suggest that QFY may offer therapeutic potential for addressing frailty and motor dysfunction in AD, in association with alterations in gut microbiota composition and predicted microbial functions.\n\nKeywords: 16S rRNA sequencing, Alzheimer’s disease, dysbiosis, metagenome, physiological frailty, Qifuyin",
+      "authors": [
+        "Yu T",
+        "Yu Y",
+        "Zhao J",
+        "Li H",
+        "Lu H",
+        "Li Y",
+        "Peng Y",
+        "Wang S",
+        "Wei W",
+        "Cheng X"
+      ],
+      "doi": "10.3389/fmicb.2026.1753643",
+      "id": "pmid:41994275",
+      "pmcid": "PMC13079586",
+      "pmid": "41994275",
+      "title": "Qifuyin improves physiological frailty by regulating the intestinal flora in 3xTg-AD mice.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41994275/",
+      "year": 2026
+    },
+    {
+      "abstract": "Sarcopenic obesity (SO) in perimenopausal women—characterized by the paradoxical coexistence of skeletal muscle loss and visceral adiposity—represents a complex metabolic challenge that conventional estrogen replacement therapies have failed to fully address. Emerging evidence from traditional Chinese medicine (TCM) suggests that the “spleen governing muscle” theory may offer a unique lens through which to understand this condition, with the gut microbiota serving as a critical mechanistic link between spleen deficiency and musculoskeletal deterioration.\n\nTo systematically review the mechanisms linking spleen deficiency, gut microbiota dysbiosis, and sarcopenic obesity risk in perimenopausal women, integrating TCM theory with modern biomedical evidence.\n\nWe synthesized findings from clinical observational studies, randomized controlled trials (RCTs), and mechanistic investigations examining the “spleen-gut-muscle” axis, with particular attention to studies employing 16S rRNA sequencing, metabolomics, and multi-omics approaches.\n\nSpleen deficiency—manifesting as impaired transformation and transportation of nutrients—correlates with characteristic alterations in gut microbiota composition, including reduced diversity, elevated Firmicutes/Bacteroidetes ratios, and depletion of short-chain fatty acid (SCFA)-producing taxa. These microbial changes propagate systemic inflammation through lipopolysaccharide (LPS)-TLR4 signaling, activate muscle protein degradation via MuRF1 upregulation, and compromise insulin sensitivity through diminished GLP-1 secretion. Notably, TCM interventions—including herbal formulations (Sijunzi decoction, Buzhong Yiqi decoction), acupuncture, moxibustion, catgut embedding, and tuina massage—demonstrate potential to restore microbial homeostasis, increase SCFA production, and improve muscle mass and function. However, the evidence quality remains modest, with methodological limitations including inadequate blinding, small sample sizes, and short follow-up durations.\n\nThe “spleen-gut-muscle” axis represents a promising therapeutic target for perimenopausal sarcopenic obesity, bridging TCM theory with modern microbiome science. Nevertheless, current evidence is predominantly associative rather than causally definitive, derived largely from small-scale trials and preclinical models. Rigorous, large-scale RCTs with standardized TCM protocols, multi-omics endpoints, and extended follow-up are essential to establish efficacy and safety before microbiota-based TCM interventions can be recommended as adjunctive or standalone therapies.",
+      "authors": [
+        "Jin Y",
+        "Zhu J",
+        "Liao D",
+        "Jin X"
+      ],
+      "doi": "10.3389/fmicb.2026.1817839",
+      "id": "pmid:42232906",
+      "pmcid": "PMC13222942",
+      "pmid": "42232906",
+      "title": "From \"spleen governing muscle\" to gut microbiota: mechanisms of sarcopenic obesity in perimenopausal women.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42232906/",
+      "year": 2026
+    },
+    {
+      "abstract": "Polycystic ovary syndrome (PCOS) is a chronic inflammatory disease caused by a combination of genetic, environmental, and gut microbiota factors. Western medicines can improve ovulation rates, but are linked with reduced pregnancy success and side effects. Scutellaria baicalensis (BAL) is a famous anti-inflammatory Chinese herb, which has therapeutic effects for PCOS; however, the mechanism remains unclear. This study integrated network pharmacology, molecular docking, and animal experiments to investigate the mechanisms by which BAL improves gut microbiota and intestinal inflammation in a rat PCOS model. We identified 36 active components of BAL, including wogonin, baicalein, and oroxylin A, along with 145 potential targets, such as TNF, IL-6, and AKT1, and network analysis revealed that TNF, IL-6, and AKT1 occupied central positions. Enrichment analyses indicated that BAL may exert its therapeutic effects by modulating the NF-κB and Toll-like receptor signaling pathways. Molecular docking results demonstrated strong binding affinities between BAL’s primary active components and the core targets TNF, AKT1, and IL-6. BAL experiments in PCOS rats showed that it restored gut microbiota balance. These results showed that BAL inhibits the LPS/TLR4/NF-κB pathway and downregulates PI3K and p-Akt/Akt protein expression in ovarian tissue. BAL also improved reproductive metabolic abnormalities, intestinal inflammation, and dysbiosis. Our study suggests that BAL inhibits the LPS/TLR4/NF-κB pathway via the gut-ovarian axis, regulating gut microbial composition and alleviating inflammatory states. This may be a mechanism for the therapeutic efficacy of BAL for PCOS and a novel therapeutic strategy for the clinical management of polycystic ovary syndrome.\n\nPCOS affects women of reproductive age. Current clinical treatment strategies still face limitations in efficacy and long-term side effects. This study employs network pharmacology, molecular docking, and experimental validation to elucidate the mechanism by which the traditional Chinese medicine BAL improves PCOS. We found that BAL modulates gut microbiota in a PCOS rat model, significantly increasing the probiotic genus Phocaeicola. This change correlates with reduced serum LPS levels and alleviated ovarian inflammation. Experiments confirm that BAL alleviates local ovarian inflammation and insulin resistance by inhibiting the LPS/TLR4/NF-κB signaling pathway, thereby improving PCOS pathological manifestations. This study reveals new mechanisms of BAL in treating PCOS and highlights the potential bridging role of probiotics like Phocaeicola. It also provides experimental evidence and theoretical support for integrated Chinese and Western medicine treatment strategies based on regulating gut microbiota.\n\nKEYWORDS: polycystic ovary syndrome, Scutellaria baicalensis, gut microbiota, network pharmacology, molecular docking",
+      "authors": [
+        "Pan Z",
+        "Zhang C",
+        "Chu Q",
+        "Chen M",
+        "Hui C",
+        "Wang T",
+        "Han M",
+        "Deng D"
+      ],
+      "doi": "10.1128/msystems.01825-25",
+      "id": "pmid:42294648",
+      "pmcid": "PMC13386983",
+      "pmid": "42294648",
+      "title": "Targeting the gut-ovarian axis: &lt;i&gt;Scutellaria baicalensis&lt;/i&gt; improves polycystic ovary syndrome by modulating gut microbiota composition and inhibiting the &lt;i&gt;LPS/TLR4/NF-κB&lt;/i&gt; signaling pathway.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42294648/",
+      "year": 2026
+    },
+    {
+      "abstract": "In developing countries, a significant number of women of reproductive age fail to meet their required intake of essential micronutrients through diet alone. Although nutrient supplementation is a common approach, it may not offer a sustainable solution, particularly in Asian countries like Sri Lanka, where healthcare is provided free from womb to tomb. Therefore, it is timely to explore nutritious and affordable local food options to enhance nutrition. Diyabath, a traditional meal prepared from overnight fermentation of cooked rice, is often used as a dietary therapy by indigenous medical practitioners in Sri Lanka. While the benefits of fermented foods in improving nutritional status and gut microbiome across all ages are well-known, the specific advantages of fermented cooked rice, such as diyabath, remain largely unexplored. This trial aims to evaluate the effects of diyabath on the gut microbiome, as well as on nutritional, health and immune parameters among young women of reproductive age in Sri Lanka.\n\nThis is a single arm, non-randomized controlled trial among 45 women aged 20–35 years, purposively selected from a residential hostel in Colombo District, Sri Lanka. The primary outcomes: gut microbiome composition, nutritional status, and health and immune markers will be assessed before and after a 10-week control phase, during which participants will follow their usual dietary habits (control). In the subsequent 10-week intervention phase, the same participants will consume diyabath daily as a pre-breakfast meal (intervention). The diyabath will be prepared according to an optimal recipe identified through a comprehensive evaluation of traditional recipes during the intervention development phase. Outcomes will be reassessed immediately and one month after completing the intervention. Changes in outcomes between the control and intervention phases will be compared.\n\nThis study intends to evaluate the impact of introducing diyabath as a pre-breakfast meal on changes in host gut microbiome, nutritional status, and health and immune markers in young women in reproductive age. The findings may support the promotion of affordable indigenous dietary solutions, particularly in low-resourced rice-growing countries, to mitigate nutritional deficiencies and provide a basis for future research on traditional food.\n\nThis protocol is registered in the Sri Lanka Clinical Trials Registry (SLCTR). Clinical trial number: SLCTR/2024/032 (Registration date: 09/10/2024).",
+      "authors": [
+        "Udari A",
+        "Arambepola C",
+        "Thoradeniya T",
+        "Jayasena S",
+        "de Silva R",
+        "Thoradeniya D",
+        "Wickramasinghe VP"
+      ],
+      "doi": "10.1186/s12906-026-05301-w",
+      "id": "pmid:41735946",
+      "pmcid": "PMC13041206",
+      "pmid": "41735946",
+      "title": "Traditional diyabath (fermented cooked rice) as a pre-breakfast meal versus none (breakfast only) in improving gut microbiome and nutritional, health and immune parameters of young women in Sri Lanka: study protocol for a controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41735946/",
+      "year": 2026
+    },
+    {
+      "abstract": "Background and Aim: Underweight young adult women are vulnerable to health risks such as menstrual disorders and vitamin deficiencies. Because few seek medical care for low body weight, the underlying causes remain unclear. This study aimed to examine the associations of body type with dietary patterns and gut microbiota diversity in young women. Methods: We enrolled 40 women aged 20–39 years who visited a nutrition evaluation clinic with a BMI < 17.5 at their first consultation (underweight group) and 40 age-matched women with 18.5 ≤ BMI < 25 (control group). Some women in the underweight group were no longer underweight at the time of analysis but were classified based on their initial BMI. Dietary patterns were assessed based on ten major food categories (meat, fish, eggs, dairy products, soybeans, green and yellow vegetables, seaweed, fruit, tubers, and fats and oil) based on the Food Frequency Questionnaire based on Food Groups. Gut microbiota α-diversity was evaluated using the Shannon, Simpson, and Pielou indices, while β-diversity was analyzed by nonmetric multidimensional scaling (NMDS) and redundancy analysis (RDA). Genera contributing to group differences were identified by RDA and ANOVA-Like Differential Expression tool (ALDEx2). Results: Underweight women had significantly lower gut microbiota α-diversity, while no difference was observed in dietary patterns. NMDS revealed significant β-diversity differences in gut microbiota (PERMANOVA: R2 = 0.064, F = 5.31, p = 0.0001) but not in dietary patterns (p = 0.99). RDA showed that body type explained 4.5% of variance (adjusted R2 = 0.032, F = 3.65, p = 0.0005). Bacteroides, Bifidobacterium, Enterocloster, and Erysipelatoclostridium were enriched in underweight women, whereas Fusicatenibacter, Agathobacter, Dorea, and Prevotella were enriched in controls. AldEx2 confirmed increases in Bacteroides, Enterocloster, and Erysipelatoclostridium and a decrease in Dorea. Conclusions: Underweight women demonstrated reduced gut microbiota diversity and enrichment of taxa associated with inflammatory tendencies. Dietary therapies involving not only prebiotics but also probiotics may beneficially modulate gut microbiota and contribute to the management of low body weight.",
+      "authors": [
+        "Yamamoto-Wada R",
+        "Hiraiwa E",
+        "Okuma K",
+        "Yamada M",
+        "Ushiroda C",
+        "Deguchi K",
+        "Naruse H",
+        "Masuyama H",
+        "Iizuka K"
+      ],
+      "doi": "10.3390/nu17203265",
+      "id": "pmid:41156517",
+      "pmcid": "PMC12567037",
+      "pmid": "41156517",
+      "title": "Gut Microbiota α- and β-Diversity, but Not Dietary Patterns, Differ Between Underweight and Normal-Weight Japanese Women Aged 20-39 Years.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41156517/",
+      "year": 2025
+    },
+    {
+      "abstract": "Hydroxyurea (HU) is an antitumor drug. However, HU exposure is associated with diminished ovarian reserve (DOR). Zi Chong granules, a Chinese Medicine, can protect against DOR, but little is known regarding its underlying mechanisms of DOR treatment, and thus the target of the present study.\n\nSeventy-two female Kunming (KM) mice (4–6 weeks old) were randomly divided into three groups: the control group (Con), the hydroxyurea group (HU), and the Zi Chong group (ZC). The Con group received saline, while the HU and ZC groups were administered hydroxyurea (400 mg/kg/d) by gavage for 21 days to induce diminished ovarian reserve (DOR). Subsequently, the Con and HU groups were given saline, while the ZC group was treated with Zi Chong granules (2.72 g/kg/d) for 15 days. Ovaries and uterus of mice were examined histologically by H&E. The levels of anti-Mullerian hormone (AMH), estradiol (E2), and progesterone (P) were quantified using ELISA kits. The number and quality of oocytes were assessed, and endometrial receptivity was evaluated by immunohistochemistry. 16 S rDNA gene sequencing was used to analyze the composition and abundance of gut microbiome in feces, and non-targeted metabolomics was performed to detect serum metabolite profiles. Correlation analysis was performed to explore the relationships between different gut microbiota and differential metabolites.\n\nZC granules increased the number of primordial follicles in the ovaries, reduced excessive follicular atresia, restored low AMH, upregulated estrogen and progesterone secretion, and increased the number of mature oocytes after ovulation promotion. It also increased thickness of uterine endometrium and the number of glands, resulting in increased endometrial microvessel density (MVD), enhanced endometrial blood supply, reduced CD138 expression levels and endometrial inflammation. HU decreased the abundance of Lactobacillus spp. in mouse intestines and decreased arachidonic acid metabolism, tryptophan metabolism, spermidine and spermine biosynthesis, steroidogenesis, and nicotinate and nicotinamide metabolism. Correlation analysis revealed that HU exerted its side effects by altering the gut microbiome and bacteria-derived metabolites, while ZC granules could reverse DOR partly depends on regulating gut microbiota and metabolites.\n\nZC granules may be a potential therapy for alleviating HU-induced DOR.\n\nThe online version contains supplementary material available at 10.1186/s13048-025-01846-5.",
+      "authors": [
+        "Dong W",
+        "Guo X",
+        "Lu H",
+        "Liu Z",
+        "Xie L",
+        "Liu Y",
+        "Wan Q",
+        "Chen R",
+        "Liu S"
+      ],
+      "doi": "10.1186/s13048-025-01846-5",
+      "id": "pmid:41402854",
+      "pmcid": "PMC12709716",
+      "pmid": "41402854",
+      "title": "Therapeutic mechanisms of Zi Chong granules against hydroxyurea-induced diminished ovarian reserve based on integrated multi-omics analyses.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41402854/",
+      "year": 2025
+    },
+    {
+      "abstract": "Gut microbiota are closely related to health, and the β2-adrenergic receptor (ADRB2) gene is associated with gastrointestinal diseases. However, little is known about the relationship between ADRB2 gene polymorphisms and intestinal microbiota. In the present study, we aimed to explore the relationship between ADRB2 gene polymorphisms and gut microbiota in Chinese Han adolescents. Data analysis showed that the relative abundance, PICRUSt function prediction, and Chao1 and ACE indices of gut microbiota were significantly different between males and females (P < 0.05). The rs1042711 was positively associated with the relative abundance of Actinobacteria, Coriobacteriia, Bifidobacteriales, Erysipelotrichi, and Erysipelotrichales. The rs12654778 was negatively associated with Bacilli, Lactobacillales, Bacteroidaceae, and Bacteroides. rs1042713 was positively associated with Lactobacillales and Bifidobacteriales. The rs1042717 was positively associated with Bifidobacteriales and negatively associated with Veillonellaceae. The rs1042719 was negatively associated with Erysipelotrichi and Erysipelotrichales and positively associated with Erysipelotrichi, Erysipelotrichales, Bifidobacteriales, and Ruminococcaceae in females. The rs1801704 was positively associated with Erysipelotrichi, Erysipelotrichales, Bifidobacteriales, Actinobacteria, Coriobacteriia, and Bifidobacteriales. The rs2053044 was positively associated with Ruminococcaceae, Dialister, Firmicutes, Clostridia, Clostridiales, Bifidobacteriales, and Faecalibacterium and negatively associated with Bacilli, Lactobacillales, Lachnospiraceae, and Porphyromonadaceae (P < 0.05). These results suggested that the relative abundance, diversity, and PICRUSt function predictions of male and female gut microbiomes differ significantly and that ADRB2 gene polymorphisms were associated with gut microbiome abundance in Chinese Han adolescents.\n\nGut microbiota are closely related to health, and the β2-adrenergic receptor gene (ADRB2) is associated with gastrointestinal diseases. In the present study, we aimed to explore the relationship between ADRB2 gene polymorphisms and gut microbiota in Chinese Han adolescents. The relative abundance, diversity, and PICRUSt function predictions of male and female gut microbiomes differ significantly and that ADRB2 gene polymorphisms were associated with gut microbiome abundance in Chinese Han adolescents.",
+      "authors": [
+        "Xu S",
+        "Liu W",
+        "Gong L",
+        "Li X",
+        "Chu W",
+        "Han M",
+        "Shi S",
+        "Zhou D"
+      ],
+      "doi": "10.1515/biol-2022-0646",
+      "id": "pmid:37554965",
+      "pmcid": "PMC10404897",
+      "pmid": "37554965",
+      "title": "Association of <i>ADRB2</i> gene polymorphisms and intestinal microbiota in Chinese Han adolescents.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37554965/",
+      "year": 2023
+    },
+    {
+      "abstract": "Invasive pulmonary aspergillosis (IPA) poses a serious threat to immunocompromised hosts, with limited therapeutic options highlighting the need for novel strategies. Coptis chinensis Franch. (CCF), a traditional Chinese herb containing antimicrobial alkaloids like berberine, was investigated for its therapeutic efficacy and immunological effects in a murine IPA model. Immunosuppressed female KM mice infected with Aspergillus fumigatus AF293 were treated with CCF or amphotericin B (AmB). CCF significantly improved survival, reduced fungal burden, and alleviated lung pathology, without inducing hepatotoxicity or nephrotoxicity. Transcriptomic profiling revealed a time-dependent immune response. Complement-related pathways were enriched at 2 days post-infection, whereas neutrophil recruitment and NET-related pathways became more prominent by day 4. Hub gene analysis identified Syk, Rac2, Ncf1, and Cybb as key nodes associated with the NADPH oxidase complex. Western blot and inhibitor experiments further supported the involvement of this pathway in CCF-mediated protection. Additionally, 16S rDNA sequencing indicated enrichment of Clostridium species in the gut microbiota of CCF-treated mice, which was positively correlated with the expression of NADPH oxidase-related genes, suggesting a potential gut–lung association. In conclusion, these findings support the antifungal efficacy of CCF in IPA and suggest that its protective effects may involve coordinated changes in complement-related responses, NADPH oxidase-associated neutrophil activity, and gut microbiota composition.\n\nKeywords: Coptis chinensis Franch., invasive pulmonary aspergillosis, neutrophil extracellular traps, NADPH oxidase, complement activation",
+      "authors": [
+        "Jiang Z",
+        "Zhou L",
+        "Wang J",
+        "Sun H",
+        "Cai L",
+        "Yin H",
+        "Zhu H",
+        "Li M",
+        "Wang Z"
+      ],
+      "doi": "10.3390/cimb48040424",
+      "id": "pmid:42042084",
+      "pmcid": "PMC13115011",
+      "pmid": "42042084",
+      "title": "&lt;i&gt;Coptis chinensis&lt;/i&gt; Franch. Suppresses Invasive Pulmonary Aspergillosis by Augmenting NADPH-Dependent Neutrophil Extracellular Traps via Dual Modulation of Complement Activation and Gut Microbiota.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42042084/",
+      "year": 2026
+    },
+    {
+      "abstract": "Background/Objectives: Menopause is associated with various symptoms. Although hormone replacement therapy (HRT) is commonly used, concerns regarding its side effects have led to the development of alternative treatments. This study evaluated the potential health benefits of Cheonggukjang, a traditional Korean fermented soybean product in alleviating menopausal symptoms and improving metabolic parameters in postmenopausal women. Additionally, the effect of Cheonggukjang on the gut microbiome was assessed using stool analysis. Methods: In this randomized, double-blind clinical trial, 60 postmenopausal women were assigned to three groups: high-beneficial-microorganism content Cheonggukjang (HTC), low-beneficial-microorganism content Cheonggukjang (LTC), and commercially available Cheonggukjang (CC). Participants consumed 3.3 g of Cheonggukjang tablets daily for 8 weeks. We assessed menopausal symptom relief using the Kupperman index, metabolic parameters, and changes in the gut microbiome using stool analysis. Results: The Kupperman index scores significantly decreased across all three groups, with the HTC group showing the greatest improvement. No significant changes were observed in body mass index, weight, or lipid profiles. Blood glucose levels decreased significantly only in the HTC group. Microbiome analysis revealed an increase in beneficial bacteria in the HTC and CC groups and a decrease in harmful bacteria. The Firmicutes-to-Bacteroidetes ratio decreased in both HTC and CC groups, though this change was not significant. Conclusions: Cheonggukjang supplementation significantly alleviated menopausal symptoms, particularly in the HTC group, and improved the gut microbiota composition. These findings suggest that Cheonggukjang, particularly with its high beneficial microorganism content, may offer a promising alternative for managing menopausal symptoms and improving metabolic health in postmenopausal women.",
+      "authors": [
+        "Han AL",
+        "Ryu MS",
+        "Yang HJ",
+        "Jeong DY",
+        "Choi KH"
+      ],
+      "doi": "10.3390/nu17030505",
+      "id": "pmid:39940363",
+      "pmcid": "PMC11820775",
+      "pmid": "39940363",
+      "title": "The Efficacy of Cheonggukjang in Alleviating Menopausal Syndrome and Its Effects on the Gut Microbiome: A Randomized, Double-Blind Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39940363/",
+      "year": 2025
+    },
+    {
+      "abstract": "The objective of this study was to investigate the characteristics of the gut microbiota (GM) in pregnant women with gestational diabetes mellitus (GDM) and those with Type 2 diabetes mellitus (T2DM).\n\nClinical data from 33 pregnant Chinese women (15 with GDM and 18 without GDM) and 28 nonpregnant Chinese women (14 with T2DM and 14 without T2DM) were collected and statistically analyzed using SPSS software (Version 21.0). Normally distributed data were compared using an independent samples t‐test, whereas nonnormally distributed data were compared using the Mann–Whitney U test. All statistical tests were two‐sided, and p < 0.05 was considered significant. The 16S rRNA gene amplicons of the GM were sequenced using the Illumina HiSeq 2500 platform and compared for differences in genomic diversity, structure, and abundance using bioinformatics.\n\nSignificant differences in beta diversity were observed between pregnant women with GDM and healthy pregnant women, as well as between women with T2DM and healthy women. However, pregnant women with GDM and healthy pregnant women did not exhibit significant differences in alpha diversity, whereas women with T2DM and healthy women did. Additionally, the abundance of Firmicutes in pregnant women with GDM was higher than that in healthy pregnant women, whereas the abundances of Bacteroidetes and Lachnobacterium were lower (p < 0.05). The abundance of Phascolarctobacterium in women with T2DM was higher than that in healthy women, whereas the abundances of Proteobacteria, Actinobacteria, Roseburia, Turicibacter, and Streptococcus were lower (p < 0.05).\n\nThe GM in pregnant women with GDM and those with T2DM differed significantly from that in the control group, providing a reference for future clinical attempts to apply intestinal microecological agents in the treatment of GDM and T2DM.\n\nKeywords: 16S rRNA high-throughput sequencing, gestational diabetes mellitus, gut microbiota, Type 2 diabetes mellitus",
+      "authors": [
+        "Qing Y",
+        "Zhou H",
+        "Zhou C",
+        "Song Z",
+        "Gao J",
+        "Wei J"
+      ],
+      "doi": "10.1155/jdr/3036209",
+      "id": "pmid:42117900",
+      "pmcid": "PMC13162232",
+      "pmid": "42117900",
+      "title": "16S rRNA Gene Amplicon Sequencing of Gut Microbiota in Gestational Diabetes Mellitus and Type 2 Diabetes Mellitus.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42117900/",
+      "year": 2026
+    },
+    {
+      "abstract": "Accumulating evidence suggests that additional dietary fiber supplements may significantly improve glycolipid metabolism and pregnancy outcomes in individuals with gestational diabetes mellitus (GDM). However, the therapeutic effects of xylose oligosaccharides and inulin (XOS inulin) in pregnant women have not been investigated. Moreover, the underlying mechanism behind the therapeutic effects of this type of dietary fiber is not clear. Our study aims to assess the effects of daily XOS inulin supplementation on glycolipid metabolism and elucidate the therapeutic mechanism through gut microbiota analysis.\n\nThis study is an 8-week, parallel-design, open-label, three-arm, single-center randomized controlled trial. Eligible participants were pregnant women between 24 and 28 weeks of gestation, and they were diagnosed with GDM through an oral glucose tolerance test (OGTT). The participants in the three groups will receive nutrition education alone, nutrition education plus XOS inulin (XOS 2 g and inulin 10 g) 12 g/day, or nutrition education plus XOS inulin 24 g/day. Measurements will be taken at baseline, week 4, and week 8. The primary outcome will be the change in glycosylated serum protein (GSP), and the key secondary outcomes include changes in fasting glucose, fasting insulin (FINS), 2-h postprandial plasma glucose (2 h-PPG), HbA1c, total cholesterol (TC), triglycerides (TG), LDL cholesterol (LDL-C), HDL cholesterol (HDL-C), and changes in the gut microbiota.\n\nThis study will evaluate the therapeutic effects of XOS inulin supplementation on glycemic control, lipid metabolism, gastrointestinal function, and perinatal outcomes in GDM patients and their offspring. It also provides insight into the potential role of the gut microbiome as a target for enhancing the therapeutic efficacy of emerging treatments for GDM. All participants will receive comprehensive GDM nutrition education, promoting sustainable dietary modifications that optimize maternal metabolic health and fetal outcomes.\n\nChinese Clinical Trial registry ChiCTR2200060117. Registered on 19 May, 2022.\n\nThe online version contains supplementary material available at 10.1186/s13063-025-09080-6.\n\nKeywords: Gestational diabetes mellitus, Dietary fiber, Inulin, Xylose oligosaccharides, Clinical trial",
+      "authors": [
+        "Wang Y",
+        "Yuan H",
+        "Jiang R",
+        "Jia K",
+        "Ding X",
+        "Gu P",
+        "Sun J"
+      ],
+      "doi": "10.1186/s13063-025-09080-6",
+      "id": "pmid:40993726",
+      "pmcid": "PMC12462350",
+      "pmid": "40993726",
+      "title": "Effects of soluble dietary fiber on glycolipid metabolism in gestational diabetes mellitus: study protocol for a randomized controlled clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40993726/",
+      "year": 2025
+    },
+    {
+      "abstract": "Menopausal women face an increased risk of cardiovascular diseases (CVDs), and exploring effective therapeutic strategies from traditional Chinese medicine is of great clinical significance. Erxian decoction (EXD), a classic formula for alleviating menopausal symptoms, has potential cardiovascular protective effects, but its underlying mechanisms remain unclear. In this study, the effects of EXD on gut microbiota, TMAO levels, and inflammatory levels were evaluated in ovariectomized (OVX) rats, a well-established model of menopausal CVDs. EXD elevated serum E2 levels and improved both the cardiac systolic and diastolic functions in OVX rats. EXD decreased Firmicutes and Ruminococcaceae, increased Bacteroidota, Muribaculaceae and Escherichia-Shigella. EXD significantly decreased serum levels of TMAO and its precursor metabolites. Additionally, it attenuated myocardial expression of ROS, TXNIP, NLRP3, ASC, Caspase 1, IL-18, and IL-1β. EXD could reduce the levels of SBP and DBP, and reduce the serum levels of TC, TG and LDL-C. Spearman correlation analysis revealed positive associations between TMAO and blood pressure, as well as inflammatory factors and dyslipidemia. Collectively, EXD may ameliorate myocardial damage in OVX rats through modulation of the gut microbiota and suppression of the TMAO-mediated NLRP3 inflammasome pathway, demonstrating its potential therapeutic implications for cardiovascular disorders.",
+      "authors": [
+        "Hu J",
+        "Yang Y",
+        "Jiang Y",
+        "Wang Y",
+        "Zhu R",
+        "Zhang Z",
+        "Liu H",
+        "Chen Y"
+      ],
+      "doi": "10.4014/jmb.2512.12005",
+      "id": "pmid:41674055",
+      "pmcid": "PMC12935506",
+      "pmid": "41674055",
+      "title": "Erxian Decoction Ameliorates Myocardial Damage in Ovariectomized Rats by Regulating the Gut Microbiota and TMAO-Mediated NLRP3 Inflammatory Pathway.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41674055/",
+      "year": 2026
+    },
+    {
+      "abstract": "Gut microbial stability typically decreases with physiological aging. This decline may vary between sexes and can potentially be mitigated by adopting a healthy lifestyle. Microbial guilds, defined as functionally coherent groups of bacteria, may serve as meaningful ecological indicators of aging. This study included 2944 participants aged 51–89 years from the Shanghai Men's and Women's Health Studies. Using 16S rRNA gene sequencing and a guild‐based approach, we evaluated the associations between gut microbiota and age in 1353 relatively healthy individuals. We found that women demonstrated a decline in the Chao1 index, an increase in Pielou evenness, and a remarkable shift in Bray–Curtis distance, whereas men exhibited an increase in Bray–Curtis uniqueness. Of the 45 age‐related guilds identified, 16 (8 in men and 10 in women) were considered potential aging biomarkers (p FDR < 0.05), with Guild_6 (Bifidobacterium sp. dominated) and Guild_118 ( Veillonella dispar dominated) being common to both sexes. These guilds were associated with consistent predicted functions, particularly 1,4‐dihydroxy‐2‐naphthoate biosynthesis. We estimated sex‐specific microbial age using random forest models and found that women and individuals with major chronic diseases had higher microbial ages. Prospective analysis revealed that an “old” microbial age was associated with a higher risk of type 2 diabetes (HR = 2.0, 95% CI: 1.1, 3.7). Individuals with healthier lifestyles had a 0.43‐year lower microbial age (95% CI: −0.85, −0.01). Our findings elucidate the sex‐differentiated aging patterns of gut microbiota in Chinese adults and imply the potential benefits of healthy lifestyle behaviors in slowing down microbiome aging.\n\nThis study employed a guild‐based approach to identify sex‐specific age‐related gut microbiota in two large cohorts of Chinese adults. The microbial age, derived from the significant guilds identified, was higher in women and less healthy individuals, was associated with an increased risk of type 2 diabetes, and could be slowed by healthy lifestyles. These findings highlight the role of multiple major noncommunicable diseases in accelerating aging and underscore the importance of a healthy lifestyle in promoting healthy aging.",
+      "authors": [
+        "Fu J",
+        "Xu W",
+        "Yu D",
+        "Jiang Y",
+        "Wang L",
+        "Cai H",
+        "Xia Q",
+        "Shu XO",
+        "Zheng W"
+      ],
+      "doi": "10.1111/acel.70192",
+      "id": "pmid:40757475",
+      "pmcid": "PMC12507401",
+      "pmid": "40757475",
+      "title": "Sex-Specific Aging Patterns of Gut Microbiota in Urban Chinese Adults: Guild-Based Analysis and Implications for Healthy Aging.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40757475/",
+      "year": 2025
+    },
+    {
+      "abstract": "Background/Objectives: Nontuberculous mycobacterial pulmonary disease (NTM-PD) is treated using a combination of multiple antimicrobial agents and prolonged therapy; however, recurrence and reinfection rates remain high. Susceptibility to NTM-PD is not fully understood. We aimed to investigate the association between NTM-PD and gut microbiota and determine the impact of antimicrobial therapy on the composition of the gut microbiota. Methods: We analyzed the gut microbiota of 20 Japanese females with NTM-PD (mean age: 67.9 years; range: 50–80 years) at different treatment stages—before, during, and at recurrence—alongside 20 healthy individuals, using 16S rRNA gene amplicon sequencing. Results: Subgroup A (pre-treatment) showed a small difference in β-diversity when compared with the healthy control (HC) group, while no significant differences in α-diversity were observed. Subgroup B (during treatment) exhibited a larger difference in β-diversity compared with the HC group, along with a decrease in α-diversity. The α-diversity of the gut microbiota in Subgroup C (at recurrence) was lower than that in Subgroup A but higher than that in Subgroup B. In Subgroups A and C, the bacterial taxa Sutterella, Adlercreutzia, Odoribacter, and Prevotella had decreased relative abundance, while Erysipelatoclostridium, Massilimicrobiota, Flavonifractor, Eggerthella, and Fusobacterium had increased relative abundance compared to those in the HC group. Conclusions: The loss of normal resident gut bacteria may hinder reacquisition. Treatment may be associated with the persistence of a dysbiotic gut microbiota, fostering susceptibility to NTM-PD. Gut microbiota dysbiosis may heighten susceptibility to NTM-PD, complicate treatment outcomes, and increase the risk of microbiological recurrence following therapy.",
+      "authors": [
+        "Kono K",
+        "Kozu Y",
+        "Yokota S",
+        "Hatayama K",
+        "Mizumura K",
+        "Maruoka S",
+        "Masuyama H",
+        "Gon Y"
+      ],
+      "doi": "10.3390/biomedicines13051264",
+      "id": "pmid:40427090",
+      "pmcid": "PMC12108648",
+      "pmid": "40427090",
+      "title": "Gut Microbiota Dysbiosis in Japanese Female Patients with Nontuberculous Mycobacteria-Associated Lung Disease: An Observational Study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40427090/",
+      "year": 2025
+    },
+    {
+      "abstract": "Salvia sclarea L. extract contains various bioactive components such as flavonoids and fatty acids, exhibiting anti-inflammatory, antioxidant, and antibacterial properties. This study aimed to investigate the effects of Salvia sclarea L. extract on the gut microbiota and serum metabolome in lambs. Sixty 2-month-old Chinese Merino female lambs (body weight 20 ± 2 kg) were randomly assigned to five groups. The control (CK) group received the basal diet only, while the treatment groups received the basal diet supplemented with 0.04 mL/kg (CL1), 0.08 mL/kg (CL2), 0.12 mL/kg (CL3), and 0.16 mL/kg (CL4) of Salvia sclarea L. extract, respectively. The results showed that Firmicutes, Bacteroidetes, Spirochaetes, and Proteobacteria were identified as the dominant phyla across all groups (>90%). Compared with the CK group, CL1 and CL2 groups significantly reduced the relative abundance of Tenericutes (decreased by 38.2% and 32.9%, respectively, p < 0.05); the relative abundance of Patescibacteria in the CL1 group was significantly lower (decreased by 55.2%, p < 0.05). At the genus level, Ruminococcaceae constituted a substantial proportion, including Ruminococcaceae UCG-005, UCG-010, UCG-014, and NK4A214 group. STAMP analysis revealed that Klebsiella was significantly enriched in CL2, CL3, and CL4 groups compared to the CK group (p < 0.05). Correlation analysis between microbiota and immune indices showed that Christensenellaceae R-7 group was significantly negatively correlated with TNF-α (p < 0.05); Ruminococcaceae UCG-005 was significantly negatively correlated with IFN-γ (p < 0.05) and showed a negative correlation trend with immunoglobulins (IgA, IgG, IgM). Conversely, Ruminococcaceae UCG-014 was significantly positively correlated with IL-4 (p < 0.05) but showed a negative correlation trend with IgM. Untargeted metabolomics analysis identified 8, 18, 25, and 20 differential metabolites in CL1, CL2, CL3, and CL4 groups, respectively. Notably, 3-hydroxy-7-methoxyflavone and Gamma-Glu-Cys were significantly upregulated across all treatment groups. KEGG pathway enrichment analysis indicated that these differential metabolites were primarily involved in nucleotide metabolism, fatty acid biosynthesis, and oxidative stress-related pathways. Further Spearman correlation analysis revealed significant associations between gut microbiota and differential metabolites. Specifically, g_Klebsiella was significantly positively correlated with 3-Hydroxycapric acid and 3-hydroxy-7-methoxyflavone (p < 0.05). In conclusion, Salvia sclarea L. extract modulates host energy metabolism by regulating nucleotide metabolism and fatty acid biosynthesis, and enhances immune function by alleviating oxidative stress, through the remodeling of gut microbiota and serum metabolome.\n\nKeywords: Salvia sclarea L. extract, lambs, gut microbiota, metabolome",
+      "authors": [
+        "Ma X",
+        "Nan S",
+        "Zhang L",
+        "Xue Y",
+        "Zhang W"
+      ],
+      "doi": "10.3390/microorganisms14051163",
+      "id": "pmid:42197548",
+      "pmcid": "PMC13210186",
+      "pmid": "42197548",
+      "title": "Effects of Dietary &lt;i&gt;Salvia sclarea&lt;/i&gt; L. Extract Supplementation on the Gut Microbiota, and Serum Metabolome in Lambs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42197548/",
+      "year": 2026
+    },
+    {
+      "abstract": "Group B Streptococcus (GBS) colonization during pregnancy is a major cause of neonatal infection, yet its microbial determinants remain unclear. This pilot study compared the vaginal and gut microbiota of late-pregnancy women with and without GBS colonization to explore potential microbial cues for peripartum risk stratification. Forty-three Japanese pregnant women (GBS-Negative = 34; GBS-Positive = 9) were enrolled at 35–37 weeks of gestation. Vaginal secretions and stool were analyzed by 16S rRNA (V3–V4) sequencing using QIIME 2 with SILVA annotation and community state type (CST) classification. Vaginal communities were mainly Lactobacillus-dominant. GBS-Positive women showed a non-significant tendency toward more L. iners-dominant CST III and fewer L. crispatus-dominant CST I compared with GBS-Negative women. Prevotella, Atopobium, and Gardnerella were significantly enriched in the GBS-Positive group (false discovery rate < 0.05), whereas gut microbial diversity and composition showed no significant differences between groups. Cross-site gut–vagina genus-level correlations were generally weak and non-significant. These findings suggest that, in late pregnancy, GBS colonization is linked to subtle shifts within Lactobacillus-dominant vaginal communities, with more L. iners and bacterial vaginosis-associated genera, rather than global microbiota disruption. The apparent shift from L. crispatus- to L. iners-dominant communities is hypothesis-generating and should be confirmed in larger cohorts.\n\nKeywords: Group B Streptococcus, preterm birth, chorioamnionitis, 16S rRNA sequencing, Lactobacillus iners, Lactobacillus crispatus, bacterial vaginosis-associated bacteria, microbiome diversity",
+      "authors": [
+        "Song S",
+        "Iino K",
+        "Nakamura M",
+        "Sato M",
+        "Oishi M",
+        "Ito A",
+        "Yokoyama Y"
+      ],
+      "doi": "10.3390/microorganisms13122671",
+      "id": "pmid:41471874",
+      "pmcid": "PMC12734668",
+      "pmid": "41471874",
+      "title": "Comparative Characterization of Vaginal and Gut Microbiota in Late-Pregnancy Women with or Without Group B Streptococcus Colonization.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41471874/",
+      "year": 2025
+    },
+    {
+      "abstract": "The gut microbiome may influence breast cancer (BC) development by modulating estrogen metabolism, immune responses, and microbial metabolites. Altered microbial patterns have been reported in BC, but their value as predictive biomarkers remains uncertain.\n\nWe reviewed 13 case–control studies that compared gut microbiome composition in women with and without BC, focusing on diversity, compositional shifts, and geographic variation.\n\nReduced microbial richness (alpha diversity, the number and balance of bacterial species) was observed in more than half of the studies, although findings were not uniform. Differences in community composition (beta diversity) were common. Across studies, BC was consistently associated with elevated Bacteroides and reduced Faecalibacterium, a genus linked to anti-inflammatory effects. Other recurrent findings included enrichment of Eggerthella and Blautia in BC, though results for several taxa were inconsistent. Geographic variation was evident: Eggerthella was enriched in U.S. cohorts, Blautia in European cohorts, and in Chinese cohorts, Prevotella was elevated while Akkermansia was reduced.\n\nDespite heterogeneity, converging evidence supports reduced diversity and shifts in select taxa, particularly enrichment of Bacteroides and depletion of Faecalibacterium, as emerging features of the BC microbiome. Geographic differences underscore the influence of host and environmental factors. These findings suggest biomarker potential but highlight the need for larger, longitudinal, and standardized studies to establish causality and clinical utility.",
+      "authors": [
+        "Oh B",
+        "Lamoury G",
+        "Carroll S",
+        "Morgia M",
+        "Boyle F",
+        "Pavlakis N",
+        "Clarke S",
+        "Guminski A",
+        "Menzies A",
+        "Diakos C",
+        "Moore K",
+        "Baron-Hay S",
+        "Eade T",
+        "Molloy M",
+        "Back M"
+      ],
+      "doi": "10.3389/fonc.2025.1666830",
+      "id": "pmid:41458603",
+      "pmcid": "PMC12740758",
+      "pmid": "41458603",
+      "title": "The gut microbiome as a potential predictive biomarker for breast cancer: emerging association and geographic differences.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41458603/",
+      "year": 2025
+    },
+    {
+      "abstract": "To review and summarize research on stroke-related sarcopenia, identify its associated factors, and provide a theoretical foundation for further research and interventions.\n\nA systematic search was conducted in Chinese National Knowledge Infrastructure (CNKI), Wanfang, VIP, SinoMed, PubMed, Web of Science, CINAHL, Embase, and the Cochrane Library for Chinese and English literature on stroke-related sarcopenia. The search covered publications from the inception of each database through March 4, 2026. The study analyzed and summarized the literature by defining the research topic, screening studies, and conducting methodological evaluations, thereby identifying and summarizing the associated factors associated with stroke-related sarcopenia.\n\nThis study included a total of 32 studies, comprising 28 original studies and 4 meta-analyses. Based on the 28 original studies, a total of 32 associated factors for stroke-related sarcopenia were identified, specifically: low BMI, advanced age, low phase angle, reduced calf circumference, low SMI (skeletal muscle index), waist circumference, nutritional status, smoking, low quality of life, decreased activities of daily living, more than three comorbidities, high stroke severity, stroke duration, dysphagia, diabetes, abnormal biochemical markers, tube feeding, length of ICU stay, osteoporosis, number of strokes, cognitive impairment, weight loss, low food texture level, cardiovascular disease, female gender, physical activity level, high risk of falls, oral health issues, pneumonia, speech disorders, gut microbiota diversity, and frailty.\n\nThe associated factors for stroke-related sarcopenia are multifaceted. Healthcare professionals need to conduct comprehensive assessments of patients to screen for potential factors associated with stroke-related sarcopenia, thereby providing a basis for clinical intervention.",
+      "authors": [
+        "Xu F",
+        "You Y",
+        "Ling Y",
+        "Wei Y",
+        "Hu M"
+      ],
+      "doi": "10.3389/fneur.2026.1860091",
+      "id": "pmid:42614262",
+      "pmcid": "PMC13481274",
+      "pmid": "42614262",
+      "title": "Associated factors for stroke-related sarcopenia: a scoping review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42614262/",
+      "year": 2026
+    },
+    {
+      "abstract": "This study investigated the influence of two distinct aquaculture systems, namely, the wheat-crab model (WCM) and pond culture (PC) model, on the growth, physiological well-being, and gut microbial structure of Chinese mitten crabs (Eriocheir sinensis). A total of 120 adult crabs were randomly selected from the two systems: 60 crabs from the WCM, including 30 females and 30 males, and 60 crabs from the PC model, also including 30 females and 30 males. The gonadosomatic index of female crabs in the WCM was notably higher than that of the other groups, while the hepatopancreatic index was significantly lower. Significant variations were not observed in final weight, fullness, or muscle yield between the WCM and PC groups. Biochemical evaluations indicated no substantial differences in antioxidant capabilities between the two systems; however, female crabs demonstrated increased critical antioxidant enzyme activity, such as for catalase and superoxide dismutase, and significantly elevated cholesterol levels. Additionally, the expression of the genes IL, ProPO, and Keap1 was significantly higher in the WCM group than the PC group, whereas the expression of ALF2, Myd88, and CncC did not significantly differ between the two cultivation methods. Non-targeted metabolomics analysis revealed notable distinctions in metabolite profiles between the two systems. Moreover, the WCM facilitated an increase in beneficial Firmicutes bacteria while reducing potentially harmful microorganisms, suggesting improved immune function in crabs raised under the WCM. In summary, female crabs reared in the WCM matured earlier and exhibited slightly better health conditions compared to those grown in the PC model.",
+      "authors": [
+        "Yang M",
+        "Ling J",
+        "Li T",
+        "Yu C",
+        "Jiang H",
+        "Pan T"
+      ],
+      "doi": "10.3390/microorganisms13102396",
+      "id": "pmid:41156855",
+      "pmcid": "PMC12566014",
+      "pmid": "41156855",
+      "title": "Effects of the Wheat Crab Model and the Pond Culture Model on the Growth, Metabolism and Intestinal Microbiota of the Chinese Mitten Crab (&lt;i&gt;Eriocheir sinensis&lt;/i&gt;).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41156855/",
+      "year": 2025
+    },
+    {
+      "abstract": "The intestinal microbiota structure and diversity of sika deer, red deer, and white-lipped deer in Liaoning were analyzed using 16S rRNA high-throughput sequencing technology. The study indicated that the intestinal microbiota diversity and relative abundance in female white-lipped deer were significantly lower than those in female sika deer and female red deer; however, there was no significant difference between the latter two groups. In summary, these findings can provide a scientific basis for the feeding and management of three deer species to improve their health.\n\nKeywords: sika deer (Cervus nippon), red deer (Cervus elaphus), white-lipped deer (Cervus albirostris), gut microecology, high-throughput sequencing\n\nThe breeding of large animals in the family Cervidae in China contributes to achieving two tasks: restoring the provenance of wild populations and providing raw materials for traditional Chinese medicine. Currently, red deer (Cervus elaphus), sika deer (C. nippon), and white-lipped deer (C. albirostris) maintain a large number of breeding populations. Some studies on the relationship between the intestinal microbiota and the feed of these deer have been conducted; however, owing to differences in feeding conditions between studies, it has been impossible to compare the intestinal microecology and related adaptability between species. Therefore, the present study is aiming to investigate whether the differences in intestinal microbiota of the three deer species are related to the distance of phylogenetic relationships under the same feeding environment. On this basis, we discuss whether there are differences in the adaptability of the intestinal microbiota of the three deer species to feed nutrients, deepen the understanding of the relationship between the three deer intestinal microbiota and feed nutrition, and provide basic data for improving the scientific feeding of the three deer species. In this study, 16S rRNA high-throughput sequencing technology was utilized to analyze the intestinal microbiota in feces of the abovementioned healthy deer species. The results of this study indicated that the intestinal microbiota diversity and relative abundance in female white-lipped deer (FWLD) were significantly lower than those in female sika deer (FSD) and female red deer (FRD; p < 0.05); however, there was no significant difference between the latter two groups (p > 0.05). The community compositions of the intestinal microbiota in FSD and FRD were more similar, whereas that of FWLD was significantly different from those of the first two groups. Firmicutes and Bacteroidetes were the most abundant phyla in the intestinal microbiota of all three deer species, and Ruminococcceae_UCG-005 was the most abundant genus. No known obligatory pathogenic bacteria were observed in any sample. The relative abundance of the operational taxonomic units Christensenellaceae_R-7_group, Treponema_2, and Akkermansia exhibited significant differences among FSD, FRD, and FWLD, respectively. Therefore, the phylogenetic relatedness of the three deer species appears to play a major role in their intestinal microecology under the same feeding conditions—the greater the phylogenetic relatedness between hosts, the more similar is their intestinal microbiota. In addition, the PICRUSt (Phylogenetic Investigation of Communities by Reconstruction of Unobserved States) function prediction results indicated that FSD were less capable than FRD and FWLD in the functional category of nutrient metabolism, and FWLD were less capable than FSD and FRD in the functional category of intestinal absorption. These results indicated that there may be differences in the nutritional adaptation abilities of the three deer species under different feeding conditions. In summary, these results revealed the differences in intestinal microbiota among the three deer species under the same food conditions, indicating that the intestinal microbiota of the three deer species had significant differences in food adaptation. Based on this, the nutritional supply of feed for the three deer should consider the species differences.",
+      "authors": [
+        "Wang Y",
+        "Shi M",
+        "Wu J",
+        "Han X",
+        "Li M",
+        "Wu Y",
+        "Jiang Y",
+        "Zhang H",
+        "Liu S",
+        "Hu D"
+      ],
+      "doi": "10.3390/vetsci12050438",
+      "id": "pmid:40431531",
+      "pmcid": "PMC12115930",
+      "pmid": "40431531",
+      "title": "Variations in Intestinal Microbiota Among Three Species in the Cervidae Family Under the Same Feeding Conditions.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40431531/",
+      "year": 2025
+    }
+  ],
+  "provider": "europe_pmc_saved_example",
+  "query": "(TITLE_ABS:\"gut microbiota\" OR TITLE_ABS:\"gut microbiome\" OR TITLE_ABS:\"intestinal microbiota\") AND (TITLE_ABS:women OR TITLE_ABS:female) AND (TITLE_ABS:Asian OR TITLE_ABS:Chinese OR TITLE_ABS:Japanese OR TITLE_ABS:Korean OR TITLE_ABS:Singapore OR TITLE_ABS:Thai OR TITLE_ABS:Vietnamese OR TITLE_ABS:Malaysian OR TITLE_ABS:Indonesian OR TITLE_ABS:Filipino) AND OPEN_ACCESS:Y",
+  "query_translation": null,
+  "research_question": "What do these sources report about gut microbiome, reproductive and healthy aging outcomes, gynecological conditions, and diet among the studied women in Asian populations?",
+  "schema_version": "mvp.exploratory-preview.v1",
+  "searched_at": "2026-10-21T02:55:39.612270+00:00",
+  "sort": "Europe PMC default relevance order",
+  "total_reported": 194,
+  "truncated": true,
+  "warnings": [
+    "Thirty real, permitted CC BY/CC0 articles were retained in returned order after identity and license checks from a bounded Europe PMC metadata capture. This curated offline example is not a fresh PubMed search, complete capture, formal inclusion decision or scientific benchmark.",
+    "Geography and sex keywords may occur anywhere in title/abstract. They do not establish participant ethnicity, eligibility, women-only samples or applicability to all Asian women. Review each original source.",
+    "Offline saved example: the supplied query, dates, and sort were not executed. The recorded Europe PMC query and capture time are shown."
+  ]
+}

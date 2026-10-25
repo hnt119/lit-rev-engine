@@ -1,0 +1,408 @@
+{
+  "abstractText": "Menopausal women face an increased risk of cardiovascular diseases (CVDs), and exploring effective therapeutic strategies from traditional Chinese medicine is of great clinical significance. Erxian decoction (EXD), a classic formula for alleviating menopausal symptoms, has potential cardiovascular protective effects, but its underlying mechanisms remain unclear. In this study, the effects of EXD on gut microbiota, TMAO levels, and inflammatory levels were evaluated in ovariectomized (OVX) rats, a well-established model of menopausal CVDs. EXD elevated serum E2 levels and improved both the cardiac systolic and diastolic functions in OVX rats. EXD decreased <i>Firmicutes</i> and <i>Ruminococcaceae</i>, increased <i>Bacteroidota, Muribaculaceae</i> and <i>Escherichia-Shigella</i>. EXD significantly decreased serum levels of TMAO and its precursor metabolites. Additionally, it attenuated myocardial expression of ROS, TXNIP, NLRP3, ASC, Caspase 1, IL-18, and IL-1β. EXD could reduce the levels of SBP and DBP, and reduce the serum levels of TC, TG and LDL-C. Spearman correlation analysis revealed positive associations between TMAO and blood pressure, as well as inflammatory factors and dyslipidemia. Collectively, EXD may ameliorate myocardial damage in OVX rats through modulation of the gut microbiota and suppression of the TMAO-mediated NLRP3 inflammasome pathway, demonstrating its potential therapeutic implications for cardiovascular disorders.",
+  "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China."
+            }
+          ]
+        },
+        "firstName": "Jing",
+        "fullName": "Hu J",
+        "initials": "J",
+        "lastName": "Hu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China."
+            }
+          ]
+        },
+        "firstName": "Ying",
+        "fullName": "Yang Y",
+        "initials": "Y",
+        "lastName": "Yang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China."
+            }
+          ]
+        },
+        "firstName": "Yanhua",
+        "fullName": "Jiang Y",
+        "initials": "Y",
+        "lastName": "Jiang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China."
+            }
+          ]
+        },
+        "firstName": "Yuhan",
+        "fullName": "Wang Y",
+        "initials": "Y",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China."
+            }
+          ]
+        },
+        "firstName": "Ruyuan",
+        "fullName": "Zhu R",
+        "initials": "R",
+        "lastName": "Zhu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China."
+            }
+          ]
+        },
+        "firstName": "Zhiguo",
+        "fullName": "Zhang Z",
+        "initials": "Z",
+        "lastName": "Zhang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China."
+            }
+          ]
+        },
+        "firstName": "Haixia",
+        "fullName": "Liu H",
+        "initials": "H",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Institute of Basic Theory for Chinese Medicine, China Academy of Chinese Medical Sciences, Beijing 100700, P.R. China."
+            }
+          ]
+        },
+        "firstName": "Yanjing",
+        "fullName": "Chen Y",
+        "initials": "Y",
+        "lastName": "Chen"
+      }
+    ]
+  },
+  "authorString": "Hu J, Yang Y, Jiang Y, Wang Y, Zhu R, Zhang Z, Liu H, Chen Y.",
+  "chemicalList": {
+    "chemical": [
+      {
+        "name": "Methylamines",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Drugs, Chinese Herbal",
+        "registryNumber": "0"
+      },
+      {
+        "name": "trimethyloxamine",
+        "registryNumber": "FLD0K1SJ1A"
+      },
+      {
+        "name": "NLR Family, Pyrin Domain-Containing 3 Protein",
+        "registryNumber": "0"
+      },
+      {
+        "name": "Nlrp3 protein, rat",
+        "registryNumber": "0"
+      }
+    ]
+  },
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-07-07",
+  "dateOfCreation": "2026-02-12",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.4014/jmb.2512.12005",
+  "electronicPublicationDate": "2026-02-11",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-02-12",
+  "firstPublicationDate": "2026-02-11",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC12935506"
+    ]
+  },
+  "fullTextReceivedDate": "2026-02-26",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.4014/jmb.2512.12005"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12935506"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC12935506?pdf=render"
+      }
+    ]
+  },
+  "grantsList": {
+    "grant": [
+      {
+        "agency": "National Natural Science Foundation of China",
+        "grantId": "82074297",
+        "orderIn": 0
+      },
+      {
+        "agency": "China Academy of Chinese Medical Sciences",
+        "grantId": "2021A00107",
+        "orderIn": 0
+      },
+      {
+        "agency": "Central Public Welfare Research Institutes",
+        "grantId": "YZ-202041",
+        "orderIn": 0
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "Y",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "41674055",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 Feb",
+    "journal": {
+      "essn": "1738-8872",
+      "isoabbreviation": "J Microbiol Biotechnol",
+      "issn": "1017-7825",
+      "medlineAbbreviation": "J Microbiol Biotechnol",
+      "nlmid": "9431852",
+      "title": "Journal of microbiology and biotechnology"
+    },
+    "journalIssueId": 4116539,
+    "monthOfPublication": 2,
+    "printPublicationDate": "2026-02-01",
+    "volume": "36",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "inflammatory",
+      "Gut Microbiota",
+      "Erxian Decoction",
+      "Tmao-mediated Nlrp3 Inflammatory Pathway"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "meshHeadingList": {
+    "meshHeading": [
+      {
+        "descriptorName": "Myocardium",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            },
+            {
+              "abbreviation": "PA",
+              "majorTopic_YN": "N",
+              "qualifierName": "pathology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Animals",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Rats",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Rats, Sprague-Dawley",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Cardiovascular Diseases",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DT",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug therapy"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Disease Models, Animal",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Inflammation",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Methylamines",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "BL",
+              "majorTopic_YN": "N",
+              "qualifierName": "blood"
+            },
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Drugs, Chinese Herbal",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "PD",
+              "majorTopic_YN": "N",
+              "qualifierName": "pharmacology"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Ovariectomy",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Signal Transduction",
+        "majorTopic_YN": "N",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "Female",
+        "majorTopic_YN": "N"
+      },
+      {
+        "descriptorName": "Gastrointestinal Microbiome",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "DE",
+              "majorTopic_YN": "N",
+              "qualifierName": "drug effects"
+            }
+          ]
+        }
+      },
+      {
+        "descriptorName": "NLR Family, Pyrin Domain-Containing 3 Protein",
+        "majorTopic_YN": "Y",
+        "meshQualifierList": {
+          "meshQualifier": [
+            {
+              "abbreviation": "GE",
+              "majorTopic_YN": "N",
+              "qualifierName": "genetics"
+            },
+            {
+              "abbreviation": "ME",
+              "majorTopic_YN": "N",
+              "qualifierName": "metabolism"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "nihAuthMan": "N",
+  "pageInfo": "e2512005",
+  "pmcid": "PMC12935506",
+  "pmid": "41674055",
+  "pubModel": "Electronic",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "subsetList": {
+    "subset": [
+      {
+        "code": "IM",
+        "name": "Index Medicus"
+      }
+    ]
+  },
+  "title": "Erxian Decoction Ameliorates Myocardial Damage in Ovariectomized Rats by Regulating the Gut Microbiota and TMAO-Mediated NLRP3 Inflammatory Pathway.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}

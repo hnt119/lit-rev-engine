@@ -1,0 +1,194 @@
+{
+  "abstractText": "<h4>Study objectives</h4>Emerging evidence suggests a possible link between anorexia nervosa (AN) and alterations in the gut microbiota. This study aimed to characterize the gut microbiota profile in a cohort of Chinese female patients with AN.<h4>Method</h4>A comparative analysis of the gut microbiota was conducted between 30 female patients with AN and 30 sex- and age-matched healthy controls (HCs). Fecal samples were collected for 16S rRNA gene sequencing analysis. All participants were assessed using the Eating Disorder Inventory (EDI) and the Childhood Trauma Questionnaire (CTQ). Bioinformatics analysis was performed using QIIME2, and statistical analyses were carried out with SPSS 26.0 and R software. Correlations between microbiota differences and body mass index (BMI), EDI, and CTQ were further investigated.<h4>Results</h4>The analysis revealed differences in beta diversity and the abundances of specific microbial taxa between the two groups; however, no significant differences were observed in alpha diversity nor in the associations between gut microbiota and BMI, disease severity, or childhood trauma.<h4>Conclusions</h4>This study identified limited differences in the gut microbiota composition between patients with AN and HCs. Critically, no robust associations between gut microbiota and clinical features were found after rigorous multiple comparison correction. While nominal (uncorrected) correlations were observed between the specific microbiota and psychological traits, these results are exploratory and should be considered hypothesis-generating. They highlight a potential avenue for future research but require validation in larger, longitudinal cohorts to determine their reproducibility and biological significance.",
+  "affiliation": "Mental Health Center, National Center for Mental Disorders, West China Hospital, Sichuan University, Chengdu, China.",
+  "authMan": "N",
+  "authorList": {
+    "author": [
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Mental Health Center, National Center for Mental Disorders, West China Hospital, Sichuan University, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Meiou",
+        "fullName": "Wang M",
+        "initials": "M",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Mental Health Center, National Center for Mental Disorders, West China Hospital, Sichuan University, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Yu",
+        "fullName": "Wang Y",
+        "initials": "Y",
+        "lastName": "Wang"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Mental Health Center, National Center for Mental Disorders, West China Hospital, Sichuan University, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Jing",
+        "fullName": "Ma J",
+        "initials": "J",
+        "lastName": "Ma"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Mental Health Center, National Center for Mental Disorders, West China Hospital, Sichuan University, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Yang",
+        "fullName": "Liu Y",
+        "initials": "Y",
+        "lastName": "Liu"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Mental Health Center, National Center for Mental Disorders, West China Hospital, Sichuan University, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Jin",
+        "fullName": "Li J",
+        "initials": "J",
+        "lastName": "Li"
+      },
+      {
+        "authorAffiliationDetailsList": {
+          "authorAffiliation": [
+            {
+              "affiliation": "Mental Health Center, National Center for Mental Disorders, West China Hospital, Sichuan University, Chengdu, China."
+            }
+          ]
+        },
+        "firstName": "Lan",
+        "fullName": "Zhang L",
+        "initials": "L",
+        "lastName": "Zhang"
+      }
+    ]
+  },
+  "authorString": "Wang M, Wang Y, Ma J, Liu Y, Li J, Zhang L.",
+  "citedByCount": 0,
+  "dataLinksTagsList": {
+    "dataLinkstag": [
+      "supporting_data"
+    ]
+  },
+  "dateOfCompletion": "2026-05-01",
+  "dateOfCreation": "2026-05-01",
+  "dateOfRevision": "2026-08-13",
+  "doi": "10.3389/fpsyt.2026.1759115",
+  "electronicPublicationDate": "2026-04-15",
+  "epmcAuthMan": "N",
+  "firstIndexDate": "2026-05-02",
+  "firstPublicationDate": "2026-04-15",
+  "fullTextIdList": {
+    "fullTextId": [
+      "PMC13125984"
+    ]
+  },
+  "fullTextReceivedDate": "2026-05-18",
+  "fullTextUrlList": {
+    "fullTextUrl": [
+      {
+        "availability": "Subscription required",
+        "availabilityCode": "S",
+        "documentStyle": "doi",
+        "site": "DOI",
+        "url": "https://doi.org/10.3389/fpsyt.2026.1759115"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "html",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13125984"
+      },
+      {
+        "availability": "Open access",
+        "availabilityCode": "OA",
+        "documentStyle": "pdf",
+        "site": "Europe_PMC",
+        "url": "https://europepmc.org/articles/PMC13125984?pdf=render"
+      }
+    ]
+  },
+  "hasBook": "N",
+  "hasData": "Y",
+  "hasDbCrossReferences": "N",
+  "hasEvaluations": "N",
+  "hasLabsLinks": "N",
+  "hasPDF": "Y",
+  "hasReferences": "Y",
+  "hasSuppl": "Y",
+  "hasTMAccessionNumbers": "Y",
+  "hasTextMinedTerms": "Y",
+  "id": "42064155",
+  "inEPMC": "Y",
+  "inPMC": "Y",
+  "isOpenAccess": "Y",
+  "journalInfo": {
+    "dateOfPublication": "2026 ",
+    "journal": {
+      "essn": "1664-0640",
+      "isoabbreviation": "Front Psychiatry",
+      "issn": "1664-0640",
+      "medlineAbbreviation": "Front Psychiatry",
+      "nlmid": "101545006",
+      "title": "Frontiers in psychiatry"
+    },
+    "journalIssueId": 4112086,
+    "monthOfPublication": 0,
+    "printPublicationDate": "2026-01-01",
+    "volume": "17",
+    "yearOfPublication": 2026
+  },
+  "keywordList": {
+    "keyword": [
+      "Diversity",
+      "Anorexia Nervosa",
+      "Gut Microbiota",
+      "Eating Disorder",
+      "Childhood Trauma"
+    ]
+  },
+  "language": "eng",
+  "license": "cc by",
+  "nihAuthMan": "N",
+  "pageInfo": "1759115",
+  "pmcid": "PMC13125984",
+  "pmid": "42064155",
+  "pubModel": "Electronic-eCollection",
+  "pubTypeList": {
+    "pubType": [
+      "research-article",
+      "Journal Article"
+    ]
+  },
+  "pubYear": "2026",
+  "publicationStatus": "epublish",
+  "source": "MED",
+  "title": "Gut microbiota profiles in anorexia nervosa: associations with disease severity, BMI, and history of childhood trauma.",
+  "tmAccessionTypeList": {
+    "accessionType": [
+      "doi"
+    ]
+  }
+}
