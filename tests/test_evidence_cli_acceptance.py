@@ -11,6 +11,7 @@ import socket
 import sqlite3
 import subprocess
 import sys
+import time
 
 import pytest
 
@@ -26,12 +27,52 @@ TRUTH = json.loads((FIXTURES / "extractions.json").read_text())
 PROPOSALS = {proposal["id"]: proposal for proposal in TRUTH["proposals"]}
 
 
+def guarded_process_wait_sleep(real_sleep):
+    # subprocess.communicate(timeout=...) may poll after its pipes have closed.
+    # Permit that exact stdlib frame; application sleeps remain forbidden.
+    wait_code = subprocess.Popen._wait.__code__
+
+    def guarded(*args, **kwargs):
+        if sys._getframe(1).f_code is wait_code:
+            return real_sleep(*args, **kwargs)
+        pytest.fail("Evidence CLI attempted network or real sleep")
+
+    return guarded
+
+
 @pytest.fixture(autouse=True)
 def no_live_dependencies(monkeypatch):
     def denied(*args, **kwargs):
         pytest.fail("Evidence CLI attempted network or real sleep")
     monkeypatch.setattr(socket, "create_connection", denied)
-    monkeypatch.setattr("time.sleep", denied)
+    monkeypatch.setattr(time, "sleep", guarded_process_wait_sleep(time.sleep))
+
+
+def test_sleep_guard_still_rejects_application_and_direct_test_sleep():
+    def application_operation():
+        time.sleep(0.001)
+
+    for operation in (application_operation, lambda: time.sleep(0)):
+        with pytest.raises(pytest.fail.Exception, match="network or real sleep"):
+            operation()
+
+
+def test_sleep_guard_permits_actual_stdlib_child_wait_polling(monkeypatch):
+    # The child cannot finish until its first stdlib wait poll releases it.
+    # No timing or scheduling race is needed to exercise subprocess._wait.
+    with subprocess.Popen([sys.executable, "-c", "import sys; sys.stdin.buffer.read(1)"],
+                          stdin=subprocess.PIPE) as child:
+        polls = []
+
+        def release_child(delay):
+            polls.append(delay)
+            if len(polls) == 1:
+                child.stdin.write(b"x")
+                child.stdin.flush()
+
+        monkeypatch.setattr(time, "sleep", guarded_process_wait_sleep(release_child))
+        assert child.wait(timeout=5) == 0
+        assert polls and all(0 <= delay <= 0.05 for delay in polls)
 
 
 def run_cli(directory, database, *arguments, success=True):
