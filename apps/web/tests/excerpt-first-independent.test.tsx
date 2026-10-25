@@ -16,17 +16,25 @@ function button(renderer:ReactTestRenderer,label:string){const node=renderer.roo
 function control(renderer:ReactTestRenderer,label:string,type:"textarea"|"select"|"input"="textarea"){const node=renderer.root.findAllByType("label").find(node=>node.children.some(child=>child===label));assert.ok(node,"Missing control: "+label);return node.findByType(type);}
 function disabled(node:ReactTestInstance){for(let n:ReactTestInstance|null=node;n;n=n.parent)if(n.props.disabled)return true;return false;}
 function step(renderer:ReactTestRenderer){return text(renderer.root.findByProps({"aria-label":"Cell review steps"}).findByProps({"aria-current":"step"}));}
-async function click(renderer:ReactTestRenderer,label:string){
- // Event handlers deliberately return void. Observe the rendered, enabled
- // control rather than assuming an earlier asynchronous action has finished.
- let target:ReactTestInstance|undefined;
- for(let attempt=0;attempt<100;attempt++){
-  target=renderer.root.findAllByType("button").find(node=>text(node)===label&&!disabled(node));
-  if(target)break;
-  await act(async()=>{await new Promise(resolve=>setTimeout(resolve,10));});
+async function observed(check:()=>boolean,description:string){
+ const deadline=Date.now()+5000;
+ while(!check()){
+  assert.ok(Date.now()<deadline,"Unobserved outcome: "+description);
+  await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});
  }
- assert.ok(target,"Missing enabled button: "+label);
- await act(async()=>{await target.props.onClick();});
+}
+function editorReady(renderer:ReactTestRenderer){
+ const navigation=renderer.root.findAllByProps({"aria-label":"Cell review steps"})[0];
+ return !!navigation&&navigation.findAllByType("button").length===3&&navigation.findAllByType("button").every(node=>!disabled(node));
+}
+async function click(renderer:ReactTestRenderer,label:string){
+ // A void event handler can still await fingerprints, draft ACKs and reloads.
+ // Wait for the previous action to finish before dispatching the next one,
+ // then observe that this editor accepts its next action after completion.
+ let target:ReactTestInstance|undefined;
+ await observed(()=>{target=renderer.root.findAllByType("button").find(node=>text(node)===label&&!disabled(node));return editorReady(renderer)&&!!target;},"enabled action "+label);
+ await act(async()=>{await target!.props.onClick();});
+ await observed(()=>editorReady(renderer),"completed action "+label);
 }
 async function change(renderer:ReactTestRenderer,label:string,value:string,type:"textarea"|"select"|"input"="textarea"){await act(async()=>control(renderer,label,type).props.onChange({target:{value}}));}
 
@@ -79,10 +87,10 @@ async function fixture(id:string,{historical=false,long=false,empty=false,provid
   if(path.includes("/history?"))return response({items:revisions.filter(r=>path.includes("/cells/"+r.paper_id+"/")),offset:0,limit:10,total:revisions.length});
   assert.fail("Unexpected fixture request "+method+" "+path);
  };
- let renderer!:ReactTestRenderer;
- async function mount(paper?:string){await act(async()=>{renderer=create(<Compare workspace={workspace} requestedBoard="board" requestedPaper={paper} requestedField={paper?"finding":undefined} navigate={async value=>{await flushDrafts();navigation.push(value);}}/>,{createNodeMock:node=>({focus:()=>focus.push(String((node.props as Record<string,unknown>)["aria-label"]??node.type)),scrollIntoView:()=>{},scrollLeft:0,querySelectorAll:()=>[]})});});return renderer;}
+ let renderer!:ReactTestRenderer,mounted=false;
+ async function mount(paper?:string){await act(async()=>{renderer=create(<Compare workspace={workspace} requestedBoard="board" requestedPaper={paper} requestedField={paper?"finding":undefined} navigate={async value=>{await flushDrafts();navigation.push(value);}}/>,{createNodeMock:node=>({focus:()=>focus.push(String((node.props as Record<string,unknown>)["aria-label"]??node.type)),scrollIntoView:()=>{},scrollLeft:0,querySelectorAll:()=>[]})});});mounted=true;if(paper)await observed(()=>editorReady(renderer),"reopened cell draft ready");return renderer;}
  await mount();
- return {get renderer(){return renderer;},mount,requests,drafts,editorDrafts,revisions,navigation,focus,view,chars,reference,delayAck(){gate=new Promise<void>(resolve=>releaseAck=resolve);},releaseAck(){gate=null;releaseAck?.();},conflictHint(){hintConflict=true;},wrongPaperContext(){wrongPaper=true;},async open(paper:string){await act(async()=>renderer.root.findByProps({"aria-label":"Finding for SYNTHETIC SOFTWARE REPORT "+paper.slice(1)}).props.onClick());},async close(){await act(async()=>renderer.unmount());}};
+ return {get renderer(){return renderer;},mount,requests,drafts,editorDrafts,revisions,navigation,focus,view,chars,reference,delayAck(){gate=new Promise<void>(resolve=>releaseAck=resolve);},releaseAck(){gate=null;releaseAck?.();},conflictHint(){hintConflict=true;},wrongPaperContext(){wrongPaper=true;},async open(paper:string){await act(async()=>renderer.root.findByProps({"aria-label":"Finding for SYNTHETIC SOFTWARE REPORT "+paper.slice(1)}).props.onClick());await observed(()=>editorReady(renderer),"opened cell draft ready");},async close(){if(!mounted)return;gate=null;releaseAck?.();if(renderer.root.findAllByProps({"aria-label":"Cell review steps"}).length)await observed(()=>editorReady(renderer),"fixture action settled before cleanup");await act(async()=>{await flushDrafts().catch(()=>{/* Expected conflict cases remain rejected; never retry/overwrite during cleanup. */});renderer.unmount();});mounted=false;}};
 }
 
 test("E1: confirmation waits for research-draft acknowledgement, clips Unicode display, and never preselects support",async()=>{
@@ -92,7 +100,7 @@ test("E1: confirmation waits for research-draft acknowledgement, clips Unicode d
   assert.equal(Array.from(text(f.renderer.root.findByType("mark"))).length,4000);assert.match(text(f.renderer.root),/range omits/);
   f.delayAck();await act(async()=>{button(f.renderer,"I have read this excerpt — use it").props.onClick();});
   assert.equal(step(f.renderer),"1. Select evidence");assert.equal(f.focus.includes("textarea"),false);
-  await act(async()=>f.releaseAck());assert.equal(step(f.renderer),"2. Comment & judge");const d=f.drafts.get("p1/finding").data;
+  await act(async()=>f.releaseAck());await observed(()=>step(f.renderer)==="2. Comment & judge"&&editorReady(f.renderer),"excerpt ACK and comment step");assert.equal(step(f.renderer),"2. Comment & judge");const d=f.drafts.get("p1/finding").data;
   assert.equal(d.references[0].end,4000);assert.equal(d.inspected_ranges[0].end,4000);assert.equal(d.semantic_assessment,"unassessed");assert.equal(d.scope_result,"not_assessed");assert.equal(f.revisions.length,0);
   assert.equal(control(f.renderer,"Human support judgment","select").props.value,"unassessed");assert.ok(f.focus.includes("textarea"));assert.equal(f.navigation.some(n=>n.page!=="compare"),false);
  }finally{await f.close();}
@@ -129,7 +137,8 @@ test("E1: adding and removing references preserves comment and human judgment wh
 
 for(const mode of ["empty","failure"] as const)test(`E1: ${mode} candidate response preserves notes and does not trigger another retrieval`,async()=>{
  const f=await fixture("excerpt-independent-"+mode,{empty:mode==="empty",providerFailure:mode==="failure"});try{
-  await f.open("p1");await click(f.renderer,"Continue with notes or missing information");await change(f.renderer,"Manual cell value","KEEP ON ERROR");await click(f.renderer,"Add or change evidence");await click(f.renderer,"Find excerpts in this paper");
+  await f.open("p1");await click(f.renderer,"Continue with notes or missing information");await change(f.renderer,"Manual cell value","KEEP ON ERROR");await click(f.renderer,"Add or change evidence");await observed(()=>step(f.renderer)==="1. Select evidence","evidence step after note ACK");await click(f.renderer,"Find excerpts in this paper");
+  await observed(()=>f.requests.filter(r=>r.path.endsWith("/candidates")).length===1&&(mode==="failure"?text(f.renderer.root).includes("SYNTHETIC provider unavailable"):f.renderer.root.findAllByProps({"aria-label":"Cell retrieval results"}).length===1),"candidate request and "+mode+" response");
   assert.equal(f.requests.filter(r=>r.path.endsWith("/candidates")).length,1);assert.equal(f.drafts.get("p1/finding").data.value,"KEEP ON ERROR");assert.equal(f.drafts.get("p1/finding").data.references.length,0);assert.equal(f.revisions.length,0);
   if(mode==="failure")assert.match(text(f.renderer.root),/SYNTHETIC provider unavailable/);assert.equal(f.navigation.every(n=>n.page==="compare"),true);
  }finally{await f.close();}
@@ -153,15 +162,15 @@ test("E1: reopened selected-excerpt projection rejects wrong-paper context witho
  const f=await fixture("excerpt-independent-wrong-paper");try{
   await f.open("p1");await click(f.renderer,"Find excerpts in this paper");await click(f.renderer,"Read in source · passage 1");await click(f.renderer,"I have read this excerpt — use it");await change(f.renderer,"Manual cell value","PRESERVE BOUND COMMENT");await click(f.renderer,"Review entry before saving");
   const before=structuredClone(f.drafts.get("p1/finding"));await f.close();f.wrongPaperContext();await f.mount("p1");
-  assert.match(text(f.renderer.root),/could not be displayed against its exact source binding/);assert.deepEqual(f.drafts.get("p1/finding"),before);assert.equal(f.requests.filter(r=>r.path.endsWith("/candidates")).length,1);assert.equal(f.revisions.length,0);
+  await observed(()=>text(f.renderer.root).includes("could not be displayed against its exact source binding"),"wrong-paper retained-excerpt rejection");assert.match(text(f.renderer.root),/could not be displayed against its exact source binding/);assert.deepEqual(f.drafts.get("p1/finding"),before);assert.equal(f.requests.filter(r=>r.path.endsWith("/candidates")).length,1);assert.equal(f.revisions.length,0);
  }finally{await f.close();}
 });
 
 test("E1: a submitted cell needs explicit revision and preserves the immutable prior entry",async()=>{
  const f=await fixture("excerpt-independent-revision");try{
   await f.open("p1");await click(f.renderer,"Browse this source");await click(f.renderer,"I have read this excerpt — use it");await change(f.renderer,"Manual cell value","FIRST SYNTHETIC ENTRY");await change(f.renderer,"Reason","Software validation only");await change(f.renderer,"Inspected scope result","value_found","select");await click(f.renderer,"Review entry before saving");await click(f.renderer,"Save reviewed entry");
-  assert.equal(disabled(button(f.renderer,"Save revision")),true);assert.equal(disabled(control(f.renderer,"Manual cell value")),true);assert.equal(f.revisions.length,1);
+  await observed(()=>f.revisions.length===1&&f.renderer.root.findAllByType("button").some(node=>text(node)==="Save revision"&&disabled(node))&&text(f.renderer.root).includes("Saved to comparison"),"immutable first save ACK and read-only revision controls");assert.equal(disabled(button(f.renderer,"Save revision")),true);assert.equal(disabled(control(f.renderer,"Manual cell value")),true);assert.equal(f.revisions.length,1);
   await click(f.renderer,"Edit saved cell");await change(f.renderer,"Manual cell value","SECOND SYNTHETIC ENTRY");await click(f.renderer,"Review entry before saving");await click(f.renderer,"Save revision");
-  assert.equal(f.revisions.length,2);assert.equal(f.revisions[1].supersedes_id,f.revisions[0].id);assert.equal(f.revisions[0].value,"FIRST SYNTHETIC ENTRY");assert.equal(f.revisions[1].value,"SECOND SYNTHETIC ENTRY");await click(f.renderer,"Load immutable cell history");assert.match(text(f.renderer.root.findByProps({"aria-label":"Immutable cell history"})),/FIRST SYNTHETIC ENTRY/);assert.equal(f.navigation.every(n=>n.page==="compare"),true);
+  await observed(()=>f.revisions.length===2&&text(f.renderer.root).includes("Saved to comparison")&&editorReady(f.renderer),"immutable revision save ACK");assert.equal(f.revisions.length,2);assert.equal(f.revisions[1].supersedes_id,f.revisions[0].id);assert.equal(f.revisions[0].value,"FIRST SYNTHETIC ENTRY");assert.equal(f.revisions[1].value,"SECOND SYNTHETIC ENTRY");await click(f.renderer,"Load immutable cell history");assert.match(text(f.renderer.root.findByProps({"aria-label":"Immutable cell history"})),/FIRST SYNTHETIC ENTRY/);assert.equal(f.navigation.every(n=>n.page==="compare"),true);
  }finally{await f.close();}
 });
