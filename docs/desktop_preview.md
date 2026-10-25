@@ -48,12 +48,12 @@ Post-workflow manifest verification caught Next.js promoting the public license 
 
 ## Web dependency notice inventory
 
-Next standalone tracing omitted dependency notice files, so the builder separately preserves exact notices from matching locked installed package metadata. Resources/WEB_DEPENDENCY_NOTICES contains per-file hashes, original relative source paths, declared licenses, native component versions and upstream repository/source links, including nested Next compiled packages. The initial inventory covers67 package metadata entries and113 unique notice files. Seven upstream full-notice sources remain explicitly unresolved (including the native libvips package and several Next-compiled packages); source/redistribution obligations and a complete transitive binary SBOM need review before public desktop distribution. This does not change the engine MIT grant or block the separate source-only browser candidate.
+Next standalone tracing omitted dependency notice files, so the builder separately preserves exact notices from matching locked installed package metadata. Resources/WEB_DEPENDENCY_NOTICES contains per-file hashes, original relative source paths, declared licenses, native component versions and upstream repository/source links, including nested Next compiled packages. The initial inventory covers67 package metadata entries and113 unique notice files. That historical artifact reported seven unresolved full-notice sources (including native libvips and several Next-compiled packages). The offline collector follow-up below retains five newly verified inputs; the historical binary and its original inventory are unchanged. Source/redistribution obligations and a complete transitive binary SBOM still need review before public desktop distribution. This does not change the engine MIT grant or block the separate source-only browser candidate.
 
 
 ## Actual internal candidate and local use
 
-The reviewed artifact source is `d2ae854f9626ac2a3f7f38cbcd358d5519cdd562`, version `0.3.0-desktop-preview.1`. It is separate from the setup-required `0.3.0-beta.2` source ZIP. Both are unpublished. See [the exact artifact hashes and capability matrix](releases/v0.3.0-beta.2-review.md) and [executed checks, failures and limits](next_beta_evaluation.md#final-extracted-desktop-execution--d2ae854).
+The reviewed artifact source is `d2ae854f9626ac2a3f7f38cbcd358d5519cdd562`, version `0.3.0-desktop-preview.1`. It is separate from the setup-required `0.3.0-beta.2` source ZIP. The desktop prototype remains unpublished. Later published source betas are separate; this native notice follow-up does not modify their release assets. See [the exact artifact hashes and capability matrix](releases/v0.3.0-beta.2-review.md) and [executed checks, failures and limits](next_beta_evaluation.md#final-extracted-desktop-execution--d2ae854).
 
 For an owner-reviewed local copy, first verify the matching SHA256SUMS, then extract the ZIP. Open **Literature Review Engine Desktop Preview.app**. The saved/manual application does not require a Terminal window or a separately installed Python/Node/pnpm/Docker. It starts only its packaged production services and opens after ownership/readiness checks. Choose **Saved example · offline** to begin without credentials or models. Use application-menu **Quit** to stop owned services; closing its sole research window also quits. macOS may refuse an unnotarized downloaded copy; do not disable Gatekeeper or remove quarantine to bypass that refusal. This locally tested prototype is not yet a trusted public installer.
 
@@ -67,7 +67,33 @@ Actual native Save dialogs, external citation opening, menu Quit, single-instanc
 
 ## Exact public desktop distribution blockers
 
-The seven explicit full-notice gaps are `@img/sharp-libvips-darwin-arm64` 1.3.4, `@next/env` 16.4.2, `client-only` 0.0.1, and Next-vendored `@edge-runtime/cookies`, `@edge-runtime/ponyfill`, `@edge-runtime/primitives` and `string-hash`. Existing declarations/source links are retained; they are not substituted for absent full texts. The original code stays MIT. Before public desktop distribution, resolve the appropriate notices and any binary/source obligations, complete the transitive SBOM/license review, then review hardened-runtime entitlements, Developer ID nested-code signing, notarization/stapling and downloaded/quarantined-device behavior. Publication needs separate owner authorization. No signing account was bought and no operating-system security was bypassed.
+The original seven-gap inventory remains historical evidence. The current collector has five narrowly scoped, offline supplements in `apps/desktop/notices/web-supplements.json`:
+
+| Package input | Exact retained text and provenance |
+| --- | --- |
+| `@edge-runtime/cookies` 6.0.0 | Full MIT notice from its exact published package and matching official tag. |
+| `@edge-runtime/ponyfill` 4.0.0 | Full MIT notice from its exact published package and matching official tag. |
+| `@edge-runtime/primitives` 6.0.0 | Full MIT notice from its exact published package and matching official tag. |
+| `@next/env` 16.4.2 | MIT notice from the matching Next.js monorepo release; it is explicitly a supplement, not a claim that the npm package included that file. |
+| Next-compiled `string-hash` 1.1.3 | Exact upstream dedication plus the complete official CC0 1.0 legal code, with distinct provenance. A generic CC0 text alone is insufficient for this binding. |
+
+The collector verifies the published/compiled package metadata, all reviewed installed runtime-file hashes, every runtime file actually retained by standalone tracing, and the exact Next 16.4.2 parent metadata and dependency context. Published Next metadata omits its development dependency pins, so a separately hash-bound official Next source manifest records those pins. A reduced traced subset is recorded explicitly; unexpected or changed payload files fail. Changed parent/package versions, missing or tampered text, mismatching source provenance, duplicate bindings and unsafe paths abort before creating notice output. No notice download occurs in the collector, at build time implicitly, or at application startup.
+
+A read-only collector check against the existing prototype's retained web tree produced 67 package entries and 117 unique notice files, with exactly five supplemental bindings and two remaining full-notice gaps. This check did **not** build, execute, sign or modify a desktop binary. It is notice-packaging validation, not legal clearance or a successor desktop qualification.
+
+`client-only` 0.0.1 still lacks a verified full notice/copyright attribution in these inputs. `@img/sharp-libvips-darwin-arm64` 1.3.4 still requires complete component notices and corresponding-source/relink review. The sharp-libvips repository's Apache license covers its packaging scripts; it does not replace the native binary's LGPL and component terms. Adding a generic notice never clears these explicit blockers. Unknown notice gaps remain missing rather than receiving a default MIT notice.
+
+The inventory always reports public distribution as unqualified, with complete transitive SBOM, native source obligations, trusted signing/notarization and external optional-ML runtime gates unresolved. Before public desktop distribution, complete those reviews and the downloaded/quarantined-device checks. The original engine code stays MIT; third-party terms remain separate. The published source beta.3 and its assets are unaffected. Publication of an executable requires separate owner authorization. No signing account was bought and no operating-system security was bypassed.
+
+Focused collector and packaging-policy tests can be run without any binary build, model, network or signing action:
+
+```sh
+python -m pytest -q tests/local_distribution/test_desktop_notices.py \
+  tests/local_distribution/test_desktop_notice_supplements.py \
+  tests/local_distribution/test_desktop_packager.py
+```
+
+The external optional-runtime gate is deliberate: the source setup command does not implement a desktop ML installer. No pip installation into a signed application, automatic model installation, provider fallback or claim that Qwen/MedCPT is qualified in this prototype is introduced by retaining notices.
 
 ## Reproduce a reviewed build
 
