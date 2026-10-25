@@ -18,8 +18,8 @@ commercial, modification or redistribution restriction.
 | Source inspection, drafts, submission/revision/history | Base setup | Exact locators/hashes; human reading/support and submission remain explicit |
 | CSV/JSON exports | Base setup | Existing schemas, neutral/unresolved states and historical source bindings |
 | New semantic maps | Explicit `setup --with-maps`, pinned separately acquired local BGE snapshot, private maps opt-in | Local CPU profile, no automatic model download; saved maps need neither |
-| LLM query planning | Private opt-in to existing literal-loopback adapter; separately operated compatible model server | Typed editable proposals, zero spend, bounded call/context/time; no automatic search approval |
-| AI cell proposals | Private opt-in to existing literal-loopback adapter; separately operated compatible model server | Exact evidence validation; no automatic support, adoption or submission |
+| LLM query planning | Session opt-in to a compatible local server or explicit OpenAI/DeepSeek own-key profile | Typed editable proposals, one-run data/cost consent, bounded call/context/time; no automatic search approval |
+| AI cell proposals | Same explicit local/cloud provider; separate enable switch | Exact evidence validation and one-run consent; no automatic support, adoption or submission |
 
 See `OPTIONAL_FEATURES.md` in the archive for the validated private settings
 route. Missing optional setup does not disable the manual application. No
@@ -35,8 +35,9 @@ qualify a later archive automatically.
 Tested platform scope remains macOS arm64. Linux installation is unverified;
 Windows unsupported. Cookie/hostname/profile access limitations, force-killed
 controller recovery and the bounded 4,000-code-point inspector remain documented
-in the installation guide. No cloud service, new native framework or model
-provider is introduced by this beta.
+in the installation guide. No hosted service, model weights or desktop runtime
+is bundled in this source ZIP. Optional cloud generation uses your own account
+only after explicit authorization; no paid validation is included.
 
 ## Successor settings and generation access
 

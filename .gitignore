@@ -77,3 +77,8 @@ cookies.json
 .local-preview-setup.json
 .local-preview-install.lock
 /showcase/portfolio/public/downloads/
+
+# Internal desktop packaging output and external runtime archives
+apps/desktop/out/
+apps/desktop/node_modules/
+.desktop-state/

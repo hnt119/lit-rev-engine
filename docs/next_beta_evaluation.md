@@ -94,3 +94,23 @@ At this point extracted-successor installation, actual browser walkthrough and d
 - `node --import tsx --test tests/research-settings.test.tsx tests/settings-navigation.test.ts` from `apps/web`: independently rerun **10 passed, 0 failed, 0 skipped, 0.304 s**. This covers no provider calls on form activity, key clearing, CAS rebase, disable-AI independence, exact cloud scope/consent, new-search defaults versus retained drafts, explicit fresh attempt after failure and opaque settings return navigation. These are rendered component/contract tests, not actual browser usability observations.
 
 The HTTP suite emits existing Starlette/httpx and AnyIO deprecation warnings; component tests emit the existing React test-renderer deprecation warning. No dependency upgrade was performed to suppress them.
+
+### Final browser increment checks executed by the coordinator
+
+These results are separate from the independent selected runs above.
+
+| Check | Actual result |
+| --- | --- |
+| `python -m pytest tests/mvp -q` | 717 passed, 13 optional Streamlit skips, 24.88 s |
+| `python -m pytest tests/web_api -q` after pinned numerical prerequisites | 345 passed, 0 failed/skipped, 269.72 s; existing deprecation warnings only |
+| Full `node --import tsx --test tests/*.test.ts tests/*.test.tsx` from apps/web | 177 passed, 0 failed/skipped (implementation agent execution) |
+| TypeScript no-emit plus generated OpenAPI/client | Passed; pinned existing dependencies |
+| `python -m pytest tests/local_preview tests/local_distribution/test_release_packager.py -q` | 88 passed, 36.62 s; corrected synthetic license-policy fixture |
+| Production `pnpm build` using pinned pnpm10.20.0/Node24.19.0 | Passed, Next16.4.2; telemetry disabled on final run |
+| Actual isolated Google Chrome against production servers | 8 checks passed; 0 external browser requests, 0 connection/generation tests, no page errors |
+
+The browser checks exercised settings open/save/key-input clearing, presence-only credential responses, no key in browser storage, independent contact-only PubMed configuration, two-tab conflict/explicit rebase, originating-task return/refresh/draft retention, defaults for a new search versus retained specifications, and key removal. They used a fresh browser context and synthetic non-account keys. They did not replace the owner's browser-beta cookie.
+
+An initial coordinator UI locator waited for a nonexistent heading/link, then a production server still serving an earlier build produced a missing chunk after files were rebuilt. The coordinator stopped only its QA-owned servers and restarted the final production build; the actual isolated browser run above then passed. No application security exception or provider fallback was introduced.
+
+The browser/provider implementation checkpoint is local commit `42b0cbc178442164f6fa348dfa66c7077327268b`. Later packaging/documentation commits are reviewed descendants, not changes to the published beta.1. Extracted-source and desktop artifact results are recorded below when complete.

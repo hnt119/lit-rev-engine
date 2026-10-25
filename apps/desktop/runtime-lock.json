@@ -1,0 +1,23 @@
+{
+  "schema": "litrev.desktop-preview.runtimes.v1",
+  "target": "darwin-arm64",
+  "electron": {
+    "version": "45.0.0",
+    "file": "electron-v45.0.0-darwin-arm64.zip",
+    "url": "https://github.com/electron/electron/releases/download/v45.0.0/electron-v45.0.0-darwin-arm64.zip",
+    "sha256": "896c3a50b148e89a158dca08a6996a022ddf39b23aac871e107f5b4087f8caa9"
+  },
+  "python": {
+    "version": "3.12.15+20261021",
+    "file": "cpython-3.12.15+20261021-aarch64-apple-darwin-install_only_stripped.tar.gz",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.12.15%2B20261021-aarch64-apple-darwin-install_only_stripped.tar.gz",
+    "sha256": "7b8d00b751db21cea87dc551a8f8165147c5fbc5251d5537d7e5497dde00a219"
+  },
+  "python_attribution": {
+    "version": "3.12.15+20261021",
+    "file": "cpython-3.12.15+20261021-aarch64-apple-darwin-pgo+lto-full.tar.zst",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.12.15%2B20261021-aarch64-apple-darwin-pgo%2Blto-full.tar.zst",
+    "sha256": "5d758025b32106c96c5734797c8985d21aba1be67a18cc062f767823f8fcbbf5",
+    "purpose": "Extract only upstream licensing metadata and notices; never use the build tree as a runtime"
+  }
+}
