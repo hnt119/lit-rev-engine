@@ -17,5 +17,8 @@
     "windows_x64_desktop": "not_available"
   },
   "publication_verified": true,
-  "development_checkpoint_notice": false
+  "development_checkpoint_notice": false,
+  "quick_start_url": "https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/local_preview.md",
+  "manifest_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.manifest.json",
+  "checksums_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.SHA256SUMS"
 }
