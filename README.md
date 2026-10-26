@@ -54,10 +54,8 @@ Optional **BGE paper maps** are separate from passage retrieval. Optional **loca
 
 ```mermaid
 flowchart TB
-    I["Search / import papers"] --> S["Retain exact local sources"]
-    S --> R["Retrieve passages: Core / Qwen / MedCPT"]
-    R --> H["Inspect excerpts and review comparison cells"]
-    H --> X["Export CSV / JSON with source references"]
+    I["Search / import<br/>Retain sources"] --> R["Retrieve excerpts<br/>Core / Qwen / MedCPT"]
+    R --> H["Human comparison<br/>Source-linked exports"]
 ```
 
 The local stack is **Next.js/React → FastAPI → Python services**, with private SQLite state. [Full architecture and provider boundaries](docs/application_architecture.md).
