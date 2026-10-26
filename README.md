@@ -26,7 +26,7 @@ Linux installation is unverified. Physical Windows 11 is NOT_RUN; Intel Mac and 
 
 ## Workbench development checkpoint
 
-This feature branch adds explainable search strategies and source-bound evidence views. These changes are **unreleased**; beta.4 downloads remain unchanged. Use the [task guide](docs/question_evidence_user_guide.md), [validation report](docs/question_evidence_validation.md) and [blank evaluation kit](docs/question_evidence_evaluation/README.md). The new checkpoint passed macOS software/browser checks; its Windows execution remains pending. The platform table above describes published beta.4 evidence. No participant or model-quality result is implied.
+This feature branch adds explainable search strategies and source-bound evidence views. These changes are **unreleased**; beta.4 downloads remain unchanged. Use the [task guide](docs/question_evidence_user_guide.md), [validation report](docs/question_evidence_validation.md) and [blank evaluation kit](docs/question_evidence_evaluation/README.md). The new checkpoint passed macOS software/browser checks and [Core-only Windows CI](docs/question_evidence_windows_validation.md) at source `bda0803`. The platform table above describes published beta.4 evidence. No participant or model-quality result is implied.
 
 ## Choose retrieval in the same app
 

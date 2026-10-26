@@ -34,7 +34,7 @@ E1: prepare blank matched evaluation materials and an access audit. Three report
 - View changes and strategy exports trigger no retrieval, preparation, indexing, generation or provider call.
 - Excerpt → comment → reviewed save and comparison → passage → exact source → cell return retain drafts and explicit attachment.
 - New software evidence is separate from old beta.4 validation. macOS and Windows execution statuses are reported individually; simulated Windows behavior is not an actual Windows run.
-- No publication, release rebuild/replacement, main merge, native distribution, paid usage or private-data upload is part of this checkpoint.
+- No release publication/replacement, main merge, native distribution, paid usage or private-data upload is part of this checkpoint. The owner separately authorized feature-branch publication and Core-only Windows CI; [its actual results](question_evidence_windows_validation.md) are source-bound.
 
 See `question_evidence_access_audit.md` for access limitations and `question_evidence_evaluation/` for unfilled human/comparator tasks. Actual validation results are recorded separately after implementation.
 

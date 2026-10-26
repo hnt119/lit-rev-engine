@@ -11,7 +11,7 @@ python3.12 scripts/local_preview.py setup
 python3.12 scripts/local_preview.py launch --data-dir "$HOME/Library/Application Support/LiteratureReviewEngine-workbench-preview" --web-port 3118 --api-port 8918
 ```
 
-Use a directory that does not contain your browser-beta or Track B data. Setup requires the normal Python/JavaScript dependency installation; it does not install weights or run research. Stop with Ctrl-C or the same launcher's authenticated stop workflow. Cookies still identify local access; clearing them does not provide workspace recovery. These are the existing supported launcher commands, not a claim of a newly tested installer. Changed Windows behavior still needs actual Windows validation; no new native executable is supplied.
+Use a directory that does not contain your browser-beta or Track B data. Setup requires the normal Python/JavaScript dependency installation; it does not install weights or run research. Stop with Ctrl-C or the same launcher's authenticated stop workflow. Cookies still identify local access; clearing them does not provide workspace recovery. These are the existing supported launcher commands, not a claim of a newly tested installer. The Core workbench passed actual Windows x64 CI at source `bda0803`; physical Windows 11 and native executable validation remain NOT_RUN. No new native executable is supplied.
 
 ## 1. Design a search without losing your question
 
