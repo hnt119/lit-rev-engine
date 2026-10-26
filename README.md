@@ -1,52 +1,75 @@
 # Literature Review Engine
 
-A local research app for comparing retained papers, selecting exact evidence excerpts and exporting a table you can verify. The source beta requires setup; original engine code is MIT.
+A local-first research workspace for comparing papers, inspecting exact evidence excerpts and exporting a table you can verify.
 
 <!-- published-release:start -->
 **[Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Published source beta 0.3.0-beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4) · [Download ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.zip) · [Quick start](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md)**
 <!-- published-release:end -->
 
+**[User guide · beta.4](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md) · [Architecture & model roles](docs/application_architecture.md)**
+
+**Setup required; not a standalone installer.** The demo is a guided walkthrough using saved public data, without live search or model calls. Beta.4 remains the newest verified published download.
+
 ## Start locally
 
-Install Python 3.12, Node 24 and pnpm 10.20.0. Download the purpose-built ZIP and its matching manifest/checksums, verify them and extract it. The commands below use macOS syntax. **Windows x64: follow the [Windows bootstrap/setup guide](docs/windows_source.md)** instead; use its isolated Windows security prerequisite before running the launcher. Run the macOS commands in the extracted folder:
+Install **Python 3.12, Node.js 24 and pnpm 10.20.0**. Download the purpose-built ZIP and matching manifest/checksums from the release above, verify them, then extract it. GitHub's automatic source archive is not the tested distribution.
+
+| Platform | Setup and validation scope |
+| --- | --- |
+| macOS Apple Silicon | [Installation guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md); source-app workflow tested |
+| Windows x64 | [Windows setup guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/WINDOWS_SOURCE.md); Core and bounded Qwen/MedCPT CPU workflows tested on CI |
+
+On **macOS**, run inside the extracted folder:
 
 ```sh
 python3.12 scripts/local_preview.py setup
 python3.12 scripts/local_preview.py launch
 ```
 
-Setup installs dependencies and builds the production interface; it does not download models or search papers. The launcher opens the browser after readiness checks. Keep the terminal open; Ctrl-C stops it. Start with **Saved example · offline**, then open its 30-paper example. Read the [task-based user manual](docs/user_manual.md) for reopening, imports, preparation, revisions, exports and safe backups.
+Windows uses the guide's isolated bootstrap commands. Setup installs dependencies and builds the production interface; it does not search or download models. Launch opens the browser after readiness checks. Keep the terminal open; Ctrl-C stops it.
 
-| Platform | Source application | Desktop executable |
-| --- | --- | --- |
-| macOS Apple Silicon | Tested; setup required | Private prototype; unavailable publicly |
-| Windows x64 | Core and bounded Qwen/MedCPT CPU workflows tested on CI; setup required | Unavailable |
-
-Linux installation is unverified. Physical Windows 11 is NOT_RUN; Intel Mac and Windows ARM are not qualified. See [Windows source instructions and exact evidence scope](docs/windows_source.md). A source download is not a bundled desktop installer.
-
-## Choose retrieval in the same app
-
-| Choice | Setup |
-| --- | --- |
-| Core lexical | Default; no neural models or generation key |
-| Qwen hybrid + reranking | Optional pinned Qwen3-Embedding-0.6B and Qwen3-Reranker-0.6B |
-| Biomedical/MedCPT hybrid + reranking | Optional query/article encoders and cross encoder; experimental passage adaptation |
-
-Use **Research & AI Settings → Evidence retrieval**. Installation, runtime checks and source indexing are explicit. Both packs can coexist. Changing defaults affects future work; existing boards retain their profiles until an explicit definition revision. Both neural profiles remain experimental; no superiority over BM25 or scientific validity is established.
+Linux installation is unverified; Intel Mac and Windows ARM are unqualified. Physical Windows 11 is **NOT_RUN**. No native executable is publicly available. See the release's [validation record](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/VALIDATION.md) for the exact scope.
 
 ## Review an entry
 
-1. Open a comparison cell and **Find excerpts in this paper** or **Browse this source**.
-2. Read the exact context and choose **I have read this excerpt — use it**.
-3. Comment and judge support, then **Review entry before saving → Save reviewed entry**.
-4. Choose **Next unfinished cell**, or return to the table; correct saved entries through explicit revisions.
+Start with **Saved example · offline** and its 30 public papers, or search/import references. Select reports and choose **Prepare & compare**. Source labels distinguish full text, abstract only and unavailable material.
 
-The excerpt stays beside your comment in the same editor. Draft-only notes remain unsubmitted. Missing information uses an explicit limitation, not a fabricated quotation or a claim of whole-paper absence.
+**Open a cell → find an excerpt → inspect its source → use the excerpt → comment and judge → save.**
 
-Research stays in a separate local data folder. Preserve browser cookies/profile/hostname; clearing them can lose access, and recovery is limited. Models are separate downloads. Optional generation uses your own session-only credentials and per-action data/cost consent; no automatic provider fallback runs. [Privacy, models and limits](docs/user_manual.md#understand-the-four-tools-and-their-limits).
+The excerpt stays beside your comment in the comparison editor. Reopen saved entries through explicit revisions, then export CSV/JSON. Draft notes remain separate from submitted entries. Missing information can remain unresolved; an empty candidate list does not prove whole-paper absence. A preview or board selection is not formal review inclusion.
 
-[MIT](LICENSE) applies to original code; [third-party/article/model terms](THIRD_PARTY_NOTICES.md) remain separate. Report reproducible problems through [Issues](https://github.com/hnt119/lit-rev-engine/issues). Contributors can use the [architecture](docs/architecture.md), [research documentation](docs/getting-started.md) and [archived CLI/history/contribution guide](docs/legacy-cli-and-history.md).
+## Choose retrieval in the same app
+
+| Choice | Components |
+| --- | --- |
+| **Core lexical** | Default BM25 / versioned lexical spans; no neural model or generation key |
+| **Qwen hybrid** | BM25 + Qwen3-Embedding-0.6B + Qwen3-Reranker-0.6B |
+| **Biomedical/MedCPT hybrid** | BM25 + MedCPT Query/Article Encoders + Cross Encoder |
+
+Use **Research & AI Settings → Evidence retrieval**. Optional packs require explicit dependency installation, model download, runtime checks and source indexing. Both can coexist; existing boards retain their pinned profiles until an explicit revision. Neural profiles are experimental, with no established superiority over BM25.
+
+Optional **BGE paper maps** are separate from passage retrieval. Optional **local/OpenAI/DeepSeek generation** proposes search plans or cell values for review. Core manual research needs neither.
+
+## Under the hood
+
+```mermaid
+flowchart TB
+    I["Search / import papers"] --> S["Retain exact local sources"]
+    S --> R["Retrieve passages: Core / Qwen / MedCPT"]
+    R --> H["Inspect excerpts and review comparison cells"]
+    H --> X["Export CSV / JSON with source references"]
+```
+
+The local stack is **Next.js/React → FastAPI → Python services**, with private SQLite state. [Full architecture and provider boundaries](docs/application_architecture.md).
+
+## Help, privacy and status
+
+Research lives outside replaceable application files. Explicit searches transmit queries/contact details; optional cloud AI transmits disclosed input and may incur charges. Settings-entered keys are session-scoped; non-secret preferences persist. Cookie loss/expiry can lose workspace access: read [reopening, backups and recovery limits](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md#export-back-up-and-replace-the-app).
+
+[Documentation index](docs/README.md) · [Report an issue](https://github.com/hnt119/lit-rev-engine/issues) · [MIT license](LICENSE) · [Third-party/article/model terms](THIRD_PARTY_NOTICES.md)
+
+The question-to-evidence workbench is separate development work, absent from beta.4 and current main. A main merge does not update a published ZIP.
 
 <a id="requirements-and-installation"></a>
 <a id="update-main-and-contribute"></a>
-Previous CLI installation/contribution links now continue in the [archived guide](docs/legacy-cli-and-history.md#requirements-and-installation).
+Older installation/contribution links continue in the [legacy CLI guide](docs/legacy-cli-and-history.md#requirements-and-installation).

@@ -1,5 +1,7 @@
 # Architecture and repository map
 
+> **Scope: legacy CLI and research paths.** This guide retains the ReviewStore ledger, Chroma/Agnes exploration and Qwen/Kaggle experiment documentation; its historical “current” and validation statements apply to those paths. For the downloaded Track A application, start with [Application architecture & model roles](application_architecture.md) and the [version-matched beta.4 user guide](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md). These older paths are not the shipped app's main runtime.
+
 This guide describes the current code. The [Qwen workflow](qwen-cloud.md) adds optional free Kaggle batch retrieval with [separate acceptance gates](qwen-kaggle-milestone.md). The user placed this integration before the small protocol-defined human review; see the [roadmap](review-roadmap.md).
 
 ## Choose the right entry point
