@@ -8,7 +8,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def validate(value):
     allowed = {'schema','repository','version','tag','source_commit','release_url','download_url','install_url',
-        'validation_url','demo_url','source_status','platforms','publication_verified','development_checkpoint_notice'}
+        'validation_url','demo_url','source_status','platforms','publication_verified','development_checkpoint_notice',
+        'quick_start_url','manifest_url','checksums_url'}
     if set(value) != allowed or value['schema'] != 'litrev.public-release-links.v1':
         raise ValueError('Use the bounded published release-link record.')
     if value['repository'] != 'hnt119/lit-rev-engine' or not re.fullmatch(r'\d+\.\d+\.\d+-beta\.\d+', value['version']):
@@ -19,7 +20,10 @@ def validate(value):
     expected = {'release_url':base+'tag/'+value['tag'],
         'download_url':base+'download/'+value['tag']+'/lit-rev-engine-'+value['version']+'.zip',
         'install_url':base+'download/'+value['tag']+'/INSTALL.md',
-        'validation_url':base+'download/'+value['tag']+'/VALIDATION.md'}
+        'validation_url':base+'download/'+value['tag']+'/VALIDATION.md',
+        'quick_start_url':'https://github.com/'+value['repository']+'/blob/'+value['tag']+'/docs/local_preview.md',
+        'manifest_url':base+'download/'+value['tag']+'/lit-rev-engine-'+value['version']+'.manifest.json',
+        'checksums_url':base+'download/'+value['tag']+'/lit-rev-engine-'+value['version']+'.SHA256SUMS'}
     if any(value[k] != v for k,v in expected.items()) or value['demo_url'] != 'https://hnt119.github.io/projects/literature-review-engine/#saved-evidence':
         raise ValueError('Use only the exact version-specific public destinations.')
     if value['publication_verified'] is not True or value['source_status'] != 'setup_required' or type(value['development_checkpoint_notice']) is not bool:
@@ -32,7 +36,10 @@ def validate(value):
 
 def block(value):
     v=validate(value)
-    result = ('**[Read-only demo]('+v['demo_url']+') · [Published source beta '+v['version']+']('+v['release_url']+') · [Download ZIP]('+v['download_url']+') · [Quick start]('+v['install_url']+')**')
+    # The primary action is a readable fallback, while exact source bytes and
+    # offline documentation remain explicit secondary downloads.
+    result = ('**[Download — source beta '+v['version']+']('+v['release_url']+') · [Quick start]('+v['quick_start_url']+') · [Read-only demo]('+v['demo_url']+')**'
+        '\n\n[Direct source ZIP]('+v['download_url']+') · [Manifest]('+v['manifest_url']+') · [SHA-256 checksums]('+v['checksums_url']+') · [Download installation guide]('+v['install_url']+')')
     if v['development_checkpoint_notice']:
         result += '\n\nThis checkout develops the excerpt-first successor. The verified download above contains the earlier interface; its validation record identifies its exact source. Release links update only after publication.'
     return result

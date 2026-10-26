@@ -3,7 +3,9 @@
 A local-first research workspace for comparing papers, inspecting exact evidence excerpts and exporting a table you can verify.
 
 <!-- published-release:start -->
-**[Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Published source beta 0.3.0-beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4) · [Download ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.zip) · [Quick start](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md)**
+**[Download — source beta 0.3.0-beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4) · [Quick start](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/local_preview.md) · [Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence)**
+
+[Direct source ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.zip) · [Manifest](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.manifest.json) · [SHA-256 checksums](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.SHA256SUMS) · [Download installation guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md)
 <!-- published-release:end -->
 
 **[User guide · beta.4](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md) · [Architecture & model roles](docs/application_architecture.md)**
@@ -12,12 +14,12 @@ A local-first research workspace for comparing papers, inspecting exact evidence
 
 ## Start locally
 
-Install **Python 3.12, Node.js 24 and pnpm 10.20.0**. Download the purpose-built ZIP and matching manifest/checksums from the release above, verify them, then extract it. GitHub's automatic source archive is not the tested distribution.
+Install **Python 3.12, Node.js 24 and pnpm 10.20.0**. In the release page’s **Assets**, download the purpose-built ZIP and matching manifest/checksums, verify them, then extract it. GitHub's automatic source archive is not the tested distribution.
 
 | Platform | Setup and validation scope |
 | --- | --- |
-| macOS Apple Silicon | [Installation guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md); source-app workflow tested |
-| Windows x64 | [Windows setup guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/WINDOWS_SOURCE.md); Core and bounded Qwen/MedCPT CPU workflows tested on CI |
+| macOS Apple Silicon | [Installation guide](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/local_preview.md); source-app workflow tested |
+| Windows x64 | [Windows setup guide](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/windows_source.md); Core and bounded Qwen/MedCPT CPU workflows tested on CI |
 
 On **macOS**, run inside the extracted folder:
 
