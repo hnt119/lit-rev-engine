@@ -486,6 +486,12 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.get(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def get_draft(workspace_id: str, scope: str, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('search-plan-metadata:'):
+            return DraftRecord(**app.state.search_plan_metadata.draft(mode, handle, scope))
+        if scope.startswith('board-profile:'):
+            return DraftRecord(**app.state.evidence_views.profile_draft(mode, handle, scope))
+        if scope.startswith('board-view:'):
+            return DraftRecord(**app.state.evidence_views.view_draft(mode, handle, scope))
         if scope.startswith('board-editor:'):
             return DraftRecord(**app.state.boards.editor_draft(mode, handle, scope))
         if scope.startswith('board-evidence:'):
@@ -501,6 +507,12 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.put(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def put_draft(workspace_id: str, scope: str, request: DraftUpdate, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('search-plan-metadata:'):
+            return DraftRecord(**app.state.search_plan_metadata.draft(mode, handle, scope, request))
+        if scope.startswith('board-profile:'):
+            return DraftRecord(**app.state.evidence_views.profile_draft(mode, handle, scope, request))
+        if scope.startswith('board-view:'):
+            return DraftRecord(**app.state.evidence_views.view_draft(mode, handle, scope, request))
         if scope.startswith('board-editor:'):
             return DraftRecord(**app.state.boards.editor_draft(mode, handle, scope, request))
         if scope.startswith('board-evidence:'):
@@ -580,6 +592,9 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     proposals = CellProposalService(app.state.boards, proposal_adapter)
     install_proposal_routes(app, proposals=proposals, owned=owned, session_for=session_for,
                             dependencies=dependencies)
+    from .evidence_view_routes import install_evidence_view_routes
+    install_evidence_view_routes(app, boards=app.state.boards, owned=owned,
+                                session_for=session_for, dependencies=dependencies)
     from .retrieval_routes import install_retrieval_routes
     install_retrieval_routes(app,directory=directory,registry=registry,service=service,owned=owned,
         session_for=session_for,dependencies=dependencies,packs=retrieval_packs)

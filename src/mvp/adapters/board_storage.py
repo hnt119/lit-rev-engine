@@ -44,6 +44,9 @@ class BoardStore:
               CREATE TABLE IF NOT EXISTS cell_proposals(workspace_id TEXT NOT NULL, board_id TEXT NOT NULL, definition_id TEXT NOT NULL, run_id TEXT NOT NULL, paper_id TEXT NOT NULL, field_id TEXT NOT NULL, id TEXT PRIMARY KEY, payload TEXT NOT NULL, sha256 TEXT NOT NULL);
               CREATE TABLE IF NOT EXISTS proposal_events(workspace_id TEXT NOT NULL, board_id TEXT NOT NULL, proposal_id TEXT NOT NULL, id TEXT PRIMARY KEY, payload TEXT NOT NULL, sha256 TEXT NOT NULL);
               CREATE TABLE IF NOT EXISTS proposal_actions(workspace_id TEXT NOT NULL, request_id TEXT NOT NULL, fingerprint TEXT NOT NULL, result TEXT NOT NULL, PRIMARY KEY(workspace_id,request_id));
+              CREATE TABLE IF NOT EXISTS evidence_dimensions_v1(workspace_id TEXT NOT NULL, board_id TEXT NOT NULL, definition_id TEXT NOT NULL, id TEXT PRIMARY KEY, payload TEXT NOT NULL, sha256 TEXT NOT NULL);
+              CREATE TABLE IF NOT EXISTS evidence_attributes_v1(workspace_id TEXT NOT NULL, board_id TEXT NOT NULL, definition_id TEXT NOT NULL, id TEXT PRIMARY KEY, payload TEXT NOT NULL, sha256 TEXT NOT NULL);
+              CREATE TABLE IF NOT EXISTS evidence_views_v1(workspace_id TEXT NOT NULL, board_id TEXT NOT NULL, definition_id TEXT NOT NULL, id TEXT PRIMARY KEY, payload TEXT NOT NULL, sha256 TEXT NOT NULL);
             ''')
             # Only this new checkpoint's table may predate its reserved failure
             # budget. Existing research, board and cell schemas are unchanged.
@@ -109,7 +112,7 @@ class BoardStore:
 
     def limits(self, db, workspace_id):
         total = 0
-        for table in ('evidence_boards', 'board_definitions', 'board_cells', 'board_heads', 'board_drafts', 'board_candidates', 'board_requests', 'proposal_runs', 'cell_proposals', 'proposal_events', 'proposal_actions', 'hybrid_runs', 'hybrid_jobs_v1'):
+        for table in ('evidence_boards', 'board_definitions', 'board_cells', 'board_heads', 'board_drafts', 'board_candidates', 'board_requests', 'proposal_runs', 'cell_proposals', 'proposal_events', 'proposal_actions', 'evidence_dimensions_v1', 'evidence_attributes_v1', 'evidence_views_v1', 'hybrid_runs', 'hybrid_jobs_v1'):
             if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",(table,)).fetchone() is None:
                 continue
             for row in db.execute('SELECT * FROM ' + table + ' WHERE workspace_id=?', (workspace_id,)):
@@ -188,5 +191,5 @@ class BoardStore:
     def delete_workspace(self, workspace_id):
         with self.transaction() as db:
             db.execute('INSERT OR IGNORE INTO board_deleted VALUES(?)', (workspace_id,))
-            for table in ('evidence_boards', 'board_definitions', 'board_cells', 'board_heads', 'board_drafts', 'board_candidates', 'board_requests', 'proposal_runs', 'cell_proposals', 'proposal_events', 'proposal_actions'):
+            for table in ('evidence_boards', 'board_definitions', 'board_cells', 'board_heads', 'board_drafts', 'board_candidates', 'board_requests', 'proposal_runs', 'cell_proposals', 'proposal_events', 'proposal_actions', 'evidence_dimensions_v1', 'evidence_attributes_v1', 'evidence_views_v1'):
                 db.execute('DELETE FROM ' + table + ' WHERE workspace_id=?', (workspace_id,))

@@ -13,6 +13,8 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${w}/preparation-jobs$`),new RegExp(`^${w}/preparation-jobs/${id}$`),
       new RegExp(`^${w}/collection-preparation-jobs$`),new RegExp(`^${w}/collection-preparation-jobs/${id}$`),
       new RegExp(`^${w}/search-plan-capabilities$`),new RegExp(`^${w}/search-plans$`),new RegExp(`^${w}/search-plans/${id}$`),
+      new RegExp(`^${w}/search-plans/${id}/(metadata|strategy-export)$`),
+      new RegExp(`^${b}/evidence-views/(profiles|saved|attributes/history|saved/${id}/history)$`),
       new RegExp(`^${w}/collection-maps$`),new RegExp(`^${w}/collection-maps/${id}$`),new RegExp(`^${w}/collection-maps/${id}/neighbors/${id}$`),new RegExp(`^${w}/collection-map-jobs/${id}$`),
       new RegExp(`^${w}/imports$`),new RegExp(`^${w}/imports/${id}$`),new RegExp(`^${w}/imports/${id}/rows$`),
       new RegExp(`^${w}/collections$`),new RegExp(`^${w}/collections/${id}$`),new RegExp(`^${w}/collections/${id}/(papers|paper)$`),
@@ -31,8 +33,8 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${w}/imports/(csv|ris|identifiers)$`),new RegExp(`^${w}/imports/${id}/(mapping|resolve|edit-row|commit)$`),
       new RegExp(`^${w}/collections/(combine-preview|combine)$`),
       new RegExp(`^${w}/jobs/${id}/cancel$`),new RegExp(`^${w}/boards$`),new RegExp(`^${b}/(revisions|candidates|cell-revisions|proposal-runs|prepare-generation)$`),
-      new RegExp(`^${b}/proposals/${id}/(adopt|dismiss)$`) ],
-    PUT: [/^settings$/,new RegExp(`^${w}/drafts/${id}$`),new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${w}/search-plans/${id}$`)],
+      new RegExp(`^${b}/proposals/${id}/(adopt|dismiss)$`),new RegExp(`^${b}/evidence-views/(dimensions|attributes|saved|query|exports)$`) ],
+    PUT: [/^settings$/,new RegExp(`^${w}/drafts/${id}$`),new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${w}/search-plans/${id}$`),new RegExp(`^${w}/search-plans/${id}/metadata$`),new RegExp(`^${b}/evidence-views/saved/${id}$`)],
     DELETE: [new RegExp(`^${w}$`)],
   };
   return !!rules[method]?.some(rule => rule.test(path));
@@ -49,7 +51,20 @@ export function browserBoundary(host: string | null, origin: string | null, expe
   return host === expected.host && (!origin || origin === expected.origin) && (!mutation || origin === expected.origin);
 }
 export function allowedQuery(path:string,query:URLSearchParams,method="GET"):boolean {
-  if(method!=="GET")return [...query.keys()].length===0;
+  // Only these explicit additive operations take mutation query parameters.
+  // Research text, filter values and credentials remain in bounded JSON bodies.
+  const keys=[...query.keys()];
+  const boundedKeys=(allowed:string[],required:string[]=[])=>required.every(key=>query.has(key))&&
+    keys.every((key,index)=>allowed.includes(key)&&keys.indexOf(key)===index&&query.get(key)!.length>0&&query.get(key)!.length<=200);
+  if(/^workspaces\/[^/]+\/boards\/[^/]+\/evidence-views\//.test(path)){
+    if(path.endsWith('/attributes/history'))return method==='GET'&&boundedKeys(['revision_id','paper_id','dimension_id','offset','limit'],['revision_id','paper_id','dimension_id']);
+    if(/\/saved\/[^/]+\/history$/.test(path))return method==='GET'&&boundedKeys(['revision_id','offset','limit'],['revision_id']);
+    if(path.endsWith('/exports'))return method==='POST'&&boundedKeys(['revision_id','format'],['revision_id'])&&(!query.has('format')||['csv','json'].includes(query.get('format')!));
+    return boundedKeys(['revision_id'],['revision_id']);
+  }
+  if(/\/search-plans\/[^/]+\/strategy-export$/.test(path))return method==='GET'&&boundedKeys(['revision_id','candidate_id','format'],['revision_id','candidate_id'])&&(!query.has('format')||['markdown','json'].includes(query.get('format')!));
+  if(/\/search-plans\/[^/]+\/metadata$/.test(path))return method==='GET'?boundedKeys(['revision_id','version']):method==='PUT'&&keys.length===0;
+  if(method!=="GET")return keys.length===0;
   if(/\/search-plans\/[^/]+$/.test(path))return [...query.keys()].every((key,index,keys)=>key==='revision_id'&&keys.indexOf(key)===index);
   if(/\/imports\/[^/]+\/rows$/.test(path))return [...query.keys()].every((key,index,keys)=>['offset','limit'].includes(key)&&keys.indexOf(key)===index);
   if(/\/collections\/[^/]+\/papers$/.test(path))return [...query.keys()].every((key,index,keys)=>['offset','limit','filter'].includes(key)&&keys.indexOf(key)===index);

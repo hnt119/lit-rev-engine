@@ -4,6 +4,10 @@
 Does not extract, install, run, publish or contact any external service.
 """
 import argparse
+import csv
+import io
+import posixpath
+from urllib.parse import unquote, urlsplit
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -22,6 +26,40 @@ EXACT = {'HISTORICAL_EXCERPT_VALIDATION.md','WINDOWS_SOURCE.md','requirements-wi
          'scripts/run_web.py', 'scripts/local_preview.py', 'scripts/license_policy.py',
          'scripts/local_beta_settings.py', 'scripts/check_local_beta.py', 'scripts/run_map_worker.py', 'apps/web/package.json', 'apps/web/pnpm-lock.yaml',
          'apps/web/tsconfig.json', 'apps/web/next-env.d.ts', 'apps/web/next.config.ts', 'apps/streamlit/theme/tokens.css'}
+WORKBENCH_DOCUMENTS = {'question_evidence_user_guide.md': 'docs/question_evidence_user_guide.md',
+ 'question_evidence_validation.md': 'docs/question_evidence_validation.md',
+ 'question_evidence_validation_software.json': 'docs/question_evidence_validation_software.json',
+ 'question_evidence_access_audit.md': 'docs/question_evidence_access_audit.md',
+ 'question_evidence_workbench.md': 'docs/question_evidence_workbench.md',
+ 'question_evidence_windows_validation.md': 'docs/question_evidence_windows_validation.md',
+ 'question_evidence_evaluation/README.md': 'docs/question_evidence_evaluation/README.md',
+ 'question_evidence_evaluation/acceptance.md': 'docs/question_evidence_evaluation/acceptance.md',
+ 'question_evidence_evaluation/analysis.md': 'docs/question_evidence_evaluation/analysis.md',
+ 'question_evidence_evaluation/comparators.md': 'docs/question_evidence_evaluation/comparators.md',
+ 'question_evidence_evaluation/observer.md': 'docs/question_evidence_evaluation/observer.md',
+ 'question_evidence_evaluation/participant.md': 'docs/question_evidence_evaluation/participant.md',
+ 'question_evidence_evaluation/protocol.md': 'docs/question_evidence_evaluation/protocol.md',
+ 'question_evidence_evaluation/seed_lock.md': 'docs/question_evidence_evaluation/seed_lock.md',
+ 'question_evidence_evaluation/tasks.md': 'docs/question_evidence_evaluation/tasks.md',
+ 'question_evidence_evaluation/templates/assignments.csv': 'docs/question_evidence_evaluation/templates/assignments.csv',
+ 'question_evidence_evaluation/templates/conditions.csv': 'docs/question_evidence_evaluation/templates/conditions.csv',
+ 'question_evidence_evaluation/templates/documents.csv': 'docs/question_evidence_evaluation/templates/documents.csv',
+ 'question_evidence_evaluation/templates/field_checks.csv': 'docs/question_evidence_evaluation/templates/field_checks.csv',
+ 'question_evidence_evaluation/templates/issues.csv': 'docs/question_evidence_evaluation/templates/issues.csv',
+ 'question_evidence_evaluation/templates/observer_events.csv': 'docs/question_evidence_evaluation/templates/observer_events.csv',
+ 'question_evidence_evaluation/templates/participant_feedback.csv': 'docs/question_evidence_evaluation/templates/participant_feedback.csv',
+ 'question_evidence_evaluation/templates/seeds.csv': 'docs/question_evidence_evaluation/templates/seeds.csv',
+ 'question_evidence_evaluation/templates/timings.csv': 'docs/question_evidence_evaluation/templates/timings.csv'}
+BLANK_TEMPLATE_HEADERS = {'assignments.csv': 'participant_code,protocol_version,task_id,matched_set_id,condition_id,order,prior_exposure,assignment_locked_at,amendment',
+ 'conditions.csv': 'condition_id,tool,version_or_model,plan_features,date,source_scope,source_manifest_sha256,context_budget,tools_allowed,access_status,authorization_reference,cost_policy,execution_status,limitation',
+ 'documents.csv': 'set_id,report_id,title,pmid,doi,source_filename,source_format,source_sha256,blocks_sha256,parser_id,license_or_local_permission,attribution,provided_scope,permission_for_cloud,cohort_or_site_case_verified_by,verification_date,selection_status',
+ 'field_checks.csv': 'participant_code,condition_id,set_id,report_id,field_id,definition_revision,submitted_value_status,source_reference,cohort_or_observation_scope,assessable,adjudicator_code,support_applicability,wrong_report,wrong_cohort,numeric_or_unit_error,negation_error,critical_error,correction_required,resolution,judged_at',
+ 'issues.csv': 'issue_id,participant_code,condition_id,task_id,observed_at,category,severity,observed_problem,expected_outcome,source_or_scope_effect,assistance,workaround,execution_status,follow_up',
+ 'observer_events.csv': 'participant_code,condition_id,set_id,task_id,event_timestamp,event_type,observed_action,participant_statement_if_permitted,assistance_category,assistance_detail,issue_id,private_evidence_reference',
+ 'participant_feedback.csv': 'participant_code,condition_id,task_id,question_id,actual_response,voluntary_reuse,publication_permission_reference,recorded_at',
+ 'seeds.csv': 'seed_id,identifier_type,identifier,established_pmid,identity_evidence,development_or_held_out,scope_approval,database_coverage,test_date,limits,lock_timestamp,lock_sha256,query_revision,query_membership,preview_recovery,execution_status,unresolved_reason',
+ 'timings.csv': 'participant_code,condition_id,set_id,task_id,segment_id,segment_type,start_timestamp,end_timestamp,elapsed_seconds,actual_or_observed,completion_status,assistance_seconds,exclusion_reason'}
+EXACT.update(WORKBENCH_DOCUMENTS)
 BANNED = {'node_modules', '__pycache__', '.next', '.git', '.cache', 'tests', 'reports', 'evaluations',
           'workflow', 'data', '.mvp-web-state', '.mvp-state', 'browser-state', 'backups', 'private-exports',
           'model-cache', '.venv', '.venv-map', '.venv-preview', '.venv-bootstrap', '.local-preview-setup.json'}
@@ -39,6 +77,29 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def audit_markdown_links(payload):
+    # Independent file-target check over copied Markdown only; never fetch URLs.
+    for name, raw in payload.items():
+        if not name.endswith('.md'):
+            continue
+        prose, fence = [], None
+        for line in raw.decode('utf-8').splitlines():
+            token = re.match(r'^\s{0,3}(`{3,}|~{3,})', line)
+            if token:
+                value = token.group(1)
+                if fence is None: fence = value
+                elif value[0] == fence[0] and len(value) >= len(fence): fence = None
+                continue
+            if fence is None: prose.append(re.sub(r'(`+).*?\1', '', line))
+        for raw_target in re.findall(r'\[[^\]\n]*\]\(([^)\n]+)\)', '\n'.join(prose)):
+            target = raw_target.strip().removeprefix('<').removesuffix('>')
+            parsed = urlsplit(target)
+            if parsed.scheme or parsed.netloc or not parsed.path: continue
+            relative = unquote(parsed.path)
+            target = posixpath.normpath(posixpath.join(posixpath.dirname(name), relative))
+            assert not relative.startswith('/') and target != '..' and not target.startswith('../') and target in payload, 'Packaged Markdown link has no retained target: ' + name
+
+
 def audit(archive, expected_source_commit, source_checkout):
     assert re.fullmatch('[0-9a-f]{40}', expected_source_commit), 'Use the exact full source commit SHA'
     source_checkout = Path(source_checkout).resolve()
@@ -54,6 +115,7 @@ def audit(archive, expected_source_commit, source_checkout):
                     'notices/QWEN_APACHE_LICENSE.txt':'docs/notices/QWEN_APACHE_LICENSE.txt',
                     'notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt':'docs/notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt', 'README.md': 'docs/local_preview.md', 'DISTRIBUTION_TERMS.md': 'docs/local_preview_distribution_terms.md',
                     'OPTIONAL_FEATURES.md': 'docs/local_beta_optional_features.md', 'CAPABILITIES.md': 'docs/local_beta_capabilities.md', 'SETTINGS.md':'docs/research_ai_settings.md'}
+    translations.update(WORKBENCH_DOCUMENTS)
     archive = Path(archive)
     assert archive.suffix == '.zip' and archive.is_file() and not archive.is_symlink()
     names, payload = set(), {}
@@ -105,7 +167,14 @@ def audit(archive, expected_source_commit, source_checkout):
             continue
         original = translations.get(name, name)
         assert original in tracked, 'Archive input was never committed: ' + original
-        assert git('show', expected_source_commit + ':' + original) == raw, 'Archive input differs from committed source: ' + name
+        expected_raw = git('show', expected_source_commit + ':' + original)
+        if name == 'question_evidence_user_guide.md':
+            expected_raw = expected_raw.replace(b'](user_manual.md', b'](USER_MANUAL.md')
+        assert expected_raw == raw, 'Archive input differs from committed source: ' + name
+    for name, header in BLANK_TEMPLATE_HEADERS.items():
+        rows = list(csv.reader(io.StringIO(payload['question_evidence_evaluation/templates/' + name].decode('utf-8'), newline='')))
+        assert rows == [header.split(',')], 'Evaluation template contains observations or changed headers: ' + name
+    audit_markdown_links(payload)
     snapshot = {name: sha(raw) for name, raw in payload.items() if name not in {'RELEASE.json', 'MANIFEST.json'}}
     canonical = (json.dumps(snapshot, indent=2, sort_keys=True, ensure_ascii=False) + '\n').encode()
     assert release['source_snapshot_sha256'] == sha(canonical)

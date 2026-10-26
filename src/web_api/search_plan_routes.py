@@ -124,4 +124,6 @@ def install_search_plan_routes(app, *, service, owned, session_for, dependencies
                              generation_binding(workspace_id, plan_id, request))
             return selected.propose(handle, plan_id, core_request(request, ProposeSearchPlanRequest))
 
+    from .search_strategy_routes import install_search_strategy_routes
+    install_search_strategy_routes(app,planning=planning,owned=owned,session_for=session_for,dependencies=dependencies,registry=registry)
     return planning

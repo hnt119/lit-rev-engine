@@ -1,0 +1,93 @@
+{
+  "all_api_inputs_unchanged_during_execution": true,
+  "api_input_file_count": 97,
+  "api_inputs_sha256": "29ba71177f2df6ab9f42bb496b825362d8654f205beeb08e95ae4bbc5de7f78c",
+  "browser_execution": "NOT_RUN in this resource case; reported separately by the production-browser owner",
+  "competitors": "NOT_RUN",
+  "filtered_group_occurrences": 2,
+  "filtered_unique_reports": 1,
+  "generation_calls": 0,
+  "kind": "synthetic offline software checks, not human or scientific validation",
+  "latency_method": "time.perf_counter around in-process TestClient HTTP or named software operation; ten sequential warm calls; no network/browser/human/model latency claim",
+  "memory_method": "resource.getrusage(RUSAGE_SELF).ru_maxrss; Darwin reports bytes. Peak of this standalone Python process including imports/TestClient/assertions/3+30 report cases, not whole UI/OS/model or incremental memory.",
+  "models": "NOT_RUN",
+  "notes": [
+    "All values and self-declared human-state enums are explicit synthetic software fixtures. No actual participant support judgments were recorded.",
+    "Thirty-report projection is unassessed display scale, not 150 checked research findings. No external renderer or physical Windows measurement occurred."
+  ],
+  "participant_sessions": "NOT_RUN",
+  "platform": "darwin",
+  "process_peak_rss_bytes": 119619584,
+  "provider_calls": {
+    "live": 0,
+    "synthetic_discovery": 2,
+    "synthetic_source_preparation": 33
+  },
+  "python_version": "3.12.7",
+  "sample_export_scope": "Synthetic full-board15cell exports and filtered visible table with specimen, submitted specimen cell and availability; no hidden typed dimensions or unsent drafts.",
+  "sample_exports": [
+    {
+      "bytes": 4464,
+      "file": "synthetic-filtered-view.csv",
+      "sha256": "ff5b15d23f9de9aef2a1cc7ba7d00330365c706627d2814b9a434f3b8e0510fc"
+    },
+    {
+      "bytes": 10945,
+      "file": "synthetic-filtered-view.json",
+      "sha256": "b9d7ac898cbda5ea9ee0d8f14bc914ce791287856091275ef4c454a4970d2f5a"
+    },
+    {
+      "bytes": 27800,
+      "file": "synthetic-full-board.csv",
+      "sha256": "fba8a9bbc80f437c31bf78b20dd3568728564e78f6b67b4de556c17d34294113"
+    },
+    {
+      "bytes": 113270,
+      "file": "synthetic-full-board.json",
+      "sha256": "43c0d587fcca4b4466c08662d229c68461e5e22d0b49acd58555532d84e1d960"
+    }
+  ],
+  "schema_version": "mvp.question-evidence-software-validation.v1",
+  "source_head": "265b291aaf0a2a60ac9aa89862dc531a78207874",
+  "source_working_tree": "uncommitted A/B checkpoint inputs; not a release artifact",
+  "status": "PASS",
+  "status_scope": "Final isolated API/resource software case over frozen uncommitted checkpoint inputs; production browser and human evaluation are separate.",
+  "thirty_report_profiles": {
+    "calls": 10,
+    "max_seconds": 0.060657,
+    "median_seconds": 0.024725,
+    "min_seconds": 0.013723
+  },
+  "thirty_report_unassessed_cells": 150,
+  "three_report_cells": 15,
+  "three_report_profiles": {
+    "calls": 10,
+    "max_seconds": 0.013733,
+    "median_seconds": 0.011188,
+    "min_seconds": 0.010234
+  },
+  "three_report_source_kinds": [
+    "full_text",
+    "abstract",
+    "none"
+  ],
+  "timings": [
+    {
+      "elapsed_seconds": 0.218862,
+      "operation": "three_report_five_field_fixture_setup"
+    },
+    {
+      "elapsed_seconds": 0.911028,
+      "operation": "three_report_fifteen_cell_inspect_submit_normalize_and_reopen"
+    },
+    {
+      "elapsed_seconds": 0.011116,
+      "operation": "three_report_filtered_multisite_view_query"
+    },
+    {
+      "elapsed_seconds": 0.653441,
+      "operation": "thirty_report_mock_preparation_worker_one_step"
+    }
+  ],
+  "windows_execution": "NOT_RUN for this increment"
+}

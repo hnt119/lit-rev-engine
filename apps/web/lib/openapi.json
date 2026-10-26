@@ -2468,6 +2468,225 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/search-plans/{plan_id}/metadata": {
+      "get": {
+        "summary": "Metadata",
+        "operationId": "metadata_api_v1_workspaces__workspace_id__search_plans__plan_id__metadata_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Plan Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchPlanMetadataView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Save Metadata",
+        "operationId": "save_metadata_api_v1_workspaces__workspace_id__search_plans__plan_id__metadata_put",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Plan Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchPlanMetadataPut"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchPlanMetadataView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/search-plans/{plan_id}/strategy-export": {
+      "get": {
+        "summary": "Export",
+        "operationId": "export_api_v1_workspaces__workspace_id__search_plans__plan_id__strategy_export_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Plan Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "candidate_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "title": "Candidate Id"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "markdown",
+                "json"
+              ],
+              "type": "string",
+              "default": "markdown",
+              "title": "Format"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/maps": {
       "post": {
         "summary": "Submit",
@@ -4779,6 +4998,759 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/profiles": {
+      "get": {
+        "summary": "Profiles",
+        "operationId": "profiles_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_profiles_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvidenceProfileSet"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/dimensions": {
+      "post": {
+        "summary": "Dimension",
+        "operationId": "dimension_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_dimensions_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DimensionPut"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DimensionDefinition"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/attributes": {
+      "post": {
+        "summary": "Classify",
+        "operationId": "classify_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_attributes_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributePut"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeRevision"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/saved": {
+      "get": {
+        "summary": "Listing",
+        "operationId": "listing_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_saved_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SavedEvidenceView"
+                  },
+                  "title": "Response Listing Api V1 Workspaces  Workspace Id  Boards  Board Id  Evidence Views Saved Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create",
+        "operationId": "create_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_saved_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavedViewPut"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedEvidenceView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/saved/{view_id}": {
+      "put": {
+        "summary": "Update",
+        "operationId": "update_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_saved__view_id__put",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "view_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "View Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavedViewPut"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedEvidenceView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/query": {
+      "post": {
+        "summary": "Query",
+        "operationId": "query_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_query_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvidenceViewConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvidenceViewResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/exports": {
+      "post": {
+        "summary": "Export",
+        "operationId": "export_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_exports_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "csv",
+                "json"
+              ],
+              "type": "string",
+              "default": "json",
+              "title": "Format"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvidenceViewConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/attributes/history": {
+      "get": {
+        "summary": "Attribute History",
+        "operationId": "attribute_history_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_attributes_history_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "dimension_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "population",
+                "recruitment_geography",
+                "specimen",
+                "design",
+                "focus"
+              ],
+              "type": "string",
+              "title": "Dimension Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 50,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttributeHistory"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/boards/{board_id}/evidence-views/saved/{view_id}/history": {
+      "get": {
+        "summary": "View History",
+        "operationId": "view_history_api_v1_workspaces__workspace_id__boards__board_id__evidence_views_saved__view_id__history_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "view_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "View Id"
+            }
+          },
+          {
+            "name": "revision_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 50,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedViewHistory"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/settings/retrieval": {
       "get": {
         "summary": "Capabilities",
@@ -6017,6 +6989,376 @@
           "created_at"
         ],
         "title": "AssessmentSummary"
+      },
+      "AttributeHistory": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/AttributeRevision"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "dimension_definitions": {
+            "items": {
+              "$ref": "#/components/schemas/DimensionDefinition"
+            },
+            "type": "array",
+            "title": "Dimension Definitions"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "dimension_definitions",
+          "offset",
+          "total",
+          "limit"
+        ],
+        "title": "AttributeHistory"
+      },
+      "AttributeProjection": {
+        "properties": {
+          "dimension_id": {
+            "type": "string",
+            "enum": [
+              "population",
+              "recruitment_geography",
+              "specimen",
+              "design",
+              "focus"
+            ],
+            "title": "Dimension Id"
+          },
+          "values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Values"
+          },
+          "value_state": {
+            "type": "string",
+            "title": "Value State",
+            "default": "unknown"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "confirmed",
+              "unreviewed",
+              "outdated",
+              "unknown"
+            ],
+            "title": "State",
+            "default": "unknown"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason",
+            "default": "No explicit typed classification exists."
+          },
+          "revision": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AttributeRevision"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "dimension_id"
+        ],
+        "title": "AttributeProjection"
+      },
+      "AttributePut": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_head_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Head Id"
+          },
+          "dimension_revision_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Dimension Revision Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Paper Id"
+          },
+          "origin_kind": {
+            "type": "string",
+            "enum": [
+              "cell",
+              "proposal"
+            ],
+            "title": "Origin Kind"
+          },
+          "origin_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Origin Id"
+          },
+          "values": {
+            "items": {
+              "type": "string",
+              "maxLength": 200,
+              "minLength": 1
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Values"
+          },
+          "value_state": {
+            "type": "string",
+            "enum": [
+              "value",
+              "unknown",
+              "not_assessed",
+              "not_found_in_inspected_material"
+            ],
+            "title": "Value State",
+            "default": "value"
+          },
+          "review_state": {
+            "type": "string",
+            "enum": [
+              "confirmed",
+              "unreviewed"
+            ],
+            "title": "Review State",
+            "default": "unreviewed"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "dimension_revision_id",
+          "paper_id",
+          "origin_kind",
+          "origin_id",
+          "reason"
+        ],
+        "title": "AttributePut"
+      },
+      "AttributeRevision": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_head_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Head Id"
+          },
+          "dimension_revision_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Dimension Revision Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Paper Id"
+          },
+          "origin_kind": {
+            "type": "string",
+            "enum": [
+              "cell",
+              "proposal"
+            ],
+            "title": "Origin Kind"
+          },
+          "origin_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Origin Id"
+          },
+          "values": {
+            "items": {
+              "type": "string",
+              "maxLength": 200,
+              "minLength": 1
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Values"
+          },
+          "value_state": {
+            "type": "string",
+            "enum": [
+              "value",
+              "unknown",
+              "not_assessed",
+              "not_found_in_inspected_material"
+            ],
+            "title": "Value State",
+            "default": "value"
+          },
+          "review_state": {
+            "type": "string",
+            "enum": [
+              "confirmed",
+              "unreviewed"
+            ],
+            "title": "Review State",
+            "default": "unreviewed"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.evidence-attribute.v1",
+            "title": "Schema Version",
+            "default": "mvp.evidence-attribute.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "board_id": {
+            "type": "string",
+            "title": "Board Id"
+          },
+          "board_revision_id": {
+            "type": "string",
+            "title": "Board Revision Id"
+          },
+          "dimension_id": {
+            "type": "string",
+            "enum": [
+              "population",
+              "recruitment_geography",
+              "specimen",
+              "design",
+              "focus"
+            ],
+            "title": "Dimension Id"
+          },
+          "field_id": {
+            "type": "string",
+            "title": "Field Id"
+          },
+          "field_revision_id": {
+            "type": "string",
+            "title": "Field Revision Id"
+          },
+          "source_manifest_sha256": {
+            "type": "string",
+            "title": "Source Manifest Sha256"
+          },
+          "references": {
+            "items": {
+              "$ref": "#/components/schemas/BoardReferenceSummary"
+            },
+            "type": "array",
+            "title": "References"
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id"
+          },
+          "scope": {
+            "type": "string",
+            "const": "report_cooccurrence_only",
+            "title": "Scope",
+            "default": "report_cooccurrence_only"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "dimension_revision_id",
+          "paper_id",
+          "origin_kind",
+          "origin_id",
+          "reason",
+          "workspace_id",
+          "board_id",
+          "board_revision_id",
+          "dimension_id",
+          "field_id",
+          "field_revision_id",
+          "source_manifest_sha256",
+          "references"
+        ],
+        "title": "AttributeRevision"
       },
       "Block": {
         "properties": {
@@ -10629,6 +11971,154 @@
         ],
         "title": "DiagnosticSeedResult"
       },
+      "DimensionDefinition": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.evidence-dimension.v1",
+            "title": "Schema Version",
+            "default": "mvp.evidence-dimension.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "board_id": {
+            "type": "string",
+            "title": "Board Id"
+          },
+          "board_revision_id": {
+            "type": "string",
+            "title": "Board Revision Id"
+          },
+          "dimension_id": {
+            "type": "string",
+            "enum": [
+              "population",
+              "recruitment_geography",
+              "specimen",
+              "design",
+              "focus"
+            ],
+            "title": "Dimension Id"
+          },
+          "field_id": {
+            "type": "string",
+            "title": "Field Id"
+          },
+          "field_revision_id": {
+            "type": "string",
+            "title": "Field Revision Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "definition": {
+            "type": "string",
+            "title": "Definition"
+          },
+          "kind": {
+            "type": "string",
+            "const": "multi_value",
+            "title": "Kind",
+            "default": "multi_value"
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "board_id",
+          "board_revision_id",
+          "dimension_id",
+          "field_id",
+          "field_revision_id",
+          "label",
+          "definition"
+        ],
+        "title": "DimensionDefinition"
+      },
+      "DimensionPut": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_head_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Head Id"
+          },
+          "dimension_id": {
+            "type": "string",
+            "enum": [
+              "population",
+              "recruitment_geography",
+              "specimen",
+              "design",
+              "focus"
+            ],
+            "title": "Dimension Id"
+          },
+          "field_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Field Id"
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Label"
+          },
+          "definition": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Definition"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "dimension_id",
+          "field_id",
+          "label",
+          "definition"
+        ],
+        "title": "DimensionPut"
+      },
       "DraftRecord": {
         "properties": {
           "scope": {
@@ -10835,6 +12325,57 @@
         "type": "object",
         "title": "EmbeddingProfile"
       },
+      "EvidenceProfileSet": {
+        "properties": {
+          "board_id": {
+            "type": "string",
+            "title": "Board Id"
+          },
+          "board_revision_id": {
+            "type": "string",
+            "title": "Board Revision Id"
+          },
+          "freshness": {
+            "type": "string",
+            "title": "Freshness"
+          },
+          "basis_sha256": {
+            "type": "string",
+            "title": "Basis Sha256"
+          },
+          "dimensions": {
+            "items": {
+              "$ref": "#/components/schemas/DimensionDefinition"
+            },
+            "type": "array",
+            "title": "Dimensions"
+          },
+          "papers": {
+            "items": {
+              "$ref": "#/components/schemas/PaperProfileView"
+            },
+            "type": "array",
+            "title": "Papers"
+          },
+          "scope": {
+            "type": "string",
+            "const": "report_cooccurrence_only_not_same_cohort",
+            "title": "Scope",
+            "default": "report_cooccurrence_only_not_same_cohort"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "board_id",
+          "board_revision_id",
+          "freshness",
+          "basis_sha256",
+          "dimensions",
+          "papers"
+        ],
+        "title": "EvidenceProfileSet"
+      },
       "EvidenceRun": {
         "properties": {
           "schema_version": {
@@ -10917,6 +12458,132 @@
         ],
         "title": "EvidenceRun"
       },
+      "EvidenceViewConfig": {
+        "properties": {
+          "columns": {
+            "items": {
+              "type": "string",
+              "maxLength": 200,
+              "minLength": 1
+            },
+            "type": "array",
+            "maxItems": 13,
+            "title": "Columns"
+          },
+          "filters": {
+            "items": {
+              "$ref": "#/components/schemas/FacetFilter"
+            },
+            "type": "array",
+            "maxItems": 7,
+            "title": "Filters"
+          },
+          "sort_by": {
+            "type": "string",
+            "enum": [
+              "report_order",
+              "title",
+              "year",
+              "review_status"
+            ],
+            "title": "Sort By",
+            "default": "report_order"
+          },
+          "descending": {
+            "type": "boolean",
+            "title": "Descending",
+            "default": false
+          },
+          "group_by": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "population",
+                  "recruitment_geography",
+                  "specimen",
+                  "design",
+                  "focus"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group By"
+          },
+          "include_unreviewed": {
+            "type": "boolean",
+            "title": "Include Unreviewed",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "EvidenceViewConfig"
+      },
+      "EvidenceViewResult": {
+        "properties": {
+          "config": {
+            "$ref": "#/components/schemas/EvidenceViewConfig"
+          },
+          "profiles": {
+            "$ref": "#/components/schemas/EvidenceProfileSet"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Paper Ids"
+          },
+          "groups": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Groups"
+          },
+          "unique_report_count": {
+            "type": "integer",
+            "title": "Unique Report Count"
+          },
+          "group_occurrences": {
+            "type": "integer",
+            "title": "Group Occurrences"
+          },
+          "facets": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Facets"
+          },
+          "filter_summary": {
+            "type": "string",
+            "title": "Filter Summary"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "config",
+          "profiles",
+          "paper_ids",
+          "groups",
+          "unique_report_count",
+          "group_occurrences",
+          "facets",
+          "filter_summary"
+        ],
+        "title": "EvidenceViewResult"
+      },
       "ExcludedPaper": {
         "properties": {
           "paper_id": {
@@ -10991,6 +12658,41 @@
           "approval_id"
         ],
         "title": "ExecuteSearchPlanRequest"
+      },
+      "FacetFilter": {
+        "properties": {
+          "dimension": {
+            "type": "string",
+            "enum": [
+              "population",
+              "recruitment_geography",
+              "specimen",
+              "design",
+              "focus",
+              "availability",
+              "review_status"
+            ],
+            "title": "Dimension"
+          },
+          "values": {
+            "items": {
+              "type": "string",
+              "maxLength": 200,
+              "minLength": 1
+            },
+            "type": "array",
+            "maxItems": 30,
+            "minItems": 1,
+            "title": "Values"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "dimension",
+          "values"
+        ],
+        "title": "FacetFilter"
       },
       "FieldSpanRequirements": {
         "properties": {
@@ -13150,6 +14852,66 @@
           "status"
         ],
         "title": "PaperMap"
+      },
+      "PaperProfileView": {
+        "properties": {
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "year": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year"
+          },
+          "availability": {
+            "type": "string",
+            "title": "Availability"
+          },
+          "attributes": {
+            "items": {
+              "$ref": "#/components/schemas/AttributeProjection"
+            },
+            "type": "array",
+            "title": "Attributes"
+          },
+          "review_status": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Review Status"
+          },
+          "pending_proposal_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Pending Proposal Ids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "paper_id",
+          "title",
+          "year",
+          "availability",
+          "attributes",
+          "review_status",
+          "pending_proposal_ids"
+        ],
+        "title": "PaperProfileView"
       },
       "Passage": {
         "properties": {
@@ -15981,6 +17743,185 @@
         ],
         "title": "SaveAssessmentRequest"
       },
+      "SavedEvidenceView": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.saved-evidence-view.v1",
+            "title": "Schema Version",
+            "default": "mvp.saved-evidence-view.v1"
+          },
+          "revision_id": {
+            "type": "string",
+            "title": "Revision Id"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "board_id": {
+            "type": "string",
+            "title": "Board Id"
+          },
+          "board_revision_id": {
+            "type": "string",
+            "title": "Board Revision Id"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "config": {
+            "$ref": "#/components/schemas/EvidenceViewConfig"
+          },
+          "basis_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Basis Sha256"
+          },
+          "paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Paper Ids"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "workspace_id",
+          "board_id",
+          "board_revision_id",
+          "version",
+          "name",
+          "config"
+        ],
+        "title": "SavedEvidenceView"
+      },
+      "SavedExternalSearchRecord": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id"
+          },
+          "database": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Database"
+          },
+          "platform": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Platform"
+          },
+          "query": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Query"
+          },
+          "executed_on": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Executed On"
+          },
+          "reported_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 9.223372036854776e+18,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reported Count"
+          },
+          "limits_note": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Limits Note",
+            "default": ""
+          },
+          "collection_ref": {
+            "$ref": "#/components/schemas/CollectionInputRef"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "database",
+          "platform",
+          "query",
+          "collection_ref"
+        ],
+        "title": "SavedExternalSearchRecord"
+      },
+      "SavedExtractionQuestion": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Id"
+          },
+          "question": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Question"
+          },
+          "source_span": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/QuestionSpan"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "question"
+        ],
+        "title": "SavedExtractionQuestion"
+      },
       "SavedSearchCitationMetadata": {
         "properties": {
           "metadata_schema_version": {
@@ -16072,6 +18013,71 @@
         ],
         "title": "SavedSearchCitationMetadata",
         "description": "Lossless read adapter for papers predating import-specific field bounds."
+      },
+      "SavedViewHistory": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SavedEvidenceView"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "offset",
+          "total",
+          "limit"
+        ],
+        "title": "SavedViewHistory"
+      },
+      "SavedViewPut": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Version"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "config": {
+            "$ref": "#/components/schemas/EvidenceViewConfig"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "version",
+          "name",
+          "config"
+        ],
+        "title": "SavedViewPut"
       },
       "SearchApprovalReceipt": {
         "properties": {
@@ -16794,6 +18800,155 @@
           "plans"
         ],
         "title": "SearchPlanListing"
+      },
+      "SearchPlanMetadataInput": {
+        "properties": {
+          "extraction_questions": {
+            "items": {
+              "$ref": "#/components/schemas/SavedExtractionQuestion"
+            },
+            "type": "array",
+            "maxItems": 12,
+            "title": "Extraction Questions"
+          },
+          "term_notes": {
+            "items": {
+              "$ref": "#/components/schemas/TermReferenceNote"
+            },
+            "type": "array",
+            "maxItems": 96,
+            "title": "Term Notes"
+          },
+          "external_searches": {
+            "items": {
+              "$ref": "#/components/schemas/SavedExternalSearchRecord"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "External Searches"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "SearchPlanMetadataInput"
+      },
+      "SearchPlanMetadataPut": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "expected_revision_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Revision Id"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Version"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SearchPlanMetadataInput"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "expected_revision_id",
+          "expected_version",
+          "metadata"
+        ],
+        "title": "SearchPlanMetadataPut"
+      },
+      "SearchPlanMetadataView": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.search-plan-metadata.v1",
+            "title": "Schema Version",
+            "default": "mvp.search-plan-metadata.v1"
+          },
+          "plan_id": {
+            "type": "string",
+            "title": "Plan Id"
+          },
+          "revision_id": {
+            "type": "string",
+            "title": "Revision Id"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          },
+          "latest_version": {
+            "type": "integer",
+            "title": "Latest Version"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SearchPlanMetadataInput"
+          },
+          "term_bindings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Term Bindings"
+          },
+          "current": {
+            "type": "boolean",
+            "title": "Current"
+          },
+          "history": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "History"
+          },
+          "saved_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Saved At"
+          },
+          "terminology_verification": {
+            "type": "string",
+            "const": "unavailable",
+            "title": "Terminology Verification",
+            "default": "unavailable"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "researcher_design_notes_not_eligibility_or_verified_terminology",
+            "title": "Meaning",
+            "default": "researcher_design_notes_not_eligibility_or_verified_terminology"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "plan_id",
+          "revision_id",
+          "version",
+          "latest_version",
+          "metadata",
+          "term_bindings",
+          "current",
+          "history"
+        ],
+        "title": "SearchPlanMetadataView"
       },
       "SearchPlanProposalReceipt": {
         "properties": {
@@ -18297,6 +20452,41 @@
           "message"
         ],
         "title": "StructuredError"
+      },
+      "TermReferenceNote": {
+        "properties": {
+          "concept_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Concept Id"
+          },
+          "term_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Term Id"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Note",
+            "default": ""
+          },
+          "authority_reference": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Authority Reference",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "concept_id",
+          "term_id"
+        ],
+        "title": "TermReferenceNote"
       },
       "UpdateSearchPlanRequest": {
         "properties": {

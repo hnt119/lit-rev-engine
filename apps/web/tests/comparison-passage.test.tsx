@@ -86,7 +86,7 @@ test("unrelated requested run is rejected instead of displayed or persisted",asy
 
 test("wrong-paper return has an explicit failure and never opens or attaches evidence",async()=>{
  const f=fixture("wrongpaper");f.deny();let r!:ReactTestRenderer;await act(async()=>{r=create(<Compare workspace={f.workspace} requestedBoard="board" requestedPaper={f.paper.id} requestedField="diet" requestedRun="matched" requestedPassage="wrong-paper" navigate={f.navigate}/>);});
- try{assert.match(text(r.root),/does not belong to this board cell/);assert.equal(r.root.findAllByType("mark").length,0);assert.equal(f.getCell().version,0);assert.equal(f.calls.some(c=>c.method!=="GET"),false);}finally{await act(async()=>r.unmount());}
+ try{assert.match(text(r.root),/does not belong to this board cell/);assert.equal(r.root.findAllByType("mark").length,0);assert.equal(f.getCell().version,0);assert.equal(f.calls.some(c=>c.method!=="GET"&&!(c.method==="POST"&&/\/evidence-views\/query(?:\?|$)/.test(c.path))),false,"only the read-only evidence-view projection may run; no retrieval, preparation, attachment or scientific write");}finally{await act(async()=>r.unmount());}
 });
 
 test("a search draft save conflict blocks return and retains edits without retrieval",async()=>{
@@ -128,6 +128,6 @@ test("return restores the original table position and keyboard focus after the b
  try{
   await act(async()=>{r=create(<Compare workspace={f.workspace} requestedBoard="board" requestedPaper={f.paper.id} requestedField="diet" requestedReturn="cell" navigate={f.navigate}/>,{createNodeMock(element){return (element.props as {className?:string}).className==="board-table-scroll"?table:{focus(){focus.push("editor");},scrollIntoView(){}};}});});
   assert.equal(table.scrollLeft,125);assert.equal(scroll.at(-1),333);assert.equal(focus.at(-1),"editor","a returned cell opens the visible focused editor instead of focusing its hidden table button");
-  await act(async()=>button(r,"Open passage search for this field").props.onClick());assert.deepEqual(history.state.comparisonPosition,{workspace:f.workspace.id,board:"board",revision:"revision",left:125,top:333});
+  await act(async()=>button(r,"Open passage search for this field").props.onClick());assert.deepEqual(history.state.comparisonPosition,{workspace:f.workspace.id,board:"board",revision:"revision",left:125,top:333,viewKey:"unsaved:0"});
  }finally{if(r)await act(async()=>r.unmount());if(previous===undefined)delete (globalThis as any).window;else Object.assign(globalThis,{window:previous});}
 });

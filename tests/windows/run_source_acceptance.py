@@ -364,6 +364,18 @@ def main():
             assert json.loads(raw.splitlines()[-1])['status'] == 'PASS'
             report['actual_browser'] = 'Chromium via pinned test-only Playwright 1.62.1'
             report['checks']['browser_' + mode] = 'PASS'
+            # Same production application, separate synthetic/public workspace
+            # and browser profile. No model/provider call; no private QA upload.
+            phase('question-evidence-browser-' + mode)
+            try:
+                raw = command([node, ROOT / 'tests/workbench/browser_workbench.cjs',
+                    args.playwright_dir / 'node_modules/playwright', origin,
+                    qa / 'question-evidence', mode], cwd=ROOT, env=env,
+                    output=qa / ('question-evidence-' + mode + '.log'), timeout=360)
+            except BaseException:
+                report['checks']['question_evidence_browser_' + mode] = 'FAIL'; raise
+            assert json.loads(raw.splitlines()[-1])['status'] == 'PASS'
+            report['checks']['question_evidence_browser_' + mode] = 'PASS'
         browser_check('create')
         # One process owns this data root; an additional launch must not attach.
         phase('single-instance-and-authenticated-graceful-stop')

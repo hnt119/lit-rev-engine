@@ -19,7 +19,7 @@ CALL_RESERVATION_BYTES = 2 * MAX_PLAN_RECORD_BYTES + 4096
 def search_plan_auxiliary_bytes(db, workspace_id):
     tables = {row[0] for row in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     total = 0
-    for table in TABLES:
+    for table in (*TABLES, 'mvp_search_plan_metadata'):
         if table not in tables:
             continue
         columns = [row[1] for row in db.execute(f'PRAGMA table_info({table})')]

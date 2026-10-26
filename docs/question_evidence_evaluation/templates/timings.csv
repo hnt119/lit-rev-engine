@@ -1,0 +1,1 @@
+participant_code,condition_id,set_id,task_id,segment_id,segment_type,start_timestamp,end_timestamp,elapsed_seconds,actual_or_observed,completion_status,assistance_seconds,exclusion_reason

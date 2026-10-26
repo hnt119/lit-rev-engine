@@ -7,6 +7,8 @@ import type {Schema} from "../lib/api.ts";
 const pending=new Map<string,string>();
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true,sessionStorage:{getItem:(key:string)=>pending.get(key)??null,setItem:(key:string,value:string)=>pending.set(key,value),removeItem:(key:string)=>pending.delete(key)}});
 const response=(value:unknown,status=200)=>new Response(JSON.stringify(value),{status,headers:{"Content-Type":"application/json"}});
+// The typed view query is a read-only projection, not a scientific mutation.
+const isWrite=(request:{method:string;path:string})=>request.method!=="GET"&&!(request.method==="POST"&&/\/evidence-views\/query(?:\?|$)/.test(request.path));
 function content(node:ReactTestInstance):string{return node.children.map(child=>typeof child==="string"?child:content(child)).join("");}
 function button(renderer:ReactTestRenderer,label:string){const value=renderer.root.findAllByType("button").find(item=>content(item)===label);assert.ok(value,`Missing button: ${label}`);return value;}
 function disabled(node:ReactTestInstance):boolean {let current:ReactTestInstance|null=node;while(current){if(current.props.disabled)return true;current=current.parent;}return false;}
@@ -23,7 +25,7 @@ async function fixture(id:string,{historical=false,count=3,columns=fieldList}={}
   const view={definition,current_revision_id:"r",freshness:historical?"historical":"current",freshness_reasons:historical?["Definition is historical."]:[],cells:papers.flatMap(paper=>columns.map(field=>({paper_id:paper.id,field_id:field.id,head:null as unknown,draft_version:0}))),definitions:[summary],limits:{max_fields:6}};
   const workspace={id,question:definition.question,mode:"live",created_at:definition.created_at,source_revision:1,current_preparation_id:"prep",selected_paper_ids:papers.map(p=>p.id),current_run_id:null,current_assessment_ids:{},searches:[{id:"search"}],preparations:[{id:"prep",search_id:"search",selected_paper_ids:papers.map(p=>p.id),source_revision:1,prepared_at:definition.created_at}],runs:[],assessments:[]} as unknown as Schema<"WorkspaceSummary">;
   const drafts=new Map<string,{board_id:string;board_revision_id:string;paper_id:string;field_id:string;version:number;expected_cell_head_id:string|null;data:ReturnType<typeof emptyCell>;updated_at:null}>();
-  const editorDrafts=new Map<string,any>();
+  const editorDrafts=new Map<string,any>(),viewDrafts=new Map<string,any>();
   const revisions:Record<string,unknown>[]=[];const requests:{path:string;method:string;body:Record<string,unknown>|null}[]=[];
   let refForPaper=(paperId:string)=>{const source=sources.find(s=>s.paper_id===paperId)!;return {id:"ref-"+paperId,paper_id:paperId,source_id:source.source_id,source_version:source.version,source_sha256:source.source_sha256,blocks_sha256:source.blocks_sha256,block_id:"block-"+paperId,start:0,end:Array.from(text).length,quote:text,locator:{section:"Abstract"},integrity:"checked"};};
   globalThis.fetch=async(url,options)=>{
@@ -31,6 +33,17 @@ async function fixture(id:string,{historical=false,count=3,columns=fieldList}={}
     if(path.endsWith("/session"))return response({csrf_token:"test"});
     if(path.endsWith("/boards"))return response({boards:[summary],limits:{max_fields:6}});
     if(path.endsWith("/boards/b"))return response(view);
+    if(path.includes("/evidence-views/saved"))return response([]);
+    if(path.includes("/evidence-views/query")){
+      assert.equal(method,"POST");
+      return response({config:body,profiles:{board_id:"b",board_revision_id:"r",freshness:view.freshness,basis_sha256:"0".repeat(64),dimensions:[],papers:papers.map((paper,index)=>({paper_id:paper.id,title:paper.title,year:paper.year,availability:sources[index].source_type,attributes:[],review_status:["unknown"],pending_proposal_ids:[]})),scope:"report_cooccurrence_only_not_same_cohort"},paper_ids:papers.map(p=>p.id),groups:{"All reports":papers.map(p=>p.id)},unique_report_count:papers.length,group_occurrences:papers.length,facets:{},filter_summary:"All reports; no scientific filters"});
+    }
+    if(path.includes("/drafts/board-view%3A")){
+      const old=viewDrafts.get(path)??{version:0,data:{},expected_assessment_head:null};
+      if(method==="GET")return response(old);
+      assert.equal(body.version,old.version);assert.equal(body.expected_assessment_head,null);
+      const saved={...body,version:old.version+1};viewDrafts.set(path,saved);return response(saved);
+    }
     if(path.includes("/drafts/board-editor%3A")){
       const old=editorDrafts.get(path)??{version:0,data:{},expected_assessment_head:null};
       if(method==="GET")return response(old);
@@ -69,7 +82,7 @@ test("nine-cell board performs only explicit per-cell retrieval, inspection, man
   const {requests,drafts,revisions}=fixtureState;
   try{
     assert.equal(renderer.root.findAll(node=>node.type==="button"&&String(node.props["aria-label"]??"").includes(" for SOFTWARE TEST Report")).length,9);
-    assert.equal(requests.some(request=>request.method!=="GET"),false,"opening a board is read-only");
+    assert.equal(requests.some(request=>isWrite(request)),false,"opening a board performs only reads, including the explicit read-only view projection");
     await act(async()=>renderer.root.findByProps({"aria-label":"Exposure for SOFTWARE TEST Report 3"}).props.onClick());
     assert.ok(JSON.stringify(renderer.toJSON()).includes("Only the retained abstract is available"));
     await act(async()=>button(renderer,"Find excerpts in this paper").props.onClick());
@@ -129,7 +142,7 @@ test("historical definitions permit inspection and exports while edits and retri
     await act(async()=>renderer.root.findByProps({"aria-label":"Population for SOFTWARE TEST Report 1"}).props.onClick());
     assert.equal(button(renderer,"Find excerpts in this paper").props.disabled,true);
     await act(async()=>button(renderer,"Browse this source").props.onClick());
-    assert.ok(renderer.root.findByType("mark"));assert.equal(disabled(button(renderer,"Mark inspected without attaching")),true);assert.equal(requests.some(request=>request.method!=="GET"),false);
+    assert.ok(renderer.root.findByType("mark"));assert.equal(disabled(button(renderer,"Mark inspected without attaching")),true);assert.equal(requests.some(isWrite),false);
   }finally{await act(async()=>renderer.unmount());}
 });
 
@@ -174,7 +187,7 @@ test("historical definitions expose retained unsubmitted drafts separately from 
   try{
     await act(async()=>renderer.root.findByProps({"aria-label":"Exposure for SOFTWARE TEST Report 3"}).props.onClick());
     const retained=renderer.root.findByProps({className:"board-historical-draft"});assert.ok(content(retained).includes("RETAINED UNSUBMITTED DRAFT VALUE"));assert.ok(content(retained).includes("DRAFT VERSION 2"));assert.ok(content(retained).includes("not submitted"));
-    assert.equal(control(renderer,"Manual cell value").props.value,"","historical draft does not replace a submitted or neutral cell value");assert.equal(disabled(control(renderer,"Manual cell value")),true);assert.equal(requests.some(request=>request.method!=="GET"),false);
+    assert.equal(control(renderer,"Manual cell value").props.value,"","historical draft does not replace a submitted or neutral cell value");assert.equal(disabled(control(renderer,"Manual cell value")),true);assert.equal(requests.some(isWrite),false);
   }finally{await act(async()=>renderer.unmount());}
 });
 
@@ -185,7 +198,7 @@ test("a 30 by 6 table mounts one guided editor and performs no per-cell retrieva
   try{
     assert.equal(renderer.root.findAllByProps({className:"board-cell"}).length,180);
     assert.equal(renderer.root.findAllByProps({className:"board-cell-editor"}).length,0);
-    assert.equal(requests.filter(request=>request.method!=="GET").length,0);
+    assert.equal(requests.filter(isWrite).length,0);
     await act(async()=>renderer.root.findByProps({"aria-label":"Field 6 for SOFTWARE TEST Report 30"}).props.onClick());
     assert.equal(renderer.root.findAllByProps({className:"board-cell-editor"}).length,1);
     assert.equal(requests.filter(request=>request.path.includes("/boards/b/drafts/")).length,1);assert.equal(requests.filter(request=>request.path.includes("/drafts/board-editor%3A")).length,1);

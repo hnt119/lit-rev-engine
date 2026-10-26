@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Build a reviewed source-only local preview; never install, run or publish it."""
 import argparse
+import csv
+import io
+import posixpath
+from urllib.parse import unquote, urlsplit
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -41,6 +45,43 @@ DOCUMENTS = {"README.md": "docs/local_preview.md",
              "MODEL_REFERENCES.md": "docs/hybrid_model_references.md",
              "notices/QWEN_APACHE_LICENSE.txt": "docs/notices/QWEN_APACHE_LICENSE.txt",
              "notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt": "docs/notices/MEDCPT_PUBLIC_DOMAIN_NOTICE.txt"}
+# Deliberately explicit public documentation and blank templates. Never glob this
+# evaluation directory: future participant observations must not enter assets.
+WORKBENCH_DOCUMENTS = {'question_evidence_user_guide.md': 'docs/question_evidence_user_guide.md',
+ 'question_evidence_validation.md': 'docs/question_evidence_validation.md',
+ 'question_evidence_validation_software.json': 'docs/question_evidence_validation_software.json',
+ 'question_evidence_access_audit.md': 'docs/question_evidence_access_audit.md',
+ 'question_evidence_workbench.md': 'docs/question_evidence_workbench.md',
+ 'question_evidence_windows_validation.md': 'docs/question_evidence_windows_validation.md',
+ 'question_evidence_evaluation/README.md': 'docs/question_evidence_evaluation/README.md',
+ 'question_evidence_evaluation/acceptance.md': 'docs/question_evidence_evaluation/acceptance.md',
+ 'question_evidence_evaluation/analysis.md': 'docs/question_evidence_evaluation/analysis.md',
+ 'question_evidence_evaluation/comparators.md': 'docs/question_evidence_evaluation/comparators.md',
+ 'question_evidence_evaluation/observer.md': 'docs/question_evidence_evaluation/observer.md',
+ 'question_evidence_evaluation/participant.md': 'docs/question_evidence_evaluation/participant.md',
+ 'question_evidence_evaluation/protocol.md': 'docs/question_evidence_evaluation/protocol.md',
+ 'question_evidence_evaluation/seed_lock.md': 'docs/question_evidence_evaluation/seed_lock.md',
+ 'question_evidence_evaluation/tasks.md': 'docs/question_evidence_evaluation/tasks.md',
+ 'question_evidence_evaluation/templates/assignments.csv': 'docs/question_evidence_evaluation/templates/assignments.csv',
+ 'question_evidence_evaluation/templates/conditions.csv': 'docs/question_evidence_evaluation/templates/conditions.csv',
+ 'question_evidence_evaluation/templates/documents.csv': 'docs/question_evidence_evaluation/templates/documents.csv',
+ 'question_evidence_evaluation/templates/field_checks.csv': 'docs/question_evidence_evaluation/templates/field_checks.csv',
+ 'question_evidence_evaluation/templates/issues.csv': 'docs/question_evidence_evaluation/templates/issues.csv',
+ 'question_evidence_evaluation/templates/observer_events.csv': 'docs/question_evidence_evaluation/templates/observer_events.csv',
+ 'question_evidence_evaluation/templates/participant_feedback.csv': 'docs/question_evidence_evaluation/templates/participant_feedback.csv',
+ 'question_evidence_evaluation/templates/seeds.csv': 'docs/question_evidence_evaluation/templates/seeds.csv',
+ 'question_evidence_evaluation/templates/timings.csv': 'docs/question_evidence_evaluation/templates/timings.csv'}
+BLANK_TEMPLATE_HEADERS = {'assignments.csv': 'participant_code,protocol_version,task_id,matched_set_id,condition_id,order,prior_exposure,assignment_locked_at,amendment',
+ 'conditions.csv': 'condition_id,tool,version_or_model,plan_features,date,source_scope,source_manifest_sha256,context_budget,tools_allowed,access_status,authorization_reference,cost_policy,execution_status,limitation',
+ 'documents.csv': 'set_id,report_id,title,pmid,doi,source_filename,source_format,source_sha256,blocks_sha256,parser_id,license_or_local_permission,attribution,provided_scope,permission_for_cloud,cohort_or_site_case_verified_by,verification_date,selection_status',
+ 'field_checks.csv': 'participant_code,condition_id,set_id,report_id,field_id,definition_revision,submitted_value_status,source_reference,cohort_or_observation_scope,assessable,adjudicator_code,support_applicability,wrong_report,wrong_cohort,numeric_or_unit_error,negation_error,critical_error,correction_required,resolution,judged_at',
+ 'issues.csv': 'issue_id,participant_code,condition_id,task_id,observed_at,category,severity,observed_problem,expected_outcome,source_or_scope_effect,assistance,workaround,execution_status,follow_up',
+ 'observer_events.csv': 'participant_code,condition_id,set_id,task_id,event_timestamp,event_type,observed_action,participant_statement_if_permitted,assistance_category,assistance_detail,issue_id,private_evidence_reference',
+ 'participant_feedback.csv': 'participant_code,condition_id,task_id,question_id,actual_response,voluntary_reuse,publication_permission_reference,recorded_at',
+ 'seeds.csv': 'seed_id,identifier_type,identifier,established_pmid,identity_evidence,development_or_held_out,scope_approval,database_coverage,test_date,limits,lock_timestamp,lock_sha256,query_revision,query_membership,preview_recovery,execution_status,unresolved_reason',
+ 'timings.csv': 'participant_code,condition_id,set_id,task_id,segment_id,segment_type,start_timestamp,end_timestamp,elapsed_seconds,actual_or_observed,completion_status,assistance_seconds,exclusion_reason'}
+DOCUMENTS.update(WORKBENCH_DOCUMENTS)
+
 TRACK_B_FILES = {"src/review/pilot.py", "src/mvp/review_pilot.py", "src/web_api/pilot_routes.py",
                  "src/web_api/pilot_contracts.py", "apps/web/components/review-pilot.tsx"}
 LICENSE_NAME = re.compile(r"(?:LICEN[CS]E|COPYING|COPYRIGHT|NOTICE)(?:\.(?:md|txt|rst))?", re.I)
@@ -83,6 +124,50 @@ def safe_input(root, name):
     if any(re.search(pattern, data) for pattern in SECRET_PATTERNS):
         raise ValueError("Review possible credential or private machine path in: " + name)
     return data
+
+
+def packaged_document(destination, raw):
+    # Only this new guide's two source-relative manual links need the existing
+    # archive alias. Every other documentation byte stays unchanged.
+    if destination == 'question_evidence_user_guide.md':
+        return raw.replace(b'](user_manual.md', b'](USER_MANUAL.md')
+    return raw
+
+
+def validate_workbench_documents(payload):
+    for name, header in BLANK_TEMPLATE_HEADERS.items():
+        raw = payload['question_evidence_evaluation/templates/' + name]
+        rows = list(csv.reader(io.StringIO(raw.decode('utf-8'), newline='')))
+        if rows != [header.split(',')]:
+            raise ValueError('Evaluation templates must contain the exact public header only; no observations may be packaged: ' + name)
+    # Validate local file targets in actual copied Markdown. Ignore links inside
+    # fenced/inline code, external URLs and same-document anchors; do not fetch.
+    for name, raw in payload.items():
+        if not name.endswith('.md'):
+            continue
+        visible, fence = [], None
+        for line in raw.decode('utf-8').splitlines():
+            match = re.match(r'^\s{0,3}(`{3,}|~{3,})', line)
+            if match:
+                token = match.group(1)
+                if fence is None:
+                    fence = token
+                elif token[0] == fence[0] and len(token) >= len(fence):
+                    fence = None
+                continue
+            if fence is None:
+                visible.append(re.sub(r'(`+).*?\1', '', line))
+        for target in re.findall(r'\[[^\]\n]*\]\(([^)\n]+)\)', '\n'.join(visible)):
+            target = target.strip()
+            if target.startswith('<') and target.endswith('>'):
+                target = target[1:-1]
+            parsed = urlsplit(target)
+            if parsed.scheme or parsed.netloc or not parsed.path:
+                continue
+            relative = unquote(parsed.path)
+            resolved = posixpath.normpath(posixpath.join(posixpath.dirname(name), relative))
+            if relative.startswith('/') or resolved == '..' or resolved.startswith('../') or resolved not in payload:
+                raise ValueError('Packaged Markdown link has no retained local target: ' + name + ' -> ' + relative)
 
 
 def git(root, *arguments):
@@ -133,7 +218,8 @@ def build(root, output, *, expected_source_commit=None, allow_working_tree=False
         raise ValueError("Beta package metadata must identify this version and the owner-approved MIT license")
     payload = {name: read(name) for name in sorted(names)}
     for destination, source in DOCUMENTS.items():
-        payload[destination] = read(source)
+        payload[destination] = packaged_document(destination, read(source))
+    validate_workbench_documents(payload)
     code_license_present = payload.get("LICENSE") is not None
     required_notices = sorted(licenses | {"THIRD_PARTY_NOTICES.md"})
     if not allow_working_tree:

@@ -2,6 +2,8 @@
 
 Use the normal application for this guide. Track B's protocol pilot, the legacy CLI and the private desktop prototype are separate. This manual describes the beta.4 source checkpoint; use the exact release's installation guide and VALIDATION.md to identify the downloadable interface and its actual checks. Earlier published downloads remain bound to their own guides. Start with the permitted offline example before entering private research.
 
+For the unreleased question-to-evidence feature branch, use the [task guide](question_evidence_user_guide.md). Its new search-design notes, typed profiles and saved views are not present in the published beta.4 download; their validation is separate.
+
 ## Install on your OS
 
 The source app is setup-required: Python 3.12 (venv/pip), Node 24 and pnpm 10.20.0. macOS 26.6.2 arm64 passed fresh extracted candidate 8cf4379 checks. Windows x64 candidate c27aea0 passed Core/browser and bounded Qwen/MedCPT CPU production-API cases on public abstracts. Observed OS values were `2022Server` / `10.0.26100` on a runner labeled `windows-2025`. Earlier failures stay in VALIDATION.md; the final merged archive still needs its separate external RELEASE_ACCEPTANCE.json after the build. These software demonstrations do not establish research quality. Physical Windows 11 is NOT_RUN. Linux installation, Intel Mac and Windows ARM are unqualified. No public desktop installer is available. Do not disable Gatekeeper/SmartScreen or execute a package that claims those untested capabilities.
