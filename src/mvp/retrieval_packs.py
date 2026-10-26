@@ -91,7 +91,10 @@ def runtime_dependencies():
             incompatible.append(package)
     return {'state': 'needed' if missing or incompatible else 'available', 'missing': missing,
             'incompatible': incompatible, 'check_scope': 'metadata_only_not_execution',
-            'install_hint': 'python3 scripts/local_preview.py setup --with-retrieval'}
+            'distribution': 'desktop' if os.environ.get('LITREV_DESKTOP_RUNTIME_MODE') == 'managed' else 'source',
+            'install_hint': ('Application menu → Install optional research libraries…; restart after the verified capsule is installed.'
+                             if os.environ.get('LITREV_DESKTOP_RUNTIME_MODE') == 'managed'
+                             else 'python3 scripts/local_preview.py setup --with-retrieval')}
 
 
 class PackManager:

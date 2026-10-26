@@ -1,0 +1,22 @@
+{
+  "schema": "litrev.desktop.client-boundary-input.v1",
+  "original_name": "client-only",
+  "original_version": "0.0.1",
+  "package_url": "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz",
+  "locked_resolution": "client-only@0.0.1:\n    resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}",
+  "files": {
+    "index.js": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "error.js": {
+      "bytes": 144,
+      "sha256": "7d211552731db17e1ff8635eea0970ef57ecc91b04b95536b9fa5abbfafaec26"
+    },
+    "package.json": {
+      "bytes": 467,
+      "sha256": "4d6342705767832f299b9a59c28e4275bcf02db19472732f93f67d979441df8f"
+    }
+  },
+  "scope": "Byte-bound removal input only; no claim that missing upstream notice rights were resolved."
+}

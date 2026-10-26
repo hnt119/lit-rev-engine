@@ -1,0 +1,20 @@
+{
+  "schema": "litrev.desktop.optional-runtime-catalog.v1",
+  "targets": {
+    "darwin-arm64": {
+      "archive_bytes": 171140185,
+      "archive_sha256": "736b32b692236427081481793e67556220fb1a8f1b9871addab282a9c4611bb1",
+      "artifact_file": "litrev-retrieval-runtime-darwin-arm64-v2.zip",
+      "availability": "available",
+      "format": "zip",
+      "id": "retrieval-python312-macos-arm64-v2",
+      "label": "Local Qwen/MedCPT Python libraries \u2014 macOS Apple Silicon",
+      "manifest_sha256": "3ba435a6926f42e9bd3bc2917ab7fda16f260951e49ceb93570ea7eec502635d",
+      "python_relative": "python/bin/python3.12"
+    },
+    "win32-x64": {
+      "availability": "unavailable",
+      "reason": "A Windows x64 optional-runtime capsule has not been built and qualified on Windows. Core remains available; optional retrieval is not Ready."
+    }
+  }
+}

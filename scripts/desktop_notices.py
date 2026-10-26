@@ -227,7 +227,29 @@ def _bound_supplement(item, source, bundled, installed, standalone):
             'runtime_files': item['runtime_files'], 'bundled_runtime_files': bundled_files,
             'untraced_reviewed_runtime_files': sorted(set(item['runtime_files']) - set(bundled_files)), 'parent': parent}
 
-def copy_web_dependency_notices(standalone_root, installed_node_modules, destination, *, supplemental_root=SUPPLEMENTS):
+
+
+def _project_component(bundled, standalone, directory):
+    """Prove a wholly project-authored compatibility component, never relicense upstream."""
+    source=Path(directory).resolve(strict=True)
+    if Path(directory).is_symlink():raise ValueError('Project component source cannot be a symlink')
+    expected={'package.json','index.js','error.js','LICENSE'}
+    inputs={p.relative_to(source).as_posix():p for p in source.rglob('*') if p.is_file()}
+    actual={p.relative_to(bundled.parent).as_posix():p for p in bundled.parent.rglob('*') if p.is_file()}
+    if set(inputs)!=expected or set(actual)!=expected:raise ValueError('Project compatibility component file set changed')
+    metadata=_json(source/'package.json')
+    if metadata.get('name')!='@hnt119/litrev-client-boundary' or metadata.get('version')!='0.1.0' or metadata.get('license')!='MIT':
+        raise ValueError('Unknown project compatibility component identity')
+    engine_license=Path(__file__).resolve().parents[1]/'LICENSE'
+    if (source/'LICENSE').read_bytes()!=engine_license.read_bytes():raise ValueError('Project component must retain the existing engine license')
+    hashes={}
+    for name,path in inputs.items():
+        if path.is_symlink() or actual[name].is_symlink() or actual[name].read_bytes()!=path.read_bytes():
+            raise ValueError('Project compatibility component differs from its reviewed source')
+        hashes[name]=sha256(path.read_bytes()).hexdigest()
+    return metadata,hashes,(source/'LICENSE').read_bytes()
+
+def copy_web_dependency_notices(standalone_root, installed_node_modules, destination, *, supplemental_root=SUPPLEMENTS, project_component_root=None):
     """Copy notices from exact installed counterparts of traced package JSONs.
 
     Inputs are read-only. ``destination`` must be fresh and outside both input
@@ -264,6 +286,18 @@ def copy_web_dependency_notices(standalone_root, installed_node_modules, destina
             continue
         if not metadata.get('name'):
             skipped.append(relative.as_posix())
+            continue
+        if metadata['name']=='@hnt119/litrev-client-boundary':
+            component_root=project_component_root or Path(__file__).resolve().parents[1]/'apps/desktop/client-boundary'
+            own,hashes,raw=_project_component(bundled,standalone,component_root)
+            h=sha256(raw).hexdigest();output='notices/'+h+'-ENGINE-MIT.txt'
+            if output not in notices:
+                notices[output]=raw;total+=len(raw)
+            packages.append({'bundled_package_json':relative.as_posix(),'name':own['name'],'version':own['version'],
+                'declared_license':'MIT','notice_status':'retained_project_owned_compatibility_component',
+                'notice_files':[{'file':output,'bytes':len(raw),'sha256':h,'kind':'project_engine_license'}],
+                'project_owned_source':{'path':'apps/desktop/client-boundary','files_sha256':hashes,
+                    'scope':'Independently authored marker compatibility module; not a license or attribution for removed upstream client-only bytes.'}})
             continue
         counterpart = None
         for index in positions:
@@ -366,7 +400,7 @@ def copy_web_dependency_notices(standalone_root, installed_node_modules, destina
         'INVENTORY.json preserves package declarations, repository/source pointers and notice hashes. '
         'The inventory is overinclusive within included package trees; it does not prove every listed component is linked. '
         'Hash-bound supplements retain distinct published-package, monorepo, dedication and standard-text provenance. '
-        'Client-only attribution and native source obligations remain explicitly blocked; copied notices are not distribution clearance. '
+        'Any retained upstream client-only attribution or native source obligations require explicit review; project-authored replacements do not license removed upstream bytes. Copied notices are not distribution clearance. '
         'Missing notice sources are explicit. Native-library source/redistribution obligations and a complete binary SBOM '
         'must be reviewed before public desktop distribution. The owner engine remains MIT; third-party terms remain separate.\n', encoding='utf-8')
     return inventory

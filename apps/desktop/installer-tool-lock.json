@@ -1,0 +1,12 @@
+{
+  "schema": "litrev.desktop-installer-tools.v1",
+  "makensis": {
+    "version": "3.13",
+    "build_target": "darwin-arm64",
+    "file": "makensis-3.13.arm64_tahoe.bottle.tar.gz",
+    "url": "https://ghcr.io/v2/homebrew/core/makensis/blobs/sha256:e7c507dc02c50a630db44948fc68ff4dea7c2bae64592d96d134952c2624ddc1",
+    "sha256": "e7c507dc02c50a630db44948fc68ff4dea7c2bae64592d96d134952c2624ddc1",
+    "metadata_url": "https://formulae.brew.sh/api/formula/makensis.json",
+    "scope": "Build-time NSIS compiler and stubs only; not application runtime"
+  }
+}

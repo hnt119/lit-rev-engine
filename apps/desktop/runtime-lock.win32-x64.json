@@ -1,0 +1,22 @@
+{
+  "schema": "litrev.desktop-distribution.runtimes.v1",
+  "target": "win32-x64",
+  "electron": {
+    "version": "45.0.0",
+    "file": "electron-v45.0.0-win32-x64.zip",
+    "url": "https://github.com/electron/electron/releases/download/v45.0.0/electron-v45.0.0-win32-x64.zip",
+    "sha256": "ae53887a23bb640369c93dbd38c408a2af5c0deb86f2fa76c6c244cb444b7f47"
+  },
+  "python": {
+    "version": "3.12.15+20261021",
+    "file": "cpython-3.12.15+20261021-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.12.15%2B20261021-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+    "sha256": "aac5d331fc3307343f95928fdbea4583f0d53973d08c7e1d081884fbd229a0e1"
+  },
+  "python_attribution": {
+    "version": "3.12.15+20261021",
+    "file": "cpython-3.12.15+20261021-x86_64-pc-windows-msvc-pgo-full.tar.zst",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.12.15%2B20261021-x86_64-pc-windows-msvc-pgo-full.tar.zst",
+    "sha256": "237531762f296c6daf0fbcf91cab1b13061f35bd390207176e79f3ba10330f01"
+  }
+}

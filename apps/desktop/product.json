@@ -1,0 +1,9 @@
+{
+  "schema": "litrev.desktop.product.v1",
+  "name": "Literature Review Engine",
+  "version": "0.3.0-desktop-beta.1",
+  "app_id": "org.hnt119.litrev.desktop",
+  "data_name": "LiteratureReviewEngineDesktop",
+  "partition": "persist:litrev-desktop",
+  "require_installed_location": true
+}
