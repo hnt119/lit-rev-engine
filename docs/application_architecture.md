@@ -2,7 +2,9 @@
 
 **Scope: the local Track A application.** The public website is a saved, read-only demonstration; it does not connect to your local workspace.
 
-The published download is [source beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4), bound to `d52e5e35c80ef435abaec0c0a6f4ed236cba9356`. This overview was checked against main at `265b291aaf0a2a60ac9aa89862dc531a78207874`. The separate question-to-evidence branch is described only in the development section below; it is in neither that main snapshot nor the beta.4 ZIP. A merge and a release are separate events.
+The setup-required source download is [source beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4), bound to `d52e5e35c80ef435abaec0c0a6f4ed236cba9356`. This overview was checked against main at `265b291aaf0a2a60ac9aa89862dc531a78207874`. The separate question-to-evidence branch is described only in the development section below; it is in neither that main snapshot nor the beta.4 ZIP. A merge and a release are separate events.
+
+The separately published [macOS desktop beta.2](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-desktop-beta.2) bundles the same UI/engine in Electron, source `f1ac1734c829f673ce342174a069fe868dabc786`. Use its [installation and optional-runtime limits](releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md); the detailed source/model description below retains its beta.4 scope.
 
 [Version-matched user guide](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md) · [Documentation index](README.md)
 
@@ -129,7 +131,7 @@ Read the [development guide](https://github.com/hnt119/lit-rev-engine/blob/ec789
 
 - **Legacy/research:** [architecture.md](architecture.md) covers the ReviewStore ledger, Chroma/Agnes exploration and frozen Qwen4B/Kaggle experiments. It is not this downloaded app's active architecture.
 - **Track B:** the protocol-defined review pilot is separate; its screening authority/counts are not active in every Track A workspace.
-- **Desktop:** the same-UI Electron prototype is separate from the public setup-required source download. Native executables and physical-device qualification have separate gates.
+- **Desktop:** the published Apple Silicon beta.2 uses the same UI/engine with bundled Core runtimes. It is ad-hoc signed/unnotarized; Windows native installation and the private optional neural-runtime capsule are not publicly offered. Its qualification is separate from source CI.
 - **Hosting:** existing implementation is preserved but deferred. There is no running hosted backend, cloud vector database or MCP deployment in this application description.
 
 Original code is [MIT-licensed](../LICENSE); [third-party/article/model terms](../THIRD_PARTY_NOTICES.md) remain separate. This overview explains implemented boundaries, not a new performance or scientific validation result.
