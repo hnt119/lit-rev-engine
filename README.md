@@ -1,56 +1,48 @@
 # Literature Review Engine
 
-A local-first research workspace for comparing papers, inspecting exact evidence excerpts and exporting a table you can verify.
+An open-source, local-first workspace for comparing papers and checking the source behind each research note.
 
-<!-- published-release:start -->
-**[Download — source beta 0.3.0-beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4) · [Quick start](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/local_preview.md) · [Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence)**
+## Downloads
 
-[Direct source ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.zip) · [Manifest](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.manifest.json) · [SHA-256 checksums](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.SHA256SUMS) · [Download installation guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md)
-<!-- published-release:end -->
+| Platform | Download | Version / size |
+| --- | --- | --- |
+| macOS · Apple Silicon | **[Download for macOS](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-desktop-beta.2/lit-rev-engine-0.3.0-desktop-beta.2-macos-arm64.dmg)** | Desktop beta.2 · 169.6 MB |
+| Windows · x64 | Windows installer not yet published | [Source setup](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/windows_source.md) |
 
-**[User guide · beta.4](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md) · [Architecture & model roles](docs/application_architecture.md)**
+**Windows x64 one-click installer is in development.** An unsigned private `Setup.exe` candidate exists, but installed-Windows testing and redistribution/trust checks are not complete. [Track Windows installer progress](https://github.com/hnt119/lit-rev-engine/issues/18). Until a verified public installer is released, use the setup-required source option above.
 
-**Setup required; not a standalone installer.** The demo is a guided walkthrough using saved public data, without live search or model calls. Beta.4 remains the newest verified published download.
+[Getting started](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md) · [User guide](docs/user_manual.md) · [Demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Release notes](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-desktop-beta.2) · [Architecture](docs/application_architecture.md)
+
+**Mac: UNNOTARIZED beta, ad-hoc signed; no Apple Developer ID signature.** Read the [official per-app opening instructions](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md#install-and-open). A damaged-app or malware warning requires investigation.
+
+Mac Desktop Beta **0.3.0-desktop-beta.2**, released **27 October 2026**, bundles Core runtimes. Try the saved example without installing Python/Node, opening Terminal, downloading models or entering a key.
+
+## What you can do
+
+- **Add papers:** import references or explicitly search PubMed; prepare available full text or abstracts.
+- **Compare evidence:** organize reports by your questions, with excerpts beside your comments.
+- **Check sources:** inspect exact quotation ranges and source versions; keep partial context and missing information visible.
+- **Keep your work:** save drafts, explicitly submit or revise entries, export CSV/JSON and reopen locally.
 
 ## Start locally
 
-Install **Python 3.12, Node.js 24 and pnpm 10.20.0**. In the release page’s **Assets**, download the purpose-built ZIP and matching manifest/checksums, verify them, then extract it. GitHub's automatic source archive is not the tested distribution.
-
-| Platform | Setup and validation scope |
-| --- | --- |
-| macOS Apple Silicon | [Installation guide](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/local_preview.md); source-app workflow tested |
-| Windows x64 | [Windows setup guide](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/windows_source.md); Core and bounded Qwen/MedCPT CPU workflows tested on CI |
-
-On **macOS**, run inside the extracted folder:
-
-```sh
-python3.12 scripts/local_preview.py setup
-python3.12 scripts/local_preview.py launch
-```
-
-Windows uses the guide's isolated bootstrap commands. Setup installs dependencies and builds the production interface; it does not search or download models. Launch opens the browser after readiness checks. Keep the terminal open; Ctrl-C stops it.
-
-Linux installation is unverified; Intel Mac and Windows ARM are unqualified. Physical Windows 11 is **NOT_RUN**. No native executable is publicly available. See the release's [validation record](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/VALIDATION.md) for the exact scope.
+Drag the Mac app to Applications, eject the DMG and open the installed copy. Start with **Try the saved example**. The [installation guide](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md) covers approval and recovery; the [validation record](docs/releases/v0.3.0-desktop-beta.2/VALIDATION.md) states actual checks and remaining limits.
 
 ## Review an entry
 
-Start with **Saved example · offline** and its 30 public papers, or search/import references. Select reports and choose **Prepare & compare**. Source labels distinguish full text, abstract only and unavailable material.
+### Your first comparison
 
-**Open a cell → find an excerpt → inspect its source → use the excerpt → comment and judge → save.**
+**Add papers → Prepare → Select an excerpt → Comment → Save/export.**
 
-The excerpt stays beside your comment in the comparison editor. Reopen saved entries through explicit revisions, then export CSV/JSON. Draft notes remain separate from submitted entries. Missing information can remain unresolved; an empty candidate list does not prove whole-paper absence. A preview or board selection is not formal review inclusion.
+Open a comparison cell, read its source, then choose **I have read this excerpt — use it**. Write your interpretation and use **Review entry before saving → Save reviewed entry**. **Draft: saved** is separate from a submitted entry. [Follow the complete walkthrough](docs/user_manual.md#select-an-excerpt-comment-and-save).
+
+## How RAG fits into the workflow
+
+In a **Retrieval-Augmented Generation (RAG)** workflow, retrieval finds candidate passages in your selected, versioned sources; Core BM25/lexical retrieval needs no LLM. Optional generation proposes text from bounded evidence for human review. Relevance or an exact citation does not prove scientific support: inspection, attachment, judgments and saving remain explicit.
 
 ## Choose retrieval in the same app
 
-| Choice | Components |
-| --- | --- |
-| **Core lexical** | Default BM25 / versioned lexical spans; no neural model or generation key |
-| **Qwen hybrid** | BM25 + Qwen3-Embedding-0.6B + Qwen3-Reranker-0.6B |
-| **Biomedical/MedCPT hybrid** | BM25 + MedCPT Query/Article Encoders + Cross Encoder |
-
-Use **Research & AI Settings → Evidence retrieval**. Optional packs require explicit dependency installation, model download, runtime checks and source indexing. Both can coexist; existing boards retain their pinned profiles until an explicit revision. Neural profiles are experimental, with no established superiority over BM25.
-
-Optional **BGE paper maps** are separate from passage retrieval. Optional **local/OpenAI/DeepSeek generation** proposes search plans or cell values for review. Core manual research needs neither.
+Core desktop research works without neural models. Qwen/MedCPT profiles remain optional and experimental; **desktop beta.2 does not bundle neural libraries or weights, and its matching library capsule is not publicly offered**. BGE paper maps and optional local/OpenAI/DeepSeek generation are separate features, with separate setup and consent. See [desktop limits](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md#first-useful-comparison), [source capabilities](docs/local_beta_capabilities.md) and [model configuration](docs/application_architecture.md).
 
 ## Under the hood
 
@@ -60,16 +52,29 @@ flowchart TB
     R --> H["Human comparison<br/>Source-linked exports"]
 ```
 
-The local stack is **Next.js/React → FastAPI → Python services**, with private SQLite state. [Full architecture and provider boundaries](docs/application_architecture.md).
+The same Next.js/React → FastAPI → Python engine uses private SQLite storage. [Full architecture and model roles](docs/application_architecture.md).
+
+<details>
+<summary>Advanced: source beta.4 — setup required</summary>
+
+<!-- published-release:start -->
+**[Download — source beta 0.3.0-beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4) · [Quick start](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/local_preview.md) · [Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence)**
+
+[Direct source ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.zip) · [Manifest](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.manifest.json) · [SHA-256 checksums](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.SHA256SUMS) · [Download installation guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md)
+<!-- published-release:end -->
+
+Source beta.4 needs Python 3.12, Node.js 24 and pnpm 10.20.0. It is separate from the Mac app. [All releases](https://github.com/hnt119/lit-rev-engine/releases).
+
+</details>
 
 ## Help, privacy and status
 
-Research lives outside replaceable application files. Explicit searches transmit queries/contact details; optional cloud AI transmits disclosed input and may incur charges. Settings-entered keys are session-scoped; non-secret preferences persist. Cookie loss/expiry can lose workspace access: read [reopening, backups and recovery limits](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md#export-back-up-and-replace-the-app).
+Research stays outside application files. Explicit searches and optional cloud AI transmit disclosed inputs; cloud calls may cost money. Keys are session-scoped. Read [backup and access-recovery limits](docs/user_manual.md#export-back-up-and-replace-the-app).
 
-[Documentation index](docs/README.md) · [Report an issue](https://github.com/hnt119/lit-rev-engine/issues) · [MIT license](LICENSE) · [Third-party/article/model terms](THIRD_PARTY_NOTICES.md)
+[MIT](LICENSE) covers original engine code; dependencies, articles and models retain [their own terms](THIRD_PARTY_NOTICES.md). The demo is saved and read-only. Development commits do not update published downloads.
 
-The question-to-evidence workbench is separate development work, absent from beta.4 and current main. A main merge does not update a published ZIP.
+[Help / issues](https://github.com/hnt119/lit-rev-engine/issues) · [Documentation](docs/README.md) · [Product design](product_design.md) · [Repository agent guide](AGENTS.md)
 
 <a id="requirements-and-installation"></a>
 <a id="update-main-and-contribute"></a>
-Older installation/contribution links continue in the [legacy CLI guide](docs/legacy-cli-and-history.md#requirements-and-installation).
+[Earlier installation and contribution guide](docs/legacy-cli-and-history.md#requirements-and-installation).
