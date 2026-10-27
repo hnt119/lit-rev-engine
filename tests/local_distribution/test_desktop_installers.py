@@ -177,3 +177,27 @@ def test_windows_python_notice_projection_matches_actual_sbom_contract(tmp_path,
     bom,review=collect_payload(resources,'a'*40,'win32-x64')
     components=review['upstream_component_review']['python_runtime_components']
     assert any(part['name']=='CPython' and part['version']=='3.12.15' for part in components)
+
+
+def test_notices_bind_before_materialization_and_retained_paths_remain_exact(tmp_path):
+    import inspect
+    from scripts.desktop_notices import copy_web_dependency_notices
+    source=inspect.getsource(native.assemble_windows)
+    assert source.index('notices=copy_web_dependency_notices')<source.index('materialized=materialize_verified_web')
+    web=tmp_path/'web';installed=tmp_path/'installed';out=tmp_path/'notices'
+    package=web/'node_modules/.pnpm/fixture@1.0.0/node_modules/fixture';package.mkdir(parents=True)
+    original=installed/'.pnpm/fixture@1.0.0/node_modules/fixture';original.mkdir(parents=True)
+    raw=json.dumps({'name':'fixture','version':'1.0.0','license':'MIT'})
+    for root in (package,original):
+        (root/'package.json').write_text(raw);(root/'index.js').write_text('Reviewed exact runtime module')
+    (original/'LICENSE').write_text('Synthetic fixture notice')
+    (web/'node_modules/fixture').symlink_to('.pnpm/fixture@1.0.0/node_modules/fixture',target_is_directory=True)
+    (installed/'fixture').symlink_to('.pnpm/fixture@1.0.0/node_modules/fixture',target_is_directory=True)
+    notices=copy_web_dependency_notices(web,installed,out)
+    before={p.relative_to(web).as_posix():base.digest(p.read_bytes()) for p in web.rglob('*') if p.is_file() and not p.is_symlink()}
+    native.materialize_verified_web(web)
+    assert all((web/name).is_file() and base.digest((web/name).read_bytes())==sha for name,sha in before.items())
+    assert (web/'node_modules/fixture/index.js').is_file() and not (web/'node_modules/fixture').is_symlink()
+    for entry in notices['packages']:
+        assert (web/entry['bundled_package_json']).is_file()
+        for note in entry['notice_files']:assert base.digest((out/note['file']).read_bytes())==note['sha256']

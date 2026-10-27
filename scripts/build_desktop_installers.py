@@ -183,10 +183,13 @@ def assemble_windows(args):
     base.portable_web_build(resources/'web',unoptimized_images=True)
     omitted=base.prune_unused_image_optimizer(resources/'web')
     boundary=base.replace_client_boundary(resources/'web')
+    # Prove strict parent/dependency relationships while the source trace still
+    # has its verified aliases. Materialization retains every original path and
+    # byte and only adds regular copies for Windows's unprivileged runtime.
+    notices=copy_web_dependency_notices(resources/'web',ROOT/'apps/web/node_modules',resources/'WEB_DEPENDENCY_NOTICES')
     materialized=materialize_verified_web(resources/'web')
     # No foreign native code may hide in a cross-built JS server tree.
     for file in (resources/'web').rglob('*.node'):require_windows_pe(file)
-    notices=copy_web_dependency_notices(resources/'web',ROOT/'apps/web/node_modules',resources/'WEB_DEPENDENCY_NOTICES')
     metadata={'schema':'litrev.desktop-distribution.release.v1','version':value['version'],'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'target':'win32-x64','platform':'Windows 11 x64; execution NOT_RUN','core_runtimes_bundled':True,'runtimes':lock,'node_execution':'Electron utilityProcess bundled Node','python_execution':'resources/python/python.exe','signature':'unsigned private candidate; no Authenticode credentials','installed_execution':'NOT_RUN','public_distribution':'not qualified or authorized','data_root':'LOCALAPPDATA/LiteratureReviewEngineDesktop; separate from browser beta and Preview','web_dependency_notice_inventory':{'packages':len(notices['packages']),'notice_files':notices['unique_notice_files'],'missing_notice_sources':notices['missing_notice_sources']},'unused_image_optimizer':{'disabled':True,'omitted_files':omitted},'project_client_boundary':boundary,'web_build_binding':binding,'windows_web_materialization':materialized,'omitted_build_entrypoints':omitted_entrypoints}
     sdk=args.nsis_dir.resolve()
     notices_dir=resources/'INSTALLER_NOTICES';notices_dir.mkdir()
