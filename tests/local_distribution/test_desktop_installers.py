@@ -143,3 +143,37 @@ def test_missing_required_traced_entry_or_metadata_is_rejected(tmp_path,names):
     web=tmp_path/'web';traced=web/'node_modules/client-only';traced.mkdir(parents=True)
     for name in names:shutil.copy2(original/name,traced/name)
     with pytest.raises(ValueError,match='removal input'):base.replace_client_boundary(web)
+
+
+def test_only_known_windows_console_and_pywin32_test_entrypoints_are_removed(tmp_path):
+    resources=tmp_path/'resources';console=resources/'python/Lib/site-packages/bin';console.mkdir(parents=True)
+    names=['fastapi','uvicorn','idna','pywin32_postinstall','pywin32_postinstall.py','pywin32_testall','pywin32_testall.py']
+    for name in names:(console/name).write_bytes(('Reviewed wheel-generated '+name).encode())
+    runtime=console.parent/'pywin32_bootstrap.py';runtime.write_text('Wheel-local runtime bootstrap retained')
+    removed=native.prune_windows_build_entrypoints(resources)
+    assert set(removed)=={'python/Lib/site-packages/bin/'+name for name in names}
+    assert all(len(record['sha256'])==64 and record['bytes']>0 for record in removed.values())
+    assert runtime.exists() and not console.exists()
+    console.mkdir();(console/'unknown-command').write_text('Reject unreviewed launcher')
+    with pytest.raises(ValueError,match='Unexpected'):native.prune_windows_build_entrypoints(resources)
+    assert (console/'unknown-command').exists()
+
+
+def test_windows_python_notice_projection_matches_actual_sbom_contract(tmp_path,monkeypatch):
+    import tarfile
+    from scripts.desktop_sbom import collect_payload
+    source=tmp_path/'upstream/python';(source/'licenses').mkdir(parents=True)
+    (source/'licenses/LICENSE.cpython.txt').write_text('Synthetic fixture notice; not upstream license text')
+    data={'version':'8','target_triple':'x86_64-pc-windows-msvc','python_version':'3.12.15','build_options':'pgo','licenses':['Python-2.0'],'license_path':'licenses/LICENSE.cpython.txt',
+        'build_info':{'extensions':{'_ssl':[{'licenses':['Apache-2.0'],'license_paths':['licenses/LICENSE.cpython.txt'],'links':[{'name':'ssl','system':False}]}]}}}
+    raw=json.dumps(data).encode();(source/'PYTHON.json').write_bytes(raw)
+    archive=tmp_path/'synthetic-attribution.tar.gz'
+    with tarfile.open(archive,'w:gz') as bundle:bundle.add(source,arcname='python')
+    monkeypatch.setattr(base,'verify_runtime',lambda cache,spec:archive)
+    resources=tmp_path/'payload/resources';(resources/'python').mkdir(parents=True)
+    native.windows_notices(resources,tmp_path,{'python_attribution':{'file':archive.name,'sha256':base.digest(archive.read_bytes())}})
+    value=json.loads((resources/'python/UPSTREAM_LICENSES/PYTHON_LICENSE_PROVENANCE.json').read_text())
+    assert value['schema']=='litrev.python-runtime-license-provenance.v1' and value['upstream_metadata_sha256']==base.digest(raw)
+    bom,review=collect_payload(resources,'a'*40,'win32-x64')
+    components=review['upstream_component_review']['python_runtime_components']
+    assert any(part['name']=='CPython' and part['version']=='3.12.15' for part in components)

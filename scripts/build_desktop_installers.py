@@ -91,12 +91,12 @@ def windows_notices(resources,cache,lock):
     archive=base.verify_runtime(cache,lock['python_attribution'])
     with tempfile.TemporaryDirectory(prefix='litrev-win-python-notices-') as temporary:
         base.run(['/usr/bin/tar','-xf',archive,'-C',temporary,'python/PYTHON.json','python/licenses'])
-        source=Path(temporary)/'python';metadata=json.loads((source/'PYTHON.json').read_text())
+        source=Path(temporary)/'python';raw=(source/'PYTHON.json').read_bytes();metadata=json.loads(raw)
         if metadata['target_triple']!='x86_64-pc-windows-msvc' or metadata['python_version']!='3.12.15':raise ValueError('Wrong Windows Python notice target.')
         target=resources/'python/UPSTREAM_LICENSES';shutil.copytree(source/'licenses',target/'licenses')
         retained={p.name:digest(p.read_bytes()) for p in (target/'licenses').iterdir()}
         projection={k:metadata[k] for k in ('version','target_triple','python_version','build_options','licenses','license_path')}
-        projection.update(upstream_archive=lock['python_attribution'],retained_notice_files=retained,
+        projection.update(schema='litrev.python-runtime-license-provenance.v1',upstream_archive=lock['python_attribution'],upstream_metadata_sha256=digest(raw),retained_notice_files=retained,
             extensions={name:[{key:part[key] for key in ('licenses','license_paths','license_public_domain','links') if key in part} for part in variants] for name,variants in metadata['build_info']['extensions'].items()})
         (target/'PYTHON_LICENSE_PROVENANCE.json').write_bytes(json_bytes(projection))
 
@@ -123,6 +123,23 @@ def materialize_verified_web(web):
     copy(web,destination,set())
     shutil.rmtree(web);destination.rename(web)
     return {'files':count,'bytes':total,'symlinks_materialized':True}
+
+
+def prune_windows_build_entrypoints(resources):
+    """Remove only named build-generated launchers/tests, retaining byte proof.
+
+    pywin32 post-install is deliberately never executed or registered globally;
+    core imports use its wheel-local bootstrap and DLLs. Runtime modules remain.
+    """
+    console=resources/'python/Lib/site-packages/bin'
+    if not console.exists():return {}
+    expected={'fastapi','uvicorn','idna','pywin32_postinstall','pywin32_postinstall.py','pywin32_testall','pywin32_testall.py'}
+    files=list(console.iterdir())
+    if any(p.name not in expected or p.is_symlink() or not p.is_file() for p in files):
+        raise ValueError('Unexpected cross-target console entry point.')
+    removed={p.relative_to(resources).as_posix():{'bytes':p.stat().st_size,'sha256':digest(p.read_bytes())} for p in files}
+    shutil.rmtree(console)
+    return removed
 
 
 def assemble_windows(args):
@@ -157,10 +174,7 @@ def assemble_windows(args):
     command=[args.build_python,'-m','pip','install','--disable-pip-version-check','--no-input','--no-compile','--only-binary=:all:','--platform','win_amd64','--python-version','3.12','--implementation','cp','--abi','cp312','--target',resources/'python/Lib/site-packages','--report',out/'windows-wheel-install-report.json','-r',ROOT/'requirements-hosted.txt','pywin32==312']
     env={k:v for k,v in os.environ.items() if k in ('HOME','PATH','TMPDIR','LANG','LC_ALL','LC_CTYPE','SSL_CERT_FILE','PIP_CERT')};env.update(PYTHONNOUSERSITE='1',PYTHONDONTWRITEBYTECODE='1')
     base.run(command,env=env)
-    console=resources/'python/Lib/site-packages/bin'
-    if console.exists():
-        if {file.name for file in console.iterdir()}-{'fastapi','uvicorn','idna'}:raise ValueError('Unexpected cross-target console entry point.')
-        shutil.rmtree(console)
+    omitted_entrypoints=prune_windows_build_entrypoints(resources)
     windows_notices(resources,args.runtime_cache,lock)
     require_windows_pe(resources/'python/python.exe')
     base.copy_standalone(standalone,resources/'web');web=resources/'web/apps/web'
@@ -173,7 +187,7 @@ def assemble_windows(args):
     # No foreign native code may hide in a cross-built JS server tree.
     for file in (resources/'web').rglob('*.node'):require_windows_pe(file)
     notices=copy_web_dependency_notices(resources/'web',ROOT/'apps/web/node_modules',resources/'WEB_DEPENDENCY_NOTICES')
-    metadata={'schema':'litrev.desktop-distribution.release.v1','version':value['version'],'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'target':'win32-x64','platform':'Windows 11 x64; execution NOT_RUN','core_runtimes_bundled':True,'runtimes':lock,'node_execution':'Electron utilityProcess bundled Node','python_execution':'resources/python/python.exe','signature':'unsigned private candidate; no Authenticode credentials','installed_execution':'NOT_RUN','public_distribution':'not qualified or authorized','data_root':'LOCALAPPDATA/LiteratureReviewEngineDesktop; separate from browser beta and Preview','web_dependency_notice_inventory':{'packages':len(notices['packages']),'notice_files':notices['unique_notice_files'],'missing_notice_sources':notices['missing_notice_sources']},'unused_image_optimizer':{'disabled':True,'omitted_files':omitted},'project_client_boundary':boundary,'web_build_binding':binding,'windows_web_materialization':materialized}
+    metadata={'schema':'litrev.desktop-distribution.release.v1','version':value['version'],'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'target':'win32-x64','platform':'Windows 11 x64; execution NOT_RUN','core_runtimes_bundled':True,'runtimes':lock,'node_execution':'Electron utilityProcess bundled Node','python_execution':'resources/python/python.exe','signature':'unsigned private candidate; no Authenticode credentials','installed_execution':'NOT_RUN','public_distribution':'not qualified or authorized','data_root':'LOCALAPPDATA/LiteratureReviewEngineDesktop; separate from browser beta and Preview','web_dependency_notice_inventory':{'packages':len(notices['packages']),'notice_files':notices['unique_notice_files'],'missing_notice_sources':notices['missing_notice_sources']},'unused_image_optimizer':{'disabled':True,'omitted_files':omitted},'project_client_boundary':boundary,'web_build_binding':binding,'windows_web_materialization':materialized,'omitted_build_entrypoints':omitted_entrypoints}
     sdk=args.nsis_dir.resolve()
     notices_dir=resources/'INSTALLER_NOTICES';notices_dir.mkdir()
     shutil.copy2(sdk/'COPYING',notices_dir/'NSIS-3.13-COPYING.txt')
