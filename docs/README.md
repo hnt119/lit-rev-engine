@@ -1,6 +1,8 @@
 # Documentation
 
-Start with the published **[source beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4)** and the **[practical user manual](user_manual.md)**. The revised manual explains that unchanged release; it does not replace or rebuild its ZIP. Immutable release guides remain available below; development material has its own scope. The [saved public demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) is read-only and makes no live search/model calls.
+Start with the **[macOS desktop beta.2](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-desktop-beta.2)** ([installation](releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md), [qualification](releases/v0.3.0-desktop-beta.2/VALIDATION.md)). It bundles Core runtimes and is ad-hoc signed/unnotarized. Windows native installation is unavailable; the optional native neural-library capsule is not public.
+
+For the separate setup-required distribution, use **[source beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4)** and the **[practical user manual](user_manual.md)**. The revised manual explains that unchanged release; it does not replace or rebuild its ZIP. Immutable release guides remain available below; development material has its own scope. The [saved public demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) is read-only and makes no live search/model calls.
 
 ## Use the published application
 
@@ -13,7 +15,7 @@ Start with the published **[source beta.4](https://github.com/hnt119/lit-rev-eng
 | Reopen, troubleshoot or protect research | [Start/stop/reopen](user_manual.md#start-stop-and-reopen) · [Exports, backups and recovery limits](user_manual.md#export-back-up-and-replace-the-app) · [Troubleshooting](user_manual.md#troubleshoot-a-task) · [Report an issue](https://github.com/hnt119/lit-rev-engine/issues) |
 | Understand the stack and model roles | [Application architecture](application_architecture.md) |
 
-The download requires setup: macOS Apple Silicon tested; Windows x64 source workflows tested on CI. Physical Windows 11 is NOT_RUN; Linux installation is unverified, Intel Mac/Windows ARM unqualified. No public native executable. The release's [validation record](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/VALIDATION.md) states exact software/model scope, not scientific usefulness.
+The **source beta.4** download requires setup: macOS Apple Silicon tested; Windows x64 source workflows tested on CI. Physical Windows 11 is NOT_RUN; Linux installation is unverified, Intel Mac/Windows ARM unqualified. The public Mac native successor has the separate version-bound installation/qualification guides above; source CI is not native qualification. The release's [validation record](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/VALIDATION.md) states exact software/model scope, not scientific usefulness.
 
 ## Current source and development/reference
 
@@ -25,6 +27,6 @@ The download requires setup: macOS Apple Silicon tested; Windows x64 source work
 - [Software/model validation](source_beta4_validation.md), [hybrid execution evidence and limits](hybrid_validation.md), [scientific retrieval evaluation](evidence-evaluation.md). These are distinct reports with their own scopes.
 - **Feature branch only, absent from beta.4 and inspected main:** [question-to-evidence user guide](https://github.com/hnt119/lit-rev-engine/blob/ec7897f82005eba924475848164782848d8a1708/docs/question_evidence_user_guide.md) and [Windows Core evidence](https://github.com/hnt119/lit-rev-engine/blob/ec7897f82005eba924475848164782848d8a1708/docs/question_evidence_windows_validation.md). A main merge and a release are separate events.
 - **Legacy/research paths:** [ledger/CLI architecture](architecture.md), [research starter guide](getting-started.md), [PubMed complete-capture contract](pubmed-search.md), [archived CLI/install/contribution history](legacy-cli-and-history.md). These do not replace the current application guide.
-- **Separate/deferred distributions:** [private desktop prototype](desktop_preview.md) and [deferred hosted implementation](deployment.md); neither is the public source download or an active hosting claim.
+- **Other distribution history:** [earlier private desktop prototype](desktop_preview.md) and [deferred hosted implementation](deployment.md). The public Mac desktop successor is linked above; hosting remains deferred.
 
 [MIT license](../LICENSE) · [Third-party, article and model notices](../THIRD_PARTY_NOTICES.md) · [Repository entry point](../README.md)
