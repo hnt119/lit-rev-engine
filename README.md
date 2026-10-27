@@ -36,7 +36,7 @@ Open a comparison cell, read its source, then choose **I have read this excerpt 
 
 ## How RAG fits into the workflow
 
-**Retrieval-Augmented Generation (RAG)** finds candidate passages in your selected, versioned sources; Core BM25/lexical retrieval needs no LLM. Optional generation proposes text from bounded evidence for human review. Relevance or an exact citation does not prove scientific support: inspection, attachment, judgments and saving remain explicit.
+In a **Retrieval-Augmented Generation (RAG)** workflow, retrieval finds candidate passages in your selected, versioned sources; Core BM25/lexical retrieval needs no LLM. Optional generation proposes text from bounded evidence for human review. Relevance or an exact citation does not prove scientific support: inspection, attachment, judgments and saving remain explicit.
 
 ## Choose retrieval in the same app
 
