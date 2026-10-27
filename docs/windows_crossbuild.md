@@ -25,7 +25,9 @@ Qwen/MedCPT libraries and model weights are not bundled. A Windows optional neur
 
 These are source/configuration and package-policy observations. Start menu launch, actual saves, shutdown, reinstall and uninstall behavior on Windows remain **NOT_RUN**.
 
-The retained pywin32 wheel also contains GUI, MAPI and debugger extensions outside the explicit Core required-runtime import subset. Static inspection found unresolved MFC/C++ runtime imports in those extra modules and a debugger sibling-module lookup; this does not prove the modules are unreachable. They are not silently classified as Windows OS files or fixed by removing libraries. The packet reports declared Python dependency closure and the complete bundled native-library audit separately; a full-wheel audit with unresolved imports is not labeled passed.
+The Windows Core packaging policy omits only three reviewed optional pywin32 directories: `pythonwin`, `win32comext/mapi` and `win32comext/axdebug`. These provide Pythonwin/DDE/MFC user interfaces, Outlook/Exchange MAPI integration and ActiveScript debugging. The actual application uses none of these interfaces. Its pywin32 security, ACL, file/lock, named-pipe, process/job and native-export dependencies, loader/bootstrap, metadata and licenses remain bundled.
+
+The build verifies a pinned file/hash policy and wheel RECORD before removing anything, and records each omitted file in build metadata. The static audit checks the receipt, protected files, application imports and **all retained PE imports**. It does not waive MFC/MSVCP warnings by calling them operating-system DLLs. Some retained third-party pywin32 demos/helpers refer to the omitted APIs; this is a Core-specific subset, not a complete pywin32 developer installation. Arbitrarily constructed dynamic imports and Windows loader behavior remain untested.
 
 ## Build and integrity review
 
@@ -38,6 +40,8 @@ Build from an exact clean committed source, using the existing locked build-time
 5. Generate the final file manifest, SBOM/native inventory, source/build provenance, SHA256SUMS, installation guide and release notes outside the source checkout. The exact source SHA, installer bytes/hash, commands and results belong in that artifact packet.
 
 Original engine code is MIT. Electron/Chromium/Node, Python, NSIS, Python wheels, FFmpeg and Microsoft runtime files retain their own terms. Windows-specific notices and exact binary/source bindings must accompany this target; Mac qualification does not satisfy them. The packet distinguishes retained notices/corresponding source from any unresolved owner redistribution permission. An SBOM or successful build is not legal certification.
+
+The [Microsoft redistribution review](windows_redistribution_review.md) identifies the exact conditional grants, required accompanying material and unresolved owner decisions. Retaining the upstream terms does not itself establish distributor/end-user agreement. A candidate with unresolved conditions stays private; a successful static dependency check does not remove that publication gate.
 
 ## Disclosed test scope
 

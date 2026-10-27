@@ -6,8 +6,12 @@ is added. PASS is package/configuration evidence, never Windows qualification.
 """
 from __future__ import annotations
 import argparse
+import ast
+import base64
+import csv
 from email.parser import BytesParser
 import hashlib
+import io
 import json
 from pathlib import Path, PurePosixPath
 import re
@@ -22,7 +26,11 @@ API_SET = re.compile(r'(?:api|ext)-ms-win-[a-z0-9-]+\.dll\Z')
 AUXILIARY = {f'resources/python/Lib/site-packages/pip/_vendor/distlib/{name}.exe': machine
              for name, machine in [('t32', 0x14c), ('w32', 0x14c), ('t64', 0x8664), ('w64', 0x8664), ('t64-arm', 0xaa64), ('w64-arm', 0xaa64)]}
 CORE_FILES = ('resources/python/python.exe', 'resources/python/python312.dll',
+    'resources/python/vcruntime140.dll', 'resources/python/vcruntime140_1.dll',
     'resources/python/Lib/site-packages/pywin32.pth',
+    'resources/python/Lib/site-packages/pythoncom.py',
+    'resources/python/Lib/site-packages/win32/_win32sysloader.pyd',
+    'resources/python/Lib/site-packages/win32/lib/pywintypes.py',
     'resources/python/Lib/site-packages/win32/lib/pywin32_bootstrap.py',
     'resources/python/Lib/site-packages/pywin32_system32/pywintypes312.dll',
     'resources/python/Lib/site-packages/pywin32_system32/pythoncom312.dll',
@@ -37,6 +45,17 @@ CORE_FILES = ('resources/python/python.exe', 'resources/python/python312.dll',
     'resources/python/Lib/site-packages/win32/lib/ntsecuritycon.py',
     'resources/engine/scripts/desktop_backend.py', 'resources/web/apps/web/server.js',
     'resources/web/apps/web/.next/BUILD_ID')
+EXCLUDED_PYTHON_APIS = ('pywin', 'win32ui', 'win32uiole', 'dde',
+    'win32com.mapi', 'win32com.axdebug', 'win32comext.mapi', 'win32comext.axdebug')
+SUBSET_POLICY = Path('apps/desktop/windows-core-pruning.json')
+SUBSET_RECEIPT = 'resources/WINDOWS_PYWIN32_SUBSET.json'
+PACKAGED_SUBSET_POLICY = 'resources/WINDOWS_PYWIN32_POLICY.json'
+OPTIONAL_DIRECTORIES = ('resources/python/Lib/site-packages/pythonwin',
+    'resources/python/Lib/site-packages/win32comext/mapi',
+    'resources/python/Lib/site-packages/win32comext/axdebug')
+PYWIN32_RECORD = 'resources/python/Lib/site-packages/pywin32-312.dist-info/RECORD'
+REMOVED_PYWIN32_ENTRYPOINTS = ('../../bin/pywin32_postinstall', '../../bin/pywin32_postinstall.py',
+    '../../bin/pywin32_testall', '../../bin/pywin32_testall.py')
 
 
 def sha(path):
@@ -49,6 +68,178 @@ def sha(path):
 def ordinary(path):
     if path.is_symlink() or not path.is_file(): raise ValueError('Expected ordinary file: ' + path.name)
     return path
+
+
+def source_import_guard(engine):
+    """Reject direct/literal application imports of intentionally omitted APIs.
+
+    This scans shipped application source, not every optional third-party demo.
+    It is not a proof about arbitrary dynamically constructed module names.
+    """
+    scanned = 0
+    def forbidden(name):
+        return any(name == prefix or name.startswith(prefix + '.') for prefix in EXCLUDED_PYTHON_APIS)
+    for directory in ('src', 'scripts'):
+        root = engine / directory
+        if not root.is_dir(): raise ValueError('Missing packaged application source: ' + directory)
+        for path in sorted(root.rglob('*.py')):
+            ordinary(path); scanned += 1
+            try: tree = ast.parse(path.read_text(encoding='utf-8-sig'))
+            except (SyntaxError, UnicodeError) as error: raise ValueError('Cannot inspect application imports: ' + path.relative_to(engine).as_posix()) from error
+            literal_import_calls = {'__import__', 'import_module'}
+            for node in ast.walk(tree):
+                if isinstance(node, ast.ImportFrom) and node.level == 0 and node.module == 'importlib':
+                    literal_import_calls.update(item.asname or item.name for item in node.names if item.name == 'import_module')
+            for node in ast.walk(tree):
+                names = []
+                if isinstance(node, ast.Import): names = [item.name for item in node.names]
+                elif isinstance(node, ast.ImportFrom) and node.level == 0 and node.module:
+                    names = [node.module, *(node.module + '.' + item.name for item in node.names)]
+                elif isinstance(node, ast.Call) and node.args and isinstance(node.args[0], ast.Constant) and isinstance(node.args[0].value, str):
+                    call = node.func
+                    if (isinstance(call, ast.Name) and call.id in literal_import_calls) or (isinstance(call, ast.Attribute) and call.attr == 'import_module'):
+                        names = [node.args[0].value]
+                if any(forbidden(name) for name in names):
+                    raise ValueError('Application imports omitted optional API: ' + path.relative_to(engine).as_posix() + ':' + str(node.lineno))
+    return {'status': 'PASS', 'files_scanned': scanned,
+        'scope': 'Direct/from and literal import-module application source checks only; not arbitrary dynamic Python import closure'}
+
+
+def inventory(root, relative_to):
+    files = {}
+    for path in sorted(root.rglob('*')):
+        if path.is_symlink(): raise ValueError('Inventory contains a symlink')
+        if path.is_file(): files[path.relative_to(relative_to).as_posix()] = {'bytes': path.stat().st_size, 'sha256': sha(path)}
+    return files
+
+
+def inventory_digest(files):
+    return hashlib.sha256((json.dumps(files, indent=2, sort_keys=True, ensure_ascii=False) + '\n').encode()).hexdigest()
+
+
+def wheel_record_guard(payload, policy):
+    """Check unchanged RECORD declarations against both retained and omitted files."""
+    if policy.get('record_path') != PYWIN32_RECORD or policy.get('record_removed_entrypoints') != list(REMOVED_PYWIN32_ENTRYPOINTS):
+        raise ValueError('Unexpected pywin32 RECORD/entrypoint policy')
+    path = ordinary(payload / PYWIN32_RECORD)
+    if path.stat().st_size > 1024 * 1024: raise ValueError('pywin32 RECORD exceeds bound')
+    actual = {}; seen = set(); removed = set()
+    for row in csv.reader(io.StringIO(path.read_text(encoding='utf-8'))):
+        if len(row) != 3 or row[0] in seen: raise ValueError('Invalid/duplicate pywin32 RECORD row')
+        name, encoded, size = row; seen.add(name)
+        if name in REMOVED_PYWIN32_ENTRYPOINTS:
+            removed.add(name); continue
+        relative = PurePosixPath(name)
+        if relative.is_absolute() or relative.as_posix() != name or '..' in relative.parts or '\\' in name or ':' in name:
+            raise ValueError('Unsafe pywin32 RECORD row')
+        full = 'resources/python/Lib/site-packages/' + name
+        if full == PYWIN32_RECORD:
+            if encoded or size: raise ValueError('pywin32 RECORD must retain its unhashed self entry')
+            continue
+        if not encoded.startswith('sha256=') or not re.fullmatch('[0-9]+', size): raise ValueError('Unbound pywin32 RECORD row')
+        try: digest = base64.b64decode(encoded[7:] + '=' * (-len(encoded[7:]) % 4), altchars=b'-_', validate=True).hex()
+        except ValueError as error: raise ValueError('Invalid pywin32 RECORD digest') from error
+        if len(digest) != 64: raise ValueError('Invalid pywin32 RECORD SHA256')
+        actual[full] = {'bytes': int(size), 'sha256': digest}
+    if removed != set(REMOVED_PYWIN32_ENTRYPOINTS) or PYWIN32_RECORD.removeprefix('resources/python/Lib/site-packages/') not in seen or actual != policy.get('wheel_record_files'):
+        raise ValueError('pywin32 RECORD keyset/digests differ from reviewed policy')
+    omitted = policy['omitted_files']
+    if not set(omitted) <= set(actual) or any(actual[name] != row for name, row in omitted.items()):
+        raise ValueError('Omitted pywin32 bytes are not bound to RECORD')
+    for name, row in actual.items():
+        if name in omitted: continue
+        path = ordinary(payload / name)
+        if path.stat().st_size != row['bytes'] or sha(path) != row['sha256']:
+            raise ValueError('Retained pywin32 RECORD-bound bytes differ: ' + name)
+    return {'status': 'PASS', 'record_files': len(actual), 'retained_files': len(actual) - len(omitted),
+        'scope': 'Original RECORD and pinned per-file bytes; not execution of every pywin32 API'}
+
+
+def verify_pywin32_subset(payload, metadata):
+    """Independently bind omissions to reviewed policy and retained Python bytes."""
+    policy_file = ordinary(ROOT / SUBSET_POLICY)
+    policy = json.loads(policy_file.read_text())
+    if not isinstance(policy, dict) or set(policy) != {'schema', 'scope', 'wheel', 'omitted_directories', 'omitted_files',
+            'protected_files', 'record_path', 'record_removed_entrypoints', 'wheel_record_files', 'unsupported_optional_apis'}:
+        raise ValueError('Invalid optional Windows policy fields')
+    if (policy.get('schema') != 'litrev.windows.optional-pywin32-policy.v1'
+            or policy.get('wheel') != {'name': 'pywin32', 'version': '312',
+                'filename': 'pywin32-312-cp312-cp312-win_amd64.whl',
+                'sha256': 'b457f6d628a47e8a7346ce22acb7e1a46a4a78b52e1d17e1af56871bd19a93bc'}):
+        raise ValueError('Optional Windows component wheel policy differs')
+    directories = policy.get('omitted_directories')
+    if not isinstance(directories, list) or len(directories) != 3 or set(directories) != set(OPTIONAL_DIRECTORIES):
+        raise ValueError('Optional Windows component directory policy differs')
+    omitted = policy.get('omitted_files'); protected = policy.get('protected_files')
+    for records, optional in ((omitted, True), (protected, False)):
+        if not isinstance(records, dict) or not records: raise ValueError('Invalid optional subset file policy')
+        for name, row in records.items():
+            path = PurePosixPath(name)
+            if path.is_absolute() or path.as_posix() != name or '..' in path.parts or '\\' in name or ':' in name:
+                raise ValueError('Unsafe optional subset policy path')
+            inside = any(name.startswith(prefix + '/') for prefix in OPTIONAL_DIRECTORIES)
+            if inside != optional or not name.startswith('resources/python/'):
+                raise ValueError('Optional subset policy crosses protected boundary')
+            if not isinstance(row, dict) or set(row) != {'bytes', 'sha256'} or type(row['bytes']) is not int or row['bytes'] < 0 or not re.fullmatch('[a-f0-9]{64}', row['sha256']):
+                raise ValueError('Invalid optional subset file digest')
+    if not {name for name in CORE_FILES if name.startswith('resources/python/')} <= set(protected):
+        raise ValueError('Optional subset policy does not protect every Core loader/security file')
+    for name, row in protected.items():
+        path = ordinary(payload / name)
+        if path.stat().st_size != row['bytes'] or sha(path) != row['sha256']:
+            raise ValueError('Protected Core/bootstrap bytes differ: ' + name)
+    record_check = wheel_record_guard(payload, policy)
+    descriptor = metadata.get('windows_optional_pywin32_subset')
+    if descriptor is None:
+        # Historical candidates retained all optional components. Require their
+        # exact original inventory, not merely three recreated empty folders.
+        actual = {}
+        for name in OPTIONAL_DIRECTORIES:
+            root = payload / name
+            if not root.is_dir() or root.is_symlink(): raise ValueError('Missing optional subset receipt for absent components')
+            actual.update(inventory(root, payload))
+        if actual != omitted: raise ValueError('Missing optional subset receipt for changed components')
+        return {'status': 'NOT_APPLIED', 'wheel_record': record_check,
+            'scope': 'Exact original optional component inventory retained; no omission accepted'}
+    expected_keys = {'schema', 'receipt_path', 'receipt_sha256', 'omitted_file_count', 'runtime_execution'}
+    if (not isinstance(descriptor, dict) or set(descriptor) != expected_keys
+            or descriptor.get('schema') != 'litrev.windows.optional-pywin32-subset-binding.v1'
+            or descriptor.get('receipt_path') != SUBSET_RECEIPT
+            or descriptor.get('runtime_execution') != 'NOT_RUN'
+            or type(descriptor.get('omitted_file_count')) is not int or descriptor['omitted_file_count'] != len(omitted)):
+        raise ValueError('Invalid optional subset receipt binding')
+    receipt_file = ordinary(payload / SUBSET_RECEIPT)
+    if sha(receipt_file) != descriptor['receipt_sha256']: raise ValueError('Optional subset receipt digest differs')
+    receipt = json.loads(receipt_file.read_text())
+    if not isinstance(receipt, dict) or set(receipt) != {'schema', 'policy_path', 'policy_sha256',
+            'packaged_policy_path', 'wheel', 'omitted_directories',
+            'omitted_files', 'protected_files', 'preserved_python_inventory', 'unsupported_optional_apis', 'runtime_execution'}:
+        raise ValueError('Invalid optional subset receipt fields')
+    packaged_policy = ordinary(payload / PACKAGED_SUBSET_POLICY)
+    if (receipt.get('schema') != 'litrev.windows.optional-pywin32-subset.v1'
+            or receipt.get('policy_path') != SUBSET_POLICY.as_posix()
+            or receipt.get('policy_sha256') != sha(policy_file)
+            or receipt.get('packaged_policy_path') != PACKAGED_SUBSET_POLICY
+            or packaged_policy.read_bytes() != policy_file.read_bytes()
+            or receipt.get('wheel') != policy.get('wheel')
+            or receipt.get('omitted_directories') != directories
+            or receipt.get('omitted_files') != omitted
+            or receipt.get('protected_files') != protected
+            or receipt.get('unsupported_optional_apis') != policy.get('unsupported_optional_apis')
+            or not receipt.get('unsupported_optional_apis')
+            or receipt.get('runtime_execution') != 'NOT_RUN'):
+        raise ValueError('Optional subset receipt differs from reviewed policy')
+    for name in OPTIONAL_DIRECTORIES:
+        if (payload / name).exists() or (payload / name).is_symlink(): raise ValueError('Omitted optional component remains in payload')
+    retained = inventory(payload / 'resources/python', payload)
+    expected_inventory = {'files': len(retained), 'bytes': sum(row['bytes'] for row in retained.values()), 'sha256': inventory_digest(retained)}
+    if receipt.get('preserved_python_inventory') != expected_inventory:
+        raise ValueError('Retained Python inventory differs from subset receipt')
+    return {'status': 'PASS', 'receipt_path': SUBSET_RECEIPT, 'receipt_sha256': sha(receipt_file),
+        'policy_sha256': sha(policy_file), 'omitted_files': len(omitted), 'protected_files': len(protected),
+        'preserved_python_inventory': expected_inventory,
+        'wheel_record': record_check,
+        'scope': 'Exact reviewed omissions and unchanged protected/retained bytes; optional pywin32 GUI/MAPI/debug APIs unsupported, not Core or full Python API execution'}
 
 
 def pe_info(raw):
@@ -224,6 +415,7 @@ def audit(payload, expected, *, installer=None, extracted=None):
     if product.get('data_name') != 'LiteratureReviewEngineDesktop' or product.get('version') != value['version'] or metadata.get('version') != value['version']: raise ValueError('Product/data/version binding differs')
     if metadata.get('web_build_binding', {}).get('source_commit') != expected: raise ValueError('Production web binding source differs')
     for name in ('LiteratureReviewEngine.exe', *CORE_FILES): ordinary(payload / name)
+    subset = verify_pywin32_subset(payload, metadata)
     site = payload / 'resources/python/Lib/site-packages'
     for package in ('fastapi', 'uvicorn', 'pydantic', 'pydantic_core', 'starlette', 'anyio'):
         ordinary(site / package / '__init__.py')
@@ -232,13 +424,19 @@ def audit(payload, expected, *, installer=None, extracted=None):
     pth = (site / 'pywin32.pth').read_text().replace('\\', '/')
     if 'win32/lib' not in pth.splitlines() or 'import pywin32_bootstrap' not in pth: raise ValueError('Missing pywin32 startup path declaration')
     if 'pywin32_system32' not in bootstrap or 'add_dll_directory' not in bootstrap: raise ValueError('Missing pywin32 wheel-local DLL bootstrap')
+    imports = source_import_guard(payload / 'resources/engine')
     deps = dependency_closure(site); native = native_closure(payload, value['files'])
     failures = deps['failures'] + ['Unresolved DLL: ' + row['path'] + ':' + row['dll'] for row in native['unresolved']]
     result = {'schema': 'litrev.windows.static-package-audit.v1', 'status': 'FAIL' if failures else 'PASS', 'source_commit': expected,
         'scope': 'Static byte/config/dependency/package audit only; not Windows or installation qualification',
         'payload_files': len(value['files']), 'manifest_sha256': sha(payload / 'INSTALLATION.json'),
         'core_required_files': {'status': 'PASS', 'scope': 'File presence and byte-bound headers only; not Core execution or complete dynamic loading', 'paths': ['LiteratureReviewEngine.exe', *CORE_FILES]},
+        'application_imports': imports,
+        'optional_pywin32_subset': subset,
         'declared_dependencies': {'status': 'FAIL' if deps['failures'] else 'PASS', 'scope': 'Windows CPython3.12 AMD64 distribution metadata/markers only'}, 'dependencies': deps, 'native': native,
+        'retained_native_imports': {'status': 'FAIL' if native['unresolved'] else 'PASS',
+            'scope': 'All retained non-auxiliary PE import and delay-import names; static search paths and explicit OS/API-set exceptions only, not runtime export/loader verification',
+            'pe_files': len(native['files']), 'unresolved_edges': len(native['unresolved'])},
         'failures': failures, 'runtime_execution': 'NOT_RUN', 'vm_execution': 'NOT_RUN', 'gui_execution': 'NOT_RUN', 'installed_execution': 'NOT_RUN', 'owner_skip_reason': SKIP_REASON,
         'installer_extraction': extracted_matches(extracted, payload) if extracted else {'status': 'NOT_RUN', 'reason': 'No host-extracted installer tree supplied'}}
     if installer:

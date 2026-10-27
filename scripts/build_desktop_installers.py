@@ -25,6 +25,7 @@ from scripts import build_desktop_preview as base
 from scripts.build_local_preview import clean_checkout,digest,json_bytes
 from scripts.desktop_notices import copy_web_dependency_notices
 from scripts.desktop_windows_notices import copy_windows_dependency_notices
+from scripts.desktop_windows_core import prune_optional_pywin32
 
 
 def product():
@@ -177,6 +178,7 @@ def assemble_windows(args):
     env={k:v for k,v in os.environ.items() if k in ('HOME','PATH','TMPDIR','LANG','LC_ALL','LC_CTYPE','SSL_CERT_FILE','PIP_CERT')};env.update(PYTHONNOUSERSITE='1',PYTHONDONTWRITEBYTECODE='1')
     base.run(command,env=env)
     omitted_entrypoints=prune_windows_build_entrypoints(resources)
+    pywin32_subset=prune_optional_pywin32(resources,out/'windows-wheel-install-report.json')
     windows_notices(resources,args.runtime_cache,lock)
     require_windows_pe(resources/'python/python.exe')
     base.copy_standalone(standalone,resources/'web');web=resources/'web/apps/web'
@@ -203,6 +205,7 @@ def assemble_windows(args):
     metadata['installer_compression']='zlib'
     metadata['native_source_evidence']=base.copy_native_source_evidence(resources/'NATIVE_DEPENDENCY_NOTICES')
     metadata['windows_dependency_notices']=copy_windows_dependency_notices(app)
+    metadata['windows_optional_pywin32_subset']=pywin32_subset
     (resources/'DESKTOP_RELEASE.json').write_bytes(json_bytes(metadata))
     (resources/'DESKTOP_NOTICES.md').write_text('Private Windows x64 candidate. Original engine MIT; retain engine/LICENSE, engine/THIRD_PARTY_NOTICES.md, Electron LICENSE and LICENSES.chromium.html, Python runtime licenses/UPSTREAM_LICENSES, installed package licenses/dist-info, WEB_DEPENDENCY_NOTICES. Complete native component/source obligations and signing remain separate gates; this is not legal clearance. No model weights are bundled.\n')
     base.audit_generated_payload(resources,out)
