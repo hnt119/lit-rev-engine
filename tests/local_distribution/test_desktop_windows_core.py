@@ -1,5 +1,6 @@
 """Synthetic build-only pruning fixtures; never execute Windows code."""
 import base64
+import ast
 import csv
 import hashlib
 import io
@@ -118,3 +119,19 @@ def test_existing_receipt_is_never_rewritten_on_repeated_prune(tmp_path):
     with pytest.raises(ValueError,match='Never overwrite'):
         core.prune_optional_pywin32(resources,report_path,policy_path=policy_path)
     assert snapshot(app)==before
+
+
+def test_real_builder_snapshots_python_after_runtime_notices_before_release_manifests():
+    tree=ast.parse((core.ROOT/'scripts/build_desktop_installers.py').read_text())
+    assembly=next(node for node in tree.body if isinstance(node,ast.FunctionDef) and node.name=='assemble_windows')
+    calls={name:[] for name in ('windows_notices','prune_optional_pywin32')}
+    manifests={name:[] for name in ('DESKTOP_RELEASE.json','INSTALLATION.json')}
+    for node in ast.walk(assembly):
+        if not isinstance(node,ast.Call):continue
+        if isinstance(node.func,ast.Name) and node.func.id in calls:calls[node.func.id].append(node.lineno)
+        if isinstance(node.func,ast.Attribute) and node.func.attr=='write_bytes':
+            target=node.func.value
+            if isinstance(target,ast.BinOp) and isinstance(target.op,ast.Div) and isinstance(target.right,ast.Constant) and target.right.value in manifests:
+                manifests[target.right.value].append(node.lineno)
+    assert all(len(lines)==1 for lines in [*calls.values(),*manifests.values()])
+    assert calls['windows_notices'][0] < calls['prune_optional_pywin32'][0] < min(lines[0] for lines in manifests.values())

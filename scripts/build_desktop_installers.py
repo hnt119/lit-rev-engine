@@ -178,8 +178,9 @@ def assemble_windows(args):
     env={k:v for k,v in os.environ.items() if k in ('HOME','PATH','TMPDIR','LANG','LC_ALL','LC_CTYPE','SSL_CERT_FILE','PIP_CERT')};env.update(PYTHONNOUSERSITE='1',PYTHONDONTWRITEBYTECODE='1')
     base.run(command,env=env)
     omitted_entrypoints=prune_windows_build_entrypoints(resources)
-    pywin32_subset=prune_optional_pywin32(resources,out/'windows-wheel-install-report.json')
     windows_notices(resources,args.runtime_cache,lock)
+    # Bind retained Python bytes only after attribution files are finalized.
+    pywin32_subset=prune_optional_pywin32(resources,out/'windows-wheel-install-report.json')
     require_windows_pe(resources/'python/python.exe')
     base.copy_standalone(standalone,resources/'web');web=resources/'web/apps/web'
     shutil.copytree(ROOT/'apps/web/.next/static',web/'.next/static',dirs_exist_ok=True)
