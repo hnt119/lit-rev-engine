@@ -9,6 +9,8 @@ An open-source, local-first workspace for comparing papers and checking the sour
 | macOS · Apple Silicon | **[Download for macOS](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-desktop-beta.2/lit-rev-engine-0.3.0-desktop-beta.2-macos-arm64.dmg)** | Desktop beta.2 · 169.6 MB |
 | Windows · x64 | Windows installer not yet published | [Source setup](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/windows_source.md) |
 
+**Windows x64 one-click installer is in development.** An unsigned private `Setup.exe` candidate exists, but installed-Windows testing and redistribution/trust checks are not complete. [Track Windows installer progress](https://github.com/hnt119/lit-rev-engine/issues/18). Until a verified public installer is released, use the setup-required source option above.
+
 [Getting started](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md) · [User guide](docs/user_manual.md) · [Demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Release notes](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-desktop-beta.2) · [Architecture](docs/application_architecture.md)
 
 **Mac: UNNOTARIZED beta, ad-hoc signed; no Apple Developer ID signature.** Read the [official per-app opening instructions](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md#install-and-open). A damaged-app or malware warning requires investigation.
