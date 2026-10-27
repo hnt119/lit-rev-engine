@@ -116,3 +116,30 @@ def test_web_binding_covers_every_chunk_static_file_and_safe_symlink(tmp_path):
     (standalone/'extra.js').unlink();(standalone/'alias.js').unlink();(standalone/'alias.js').symlink_to(tmp_path/'outside.js')
     (tmp_path/'outside.js').write_text('Foreign input')
     with pytest.raises(ValueError,match='closure'):base.web_inventory(standalone)
+
+
+def test_exact_next_traced_entry_projection_uses_full_installed_upstream_pin(tmp_path,monkeypatch):
+    original=base.ROOT/'apps/web/node_modules/.pnpm/client-only@0.0.1/node_modules/client-only'
+    root=tmp_path/'source';upstream=root/'apps/web/node_modules/.pnpm/client-only@0.0.1/node_modules/client-only'
+    upstream.parent.mkdir(parents=True);shutil.copytree(original,upstream)
+    shutil.copytree(base.ROOT/'apps/desktop/client-boundary',root/'apps/desktop/client-boundary')
+    shutil.copy2(base.ROOT/'apps/desktop/client-boundary-input.json',root/'apps/desktop/client-boundary-input.json')
+    web=tmp_path/'web';traced=web/'node_modules/client-only';traced.mkdir(parents=True)
+    for name in ('package.json','index.js'):shutil.copy2(original/name,traced/name)
+    monkeypatch.setattr(base,'ROOT',root)
+    result=base.replace_client_boundary(web)
+    assert result[0]['traced_projection']==['index.js','package.json']
+    assert set(result[0]['verified_full_upstream_files'])=={'error.js','index.js','package.json'}
+    assert len(result[0]['removed_files'])==2 and (traced/'error.js').is_file()
+    shutil.rmtree(traced);traced.mkdir()
+    for name in ('package.json','index.js'):shutil.copy2(original/name,traced/name)
+    (upstream/'error.js').write_text('Tampered unused upstream guard')
+    with pytest.raises(ValueError,match='reviewed exact bytes'):base.replace_client_boundary(web)
+
+
+@pytest.mark.parametrize('names',[('package.json',),('index.js',),('package.json','error.js')])
+def test_missing_required_traced_entry_or_metadata_is_rejected(tmp_path,names):
+    original=base.ROOT/'apps/web/node_modules/.pnpm/client-only@0.0.1/node_modules/client-only'
+    web=tmp_path/'web';traced=web/'node_modules/client-only';traced.mkdir(parents=True)
+    for name in names:shutil.copy2(original/name,traced/name)
+    with pytest.raises(ValueError,match='removal input'):base.replace_client_boundary(web)

@@ -132,6 +132,25 @@ def replace_client_boundary(web):
     reviewed=json.loads((ROOT/'apps/desktop/client-boundary-input.json').read_text())
     if reviewed.get('schema')!='litrev.desktop.client-boundary-input.v1' or set(reviewed.get('files',{}))!={'package.json','index.js','error.js'}:
         raise ValueError('The reviewed upstream client-boundary input is incomplete.')
+    def verify_input(directory,allowed):
+        if directory.is_symlink() or not directory.is_dir():raise ValueError('Unknown links in client-only removal input.')
+        members=list(directory.rglob('*'))
+        names={path.relative_to(directory).as_posix() for path in members}
+        if any(path.is_symlink() or not path.is_file() for path in members) or names not in allowed:
+            raise ValueError('Unknown files or links in client-only removal input.')
+        for path in members:
+            if reviewed['files'][path.relative_to(directory).as_posix()]!={'bytes':path.stat().st_size,'sha256':digest(path.read_bytes())}:
+                raise ValueError('client-only removal input differs from reviewed exact bytes.')
+        return members
+    # Next's production trace legitimately omits the unused react-server guard.
+    # Accept that exact projection only after proving all three installed inputs
+    # against the same pin, including error.js that was not copied into the trace.
+    installed=ROOT/'apps/web/node_modules/.pnpm/client-only@0.0.1/node_modules/client-only'
+    upstream=verify_input(installed,[set(reviewed['files'])])
+    upstream_hashes={path.name:digest(path.read_bytes()) for path in upstream}
+    for directory in web.rglob('client-only'):
+        if not directory.is_symlink() and directory.is_dir() and not (directory/'package.json').is_file():
+            raise ValueError('Missing package metadata in client-only removal input.')
     records=[]
     for metadata in list(web.rglob('package.json')):
         if metadata.is_symlink():continue
@@ -140,16 +159,11 @@ def replace_client_boundary(web):
         if value.get('name')!='client-only':continue
         if value.get('version')!='0.0.1':raise ValueError('An unreviewed client-only dependency is present.')
         directory=metadata.parent
-        members=list(directory.rglob('*'))
-        if any(path.is_symlink() or not path.is_file() for path in members) or {path.relative_to(directory).as_posix() for path in members}!=set(reviewed['files']):
-            raise ValueError('Unknown files or links in client-only removal input.')
-        for path in members:
-            if reviewed['files'][path.relative_to(directory).as_posix()]!={'bytes':path.stat().st_size,'sha256':digest(path.read_bytes())}:
-                raise ValueError('client-only removal input differs from reviewed exact bytes.')
+        members=verify_input(directory,[set(reviewed['files']),{'package.json','index.js'}])
         removed={path.relative_to(web).as_posix():digest(path.read_bytes()) for path in directory.rglob('*') if path.is_file() and not path.is_symlink()}
         shutil.rmtree(directory);shutil.copytree(source,directory)
         replacement={path.relative_to(web).as_posix():digest(path.read_bytes()) for path in directory.rglob('*') if path.is_file()}
-        records.append({'alias_directory':directory.relative_to(web).as_posix(),'original_package':'client-only@0.0.1','removed_files':removed,'replacement_package':'@hnt119/litrev-client-boundary@0.1.0','replacement_files':replacement,'scope':'Independent project implementation; no claim of an upstream copyright/license resolution'})
+        records.append({'alias_directory':directory.relative_to(web).as_posix(),'original_package':'client-only@0.0.1','verified_full_upstream_files':upstream_hashes,'traced_projection':sorted(path.name for path in members),'removed_files':removed,'replacement_package':'@hnt119/litrev-client-boundary@0.1.0','replacement_files':replacement,'scope':'Independent project implementation; no claim of an upstream copyright/license resolution'})
     return records
 
 
