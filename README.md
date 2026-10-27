@@ -1,6 +1,6 @@
 # Literature Review Engine
 
-A local-first research workspace for comparing papers, inspecting exact evidence excerpts and exporting a table you can verify.
+An open-source, local-first research workspace for comparing papers, inspecting exact evidence excerpts and exporting a table you can verify.
 
 <!-- published-release:start -->
 **[Download — source beta 0.3.0-beta.4](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-beta.4) · [Quick start](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/local_preview.md) · [Read-only demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence)**
@@ -8,9 +8,9 @@ A local-first research workspace for comparing papers, inspecting exact evidence
 [Direct source ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.zip) · [Manifest](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.manifest.json) · [SHA-256 checksums](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.SHA256SUMS) · [Download installation guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md)
 <!-- published-release:end -->
 
-**[User guide · beta.4](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md) · [Architecture & model roles](docs/application_architecture.md)**
+**[Practical user guide · beta.4](docs/user_manual.md) · [Architecture & model roles](docs/application_architecture.md)**
 
-**Setup required; not a standalone installer.** The demo is a guided walkthrough using saved public data, without live search or model calls. Beta.4 remains the newest verified published download.
+**Setup required; not a standalone installer.** Beta.4 remains the newest verified published download. The revised guide explains its unchanged interface; it does not update the ZIP. The demo uses saved public data, without live search, models or private workspaces.
 
 ## Start locally
 
@@ -34,11 +34,18 @@ Linux installation is unverified; Intel Mac and Windows ARM are unqualified. Phy
 
 ## Review an entry
 
-Start with **Saved example · offline** and its 30 public papers, or search/import references. Select reports and choose **Prepare & compare**. Source labels distinguish full text, abstract only and unavailable material.
+### Your first comparison
 
-**Open a cell → find an excerpt → inspect its source → use the excerpt → comment and judge → save.**
+1. Enter a research question, keep **Saved example · offline**, then **Create workspace → Open saved example**. Thirty saved public papers need no key or model download.
+2. Select three reports and choose **Prepare & compare (3)**. Check full-text, abstract-only or unavailable source outcomes; continue to the ready comparison when offered.
+3. Edit three field labels/subquestions—for example, population, study design and relevant outcome—then **Create comparison board**. Rows are reports; columns are questions.
+4. Open a cell. Choose **Find excerpts in this paper → Read in source · passage 1**, or **Browse this source**. Read the exact context, then **I have read this excerpt — use it**.
+5. Write your interpretation beside the selected evidence. Review support/scope states, then **Review entry before saving → Save reviewed entry**. Wait for **Saved to comparison.**
+6. Use **Download board CSV** or **Download board audit JSON**. Stop normally and reopen with the same data directory, browser profile and hostname.
 
-The excerpt stays beside your comment in the comparison editor. Reopen saved entries through explicit revisions, then export CSV/JSON. Draft notes remain separate from submitted entries. Missing information can remain unresolved; an empty candidate list does not prove whole-paper absence. A preview or board selection is not formal review inclusion.
+**Draft: saved is separate from a submitted entry.** **Paper 1 of 3 · Field 2 of 3** means another question about the same report. Missing information can remain unresolved; candidates do not prove whole-paper absence. Exploration selection is not formal inclusion.
+
+The [full guide](docs/user_manual.md) covers imports, PubMed, broader passage search and return, missing information, corrections and reopening. Earlier submitted values remain in history after **Edit saved cell → Save revision**.
 
 ## Choose retrieval in the same app
 
@@ -64,9 +71,9 @@ The local stack is **Next.js/React → FastAPI → Python services**, with priva
 
 ## Help, privacy and status
 
-Research lives outside replaceable application files. Explicit searches transmit queries/contact details; optional cloud AI transmits disclosed input and may incur charges. Settings-entered keys are session-scoped; non-secret preferences persist. Cookie loss/expiry can lose workspace access: read [reopening, backups and recovery limits](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md#export-back-up-and-replace-the-app).
+Research lives outside replaceable application files. Explicit searches transmit queries/contact details; optional cloud AI transmits disclosed input and may incur charges. Settings-entered keys are session-scoped; non-secret preferences persist. Cookie loss/expiry can lose workspace access: read [reopening, backups and recovery limits](docs/user_manual.md#export-back-up-and-replace-the-app).
 
-[Documentation index](docs/README.md) · [Report an issue](https://github.com/hnt119/lit-rev-engine/issues) · [MIT license](LICENSE) · [Third-party/article/model terms](THIRD_PARTY_NOTICES.md)
+[Documentation index](docs/README.md) · [Original release manual](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/user_manual.md) · [Report an issue](https://github.com/hnt119/lit-rev-engine/issues) · [MIT license](LICENSE) · [Third-party/article/model terms](THIRD_PARTY_NOTICES.md)
 
 The question-to-evidence workbench is separate development work, absent from beta.4 and current main. A main merge does not update a published ZIP.
 
