@@ -230,3 +230,18 @@ def test_native_packagers_copy_hash_verified_source_evidence_before_immutable_re
     assert receipt['manifest_sha256']==base.digest((destination/'MANIFEST.json').read_bytes())
     assert receipt['files']>100 and receipt['bytes']>0
     assert 'legal qualification remain separate' in receipt['qualification']
+
+
+def test_experimental_windows_disclosure_and_notice_receipt_precede_immutable_manifest():
+    import inspect
+    text=(base.ROOT/'apps/desktop/installer.nsi').read_text()
+    disclosure='Experimental Windows beta — not yet tested on Windows'
+    assert text.count(disclosure)>=2  # both branding and welcome, never a tested-install claim
+    assert 'RequestExecutionLevel user' in text and 'SetRegView 64' in text
+    assert 'MUI_FINISHPAGE_RUN_NOTCHECKED' in text
+    source=inspect.getsource(native.assemble_windows)
+    assert "metadata['candidate_status']='"+disclosure+"'" in source
+    assert "metadata['windows_dependency_notices']=copy_windows_dependency_notices(app)" in source
+    assert source.index('copy_windows_dependency_notices(app)')<source.index("(resources/'DESKTOP_RELEASE.json').write_bytes")<source.index('files={')
+    result=inspect.getsource(native.make_windows_installer)
+    assert "'execution':'NOT_RUN'" in result and disclosure in result

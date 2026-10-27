@@ -1,0 +1,116 @@
+{
+  "absence_scope": "Not distributed by the reviewed payload; names in PE imports remain WindowsOS dependencies, not bundled assets.",
+  "absent_binary_families": [
+    "api-ms-*.dll",
+    "ucrtbase*.dll",
+    "msvcp*.dll",
+    "msvcr*.dll",
+    "concrt*.dll"
+  ],
+  "dxc": {
+    "complete_license_matches_retained_chromium_credit": true,
+    "dawn_source_url": "https://dawn.googlesource.com/dawn/+/1da41e55bb915dd03f61028fad64a99ee1786d48/third_party/directx-shader-compiler/",
+    "electron_exact_binary_match": true,
+    "license_source_url": "https://raw.githubusercontent.com/microsoft/DirectXShaderCompiler/9757d44faa47de7e8d1bb731c30551ec608624f9/LICENSE.TXT",
+    "numeric_version": "1.9.2609.0",
+    "same_version_public_release_not_a_binary_match": {
+      "archive_sha256": "ad31b1fc8443175d204f77a611fdb3ef2ec42759bdc2f1167368de24a4a7e7f1",
+      "member": "bin\\x64\\dxcompiler.dll",
+      "member_sha256": "0689e2fee0a1c9df8662a59680469f24e2a3ad7ce6bbbcc9284f7a83172bfc59",
+      "status": "Rejected as binary/source correspondence substitute; actual Chromium-pinned source used.",
+      "url": "https://github.com/microsoft/DirectXShaderCompiler/releases/download/v1.9.2609/dxc_2026_09_29.zip"
+    },
+    "source_chain": {
+      "chromium_commit": "d0c02bfad08ec92a6ffcf989e53cd995e6381a4c",
+      "dawn_commit": "1da41e55bb915dd03f61028fad64a99ee1786d48",
+      "dxc_commit": "9757d44faa47de7e8d1bb731c30551ec608624f9",
+      "electron_commit": "54f961b44b83e4ece81065ab60a182fd0c38c01e"
+    }
+  },
+  "ffmpeg": {
+    "required_companions": [
+      {
+        "bytes": 18965560,
+        "file": "litrev-ffmpeg-source-electron45-9db86ce5-v2.zip",
+        "sha256": "fcd43ba7b3868d7da540dcf8d1db4bfd447bd91f2eda6660a244427a3c5a3879"
+      },
+      {
+        "bytes": 33557487,
+        "file": "litrev-ffmpeg-electron45-source-supplement-windows-x64-1.zip",
+        "sha256": "dc0d86a34081f4382d8e580b865842a976a037c9d4dc53856a6f452b88c2e8ea"
+      }
+    ],
+    "revision": "9db86ce5b5b454dfc96c435f9f0723012980c37f",
+    "source_delivery": "External companion assets; not bundled into this notice directory. Keep both with any authorized Windows binary download."
+  },
+  "privacy_scope": "Only public vendor notices/source metadata and relative artifact paths; no local account, research or credential data.",
+  "public_distribution_qualified": false,
+  "remaining_owner_actions": [
+    "Establish the owner applicable Microsoft Windows SDK redistribution permission/agreement for the exact D3D DLL and satisfy its downstream protective-terms/distribution conditions; no owner SDK agreement is accepted by this build.",
+    "Establish the downstream Microsoft Distributable Code protective-terms mechanism required by the retained WindowsPython license. A notice copy does not itself prove distributor/end-user agreement."
+  ],
+  "required_existing_files": {
+    "LICENSES.chromium.html": {
+      "bytes": 5705935,
+      "sha256": "7dac8267ac6da8d959cfe88f5f055b18a397f10230380b5329125e167bf5639b"
+    },
+    "resources/python/LICENSE.txt": {
+      "bytes": 25066,
+      "sha256": "886a0ead2d89030ee62dbff52b04e47ab91998341295bb9c56fb952b4e081c7a"
+    }
+  },
+  "retrieved_utc_date": "2026-10-28",
+  "review_scope": "Exact upstream runtime and textual source/notice bindings; not Windows execution, a reproduced binary or legal certification.",
+  "reviewed_binaries": {
+    "d3dcompiler_47.dll": {
+      "bytes": 4753864,
+      "sha256": "f5c95e919b4ffa1ac71049cd45b9f986d2965e6888395ca2806337985334fa56"
+    },
+    "dxcompiler.dll": {
+      "bytes": 25779712,
+      "sha256": "6af17f483f97ca18b579da8475855469dde1b69b7e7872cae13bcbacc2d33200"
+    },
+    "ffmpeg.dll": {
+      "bytes": 3097600,
+      "sha256": "cdf2b70f0f0a97c9840af1466dd86a90e564c98f6892d783635cf9c3b303d613"
+    },
+    "resources/python/vcruntime140.dll": {
+      "bytes": 124544,
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066"
+    },
+    "resources/python/vcruntime140_1.dll": {
+      "bytes": 49792,
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+    }
+  },
+  "schema": "litrev.desktop.windows-notices.provenance.v1",
+  "sdk": {
+    "exact_d3dcompiler_archive_member": "c/Redist/D3D/x64/d3dcompiler_47.dll",
+    "exact_d3dcompiler_bytes_match": true,
+    "license_effective_url": "https://download.microsoft.com/download/0/F/F/0FF2B061-47DD-4F55-89B6-FD1D8C44F14D/sdk_license.rtf",
+    "license_eula_id": "WIN10SDK.RTM.AUG_2018_en-US",
+    "license_scope": "The exact versioned NuGet metadata refers to this vendor license URL. The vendor RTF still names Windows10 SDK; that label is retained, not rewritten as a new Windows11 license.",
+    "license_url": "https://aka.ms/WinSDKLicenseURL",
+    "package": "Microsoft.Windows.SDK.CPP",
+    "package_sha256": "0a4887a64d1b17128f9ffd80032f20debabf943f34eea927aac00cc46cb32879",
+    "package_url": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.cpp/10.0.28000.2270/microsoft.windows.sdk.cpp.10.0.28000.2270.nupkg",
+    "redist_scope": "Vendor license references the redirect LinkId524842. Its retained list explicitly names the D3D/x64 DLL for Classic Windows apps; actual bytes match the versioned package Redist member. No agreement acceptance is performed.",
+    "redist_url": "https://learn.microsoft.com/en-us/legal/windows-sdk/redist",
+    "version": "10.0.28000.2270"
+  },
+  "target": "win32-x64",
+  "upstream_archives": {
+    "electron": {
+      "file": "electron-v45.0.0-win32-x64.zip",
+      "sha256": "ae53887a23bb640369c93dbd38c408a2af5c0deb86f2fa76c6c244cb444b7f47",
+      "url": "https://github.com/electron/electron/releases/download/v45.0.0/electron-v45.0.0-win32-x64.zip",
+      "version": "45.0.0"
+    },
+    "python": {
+      "file": "cpython-3.12.15+20261021-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "sha256": "aac5d331fc3307343f95928fdbea4583f0d53973d08c7e1d081884fbd229a0e1",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.12.15%2B20261021-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "version": "3.12.15+20261021"
+    }
+  }
+}

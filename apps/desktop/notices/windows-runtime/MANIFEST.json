@@ -1,0 +1,62 @@
+{
+  "files": {
+    "README.md": {
+      "bytes": 2813,
+      "sha256": "772a97b3fa0d5dfb47117bc6a3d8552ea7ddfc47a4ec6df105c0e15a4c0265e9"
+    },
+    "SOURCE_PROVENANCE.json": {
+      "bytes": 6159,
+      "sha256": "8fbefa6835f3de9cb582267fb2412d4bfb03d49ff9e5366560849e2d2f0eae4e"
+    },
+    "dxc-9757d44/BUILD.gn": {
+      "bytes": 99724,
+      "sha256": "3ba109752c88d803cd1d01a34ee540187496e7beff4c6339a2bd730f440a921c"
+    },
+    "dxc-9757d44/Dawn-DEPS": {
+      "bytes": 40359,
+      "sha256": "cf584a7a8cfe3534c60ea3c1c16ae732c6e1a8cb393579a3480f6ff36102580c"
+    },
+    "dxc-9757d44/LICENSE": {
+      "bytes": 29241,
+      "sha256": "27a49e35d1da96eba18fba54bc882667ff0ff8c0254f16f2b6e165d605ba7df8"
+    },
+    "dxc-9757d44/README.chromium": {
+      "bytes": 383,
+      "sha256": "dca54640099eb18969ef46e48fb1bf6e92ddb7cfc212bd1ae15a997ff6ebd277"
+    },
+    "ffmpeg-9db86ce5/COPYING.LGPLv2.1": {
+      "bytes": 26517,
+      "sha256": "246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30"
+    },
+    "ffmpeg-9db86ce5/FFMPEG_NOTICE.md": {
+      "bytes": 1442,
+      "sha256": "6cc94a8a242dbe81c39db88d405ed7f152d7874049415a4b27d3fdf0d5fa09f1"
+    },
+    "ffmpeg-9db86ce5/LICENSE.md": {
+      "bytes": 4346,
+      "sha256": "2e1d16c72fd74e12063776371da757322f8b77589386532f4fd8634bde7de1af"
+    },
+    "microsoft-sdk-10.0.28000.2270/LICENSE.rendered.txt": {
+      "bytes": 27702,
+      "sha256": "b51ec2350d938f5b6c8d6207ee5a3e10effbf8a134e432aa393577d41d3dae06"
+    },
+    "microsoft-sdk-10.0.28000.2270/LICENSE.rtf": {
+      "bytes": 246945,
+      "sha256": "dd07eb178e00c6bba4148457fc00ff77cd4887eb521d504186fe59c9ec8bbe62"
+    },
+    "microsoft-sdk-10.0.28000.2270/REDIST.html": {
+      "bytes": 38264,
+      "sha256": "3c01b467ad862abd54f69c15f6a030362185abfa38e7b0fc7698aa92591b198a"
+    },
+    "microsoft-sdk-10.0.28000.2270/SDK.nuspec": {
+      "bytes": 1246,
+      "sha256": "a7e2b88f8fd9eb6b5a891634d46125a8216780bf2636b8865c1827068560d7a5"
+    },
+    "python-3.12.15/LICENSE.txt": {
+      "bytes": 25066,
+      "sha256": "886a0ead2d89030ee62dbff52b04e47ab91998341295bb9c56fb952b4e081c7a"
+    }
+  },
+  "schema": "litrev.desktop.windows-notices.manifest.v1",
+  "source_provenance_sha256": "8fbefa6835f3de9cb582267fb2412d4bfb03d49ff9e5366560849e2d2f0eae4e"
+}

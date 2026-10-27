@@ -21,9 +21,9 @@ RequestExecutionLevel user
 SetCompressor zlib
 ShowInstDetails show
 ShowUninstDetails show
-BrandingText "Literature Review Engine — private desktop candidate"
+BrandingText "Experimental Windows beta — not yet tested on Windows"
 !define MUI_ABORTWARNING
-!define MUI_WELCOMEPAGE_TEXT "Install the local research application for this user. Core runtimes are bundled; research data stays outside the application. This unsigned candidate is for reviewed testing only. Do not bypass Windows security warnings."
+!define MUI_WELCOMEPAGE_TEXT "Experimental Windows beta — not yet tested on Windows. Install the local research application for this user. Core runtimes are bundled; research data stays outside the application. This unsigned candidate is for reviewed testing only. Do not bypass Windows security warnings."
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_INSTFILES
 !define MUI_FINISHPAGE_RUN "$INSTDIR\app-${PRODUCT_VERSION}\LiteratureReviewEngine.exe"

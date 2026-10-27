@@ -24,6 +24,7 @@ sys.path.insert(0,str(ROOT))
 from scripts import build_desktop_preview as base
 from scripts.build_local_preview import clean_checkout,digest,json_bytes
 from scripts.desktop_notices import copy_web_dependency_notices
+from scripts.desktop_windows_notices import copy_windows_dependency_notices
 
 
 def product():
@@ -197,9 +198,11 @@ def assemble_windows(args):
     shutil.copy2(sdk/'COPYING',notices_dir/'NSIS-3.13-COPYING.txt')
     tool=json.loads((ROOT/'apps/desktop/installer-tool-lock.json').read_text())
     (notices_dir/'PROVENANCE.json').write_bytes(json_bytes({'schema':'litrev.desktop.installer-notices.v1','tool':tool,'runtime_modules':['NSIS Unicode zlib installer stub','Modern UI 2','System plugin','nsExec plugin'],'compression':'zlib; no LZMA module selected','notice_sha256':digest((sdk/'COPYING').read_bytes()),'scope':'Exact NSIS license text retained; component/source/signing review remains explicit, not inferred legal clearance.'}))
+    metadata['candidate_status']='Experimental Windows beta — not yet tested on Windows'
     metadata['installer_tool']=tool
     metadata['installer_compression']='zlib'
     metadata['native_source_evidence']=base.copy_native_source_evidence(resources/'NATIVE_DEPENDENCY_NOTICES')
+    metadata['windows_dependency_notices']=copy_windows_dependency_notices(app)
     (resources/'DESKTOP_RELEASE.json').write_bytes(json_bytes(metadata))
     (resources/'DESKTOP_NOTICES.md').write_text('Private Windows x64 candidate. Original engine MIT; retain engine/LICENSE, engine/THIRD_PARTY_NOTICES.md, Electron LICENSE and LICENSES.chromium.html, Python runtime licenses/UPSTREAM_LICENSES, installed package licenses/dist-info, WEB_DEPENDENCY_NOTICES. Complete native component/source obligations and signing remain separate gates; this is not legal clearance. No model weights are bundled.\n')
     base.audit_generated_payload(resources,out)
@@ -221,7 +224,7 @@ def make_windows_installer(payload,output,makensis,nsis_dir):
         # NSIS metadata can be compressed; require at least a real PE and the
         # compiler's completed output, not a renamed ZIP/source archive.
         if raw[:2]!=b'MZ':raise ValueError('NSIS did not produce a Windows installer.')
-    return {'file':output.name,'bytes':len(raw),'sha256':digest(raw),'target':'Windows 11 x64','execution':'NOT_RUN','signature':'unsigned private candidate'}
+    return {'file':output.name,'bytes':len(raw),'sha256':digest(raw),'target':'Windows 11 x64','execution':'NOT_RUN','signature':'unsigned private candidate','qualification':'Experimental Windows beta — not yet tested on Windows'}
 
 
 def main():
