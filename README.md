@@ -73,3 +73,5 @@ The question-to-evidence workbench is separate development work, absent from bet
 <a id="requirements-and-installation"></a>
 <a id="update-main-and-contribute"></a>
 Older installation/contribution links continue in the [legacy CLI guide](docs/legacy-cli-and-history.md#requirements-and-installation).
+
+Contributors can consult the [product design](product_design.md) and [repository agent guide](AGENTS.md).
