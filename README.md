@@ -59,6 +59,16 @@ Use **Research & AI Settings → Evidence retrieval**. Optional packs require ex
 
 Optional **BGE paper maps** are separate from passage retrieval. Optional **local/OpenAI/DeepSeek generation** proposes search plans or cell values for review. Core manual research needs neither.
 
+## How RAG fits into the workflow
+
+**Retrieval-Augmented Generation (RAG)** helps connect a research question to evidence in the papers you have retained. Instead of asking an AI model to answer from memory, the application first retrieves candidate passages from the selected, versioned sources. Researchers can then inspect the exact excerpts before making a judgment.
+
+- **Retrieve:** Core BM25/lexical search works without an LLM; optional Qwen or MedCPT embeddings and rerankers can rank source-linked passages (experimental).
+- **Generate (optional):** A user-configured local model, OpenAI or DeepSeek can propose an answer using a bounded evidence packet. No generation is required for manual review.
+- **Verify:** Source inspection, excerpt attachment, human support judgments, revisions and exports remain explicit. Neither retrieval relevance nor a generated citation proves that a scientific claim is supported.
+
+**RAG is an optional assistance path, not an automatic literature reviewer.** [See the full retrieval and model architecture](docs/application_architecture.md).
+
 ## Under the hood
 
 ```mermaid
@@ -80,3 +90,5 @@ The question-to-evidence workbench is separate development work, absent from bet
 <a id="requirements-and-installation"></a>
 <a id="update-main-and-contribute"></a>
 Older installation/contribution links continue in the [legacy CLI guide](docs/legacy-cli-and-history.md#requirements-and-installation).
+
+Contributors can consult the [product design](product_design.md) and [repository agent guide](AGENTS.md).
