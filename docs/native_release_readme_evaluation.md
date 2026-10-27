@@ -1,8 +1,8 @@
 # Native release entry point — documentation checks
 
-Scope: a documentation-only successor stacked on PR #14 at `9a0118e4e6331aac50005ea7de0bf99724c7096c`. No application, runtime, retrieval profile, source binding, research data, Track B, website or released asset is changed. Remote main was observed at `0c4ee47e7dad8fcfe2525cd2b7d99e5a57984007`; it was not merged into this branch.
+Scope: a documentation-only successor initially stacked on PR #14 at `9a0118e4e6331aac50005ea7de0bf99724c7096c`. No application, runtime, retrieval profile, source binding, research data, Track B, website or released asset is changed. The initial review observed main at `0c4ee47e7dad8fcfe2525cd2b7d99e5a57984007`; the reconciliation below incorporates the subsequently merged guide/main.
 
-Integration caution: newer main contains a separate “How RAG fits into the workflow” README section, absent from this exact-PR-#14-base stack. Preserve that owner/main section when resolving the stack against main; do not replace main's README wholesale. No such merge is performed here.
+Integration preservation: main's separate “How RAG fits into the workflow” README section, contributor links, `AGENTS.md` and `product_design.md` are retained byte-for-byte in the reconciled branch. Main's README was not replaced wholesale.
 
 ## Published artifacts and guide binding
 
@@ -33,4 +33,12 @@ Source beta.4 remains unchanged and available as an advanced setup-required opti
 
 ## Not rerun or implied
 
-Application builds/tests, model/provider calls, native installation, Windows execution and live PubMed: **NOT_RUN in this documentation lane**. Published qualification remains the separate version-bound record. New GitHub-rendered README narrow-screen and Mermaid rendering checks are **NOT_RUN by this lane**; unchanged Mermaid source is not proof of rendering. The release owner handles browser review of the new PR. No main/PR #14 merge, release mutation or portfolio change is performed here.
+Application builds/tests, model/provider calls, native installation, Windows execution and live PubMed: **NOT_RUN in this documentation lane**. Published qualification remains the separate version-bound record. New GitHub-rendered README narrow-screen and Mermaid rendering checks are **NOT_RUN by this lane**; unchanged Mermaid source is not proof of rendering. The release owner handles browser review. No merge into main, release mutation or portfolio change is performed by this lane.
+
+## PR #16 reconciliation after PR #14 — 27 October 2026
+
+After the release owner merged PR #14, actual main `3b7fad114631b379cbcd5f7a763b2837ba7b0960` was automatically merged into the native README feature branch at `b366bf097f6d11f06c4eb344b978985295d45217`, without conflicts. The canonical manual remains SHA-256 `bfd647db82edcfeba99b3aff1eb35071e4e8e67745c599425c1ff5f2e22a7ba9`. Main's RAG, guidance files and contributor links are preserved, along with all prior document anchors, the generated SOURCE-beta.4 block/configuration/generator, and the two exact published native guide copies. Git source targets remain beta.4 `d52e5e35c80ef435abaec0c0a6f4ed236cba9356` and native beta.2 `f1ac1734c829f673ce342174a069fe868dabc786`; no release assets were accessed or changed in this phase.
+
+Fresh reconciliation checks: **19 affected tests passed**, source-release generator validation and whitespace checks passed, **93 relative links/fragments and 21 versioned beta.4 targets/fragments** resolved, and byte/hash preservation checks passed. Independent read-only preservation review passed. These checks do not add an application/platform/model run. Copilot's quota comment remains **NOT_RUN**, not a review approval; no inline review requests were present. The release owner alone handles retargeting and merging PR #16.
+
+The release owner's earlier browser observations at predecessor `b366bf0` passed 1280px/390px readability and Download-for-macOS → Installation-guide keyboard focus. Mermaid rendering was **INCONCLUSIVE** (loading iframe/inspection timeout); unchanged source and readable plain-text architecture are not a diagram-render pass. Those predecessor observations are not silently promoted to a rendered check of this reconciled revision.
