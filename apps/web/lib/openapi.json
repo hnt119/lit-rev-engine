@@ -1090,6 +1090,60 @@
         }
       }
     },
+    "/api/v1/settings/onboarding": {
+      "get": {
+        "summary": "Get Onboarding",
+        "operationId": "get_onboarding_api_v1_settings_onboarding_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DesktopOnboarding"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Put Onboarding",
+        "operationId": "put_onboarding_api_v1_settings_onboarding_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DesktopOnboardingPut"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DesktopOnboarding"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/settings/test-pubmed": {
       "post": {
         "summary": "Test Pubmed",
@@ -8236,6 +8290,11 @@
       },
       "Capabilities": {
         "properties": {
+          "desktop_onboarding_ready": {
+            "type": "boolean",
+            "title": "Desktop Onboarding Ready",
+            "default": false
+          },
           "default_mode": {
             "type": "string",
             "const": "saved_example",
@@ -10479,6 +10538,75 @@
           "request_id"
         ],
         "title": "CreateWebWorkspace"
+      },
+      "DesktopOnboarding": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "desktop-onboarding.v1",
+            "title": "Schema Version",
+            "default": "desktop-onboarding.v1"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Revision",
+            "default": 0
+          },
+          "step": {
+            "type": "string",
+            "enum": [
+              "welcome",
+              "sources",
+              "retrieval",
+              "ai",
+              "ready"
+            ],
+            "title": "Step",
+            "default": "welcome"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "DesktopOnboarding",
+        "description": "Non-secret UI progress; never a provider or research-readiness judgment."
+      },
+      "DesktopOnboardingPut": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "step": {
+            "type": "string",
+            "enum": [
+              "welcome",
+              "sources",
+              "retrieval",
+              "ai",
+              "ready"
+            ],
+            "title": "Step"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "step",
+          "completed"
+        ],
+        "title": "DesktopOnboardingPut"
       },
       "DiagnoseSearchPlanRequest": {
         "properties": {

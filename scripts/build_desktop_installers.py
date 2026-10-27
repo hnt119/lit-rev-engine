@@ -30,6 +30,7 @@ def product():
     value=json.loads((ROOT/'apps/desktop/product.json').read_text())
     if value.get('schema')!='litrev.desktop.product.v1' or value.get('data_name')!='LiteratureReviewEngineDesktop':
         raise ValueError('Use the reviewed native product identity and its separate data location.')
+    base.native_build_number(value)
     return value
 
 
@@ -190,7 +191,7 @@ def assemble_windows(args):
     materialized=materialize_verified_web(resources/'web')
     # No foreign native code may hide in a cross-built JS server tree.
     for file in (resources/'web').rglob('*.node'):require_windows_pe(file)
-    metadata={'schema':'litrev.desktop-distribution.release.v1','version':value['version'],'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'target':'win32-x64','platform':'Windows 11 x64; execution NOT_RUN','core_runtimes_bundled':True,'runtimes':lock,'node_execution':'Electron utilityProcess bundled Node','python_execution':'resources/python/python.exe','signature':'unsigned private candidate; no Authenticode credentials','installed_execution':'NOT_RUN','public_distribution':'not qualified or authorized','data_root':'LOCALAPPDATA/LiteratureReviewEngineDesktop; separate from browser beta and Preview','web_dependency_notice_inventory':{'packages':len(notices['packages']),'notice_files':notices['unique_notice_files'],'missing_notice_sources':notices['missing_notice_sources']},'unused_image_optimizer':{'disabled':True,'omitted_files':omitted},'project_client_boundary':boundary,'web_build_binding':binding,'windows_web_materialization':materialized,'omitted_build_entrypoints':omitted_entrypoints}
+    metadata={'schema':'litrev.desktop-distribution.release.v1','version':value['version'],'native_build_number':base.native_build_number(value),'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'target':'win32-x64','platform':'Windows 11 x64; execution NOT_RUN','core_runtimes_bundled':True,'runtimes':lock,'node_execution':'Electron utilityProcess bundled Node','python_execution':'resources/python/python.exe','signature':'unsigned private candidate; no Authenticode credentials','installed_execution':'NOT_RUN','public_distribution':'not qualified or authorized','data_root':'LOCALAPPDATA/LiteratureReviewEngineDesktop; separate from browser beta and Preview','web_dependency_notice_inventory':{'packages':len(notices['packages']),'notice_files':notices['unique_notice_files'],'missing_notice_sources':notices['missing_notice_sources']},'unused_image_optimizer':{'disabled':True,'omitted_files':omitted},'project_client_boundary':boundary,'web_build_binding':binding,'windows_web_materialization':materialized,'omitted_build_entrypoints':omitted_entrypoints}
     sdk=args.nsis_dir.resolve()
     notices_dir=resources/'INSTALLER_NOTICES';notices_dir.mkdir()
     shutil.copy2(sdk/'COPYING',notices_dir/'NSIS-3.13-COPYING.txt')
@@ -198,12 +199,13 @@ def assemble_windows(args):
     (notices_dir/'PROVENANCE.json').write_bytes(json_bytes({'schema':'litrev.desktop.installer-notices.v1','tool':tool,'runtime_modules':['NSIS Unicode zlib installer stub','Modern UI 2','System plugin','nsExec plugin'],'compression':'zlib; no LZMA module selected','notice_sha256':digest((sdk/'COPYING').read_bytes()),'scope':'Exact NSIS license text retained; component/source/signing review remains explicit, not inferred legal clearance.'}))
     metadata['installer_tool']=tool
     metadata['installer_compression']='zlib'
+    metadata['native_source_evidence']=base.copy_native_source_evidence(resources/'NATIVE_DEPENDENCY_NOTICES')
     (resources/'DESKTOP_RELEASE.json').write_bytes(json_bytes(metadata))
     (resources/'DESKTOP_NOTICES.md').write_text('Private Windows x64 candidate. Original engine MIT; retain engine/LICENSE, engine/THIRD_PARTY_NOTICES.md, Electron LICENSE and LICENSES.chromium.html, Python runtime licenses/UPSTREAM_LICENSES, installed package licenses/dist-info, WEB_DEPENDENCY_NOTICES. Complete native component/source obligations and signing remain separate gates; this is not legal clearance. No model weights are bundled.\n')
     base.audit_generated_payload(resources,out)
     files={path.relative_to(app).as_posix():{'bytes':path.stat().st_size,'sha256':digest(path.read_bytes())} for path in sorted(app.rglob('*')) if path.is_file() and not path.is_symlink()}
     if any(path.is_symlink() for path in app.rglob('*')):raise ValueError('Windows payload cannot depend on symbolic links.')
-    installed={'schema':'litrev.desktop.installed-files.v1','app_id':value['app_id'],'version':value['version'],'source_commit':head,'files':files}
+    installed={'schema':'litrev.desktop.installed-files.v1','app_id':value['app_id'],'version':value['version'],'native_build_number':base.native_build_number(value),'source_commit':head,'files':files}
     (app/'INSTALLATION.json').write_bytes(json_bytes(installed))
     clean_checkout(ROOT,head)
     return app,metadata

@@ -100,6 +100,20 @@ class SettingsTest(Model):
     expected_revision: int = Field(ge=0, strict=True)
 
 
+class DesktopOnboarding(Model):
+    """Non-secret UI progress; never a provider or research-readiness judgment."""
+    schema_version: Literal['desktop-onboarding.v1'] = 'desktop-onboarding.v1'
+    revision: int = Field(default=0, ge=0, strict=True)
+    step: Literal['welcome', 'sources', 'retrieval', 'ai', 'ready'] = 'welcome'
+    completed: bool = Field(default=False, strict=True)
+
+
+class DesktopOnboardingPut(Model):
+    expected_revision: int = Field(ge=0, strict=True)
+    step: Literal['welcome', 'sources', 'retrieval', 'ai', 'ready']
+    completed: bool = Field(strict=True)
+
+
 class RuntimeSettings:
     def __init__(self, directory, *, clock=None):
         self.directory = Path(directory).expanduser().absolute() / 'session-settings'
@@ -126,10 +140,21 @@ class RuntimeSettings:
             raise MvpError('settings_storage', 'Private settings metadata is unsafe; it was not opened.')
         try:
             value = json.loads(path.read_text(encoding='utf-8'))
-            if set(value) != {'revision', 'configured', 'preferences'}:
+            fields = {'revision', 'configured', 'preferences'}
+            if set(value) not in (fields, fields | {'onboarding'}):
                 raise ValueError('unsupported settings fields')
             value['preferences'] = RuntimePreferences.model_validate(value['preferences']).model_dump(mode='json')
-            if type(value['revision']) is not int or value['revision'] < 1 or value.get('configured') is not True:
+            # Welcome progress is validated by its own projection. A damaged
+            # optional progress record must not disable valid Core settings.
+            # An onboarding-only write must not activate otherwise unsaved
+            # defaults or import operator credentials. Existing records retain
+            # their original strict configured/revision contract.
+            untouched = (value.get('configured') is False and value.get('revision') == 0
+                         and 'onboarding' in value
+                         and value['preferences'] == RuntimePreferences().model_dump(mode='json'))
+            configured = (value.get('configured') is True and type(value.get('revision')) is int
+                          and value['revision'] >= 1)
+            if type(value.get('revision')) is not int or not (untouched or configured):
                 raise ValueError('invalid revision')
             return value
         except (ValueError, KeyError, TypeError):
@@ -149,6 +174,7 @@ class RuntimeSettings:
                         'message': 'Configuration valid; no connection has been tested.' if enabled else 'Manual research remains available.'}
             ai_enabled = pref['ai']['provider'] != 'none'
             result = deepcopy(value)
+            result.pop('onboarding', None)  # Keep the existing settings projection unchanged.
             result.update(schema_version='runtime-settings.v1', credentials={k: bool(keys.get(k)) for k in ('ncbi_api_key', 'ai_api_key')},
                 status={'pubmed': status('pubmed', pref['pubmed']['enabled']), 'ai': status('ai', ai_enabled),
                         'maps': {'state': 'Operator configuration',
@@ -180,25 +206,64 @@ class RuntimeSettings:
                     else: keys.pop(name, None)
             value = {'revision': previous['revision'] + 1, 'configured': True,
                      'preferences': request.preferences.model_dump(mode='json')}
-            path = self._path(owner)
-            temporary = path.with_suffix('.new-' + secrets.token_hex(8))
-            fd = open_private(temporary, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-            try:
-                with os.fdopen(fd, 'w', encoding='utf-8') as stream:
-                    stream.write(canonical(value) + '\n'); stream.flush(); os.fsync(stream.fileno())
-                atomic_replace(temporary, path)
-            finally:
-                temporary.unlink(missing_ok=True)
+            if 'onboarding' in previous:
+                value['onboarding'] = deepcopy(previous['onboarding'])
+            self._write(owner, value)
             self._secrets[owner] = keys
             self._tests.pop(owner, None)
             return self.get(owner)
+
+    def _write(self, owner, value):
+        # Both configuration and UI progress use this same bounded private
+        # store and lock. Their independent revisions do not authorize each other.
+        path = self._path(owner)
+        temporary = path.with_suffix('.new-' + secrets.token_hex(8))
+        fd = open_private(temporary, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        try:
+            with os.fdopen(fd, 'w', encoding='utf-8') as stream:
+                stream.write(canonical(value) + '\n'); stream.flush(); os.fsync(stream.fileno())
+            atomic_replace(temporary, path)
+        finally:
+            temporary.unlink(missing_ok=True)
+
+    @staticmethod
+    def _progress(value):
+        try:
+            progress = DesktopOnboarding.model_validate(value.get('onboarding', {}))
+            if 'onboarding' in value and progress.revision < 1:
+                raise ValueError('invalid onboarding revision')
+            return progress
+        except (ValueError, TypeError):
+            raise MvpError('onboarding_storage', 'Saved welcome progress is invalid. Core research remains available; no configuration or research records were reset.') from None
+
+    def get_onboarding(self, owner):
+        with self._lock:
+            return self._progress(self._read(owner)).model_dump(mode='json')
+
+    def put_onboarding(self, owner, request):
+        with self._lock:
+            value = self._read(owner)
+            previous = self._progress(value)
+            if previous.revision != request.expected_revision:
+                raise MvpError('stale_onboarding', 'Welcome setup changed in another window. Reload the saved progress before continuing; research drafts are retained.')
+            if request.completed and not previous.completed and request.step != 'ready':
+                raise MvpError('onboarding_state', 'Finish the welcome flow from its final step. This does not mark optional features ready.')
+            progress = DesktopOnboarding(revision=previous.revision + 1, step=request.step,
+                                         completed=previous.completed or request.completed)
+            value['onboarding'] = progress.model_dump(mode='json')
+            self._write(owner, value)
+            # No credentials, test observations, consent, configuration revision,
+            # research records, provider requests or model work are changed.
+            return progress.model_dump(mode='json')
 
     def snapshot(self, owner, expected=None):
         with self._lock:
             value = self._read(owner)
             if expected is not None and value['revision'] != expected:
                 raise MvpError('stale_settings', 'Settings changed. Review the current configuration before this operation.')
-            return deepcopy(value), dict(self._secrets.get(owner, {}))
+            snapshot = deepcopy(value)
+            snapshot.pop('onboarding', None)
+            return snapshot, dict(self._secrets.get(owner, {}))
 
     def assert_current(self, owner, revision):
         self.snapshot(owner, revision)

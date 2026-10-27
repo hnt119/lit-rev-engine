@@ -399,6 +399,24 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/settings/onboarding": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Onboarding */
+        get: operations["get_onboarding_api_v1_settings_onboarding_get"];
+        /** Put Onboarding */
+        put: operations["put_onboarding_api_v1_settings_onboarding_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/settings/test-pubmed": {
         parameters: {
             query?: never;
@@ -2676,6 +2694,11 @@ export interface components {
         /** Capabilities */
         Capabilities: {
             /**
+             * Desktop Onboarding Ready
+             * @default false
+             */
+            desktop_onboarding_ready: boolean;
+            /**
              * Default Mode
              * @default saved_example
              * @constant
@@ -3522,6 +3545,46 @@ export interface components {
              * @enum {string}
              */
             mode: "saved_example" | "live";
+        };
+        /**
+         * DesktopOnboarding
+         * @description Non-secret UI progress; never a provider or research-readiness judgment.
+         */
+        DesktopOnboarding: {
+            /**
+             * Schema Version
+             * @default desktop-onboarding.v1
+             * @constant
+             */
+            schema_version: "desktop-onboarding.v1";
+            /**
+             * Revision
+             * @default 0
+             */
+            revision: number;
+            /**
+             * Step
+             * @default welcome
+             * @enum {string}
+             */
+            step: "welcome" | "sources" | "retrieval" | "ai" | "ready";
+            /**
+             * Completed
+             * @default false
+             */
+            completed: boolean;
+        };
+        /** DesktopOnboardingPut */
+        DesktopOnboardingPut: {
+            /** Expected Revision */
+            expected_revision: number;
+            /**
+             * Step
+             * @enum {string}
+             */
+            step: "welcome" | "sources" | "retrieval" | "ai" | "ready";
+            /** Completed */
+            completed: boolean;
         };
         /** DiagnoseSearchPlanRequest */
         DiagnoseSearchPlanRequest: {
@@ -7392,6 +7455,59 @@ export interface operations {
                 };
                 content: {
                     "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_onboarding_api_v1_settings_onboarding_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DesktopOnboarding"];
+                };
+            };
+        };
+    };
+    put_onboarding_api_v1_settings_onboarding_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DesktopOnboardingPut"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DesktopOnboarding"];
                 };
             };
             /** @description Validation Error */

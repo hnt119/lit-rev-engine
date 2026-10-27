@@ -20,6 +20,7 @@ from scripts.build_local_preview import clean_checkout, json_bytes, digest
 from scripts.run_web import local_environment
 from scripts.local_preview import reject_web_env_files
 from scripts.desktop_notices import copy_web_dependency_notices
+from scripts.desktop_native_inventory import copy_native_source_evidence
 
 VERSION='0.3.0-desktop-preview.1'
 APP='Literature Review Engine Desktop Preview.app'
@@ -205,6 +206,15 @@ def audit_generated_payload(resources,build_output):
                 raise ValueError('Generated bundle contains an owner/build-machine path: '+str(path.relative_to(resources)))
 
 
+
+def native_build_number(product):
+    """Apple numeric bundle identity is separate from the readable beta label."""
+    value=product.get('build_number')
+    if type(value) is not int or not 1<=value<=9999:
+        raise ValueError('Native product requires a reviewed positive four-digit-or-shorter numeric build number.')
+    return str(value)
+
+
 def build(args):
     if sys.platform!='darwin' or platform.machine()!='arm64':raise ValueError('This prototype builder is macOS arm64 only')
     native=getattr(args,'desktop_distribution',False)
@@ -289,6 +299,7 @@ def build(args):
     omitted=prune_unused_image_optimizer(resources/'web') if native else {}
     boundary=replace_client_boundary(resources/'web') if native else []
     web_notices=copy_web_dependency_notices(resources/'web',ROOT/'apps/web/node_modules',resources/'WEB_DEPENDENCY_NOTICES')
+    native_source_evidence=copy_native_source_evidence(resources/'NATIVE_DEPENDENCY_NOTICES') if native else None
     # Do not include optional ML packages, source maps, workspace state or caches.
     for path in resources.rglob('__pycache__'):
         if path.is_dir():shutil.rmtree(path)
@@ -296,11 +307,11 @@ def build(args):
     # real check enabled and rename the product, rather than forcing its result.
     (app/'Contents/MacOS/Electron').rename(app/'Contents/MacOS'/executable)
     info=app/'Contents/Info.plist'
-    value=plistlib.loads(info.read_bytes());value.update(CFBundleExecutable=executable,CFBundleName=product['name'] if native else 'Literature Review Engine Desktop Preview',CFBundleDisplayName=product['name'] if native else 'Literature Review Engine Desktop Preview',CFBundleIdentifier=product['app_id'] if native else 'org.hnt119.litrev.desktop-preview',CFBundleShortVersionString='0.3.0',CFBundleVersion='3001' if native else '1',LitrevPrototypeVersion=version,NSHighResolutionCapable=True)
+    value=plistlib.loads(info.read_bytes());value.update(CFBundleExecutable=executable,CFBundleName=product['name'] if native else 'Literature Review Engine Desktop Preview',CFBundleDisplayName=product['name'] if native else 'Literature Review Engine Desktop Preview',CFBundleIdentifier=product['app_id'] if native else 'org.hnt119.litrev.desktop-preview',CFBundleShortVersionString='0.3.0',CFBundleVersion=native_build_number(product) if native else '1',LitrevPrototypeVersion=version,NSHighResolutionCapable=True)
     info.write_bytes(plistlib.dumps(value))
     notices='''# Desktop Preview runtime notices\n\nThe owner original engine code is MIT; LICENSE and THIRD_PARTY_NOTICES.md are in engine/. This internal macOS arm64 prototype bundles additional runtimes. Their terms remain separate.\n\nElectron45.0.0 includes Chromium/Node/V8 and upstream codecs; retain Resources/LICENSE and LICENSES.chromium.html and the framework license files. Python3.12.15+20261021 is the pinned python-build-standalone distribution; retain all Python licenses in python/ and the exact upstream binary-dependency license texts/provenance in python/UPSTREAM_LICENSES/. Installed Python package license and dist-info files are retained. Exact locked Next/React/vendored/native web notices are preserved in WEB_DEPENDENCY_NOTICES/; its inventory explicitly records missing upstream full-notice files and source pointers. This is not legal clearance or a complete binary SBOM. No model weights or ML stacks are included.\n\nThis bundle is ad-hoc signed for internal tests, not Developer ID signed or Apple-notarized. It is not approved for public distribution. A complete binary SBOM/license review and nested-code Developer ID signing/notarization must precede a trusted public desktop release. Do not disable operating-system protections.\n'''
     (resources/'DESKTOP_NOTICES.md').write_text(notices)
-    metadata={'schema':'litrev.desktop-preview.release.v1','version':version,'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'platform':'macOS arm64','label':'Internal desktop prototype — not notarized','web_dependency_notice_inventory':{'packages':len(web_notices['packages']),'notice_files':web_notices['unique_notice_files'],'missing_notice_sources':web_notices['missing_notice_sources'],'public_distribution_review':'pending complete binary SBOM/source obligations'},'derived_page_and_image_cache':'not persisted; signed application remains immutable','core_runtimes_bundled':True,'node_execution':'Electron utilityProcess; developer PATH is removed','python_execution':'Resources/python/bin/python3.12','runtimes':lock,'models_bundled':False,'optional_map_dependencies_bundled':False,'build_metadata_normalization':'Next repo/tracing/turbopack roots are derived from packaged server directory; required-server appDir is relative; unused pip console scripts omitted', 'signature':'ad-hoc; not Developer ID; not notarized','public_distribution':'not authorized','research_data':('external LiteratureReviewEngineDesktop root; no migration' if native else 'external dedicated Desktop Preview root; no migration'),'unused_image_optimizer':{'disabled':native,'omitted_files':omitted},'project_client_boundary':boundary,'shell_sources':{name:digest((ROOT/'apps/desktop'/name).read_bytes()) for name in ('main.cjs','services.cjs','security.cjs','native-exports.cjs','no-disk-cache.cjs','package.json','runtime-lock.json',*(('product.json','optional-runtime.cjs','optional-runtime-catalog.json') if native else ())) }}
+    metadata={'schema':'litrev.desktop-preview.release.v1','version':version,'source_commit':head,'native_build_number':native_build_number(product) if native else None,'native_source_evidence':native_source_evidence,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'platform':'macOS arm64','label':('Private desktop candidate — unqualified for public distribution' if native else 'Internal desktop prototype — not notarized'),'web_dependency_notice_inventory':{'packages':len(web_notices['packages']),'notice_files':web_notices['unique_notice_files'],'missing_notice_sources':web_notices['missing_notice_sources'],'public_distribution_review':'pending complete binary SBOM/source obligations'},'derived_page_and_image_cache':'not persisted; signed application remains immutable','core_runtimes_bundled':True,'node_execution':'Electron utilityProcess; developer PATH is removed','python_execution':'Resources/python/bin/python3.12','runtimes':lock,'models_bundled':False,'optional_map_dependencies_bundled':False,'build_metadata_normalization':'Next repo/tracing/turbopack roots are derived from packaged server directory; required-server appDir is relative; unused pip console scripts omitted', 'signature':'ad-hoc; not Developer ID; not notarized','public_distribution':'not authorized','research_data':('external LiteratureReviewEngineDesktop root; no migration' if native else 'external dedicated Desktop Preview root; no migration'),'unused_image_optimizer':{'disabled':native,'omitted_files':omitted},'project_client_boundary':boundary,'shell_sources':{name:digest((ROOT/'apps/desktop'/name).read_bytes()) for name in ('main.cjs','services.cjs','security.cjs','native-exports.cjs','no-disk-cache.cjs','package.json','runtime-lock.json',*(('product.json','optional-runtime.cjs','optional-runtime-catalog.json') if native else ())) }}
     (resources/'DESKTOP_RELEASE.json').write_bytes(json_bytes(metadata))
     audit_generated_payload(resources,output)
     clean_checkout(ROOT,head)

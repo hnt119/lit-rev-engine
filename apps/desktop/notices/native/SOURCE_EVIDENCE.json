@@ -1,0 +1,42 @@
+{
+  "components": {
+    "electron": {
+      "chromium_deps_source_sha256": "3535b3175635f9984c82a3f0c2a8e70f0ed2cfdb2a352f40446c9fddf2490703",
+      "chromium_deps_source_url": "https://chromium.googlesource.com/chromium/src/+/156.0.8078.48/DEPS",
+      "chromium_version": "156.0.8078.48",
+      "declared_ffmpeg_branding": "Chrome",
+      "declared_proprietary_codecs": true,
+      "deps_file": "electron-45.0.0/DEPS.txt",
+      "ffmpeg_build_args": "electron-45.0.0/all.gn",
+      "ffmpeg_patch_list": "electron-45.0.0/ffmpeg-patches.txt",
+      "ffmpeg_revision": "9db86ce5b5b454dfc96c435f9f0723012980c37f",
+      "ffmpeg_source_url": "https://chromium.googlesource.com/chromium/third_party/ffmpeg/+/9db86ce5b5b454dfc96c435f9f0723012980c37f",
+      "node_version": "24.22.0",
+      "source_url": "https://github.com/electron/electron/tree/v45.0.0",
+      "version": "45.0.0"
+    },
+    "next": {
+      "source_manifest": "next-16.4.2/package.json",
+      "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
+      "version": "16.4.2"
+    },
+    "pydantic_core": {
+      "exact_source_binding": "pydantic-core-2.46.4/LOCKED_CRATE_NOTICES.json",
+      "source_project_url": "https://github.com/pydantic/pydantic/tree/main/pydantic-core",
+      "version": "2.46.4"
+    },
+    "python_build_standalone": {
+      "build_inputs": "python-build-inputs.json",
+      "release": "20261021",
+      "source_commit": "0c5e581b54a4736cdbbe68bdd6d7e571a1dca11e"
+    }
+  },
+  "pending_gates": [
+    "FFmpeg exact corresponding-source/patch/build-description delivery and applicable codec/patent review",
+    "Feature/target/native-link mapping for Rust and other vendored components",
+    "Windows Microsoft-runtime redistribution permissions/terms and installed-target qualification",
+    "Owner production signing/notarization and downloaded-artifact acceptance"
+  ],
+  "schema": "litrev.native.source-evidence.v1",
+  "scope": "Retained exact primary source/version/notice evidence. Neither legal clearance nor proof that every locked or credited component is linked. Existing candidate artifacts are not changed by source preparation."
+}

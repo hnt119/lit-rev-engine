@@ -1,0 +1,336 @@
+{
+  "dependencies": {
+    "autoconf": {
+      "sha256": "afb181a76e1ee72832f6581c0eddf8df032b83e2e0239ef79ebedc4467d92d6e",
+      "url": "https://astral-sh.github.io/mirror/files/autoconf-2.72.tar.gz",
+      "version": "2.72"
+    },
+    "bdb": {
+      "licenses": [
+        "Sleepycat"
+      ],
+      "sha256": "2917c28f60903908c2ca4587ded1363b812c4e830a5326aaa77c9879d13ae18e",
+      "url": "https://ftp.osuosl.org/pub/blfs/conglomeration/db/db-6.0.19.tar.gz",
+      "version": "6.0.19"
+    },
+    "bzip2": {
+      "licenses": [
+        "bzip2-1.0.6"
+      ],
+      "sha256": "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269",
+      "url": "https://astral-sh.github.io/mirror/files/bzip2-1.0.8.tar.gz",
+      "version": "1.0.8"
+    },
+    "cpython-3.11": {
+      "licenses": [
+        "Python-2.0",
+        "CNRI-Python"
+      ],
+      "sha256": "bfb74ad39efae27cda510f134ab408e00f9992c56851cfc0b1cdb5646da11599",
+      "url": "https://www.python.org/ftp/python/3.11.17/Python-3.11.17.tar.xz",
+      "version": "3.11.17"
+    },
+    "cpython-3.12": {
+      "licenses": [
+        "Python-2.0",
+        "CNRI-Python"
+      ],
+      "sha256": "c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a",
+      "url": "https://www.python.org/ftp/python/3.12.15/Python-3.12.15.tar.xz",
+      "version": "3.12.15"
+    },
+    "cpython-3.13": {
+      "licenses": [
+        "Python-2.0",
+        "CNRI-Python"
+      ],
+      "sha256": "6020bd10aff3bf4821be16f088ebb1591beb7b811dcd8fab1da8f7c22a7b27e7",
+      "url": "https://www.python.org/ftp/python/3.13.17/Python-3.13.17.tar.xz",
+      "version": "3.13.17"
+    },
+    "cpython-3.14": {
+      "licenses": [
+        "Python-2.0",
+        "CNRI-Python"
+      ],
+      "sha256": "e02d9ac21cebda6e46435369744a92c65cc7cd8669697694122cf97ffacd1e53",
+      "url": "https://www.python.org/ftp/python/3.14.9/Python-3.14.9.tar.xz",
+      "version": "3.14.9"
+    },
+    "cpython-3.15": {
+      "licenses": [
+        "Python-2.0",
+        "CNRI-Python"
+      ],
+      "sha256": "673ae7232d84c894729882c8257d300ef2d26523911bfd3917ec8ce7f526f99b",
+      "url": "https://www.python.org/ftp/python/3.15.1/Python-3.15.1.tar.xz",
+      "version": "3.15.1"
+    },
+    "cpython-3.16": {
+      "licenses": [
+        "Python-2.0",
+        "CNRI-Python"
+      ],
+      "sha256": "dcaa9029436b723e33412c68ca17f0130be73058e47a3a7c049cb8cdf6034ee9",
+      "url": "https://www.python.org/ftp/python/3.16.0/Python-3.16.0a1.tar.xz",
+      "version": "3.16.0a1"
+    },
+    "expat": {
+      "licenses": [
+        "MIT"
+      ],
+      "sha256": "1e6371862cc31999b368c3b89b49994f0677e1bab5f1b2b85ae3741f5d803051",
+      "url": "https://github.com/libexpat/libexpat/releases/download/R_2_9_0/expat-2.9.0.tar.xz",
+      "version": "2.9.0"
+    },
+    "jom-windows-bin": {
+      "sha256": "d533c1ef49214229681e90196ed2094691e8c4a0a0bef0b2c901debcb562682b",
+      "url": "http://download.qt.io/official_releases/jom/jom_1_1_4.zip",
+      "version": "1.1.4"
+    },
+    "libX11": {
+      "licenses": [
+        "MIT",
+        "X11"
+      ],
+      "sha256": "acf0e7cd7541110e6330ecb539441a2d53061f386ec7be6906dfde0de2598470",
+      "url": "https://www.x.org/releases/individual/lib/libX11-1.8.13.tar.gz",
+      "version": "1.8.13"
+    },
+    "libXau": {
+      "licenses": [
+        "MIT"
+      ],
+      "sha256": "2402dd938da4d0a332349ab3d3586606175e19cb32cb9fe013c19f1dc922dcee",
+      "url": "https://www.x.org/releases/individual/lib/libXau-1.0.12.tar.gz",
+      "version": "1.0.12"
+    },
+    "libedit": {
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "sha256": "5f0573349d77c4a48967191cdd6634dd7aa5f6398c6a57fe037cc02696d6099f",
+      "url": "https://thrysoee.dk/editline/libedit-20240808-3.1.tar.gz",
+      "version": "20240808-3.1"
+    },
+    "libffi": {
+      "licenses": [
+        "MIT"
+      ],
+      "sha256": "7da3e2d9a171eb0a038f592ecad3ff2bb2550f3496d87b3b29ad0cf4430c0db4",
+      "url": "https://github.com/libffi/libffi/releases/download/v3.8.0/libffi-3.8.0.tar.gz",
+      "version": "3.8.0"
+    },
+    "libpthread-stubs": {
+      "sha256": "593196cc746173d1e25cb54a93a87fd749952df68699aab7e02c085530e87747",
+      "url": "https://www.x.org/archive/individual/lib/libpthread-stubs-0.5.tar.gz",
+      "version": "0.5"
+    },
+    "libxcb": {
+      "licenses": [
+        "MIT"
+      ],
+      "sha256": "2c69287424c9e2128cb47ffe92171e10417041ec2963bceafb65cb3fcf8f0b85",
+      "url": "https://xcb.freedesktop.org/dist/libxcb-1.17.0.tar.gz",
+      "version": "1.17.0"
+    },
+    "linux-uapi": {
+      "sha256": "162ba55a6e6eca68b32a80e6774f8dda4e145bd68049fb2e85760ec1546bee3c",
+      "url": "https://snapshot.debian.org/archive/debian/20260624T024300Z/pool/main/l/linux/linux-libc-dev_7.0.12-2~bpo13+1_all.deb",
+      "version": "7.0.12-2~bpo13+1"
+    },
+    "llvm-aarch64-linux": {
+      "sha256": "8a1fdd0ecab2a9fa655beeb2614601cd6651278dad0d9ffb7ac6b993158392f3",
+      "url": "https://github.com/astral-sh/llvm-build/releases/download/20261008/llvm-23.1.3+20261008-gnu_only-aarch64-unknown-linux-gnu.tar.zst",
+      "version": "23.1.3+20261008"
+    },
+    "llvm-aarch64-macos": {
+      "sha256": "33c600c213de9a1f4b360fb0737918bda609c6268e0a46b3ec255ff1a5ebb981",
+      "url": "https://github.com/astral-sh/llvm-build/releases/download/20261008/llvm-23.1.3+20261008-aarch64-apple-darwin.tar.zst",
+      "version": "23.1.3+20261008"
+    },
+    "llvm-x86_64-linux": {
+      "sha256": "32ea722bc3fb74fd37bbace1463f1dd2d86aeeefcfa6ccac4b74fce89387017e",
+      "url": "https://github.com/astral-sh/llvm-build/releases/download/20261008/llvm-23.1.3+20261008-gnu_only-x86_64-unknown-linux-gnu.tar.zst",
+      "version": "23.1.3+20261008"
+    },
+    "m4": {
+      "sha256": "63aede5c6d33b6d9b13511cd0be2cac046f2e70fd0a07aa9573a04a82783af96",
+      "url": "https://astral-sh.github.io/mirror/files/m4-1.4.19.tar.xz",
+      "version": "1.4.19"
+    },
+    "mpdecimal": {
+      "licenses": [
+        "BSD-2-Clause"
+      ],
+      "sha256": "942445c3245b22730fd41a67a7c5c231d11cb1b9936b9c0f76334fb7d0b4468c",
+      "url": "https://astral-sh.github.io/mirror/files/mpdecimal-4.0.0.tar.gz",
+      "version": "4.0.0"
+    },
+    "musl": {
+      "sha256": "9b969322012d796dc23dda27a35866034fa67d8fb67e0e2c45c913c3d43219dd",
+      "url": "https://musl.libc.org/releases/musl-1.2.2.tar.gz",
+      "version": "1.2.2"
+    },
+    "musl-static": {
+      "sha256": "a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4",
+      "url": "https://musl.libc.org/releases/musl-1.2.5.tar.gz",
+      "version": "1.2.5"
+    },
+    "nasm-windows-bin": {
+      "sha256": "3ee4782247bcb874378d02f7eab4e294a84d3d15f3f6ee2de2f47a46aa7226e6",
+      "url": "https://astral-sh.github.io/mirror/files/nasm-2.16.03-win64.zip",
+      "version": "2.16.03"
+    },
+    "ncurses": {
+      "licenses": [
+        "X11"
+      ],
+      "sha256": "136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6",
+      "url": "https://astral-sh.github.io/mirror/files/ncurses-6.5.tar.gz",
+      "version": "6.5"
+    },
+    "openssl-3.5": {
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "sha256": "603f5602e2eef00d77fbd429d34dcd5822bb301757a1bc9cdb24c670f1eb859a",
+      "url": "https://github.com/openssl/openssl/releases/download/openssl-3.5.9/openssl-3.5.9.tar.gz",
+      "version": "3.5.9"
+    },
+    "patchelf": {
+      "sha256": "39e8aeccd7495d54df094d2b4a7c08010ff7777036faaf24f28e07777d1598e2",
+      "url": "https://github.com/NixOS/patchelf/releases/download/0.13.1/patchelf-0.13.1.tar.bz2",
+      "version": "0.13.1"
+    },
+    "pip": {
+      "sha256": "fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70",
+      "url": "https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl",
+      "version": "26.2.2"
+    },
+    "pkgconf": {
+      "sha256": "aa033abb2b777ba4e66635495a931e53c49d86e4e4e38af68c0f76d666cbd8cf",
+      "url": "https://github.com/pkgconf/pkgconf/releases/download/pkgconf-3.0.3/pkgconf-3.0.3.tar.xz",
+      "version": "3.0.3"
+    },
+    "setuptools": {
+      "sha256": "8cc107ac7a403105dc8d6477664171f36135fab26adf8b5e0edaebc313f39b21",
+      "url": "https://files.pythonhosted.org/packages/dd/a2/2e1af99d56c8145aa69496026c7e5fd7b6ec759b500c3ad697e2062832dc/setuptools-84.2.0-py3-none-any.whl",
+      "version": "84.2.0"
+    },
+    "sqlite": {
+      "licenses": [],
+      "sha256": "83e6b2020a034e9a7ad4a72feea59e1ad52f162e09cbd26735a3ffb98359fc4f",
+      "url": "https://www.sqlite.org/2026/sqlite-autoconf-3530100.tar.gz",
+      "version": "3530100"
+    },
+    "strawberryperl": {
+      "sha256": "ea451686065d6338d7e4d4a04c9af49f17951d15aa4c2e19ab8cb56fa2373440",
+      "url": "https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP_53822_64bit/strawberry-perl-5.38.2.2-64bit-portable.zip",
+      "version": "5.38.2.2"
+    },
+    "tcl": {
+      "licenses": [
+        "TCL"
+      ],
+      "sha256": "d0aed49230bc02a65c1e0229e65f34590a4b037ec40d546f32573b467f7551ea",
+      "url": "https://prdownloads.sourceforge.net/tcl/tcl9.0.4-src.tar.gz",
+      "version": "9.0.4"
+    },
+    "tix": {
+      "licenses": [
+        "TCL"
+      ],
+      "sha256": "f7b21d115867a41ae5fd7c635a4c234d3ca25126c3661eb36028c6e25601f85e",
+      "url": "https://github.com/python/cpython-source-deps/archive/tix-8.4.3.6.tar.gz",
+      "version": "8.4.3.6"
+    },
+    "tk": {
+      "licenses": [
+        "TCL"
+      ],
+      "sha256": "d7a146d2917eb8b5cc95276dbf0e3d03c7464d2b19c1675357857c989301dbb4",
+      "url": "https://prdownloads.sourceforge.net/tcl/tk9.0.4-src.tar.gz",
+      "version": "9.0.4"
+    },
+    "tk-windows-bin-8615": {
+      "licenses": [
+        "TCL"
+      ],
+      "sha256": "3c661a23751be04d901ce96611c325f88e970273dcbf5394982c1745100a6d8c",
+      "url": "https://github.com/python/cpython-bin-deps/archive/c807be2b19bafc06767b2ed8afec4d5f9a9553b2.tar.gz",
+      "version": "8.6.15"
+    },
+    "tk-windows-bin-904": {
+      "licenses": [
+        "TCL"
+      ],
+      "sha256": "e7aaa6417b7c2301ecd876307cced7e5bc4575a0b96e66dd08fcb6ab0d5d87a8",
+      "url": "https://github.com/python/cpython-bin-deps/archive/907f3f4de820cb74fc8fb4431a39beae4c690915.tar.gz",
+      "version": "9.0.4"
+    },
+    "uuid": {
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "sha256": "46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644",
+      "url": "https://sourceforge.net/projects/libuuid/files/libuuid-1.0.3.tar.gz",
+      "version": "1.0.3"
+    },
+    "x11-util-macros": {
+      "sha256": "f642f8964d81acdf06653fdf9dbc210c43ce4bd308bd644a8d573148d0ced76b",
+      "url": "https://www.x.org/archive/individual/util/util-macros-1.20.2.tar.gz",
+      "version": "1.20.2"
+    },
+    "xcb-proto": {
+      "sha256": "2c1bacd2110f4799f74de6ebb714b94cf6f80fb112316b1219480fd22562148c",
+      "url": "https://xcb.freedesktop.org/dist/xcb-proto-1.17.0.tar.xz",
+      "version": "1.17.0"
+    },
+    "xorgproto": {
+      "sha256": "d6f89f65bafb8c9b735e0515882b8a1511e8e864dde5e9513e191629369f2256",
+      "url": "https://www.x.org/releases/individual/proto/xorgproto-2025.1.tar.gz",
+      "version": "2025.1"
+    },
+    "xtrans": {
+      "sha256": "936b74c60b19c317c3f3cb1b114575032528dbdaf428740483200ea874c2ca0a",
+      "url": "https://www.x.org/archive/individual/lib/xtrans-1.6.0.tar.gz",
+      "version": "1.6.0"
+    },
+    "xz": {
+      "licenses": [
+        "0BSD"
+      ],
+      "sha256": "0014c7886930454fe8bd4228665b51af55eeae560ea135c9c4cd33f55b2591d9",
+      "url": "https://github.com/tukaani-project/xz/releases/download/v5.8.4/xz-5.8.4.tar.gz",
+      "version": "5.8.4"
+    },
+    "zlib": {
+      "licenses": [
+        "Zlib"
+      ],
+      "sha256": "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16",
+      "url": "https://github.com/madler/zlib/releases/download/v1.3.2/zlib-1.3.2.tar.gz",
+      "version": "1.3.2"
+    },
+    "zlib-ng": {
+      "licenses": [
+        "Zlib"
+      ],
+      "sha256": "00bbd88709bc416cb96160ab61d3e1c8f76e106799af7328d0fe434dc7dd5004",
+      "url": "https://github.com/python/cpython-source-deps/archive/refs/tags/zlib-ng-2.2.4.tar.gz",
+      "version": "2.2.4"
+    },
+    "zstd": {
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "sha256": "f24b52470d12f466e9fa4fcc94e6c530625ada51d7b36de7fdc6ed7e6f499c8e",
+      "url": "https://github.com/python/cpython-source-deps/archive/refs/tags/zstd-1.5.7.tar.gz",
+      "version": "1.5.7"
+    }
+  },
+  "scope": "Upstream build-input declarations, not measurement of linked binaries. Retained PYTHON.json/notice linkage and binary manifests must be considered separately.",
+  "source_sha256": "510d5b18ac3902627cab1c5e0c0a77b2e0e18b6f298df0610de3fcb8a2406db4",
+  "source_url": "https://github.com/astral-sh/python-build-standalone/blob/0c5e581b54a4736cdbbe68bdd6d7e571a1dca11e/pythonbuild/downloads.json"
+}

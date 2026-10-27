@@ -86,6 +86,7 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     app.state.registry, app.state.services = registry, services
     app.state.data_dir = directory
     app.state.deployment, app.state.admission = deployment, admission
+    app.state.desktop_onboarding_ready = not deployment.hosted and os.environ.get("LITREV_DESKTOP_RUNTIME_MODE") == "managed"
 
     def service(mode):
         # build_service itself shares provider objects and rate gates per process.
@@ -278,7 +279,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
             snapshot, _ = settings.snapshot(session['token_hash'])
             if snapshot['configured']:
                 runtime['live_available'] = snapshot['preferences']['pubmed']['enabled']
-        return Capabilities(**runtime, map=MapCapability(ready=ready, reason=reason),
+        return Capabilities(**runtime, desktop_onboarding_ready=app.state.desktop_onboarding_ready,
+                            map=MapCapability(ready=ready, reason=reason),
                             preparation_jobs_ready=app.state.preparation_jobs_ready,
                             search_plans_ready=app.state.search_plans_ready,
                             board_span_profiles=BoardSpanCapability())

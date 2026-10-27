@@ -4,7 +4,7 @@ export function allowedRoute(method: string, path: string): boolean {
   const w = `workspaces/${id}`;
   const b = `${w}/boards/${id}`;
   const rules: Record<string, RegExp[]> = {
-    GET: [ /^admission\/status$/, /^session$/, /^capabilities$/, /^settings$/, /^settings\/retrieval$/, /^workspaces$/, new RegExp(`^${w}$`),
+    GET: [ /^admission\/status$/, /^session$/, /^capabilities$/, /^settings$/, /^settings\/onboarding$/, /^settings\/retrieval$/, /^workspaces$/, new RegExp(`^${w}$`),
       new RegExp(`^${w}/searches/${id}/papers$`), new RegExp(`^${w}/source-preparations/${id}$`),
       new RegExp(`^${w}/source-preparations/${id}/papers$`),new RegExp(`^${w}/runs/${id}/papers$`),
       new RegExp(`^${w}/runs/${id}$`), new RegExp(`^${w}/runs/${id}/passages/${id}/context$`),
@@ -32,7 +32,7 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${w}/collections/(combine-preview|combine)$`),
       new RegExp(`^${w}/jobs/${id}/cancel$`),new RegExp(`^${w}/boards$`),new RegExp(`^${b}/(revisions|candidates|cell-revisions|proposal-runs|prepare-generation)$`),
       new RegExp(`^${b}/proposals/${id}/(adopt|dismiss)$`) ],
-    PUT: [/^settings$/,new RegExp(`^${w}/drafts/${id}$`),new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${w}/search-plans/${id}$`)],
+    PUT: [/^settings$/, /^settings\/onboarding$/,new RegExp(`^${w}/drafts/${id}$`),new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${w}/search-plans/${id}$`)],
     DELETE: [new RegExp(`^${w}$`)],
   };
   return !!rules[method]?.some(rule => rule.test(path));

@@ -162,6 +162,7 @@ class MapCapability(Model):
     reason: str = "Setup required: optional pinned local embedding profile is not configured."
 
 class Capabilities(Model):
+    desktop_onboarding_ready: bool = False
     default_mode: Literal["saved_example"] = "saved_example"
     live_available: bool
     saved_example: dict[str, Any]

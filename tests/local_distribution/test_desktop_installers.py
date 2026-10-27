@@ -18,6 +18,17 @@ def test_native_product_identity_does_not_open_source_or_preview_data():
     assert value['require_installed_location'] is True
 
 
+
+def test_successor_native_build_identity_is_numeric_and_separate_from_beta_label():
+    value=native.product()
+    assert value['version']=='0.3.0-desktop-beta.2'
+    assert value['build_number']==3002
+    assert base.native_build_number(value)=='3002'
+    for invalid in (None,True,'3002',0,-1,10000):
+        with pytest.raises(ValueError,match='numeric build number'):
+            base.native_build_number({**value,'build_number':invalid})
+
+
 def test_windows_inputs_bind_exact_official_target_and_digest():
     lock=json.loads((base.ROOT/'apps/desktop/runtime-lock.win32-x64.json').read_text())
     assert lock['target']=='win32-x64'
@@ -201,3 +212,21 @@ def test_notices_bind_before_materialization_and_retained_paths_remain_exact(tmp
     for entry in notices['packages']:
         assert (web/entry['bundled_package_json']).is_file()
         for note in entry['notice_files']:assert base.digest((out/note['file']).read_bytes())==note['sha256']
+
+
+def test_native_packagers_copy_hash_verified_source_evidence_before_immutable_receipts(tmp_path):
+    import inspect
+    from scripts.desktop_native_inventory import copy_native_source_evidence
+    assert base.copy_native_source_evidence is copy_native_source_evidence
+    mac=inspect.getsource(base.build)
+    windows=inspect.getsource(native.assemble_windows)
+    assert "native_source_evidence=copy_native_source_evidence(resources/'NATIVE_DEPENDENCY_NOTICES') if native else None" in mac
+    assert mac.index('native_source_evidence=copy_native_source_evidence')<mac.index("run(['/usr/bin/codesign'")
+    assert "'native_source_evidence':native_source_evidence" in mac
+    assert windows.index("metadata['native_source_evidence']=base.copy_native_source_evidence")<windows.index("(resources/'DESKTOP_RELEASE.json').write_bytes")<windows.index('files={')
+    destination=tmp_path/'resources/NATIVE_DEPENDENCY_NOTICES';destination.parent.mkdir()
+    receipt=base.copy_native_source_evidence(destination)
+    assert receipt['schema']=='litrev.native.source-evidence-copy.v1'
+    assert receipt['manifest_sha256']==base.digest((destination/'MANIFEST.json').read_bytes())
+    assert receipt['files']>100 and receipt['bytes']>0
+    assert 'legal qualification remain separate' in receipt['qualification']

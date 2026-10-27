@@ -4,7 +4,7 @@ from copy import copy
 from fastapi import Depends
 from src.mvp.ports import MvpError
 from src.mvp.contracts import canonical
-from .runtime_settings import RuntimeSettings, SettingsPut, SettingsTest
+from .runtime_settings import RuntimeSettings, SettingsPut, SettingsTest, DesktopOnboarding, DesktopOnboardingPut
 from pydantic import Field
 from src.mvp.search_plan_contracts import ProposeSearchPlanRequest
 from src.mvp.proposal_contracts import ProposalGenerateRequest
@@ -148,6 +148,20 @@ def install_settings_routes(app, *, directory, session_for, dependencies):
     @app.put('/api/v1/settings', dependencies=dependencies)
     def put(request: SettingsPut, session=Depends(session_for)):
         return settings.put(session['token_hash'], request)
+
+    def desktop_progress_available():
+        if not app.state.desktop_onboarding_ready:
+            raise MvpError('unknown_onboarding', 'Welcome setup is available in the managed desktop application.')
+
+    @app.get('/api/v1/settings/onboarding', response_model=DesktopOnboarding, dependencies=dependencies)
+    def get_onboarding(session=Depends(session_for)):
+        desktop_progress_available()
+        return settings.get_onboarding(session['token_hash'])
+
+    @app.put('/api/v1/settings/onboarding', response_model=DesktopOnboarding, dependencies=dependencies)
+    def put_onboarding(request: DesktopOnboardingPut, session=Depends(session_for)):
+        desktop_progress_available()
+        return settings.put_onboarding(session['token_hash'], request)
 
     @app.post('/api/v1/settings/test-pubmed', dependencies=dependencies)
     def test_pubmed(request: SettingsTest, session=Depends(session_for)):
