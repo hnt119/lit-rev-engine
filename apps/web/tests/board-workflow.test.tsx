@@ -205,3 +205,27 @@ test("a 30 by 6 table mounts one guided editor and performs no per-cell retrieva
     assert.equal(control(renderer,"Manual cell value").props.value,"");
   }finally{await act(async()=>renderer.unmount());}
 });
+
+test("Needs review filters the existing table and investigation return preserves the mounted cell editor",async()=>{
+  const {renderer,view,requests,workspace}=await fixture("investigation-cell-return");
+  const originalFetch=globalThis.fetch;
+  globalThis.fetch=async(url,options)=>String(url).includes("/investigations?")?response({investigations:[]}):originalFetch(url,options);
+  try{
+    view.cells.filter(cell=>cell.paper_id==="p1").forEach(cell=>{cell.head={value:"Supported entry",semantic_assessment:"human_supported",scope_result:"value_found",missing_information:"",references:[],inspected_ranges:[]};});
+    await act(async()=>renderer.update(<Compare workspace={workspace} navigate={async()=>{}}/>));
+    await act(async()=>renderer.update(<Compare workspace={workspace} requestedBoard="b" navigate={async()=>{}}/>));
+    await act(async()=>button(renderer,"Needs review").props.onClick());
+    assert.equal(renderer.root.findAllByProps({className:"board-cell"}).length,6);
+    assert.equal(requests.some(request=>request.method!=="GET"),false,"filtering never mutates or calls providers");
+    await act(async()=>renderer.root.findByProps({"aria-label":"Exposure for SOFTWARE TEST Report 3"}).props.onClick());
+    await act(async()=>control(renderer,"Manual cell value").props.onChange({target:{value:"KEEP ORIGINAL DRAFT"}}));
+    const before=requests.length;
+    await act(async()=>button(renderer,"Investigate related literature").props.onClick());
+    assert.equal(renderer.root.findByProps({className:"board-cell-editor"}).props.hidden,true);
+    assert.ok(renderer.root.findByProps({"aria-label":"Evidence Gap Navigator"}));
+    await act(async()=>button(renderer,"Return to original cell").props.onClick());
+    assert.equal(renderer.root.findByProps({className:"board-cell-editor"}).props.hidden,false);
+    assert.equal(control(renderer,"Manual cell value").props.value,"KEEP ORIGINAL DRAFT");
+    assert.equal(requests.slice(before).some(request=>request.method!=="GET"),false,"opening and returning do not save, submit, retrieve or prepare sources");
+  }finally{await act(async()=>renderer.unmount());}
+});
