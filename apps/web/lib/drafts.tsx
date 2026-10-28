@@ -135,7 +135,16 @@ export function useDraft<T extends Record<string,unknown>>(workspace:string,scop
   const replace=useCallback((next:T,head:string|null)=>{
     current.current.expected=head;current.current.failure=null;setData(next);
   },[setData]);
-  return {data,setData,ready,state,error,save,retry,restore,replace,version};
+  /** Explicit conflict resolution may adopt only the UI draft version just inspected. */
+  const rebaseInspected=useCallback(async(next:T,inspectedVersion:number)=>{
+    if(inFlight.current)await inFlight.current.catch(()=>{});
+    const record=await api<Schema<"DraftRecord">>(endpoint);
+    if(record.version!==inspectedVersion||record.version!==0&&record.expected_assessment_head!==expectedHead)
+      throw new APIError(409,"draft_conflict","The inspected draft changed again. Your local edits are retained; inspect the latest draft before choosing a replacement.");
+    current.current.version=record.version;current.current.expected=record.version===0?expectedHead:record.expected_assessment_head;
+    current.current.failure=null;setVersion(record.version);setReady(true);setError("");setData(next);
+  },[endpoint,expectedHead,setData]);
+  return {data,setData,ready,state,error,save,retry,restore,replace,rebaseInspected,version};
 }
 
 export function DraftStatus({draft}:{draft:{state:string,error:string,retry:()=>Promise<void>}}) {

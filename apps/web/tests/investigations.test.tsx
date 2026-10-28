@@ -135,7 +135,7 @@ test("manual candidate decisions are versioned and remain separate when reopened
     if(call.path.endsWith("/decisions")){const candidate=state.view.executions[0].candidates[0];assert.equal(call.body.expected_version,candidate.decision_version);state.view={...state.view,executions:[{...state.view.executions[0],candidates:[{...candidate,decision:call.body.decision,decision_version:candidate.decision_version+1}]}]};return response(state.view);}
     throw new Error("Unexpected "+call.path);
   }});
-  f.state.view.executions=[{execution:{id:"execution"},search:{searched_at:stamp,query},candidates:[{id:"candidate",paper:{id:"pmid:1",title:"Another report",authors:[],year:2026,pmid:"1",doi:null,pmcid:null,abstract:"Candidate abstract",url:""},decision:"unassessed",decision_version:0}]}] as unknown as Schema<"InvestigationView">["executions"];
+  f.state.view.executions=[{execution:{id:"execution"},search:{searched_at:stamp,query,total_reported:1,fetched_count:1,truncated:false,warnings:[],errors:[]},candidates:[{id:"candidate",paper:{id:"pmid:1",title:"Another report",authors:[],year:2026,pmid:"1",doi:null,pmcid:null,abstract:"Candidate abstract",url:""},decision:"unassessed",decision_version:0}]}] as unknown as Schema<"InvestigationView">["executions"];
   try{
     await open(f.renderer);await act(async()=>button(f.renderer,"Shortlist").props.onClick());assert.match(text(f.renderer.root),/Decision: shortlist · version 1/);
     await act(async()=>button(f.renderer,"Dismiss").props.onClick());assert.match(text(f.renderer.root),/Decision: dismiss · version 2/);
@@ -152,4 +152,43 @@ test("Needs review uses workflow state, not a scientific gap judgment",()=>{
   for(const changes of [{semantic_assessment:"partial"},{scope_result:"not_found_in_inspected_material"},{missing_information:"Unresolved recruitment detail"},{value:null}])assert.equal(unresolvedCell({...view,cells:[{...cell,head:{...cell.head,...changes}}]} as unknown as Schema<"BoardView">,"p","f"),true);
   assert.equal(unresolvedCell({...view,freshness:"historical"},"p","f"),true);
   assert.equal(unresolvedCell({...view,cells:[]},"p","f"),true);
+});
+
+test("two-tab editor draft conflicts require inspecting its exact version before retaining local edits",async()=>{
+  const f=await mount("investigation-draft-conflict",{handler:(call,state)=>{
+    if(call.path.endsWith("/plan")){const next=saved(call.body.draft,2);next.revision.workspace_id=state.view.origin.workspace_id;next.revision.plan_id=state.view.origin.plan_id;state.view={...state.view,plan:next};return response(state.view);}
+    throw new Error("Unexpected "+call.path);
+  }});
+  try{
+    await open(f.renderer);
+    const draftPath=f.calls.find(call=>call.path.includes("/drafts/search-plan-editor:"))!.path;
+    const stored={version:2,data:{plan_id:f.state.view.origin.plan_id,base_revision_id:f.state.view.plan.revision.revision_id,draft:{...f.state.view.plan.revision.draft,manual_strategy:"OTHER TAB DRAFT"}},expected_assessment_head:null};
+    f.drafts.set(draftPath,stored);
+    const originalFetch=globalThis.fetch;
+    globalThis.fetch=async(input,options)=>{
+      if(decodeURIComponent(String(input))===draftPath&&options?.method==="PUT"&&JSON.parse(String(options.body)).version!==f.drafts.get(draftPath).version)return response({detail:{code:"draft_conflict",message:"Another tab saved this draft"}},409);
+      return originalFetch(input,options);
+    };
+    await act(async()=>control(f.renderer,"Specialist PubMed strategy").props.onChange({target:{value:"MY RETAINED QUERY"}}));
+    await act(async()=>button(f.renderer,"Save revised investigation plan").props.onClick());
+    assert.match(text(f.renderer.root),/Another tab saved this draft/);assert.equal(button(f.renderer,"Save revised investigation plan").props.disabled,true);
+    await act(async()=>button(f.renderer,"Inspect latest investigation").props.onClick());assert.match(text(f.renderer.root),/OTHER TAB DRAFT/);
+    f.drafts.set(draftPath,{...stored,version:3});
+    await act(async()=>button(f.renderer,"Keep my edits against this inspected revision").props.onClick());assert.match(text(f.renderer.root),/inspected draft changed again/);assert.equal(control(f.renderer,"Specialist PubMed strategy").props.value,"MY RETAINED QUERY");
+    await act(async()=>button(f.renderer,"Inspect latest investigation").props.onClick());
+    await act(async()=>button(f.renderer,"Keep my edits against this inspected revision").props.onClick());assert.equal(button(f.renderer,"Save revised investigation plan").props.disabled,false);
+    await act(async()=>button(f.renderer,"Save revised investigation plan").props.onClick());assert.match(text(f.renderer.root),/SAVED PLAN REVISION 2/);assert.equal(f.state.view.plan.revision.draft.manual_strategy,"MY RETAINED QUERY");
+    assert.equal(f.calls.some(call=>/\/(execute|diagnose)$/.test(call.path)),false);
+  }finally{await act(async()=>f.renderer.unmount());}
+});
+
+test("citation-fetch failure stays distinct from a zero-match search and shows the provider cap",async()=>{
+  const f=await mount("investigation-fetch-failure");
+  f.state.view.executions=[{execution:{id:"execution",requested_max_results:10},search:{searched_at:stamp,query,total_reported:213,fetched_count:0,truncated:true,warnings:["Only the first ten identifiers were requested"],errors:[{code:"pubmed_fetch_failed",message:"Citation metadata fetch failed",retryable:true,paper_id:null}]},candidates:[]}] as unknown as Schema<"InvestigationView">["executions"];
+  try{
+    await open(f.renderer);const result=text(f.renderer.root.findByProps({"aria-label":"Saved investigation results"}));
+    assert.match(result,/213 provider-reported matches · 0 records fetched · 0 candidate records/);
+    assert.match(result,/capped preview/);assert.match(result,/Requested limit: 10/);assert.match(result,/Citation metadata fetch failed/);assert.match(result,/not a zero-match finding/);
+    assert.equal(f.calls.some(call=>call.method!=="GET"),false);
+  }finally{await act(async()=>f.renderer.unmount());}
 });
