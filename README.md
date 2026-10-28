@@ -7,9 +7,9 @@ An open-source, local-first workspace for comparing papers and checking the sour
 | Platform | Download | Version / size |
 | --- | --- | --- |
 | macOS · Apple Silicon | **[Download for macOS](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-desktop-beta.2/lit-rev-engine-0.3.0-desktop-beta.2-macos-arm64.dmg)** | Desktop beta.2 · 169.6 MB |
-| Windows · x64 | Windows installer not yet published | [Source setup](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/windows_source.md) |
+| Windows · x64 | **[Download for Windows](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-windows-experimental-beta.2/lit-rev-engine-0.3.0-windows-experimental-beta.2-windows-x64-Setup.exe)** | Experimental beta.2 · 195.5 MB |
 
-**Windows x64 one-click installer is in development.** An unsigned private `Setup.exe` candidate exists, but installed-Windows testing and redistribution/trust checks are not complete. [Track Windows installer progress](https://github.com/hnt119/lit-rev-engine/issues/18). Until a verified public installer is released, use the setup-required source option above.
+**Windows 11 x64: Experimental, unsigned, not tested on Windows.** Installed workflow and security checks remain **NOT_RUN**. [Windows installation](docs/releases/v0.3.0-windows-experimental-beta.2/INSTALL_WINDOWS.md) · [Validation](docs/releases/v0.3.0-windows-experimental-beta.2/VALIDATION.md) · [Release page](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-windows-experimental-beta.2).
 
 [Getting started](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md) · [User guide](docs/user_manual.md) · [Demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Release notes](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-desktop-beta.2) · [Architecture](docs/application_architecture.md)
 
@@ -27,6 +27,8 @@ Mac Desktop Beta **0.3.0-desktop-beta.2**, released **27 October 2026**, bundles
 ## Start locally
 
 Drag the Mac app to Applications, eject the DMG and open the installed copy. Start with **Try the saved example**. The [installation guide](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md) covers approval and recovery; the [validation record](docs/releases/v0.3.0-desktop-beta.2/VALIDATION.md) states actual checks and remaining limits.
+
+On Windows, read the [version-matched installation and security limitations](docs/releases/v0.3.0-windows-experimental-beta.2/INSTALL_WINDOWS.md) before running the experimental Setup.
 
 ## Review an entry
 
@@ -63,7 +65,7 @@ The same Next.js/React → FastAPI → Python engine uses private SQLite storage
 [Direct source ZIP](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.zip) · [Manifest](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.manifest.json) · [SHA-256 checksums](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/lit-rev-engine-0.3.0-beta.4.SHA256SUMS) · [Download installation guide](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-beta.4/INSTALL.md)
 <!-- published-release:end -->
 
-Source beta.4 needs Python 3.12, Node.js 24 and pnpm 10.20.0. It is separate from the Mac app. [All releases](https://github.com/hnt119/lit-rev-engine/releases).
+Source beta.4 needs Python 3.12, Node.js 24 and pnpm 10.20.0. It is separate from the native apps. [Windows source setup](https://github.com/hnt119/lit-rev-engine/blob/v0.3.0-beta.4/docs/windows_source.md) · [All releases](https://github.com/hnt119/lit-rev-engine/releases).
 
 </details>
 
