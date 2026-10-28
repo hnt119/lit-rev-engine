@@ -57,7 +57,10 @@ async function approve(renderer:ReactTestRenderer){
 
 test("investigation bridge exposes only bounded owned methods and filters",()=>{
   const base="workspaces/w/investigations";
-  for(const [method,path] of [["GET",base],["POST",base],["GET",base+"/i"],["PUT",base+"/i/plan"],["POST",base+"/i/approve"],["POST",base+"/i/execute"],["POST",base+"/i/diagnose"],["POST",base+"/i/decisions"],["GET",base+"/i/export"]])assert.equal(allowedRoute(method,path),true,path);
+  for(const [method,path] of [["GET",base],["POST",base],["GET",base+"/i"],["PUT",base+"/i/plan"],["POST",base+"/i/approve"],["POST",base+"/i/execute"],["POST",base+"/i/diagnose"],["POST",base+"/i/decisions"],["GET",base+"/i/export"],["GET",base+"/i/research"],...["handoff-preview","handoffs","inspections","notes"].map(suffix=>["POST",base+"/i/"+suffix])])assert.equal(allowedRoute(method,path),true,path);
+  for(const suffix of ["handoffs","inspections","notes"]){assert.equal(allowedRoute("DELETE",base+"/i/"+suffix),false);assert.equal(allowedQuery(base+"/i/"+suffix,new URLSearchParams("workspace_id=other"),"POST"),false);}
+  assert.equal(allowedRoute("POST","workspaces/w/search-plan-suggestions"),true);
+  assert.equal(allowedRoute("GET","workspaces/w/search-plan-suggestions"),false);
   for(const suffix of ["propose","prepare-generation","add-to-board","sources","delete"])assert.equal(allowedRoute("POST",base+"/i/"+suffix),false);
   assert.equal(allowedQuery(base,new URLSearchParams("board_id=b&paper_id=p&field_id=f")),true);
   for(const query of ["board_id=b&board_id=other","paper_id=","token=secret"])assert.equal(allowedQuery(base,new URLSearchParams(query)),false);
