@@ -3,6 +3,7 @@ from copy import deepcopy
 from hashlib import sha256
 from pathlib import Path
 import socket
+import sys
 import time
 from types import SimpleNamespace
 
@@ -144,6 +145,10 @@ def test_verify_failure_is_retained_and_retry_success_is_invalidated_by_settings
     assert 'secret' not in response.text
     assert client.get(P+'/settings/maps').json()['computation']['state']=='failed'
     monkeypatch.setattr(maps,'projection',lambda vectors:None)
+    # This is a setup-state test, including dependency-free Core environments.
+    fake_numpy=SimpleNamespace(random=SimpleNamespace(default_rng=lambda seed:SimpleNamespace(normal=lambda size:SimpleNamespace(tolist=lambda:[]))))
+    monkeypatch.setitem(sys.modules,'numpy',fake_numpy)
+    monkeypatch.setitem(sys.modules,'umap',SimpleNamespace())
     response=client.post(P+'/settings/maps/verify',json={'expected_revision':1})
     assert response.status_code==200 and response.json()['computation']['state']=='succeeded'
     assert save(client,cache_dir=cache,enabled=False).status_code==200
@@ -173,6 +178,7 @@ def test_download_failure_cleans_only_owned_staging_and_retry_is_explicit(tmp_pa
 
 
 def test_saved_enabled_settings_start_worker_and_saved_map_reopens_without_refit(tmp_path,monkeypatch,offline):
+    pytest.importorskip('numpy',reason='This software-vector worker regression exercises the real local PCA implementation')
     monkeypatch.setattr(maps,'runtime_status',available)
     path=tmp_path/'app';app=create_app(path);client=client_for(app);cache=tmp_path/'models';snapshot(cache)
     save(client,cache_dir=cache)
@@ -237,6 +243,7 @@ def test_hash_checked_install_is_atomic_idempotent_and_never_touches_qwen(tmp_pa
 
 
 def test_authorized_pending_job_recovers_at_backend_restart_without_new_submit(tmp_path,monkeypatch,offline):
+    pytest.importorskip('numpy',reason='This software-vector recovery regression exercises the real local PCA implementation')
     monkeypatch.setattr(maps,'runtime_status',available)
     directory=tmp_path/'app';cache=tmp_path/'models';snapshot(cache)
     app=create_app(directory);client=client_for(app);save(client,cache_dir=cache)
@@ -257,4 +264,30 @@ def test_authorized_pending_job_recovers_at_backend_restart_without_new_submit(t
             time.sleep(.02)
         assert result['status']=='succeeded',result
         assert other.get(base+'/maps/'+created['job']['map_id']).status_code==200
+    assert offline==[]
+
+
+def test_verification_has_global_operation_slot_and_revision_publication_fence(tmp_path,monkeypatch,offline):
+    monkeypatch.setattr(maps,'runtime_status',available)
+    app=create_app(tmp_path/'app');client=client_for(app);cache=tmp_path/'models';snapshot(cache)
+    save(client,cache_dir=cache)
+    setup=app.state.map_setup
+    with setup.operation():
+        blocked=client.post(P+'/settings/maps/verify',json={'expected_revision':1})
+        assert blocked.status_code==503 and blocked.json()['error']['code']=='map_setup_busy'
+    class Changed(SyntheticEmbedder):
+        first=True
+        def embed(self,representation,checkpoint):
+            if self.first:
+                self.first=False
+                assert save(client,cache_dir=cache,enabled=False).status_code==200
+            return super().embed(representation,checkpoint)
+    setup.factory=Changed;setup._adapters.clear()
+    monkeypatch.setattr(maps,'projection',lambda vectors:None)
+    monkeypatch.setitem(sys.modules,'numpy',SimpleNamespace(random=SimpleNamespace(default_rng=lambda seed:SimpleNamespace(normal=lambda size:SimpleNamespace(tolist=lambda:[])))))
+    monkeypatch.setitem(sys.modules,'umap',SimpleNamespace())
+    response=client.post(P+'/settings/maps/verify',json={'expected_revision':1})
+    assert response.status_code==409,response.text
+    status=client.get(P+'/settings/maps').json()
+    assert status['configuration']['enabled'] is False and status['computation']['state']=='not_tested'
     assert offline==[]
