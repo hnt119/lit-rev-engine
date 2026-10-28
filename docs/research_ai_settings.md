@@ -83,7 +83,11 @@ Settings navigation uses the current draft-save barrier and returns to the origi
 
 ## Validation status
 
-Read the successor validation report for exact executed commands and results. Offline/mocked provider checks are separate from actual provider calls and genuine model execution. **Real LLM planning/proposals, live PubMed and new embedding execution are NOT_RUN for this successor unless an explicitly disclosed later report records them.** Software checks do not validate research usefulness, independent review, eligibility or a complete systematic review.
+For this Semantic Maps source change, 152 focused mapping/settings/collection/retrieval backend tests and 203 web tests passed. Type checking, the production web build and regenerated API byte parity passed. These software suites use synthetic adapters and mocked downloads, separately from the real local BGE execution below. One intermediate full web run exposed a pre-existing asynchronous board-test wait; the wait now observes the expected second revision and the final suite passes. Existing deprecation warnings remain.
+
+The real production-browser walkthrough used an isolated workspace with the bundled 30 public papers: create an immutable collection → select two papers → **Set up semantic maps** → enable and save with startup maps disabled → verify genuine CPU BGE/PCA/UMAP → return with selection retained → explicitly build the 30-paper BGE/UMAP map → reopen after refresh and backend restart. Missing weights, review/cancel without downloading, cache recovery, keyboard disclosures, browser Back/Forward and 390/320-pixel layouts were exercised. Running the same source with read-only bundled core Python demonstrated real missing-runtime guidance and saved-map reopening. This is source-app validation, not installed-desktop qualification.
+
+Actual external model downloads, real LLM planning/proposals, live PubMed, native installer qualification, human comprehension and scientific usefulness are **NOT_RUN**. Qwen model files were not changed; Qwen regression coverage here is software-level, not a new encoder/reranker execution. Software checks do not validate research usefulness, independent review, eligibility or a complete systematic review.
 
 
 ## Evidence retrieval remains independent
