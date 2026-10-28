@@ -88,6 +88,8 @@ Both neural profiles remain **experimental**. Genuine encoder/reranker execution
 
 This is not the passage evidence index. New maps require explicit setup and computation; saved coordinates can be viewed without new inference. Filtering, selection and navigation do not refit a saved map. Qwen/MedCPT packs do not replace BGE map embeddings. BGE-M3 is not an implemented profile in this application.
 
+The source application now exposes separate runtime, weights, applied configuration and explicit computation checks under [Settings → Semantic Maps](research_ai_settings.md#semantic-maps). Saved session enablement/cache choices bind the actual map adapter for future submitted jobs; reading/saving settings does not download or infer. This source change does not upgrade the separately published desktop beta.2 runtime.
+
 ## Optional generation: user-configured model and provider
 
 No generative model is fixed by the product. The researcher supplies a compatible model ID and configured revision/profile. A configured revision is not a verified weight hash, and a provider label does not establish model compatibility.

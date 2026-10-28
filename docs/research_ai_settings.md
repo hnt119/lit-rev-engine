@@ -1,6 +1,6 @@
-# Research & AI Settings — Local beta 0.3.0-beta.2
+# Research & AI Settings — source application
 
-This is the browser/source distribution, **setup required**. The existing private launch file remains supported. Opening or saving Settings makes no external provider request. The saved public example, lexical passage retrieval, exact-source inspection, manual comparison, drafts and exports need no generative model.
+This guide describes the source application, including the Semantic Maps setup change. It does not add capabilities to an already installed desktop release. The published macOS desktop beta.2 excludes the mapping runtime and needs a separately qualified map-capable build/runtime. Source use is **setup required**. The existing private launch file remains supported. Opening or saving Settings makes no external provider request. The saved public example, lexical passage retrieval, exact-source inspection, manual comparison, drafts and exports need no generative model.
 
 ## Three separate kinds of configuration
 
@@ -18,7 +18,43 @@ Europe PMC retains the current identity/permission-checked full-text or clearly 
 
 Choose **Local model server**, enter its explicit model identifier and configured revision, and the existing literal HTTP loopback `/v1/chat/completions` endpoint with a port. Enable planning and/or cell proposals separately. The application does not install/start the server or download weights. Loopback describes the destination, not a guarantee about how a separately operated server handles data.
 
-The pinned BGE map runtime/weights remain separate. Use the existing optional setup and private `--config` path documented in OPTIONAL_FEATURES.md to install dependencies and select the external cache. A cache preference in Settings is descriptive until that operator launch configuration is updated; restarting alone does not apply an inactive preference. Saved map artifacts remain usable without a model and are never refitted by filters or navigation.
+BGE paper maps remain separate from generation and Qwen passage retrieval. Configure them in the dedicated **Semantic Maps** section below. Saved map artifacts remain usable without a model and are never refitted by filters or navigation.
+
+## Semantic Maps
+
+**From a collection:** open its Semantic map and choose **Set up semantic maps**. Settings keeps the collection, paper/map route and saved selection draft. Four indicators report independent observations:
+
+| Indicator | What it establishes |
+| --- | --- |
+| Mapping runtime | Whether this backend contains the pinned mapping packages; metadata alone does not test their imports or native libraries. |
+| BGE model weights | Whether the required files are present in the applied local cache. Explicit verification/calculation validates their hashes. |
+| Applied configuration | The effective startup or saved session enablement and cache choice. |
+| Computation check | The result of the explicit synthetic CPU BGE/projection test for these settings. Not tested is not Ready. |
+
+1. Select **Enable local semantic maps** and **Save settings**. This changes the adapter used by future explicit map operations in this session. It does not mutate process environment variables, select a Qwen profile, download or compute anything. The default **Keep startup choice** preserves existing operator opt-in until you make a choice.
+2. If weights are missing and this runtime supports maps, choose **Review BGE download**. The application shows `BAAI/bge-small-en-v1.5`, its immutable revision, official Hugging Face source, exact byte count and local destination. Approve the displayed files and separately click **Download approved BGE weights**, or cancel without downloading. Only pinned, hash-verified BGE files are installed. Existing Qwen installations remain separate.
+3. If the pinned BGE snapshot already exists in the effective Hugging Face cache, it is reused in place. You normally do not need to choose a directory. **Use a different existing BGE cache** is an optional recovery path; its saved path now affects the actual adapter. Invalid paths are rejected without replacing your form edits.
+4. Choose **Verify readiness · local BGE computation**. It encodes a few synthetic titles and tests small-collection and UMAP projections. No workspace paper text leaves the computer and no research map is created. A failed check remains visible; resolve the reported prerequisite and retry explicitly. A successful check establishes local integration, not scientific usefulness.
+5. Choose **Return to research** after verification (or **Back to research**). Your original collection, selected papers and drafts are retained. Choose **Build map of this saved collection** to authorize the actual calculation on that immutable collection. Follow its job status; failure retains the collection and earlier maps. A new retry is explicit.
+6. Reopen the collection and its saved map. **Saved map & build controls** selects retained artifacts; the saved manifest retains model/input/projection identity. Opening, filtering and choosing papers do not refit coordinates. The paper list remains available independently of the map.
+
+### Missing runtime and desktop limits
+
+The Settings indicators inspect the backend that is actually running, not every Python environment on the computer. The application cannot safely install packages into its running Python process or a signed desktop bundle. If mapping packages are missing or incompatible, the runtime indicator explains the supported source setup and restart, or the need for a separately qualified desktop build. Downloads stay unavailable until the runtime prerequisite is met.
+
+For an extracted source installation, save your work and stop its launcher. The existing explicit setup command is:
+
+```sh
+python3.12 scripts/local_preview.py setup --with-maps --with-retrieval
+```
+
+This installs pinned optional libraries and rebuilds the source preview environment/UI; it does **not** download model weights. Keeping `--with-retrieval` retains optional retrieval runtime support when rebuilding. Relaunch with the same external data directory and browser profile/hostname, then return to Settings. Do not delete research data to repair optional computation. Existing session credentials must be re-entered after backend restart; research drafts and saved maps remain retained. Runtime setup may require network access and the source distribution's existing Python/Node/pnpm prerequisites.
+
+The published macOS desktop beta.2 bundles neither BGE mapping dependencies nor a map-capable optional runtime. Its launcher strips inherited environment and forces maps off, so setting `MVP_MAP_ENABLED=1` in a shell cannot enable that installed build. Its Qwen/MedCPT runtime capsule is a separate capability. Do not install packages into the app or change its bundle. This PR does not publish or qualify a replacement installer.
+
+### Recovery and retained work
+
+Settings use the existing session ownership and revision checks. On a two-tab conflict, keep your edits, inspect the latest revision, and explicitly choose your next save basis. Changing settings invalidates the old computation check; verify the applied settings again. Setup failures do not fall back to Qwen or lexical coordinates. Incomplete or invalid pre-existing BGE snapshots are preserved; the message offers an explicit alternate cache and retry. A bounded interrupted download installs no complete snapshot. The local worker may resume previously explicitly submitted queued/interrupted map jobs after a backend restart; startup does not submit a new map. Saved maps reopen even after mapping is disabled or weights are unavailable.
 
 ## Optional own-key cloud generation
 

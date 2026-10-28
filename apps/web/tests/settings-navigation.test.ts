@@ -14,3 +14,10 @@ test("settings and generation preparation expose only intended local bridge shap
   for(const [method,path] of [["POST","settings"],["GET","settings/test-pubmed"],["POST","settings/test-any-provider"],["GET","workspaces/w/boards/b/prepare-generation"]])assert.equal(allowedRoute(method,path),false,path);
   assert.equal(allowedQuery("settings",new URLSearchParams()),true);for(const key of ["url","key","question","notes"])assert.equal(allowedQuery("settings",new URLSearchParams({[key]:"untrusted"})),false);
 });
+
+test("map setup round trip retains collection, paper and saved map",()=>{
+ const original:LocationState={page:"discover",workspace:"w",collection:"c",intake:"collections",map:"m",paper:"p"};
+ assert.deepEqual(researchDestination(settingsDestination(original,"maps")),original);
+ for(const path of ["settings/maps","settings/maps/install","settings/maps/verify"]){assert.equal(allowedRoute(path==="settings/maps"?"GET":"POST",path),true);assert.equal(allowedQuery(path,new URLSearchParams()),true);assert.equal(allowedQuery(path,new URLSearchParams("url=remote")),false);}
+ assert.equal(allowedRoute("GET","settings/maps/install"),false);assert.equal(allowedRoute("POST","settings/maps/unpinned-download"),false);
+});

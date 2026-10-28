@@ -3093,6 +3093,94 @@
         }
       }
     },
+    "/api/v1/settings/maps": {
+      "get": {
+        "summary": "Status",
+        "operationId": "status_api_v1_settings_maps_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings/maps/verify": {
+      "post": {
+        "summary": "Verify",
+        "operationId": "verify_api_v1_settings_maps_verify_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MapSetupAction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings/maps/install": {
+      "post": {
+        "summary": "Install",
+        "operationId": "install_api_v1_settings_maps_install_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MapInstallAction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/boards/{board_id}/passage-search-context": {
       "get": {
         "summary": "Passage Search Context",
@@ -12460,6 +12548,33 @@
         ],
         "title": "MapCounts"
       },
+      "MapInstallAction": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "manifest_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Manifest Sha256"
+          },
+          "accept_download": {
+            "type": "boolean",
+            "const": true,
+            "title": "Accept Download"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "manifest_sha256",
+          "accept_download"
+        ],
+        "title": "MapInstallAction"
+      },
       "MapJobView": {
         "properties": {
           "id": {
@@ -12574,6 +12689,17 @@
       },
       "MapPreferences": {
         "properties": {
+          "enabled": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enabled"
+          },
           "cache_dir": {
             "type": "string",
             "maxLength": 1000,
@@ -12584,6 +12710,21 @@
         "additionalProperties": false,
         "type": "object",
         "title": "MapPreferences"
+      },
+      "MapSetupAction": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Revision"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision"
+        ],
+        "title": "MapSetupAction"
       },
       "MapSubmission": {
         "properties": {

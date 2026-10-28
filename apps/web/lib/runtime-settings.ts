@@ -4,7 +4,7 @@ export type RuntimePreferences={
   pubmed:{enabled:boolean;email:string};
   ai:{provider:"none"|"local"|"openai"|"deepseek";model:string;model_revision:string;local_url:string;planning_enabled:boolean;proposals_enabled:boolean};
   defaults:{max_results:number;sort:"relevance"|"pub_date"};
-  maps:{cache_dir:string};
+  maps:{cache_dir:string;enabled?:boolean|null};
   retrieval?:{profile_id:"legacy_block_prefix_v1"|"lexical_spans_v1"|"hybrid_qwen3_06b_rrf_rerank_v1"|"hybrid_medcpt_passage_rrf_rerank_v1";device:"cpu"|"mps"};
 };
 export type SettingsState={state:string;tested_at?:string|null;message:string};
