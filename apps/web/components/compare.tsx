@@ -89,7 +89,7 @@ function DefinitionForm({workspace,endpoint,original,done,retrievalCapability,re
   },[]);
   useEffect(()=>registerDraftFlusher(guardDefinition),[guardDefinition]);
   useEffect(()=>registerUnloadGuard(()=>localEdit.current.dirty||localEdit.current.saving),[]);
-  useEffect(()=>registerDraftRecovery({retry:guardDefinition,restore:async()=>{localEdit.current.restore();}}),[guardDefinition]);
+  useEffect(()=>registerDraftRecovery({retry:guardDefinition,restore:async()=>{if(localEdit.current.saving)throw new Error("The comparison definition is being saved. Wait for the save to finish before leaving.");localEdit.current.restore();}}),[guardDefinition]);
   function discardDefinition(){if(window.confirm("Discard the unsaved comparison definition edits and restore this form's starting values? Saved boards and judgments are retained."))localEdit.current.restore();}
   useEffect(()=>{let disposed=false;setPreparation(null);setPapers([]);setError("");if(!preparationId)return;
     void (async()=>{try{

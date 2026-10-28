@@ -93,6 +93,26 @@ test("another participant's failed draft still prevents definition submission",a
   }finally{remove();await f.close();}
 });
 
+test("restore cannot discard definition edits during save preflight or before the save acknowledgment",async()=>{
+  const f=await fixture("definition-guard-restore-race"),preflight=gate(),pending=f.delaySave();let otherFlushStarted=false;
+  const remove=registerDraftFlusher(async()=>{otherFlushStarted=true;await preflight.promise;});
+  try{
+    await act(async()=>control(f.renderer,"Field 1 label").props.onChange({target:{value:"Keep through save"}}));
+    let submitting!:Promise<void>;act(()=>{submitting=f.renderer.root.findByType("form").props.onSubmit({preventDefault(){}});});
+    await observed(()=>otherFlushStarted);
+    await assert.rejects(recoverDrafts("restore"),/definition is being saved/);
+    assert.equal(control(f.renderer,"Field 1 label").props.value,"Keep through save");
+    assert.equal(f.requests.some(request=>request.method==="POST"),false);
+    await act(async()=>{preflight.release();});await observed(()=>f.requests.some(request=>request.method==="POST"));
+    let restored=false;const restoring=recoverDrafts("restore").then(()=>{restored=true;});await tick();
+    assert.equal(restored,false,"recovery waits for the acknowledged definition barrier");
+    assert.equal(control(f.renderer,"Field 1 label").props.value,"Keep through save");
+    await act(async()=>{pending.release();await Promise.all([submitting,restoring]);});
+    assert.equal(f.requests.find(request=>request.method==="POST")!.body.fields[0].label,"Keep through save");
+    assert.equal(f.destinations[0].board,"created");assert.equal(restored,true);
+  }finally{preflight.release();pending.release();remove();await f.close();}
+});
+
 test("failed definition saves keep local edits guarded and retry the same request identity",async()=>{
   const f=await fixture("definition-guard-retry");f.failSave(true);
   try{
