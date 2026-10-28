@@ -1,0 +1,37 @@
+{
+  "schema": "litrev.windows-public-release-links.v1",
+  "repository": "hnt119/lit-rev-engine",
+  "version": "0.3.0-windows-experimental-beta.2",
+  "tag": "v0.3.0-windows-experimental-beta.2",
+  "native_build_number": 3003,
+  "source_commit": "664b86d4ed510c3d16982b5813b27e6bd1150129",
+  "release_id": 426186243,
+  "release_url": "https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-windows-experimental-beta.2",
+  "download_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-windows-experimental-beta.2/lit-rev-engine-0.3.0-windows-experimental-beta.2-windows-x64-Setup.exe",
+  "installer": {
+    "file": "lit-rev-engine-0.3.0-windows-experimental-beta.2-windows-x64-Setup.exe",
+    "bytes": 195492146,
+    "sha256": "75595d013fbdf4694301a00dd0e233a6b53e47c6cf5fb3713d0d0e7aa1e58359"
+  },
+  "documentation": {
+    "INSTALL_WINDOWS.md": {
+      "repository_path": "docs/releases/v0.3.0-windows-experimental-beta.2/INSTALL_WINDOWS.md",
+      "download_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-windows-experimental-beta.2/INSTALL_WINDOWS.md",
+      "bytes": 4112,
+      "sha256": "69ed8a740d99eb8516ac51f5a73a75ebed14bc7226ccea9c773cecaeba67f16b"
+    },
+    "VALIDATION.md": {
+      "repository_path": "docs/releases/v0.3.0-windows-experimental-beta.2/VALIDATION.md",
+      "download_url": "https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-windows-experimental-beta.2/VALIDATION.md",
+      "bytes": 4465,
+      "sha256": "85bf656cb5635b2e668f34c9e75994f1ce696edd1c2a12b15066eb416cd9fadb"
+    }
+  },
+  "publication_verified": true,
+  "verification": "Anonymous full GET, actual file lengths, SHA-256 and source bindings verified for all24 release assets.",
+  "release_status": "prerelease",
+  "platform": "Windows 11 x64",
+  "experimental": true,
+  "signature": "unsigned",
+  "windows_installation_execution_gui_security": "NOT_RUN"
+}
