@@ -54,4 +54,4 @@ Use **Prepare readable audit export** to inspect and download Markdown or JSON. 
 
 An unresolved cell is not proof of a scientific research gap. **Not found in inspected material** does not mean absent from the whole paper. Search matches, scores, source preparation and exact-text checks do not establish relevance, eligibility, study independence or scientific support. No automatic conflict judgment or gap score is produced.
 
-Consult the [evaluation report](evidence_gap_navigator_evaluation.md) for source-bound checks and limits. Historical v0.1 test results do not validate later increments. Real PubMed execution, scientific quality and researcher usefulness must be reported separately from offline software tests.
+Consult the [v0.2 evaluation report](evidence_gap_navigator_v02_evaluation.md) for source-bound checks and limits. The [v0.1 evaluation](evidence_gap_navigator_evaluation.md) remains a separate historical record. Historical v0.1 test results do not validate later increments. Real PubMed execution, scientific quality and researcher usefulness must be reported separately from offline software tests.
