@@ -20,6 +20,16 @@ SAFEGUARDS = [
     'Shortlisted candidates remain separate from the comparison board and source preparations.',
 ]
 
+def unresolved(data):
+    return data is None or (data.semantic_assessment != 'human_supported'
+        or data.scope_result != 'value_found' or data.value is None or bool(data.missing_information.strip()))
+
+
+def meaningful_draft(data):
+    return data is not None and bool((data.value or '').strip() or data.reason.strip()
+        or data.missing_information.strip() or data.references or data.inspected_ranges)
+
+
 class InvestigationService:
     def __init__(self, boards, planning, store):
         self.boards, self.planning, self.store = boards, planning, store
@@ -39,7 +49,10 @@ class InvestigationService:
                         self.boards._reference(state, definition, request.paper_id, reference)
                 row = board_db.execute('SELECT * FROM board_cells WHERE workspace_id=? AND id=?', (state.id, head)).fetchone() if head else None
                 cell = self.boards.store.decode(row, BoardCellRevision) if row else None
-                if cell is not None and cell.semantic_assessment == 'human_supported' and cell.scope_result == 'value_found' and not cell.missing_information and draft.version == 0 and request.local_draft is None:
+                source_unavailable = any(s.paper_id == request.paper_id and s.source_type == 'none' for s in definition.sources)
+                unfinished_draft = ((draft.version > 0 and meaningful_draft(draft.data) and unresolved(draft.data))
+                    or (meaningful_draft(request.local_draft) and unresolved(request.local_draft)))
+                if not unresolved(cell) and not source_unavailable and not unfinished_draft:
                     raise MvpError('investigation_origin_resolved', 'Start an investigation from an unresolved comparison cell.')
                 seed, approvals = None, []
                 # Follow a board's exact executed plan, when available. Never infer

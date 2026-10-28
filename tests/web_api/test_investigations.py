@@ -295,3 +295,72 @@ def test_delete_workspace_fences_late_result_and_cascades_records(case):
     with case.engine._storage._connection() as db:
         assert db.execute('SELECT COUNT(*) FROM mvp_investigations').fetchone()[0]==0
         assert db.execute('SELECT COUNT(*) FROM mvp_investigation_previews').fetchone()[0]==0
+
+def test_export_snapshot_contains_every_execution_approved_revision(case,monkeypatch):
+    from concurrent.futures import TimeoutError
+    from src.mvp.search_plans import SearchPlanService
+    view,request=approve(case,save(case,ok(create(case))))
+    original_read=SearchPlanService.view_in_transaction
+    entered,release,writer_started=threading.Event(),threading.Event(),threading.Event()
+    def read_under_snapshot(self,db,workspace_id,plan_id,revision_id=None):
+        snapshot=original_read(self,db,workspace_id,plan_id,revision_id)
+        if plan_id==view['origin']['plan_id'] and not entered.is_set():
+            entered.set()
+            assert release.wait(5)
+        return snapshot
+    def other_tab():
+        writer_started.set()
+        newer=save(case,view,'other-tab','newer[tiab]')
+        approved=ok(case.client.post(path(case,newer)+'/approve',json={**candidate(newer,'other-approve'),'acknowledge_unparsed_strategy':True}))
+        return ok(case.client.post(path(case,newer)+'/execute',json={**candidate(newer,'other-execute'),'approval_id':approved['plan']['approvals'][0]['id'],'max_results':30}))
+    monkeypatch.setattr(SearchPlanService,'view_in_transaction',read_under_snapshot)
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        exporting=pool.submit(case.client.get,path(case,view)+'/export')
+        assert entered.wait(3)
+        writer=pool.submit(other_tab)
+        assert writer_started.wait(3)
+        try:
+            with pytest.raises(TimeoutError): writer.result(.05)
+        finally:
+            release.set()
+        audit=json.loads(ok(exporting.result(8))['json_text'])
+        after=writer.result(8)
+    assert audit['investigation']['executions']==[] and len(after['executions'])==1
+    latest=json.loads(ok(case.client.get(path(case,view)+'/export'))['json_text'])
+    revisions={item['revision']['revision_id'] for item in latest['plan_history']}
+    assert all(item['execution']['revision_id'] in revisions for item in latest['investigation']['executions'])
+
+def test_storage_budget_rejected_before_external_call(case,monkeypatch):
+    from src.mvp.adapters import search_plan_storage
+    view,request=approve(case,save(case,ok(create(case))))
+    before=original(case)
+    monkeypatch.setattr(search_plan_storage,'MAX_PLAN_AUXILIARY_BYTES',1)
+    response=case.client.post(path(case,view)+'/execute',json=request)
+    assert response.json()['error']['code']=='search_plan_storage_limit'
+    assert case.provider.calls==[] and original(case)==before
+
+def test_current_session_disabled_pubmed_setting_overrides_provider(case):
+    view,request=approve(case,save(case,ok(create(case))))
+    settings=ok(case.client.get('/api/v1/settings'))
+    ok(case.client.put('/api/v1/settings',json={'expected_revision':settings['revision'],'preferences':settings['preferences']}))
+    response=case.client.post(path(case,view)+'/execute',json=request)
+    assert response.status_code>=400 and response.json()['error']['code']=='live_not_configured'
+    diagnostic=case.client.post(path(case,view)+'/diagnose',json=candidate(view,'diagnostic'))
+    assert diagnostic.status_code>=400
+    assert case.provider.calls==[] and case.diagnostics.calls==[]
+
+def test_resolved_cell_requires_actual_unresolved_draft_not_mere_presence(case):
+    d=case.board['definition']; board=case.root+'/boards/'+d['board_id']; paper=d['paper_ids'][0]
+    candidate=ok(case.client.post(board+'/candidates',json={'request_id':'passage','expected_revision_id':d['revision_id'],'paper_id':paper,'field_id':'field'}))['candidates'][0]['reference']
+    ref={k:candidate[k] for k in ['source_id','source_version','source_sha256','blocks_sha256','block_id','start','end']}
+    data={'value':'Original supported answer','references':[ref],'inspected_ranges':[ref],'semantic_assessment':'human_supported','scope_result':'value_found','reason':'Researcher supported'}
+    draft_path=board+'/drafts/'+paper+'/field'
+    ok(case.client.put(draft_path,json={'expected_revision_id':d['revision_id'],'version':0,'data':data}))
+    cell=ok(case.client.post(board+'/cell-revisions',json={'request_id':'submit','expected_revision_id':d['revision_id'],'paper_id':paper,'field_id':'field','draft_version':1}))
+    for local in [None, {}, data]:
+        response=create(case,expected_cell_head_id=cell['id'],local_draft=local)
+        assert response.json()['error']['code']=='investigation_origin_resolved'
+    ok(case.client.put(draft_path,json={'expected_revision_id':d['revision_id'],'version':0,'expected_cell_head_id':cell['id'],'data':{}}))
+    assert create(case,expected_cell_head_id=cell['id'],expected_draft_version=1,local_draft={}).json()['error']['code']=='investigation_origin_resolved'
+    view=ok(create(case,expected_cell_head_id=cell['id'],expected_draft_version=1,local_draft={'value':'Unresolved new draft question'}))
+    assert view['origin']['cell']==cell
