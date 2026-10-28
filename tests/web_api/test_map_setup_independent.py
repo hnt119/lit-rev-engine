@@ -59,6 +59,8 @@ def available():
 
 class SyntheticEmbedder(LocalPaperEmbedder):
     calls=[]
+    def readiness(self):
+        return self.enabled,'Synthetic software adapter; no BGE runtime is used'
     @property
     def profile(self):
         return EmbeddingProfile(model='SYNTHETIC SOFTWARE TEST',model_revision='fixture',tokenizer_revision='fixture',dimension=3)
