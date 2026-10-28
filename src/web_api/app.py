@@ -275,6 +275,10 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
         settings = getattr(app.state, 'runtime_settings', None)
         session = registry.resolve_session(request.cookies.get(cookie_name))
         if settings is not None and session is not None:
+            setup=getattr(app.state,'map_setup',None)
+            if setup is not None:
+                map_state=setup.status(session['token_hash'])
+                ready,reason=map_state['ready'],map_state['reason']
             snapshot, _ = settings.snapshot(session['token_hash'])
             if snapshot['configured']:
                 runtime['live_available'] = snapshot['preferences']['pubmed']['enabled']
@@ -562,6 +566,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     from .collection_map_routes import install_collection_map_routes
     install_collection_map_routes(app, registry=registry, service=service, owned=owned,
         session_for=session_for, dependencies=dependencies)
+    from .map_setup_routes import install_map_setup_routes
+    install_map_setup_routes(app,registry=registry,session_for=session_for,dependencies=dependencies)
     from .board_routes import install_board_routes
     install_board_routes(app, directory=directory, registry=registry, service=service, owned=owned,
                          session_for=session_for, dependencies=dependencies)
