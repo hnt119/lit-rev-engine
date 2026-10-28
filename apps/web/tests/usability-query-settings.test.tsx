@@ -40,7 +40,7 @@ test("settings read failures have a GET-only retry and dirty PubMed tests explai
     await act(async()=>button(renderer,"Retry loading settings").props.onClick());assert.equal(reads,2);assert.equal(button(renderer,"Test PubMed connection").props.disabled,false);
     const email=renderer.root.findAllByType("label").find(node=>text(node).startsWith("NCBI contact email"))!.findByType("input");
     await act(async()=>email.props.onChange({target:{value:"edited-fixture@example.org"}}));
-    assert.equal(button(renderer,"Test PubMed connection").props.disabled,true);assert.match(text(renderer.root),/Save settings before testing the PubMed connection/);assert.deepEqual(writes,[]);
+    assert.equal(button(renderer,"Test PubMed connection").props.disabled,true);assert.match(text(renderer.root),/Save settings before testing the PubMed connection/);assert.match(text(renderer.root),/Save settings before installing, checking or removing retrieval packs/);assert.deepEqual(writes,[]);
     await act(async()=>button(renderer,"Discard unsaved settings").props.onClick());assert.equal(button(renderer,"Test PubMed connection").props.disabled,false);
   }finally{await act(async()=>renderer.unmount());}
 });
