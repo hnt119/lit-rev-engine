@@ -25,7 +25,7 @@ test("settings open/edit/save makes no provider call; credentials clear and stay
   globalThis.fetch=async(input,options)=>{const path=String(input),method=options?.method??"GET",body=options?.body?JSON.parse(String(options.body)):null;calls.push({path,method,body});if(path.endsWith("/session"))return response({csrf_token:"test"});assert.match(path,/\/settings$/);if(method==="PUT"){assert.equal(body.ai_api_key,"software-secret-do-not-store");assert.equal(body.expected_revision,1);current={...settings(2),preferences:body.preferences,credentials:{ncbi_api_key:false,ai_api_key:true}};}return response(current);};
   let renderer!:ReactTestRenderer;await act(async()=>{renderer=create(<ResearchSettings onReturn={async()=>{returned++;}}/>);});
   try{
-    assert.equal(calls.filter(call=>call.method!=="GET").length,0);assert.match(text(renderer.root),/not tested/);assert.equal(renderer.root.findAllByType("details").every(node=>node.props.open===undefined),true);
+    assert.equal(renderer.root.findByProps({id:"settings-maps"}).props["data-workspace-section"],"Semantic Maps");assert.equal(calls.filter(call=>call.method!=="GET").length,0);assert.match(text(renderer.root),/not tested/);assert.equal(renderer.root.findAllByType("details").every(node=>node.props.open===undefined),true);
     await act(async()=>control(renderer,"Explicit model identifier").props.onChange({target:{value:"another-explicit-model"}}));
     await act(async()=>control(renderer,"New OpenAI API key · backend memory only").props.onChange({target:{value:"software-secret-do-not-store"}}));
     assert.equal(calls.filter(call=>call.method!=="GET").length,0);await assert.rejects(flushDrafts(),/Save Research & AI Settings/);

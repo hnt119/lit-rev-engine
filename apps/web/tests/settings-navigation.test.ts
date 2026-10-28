@@ -16,7 +16,7 @@ test("settings and generation preparation expose only intended local bridge shap
 });
 
 test("map setup round trip retains collection, paper and saved map",()=>{
- const original:LocationState={page:"discover",workspace:"w",collection:"c",intake:"collections",map:"m",paper:"p"};
+ const original:LocationState={page:"discover",workspace:"w",collection:"c",intake:"collections",map:"m",paper:"p",handoff:"retained-handoff"};
  assert.deepEqual(researchDestination(settingsDestination(original,"maps")),original);
  for(const path of ["settings/maps","settings/maps/install","settings/maps/verify"]){assert.equal(allowedRoute(path==="settings/maps"?"GET":"POST",path),true);assert.equal(allowedQuery(path,new URLSearchParams()),true);assert.equal(allowedQuery(path,new URLSearchParams("url=remote")),false);}
  assert.equal(allowedRoute("GET","settings/maps/install"),false);assert.equal(allowedRoute("POST","settings/maps/unpinned-download"),false);
