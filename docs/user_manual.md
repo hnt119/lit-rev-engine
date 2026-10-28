@@ -11,7 +11,7 @@
 - **Learn without keys or models:** Use **Saved example · offline** in the installed source app.
 - **Install a Mac app or Windows Setup.exe:** Native installers are not publicly released. Use the source setup instructions.
 
-The website shows ten papers from a saved public collection; the installed offline example contains thirty. These are demonstration reports, not formally included independent studies. The protocol pilot, phone prototype and question-to-evidence development branch are outside this guide. The development-only [Evidence Gap Navigator v0.1 guide](evidence_gap_navigator.md) describes targeted follow-up searches; that feature is not in the published releases.
+The website shows ten papers from a saved public collection; the installed offline example contains thirty. These are demonstration reports, not formally included independent studies. The protocol pilot, phone prototype and question-to-evidence development branch are outside this guide. The development-only [Evidence Gap Navigator v0.2 guide](evidence_gap_navigator.md) describes targeted follow-up searches and explicit continuation into prepared evidence and expanded comparisons; these changes are not in the published releases.
 
 **On this page:** [Install](#install-on-your-os) · [First comparison](#start-with-the-offline-example) · [Add papers](#add-and-prepare-your-own-papers) · [Edit a cell](#select-an-excerpt-comment-and-save) · [Passage search and return](#investigate-a-cell-with-passage-search) · [Missing information](#keep-a-note-or-record-missing-information) · [Corrections](#correct-an-entry-or-resolve-a-conflict) · [Retrieval choices](#choose-core-qwen-or-medcpt) · [Export and backup](#export-back-up-and-replace-the-app) · [Troubleshooting](#troubleshoot-a-task)
 
@@ -132,6 +132,12 @@ Use the inline editor for ordinary work. For the broader view, expand **Comparis
 Use **Inspect source for passage … ↓** to read context. A cell-origin search offers **Open in comparison cell · passage …**; **Back to cell** or **Back to comparison** returns without choosing a result. Returning opens inspection only: it does not attach evidence, replace your value, mark support or submit. Continue with the explicit use/save steps.
 
 Your edited query, result count, selected run and cell draft are retained across navigation/refresh within this comparison scope, separately from a workspace-wide search draft. Wait for **Draft: saved** before leaving. Read stale or wrong-source messages instead of changing bindings to force a result. A passage from another paper cannot be attached to this cell.
+
+### Development preview: follow up insufficient evidence
+
+**Evidence Gap Navigator v0.2 is development-only; PR #22 remains the separate, unmerged v0.1 review.** From an unresolved cell or **Needs review**, choose **Investigate related literature** and save your reason. The shared Core concept builder offers editable, deterministic starting phrases; you still review the exact compiled PubMed query and approve its saved revision before an explicit search. Navigation and filtering trigger no provider or model calls.
+
+Manually shortlist candidates, then choose **Add evidence or expand comparison**. Review the selected papers and duplicates, commit the immutable collection, and explicitly prepare its sources. You can inspect a prepared related-paper passage and save a separately attributed research evaluation, or create an expanded comparison within the existing 30-paper/6-field limits. Its cells start unassessed. New source preparation can make the original board historical; its source references, drafts and judgments remain retained and readable. Return to that original comparison, reopen the investigation, or export its audit. See the [development guide](evidence_gap_navigator.md) for the complete steps and limitations.
 
 ## Keep a note or record missing information
 

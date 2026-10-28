@@ -17,7 +17,7 @@ SAFEGUARDS = [
     'Not found in inspected material does not establish whole-paper absence.',
     'A new paper cannot supply missing facts about a different paper.',
     'Search matches and retrieval scores do not establish relevance, eligibility or support.',
-    'Shortlisted candidates remain separate from the comparison board and source preparations.',
+    'Shortlisted candidates remain separate until an explicit collection handoff; source preparation and a new comparison require separate actions.',
 ]
 
 def unresolved(data):
@@ -124,8 +124,8 @@ class InvestigationService:
                     'SELECT payload,sha256 FROM mvp_investigation_decisions WHERE workspace_id=? AND investigation_id=? ORDER BY rowid', (workspace_id, identifier))]
                 executions = [decoded(row, SearchPlanExecution) for row in db.execute("SELECT payload,sha256 FROM mvp_search_plan_events WHERE workspace_id=? AND plan_id=? AND kind='execution' ORDER BY created_at,id", (workspace_id, origin.plan_id))]
                 failures = []
-                rows = db.execute('SELECT request_id,operation,fingerprint,status,outcome,created_at,updated_at FROM mvp_search_plan_requests WHERE workspace_id=? AND operation IN (?,?,?,?,?) ORDER BY created_at,request_id',
-                    (workspace_id, *[kind+':'+origin.plan_id for kind in ('update','approve','diagnose','execute')], 'investigation-decide:'+identifier)).fetchall()
+                rows = db.execute('SELECT request_id,operation,fingerprint,status,outcome,created_at,updated_at FROM mvp_search_plan_requests WHERE workspace_id=? AND operation IN (?,?,?,?,?,?,?,?) ORDER BY created_at,request_id',
+                    (workspace_id, *[kind+':'+origin.plan_id for kind in ('update','approve','diagnose','execute')], *[kind+':'+identifier for kind in ('investigation-decide','investigation-handoff','investigation-inspect','investigation-note')])).fetchall()
                 operations = [{**dict(row), 'outcome': json.loads(row['outcome'])} for row in rows]
                 for operation in operations:
                     attempt = db.execute('SELECT payload,sha256 FROM mvp_investigation_attempts WHERE workspace_id=? AND plan_id=? AND operation=? AND request_id=?',
@@ -153,7 +153,9 @@ class InvestigationService:
                 view = InvestigationView(origin=origin, plan=plan, capabilities=capabilities, executions=results, decisions=decisions, failures=failures)
                 history = [self.planning.view_in_transaction(db, workspace_id, origin.plan_id, item.revision_id)
                     for item in reversed(plan.revisions)] if audit else []
-                return view, history, operations
+                from .investigation_research import research_state
+                research = research_state(db, workspace_id, identifier) if audit else None
+                return view, history, operations, research
         return self.planning._locked(handle, read)
 
     def operation(self, handle, identifier, kind, request):
@@ -191,9 +193,9 @@ class InvestigationService:
         return self.view(handle, identifier)
 
     def export(self, handle, identifier):
-        view, history, operations = self._snapshot(handle, identifier, audit=True)
-        payload = {'schema_version': 'mvp.investigation-audit.v1', 'investigation': view.model_dump(mode='json'),
-            'plan_history': [item.model_dump(mode='json') for item in history], 'operations': operations, 'safeguards': SAFEGUARDS}
+        view, history, operations, research = self._snapshot(handle, identifier, audit=True)
+        payload = {'schema_version': 'mvp.investigation-audit.v2', 'investigation': view.model_dump(mode='json'),
+            'plan_history': [item.model_dump(mode='json') for item in history], 'operations': operations, 'safeguards': SAFEGUARDS, 'research': research.model_dump(mode='json')}
         origin = view.origin
         paper = next(p for p in origin.board.papers if p.id == origin.paper_id)
         field = next(f for f in origin.board.fields if f.id == origin.field_id)
@@ -203,6 +205,9 @@ class InvestigationService:
             f'Cell revision: {origin.cell.id if origin.cell else "No submitted revision"}',
             f'Saved draft version: {origin.draft.version}', f'Source manifest: {origin.board.source_manifest_sha256}',
             '', 'Researcher reason:', origin.reason, '', '## Scientific boundaries', *['- '+item for item in SAFEGUARDS]]
+        if origin.cell:
+            lines += ['', 'Retained original judgment:', f'Assessment: {origin.cell.semantic_assessment}; inspected scope: {origin.cell.scope_result}',
+                f'Value: {origin.cell.value}', f'Missing information: {origin.cell.missing_information}', f'Reason: {origin.cell.reason}']
         for item in history:
             lines += ['', f'## Search plan revision {item.revision.revision}', f'Revision: {item.revision.revision_id}']
             for candidate in item.revision.compiled.candidates:
@@ -225,6 +230,28 @@ class InvestigationService:
         lines += [f'- {item.created_at}: {item.paper_id} -> {item.decision} (version {item.version}); {item.note}' for item in view.decisions]
         lines += ['', '## Request history']
         lines += [f"- {item['created_at']}: {item['operation']} / {item['request_id']}: {item['status']}" for item in operations]
+        lines += ['', '## Explicit candidate collections']
+        for handoff in research.handoffs:
+            lines += [f'- {handoff.collection.name}: {handoff.collection.member_count} reports; collection {handoff.collection.id}; selection hash {handoff.selection_sha256}',
+                f'  Handoff: {handoff.id}; collection hash: {handoff.collection.origin.collection_snapshot_sha256}',
+                f'  Candidate IDs: {", ".join(handoff.selected_candidate_ids)}; selected original reports: {", ".join(handoff.selected_original_paper_ids)}',
+                f'  Original board: {handoff.original_board_id} / {handoff.original_board_revision_id}; candidate selection is not a scientific judgment.']
+        lines += ['', '## Verified passage display receipts']
+        for evidence in research.inspections:
+            lines += [f'- {evidence.id}: {evidence.created_at}; handoff {evidence.handoff_id}; preparation {evidence.preparation_id}; run {evidence.run_id}; passage {evidence.passage_id}',
+                f'  Paper: {evidence.source_paper.title} ({evidence.source_paper.id}); text type: {evidence.source_type}; status: {evidence.source_status}',
+                f'  Source {evidence.reference.source_id} / {evidence.reference.source_version}; SHA256 {evidence.reference.source_sha256}; block hash {evidence.reference.blocks_sha256}',
+                f'  Block {evidence.reference.block_id}; Unicode range [{evidence.reference.start}, {evidence.reference.end}); manifest {evidence.source_manifest_sha256}',
+                '  Display receipt only; human inspection/support is not inferred.', evidence.reference.quote]
+        lines += ['', '## Source-linked research evaluation notes']
+        for note in research.notes:
+            evidence = note.inspection
+            lines += [f'Note {note.id}, revision {note.revision}; parent: {note.parent_revision_id or "none"}',
+                f'Research question: {note.research_question}', f'Source paper: {evidence.source_paper.title} ({evidence.source_paper.id})',
+                f'Source {evidence.reference.source_id} / {evidence.reference.source_version}; SHA256 {evidence.reference.source_sha256}',
+                f'Block {evidence.reference.block_id}; Unicode range [{evidence.reference.start}, {evidence.reference.end})',
+                'Exact excerpt:', evidence.reference.quote, 'Researcher interpretation:', note.interpretation,
+                'Related-paper evidence; not a finding contained in the triggering original paper. Inspection is researcher-declared.']
         lines += ['', '## Failed or interrupted operations']
         lines += [f'- {item.operation} / {item.request_id}: {item.status}; {item.code or "outcome unknown"}; {item.message or "No automatic retry."}' for item in view.failures]
         # All researcher/provider prose is literal, including HTML, links and

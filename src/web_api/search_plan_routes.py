@@ -15,6 +15,7 @@ from src.mvp.search_plan_service_contracts import (
     PlannedSearchResult, SearchPlanCapabilities, SearchPlanProposalReceipt, SearchPlanView,
 )
 from src.mvp.ports import MvpError
+from src.mvp.core_concept_suggestions import (CoreConceptSuggestion, CoreConceptSuggestionRequest, suggest_core_concepts)
 from .settings_routes import (RuntimePlanRequest, configured_adapter, core_request,
                               disclosure, engine_for)
 
@@ -64,6 +65,12 @@ def install_search_plan_routes(app, *, service, owned, session_for, dependencies
             raise MvpError('stale_search_plan', 'Save and review this exact question and current plan revision first.')
         return settings.prepare(session['token_hash'], snapshot['revision'], generation_binding(workspace_id, plan_id, request),
             disclosure(adapter, 'planning', {'original_question': request.original_question}, 1))
+
+    @app.post(prefix+'/search-plan-suggestions', response_model=CoreConceptSuggestion, dependencies=dependencies)
+    def core_suggestions(workspace_id: str, request: CoreConceptSuggestionRequest, session=Depends(session_for)):
+        _, handle, engine = owned(workspace_id, session)
+        engine.get_workspace(handle)
+        return suggest_core_concepts(request.original_question)
 
     @app.get(prefix+'/search-plan-capabilities', response_model=SearchPlanCapabilities, dependencies=dependencies)
     def capabilities(workspace_id: str, session=Depends(session_for)):
