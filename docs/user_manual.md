@@ -11,7 +11,7 @@
 - **Learn without keys or models:** Use **Saved example · offline** in the installed source app.
 - **Install a Mac app or Windows Setup.exe:** Native installers are not publicly released. Use the source setup instructions.
 
-The website shows ten papers from a saved public collection; the installed offline example contains thirty. These are demonstration reports, not formally included independent studies. The protocol pilot, phone prototype and question-to-evidence development branch are outside this guide.
+The website shows ten papers from a saved public collection; the installed offline example contains thirty. These are demonstration reports, not formally included independent studies. The protocol pilot, phone prototype and question-to-evidence development branch are outside this guide. The development-only [Evidence Gap Navigator v0.1 guide](evidence_gap_navigator.md) describes targeted follow-up searches; that feature is not in the published releases.
 
 **On this page:** [Install](#install-on-your-os) · [First comparison](#start-with-the-offline-example) · [Add papers](#add-and-prepare-your-own-papers) · [Edit a cell](#select-an-excerpt-comment-and-save) · [Passage search and return](#investigate-a-cell-with-passage-search) · [Missing information](#keep-a-note-or-record-missing-information) · [Corrections](#correct-an-entry-or-resolve-a-conflict) · [Retrieval choices](#choose-core-qwen-or-medcpt) · [Export and backup](#export-back-up-and-replace-the-app) · [Troubleshooting](#troubleshoot-a-task)
 
