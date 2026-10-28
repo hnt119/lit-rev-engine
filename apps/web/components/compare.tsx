@@ -1,7 +1,7 @@
 "use client";
 import {useCallback,useEffect,useLayoutEffect,useRef,useState} from "react";
 import {api,requestId,acknowledgeRequest,workspacePath,type Schema} from "../lib/api";
-import {DraftStatus,flushDrafts,navigationBarrier,useDraft} from "../lib/drafts";
+import {DraftStatus,flushDrafts,navigationBarrier,registerDraftFlusher,registerDraftRecovery,registerUnloadGuard,useDraft} from "../lib/drafts";
 import {emptyCell,useBoardDraft,type CellData} from "../lib/board-drafts";
 import {cellGuidance} from "../lib/board-guidance";
 import {canonical,highlightParts} from "../lib/helpers";
@@ -74,6 +74,23 @@ function DefinitionForm({workspace,endpoint,original,done,retrievalCapability,re
   const invalidProfile=profiled&&(!profile||profile==="legacy_block_prefix_v1"&&explicit.length>0);
   const [busy,setBusy]=useState(false),[error,setError]=useState("");
   const [handoff,setHandoff]=useState<ComparisonHandoff|null>(null);
+  const definitionEdit={preparationId,selected,question,fields,profile,requirements};
+  const baseline=useRef(definitionEdit),baselineLoaded=useRef(false),initializedPreparation=useRef<string|null>(null);
+  const dirty=canonical(definitionEdit)!==canonical(baseline.current);
+  const localEdit=useRef({dirty,saving:false,restore:()=>{}});localEdit.current.dirty=dirty;
+  localEdit.current.restore=()=>{
+    const saved=baseline.current;
+    setPreparationId(saved.preparationId);setSelected(saved.selected);setQuestion(saved.question);setFields(saved.fields);setProfile(saved.profile);setRequirements(saved.requirements);
+    localEdit.current.dirty=false;setError("");
+  };
+  const guardDefinition=useCallback(async()=>{
+    if(localEdit.current.saving)throw new Error("The comparison definition is being saved. Wait for the save to finish before leaving.");
+    if(localEdit.current.dirty)throw new Error("This comparison definition has unsaved edits. Create the board or save its revision, or explicitly discard the definition edits before leaving.");
+  },[]);
+  useEffect(()=>registerDraftFlusher(guardDefinition),[guardDefinition]);
+  useEffect(()=>registerUnloadGuard(()=>localEdit.current.dirty||localEdit.current.saving),[]);
+  useEffect(()=>registerDraftRecovery({retry:guardDefinition,restore:async()=>{localEdit.current.restore();}}),[guardDefinition]);
+  function discardDefinition(){if(window.confirm("Discard the unsaved comparison definition edits and restore this form's starting values? Saved boards and judgments are retained."))localEdit.current.restore();}
   useEffect(()=>{let disposed=false;setPreparation(null);setPapers([]);setError("");if(!preparationId)return;
     void (async()=>{try{
       const [result,bibliography]=await Promise.all([api<Schema<"PreparationView">|Schema<"CollectionPreparationView">>(workspacePath(workspace.id)+"/source-preparations/"+encoded(preparationId)),api<Schema<"PreparationPapers">>(workspacePath(workspace.id)+"/source-preparations/"+encoded(preparationId)+"/papers")]);
@@ -87,18 +104,28 @@ function DefinitionForm({workspace,endpoint,original,done,retrievalCapability,re
         assertHandoffPreparation(captured,result);
         if(workspace.current_preparation_id!==result.id||workspace.source_revision!==result.source_revision)throw new Error("This handoff is historical because the current preparation changed. Its captured sources remain retained. Return to source selection and explicitly choose the preparation to compare.");
       }
-      setHandoff(captured);if(captured)setQuestion(captured.question);
-      setPreparation(result);setPapers(bibliography.papers);setSelected(original?.preparation_id===preparationId?original.paper_ids:captured?.selected_paper_ids??result.selected_paper_ids);
+      const nextSelected=original?.preparation_id===preparationId?original.paper_ids:captured?.selected_paper_ids??result.selected_paper_ids;
+      if(!baselineLoaded.current&&baseline.current.preparationId===preparationId){baseline.current={...baseline.current,selected:nextSelected,question:captured?.question??baseline.current.question};baselineLoaded.current=true;}
+      setHandoff(captured);
+      if(initializedPreparation.current!==preparationId){if(captured)setQuestion(captured.question);setSelected(nextSelected);initializedPreparation.current=preparationId;}
+      setPreparation(result);setPapers(bibliography.papers);
     }catch(error){if(!disposed)setError((error as Error).message);}})();return()=>{disposed=true;};
   },[preparationId,workspace.id,original,requestedHandoff,workspace.current_preparation_id,workspace.source_revision]);
   const matching=(boards??[]).filter(board=>board.preparation_id===preparationId&&board.question===question&&canonical(board.paper_ids)===canonical(selected));
-  async function submit(){setBusy(true);setError("");try{if(unsupported||invalidProfile)throw new Error("Choose an explicit available retrieval profile. Legacy retrieval requires explicit component queries to be removed deliberately.");await flushDrafts();
+  async function submit(){if(localEdit.current.saving)return;localEdit.current.saving=true;setBusy(true);setError("");try{if(!preparation||preparation.id!==preparationId)throw new Error("Wait for the retained preparation to load before saving this definition.");if(unsupported||invalidProfile)throw new Error("Choose an explicit available retrieval profile. Legacy retrieval requires explicit component queries to be removed deliberately.");await flushDrafts(guardDefinition);
     const payload={preparation_id:preparationId,question,paper_ids:selected,fields,...(profiled?{schema_version:"mvp.board-profile-request.v2",retrieval_profile_id:profile,field_requirements:explicit}:{}),...(original?{expected_revision_id:original.revision_id}:{})};
-    const next=await api<View>(endpoint+(original?"/revisions":""),"POST",{...payload,request_id:await requestId(endpoint+":definition",payload)});acknowledgeRequest(endpoint+":definition");await done(next);
-  }catch(error){setError((error as Error).message);}finally{setBusy(false);}}
+    let next!:View;
+    await navigationBarrier(async()=>{
+      next=await api<View>(endpoint+(original?"/revisions":""),"POST",{...payload,request_id:await requestId(endpoint+":definition",payload)});acknowledgeRequest(endpoint+":definition");
+      baseline.current=definitionEdit;localEdit.current.dirty=false;localEdit.current.saving=false;
+    });
+    await done(next);
+  }catch(error){setError((error as Error).message);}finally{localEdit.current.saving=false;setBusy(false);}}
   return <section aria-label={original?"Revise board definition":"New comparison board"}><h2>{original?"Revise board definition":"Create a manual board"}</h2><p className="muted">Your selected reports are preselected. Start with three editable fields and adjust the table to your question. A definition revision keeps old cells historical and starts new cells unassessed.</p><Failure message={error}/>
-    {!workspace.preparations.length?<Notice>No prepared sources yet. Open Discover & explore and prepare selected papers first.</Notice>:<form onSubmit={async event=>{event.preventDefault();await submit();}}><fieldset disabled={busy}>
-      <label>Retained source preparation<select disabled={!!requestedHandoff} value={preparationId} onChange={event=>setPreparationId(event.target.value)}>{[...workspace.preparations].reverse().map(item=><option key={item.id} value={item.id}>{item.selected_paper_ids.length} prepared reports · source revision {item.source_revision} · {new Date(item.prepared_at).toLocaleString()}</option>)}</select></label>
+    <p className="muted">Definition edits stay in this open form until you create the board or save a revision. They are not an autosaved draft.</p>{dirty&&<div className="actions"><p role="status">Unsaved definition edits</p><button type="button" disabled={busy} onClick={discardDefinition}>Discard definition edits…</button></div>}
+    {!workspace.preparations.length?<Notice>No prepared sources yet. Open Discover & explore and prepare selected papers first.</Notice>:<form onSubmit={async event=>{event.preventDefault();await submit();}}>
+      <label>Retained source preparation<select disabled={busy||!!requestedHandoff} value={preparationId} onChange={event=>setPreparationId(event.target.value)}>{[...workspace.preparations].reverse().map(item=><option key={item.id} value={item.id}>{item.selected_paper_ids.length} prepared reports · source revision {item.source_revision} · {new Date(item.prepared_at).toLocaleString()}</option>)}</select></label>
+      {!preparation&&!error&&<p role="status">Loading the retained preparation before editing this definition…</p>}<fieldset disabled={busy||!preparation||preparation.id!==preparationId}>
       <label>Board research question<textarea rows={3} required maxLength={10000} value={question} onChange={event=>setQuestion(event.target.value)}/></label>
       <fieldset><legend>Reports from this preparation · choose up to 30</legend>{papers.map(paper=><label className="check board-paper-choice" key={paper.id}><input type="checkbox" checked={selected.includes(paper.id)} disabled={!selected.includes(paper.id)&&selected.length>=30} onChange={event=>setSelected(ids=>event.target.checked?[...ids,paper.id]:ids.filter(id=>id!==paper.id))}/><span>{paper.title}<span className="meta"> · {sourceLabel(preparation?.sources.find(source=>source.paper_id===paper.id))} · PMID {paper.pmid??"unavailable"}</span></span></label>)}</fieldset>
       {unsupported&&<Notice>Span-profile revision is unavailable in this session. Existing source bindings and judgments remain readable; reconnect to a service that supports this profile before revising.</Notice>}
@@ -154,8 +181,8 @@ function BoardWorkspace({workspace,view,requestedPaper,requestedField,requestedR
   const nextPaper=nextIncomplete&&definition.papers.find(paper=>paper.id===nextIncomplete.paper),nextField=nextIncomplete&&definition.fields.find(field=>field.id===nextIncomplete.field);
   const nextCell=nextPaper&&nextField?{paperId:nextPaper.id,paperTitle:nextPaper.title,fieldLabel:nextField.label}:undefined;
   return <><section><p className="eyebrow">{view.freshness==="current"?"CURRENT BOARD DEFINITION":"HISTORICAL OR CHANGED DEPENDENCIES · READ ONLY"}</p><h2>{definition.question}</h2><p className="meta">{definition.paper_ids.length} reports × {definition.fields.length} fields · <Time value={definition.created_at}/></p>
+    {view.freshness!=="current"&&<Notice>{view.freshness_reasons.join(" ")} This comparison is read-only. Original source bindings and judgments remain inspectable. To work with changed dependencies, open Comparison tools and revision history, then choose Revise board definition.</Notice>}
     <ComparisonLineage definition={definition} navigate={navigate}/><details className="comparison-secondary-tools"><summary>Comparison tools and revision history</summary><div className="actions"><button onClick={()=>void openPassageSearch()}>Search passages for this comparison</button></div><p className="muted">Open passage search with this question and the exact retained papers and sources. No search runs until you request it.</p>
-    {view.freshness!=="current"&&<Notice>{view.freshness_reasons.join(" ")} Original source bindings and judgments remain inspectable. Create a new definition revision to work with changed dependencies.</Notice>}
     <Failure message={error}/><div className="control-row"><label>Definition revision<select value={definition.revision_id} onChange={event=>void navigate({page:"compare",workspace:workspace.id,board:definition.board_id,revision:event.target.value})}>{view.definitions.map(item=><option key={item.revision_id} value={item.revision_id}>{item.revision_id===view.current_revision_id?"Latest":"Historical"} · {new Date(item.created_at).toLocaleString()} · {item.paper_count} × {item.field_count}</option>)}</select></label><button onClick={async()=>{try{await flushDrafts();setRevising(!revising);}catch(error){setError((error as Error).message);}}}>{revising?"Close definition form":"Revise board definition"}</button></div>
     <details><summary>Original citation set, preparation and retrieval bindings</summary><pre>{JSON.stringify({board_id:definition.board_id,revision_id:definition.revision_id,parent_revision_id:definition.parent_revision_id,search_id:definition.search_id,search_sha256:definition.search_sha256,...("collection_ref" in definition?{collection_ref:definition.collection_ref,member_snapshot_sha256:definition.member_snapshot_sha256}:{}),preparation_id:definition.preparation_id,source_revision:definition.source_revision,source_manifest_sha256:definition.source_manifest_sha256,retrieval_profile:definition.retrieval_profile},null,2)}</pre></details></details>
   </section>
@@ -272,7 +299,7 @@ function CellEditor({consumeInvestigationLaunch,initiallyInvestigating,navigate,
   const validation=[...cellGuidance(displayed),...(noteOnly?["This is an autosaved note, not a reviewed entry. Select evidence and record your judgment, or explicitly record missing information with an empty value."]:[])];
   const citation=[paper.authors.slice(0,2).join(", "),paper.year,paper.pmid?"PMID "+paper.pmid:paper.title,sourceLabel(source)].filter(Boolean).join(" · ");
   const selectedExcerpts=<><h3>Selected evidence</h3>{!displayed.references.length?<p className="muted">No excerpt selected. Your notes can still be saved as a draft. Missing information must be stated explicitly.</p>:displayed.references.map((reference,index)=>{const saved=head?.references.find(item=>sameRange(input(item),reference));return <RetainedExcerpt key={canonical(reference)} range={reference} quote={referenceLabels.get(canonical(reference))} index={index} endpoint={endpoint} revisionId={definition.revision_id} paperId={paperId} citation={citation} disabled={busy} canRemove={editable} onInspect={()=>saved?inspectSaved(saved):inspect(reference)} onRemove={()=>draft.setData(previous=>({...previous,references:previous.references.filter((_,i)=>i!==index)}))}/>;})}<p className="meta">{displayed.references.length}/5 references · {displayed.inspected_ranges.length} declared inspected ranges. Exact source matching does not establish support.</p>{editable&&<button type="button" disabled={busy} onClick={()=>void action(()=>moveTo("evidence"))}>Add or change evidence</button>}</>;
-  return <>{investigating&&draft.ready&&<InvestigationNavigator navigate={navigate} workspaceId={definition.workspace_id} context={{board_id:definition.board_id,expected_board_revision_id:definition.revision_id,paper_id:paperId,field_id:fieldId,expected_cell_head_id:head?.id??null,expected_draft_version:draft.version,local_draft:draft.data}} canCreate={!readOnly&&unresolvedCell(view,paperId,fieldId)&&draft.state!=="conflict"&&draft.state!=="error"} onReturn={async origin=>{
+  return <>{investigating&&draft.ready&&<InvestigationNavigator navigate={navigate} workspaceId={definition.workspace_id} originalContext={{paperTitle:paper.title,fieldLabel:field.label,fieldQuestion:field.subquestion}} context={{board_id:definition.board_id,expected_board_revision_id:definition.revision_id,paper_id:paperId,field_id:fieldId,expected_cell_head_id:head?.id??null,expected_draft_version:draft.version,local_draft:draft.data}} canCreate={!readOnly&&unresolvedCell(view,paperId,fieldId)&&draft.state!=="conflict"&&draft.state!=="error"} onReturn={async origin=>{
     if(origin&&origin.board.revision_id!==definition.revision_id){const result=await navigate({page:"compare",workspace:definition.workspace_id,board:origin.board.board_id,revision:origin.board.revision_id,paper:origin.paper_id,field:origin.field_id});if(result?.status==="blocked")throw new Error(result.message);}
     await reload();setInvestigating(false);setInvestigationReturn(value=>value+1);
   }}/>}{investigating&&!draft.ready&&<p role="status">Loading the original cell draft…</p>}<section hidden={investigating} className="board-cell-editor" aria-label={`${field.label} cell editor`}><header className="cell-editor-identity"><p className="eyebrow">MANUAL CELL · {sourceLabel(source)} · {view.freshness.toUpperCase()}</p><p className="meta" aria-label="Current paper and field">Paper {paperPosition} of {definition.paper_ids.length} · Field {fieldPosition} of {definition.fields.length}</p><h2>{field.label}</h2><h3>{paper.title}</h3><p className="muted">{definition.paper_ids.length===1?`This comparison contains one paper. ${definition.fields.length===1?"This field describes":"All "+definition.fields.length+" fields describe"} this same report.`:"Each field describes the paper named above. Other papers have their own fields."}</p><p>{field.subquestion}</p><p className="meta">{citation} · {source?.status??"unavailable"}</p></header>
