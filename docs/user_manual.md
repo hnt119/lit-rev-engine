@@ -91,7 +91,7 @@ Follow [Select an excerpt, comment and save](#select-an-excerpt-comment-and-save
 
 In **Discover & explore → Import papers**, choose a supported CSV/RIS citation file or DOI/PMID identifier input, then **Parse and preview citations**. Review the records, column mapping, warnings and duplicate/conflicting identities. Accept the intended rows, enter a **Collection name**, and choose **Commit … accepted records**.
 
-**Expected result:** a retained collection with import provenance and accounting for accepted and uncommitted rows. **Accept all eligible records** refers to rows acceptable for this import; it does not decide scientific review eligibility. Local parsing does not call an LLM or metadata provider. **Resolve selected identifiers** is a separate explicit network action.
+**Expected result:** a retained collection with import provenance and accounting for accepted and uncommitted rows. **Accept all import-ready records** refers to rows acceptable for this import; it does not decide scientific review eligibility. Local parsing does not call an LLM or metadata provider. **Resolve selected identifiers** is a separate explicit network action.
 
 Importing citations does not import full text or transfer subscription rights. The beta.4 web interface has no general PDF-attachment upload workflow; an older parser in the repository does not provide that UI feature.
 
@@ -99,13 +99,21 @@ Importing citations does not import full text or transfer subscription rights. T
 
 In **Research & AI Settings → Research sources**, enter your actual **NCBI contact email** and enable live PubMed for explicit searches. Its API key is optional. **Save settings** makes no provider request; **Test PubMed connection** is a separate network action and checks connectivity, not relevance.
 
-Create a workspace in **Live PubMed** when the connection is available. In **Search papers**, review the exact executable query, dates, sort order and maximum records. The question-to-search planner offers its available manual/concept and optional proposal paths; inspect and approve a proposed strategy before execution. An editable suggestion is not an executed search. Expert Boolean text should remain your deliberate query.
+Create a workspace in **Live PubMed** when the connection is available. In **Search papers**, choose a path:
+
+- **Core:** enter your question, choose **Suggest editable concepts**, then **Use suggestions as editable draft**. Review each role, term and search use. Approve the reviewed terms, **Build reviewed Boolean strategies**, then **Save search for review**.
+- **Specialist strategy:** choose **Paste my own query** and retain your deliberate Boolean text. It is not semantically validated or silently rewritten.
+- **Optional AI:** **Propose search with optional AI** requires separate configuration and explicit consent. Core and manual editing remain available without it.
+
+Read the exact compiled query, dates, sort and deferred constraints. Approve that exact saved revision before **Search papers**; subsequent query edits require a new save and approval. **Check matches** is a separate explicit provider diagnostic, not a relevance assessment. Review the maximum records before execution. An editable suggestion is not an executed search.
 
 **Expected result:** a saved, bounded search preview and its recorded specification. A capped preview is not a complete systematic-review capture; a small count does not establish a research gap. Application defaults only prefill new work. Search, exploration selection, eligibility and extraction remain distinct decisions.
 
 For either input route, select reports and explicitly prepare them. The application attempts permitted, identity-checked source acquisition or an explicitly labeled fallback. A historical board keeps its original preparation; it does not silently switch to newer sources.
 
 ## Select an excerpt, comment and save
+
+New or revised board definitions are local forms, not autosaved research drafts. Save the definition before leaving, or explicitly discard its edits when prompted.
 
 Open a comparison cell. Check its paper title, field/subquestion, **Paper … of … · Field … of …**, and source availability before writing.
 
