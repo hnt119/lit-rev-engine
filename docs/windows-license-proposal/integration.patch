@@ -85,5 +85,5 @@
 +            'silent_installation':'rejected; no unattended acceptance flag',
 +            'windows_interaction':'NOT_RUN'}
 
- 
+
  def make_windows_installer(payload,output,makensis,nsis_dir):
