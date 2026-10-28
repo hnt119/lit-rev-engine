@@ -9,7 +9,7 @@ An open-source, local-first workspace for comparing papers and checking the sour
 | macOS · Apple Silicon | **[Download for macOS](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-desktop-beta.2/lit-rev-engine-0.3.0-desktop-beta.2-macos-arm64.dmg)** | Desktop beta.2 · 169.6 MB |
 | Windows · x64 | **[Download for Windows](https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-windows-experimental-beta.2/lit-rev-engine-0.3.0-windows-experimental-beta.2-windows-x64-Setup.exe)** | Experimental beta.2 · 195.5 MB |
 
-**Windows 11 x64: Experimental, unsigned, not tested on Windows.** Installed workflow and security checks remain **NOT_RUN**. [Windows installation](docs/releases/v0.3.0-windows-experimental-beta.2/INSTALL_WINDOWS.md) · [Validation](docs/releases/v0.3.0-windows-experimental-beta.2/VALIDATION.md) · [Release page](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-windows-experimental-beta.2).
+**Windows 11 x64: Experimental, unsigned, not tested on Windows.** Installed workflow and security checks remain **NOT_RUN**. [Windows User Guide](docs/windows_user_guide.md) · [Windows installation](docs/releases/v0.3.0-windows-experimental-beta.2/INSTALL_WINDOWS.md) · [Validation](docs/releases/v0.3.0-windows-experimental-beta.2/VALIDATION.md) · [Release page](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-windows-experimental-beta.2).
 
 [Getting started](docs/releases/v0.3.0-desktop-beta.2/INSTALL_MAC.md) · [User guide](docs/user_manual.md) · [Demo](https://hnt119.github.io/projects/literature-review-engine/#saved-evidence) · [Release notes](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-desktop-beta.2) · [Architecture](docs/application_architecture.md)
 
