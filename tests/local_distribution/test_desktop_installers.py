@@ -21,10 +21,10 @@ def test_native_product_identity_does_not_open_source_or_preview_data():
 
 def test_successor_native_build_identity_is_numeric_and_separate_from_beta_label():
     value=native.product()
-    assert value['version']=='0.3.0-desktop-beta.2'
-    assert value['build_number']==3002
-    assert base.native_build_number(value)=='3002'
-    for invalid in (None,True,'3002',0,-1,10000):
+    assert value['version']=='0.3.0-windows-experimental-beta.2'
+    assert value['build_number']==3003
+    assert base.native_build_number(value)=='3003'
+    for invalid in (None,True,'3003',0,-1,10000):
         with pytest.raises(ValueError,match='numeric build number'):
             base.native_build_number({**value,'build_number':invalid})
 
@@ -235,7 +235,7 @@ def test_native_packagers_copy_hash_verified_source_evidence_before_immutable_re
 def test_experimental_windows_disclosure_and_notice_receipt_precede_immutable_manifest():
     import inspect
     text=(base.ROOT/'apps/desktop/installer.nsi').read_text()
-    disclosure='Experimental Windows beta — not yet tested on Windows'
+    disclosure='Windows 11 x64 · Experimental · Unsigned · Not tested on Windows'
     assert text.count(disclosure)>=2  # both branding and welcome, never a tested-install claim
     assert 'RequestExecutionLevel user' in text and 'SetRegView 64' in text
     assert 'MUI_FINISHPAGE_RUN_NOTCHECKED' in text

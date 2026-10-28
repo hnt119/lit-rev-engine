@@ -18,6 +18,13 @@ import pytest
 ROOT=Path(__file__).resolve().parents[2]
 PROPOSAL=ROOT/'docs/windows-license-proposal'
 TERMS='MICROSOFT_COMPONENT_TERMS_WITH_LICENSES.txt'
+HISTORICAL_SOURCE='d428087d8d5148e9ad094c3960029157d4265880'
+
+
+def historical_source(path):
+    result=subprocess.run(['git','show',HISTORICAL_SOURCE+':'+path],cwd=ROOT,capture_output=True)
+    if result.returncode:pytest.skip('Historical proposal base is unavailable in this checkout; no automatic fetch or active-source rewrite')
+    return result.stdout
 
 
 def body(text,name,kind='Function',end='FunctionEnd'):
@@ -32,8 +39,8 @@ def instructions(text):
 
 def patched_tree(tmp_path):
     root=tmp_path/'fixture-source';(root/'apps/desktop').mkdir(parents=True);(root/'scripts').mkdir()
-    shutil.copy2(ROOT/'apps/desktop/installer.nsi',root/'apps/desktop/installer.nsi')
-    shutil.copy2(ROOT/'scripts/build_desktop_installers.py',root/'scripts/build_desktop_installers.py')
+    for path in ('apps/desktop/installer.nsi','scripts/build_desktop_installers.py'):
+        (root/path).write_bytes(historical_source(path))
     shutil.copytree(PROPOSAL,root/'docs/windows-license-proposal')
     patch=root/'docs/windows-license-proposal/integration.patch'
     for args in (['--check'],[]):
@@ -57,11 +64,12 @@ def prepare_terms(root,tmp_path):
     return payload,namespace['copy_proposed_microsoft_component_terms']
 
 
-def test_proposal_is_inactive_and_only_patches_the_two_declared_packaging_files():
-    active=(ROOT/'apps/desktop/installer.nsi').read_text()
-    builder=(ROOT/'scripts/build_desktop_installers.py').read_text()
-    assert 'LitRevMicrosoftTerms' not in active and 'windows-license-proposal' not in active
-    assert 'copy_proposed_microsoft_component_terms' not in builder
+def test_historical_proposal_stays_separate_from_new_active_component_terms():
+    old_installer=historical_source('apps/desktop/installer.nsi').decode()
+    old_builder=historical_source('scripts/build_desktop_installers.py').decode()
+    assert 'LitRevMicrosoftTerms' not in old_installer and 'copy_proposed_microsoft_component_terms' not in old_builder
+    assert 'docs/windows-license-proposal' not in (ROOT/'apps/desktop/installer.nsi').read_text()
+    assert 'copy_proposed_microsoft_component_terms' not in (ROOT/'scripts/build_desktop_installers.py').read_text()
     patch=(PROPOSAL/'integration.patch').read_text()
     assert re.findall(r'^\+\+\+ b/(.+)$',patch,re.M)==['apps/desktop/installer.nsi','scripts/build_desktop_installers.py']
     text=(PROPOSAL/'MICROSOFT_COMPONENT_TERMS.txt').read_text()

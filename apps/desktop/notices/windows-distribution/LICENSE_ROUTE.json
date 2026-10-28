@@ -1,0 +1,100 @@
+{
+  "assessment": {
+    "concrete_contrary_prohibition_identified_for_selected_routes": false,
+    "documented_conditional_routes_reviewed": true,
+    "generic_runtime_or_buildtools_eula_used_as_redistribution_grant": false,
+    "legal_certification": false,
+    "owner_selected_downstream_routes": true,
+    "personal_developer_license_claimed": false,
+    "private_upstream_contract_assent_independently_verified": false,
+    "publication_authorization": "Owner authorized conditional documented downstream release; final source/artifact/notice integrity gates remain with release owner."
+  },
+  "exact_binaries": {
+    "d3dcompiler_47.dll": {
+      "bytes": 4753864,
+      "sha256": "f5c95e919b4ffa1ac71049cd45b9f986d2965e6888395ca2806337985334fa56"
+    },
+    "resources/python/vcruntime140.dll": {
+      "bytes": 124544,
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066"
+    },
+    "resources/python/vcruntime140_1.dll": {
+      "bytes": 49792,
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+    }
+  },
+  "historical_review": {
+    "prior_remaining_owner_actions": [
+      "Establish the owner applicable Microsoft Windows SDK redistribution permission/agreement for the exact D3D DLL and satisfy its downstream protective-terms/distribution conditions; no owner SDK agreement is accepted by this build.",
+      "Establish the downstream Microsoft Distributable Code protective-terms mechanism required by the retained WindowsPython license. A notice copy does not itself prove distributor/end-user agreement."
+    ],
+    "sha256": "8fbefa6835f3de9cb582267fb2412d4bfb03d49ff9e5366560849e2d2f0eae4e",
+    "source_file": "apps/desktop/notices/windows-runtime/SOURCE_PROVENANCE.json",
+    "superseded_scope": "The owner route selection and Microsoft-only mechanism are now explicitly authorized. Historical vendor/source integrity facts and prior NOT_RUN observations are not rewritten."
+  },
+  "license_boundaries": {
+    "ffmpeg_and_independent_components": "Separate grants including LGPL modification/replacement/debugging rights unchanged",
+    "indemnity": "Upstream instrument/party-specific duties are not silently transferred wholesale to end users; Community is not assigned SDK indemnity.",
+    "microsoft_code": "Only applicable Microsoft-code protections; no independent new sublicense",
+    "original_engine": "MIT unchanged",
+    "python_own_code_and_programs": "PSF/other original grants unchanged"
+  },
+  "native_build_number": 3003,
+  "owner_authorization": {
+    "author": "hnt119",
+    "author_association": "OWNER",
+    "comment_id": 6458287082,
+    "comment_url": "https://github.com/hnt119/lit-rev-engine/issues/18#issuecomment-6458287082",
+    "created_at": "2026-10-28T01:34:43Z",
+    "issue_url": "https://github.com/hnt119/lit-rev-engine/issues/18",
+    "not_asserted": [
+      "Personal SDK or Visual Studio acquisition/acceptance",
+      "Independent observation of private upstream contracts",
+      "Observed Windows user consent or installed execution",
+      "Universal legal compliance or legal certification"
+    ],
+    "scope": [
+      "Select documented Electron-to-SDK D3DCompiler and Python-to-CRT conditional downstream routes",
+      "Activate an unchecked affirmative Microsoft-component-only NSIS agreement without silent bypass",
+      "Rebuild with complete retained license texts and fresh source/artifact hashes",
+      "Publish a distinct experimental unsigned Windows prerelease after final integrity checks; Windows execution remains NOT_RUN by owner direction"
+    ]
+  },
+  "record_version": "windows-experimental-beta.2-ms-1",
+  "release_version": "0.3.0-windows-experimental-beta.2",
+  "schema": "litrev.windows.microsoft-license-route.v1",
+  "selected_routes": [
+    {
+      "components": [
+        "d3dcompiler_47.dll"
+      ],
+      "conditional_grant_source": "SDK WIN10SDK.RTM.AUG_2018_en-US section2(a)(i), including downstream distribution; complete retained license and REDIST govern Microsoft code",
+      "distribution_instructions": {
+        "sha256": "7c29b5d82f785ebe5cc1d8fa066e43c1bffb1b62571e88a825b11fa6d7ba6aef",
+        "url": "https://raw.githubusercontent.com/electron/electron/v45.0.0/docs/tutorial/application-distribution.md"
+      },
+      "id": "electron45_sdk_d3d_downstream",
+      "license_url": "https://learn.microsoft.com/en-us/legal/windows-sdk/license",
+      "redist_url": "https://learn.microsoft.com/en-us/legal/windows-sdk/redist",
+      "route_scope": "Documented upstream prebuilt distribution plus conditional SDK downstream route; not a new personal SDK-license claim.",
+      "upstream_runtime": "Electron45.0.0 official win32-x64 prebuilt distribution"
+    },
+    {
+      "components": [
+        "resources/python/vcruntime140.dll",
+        "resources/python/vcruntime140_1.dll"
+      ],
+      "conditional_grant_source": "Version-matched Python Windows Additional Conditions, fully retained in complete Python LICENSE.txt, describe further distribution subject to Microsoft protections. Applicable upstream licensed distributors can authorize their program distributors; supplier Visual Studio edition is not invented.",
+      "crt_notice": {
+        "complete_notice_in_retained_python_license": true,
+        "sha256": "3c71b3ae243121f6f227374cd1ef7c59ed07b1969b330d0e947f91a3a1b3fd73",
+        "url": "https://raw.githubusercontent.com/python/cpython/v3.12.15/PC/crtlicense.txt"
+      },
+      "id": "python31215_crt_downstream",
+      "route_scope": "Documented conditional Python downstream route selected by owner, not reliance on generic Runtime/BuildTools end-user EULAs or an unproved personal Community license.",
+      "upstream_runtime": "Python3.12.15+20261021 official pinned python-build-standalone Windows x64 distribution"
+    }
+  ],
+  "terms_version": "windows-experimental-beta.2-ms-1",
+  "windows_runtime_or_gui_validation": "NOT_RUN"
+}

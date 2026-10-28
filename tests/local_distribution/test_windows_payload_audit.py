@@ -1,5 +1,6 @@
 """macOS-capable static fixtures only: no Windows binary, VM or app execution."""
 import hashlib
+import ast
 import base64
 import csv
 import io
@@ -43,9 +44,10 @@ def dist(site,name='fixture',version='1.0',requires=(),tag='py3-none-any',python
     (root/'METADATA').write_text(body);(root/'WHEEL').write_text('Wheel-Version: 1.0\nTag: '+tag+'\n')
 
 
-def bind_manifest(payload,source='a'*40):
+def bind_manifest(payload,source='a'*40,version='0.3.0-test.1',native_build_number=None):
     files={p.relative_to(payload).as_posix():{'bytes':p.stat().st_size,'sha256':audit.sha(p)} for p in payload.rglob('*') if p.is_file() and p.name!='INSTALLATION.json'}
-    value={'schema':'litrev.desktop.installed-files.v1','source_commit':source,'app_id':'org.hnt119.litrev.desktop','version':'0.3.0-test.1','files':files}
+    value={'schema':'litrev.desktop.installed-files.v1','source_commit':source,'app_id':'org.hnt119.litrev.desktop','version':version,'files':files}
+    if native_build_number is not None:value['native_build_number']=native_build_number
     (payload/'INSTALLATION.json').write_text(json.dumps(value));return value
 
 
@@ -183,7 +185,7 @@ def test_host_extracted_payload_must_match_each_bound_byte(tmp_path):
     with pytest.raises(ValueError,match='extra'):audit.extracted_matches(extracted,payload)
 
 
-def test_complete_static_fixture_preserves_literal_not_run_and_owner_reason(tmp_path,monkeypatch):
+def complete_static_fixture(tmp_path,monkeypatch):
     source='a'*40;monkeypatch.setattr(audit,'ROOT',tmp_path)
     (tmp_path/'requirements-hosted.txt').write_text('fixture==1.0\n')
     payload=tmp_path/'payload';payload.mkdir()
@@ -199,6 +201,11 @@ def test_complete_static_fixture_preserves_literal_not_run_and_owner_reason(tmp_
     put(payload,'resources/DESKTOP_RELEASE.json',json.dumps({'source_commit':source,'target':'win32-x64','version':'0.3.0-test.1','core_runtimes_bundled':True,'web_build_binding':{'source_commit':source}}).encode())
     put(payload,'resources/app/product.json',json.dumps({'version':'0.3.0-test.1','data_name':'LiteratureReviewEngineDesktop'}).encode())
     bind_manifest(payload,source)
+    return payload,source
+
+
+def test_complete_static_fixture_preserves_literal_not_run_and_owner_reason(tmp_path,monkeypatch):
+    payload,source=complete_static_fixture(tmp_path,monkeypatch)
     report=audit.audit(payload,source)
     assert report['status']=='PASS'
     for field in ('runtime_execution','vm_execution','gui_execution','installed_execution'):assert report[field]=='NOT_RUN'
@@ -327,3 +334,108 @@ def test_cli_rejects_report_inside_payload_or_extraction_before_any_write(tmp_pa
         assert result.returncode==2 and 'outside the audited payload' in result.stderr
         assert not destination.exists()
         assert list(payload.iterdir())==[] and list(extracted.iterdir())==[]
+
+
+def component_terms_fixture(tmp_path,payload):
+    """Public synthetic approval-shaped record; no legal or participant claim."""
+    source=tmp_path/audit.TERMS_SOURCE;source.mkdir(parents=True)
+    data={'component_terms':b'Public synthetic Microsoft-only terms; separate MIT rights.\n',
+        'complete_sdk_license_readable':b'Complete synthetic SDK text\n',
+        'complete_sdk_license_authoritative':b'{\\rtf1 Public synthetic authoritative text}',
+        'complete_python_license':b'Complete synthetic Python license\n'}
+    (source/'MICROSOFT_COMPONENT_TERMS.txt').write_bytes(data['component_terms'])
+    for name,key in [('resources/WINDOWS_DEPENDENCY_NOTICES/microsoft-sdk-10.0.28000.2270/LICENSE.rendered.txt','complete_sdk_license_readable'),
+            ('resources/WINDOWS_DEPENDENCY_NOTICES/microsoft-sdk-10.0.28000.2270/LICENSE.rtf','complete_sdk_license_authoritative'),
+            ('resources/python/LICENSE.txt','complete_python_license')]:put(payload,name,data[key])
+    binaries={}
+    for name in ('d3dcompiler_47.dll','resources/python/vcruntime140.dll','resources/python/vcruntime140_1.dll'):
+        p=put(payload,name,pe());binaries[name]={'bytes':p.stat().st_size,'sha256':audit.sha(p)}
+    route={'schema':'litrev.windows.microsoft-license-route.v1','release_version':audit.TERMS_VERSION,'native_build_number':3003,
+        'terms_version':'synthetic-terms-v1','record_version':'synthetic-terms-v1','windows_runtime_or_gui_validation':'NOT_RUN',
+        'owner_authorization':{'author':'hnt119','author_association':'OWNER','comment_id':6458287082,
+            'comment_url':'https://github.com/hnt119/lit-rev-engine/issues/18#issuecomment-6458287082'},
+        'assessment':{'documented_conditional_routes_reviewed':True,'owner_selected_downstream_routes':True,
+            'personal_developer_license_claimed':False,'private_upstream_contract_assent_independently_verified':False,
+            'generic_runtime_or_buildtools_eula_used_as_redistribution_grant':False,'legal_certification':False},
+        'selected_routes':[{'id':'electron45_sdk_d3d_downstream'},{'id':'python31215_crt_downstream'}],
+        'exact_binaries':binaries}
+    (source/'LICENSE_ROUTE.json').write_text(json.dumps(route))
+    manifest={'schema':'litrev.windows.microsoft-component-terms-inputs.v1','terms_version':'synthetic-terms-v1',
+        'inputs':{name:{'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()} for name,raw in data.items()},
+        'route_record':{'file':'LICENSE_ROUTE.json','bytes':(source/'LICENSE_ROUTE.json').stat().st_size,'sha256':audit.sha(source/'LICENSE_ROUTE.json')}}
+    (source/'MANIFEST.json').write_text(json.dumps(manifest))
+    script=Path(__file__).resolve().parents[2]/'scripts/build_desktop_installers.py'
+    tree=ast.parse(script.read_text());node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='copy_microsoft_component_terms')
+    namespace={'ROOT':tmp_path,'json':json,'digest':lambda raw:hashlib.sha256(raw).hexdigest()}
+    exec(compile(ast.Module(body=[node],type_ignores=[]),'<synthetic-host-terms-copy>','exec'),namespace)
+    record=namespace['copy_microsoft_component_terms'](payload/'resources')
+    return source,{'version':audit.TERMS_VERSION,'native_build_number':'3003','microsoft_component_terms':record}
+
+
+def test_new_release_requires_exact_full_terms_route_and_four_packaged_copies(tmp_path,monkeypatch):
+    payload=tmp_path/'payload';payload.mkdir();_,metadata=component_terms_fixture(tmp_path,payload)
+    monkeypatch.setattr(audit,'ROOT',tmp_path)
+    result=audit.verify_component_terms(payload,metadata)
+    assert result['status']=='PASS' and len(result['packaged_files'])==4
+    assert result['windows_interaction']=='NOT_RUN' and 'not personal Visual Studio ownership' in result['scope']
+    assert result['owner_authorization_recorded'].endswith('issuecomment-6458287082')
+
+
+@pytest.mark.parametrize('mutation',['missing_receipt','terms','display','manifest_copy','route_copy','extra_output','vendor','metadata_scope','binary'])
+def test_terms_receipt_cannot_accept_changed_incomplete_or_unbound_content(tmp_path,monkeypatch,mutation):
+    payload=tmp_path/'payload';payload.mkdir();_,metadata=component_terms_fixture(tmp_path,payload)
+    monkeypatch.setattr(audit,'ROOT',tmp_path)
+    if mutation=='missing_receipt':metadata.pop('microsoft_component_terms')
+    elif mutation in ('terms','display','manifest_copy','route_copy'):
+        key={'terms':'terms','display':'displayed_and_retained','manifest_copy':'input_manifest','route_copy':'route_record'}[mutation]
+        (payload/audit.TERMS_FILES[key]).write_bytes(b'Changed')
+        metadata['microsoft_component_terms'][key+'_sha256']='0'*64
+    elif mutation=='extra_output':put(payload,'resources/MICROSOFT_COMPONENT_UNBOUND.txt',b'Unbound policy')
+    elif mutation=='vendor':(payload/'resources/python/LICENSE.txt').unlink()
+    elif mutation=='metadata_scope':metadata['microsoft_component_terms']['windows_interaction']='PASS'
+    elif mutation=='binary':(payload/'resources/python/vcruntime140.dll').write_bytes(b'Unreviewed DLL')
+    with pytest.raises(ValueError):audit.verify_component_terms(payload,metadata)
+
+
+@pytest.mark.parametrize('mutation',['personal_license','automatic_clearance','wrong_owner','wrong_routes'])
+def test_rebound_source_route_must_not_invent_license_ownership_or_qualifications(tmp_path,monkeypatch,mutation):
+    payload=tmp_path/'payload';payload.mkdir();source,metadata=component_terms_fixture(tmp_path,payload)
+    monkeypatch.setattr(audit,'ROOT',tmp_path)
+    route=json.loads((source/'LICENSE_ROUTE.json').read_text())
+    if mutation=='personal_license':route['assessment']['personal_developer_license_claimed']=True
+    elif mutation=='automatic_clearance':route['assessment']['legal_certification']=True
+    elif mutation=='wrong_owner':route['owner_authorization']['comment_url']='https://example.org/not-the-recorded-approval'
+    elif mutation=='wrong_routes':route['selected_routes']=[{'id':'direct_unproved_personal_license'}]
+    raw=json.dumps(route).encode();(source/'LICENSE_ROUTE.json').write_bytes(raw)
+    manifest=json.loads((source/'MANIFEST.json').read_text());manifest['route_record']={'file':'LICENSE_ROUTE.json','bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
+    (source/'MANIFEST.json').write_text(json.dumps(manifest))
+    # Even a newly bound input record must not silently promote its claims.
+    (payload/audit.TERMS_FILES['route_record']).write_bytes(raw)
+    (payload/audit.TERMS_FILES['input_manifest']).write_bytes((source/'MANIFEST.json').read_bytes())
+    metadata['microsoft_component_terms']['route_record_sha256']=hashlib.sha256(raw).hexdigest()
+    metadata['microsoft_component_terms']['input_manifest_sha256']=audit.sha(source/'MANIFEST.json')
+    with pytest.raises(ValueError):audit.verify_component_terms(payload,metadata)
+
+
+def test_historical_audit_compatibility_does_not_waive_new_build_terms(tmp_path):
+    assert audit.verify_component_terms(tmp_path,{'version':'0.3.0-desktop-beta.2','native_build_number':'3002'})['status']=='NOT_APPLIED'
+    for metadata in ({'version':audit.TERMS_VERSION},{'version':'older','native_build_number':'3003'}):
+        with pytest.raises(ValueError,match='Missing approved'):audit.verify_component_terms(tmp_path,metadata)
+
+
+@pytest.mark.parametrize('mutation',[None,'metadata_build','product_build','installed_build'])
+def test_integrated_terms_release_binds_product_source_and_all_build_receipts(tmp_path,monkeypatch,mutation):
+    payload,source=complete_static_fixture(tmp_path,monkeypatch)
+    _,terms_metadata=component_terms_fixture(tmp_path,payload)
+    metadata_path=payload/'resources/DESKTOP_RELEASE.json'
+    metadata=json.loads(metadata_path.read_text());metadata.update(terms_metadata)
+    if mutation=='metadata_build':metadata['native_build_number']='3002'
+    metadata_path.write_text(json.dumps(metadata))
+    put(payload,'resources/app/product.json',json.dumps({'version':audit.TERMS_VERSION,'data_name':'LiteratureReviewEngineDesktop','build_number':3002 if mutation=='product_build' else 3003}).encode())
+    bind_manifest(payload,source,version=audit.TERMS_VERSION,native_build_number='3002' if mutation=='installed_build' else '3003')
+    if mutation:
+        with pytest.raises(ValueError,match='build binding differs'):audit.audit(payload,source)
+    else:
+        report=audit.audit(payload,source)
+        assert report['status']=='PASS' and report['microsoft_component_terms']['status']=='PASS'
+        assert report['runtime_execution']==report['microsoft_component_terms']['windows_interaction']=='NOT_RUN'

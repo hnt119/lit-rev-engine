@@ -1,5 +1,7 @@
 # Windows x64 experimental desktop build
 
+**Release progression:** the observations below preserve earlier private checkpoints. The owner subsequently authorized the separate **0.3.0-windows-experimental-beta.2 / build3003** release under the documented downstream routes in [the active license record](../apps/desktop/notices/windows-distribution/README.md). Its source-bound build, notices, hashes and explicit Windows NOT_RUN results are recorded in that release's own artifacts. Earlier private hashes and unimplemented draft statements are not relabeled as the new installer.
+
 **Experimental Windows beta — not yet tested on Windows.** This is a private build checkpoint for [issue #18](https://github.com/hnt119/lit-rev-engine/issues/18), not a public Windows release or a compatibility claim. The published Mac DMG and source releases are unchanged.
 
 The existing Electron/Next.js/FastAPI/Python application and NSIS installer are reused. Version **0.3.0-desktop-beta.2**, build **3002**, remains a separate native channel from source beta.4. The original private Windows candidate and its hashes are preserved; a fresh output directory identifies the new build.

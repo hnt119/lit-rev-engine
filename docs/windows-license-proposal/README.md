@@ -1,5 +1,7 @@
 # Inactive Microsoft-component agreement proposal
 
+**Historical scope:** this folder preserves the review draft for the earlier `6381a46f…` installer and checkpoint `d428087`. Its statements about the then-current inactive installer are historical. The owner-authorized Windows experimental release uses [the active NSIS page](../../apps/desktop/windows-license-page.nsh) and [final component terms/route record](../../apps/desktop/notices/windows-distribution/README.md). These preserved draft files are not the shipping agreement.
+
 **Owner review only. Not active, not an accepted agreement, and not publication clearance.** The current application, installer source and private Setup remain unchanged. This proposal does not establish the owner's applicable Windows SDK agreement, the applicable CRT redistribution grant, or acceptance of their distribution/indemnity conditions. It does not ask the owner to change the engine's MIT license.
 
 ## Exact existing candidate

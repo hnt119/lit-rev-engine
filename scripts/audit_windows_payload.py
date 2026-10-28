@@ -56,6 +56,12 @@ OPTIONAL_DIRECTORIES = ('resources/python/Lib/site-packages/pythonwin',
 PYWIN32_RECORD = 'resources/python/Lib/site-packages/pywin32-312.dist-info/RECORD'
 REMOVED_PYWIN32_ENTRYPOINTS = ('../../bin/pywin32_postinstall', '../../bin/pywin32_postinstall.py',
     '../../bin/pywin32_testall', '../../bin/pywin32_testall.py')
+TERMS_SOURCE = Path('apps/desktop/notices/windows-distribution')
+TERMS_VERSION = '0.3.0-windows-experimental-beta.2'
+TERMS_FILES = {'terms': 'resources/MICROSOFT_COMPONENT_TERMS.txt',
+    'input_manifest': 'resources/MICROSOFT_COMPONENT_TERMS_INPUTS.json',
+    'route_record': 'resources/MICROSOFT_COMPONENT_LICENSE_ROUTE.json',
+    'displayed_and_retained': 'resources/MICROSOFT_COMPONENT_TERMS_WITH_LICENSES.txt'}
 
 
 def sha(path):
@@ -242,6 +248,89 @@ def verify_pywin32_subset(payload, metadata):
         'scope': 'Exact reviewed omissions and unchanged protected/retained bytes; optional pywin32 GUI/MAPI/debug APIs unsupported, not Core or full Python API execution'}
 
 
+def verify_component_terms(payload, metadata):
+    """Verify exact approved text/route bytes; do not certify legal compliance."""
+    record = metadata.get('microsoft_component_terms')
+    required = str(metadata.get('version', '')).startswith('0.3.0-windows-experimental-') or str(metadata.get('native_build_number')) == '3003'
+    if record is None:
+        if required: raise ValueError('Missing approved Microsoft component terms receipt')
+        if any((payload / name).exists() for name in TERMS_FILES.values()): raise ValueError('Unbound Microsoft component terms files')
+        return {'status': 'NOT_APPLIED', 'scope': 'Historical product without the new active terms integration'}
+    manifest_file = ordinary(ROOT / TERMS_SOURCE / 'MANIFEST.json')
+    manifest = json.loads(manifest_file.read_text())
+    roles = {'component_terms', 'complete_sdk_license_readable', 'complete_sdk_license_authoritative', 'complete_python_license'}
+    if (not isinstance(manifest, dict) or set(manifest) != {'schema', 'inputs', 'route_record', 'terms_version'}
+            or manifest.get('schema') != 'litrev.windows.microsoft-component-terms-inputs.v1'
+            or not isinstance(manifest.get('inputs'), dict) or set(manifest['inputs']) != roles):
+        raise ValueError('Unknown approved Microsoft component input manifest')
+    inputs = {'component_terms': ROOT / TERMS_SOURCE / 'MICROSOFT_COMPONENT_TERMS.txt',
+        'complete_sdk_license_readable': payload / 'resources/WINDOWS_DEPENDENCY_NOTICES/microsoft-sdk-10.0.28000.2270/LICENSE.rendered.txt',
+        'complete_sdk_license_authoritative': payload / 'resources/WINDOWS_DEPENDENCY_NOTICES/microsoft-sdk-10.0.28000.2270/LICENSE.rtf',
+        'complete_python_license': payload / 'resources/python/LICENSE.txt'}
+    raw = {name: ordinary(path).read_bytes() for name, path in inputs.items()}
+    actual = {name: {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()} for name, data in raw.items()}
+    if actual != manifest['inputs']: raise ValueError('Microsoft component input bytes differ from approved pins')
+    route_file = ordinary(ROOT / TERMS_SOURCE / 'LICENSE_ROUTE.json')
+    raw_route = route_file.read_bytes(); route = json.loads(raw_route)
+    if (manifest['route_record'] != {'file': 'LICENSE_ROUTE.json', 'bytes': len(raw_route), 'sha256': sha(route_file)}
+            or not isinstance(route, dict) or route.get('schema') != 'litrev.windows.microsoft-license-route.v1'):
+        raise ValueError('Approved Microsoft license-route record differs')
+    if (route.get('release_version') != TERMS_VERSION or route.get('native_build_number') != 3003
+            or route.get('terms_version') != manifest.get('terms_version')
+            or route.get('record_version') != manifest.get('terms_version')
+            or not isinstance(manifest.get('terms_version'), str) or not manifest['terms_version']
+            or route.get('windows_runtime_or_gui_validation') != 'NOT_RUN'):
+        raise ValueError('Microsoft route product/version or observation scope differs')
+    authorization = route.get('owner_authorization', {})
+    if (authorization.get('author') != 'hnt119' or authorization.get('author_association') != 'OWNER'
+            or authorization.get('comment_id') != 6458287082
+            or authorization.get('comment_url') != 'https://github.com/hnt119/lit-rev-engine/issues/18#issuecomment-6458287082'):
+        raise ValueError('Microsoft route does not retain the recorded owner authorization')
+    assessment = route.get('assessment', {})
+    for key, expected_flag in {'documented_conditional_routes_reviewed': True, 'owner_selected_downstream_routes': True,
+            'personal_developer_license_claimed': False, 'private_upstream_contract_assent_independently_verified': False,
+            'generic_runtime_or_buildtools_eula_used_as_redistribution_grant': False, 'legal_certification': False}.items():
+        if assessment.get(key) is not expected_flag: raise ValueError('Microsoft route qualification claim differs')
+    selected = route.get('selected_routes')
+    if (not isinstance(selected, list) or len(selected) != 2 or any(not isinstance(row, dict) for row in selected)
+            or {row.get('id') for row in selected} != {'electron45_sdk_d3d_downstream', 'python31215_crt_downstream'}):
+        raise ValueError('Microsoft route selection differs')
+    binaries = route.get('exact_binaries')
+    if not isinstance(binaries, dict) or set(binaries) != {'d3dcompiler_47.dll', 'resources/python/vcruntime140.dll', 'resources/python/vcruntime140_1.dll'}:
+        raise ValueError('Microsoft component binary scope differs')
+    for name, row in binaries.items():
+        path = ordinary(payload / name)
+        if row != {'bytes': path.stat().st_size, 'sha256': sha(path)}: raise ValueError('Microsoft route binary bytes differ')
+    combined = b'\xef\xbb\xbf'
+    for title, data in [('Microsoft-component protective terms', raw['component_terms']),
+            ('Complete retained Windows SDK license — readable conversion; original LICENSE.rtf retained alongside', raw['complete_sdk_license_readable']),
+            ('Complete retained Python license, including Additional Conditions for this Windows binary build', raw['complete_python_license'])]:
+        combined += ('\n\n===== ' + title + ' =====\n\n').encode() + data
+    copies = {'terms': raw['component_terms'], 'input_manifest': manifest_file.read_bytes(),
+        'route_record': raw_route, 'displayed_and_retained': combined}
+    actual_names = {path.relative_to(payload).as_posix() for path in (payload / 'resources').iterdir()
+        if path.name.casefold().startswith('microsoft_component_')}
+    if actual_names != set(TERMS_FILES.values()): raise ValueError('Missing or extra Microsoft component terms outputs')
+    for name, data in copies.items():
+        if ordinary(payload / TERMS_FILES[name]).read_bytes() != data:
+            raise ValueError('Packaged Microsoft component terms differ: ' + name)
+    expected = {'schema': 'litrev.windows.microsoft-component-terms.v1',
+        'scope': 'Microsoft components only; engine MIT, Python, FFmpeg and other independent terms unchanged',
+        'inputs': actual, 'silent_installation': 'rejected; no unattended acceptance flag', 'windows_interaction': 'NOT_RUN'}
+    for name, data in copies.items():
+        expected[name + '_path'] = TERMS_FILES[name]
+        expected[name + '_sha256'] = hashlib.sha256(data).hexdigest()
+    expected['displayed_and_retained_bytes'] = len(combined)
+    if record != expected: raise ValueError('Microsoft component receipt fields or hashes differ')
+    return {'status': 'PASS', 'displayed_and_retained_bytes': len(combined),
+        'displayed_and_retained_sha256': hashlib.sha256(combined).hexdigest(),
+        'input_manifest_sha256': sha(manifest_file), 'route_record_sha256': sha(route_file),
+        'terms_version': manifest['terms_version'], 'owner_authorization_recorded': authorization['comment_url'],
+        'packaged_files': list(TERMS_FILES.values()), 'input_roles': sorted(roles),
+        'scope': 'Exact owner-approved text, source pins and recorded downstream routes; not personal Visual Studio ownership, private upstream-contract certification or observed Windows acceptance',
+        'windows_interaction': 'NOT_RUN'}
+
+
 def pe_info(raw):
     """Bounded PE/import/delay-import parsing using file bytes only."""
     if len(raw) < 64 or raw[:2] != b'MZ': raise ValueError('Not a PE executable')
@@ -416,6 +505,11 @@ def audit(payload, expected, *, installer=None, extracted=None):
     if metadata.get('web_build_binding', {}).get('source_commit') != expected: raise ValueError('Production web binding source differs')
     for name in ('LiteratureReviewEngine.exe', *CORE_FILES): ordinary(payload / name)
     subset = verify_pywin32_subset(payload, metadata)
+    terms = verify_component_terms(payload, metadata)
+    if metadata.get('version') == TERMS_VERSION:
+        if (metadata.get('native_build_number') != '3003' or value.get('native_build_number') != '3003'
+                or product.get('build_number') != 3003):
+            raise ValueError('Windows component terms release build binding differs')
     site = payload / 'resources/python/Lib/site-packages'
     for package in ('fastapi', 'uvicorn', 'pydantic', 'pydantic_core', 'starlette', 'anyio'):
         ordinary(site / package / '__init__.py')
@@ -433,6 +527,7 @@ def audit(payload, expected, *, installer=None, extracted=None):
         'core_required_files': {'status': 'PASS', 'scope': 'File presence and byte-bound headers only; not Core execution or complete dynamic loading', 'paths': ['LiteratureReviewEngine.exe', *CORE_FILES]},
         'application_imports': imports,
         'optional_pywin32_subset': subset,
+        'microsoft_component_terms': terms,
         'declared_dependencies': {'status': 'FAIL' if deps['failures'] else 'PASS', 'scope': 'Windows CPython3.12 AMD64 distribution metadata/markers only'}, 'dependencies': deps, 'native': native,
         'retained_native_imports': {'status': 'FAIL' if native['unresolved'] else 'PASS',
             'scope': 'All retained non-auxiliary PE import and delay-import names; static search paths and explicit OS/API-set exceptions only, not runtime export/loader verification',

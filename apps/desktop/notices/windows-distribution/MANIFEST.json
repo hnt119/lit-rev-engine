@@ -1,0 +1,27 @@
+{
+  "inputs": {
+    "complete_python_license": {
+      "bytes": 25066,
+      "sha256": "886a0ead2d89030ee62dbff52b04e47ab91998341295bb9c56fb952b4e081c7a"
+    },
+    "complete_sdk_license_authoritative": {
+      "bytes": 246945,
+      "sha256": "dd07eb178e00c6bba4148457fc00ff77cd4887eb521d504186fe59c9ec8bbe62"
+    },
+    "complete_sdk_license_readable": {
+      "bytes": 27702,
+      "sha256": "b51ec2350d938f5b6c8d6207ee5a3e10effbf8a134e432aa393577d41d3dae06"
+    },
+    "component_terms": {
+      "bytes": 4927,
+      "sha256": "609bfbc5b91a136e4fc6602dcc87aabd3f47b9845aac2e096b96e641666711eb"
+    }
+  },
+  "route_record": {
+    "bytes": 5927,
+    "file": "LICENSE_ROUTE.json",
+    "sha256": "1ae181b77851aa8701037fa665a71bcd7fb0f3d802c58cbc147ed89d39794fcb"
+  },
+  "schema": "litrev.windows.microsoft-component-terms-inputs.v1",
+  "terms_version": "windows-experimental-beta.2-ms-1"
+}

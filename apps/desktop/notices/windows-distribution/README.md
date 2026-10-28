@@ -1,0 +1,11 @@
+# Windows Microsoft component distribution terms
+
+This source directory supplies the active Microsoft-only installer terms and a hash-bound route/authorization record for `0.3.0-windows-experimental-beta.2`, native build3003. It is separate from the preserved 15-file `windows-runtime` vendor notice closure.
+
+The owner [authorized the documented Electron/Python downstream routes and an affirmative Microsoft-only installer agreement](https://github.com/hnt119/lit-rev-engine/issues/18#issuecomment-6458287082). This does not assert a personal SDK/Visual Studio acquisition or independent verification of private supplier contracts. The complete applicable retained SDK license and Python license must be available before the installer choice and retained afterward. The generic Runtime/Build Tools install-use EULAs are not presented as publisher redistribution grants.
+
+`MANIFEST.json` binds the final component terms and existing readable/authoritative SDK and complete Python license bytes. It also binds `LICENSE_ROUTE.json`, which records exact binaries, conditional downstream sources, owner authorization and historical-review scope. Build tooling must verify the inputs, place the terms/input/route records outside the immutable vendor closure, and produce `resources/MICROSOFT_COMPONENT_TERMS_WITH_LICENSES.txt` containing the complete texts for the agreement page. No network request or runtime/model work is needed to create those files.
+
+Payload copies are `resources/MICROSOFT_COMPONENT_TERMS.txt`, `resources/MICROSOFT_COMPONENT_TERMS_INPUTS.json`, `resources/MICROSOFT_COMPONENT_LICENSE_ROUTE.json`, and the combined text. An unchecked affirmative decision is required before installation writes; silent installation must not bypass it. Actual Windows GUI/installation/security behavior remains NOT_RUN until observed. Host compilation/static tests are separate evidence.
+
+Original MIT, Python/PSF, FFmpeg/LGPL and other independent rights remain intact. No entire-application proprietary EULA, new Microsoft sublicense or legal certification is added. Historical source provenance is not rewritten: this fresh owner-route record supersedes its earlier pending owner-choice status only for that decision, with the exact historical record hash retained. Final publication also requires the authorized release owner's source/artifact/integrity checks.

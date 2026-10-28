@@ -1,7 +1,8 @@
-; Private reviewed candidate. Compile using the pinned NSIS SDK; no elevated setup.
+; Owner-authorized experimental Windows build. Pinned NSIS SDK; no elevated setup.
 Unicode true
 !include "MUI2.nsh"
 !include "FileFunc.nsh"
+!include "${__FILEDIR__}/windows-license-page.nsh"
 !ifndef PRODUCT_VERSION
 !error "Pass the exact reviewed product version"
 !endif
@@ -21,10 +22,12 @@ RequestExecutionLevel user
 SetCompressor zlib
 ShowInstDetails show
 ShowUninstDetails show
-BrandingText "Experimental Windows beta — not yet tested on Windows"
+BrandingText "Windows 11 x64 · Experimental · Unsigned · Not tested on Windows"
 !define MUI_ABORTWARNING
-!define MUI_WELCOMEPAGE_TEXT "Experimental Windows beta — not yet tested on Windows. Install the local research application for this user. Core runtimes are bundled; research data stays outside the application. This unsigned candidate is for reviewed testing only. Do not bypass Windows security warnings."
+!define MUI_WELCOMEPAGE_TEXT "Windows 11 x64 · Experimental · Unsigned · Not tested on Windows. Install the local research application for this user. Core runtimes are bundled; research data stays outside the application. Do not bypass Windows security warnings."
 !insertmacro MUI_PAGE_WELCOME
+; Display the exact complete text retained in this manifest-bound payload.
+!insertmacro LitRevMicrosoftTermsPage "${PAYLOAD}\resources\MICROSOFT_COMPONENT_TERMS_WITH_LICENSES.txt"
 !insertmacro MUI_PAGE_INSTFILES
 !define MUI_FINISHPAGE_RUN "$INSTDIR\app-${PRODUCT_VERSION}\LiteratureReviewEngine.exe"
 !define MUI_FINISHPAGE_RUN_NOTCHECKED
@@ -34,6 +37,7 @@ BrandingText "Experimental Windows beta — not yet tested on Windows"
 !insertmacro MUI_LANGUAGE "English"
 
 Function .onInit
+  !insertmacro LitRevRequireInteractiveMicrosoftTerms
   SetShellVarContext current
   ; AMD64=9. Explicitly reject ARM64 and 32-bit native operating systems.
   System::Alloc 64
@@ -62,7 +66,7 @@ Function .onInit
   check_build:
   IntCmp $4 22000 version_ok unsupported_version version_ok
   unsupported_version:
-    MessageBox MB_ICONSTOP "This private candidate targets Windows 11 x64. Other Windows versions are unqualified."
+    MessageBox MB_ICONSTOP "This experimental release targets Windows 11 x64. Other Windows versions are unqualified."
     Abort
   version_ok:
   SetRegView 64
@@ -157,6 +161,7 @@ Function un.onInit
 FunctionEnd
 
 Section "Application"
+  !insertmacro LitRevRequireAcceptedMicrosoftTerms
   Call ValidateRoot
   Call RequireClosed
   SetShellVarContext current

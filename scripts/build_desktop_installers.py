@@ -195,20 +195,21 @@ def assemble_windows(args):
     materialized=materialize_verified_web(resources/'web')
     # No foreign native code may hide in a cross-built JS server tree.
     for file in (resources/'web').rglob('*.node'):require_windows_pe(file)
-    metadata={'schema':'litrev.desktop-distribution.release.v1','version':value['version'],'native_build_number':base.native_build_number(value),'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'target':'win32-x64','platform':'Windows 11 x64; execution NOT_RUN','core_runtimes_bundled':True,'runtimes':lock,'node_execution':'Electron utilityProcess bundled Node','python_execution':'resources/python/python.exe','signature':'unsigned private candidate; no Authenticode credentials','installed_execution':'NOT_RUN','public_distribution':'not qualified or authorized','data_root':'LOCALAPPDATA/LiteratureReviewEngineDesktop; separate from browser beta and Preview','web_dependency_notice_inventory':{'packages':len(notices['packages']),'notice_files':notices['unique_notice_files'],'missing_notice_sources':notices['missing_notice_sources']},'unused_image_optimizer':{'disabled':True,'omitted_files':omitted},'project_client_boundary':boundary,'web_build_binding':binding,'windows_web_materialization':materialized,'omitted_build_entrypoints':omitted_entrypoints}
+    metadata={'schema':'litrev.desktop-distribution.release.v1','version':value['version'],'native_build_number':base.native_build_number(value),'source_commit':head,'source_archive_sha256':digest(args.source_archive.read_bytes()),'source_snapshot_sha256':source['source_snapshot_sha256'],'target':'win32-x64','platform':'Windows 11 x64; execution NOT_RUN','core_runtimes_bundled':True,'runtimes':lock,'node_execution':'Electron utilityProcess bundled Node','python_execution':'resources/python/python.exe','signature':'unsigned; no Authenticode credentials','installed_execution':'NOT_RUN','public_distribution':'owner-authorized experimental release; publication pending; Windows execution NOT_RUN','data_root':'LOCALAPPDATA/LiteratureReviewEngineDesktop; separate from browser beta and Preview','web_dependency_notice_inventory':{'packages':len(notices['packages']),'notice_files':notices['unique_notice_files'],'missing_notice_sources':notices['missing_notice_sources']},'unused_image_optimizer':{'disabled':True,'omitted_files':omitted},'project_client_boundary':boundary,'web_build_binding':binding,'windows_web_materialization':materialized,'omitted_build_entrypoints':omitted_entrypoints}
     sdk=args.nsis_dir.resolve()
     notices_dir=resources/'INSTALLER_NOTICES';notices_dir.mkdir()
     shutil.copy2(sdk/'COPYING',notices_dir/'NSIS-3.13-COPYING.txt')
     tool=json.loads((ROOT/'apps/desktop/installer-tool-lock.json').read_text())
     (notices_dir/'PROVENANCE.json').write_bytes(json_bytes({'schema':'litrev.desktop.installer-notices.v1','tool':tool,'runtime_modules':['NSIS Unicode zlib installer stub','Modern UI 2','System plugin','nsExec plugin'],'compression':'zlib; no LZMA module selected','notice_sha256':digest((sdk/'COPYING').read_bytes()),'scope':'Exact NSIS license text retained; component/source/signing review remains explicit, not inferred legal clearance.'}))
-    metadata['candidate_status']='Experimental Windows beta — not yet tested on Windows'
+    metadata['candidate_status']='Windows 11 x64 · Experimental · Unsigned · Not tested on Windows'
     metadata['installer_tool']=tool
     metadata['installer_compression']='zlib'
     metadata['native_source_evidence']=base.copy_native_source_evidence(resources/'NATIVE_DEPENDENCY_NOTICES')
     metadata['windows_dependency_notices']=copy_windows_dependency_notices(app)
+    metadata['microsoft_component_terms']=copy_microsoft_component_terms(resources)
     metadata['windows_optional_pywin32_subset']=pywin32_subset
     (resources/'DESKTOP_RELEASE.json').write_bytes(json_bytes(metadata))
-    (resources/'DESKTOP_NOTICES.md').write_text('Private Windows x64 candidate. Original engine MIT; retain engine/LICENSE, engine/THIRD_PARTY_NOTICES.md, Electron LICENSE and LICENSES.chromium.html, Python runtime licenses/UPSTREAM_LICENSES, installed package licenses/dist-info, WEB_DEPENDENCY_NOTICES. Complete native component/source obligations and signing remain separate gates; this is not legal clearance. No model weights are bundled.\n')
+    (resources/'DESKTOP_NOTICES.md').write_text('Windows 11 x64 experimental release; unsigned and not tested on Windows. Original engine MIT; retain engine/LICENSE, engine/THIRD_PARTY_NOTICES.md, Electron LICENSE and LICENSES.chromium.html, Python runtime licenses/UPSTREAM_LICENSES, installed package licenses/dist-info, WEB_DEPENDENCY_NOTICES. Complete native component/source obligations and signing remain separate gates; this is not legal clearance. No model weights are bundled.\n')
     base.audit_generated_payload(resources,out)
     files={path.relative_to(app).as_posix():{'bytes':path.stat().st_size,'sha256':digest(path.read_bytes())} for path in sorted(app.rglob('*')) if path.is_file() and not path.is_symlink()}
     if any(path.is_symlink() for path in app.rglob('*')):raise ValueError('Windows payload cannot depend on symbolic links.')
@@ -216,6 +217,73 @@ def assemble_windows(args):
     (app/'INSTALLATION.json').write_bytes(json_bytes(installed))
     clean_checkout(ROOT,head)
     return app,metadata
+
+
+
+def copy_microsoft_component_terms(resources):
+    """Bind the approved Microsoft-only text and complete unchanged vendor terms.
+
+    These downstream route records do not claim the owner personally acquired
+    Visual Studio/SDK rights. No Windows code or agreement action runs here.
+    """
+    source_dir=ROOT/'apps/desktop/notices/windows-distribution'
+    manifest_file=source_dir/'MANIFEST.json'
+    route_file=source_dir/'LICENSE_ROUTE.json'
+    source=source_dir/'MICROSOFT_COMPONENT_TERMS.txt'
+    sdk=resources/'WINDOWS_DEPENDENCY_NOTICES/microsoft-sdk-10.0.28000.2270'
+    inputs={
+        'component_terms':source,
+        'complete_sdk_license_readable':sdk/'LICENSE.rendered.txt',
+        'complete_sdk_license_authoritative':sdk/'LICENSE.rtf',
+        'complete_python_license':resources/'python/LICENSE.txt',
+    }
+    for path in (manifest_file,route_file,*inputs.values()):
+        if path.is_symlink() or not path.is_file():
+            raise ValueError('Require complete pinned Microsoft component terms and route inputs.')
+    raw_manifest=manifest_file.read_bytes()
+    manifest=json.loads(raw_manifest)
+    if not isinstance(manifest,dict) or manifest.get('schema')!='litrev.windows.microsoft-component-terms-inputs.v1' or not isinstance(manifest.get('inputs'),dict) or set(manifest['inputs'])!=set(inputs):
+        raise ValueError('Unknown Microsoft component terms input manifest.')
+    data={name:path.read_bytes() for name,path in inputs.items()}
+    actual={name:{'bytes':len(raw),'sha256':digest(raw)} for name,raw in data.items()}
+    if actual!=manifest['inputs']:
+        raise ValueError('Microsoft component text differs from its exact reviewed input pin.')
+    raw_route=route_file.read_bytes()
+    expected_route={'file':'LICENSE_ROUTE.json','bytes':len(raw_route),'sha256':digest(raw_route)}
+    if manifest.get('route_record')!=expected_route or not isinstance(json.loads(raw_route),dict):
+        raise ValueError('Microsoft component route record differs from its reviewed pin.')
+    sections=[('Microsoft-component protective terms',data['component_terms']),
+              ('Complete retained Windows SDK license — readable conversion; original LICENSE.rtf retained alongside',data['complete_sdk_license_readable']),
+              ('Complete retained Python license, including Additional Conditions for this Windows binary build',data['complete_python_license'])]
+    combined=b'\xef\xbb\xbf'
+    for title,raw in sections:
+        combined+=('\n\n===== '+title+' =====\n\n').encode('utf-8')+raw
+    outputs={
+        'MICROSOFT_COMPONENT_TERMS.txt':data['component_terms'],
+        'MICROSOFT_COMPONENT_TERMS_INPUTS.json':raw_manifest,
+        'MICROSOFT_COMPONENT_LICENSE_ROUTE.json':raw_route,
+        'MICROSOFT_COMPONENT_TERMS_WITH_LICENSES.txt':combined,
+    }
+    if any((resources/name).exists() or (resources/name).is_symlink() for name in outputs):
+        raise ValueError('Do not overwrite existing Microsoft component term outputs.')
+    # Preflight every input/output before writing; exclusive creation also
+    # prevents following a concurrently introduced output symlink.
+    for name,raw in outputs.items():
+        with (resources/name).open('xb') as stream:stream.write(raw)
+    return {'schema':'litrev.windows.microsoft-component-terms.v1',
+            'scope':'Microsoft components only; engine MIT, Python, FFmpeg and other independent terms unchanged',
+            'displayed_and_retained_path':'resources/MICROSOFT_COMPONENT_TERMS_WITH_LICENSES.txt',
+            'displayed_and_retained_bytes':len(combined),
+            'displayed_and_retained_sha256':digest(combined),
+            'terms_path':'resources/MICROSOFT_COMPONENT_TERMS.txt',
+            'terms_sha256':digest(data['component_terms']),
+            'input_manifest_path':'resources/MICROSOFT_COMPONENT_TERMS_INPUTS.json',
+            'input_manifest_sha256':digest(raw_manifest),
+            'route_record_path':'resources/MICROSOFT_COMPONENT_LICENSE_ROUTE.json',
+            'route_record_sha256':digest(raw_route),
+            'inputs':actual,
+            'silent_installation':'rejected; no unattended acceptance flag',
+            'windows_interaction':'NOT_RUN'}
 
 
 def make_windows_installer(payload,output,makensis,nsis_dir):
@@ -228,7 +296,7 @@ def make_windows_installer(payload,output,makensis,nsis_dir):
         # NSIS metadata can be compressed; require at least a real PE and the
         # compiler's completed output, not a renamed ZIP/source archive.
         if raw[:2]!=b'MZ':raise ValueError('NSIS did not produce a Windows installer.')
-    return {'file':output.name,'bytes':len(raw),'sha256':digest(raw),'target':'Windows 11 x64','execution':'NOT_RUN','signature':'unsigned private candidate','qualification':'Experimental Windows beta — not yet tested on Windows'}
+    return {'file':output.name,'bytes':len(raw),'sha256':digest(raw),'target':'Windows 11 x64','execution':'NOT_RUN','signature':'unsigned','qualification':'Windows 11 x64 · Experimental · Unsigned · Not tested on Windows'}
 
 
 def main():

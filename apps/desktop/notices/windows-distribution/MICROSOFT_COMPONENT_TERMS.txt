@@ -1,0 +1,91 @@
+MICROSOFT COMPONENT NOTICE AND TERMS
+Terms version: windows-experimental-beta.2-ms-1
+
+These terms concern only the Microsoft Distributable Code identified below.
+The original Literature Review Engine code remains licensed under MIT. Python,
+FFmpeg, DXC, other independently licensed code, papers and models retain their
+own terms. Agreeing here does not restrict their separate use, modification,
+replacement, relinking, debugging or reverse-engineering rights.
+
+1. Microsoft code covered
+
+  d3dcompiler_47.dll — version 10.0.28000.2270
+  resources/python/vcruntime140.dll — version 14.44.35211.0
+  resources/python/vcruntime140_1.dll — version 14.44.35211.0
+
+This notice also covers only Microsoft Distributable Code identified by the
+Windows Additional Conditions as linked into bundled Python binaries. It does
+not convert Python's own code or programs running on Python into Microsoft code.
+
+These unchanged binaries accompany the application through its documented
+Electron and Python downstream distributions, subject to their applicable
+conditions. This notice is not an independent Microsoft sublicense, a claim
+that every dependency is MIT, or a representation that the application owner
+obtained a personal Visual Studio or SDK license.
+
+2. Complete accompanying documents
+
+The complete SDK license and complete Python license follow these terms on this
+installer page before you choose whether to agree. They remain available in:
+
+  resources/WINDOWS_DEPENDENCY_NOTICES/
+  microsoft-sdk-10.0.28000.2270/LICENSE.rendered.txt
+
+  resources/python/LICENSE.txt
+
+The unchanged authoritative SDK license is retained alongside the readable
+conversion as LICENSE.rtf. Its EULAID is WIN10SDK.RTM.AUG_2018_en-US. The same
+folder retains SDK.nuspec and REDIST.html. The Windows Additional Conditions in
+Python's full license describe its Microsoft-code redistribution conditions.
+
+The documents govern their respective components and applicable upstream rights;
+they do not license the whole application as the SDK or Visual Studio. Other
+component terms and mandatory legal rights remain effective. The generic Runtime
+and Build Tools install/use EULAs are not asserted as redistribution grants.
+
+3. Microsoft-code protections
+
+Use the Microsoft code as part of the application on permitted Microsoft
+operating systems, runtime technologies or application platforms, and only for
+lawful purposes. Do not alter, remove, minimize or obscure its copyright,
+trademark, patent or other required notices. Do not use Microsoft's names or
+marks to suggest that Microsoft authored, approved or endorsed this application.
+Do not include Microsoft code in malicious, deceptive or unlawful programs.
+
+Copy or redistribute Microsoft object code only as expressly permitted by the
+applicable upstream conditions, unchanged and as part of a program/package with
+significant primary functionality and the required notices and protections.
+Do not treat the engine's MIT license as permission to relicense Microsoft DLLs,
+distribute them independently, or subject Microsoft source to a license its
+applicable grant forbids. Require distributors and external users to agree to
+protections at least as protective of the Microsoft code as its applicable
+upstream terms require. No additional redistribution right is created here.
+
+Do not work around Microsoft-code technical limitations or reverse engineer,
+decompile or disassemble Microsoft code except to the extent applicable law or
+its applicable license permits despite that restriction. Applicable copying,
+transfer, rental, benchmark-disclosure, warranty, liability and export conditions
+remain confined to the Microsoft code and the relevant upstream rights. They do
+not prohibit inspecting or modifying the MIT engine, exercising Python's own
+license, replacing/debugging FFmpeg under its LGPL, or comparing the engine's
+research retrieval methods. Statutory rights are not excluded.
+
+4. Separate distributor obligations
+
+Upstream conditions may separately address a distributor's copyright, licensing
+route, functionality or indemnity obligations. Those obligations are not waived
+and are not transferred wholesale to an application user merely by displaying
+these documents. The documented downstream route and owner authorization are
+recorded in MICROSOFT_COMPONENT_LICENSE_ROUTE.json. That record is not legal
+certification or proof of private upstream contractual facts.
+
+5. Your choice
+
+Select the agreement checkbox only if you agree to these protections for the
+Microsoft components. Otherwise cancel installation. Agreement is not preselected
+or inferred from silent/background execution. The installer does not send your
+decision to a service or record credentials or research data.
+
+Declining does not revoke the original engine's MIT source rights or any separate
+upstream grant. The complete SDK and Python texts below remain available for your
+review before deciding.

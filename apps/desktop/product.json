@@ -1,10 +1,10 @@
 {
   "schema": "litrev.desktop.product.v1",
   "name": "Literature Review Engine",
-  "version": "0.3.0-desktop-beta.2",
+  "version": "0.3.0-windows-experimental-beta.2",
   "app_id": "org.hnt119.litrev.desktop",
   "data_name": "LiteratureReviewEngineDesktop",
   "partition": "persist:litrev-desktop",
   "require_installed_location": true,
-  "build_number": 3002
+  "build_number": 3003
 }
