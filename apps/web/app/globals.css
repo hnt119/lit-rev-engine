@@ -19,8 +19,27 @@ p { margin: 0 0 16px; }
 label { display: block; font-size: 12px; margin: 0 0 20px; }
 textarea, input:not([type=checkbox]), select { width: 100%; max-width: 100%; min-height: 44px; display: block; margin-top: 6px; background: transparent; border: 1px solid var(--line); border-radius: 0; padding: 10px 12px; font-size: 15px; }
 textarea { resize: vertical; }
-input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); flex: 0 0 auto; }
-label.check { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+input:not([type=checkbox]), select { height: max(44px, calc(1.4em + 18px)); padding-block: 8px; line-height: 1.4; }
+/* Keep native selection and keyboard behavior, with a bounded field and inset arrow. */
+select { width: min(100%, 34rem); min-width: 0; padding-right: 36px; appearance: none; text-overflow: ellipsis; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+select[multiple], select[size]:not([size="1"]) { height: auto; appearance: auto; background-image: none; padding-right: 12px; }
+/* Supported browsers keep the opened menu aligned to its field, even for long queries. */
+@supports (appearance: base-select) {
+  select:not([multiple]):not([size]) { appearance: base-select; position: relative; overflow: hidden; white-space: nowrap; background-image: none; }
+  select:not([multiple]):not([size])::picker-icon { display: block; position: absolute; right: 12px; top: 50%; translate: 0 -50%; margin: 0; color: var(--muted); background: var(--paper); box-shadow: 0 0 0 6px var(--paper); }
+  select:not([multiple]):not([size])::picker(select) { appearance: base-select; width: anchor-size(width); min-width: 0; max-width: calc(100vw - 32px); max-height: min(20rem, calc(100dvh - 32px)); margin: 4px 0; padding: 4px; border: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); box-sizing: border-box; overflow: auto; font: 15px/1.4 Arial, Helvetica, sans-serif; }
+  select:not([multiple]):not([size]) option { min-height: 44px; padding: 8px; align-items: flex-start; gap: 8px; white-space: normal; overflow-wrap: anywhere; cursor: pointer; }
+  select:not([multiple]):not([size]) option:not(:disabled):is(:hover, :focus-visible) { background: var(--line); }
+  select:not([multiple]):not([size]) option:checked { color: var(--accent); font-weight: 600; }
+  select:not([multiple]):not([size]) option::checkmark { flex: 0 0 auto; }
+  select:not([multiple]):not([size]) option:disabled { color: var(--muted); cursor: default; }
+}
+@media (forced-colors: active) {
+  select, select:not([multiple]):not([size]) { appearance: auto; background-image: none; }
+  select:not([multiple]):not([size])::picker-icon { display: block; }
+}
+input[type=checkbox] { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); flex: 0 0 auto; }
+label.check { display: flex; align-items: flex-start; gap: 10px; min-height: 44px; padding-block: 10px; line-height: 1.5; }
 fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 [aria-label="Structured search planning"] pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 440px; overflow: auto; font: 11px/1.75 var(--mono); }
 .supports { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-bottom: 16px; }
@@ -46,8 +65,8 @@ main { min-width: 0; }
 .notice { border-left: 2px solid var(--accent); padding: 10px 14px; font-size: 13px; overflow-wrap: anywhere; }
 .error { border: 1px solid var(--line); border-left: 2px solid var(--accent); }
 .actions, .control-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.control-row { align-items: start; gap: 24px; }
-.control-row > label { flex: 1 1 180px; }
+.control-row { align-items: flex-end; gap: 24px; margin-bottom: 20px; }
+.control-row > label { flex: 1 1 180px; min-width: 0; max-width: 34rem; margin-bottom: 0; }
 .workspace-heading { margin-bottom: 24px; }
 .workspace-question { font-size: 16px; max-width: 75ch; margin-bottom: 6px; }
 .workspace-entry, .paper, .source, .history-item { padding: 24px 0; border-bottom: 1px solid var(--line); }
@@ -189,3 +208,32 @@ footer { max-width: 1380px; margin: 0 auto; padding: 24px 36px; border-top: 1px 
 .cell-review-summary dd { margin:6px 0 16px; white-space:pre-wrap; overflow-wrap:anywhere; }
 .comparison-secondary-tools { margin:24px 0; padding:16px 0; border-top:1px solid var(--line); }
 @media(min-width:1000px) { .cell-comment-stage, .cell-final-stage { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; } }
+
+/* The page scrolls normally. Only the bounded workflow navigation is sticky. */
+.app-shell > main { min-width: 0; }
+.workspace-navigation { position: sticky; top: 24px; align-self: start; min-width: 0; max-height: calc(100dvh - 48px); overflow-y: auto; scrollbar-gutter: stable; }
+.workspace-navigation-toggle { display: none; }
+.workspace-navigation-content, .workspace-navigation-content ul { display: block; margin: 0; padding: 0; list-style: none; }
+.workspace-navigation-content > ul > li { margin-bottom: 6px; }
+.workspace-navigation-content button { width: 100%; min-height: 44px; padding: 8px 4px; white-space: normal; overflow-wrap: anywhere; }
+.workspace-navigation-content .workspace-subsections { margin: 2px 0 12px 6px; padding-left: 10px; border-left: 1px solid var(--line); }
+.workspace-subsections a { display: flex; align-items: center; min-height: 36px; padding: 5px 4px; font-size: 12px; line-height: 1.5; color: var(--muted); text-decoration: none; overflow-wrap: anywhere; }
+.workspace-subsections a:hover, .workspace-subsections a[aria-current=location] { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.workspace-subsections a[aria-current=location] { font-weight: 600; }
+[data-workspace-section] { scroll-margin-top: 28px; }
+@media(max-width:900px) {
+  .workspace-navigation { top: 0; z-index: 6; max-height: calc(100dvh - 16px); overflow-y: auto; background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px 0; }
+  .workspace-navigation-toggle { display: flex; justify-content: space-between; gap: 12px; width: 100%; text-align: left; font-size: 13px; }
+  .workspace-navigation-content[data-expanded=false] { display: none; }
+  .workspace-navigation-content { padding-top: 8px; }
+  .workspace-navigation-content button, .workspace-subsections a { min-height: 44px; }
+  [data-workspace-section] { scroll-margin-top: 96px; }
+  .exploration-tabs { top: 64px; }
+  .exploration-panel .exploration-heading-sticky { top: calc(4.5rem + 64px); }
+  .exploration-panel { scroll-margin-top: calc(4.5rem + 64px); }
+  .exploration-panel .paper, .exploration-inspector .paper-inspector { scroll-margin-top: calc(12rem + 64px); }
+}
+@media(max-width:390px) {
+  .app-shell { padding-inline: 16px; }
+  .site-header, footer { padding-inline: 16px; }
+}

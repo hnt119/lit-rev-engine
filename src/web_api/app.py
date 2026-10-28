@@ -24,6 +24,7 @@ from src.mvp.contracts import (
     SaveAssessmentRequest, SearchPreview, SearchRequest, SelectionDraft, SourceContextRequest,
 )
 from src.mvp.ports import MvpError
+from src.mvp.investigation_draft_contracts import InvestigationResearchDraft
 from src.mvp.workspace_versions import CollectionEvidenceRun
 from src.mvp.workspace_ui import WorkspaceUIStore, private_directory
 from src.mvp.usability_draft_contracts import (
@@ -487,9 +488,58 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
 
             return engine.with_workspace_state(handle, finish) if request is not None else finish(engine.get_workspace(handle))
 
+    def investigation_research_draft(workspace_id, session, scope, request=None):
+        identifier = scope.removeprefix('investigation-research:')
+        if not identifier or len(identifier) > 200:
+            raise MvpError('invalid_draft_scope', 'Choose a saved investigation.')
+        mode, handle, investigation = app.state.investigations_selected(workspace_id, session)
+        # Service reads each acquire their own lifecycle lock. Never nest those
+        # non-reentrant file locks; immutable records remain valid, and deletion
+        # is fenced again while saving the draft below.
+        view = investigation.view(handle, identifier)
+        research = investigation.research.state(handle, identifier)
+        with registry.lifecycle_guard(workspace_id):
+            if registry.is_deleted(workspace_id):
+                raise MvpError('unknown_workspace', 'This workspace is unavailable.')
+            prior = registry.draft(workspace_id, scope)
+            raw = request.data if request is not None else prior['data'] if prior['version'] else None
+            if raw is not None:
+                try:
+                    value = InvestigationResearchDraft.model_validate(raw)
+                except (ValidationError, UnicodeError):
+                    raise MvpError('invalid_editor_draft', 'Keep bounded research inputs. Your existing draft remains unchanged.') from None
+                if value.investigation_id != identifier:
+                    raise MvpError('invalid_editor_draft', 'This draft belongs to another investigation.')
+                candidates = {candidate.id for run in view.executions for candidate in run.candidates}
+                if set(value.candidate_ids) - candidates or set(value.original_paper_ids) - set(view.origin.board.paper_ids):
+                    raise MvpError('invalid_editor_draft', 'Keep selections within this investigation and its original board.')
+                handoff = next((item for item in research.handoffs if item.id == value.handoff_id), None)
+                if value.handoff_id and handoff is None:
+                    raise MvpError('invalid_editor_draft', 'Choose a retained handoff from this investigation.')
+                state = investigation.planning.engine.get_workspace(handle)
+                preparation = next((item for item in state.preparations if item.id == value.preparation_id), None)
+                if value.preparation_id and (not preparation or not handoff or not hasattr(preparation, 'collection_ref') or preparation.collection_ref != handoff.collection.origin):
+                    raise MvpError('invalid_editor_draft', 'Choose a preparation of this exact committed collection.')
+                if set(value.board_paper_ids) - set(preparation.selected_paper_ids if preparation else []):
+                    raise MvpError('invalid_editor_draft', 'Choose comparison papers from this prepared selection.')
+                run = next((item for item in state.runs if item.id == value.run_id), None)
+                if value.run_id and (not run or not preparation or run.preparation_id != preparation.id):
+                    raise MvpError('invalid_editor_draft', 'Choose a passage run from this retained preparation.')
+                if value.inspection_id and not any(item.id == value.inspection_id for item in research.inspections):
+                    raise MvpError('invalid_editor_draft', 'Choose an inspected passage from this investigation.')
+                if (value.note_id is None) != (value.expected_note_revision_id is None) or value.note_id and not any(item.id == value.note_id and item.revision_id == value.expected_note_revision_id for item in research.notes):
+                    raise MvpError('invalid_editor_draft', 'Keep the exact retained note revision being edited.')
+            if request is None:
+                return DraftRecord(**prior)
+            if request.expected_assessment_head is not None:
+                raise MvpError('invalid_editor_draft', 'Research evaluation drafts do not replace passage assessments.')
+            return DraftRecord(**registry.put_draft(workspace_id, scope, **request.model_dump(mode='json')))
+
     @app.get(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def get_draft(workspace_id: str, scope: str, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('investigation-research:'):
+            return investigation_research_draft(workspace_id, session, scope)
         if scope.startswith('board-editor:'):
             return DraftRecord(**app.state.boards.editor_draft(mode, handle, scope))
         if scope.startswith('board-evidence:'):
@@ -505,6 +555,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     @app.put(PREFIX + "/workspaces/{workspace_id}/drafts/{scope}", response_model=DraftRecord, dependencies=dependencies)
     def put_draft(workspace_id: str, scope: str, request: DraftUpdate, session=Depends(session_for)):
         mode, handle, engine = owned(workspace_id, session)
+        if scope.startswith('investigation-research:'):
+            return investigation_research_draft(workspace_id, session, scope, request)
         if scope.startswith('board-editor:'):
             return DraftRecord(**app.state.boards.editor_draft(mode, handle, scope, request))
         if scope.startswith('board-evidence:'):
@@ -595,6 +647,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     from .preparation_routes import install_preparation_routes
     install_preparation_routes(app, registry=registry, service=service, owned=owned,
                                session_for=session_for, dependencies=dependencies, additional_domains=(collection_jobs,))
+    from .investigation_routes import install_investigation_routes
+    install_investigation_routes(app, owned=owned, session_for=session_for, dependencies=dependencies)
     return app
 
 

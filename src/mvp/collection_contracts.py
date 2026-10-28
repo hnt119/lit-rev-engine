@@ -45,6 +45,27 @@ class MemberOrigin(Model):
     metadata_version_id: str | None = None
 
 
+class InvestigationMemberOrigin(MemberOrigin):
+    """New discriminated provenance; legacy MemberOrigin serialization is unchanged."""
+    kind: Literal['investigation_candidate', 'investigation_original_report']
+    schema_version: Literal['mvp.investigation-member-origin.v1'] = 'mvp.investigation-member-origin.v1'
+    investigation_id: str
+    handoff_id: str
+    original_board_id: str
+    original_board_revision_id: str
+    original_cell_revision_id: str | None
+    candidate_id: str | None = None
+    decision_id: str | None = None
+    decision_version: int | None = None
+    execution_id: str | None = None
+    plan_id: str | None = None
+    plan_revision_id: str | None = None
+    approval_id: str | None = None
+    candidate_sha256: str | None = None
+    approved_query: str | None = None
+    original_source_manifest_sha256: str
+
+
 class ImportRowAccounting(Model):
     row_id: str
     status: str
@@ -84,7 +105,7 @@ class MetadataSnapshot(Model):
 class CollectionMember(Model):
     paper: Paper
     metadata_version: MetadataSnapshot
-    origins: list[MemberOrigin] = Field(min_length=1)
+    origins: list[Annotated[MemberOrigin | InvestigationMemberOrigin, Field(discriminator='kind')]] = Field(min_length=1)
 
 
 class SearchMetadata(Model):

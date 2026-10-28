@@ -1,5 +1,7 @@
 # Manual source-linked comparison board
 
+> Historical manual-board checkpoint: the labels, startup configuration and 10-report / 60-cell limits below describe that checkpoint. The current feature branch supports up to 30 reports / 180 cells and uses **Select evidence → Comment & judge → Review & save**. Use the [development guide](evidence_gap_navigator.md) for the unmerged feature branch. The [published Source Beta user manual](user_manual.md#select-an-excerpt-comment-and-save) applies to its explicitly named release, not this branch. All original checkpoint sections and anchors are retained.
+
 This checkpoint adds **Compare** to the existing local Next.js/FastAPI workspace. It reuses retained searches and preparations; it does not search again, run a model, refit maps or change existing assessments. A board is a report-by-field table, not a statement that the reports are independent studies.
 
 ## Start locally

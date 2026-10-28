@@ -1991,6 +1991,55 @@
         }
       }
     },
+    "/api/v1/workspaces/{workspace_id}/search-plan-suggestions": {
+      "post": {
+        "summary": "Core Suggestions",
+        "operationId": "core_suggestions_api_v1_workspaces__workspace_id__search_plan_suggestions_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CoreConceptSuggestionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreConceptSuggestion"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspaces/{workspace_id}/search-plan-capabilities": {
       "get": {
         "summary": "Capabilities",
@@ -5840,6 +5889,809 @@
           }
         }
       }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations": {
+      "get": {
+        "summary": "Listing",
+        "operationId": "listing_api_v1_workspaces__workspace_id__investigations_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "board_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Board Id"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "field_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Field Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationListing"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create",
+        "operationId": "create_api_v1_workspaces__workspace_id__investigations_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateInvestigationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}": {
+      "get": {
+        "summary": "View",
+        "operationId": "view_api_v1_workspaces__workspace_id__investigations__investigation_id__get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/plan": {
+      "put": {
+        "summary": "Update",
+        "operationId": "update_api_v1_workspaces__workspace_id__investigations__investigation_id__plan_put",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSearchPlanRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/approve": {
+      "post": {
+        "summary": "Approve",
+        "operationId": "approve_api_v1_workspaces__workspace_id__investigations__investigation_id__approve_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveSearchPlanRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/diagnose": {
+      "post": {
+        "summary": "Diagnose",
+        "operationId": "diagnose_api_v1_workspaces__workspace_id__investigations__investigation_id__diagnose_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiagnoseSearchPlanRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/execute": {
+      "post": {
+        "summary": "Execute",
+        "operationId": "execute_api_v1_workspaces__workspace_id__investigations__investigation_id__execute_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteSearchPlanRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/decisions": {
+      "post": {
+        "summary": "Decide",
+        "operationId": "decide_api_v1_workspaces__workspace_id__investigations__investigation_id__decisions_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvestigationDecisionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/export": {
+      "get": {
+        "summary": "Export",
+        "operationId": "export_api_v1_workspaces__workspace_id__investigations__investigation_id__export_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationExport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/research": {
+      "get": {
+        "summary": "Research",
+        "operationId": "research_api_v1_workspaces__workspace_id__investigations__investigation_id__research_get",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationResearchState"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/handoff-preview": {
+      "post": {
+        "summary": "Handoff Preview",
+        "operationId": "handoff_preview_api_v1_workspaces__workspace_id__investigations__investigation_id__handoff_preview_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvestigationHandoffRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationHandoffPreview"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/handoffs": {
+      "post": {
+        "summary": "Handoff",
+        "operationId": "handoff_api_v1_workspaces__workspace_id__investigations__investigation_id__handoffs_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvestigationHandoffRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationHandoff"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/inspections": {
+      "post": {
+        "summary": "Inspect",
+        "operationId": "inspect_api_v1_workspaces__workspace_id__investigations__investigation_id__inspections_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvestigationInspectionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationInspection"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workspaces/{workspace_id}/investigations/{investigation_id}/notes": {
+      "post": {
+        "summary": "Note",
+        "operationId": "note_api_v1_workspaces__workspace_id__investigations__investigation_id__notes_post",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Workspace Id"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Investigation Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchEvaluationNoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchEvaluationNote"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -9187,7 +10039,24 @@
           },
           "origins": {
             "items": {
-              "$ref": "#/components/schemas/MemberOrigin"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/MemberOrigin"
+                },
+                {
+                  "$ref": "#/components/schemas/InvestigationMemberOrigin"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "kind",
+                "mapping": {
+                  "import_row": "#/components/schemas/MemberOrigin",
+                  "investigation_candidate": "#/components/schemas/InvestigationMemberOrigin",
+                  "investigation_original_report": "#/components/schemas/InvestigationMemberOrigin",
+                  "resolved_identifier": "#/components/schemas/MemberOrigin",
+                  "search_occurrence": "#/components/schemas/MemberOrigin"
+                }
+              }
             },
             "type": "array",
             "minItems": 1,
@@ -10454,6 +11323,74 @@
         ],
         "title": "ContextView"
       },
+      "CoreConceptSuggestion": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.core-concept-suggestion.v1",
+            "title": "Schema Version",
+            "default": "mvp.core-concept-suggestion.v1"
+          },
+          "generator_version": {
+            "type": "string",
+            "const": "mvp.core-concept-suggestions.v1",
+            "title": "Generator Version",
+            "default": "mvp.core-concept-suggestions.v1"
+          },
+          "question_sha256": {
+            "type": "string",
+            "title": "Question Sha256"
+          },
+          "draft": {
+            "$ref": "#/components/schemas/SearchPlanDraft-Output"
+          },
+          "proposed_roles": {
+            "items": {
+              "$ref": "#/components/schemas/ProposedConceptRole"
+            },
+            "type": "array",
+            "maxItems": 12,
+            "title": "Proposed Roles"
+          },
+          "notices": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Notices"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "deterministic_suggestions_need_review",
+            "title": "Meaning",
+            "default": "deterministic_suggestions_need_review"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "question_sha256",
+          "draft",
+          "notices"
+        ],
+        "title": "CoreConceptSuggestion"
+      },
+      "CoreConceptSuggestionRequest": {
+        "properties": {
+          "original_question": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Original Question"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "original_question"
+        ],
+        "title": "CoreConceptSuggestionRequest"
+      },
       "CreateCollectionMapRequest": {
         "properties": {
           "request_id": {
@@ -10484,6 +11421,111 @@
           "collection_ref"
         ],
         "title": "CreateCollectionMapRequest"
+      },
+      "CreateInvestigationRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "board_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Board Id"
+          },
+          "expected_board_revision_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Expected Board Revision Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Paper Id"
+          },
+          "field_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Field Id"
+          },
+          "expected_cell_head_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Cell Head Id"
+          },
+          "expected_draft_version": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Draft Version"
+          },
+          "local_draft": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardCellData"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "seed_plan_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed Plan Id"
+          },
+          "seed_revision_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed Revision Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "board_id",
+          "expected_board_revision_id",
+          "paper_id",
+          "field_id",
+          "expected_draft_version",
+          "reason"
+        ],
+        "title": "CreateInvestigationRequest"
       },
       "CreateMapRequest": {
         "properties": {
@@ -12491,6 +13533,1218 @@
           "updated_at"
         ],
         "title": "ImportSummary"
+      },
+      "InvestigationCandidate": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "paper": {
+            "$ref": "#/components/schemas/Paper"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "unassessed",
+              "shortlist",
+              "dismiss"
+            ],
+            "title": "Decision",
+            "default": "unassessed"
+          },
+          "decision_version": {
+            "type": "integer",
+            "title": "Decision Version",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "paper"
+        ],
+        "title": "InvestigationCandidate"
+      },
+      "InvestigationCandidateSelection": {
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Candidate Id"
+          },
+          "expected_decision_version": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expected Decision Version"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "expected_decision_version"
+        ],
+        "title": "InvestigationCandidateSelection"
+      },
+      "InvestigationDecision": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "investigation_id": {
+            "type": "string",
+            "title": "Investigation Id"
+          },
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          },
+          "candidate_id": {
+            "type": "string",
+            "title": "Candidate Id"
+          },
+          "execution_id": {
+            "type": "string",
+            "title": "Execution Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "unassessed",
+              "shortlist",
+              "dismiss"
+            ],
+            "title": "Decision"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "manual_candidate_organization_not_relevance_eligibility_or_support",
+            "title": "Meaning",
+            "default": "manual_candidate_organization_not_relevance_eligibility_or_support"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "investigation_id",
+          "request_id",
+          "candidate_id",
+          "execution_id",
+          "paper_id",
+          "version",
+          "decision",
+          "note"
+        ],
+        "title": "InvestigationDecision"
+      },
+      "InvestigationDecisionRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "candidate_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Candidate Id"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Version"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "unassessed",
+              "shortlist",
+              "dismiss"
+            ],
+            "title": "Decision"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 10000,
+            "title": "Note",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "candidate_id",
+          "expected_version",
+          "decision"
+        ],
+        "title": "InvestigationDecisionRequest"
+      },
+      "InvestigationExecution": {
+        "properties": {
+          "execution": {
+            "$ref": "#/components/schemas/SearchPlanExecution"
+          },
+          "search": {
+            "$ref": "#/components/schemas/SearchPreview"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationCandidate"
+            },
+            "type": "array",
+            "title": "Candidates"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "execution",
+          "search",
+          "candidates"
+        ],
+        "title": "InvestigationExecution"
+      },
+      "InvestigationExport": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.investigation-export.v1",
+            "title": "Schema Version",
+            "default": "mvp.investigation-export.v1"
+          },
+          "json_text": {
+            "type": "string",
+            "title": "Json Text"
+          },
+          "markdown_text": {
+            "type": "string",
+            "title": "Markdown Text"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "json_text",
+          "markdown_text"
+        ],
+        "title": "InvestigationExport"
+      },
+      "InvestigationHandoff": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.investigation-handoff.v1",
+            "title": "Schema Version",
+            "default": "mvp.investigation-handoff.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "investigation_id": {
+            "type": "string",
+            "title": "Investigation Id"
+          },
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          },
+          "selection_sha256": {
+            "type": "string",
+            "title": "Selection Sha256"
+          },
+          "collection": {
+            "$ref": "#/components/schemas/CollectionSummary"
+          },
+          "original_board_id": {
+            "type": "string",
+            "title": "Original Board Id"
+          },
+          "original_board_revision_id": {
+            "type": "string",
+            "title": "Original Board Revision Id"
+          },
+          "original_cell_revision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Original Cell Revision Id"
+          },
+          "selected_candidate_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Selected Candidate Ids"
+          },
+          "selected_original_paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Selected Original Paper Ids"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "explicit_collection_commit_not_source_preparation_or_scientific_judgment",
+            "title": "Meaning",
+            "default": "explicit_collection_commit_not_source_preparation_or_scientific_judgment"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "investigation_id",
+          "request_id",
+          "selection_sha256",
+          "collection",
+          "original_board_id",
+          "original_board_revision_id",
+          "original_cell_revision_id",
+          "selected_candidate_ids",
+          "selected_original_paper_ids"
+        ],
+        "title": "InvestigationHandoff"
+      },
+      "InvestigationHandoffMember": {
+        "properties": {
+          "selection_id": {
+            "type": "string",
+            "title": "Selection Id"
+          },
+          "paper": {
+            "$ref": "#/components/schemas/Paper"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "candidate",
+              "original_report"
+            ],
+            "title": "Kind"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "selection_id",
+          "paper",
+          "kind"
+        ],
+        "title": "InvestigationHandoffMember"
+      },
+      "InvestigationHandoffPreview": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.investigation-handoff-preview.v1",
+            "title": "Schema Version",
+            "default": "mvp.investigation-handoff-preview.v1"
+          },
+          "input_sha256": {
+            "type": "string",
+            "title": "Input Sha256"
+          },
+          "members": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationHandoffMember"
+            },
+            "type": "array",
+            "title": "Members"
+          },
+          "duplicate_groups": {
+            "items": {
+              "$ref": "#/components/schemas/DuplicateGroup"
+            },
+            "type": "array",
+            "title": "Duplicate Groups"
+          },
+          "max_comparison_papers": {
+            "type": "integer",
+            "title": "Max Comparison Papers",
+            "default": 30
+          },
+          "original_board_id": {
+            "type": "string",
+            "title": "Original Board Id"
+          },
+          "original_board_revision_id": {
+            "type": "string",
+            "title": "Original Board Revision Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "input_sha256",
+          "members",
+          "duplicate_groups",
+          "original_board_id",
+          "original_board_revision_id"
+        ],
+        "title": "InvestigationHandoffPreview"
+      },
+      "InvestigationHandoffRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationCandidateSelection"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "minItems": 1,
+            "title": "Candidates"
+          },
+          "original_paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Original Paper Ids"
+          },
+          "duplicate_policy": {
+            "type": "string",
+            "enum": [
+              "review_required",
+              "keep_separate",
+              "merge_exact"
+            ],
+            "title": "Duplicate Policy",
+            "default": "review_required"
+          },
+          "conflict_decisions": {
+            "additionalProperties": {
+              "type": "string",
+              "const": "keep_separate"
+            },
+            "type": "object",
+            "title": "Conflict Decisions"
+          },
+          "preview_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 64,
+                "minLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preview Sha256"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "name",
+          "candidates"
+        ],
+        "title": "InvestigationHandoffRequest"
+      },
+      "InvestigationInspection": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.investigation-inspection.v1",
+            "title": "Schema Version",
+            "default": "mvp.investigation-inspection.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "investigation_id": {
+            "type": "string",
+            "title": "Investigation Id"
+          },
+          "handoff_id": {
+            "type": "string",
+            "title": "Handoff Id"
+          },
+          "preparation_id": {
+            "type": "string",
+            "title": "Preparation Id"
+          },
+          "run_id": {
+            "type": "string",
+            "title": "Run Id"
+          },
+          "passage_id": {
+            "type": "string",
+            "title": "Passage Id"
+          },
+          "source_paper": {
+            "$ref": "#/components/schemas/Paper"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/BoardReference"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "full_text",
+              "abstract"
+            ],
+            "title": "Source Type"
+          },
+          "source_status": {
+            "type": "string",
+            "title": "Source Status"
+          },
+          "source_manifest_sha256": {
+            "type": "string",
+            "title": "Source Manifest Sha256"
+          },
+          "source_revision": {
+            "type": "integer",
+            "title": "Source Revision"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "verified_displayed_passage_not_human_support",
+            "title": "Meaning",
+            "default": "verified_displayed_passage_not_human_support"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "investigation_id",
+          "handoff_id",
+          "preparation_id",
+          "run_id",
+          "passage_id",
+          "source_paper",
+          "reference",
+          "source_type",
+          "source_status",
+          "source_manifest_sha256",
+          "source_revision"
+        ],
+        "title": "InvestigationInspection"
+      },
+      "InvestigationInspectionRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "handoff_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Handoff Id"
+          },
+          "preparation_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Preparation Id"
+          },
+          "run_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Run Id"
+          },
+          "passage_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Passage Id"
+          },
+          "start": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start"
+          },
+          "end": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "handoff_id",
+          "preparation_id",
+          "run_id",
+          "passage_id"
+        ],
+        "title": "InvestigationInspectionRequest"
+      },
+      "InvestigationListing": {
+        "properties": {
+          "investigations": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationOrigin"
+            },
+            "type": "array",
+            "title": "Investigations"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "investigations"
+        ],
+        "title": "InvestigationListing"
+      },
+      "InvestigationMemberOrigin": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "investigation_candidate",
+              "investigation_original_report"
+            ],
+            "title": "Kind"
+          },
+          "search_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Search Id"
+          },
+          "search_snapshot_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Search Snapshot Sha256"
+          },
+          "import_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Import Id"
+          },
+          "import_revision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Import Revision"
+          },
+          "file_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Sha256"
+          },
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename"
+          },
+          "row_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Row Id"
+          },
+          "row_number": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Row Number"
+          },
+          "source_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Key"
+          },
+          "supplied_metadata_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supplied Metadata Sha256"
+          },
+          "resolution_receipt_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolution Receipt Sha256"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "metadata_version_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Metadata Version Id"
+          },
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.investigation-member-origin.v1",
+            "title": "Schema Version",
+            "default": "mvp.investigation-member-origin.v1"
+          },
+          "investigation_id": {
+            "type": "string",
+            "title": "Investigation Id"
+          },
+          "handoff_id": {
+            "type": "string",
+            "title": "Handoff Id"
+          },
+          "original_board_id": {
+            "type": "string",
+            "title": "Original Board Id"
+          },
+          "original_board_revision_id": {
+            "type": "string",
+            "title": "Original Board Revision Id"
+          },
+          "original_cell_revision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Original Cell Revision Id"
+          },
+          "candidate_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Candidate Id"
+          },
+          "decision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decision Id"
+          },
+          "decision_version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decision Version"
+          },
+          "execution_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Execution Id"
+          },
+          "plan_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Plan Id"
+          },
+          "plan_revision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Plan Revision Id"
+          },
+          "approval_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approval Id"
+          },
+          "candidate_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Candidate Sha256"
+          },
+          "approved_query": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approved Query"
+          },
+          "original_source_manifest_sha256": {
+            "type": "string",
+            "title": "Original Source Manifest Sha256"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "kind",
+          "investigation_id",
+          "handoff_id",
+          "original_board_id",
+          "original_board_revision_id",
+          "original_cell_revision_id",
+          "original_source_manifest_sha256"
+        ],
+        "title": "InvestigationMemberOrigin",
+        "description": "New discriminated provenance; legacy MemberOrigin serialization is unchanged."
+      },
+      "InvestigationOperation": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          },
+          "operation": {
+            "type": "string",
+            "title": "Operation"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "operation",
+          "status",
+          "created_at"
+        ],
+        "title": "InvestigationOperation"
+      },
+      "InvestigationOrigin": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.investigation-origin.v1",
+            "title": "Schema Version",
+            "default": "mvp.investigation-origin.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          },
+          "board": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BoardRevision"
+              },
+              {
+                "$ref": "#/components/schemas/CollectionBoardRevision"
+              }
+            ],
+            "title": "Board",
+            "discriminator": {
+              "propertyName": "schema_version",
+              "mapping": {
+                "mvp.board-definition.v1": "#/components/schemas/BoardRevision",
+                "mvp.collection-board-definition.v2": "#/components/schemas/CollectionBoardRevision"
+              }
+            }
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "field_id": {
+            "type": "string",
+            "title": "Field Id"
+          },
+          "cell": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardCellRevision"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "draft": {
+            "$ref": "#/components/schemas/BoardCellDraft"
+          },
+          "local_draft": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BoardCellData"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "plan_id": {
+            "type": "string",
+            "title": "Plan Id"
+          },
+          "seed_plan_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed Plan Id"
+          },
+          "seed_revision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed Revision Id"
+          },
+          "seed_approval_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Seed Approval Ids"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "unresolved_cell_not_proof_of_research_gap",
+            "title": "Meaning",
+            "default": "unresolved_cell_not_proof_of_research_gap"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "request_id",
+          "board",
+          "paper_id",
+          "field_id",
+          "cell",
+          "draft",
+          "local_draft",
+          "reason",
+          "plan_id"
+        ],
+        "title": "InvestigationOrigin"
+      },
+      "InvestigationResearchState": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.investigation-research.v1",
+            "title": "Schema Version",
+            "default": "mvp.investigation-research.v1"
+          },
+          "investigation_id": {
+            "type": "string",
+            "title": "Investigation Id"
+          },
+          "handoffs": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationHandoff"
+            },
+            "type": "array",
+            "title": "Handoffs"
+          },
+          "inspections": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationInspection"
+            },
+            "type": "array",
+            "title": "Inspections"
+          },
+          "notes": {
+            "items": {
+              "$ref": "#/components/schemas/ResearchEvaluationNote"
+            },
+            "type": "array",
+            "title": "Notes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "investigation_id",
+          "handoffs",
+          "inspections",
+          "notes"
+        ],
+        "title": "InvestigationResearchState"
+      },
+      "InvestigationView": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.investigation.v1",
+            "title": "Schema Version",
+            "default": "mvp.investigation.v1"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/InvestigationOrigin"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/SearchPlanView"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/SearchPlanCapabilities"
+          },
+          "executions": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationExecution"
+            },
+            "type": "array",
+            "title": "Executions"
+          },
+          "decisions": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationDecision"
+            },
+            "type": "array",
+            "title": "Decisions"
+          },
+          "failures": {
+            "items": {
+              "$ref": "#/components/schemas/InvestigationOperation"
+            },
+            "type": "array",
+            "title": "Failures"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "origin",
+          "plan",
+          "capabilities",
+          "executions",
+          "decisions",
+          "failures"
+        ],
+        "title": "InvestigationView"
       },
       "MapCapability": {
         "properties": {
@@ -15183,6 +17437,43 @@
         "type": "object",
         "title": "ProposalUsage"
       },
+      "ProposedConceptRole": {
+        "properties": {
+          "concept_id": {
+            "type": "string",
+            "title": "Concept Id"
+          },
+          "proposed_role": {
+            "type": "string",
+            "enum": [
+              "topic",
+              "population",
+              "exposure",
+              "intervention",
+              "comparator",
+              "outcome",
+              "specimen_site",
+              "geography",
+              "study_design",
+              "investigation_focus",
+              "unresolved"
+            ],
+            "title": "Proposed Role"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "concept_id",
+          "proposed_role",
+          "explanation"
+        ],
+        "title": "ProposedConceptRole"
+      },
       "PubMedPreferences": {
         "properties": {
           "enabled": {
@@ -15483,6 +17774,193 @@
           "text"
         ],
         "title": "QuestionSpan"
+      },
+      "ResearchEvaluationNote": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "mvp.research-evaluation-note.v1",
+            "title": "Schema Version",
+            "default": "mvp.research-evaluation-note.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "revision_id": {
+            "type": "string",
+            "title": "Revision Id"
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision"
+          },
+          "parent_revision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Revision Id"
+          },
+          "investigation_id": {
+            "type": "string",
+            "title": "Investigation Id"
+          },
+          "original_board_id": {
+            "type": "string",
+            "title": "Original Board Id"
+          },
+          "original_board_revision_id": {
+            "type": "string",
+            "title": "Original Board Revision Id"
+          },
+          "original_paper_id": {
+            "type": "string",
+            "title": "Original Paper Id"
+          },
+          "original_field_id": {
+            "type": "string",
+            "title": "Original Field Id"
+          },
+          "original_cell_revision_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Original Cell Revision Id"
+          },
+          "research_question": {
+            "type": "string",
+            "title": "Research Question"
+          },
+          "interpretation": {
+            "type": "string",
+            "title": "Interpretation"
+          },
+          "inspection": {
+            "$ref": "#/components/schemas/InvestigationInspection"
+          },
+          "confirm_inspected": {
+            "type": "boolean",
+            "const": true,
+            "title": "Confirm Inspected",
+            "default": true
+          },
+          "acknowledge_related_paper": {
+            "type": "boolean",
+            "const": true,
+            "title": "Acknowledge Related Paper",
+            "default": true
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "meaning": {
+            "type": "string",
+            "const": "related_paper_evidence_not_original_paper_finding",
+            "title": "Meaning",
+            "default": "related_paper_evidence_not_original_paper_finding"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "revision",
+          "investigation_id",
+          "original_board_id",
+          "original_board_revision_id",
+          "original_paper_id",
+          "original_field_id",
+          "original_cell_revision_id",
+          "research_question",
+          "interpretation",
+          "inspection"
+        ],
+        "title": "ResearchEvaluationNote"
+      },
+      "ResearchEvaluationNoteRequest": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "note_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note Id"
+          },
+          "expected_revision_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Revision Id"
+          },
+          "inspection_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Inspection Id"
+          },
+          "research_question": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Research Question"
+          },
+          "interpretation": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Interpretation"
+          },
+          "confirm_inspected": {
+            "type": "boolean",
+            "const": true,
+            "title": "Confirm Inspected"
+          },
+          "acknowledge_related_paper": {
+            "type": "boolean",
+            "const": true,
+            "title": "Acknowledge Related Paper"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "inspection_id",
+          "research_question",
+          "interpretation",
+          "confirm_inspected",
+          "acknowledge_related_paper"
+        ],
+        "title": "ResearchEvaluationNoteRequest"
       },
       "ResolutionReceipt": {
         "properties": {

@@ -35,9 +35,10 @@ export async function navigationBarrier(operation:()=>Promise<void>) {
   const task=operation();navigationBarriers.add(task);
   try{await task;}finally{navigationBarriers.delete(task);}
 }
-export async function flushDrafts(){
+/** A form committing itself may skip only its own unsaved-edit guard. */
+export async function flushDrafts(except?:()=>Promise<void>){
   await Promise.all([...navigationBarriers]);
-  await Promise.all([...flushers].map(flush=>flush()));
+  await Promise.all([...flushers].filter(flush=>flush!==except).map(flush=>flush()));
 }
 
 /** Server CAS is authoritative. The memory cache retains failed edits during navigation only. */
@@ -135,7 +136,16 @@ export function useDraft<T extends Record<string,unknown>>(workspace:string,scop
   const replace=useCallback((next:T,head:string|null)=>{
     current.current.expected=head;current.current.failure=null;setData(next);
   },[setData]);
-  return {data,setData,ready,state,error,save,retry,restore,replace,version};
+  /** Explicit conflict resolution may adopt only the UI draft version just inspected. */
+  const rebaseInspected=useCallback(async(next:T,inspectedVersion:number)=>{
+    if(inFlight.current)await inFlight.current.catch(()=>{});
+    const record=await api<Schema<"DraftRecord">>(endpoint);
+    if(record.version!==inspectedVersion||record.version!==0&&record.expected_assessment_head!==expectedHead)
+      throw new APIError(409,"draft_conflict","The inspected draft changed again. Your local edits are retained; inspect the latest draft before choosing a replacement.");
+    current.current.version=record.version;current.current.expected=record.version===0?expectedHead:record.expected_assessment_head;
+    current.current.failure=null;setVersion(record.version);setReady(true);setError("");setData(next);
+  },[endpoint,expectedHead,setData]);
+  return {data,setData,ready,state,error,save,retry,restore,replace,rebaseInspected,version};
 }
 
 export function DraftStatus({draft}:{draft:{state:string,error:string,retry:()=>Promise<void>}}) {
