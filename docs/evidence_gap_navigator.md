@@ -8,6 +8,14 @@ The workspace navigation stays available while you scroll. The current page list
 
 Open **Compare**, select an unresolved cell or use **Needs review**, and choose **Investigate related literature**. If more inspection of the original source may answer the question, choose **Inspect more context in this paper** first. The cell keeps its existing support judgment and inspected-scope result throughout.
 
+New or revised comparison definitions are local forms, not autosaved research drafts. Create the board or save its definition revision before leaving. If you choose **Discard definition edits…**, confirm that deliberate discard; existing boards and judgments remain retained.
+
+## Build an initial search without AI
+
+In **Discover & explore → Search papers**, enter the question, choose **Suggest editable concepts**, then **Use suggestions as editable draft**. Review each role, term and search use; approve reviewed terms, **Build reviewed Boolean strategies**, then **Save search for review**. Read and approve the exact saved query before **Search papers**. Query edits require a new save and approval. **Check matches** is a separate explicit provider diagnostic, not a relevance assessment.
+
+**Paste my own query** retains deliberate specialist Boolean text without semantic validation or rewriting. **Propose search with optional AI** requires separate configuration and consent; Core and manual editing remain available without it. In **Import papers**, **Accept all import-ready records** describes citation readiness only; duplicate review and scientific eligibility remain separate decisions.
+
 ## Draft and approve a follow-up search
 
 1. Enter your reason and choose **Create investigation draft**. The saved origin retains the exact board definition, paper, field, submitted cell revision, saved draft, source-manifest identities and separately labeled editor snapshot. The reason is unsaved until this action completes.
