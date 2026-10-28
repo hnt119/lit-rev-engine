@@ -1,0 +1,89 @@
+--- a/apps/desktop/installer.nsi
++++ b/apps/desktop/installer.nsi
+@@ -2,6 +2,7 @@
+ Unicode true
+ !include "MUI2.nsh"
+ !include "FileFunc.nsh"
++!include "${__FILEDIR__}/../../docs/windows-license-proposal/windows-license-page.nsh"
+ !ifndef PRODUCT_VERSION
+ !error "Pass the exact reviewed product version"
+ !endif
+@@ -25,6 +26,8 @@
+ !define MUI_ABORTWARNING
+ !define MUI_WELCOMEPAGE_TEXT "Experimental Windows beta — not yet tested on Windows. Install the local research application for this user. Core runtimes are bundled; research data stays outside the application. This unsigned candidate is for reviewed testing only. Do not bypass Windows security warnings."
+ !insertmacro MUI_PAGE_WELCOME
++; The exact displayed combined text must also be retained by the future payload manifest.
++!insertmacro LitRevMicrosoftTermsPage "${PAYLOAD}\resources\MICROSOFT_COMPONENT_TERMS_WITH_LICENSES.txt"
+ !insertmacro MUI_PAGE_INSTFILES
+ !define MUI_FINISHPAGE_RUN "$INSTDIR\app-${PRODUCT_VERSION}\LiteratureReviewEngine.exe"
+ !define MUI_FINISHPAGE_RUN_NOTCHECKED
+@@ -34,6 +37,7 @@
+ !insertmacro MUI_LANGUAGE "English"
+
+ Function .onInit
++  !insertmacro LitRevRequireInteractiveMicrosoftTerms
+   SetShellVarContext current
+   ; AMD64=9. Explicitly reject ARM64 and 32-bit native operating systems.
+   System::Alloc 64
+@@ -157,6 +161,7 @@
+ FunctionEnd
+
+ Section "Application"
++  !insertmacro LitRevRequireAcceptedMicrosoftTerms
+   Call ValidateRoot
+   Call RequireClosed
+   SetShellVarContext current
+--- a/scripts/build_desktop_installers.py
++++ b/scripts/build_desktop_installers.py
+@@ -206,6 +206,7 @@
+     metadata['installer_compression']='zlib'
+     metadata['native_source_evidence']=base.copy_native_source_evidence(resources/'NATIVE_DEPENDENCY_NOTICES')
+     metadata['windows_dependency_notices']=copy_windows_dependency_notices(app)
++    metadata['microsoft_component_terms_proposal']=copy_proposed_microsoft_component_terms(resources)
+     metadata['windows_optional_pywin32_subset']=pywin32_subset
+     (resources/'DESKTOP_RELEASE.json').write_bytes(json_bytes(metadata))
+     (resources/'DESKTOP_NOTICES.md').write_text('Private Windows x64 candidate. Original engine MIT; retain engine/LICENSE, engine/THIRD_PARTY_NOTICES.md, Electron LICENSE and LICENSES.chromium.html, Python runtime licenses/UPSTREAM_LICENSES, installed package licenses/dist-info, WEB_DEPENDENCY_NOTICES. Complete native component/source obligations and signing remain separate gates; this is not legal clearance. No model weights are bundled.\n')
+@@ -216,6 +217,43 @@
+     (app/'INSTALLATION.json').write_bytes(json_bytes(installed))
+     clean_checkout(ROOT,head)
+     return app,metadata
++
++
++
++def copy_proposed_microsoft_component_terms(resources):
++    """INACTIVE patch: bind the complete, owner-reviewed future display text.
++
++    Applying this patch is not approval of the draft or SDK redistribution.
++    The current owner-review text must be approved before production use.
++    """
++    source=ROOT/'docs/windows-license-proposal/MICROSOFT_COMPONENT_TERMS.txt'
++    sdk=resources/'WINDOWS_DEPENDENCY_NOTICES/microsoft-sdk-10.0.28000.2270'
++    python=resources/'python/LICENSE.txt'
++    inputs={
++        'proposed_component_terms':source,
++        'complete_sdk_license_readable':sdk/'LICENSE.rendered.txt',
++        'complete_sdk_license_authoritative':sdk/'LICENSE.rtf',
++        'complete_python_license':python,
++    }
++    if any(path.is_symlink() or not path.is_file() for path in inputs.values()):
++        raise ValueError('Require complete retained Microsoft SDK and Python terms before packaging the proposal.')
++    sections=[('Microsoft-component protective terms — owner-reviewed text',source),
++              ('Complete retained Windows SDK license — readable conversion; original LICENSE.rtf retained alongside',sdk/'LICENSE.rendered.txt'),
++              ('Complete retained Python license, including Additional Conditions for this Windows binary build',python)]
++    combined=b'\xef\xbb\xbf'
++    for title,path in sections:
++        combined+=('\n\n===== '+title+' =====\n\n').encode('utf-8')+path.read_bytes()
++    destination=resources/'MICROSOFT_COMPONENT_TERMS_WITH_LICENSES.txt'
++    if destination.exists() or destination.is_symlink():raise ValueError('Do not overwrite an existing Microsoft-component display file.')
++    destination.write_bytes(combined)
++    return {'schema':'litrev.windows.microsoft-component-terms-proposal.v1',
++            'status':'OWNER_REVIEW_REQUIRED; applying this inactive patch does not establish permission',
++            'displayed_and_retained_path':destination.relative_to(resources.parent).as_posix(),
++            'displayed_and_retained_sha256':digest(combined),
++            'inputs':{name:{'bytes':path.stat().st_size,'sha256':digest(path.read_bytes())} for name,path in inputs.items()},
++            'scope':'Microsoft components only; engine MIT, Python, FFmpeg and other independent terms unchanged',
++            'silent_installation':'rejected; no unattended acceptance flag',
++            'windows_interaction':'NOT_RUN'}
+
+ 
+ def make_windows_installer(payload,output,makensis,nsis_dir):

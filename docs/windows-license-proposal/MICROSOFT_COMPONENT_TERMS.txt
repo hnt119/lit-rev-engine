@@ -1,0 +1,107 @@
+OWNER-REVIEW DRAFT — INACTIVE — NOT AN OPERATIVE AGREEMENT
+
+This proposal has not been accepted or approved for release. It is not part of
+an active installer. It does not assert that the application owner has obtained
+any upstream redistribution permission, accepted a Microsoft agreement or
+indemnity, or made a legal certification. The current executable is unchanged.
+The owner must approve the applicable rights and final text/mechanism before
+any future activation or public binary upload. A compilation test is not consent.
+
+PROPOSED COMPONENT-LIMITED NOTICE AND TERMS — FOR OWNER REVIEW
+
+1. Scope and separate licenses
+
+The proposed additional terms concern only Microsoft's proprietary Distributable
+Code in these bundled files:
+
+  d3dcompiler_47.dll — version 10.0.28000.2270
+  resources/python/vcruntime140.dll — version 14.44.35211.0
+  resources/python/vcruntime140_1.dll — version 14.44.35211.0
+
+They also address Microsoft Distributable Code identified as linked into bundled
+Python binaries by Python's Windows Additional Conditions, only to that extent.
+They do not change the license of Python's own code or of programs running on
+Python. The original Literature Review Engine code remains MIT. FFmpeg, DXC,
+other independent open-source portions, dependencies, papers and models retain
+their own licenses. Nothing here removes their modification, replacement,
+relinking, debugging or reverse-engineering rights under those separate grants.
+
+2. Full upstream documents must be available before a decision
+
+Before asking for any future affirmative acknowledgment, the proposed page must
+show the complete texts identified below, not just this outline or a web link:
+
+  SDK: resources/WINDOWS_DEPENDENCY_NOTICES/
+       microsoft-sdk-10.0.28000.2270/LICENSE.rendered.txt
+  Python: resources/python/LICENSE.txt
+
+The unchanged authoritative SDK file must remain available alongside them:
+
+  resources/WINDOWS_DEPENDENCY_NOTICES/
+  microsoft-sdk-10.0.28000.2270/LICENSE.rtf
+
+Retain that folder's REDIST.html and SDK.nuspec and all other license notices.
+The SDK's package-linked license has EULAID WIN10SDK.RTM.AUG_2018_en-US.
+The readable SDK conversion is an aid, not replacement authoritative wording.
+The Runtime install/use EULA (Cpp_2015-2022_ENU.1033) and Build Tools EULA
+(VS_2022_Tools_2024Mar_ENU.1033) do not establish publisher redistribution rights
+and must not be appended as if they supplied that permission. If an applicable
+additional Microsoft CRT redistribution grant is established, its complete
+applicable terms must also be available before a future choice. Until that
+route and the full required texts are established, this remains incomplete for
+activation; a checkbox cannot cure the absence of redistribution authorization.
+If an upstream term and this proposal differ, the applicable upstream grant and
+mandatory law govern the relevant component. The owner must review any mismatch
+before activation; this clause is not a claim that the proposal is adequate.
+
+3. Proposed protections confined to Microsoft code
+
+Subject to the applicable upstream rights, use the Microsoft components only as
+part of the application on permitted Microsoft operating systems, runtime
+technologies or application platforms and only for lawful purposes. Do not alter
+or remove their copyright, trademark or patent notices. Do not use Microsoft
+names or marks to imply Microsoft authored, approved or endorsed this application.
+Do not incorporate Microsoft code into malicious, deceptive or unlawful programs.
+
+Copy or redistribute Microsoft object code only where the applicable upstream
+terms permit it, unchanged and as part of a program/package with the required
+primary functionality, notices and conditions. Do not treat engine MIT licensing
+as permission to distribute Microsoft DLLs independently or relicense Microsoft
+code as open-source code. Require any distributors and external users to agree
+to protections at least as protective of the Microsoft code as applicable
+upstream terms require. This is not an independent grant of redistribution rights.
+
+Do not work around technical limitations in Microsoft code or reverse engineer,
+decompile or disassemble it except where applicable law or its applicable license
+allows that despite the restriction. Any applicable copying, transfer, rental,
+benchmark-disclosure, warranty/liability or export conditions in the provided
+Microsoft terms remain confined to the Microsoft code and applicable rights.
+They are not new restrictions on engine source, Python, FFmpeg or other
+independently licensed material, or a prohibition on comparing the research
+engine's retrieval methods. Statutory rights are not excluded by this proposal.
+
+4. Distributor obligations are not silently accepted
+
+Applicable SDK conditions may impose obligations on the distributor, including
+indemnity, copyright and licensing-route conditions. This proposal does not
+establish the owner's contractual position, accept such obligations for the
+owner, or purport to transfer every SDK-developer obligation to an application
+user. Owner review must establish both applicable upstream rights and an
+adequate downstream mechanism before distribution. Merely retaining notices,
+choosing a checkbox, or compiling this draft does not establish those facts.
+
+5. Proposed future choice — not active in the current application
+
+Only after owner approval and implementation, offer an explicit choice such as:
+
+  Agree to the Microsoft-component terms only and continue installation
+  Decline and cancel installation
+
+The complete SDK and Python texts must be readable on the same proposed terms
+page before the choice. Do not preselect agreement, infer it from silent or
+background execution, transmit it to a service, or record credentials/research
+information. Any future local acknowledgment must identify the reviewed terms
+version/hash rather than silently accepting different text. Declining does not
+revoke the original engine's MIT source rights or any separate upstream grant.
+
+END OWNER-REVIEW DRAFT — NO ACCEPTANCE OR PUBLICATION AUTHORIZATION GIVEN
