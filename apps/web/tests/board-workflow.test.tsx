@@ -4,6 +4,7 @@ import {act,create,type ReactTestInstance,type ReactTestRenderer} from "react-te
 import Compare from "../components/compare.tsx";
 import {emptyCell} from "../lib/board-drafts.tsx";
 import type {Schema} from "../lib/api.ts";
+import {saved as savedPlan,draft as planDraft,capability as investigationCapabilities} from "./search-planner-fixtures.ts";
 const pending=new Map<string,string>();
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true,sessionStorage:{getItem:(key:string)=>pending.get(key)??null,setItem:(key:string,value:string)=>pending.set(key,value),removeItem:(key:string)=>pending.delete(key)}});
 const response=(value:unknown,status=200)=>new Response(JSON.stringify(value),{status,headers:{"Content-Type":"application/json"}});
@@ -227,5 +228,67 @@ test("Needs review filters the existing table and investigation return preserves
     assert.equal(renderer.root.findByProps({className:"board-cell-editor"}).props.hidden,false);
     assert.equal(control(renderer,"Manual cell value").props.value,"KEEP ORIGINAL DRAFT");
     assert.equal(requests.slice(before).some(request=>request.method!=="GET"),false,"opening and returning do not save, submit, retrieve or prepare sources");
+  }finally{await act(async()=>renderer.unmount());}
+});
+
+test("an unresolved revision draft can start an investigation without resubmitting its supported cell",async()=>{
+  const {renderer,view,requests,drafts,revisions,workspace}=await fixture("supported-cell-investigation-draft");
+  const originalFetch=globalThis.fetch;
+  globalThis.fetch=async(url,options)=>{
+    const path=String(url),method=options?.method??"GET";
+    if(path.includes("/investigations?"))return response({investigations:[]});
+    if(path.includes("/drafts/search-plan-editor%3A"))return response({version:0,data:{},expected_assessment_head:null});
+    if(path.endsWith("/investigations")&&method==="POST"){
+      const body=JSON.parse(String(options?.body));requests.push({path,method,body});
+      const cell=view.cells.find(cell=>cell.paper_id==="p1"&&cell.field_id==="population")!;
+      const plan=savedPlan(planDraft());plan.revision.workspace_id=workspace.id;
+      return response({schema_version:"mvp.investigation.v1",origin:{schema_version:"mvp.investigation-origin.v1",id:"local-draft-investigation",workspace_id:workspace.id,board:view.definition,paper_id:"p1",field_id:"population",cell:cell.head,draft:drafts.get("p1/population"),local_draft:body.local_draft,reason:body.reason,plan_id:plan.revision.plan_id,created_at:view.definition.created_at,seed_plan_id:null,seed_revision_id:null,seed_approval_ids:[],meaning:"unresolved_cell_not_proof_of_research_gap"},plan,capabilities:investigationCapabilities(),executions:[],decisions:[],failures:[]});
+    }
+    return originalFetch(url,options);
+  };
+  try{
+    await act(async()=>renderer.root.findByProps({"aria-label":"Population for SOFTWARE TEST Report 1"}).props.onClick());
+    await act(async()=>button(renderer,"Find excerpts in this paper").props.onClick());
+    await act(async()=>button(renderer,"Read in source · passage 1").props.onClick());
+    await act(async()=>button(renderer,"I have read this excerpt — use it").props.onClick());
+    await act(async()=>control(renderer,"Manual cell value").props.onChange({target:{value:"Original supported population answer"}}));
+    await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"Supported by the retained source excerpt"}}));
+    await act(async()=>control(renderer,"Human support judgment","select").props.onChange({target:{value:"human_supported"}}));
+    await act(async()=>control(renderer,"Inspected scope result","select").props.onChange({target:{value:"value_found"}}));
+    await act(async()=>button(renderer,"Review entry before saving").props.onClick());
+    await act(async()=>button(renderer,"Save reviewed entry").props.onClick());
+    assert.equal(revisions.length,1);const original=JSON.stringify(view.cells[0].head);
+    await act(async()=>button(renderer,"Edit saved cell").props.onClick());
+    assert.equal(content(renderer.root.findByProps({className:"cell-follow-up"}).findAllByType("button")[0]),"Reopen cell investigations","An unchanged supported revision is not unresolved merely because a draft exists");
+    await act(async()=>control(renderer,"Human support judgment","select").props.onChange({target:{value:"partial"}}));
+    await act(async()=>control(renderer,"Missing information").props.onChange({target:{value:"The inspected excerpt leaves the population subgroup unresolved"}}));
+    const boardReads=requests.filter(request=>request.path.endsWith("/boards/b")).length;
+    const trigger=renderer.root.findByProps({className:"cell-follow-up"}).findAllByType("button")[0];
+    assert.equal(content(trigger),"Investigate related literature");
+    await act(async()=>trigger.props.onClick());
+    await act(async()=>control(renderer,"Reason for investigating").props.onChange({target:{value:"Find related reports for broader population context"}}));
+    assert.equal(button(renderer,"Create investigation draft").props.disabled,false,"The current unresolved editor draft must enable investigation creation without a board reload");
+    await act(async()=>button(renderer,"Create investigation draft").props.onClick());
+    const capture=requests.find(request=>request.path.endsWith("/investigations")&&request.method==="POST")!;
+    assert.ok(capture);assert.equal(capture.body?.expected_cell_head_id,"cell-1");
+    assert.equal(capture.body?.expected_draft_version,drafts.get("p1/population")!.version);
+    assert.equal((capture.body?.local_draft as Schema<"BoardCellData">).semantic_assessment,"partial");
+    assert.equal((capture.body?.local_draft as Schema<"BoardCellData">).missing_information,"The inspected excerpt leaves the population subgroup unresolved");
+    assert.equal(requests.filter(request=>request.path.endsWith("/boards/b")).length,boardReads,"Opening this path needs no board refresh");
+    assert.equal(revisions.length,1);assert.equal(JSON.stringify(view.cells[0].head),original,"Investigation never resubmits or replaces the supported head");
+  }finally{await act(async()=>renderer.unmount());}
+});
+
+for(const state of ["historical","conflict"])test(`an unresolved local draft does not bypass a ${state} cell investigation fence`,async()=>{
+  const {renderer,drafts,requests}=await fixture("investigation-local-draft-fence-"+state,{historical:state==="historical"});
+  const originalFetch=globalThis.fetch;
+  globalThis.fetch=async(url,options)=>String(url).includes("/investigations?")?response({investigations:[]}):originalFetch(url,options);
+  drafts.set("p1/population",{board_id:"b",board_revision_id:"r",paper_id:"p1",field_id:"population",version:1,expected_cell_head_id:state==="conflict"?"changed-head":null,data:{...emptyCell(),value:"Retained unresolved note",semantic_assessment:"partial"},updated_at:null});
+  try{
+    await act(async()=>renderer.root.findByProps({"aria-label":"Population for SOFTWARE TEST Report 1"}).props.onClick());
+    await act(async()=>renderer.root.findByProps({className:"cell-follow-up"}).findAllByType("button")[0].props.onClick());
+    await act(async()=>control(renderer,"Reason for investigating").props.onChange({target:{value:"Retain the unresolved context"}}));
+    assert.equal(button(renderer,"Create investigation draft").props.disabled,true);
+    assert.equal(requests.some(request=>request.method!=="GET"),false,"A fenced cell cannot capture a new investigation or mutate its draft");
   }finally{await act(async()=>renderer.unmount());}
 });

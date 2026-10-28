@@ -1,5 +1,11 @@
 import type {Schema} from "./api";
 
+/** Match the server's meaningful unresolved local-draft entry condition. */
+export function unresolvedInvestigationDraft(data:Schema<"BoardCellData">|null):boolean {
+  return !!data&&!!((data.value??"").trim()||data.reason.trim()||data.missing_information.trim()||data.references.length||data.inspected_ranges.length)&&
+    (data.semantic_assessment!=="human_supported"||data.scope_result!=="value_found"||data.value===null||!!data.missing_information.trim());
+}
+
 /** A workflow filter, never a scientific gap or eligibility judgment. */
 export function unresolvedCell(view:Schema<"BoardView">,paperId:string,fieldId:string):boolean {
   const cell=view.cells.find(cell=>cell.paper_id===paperId&&cell.field_id===fieldId),head=cell?.head;
