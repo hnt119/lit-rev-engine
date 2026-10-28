@@ -3,7 +3,7 @@ from .search_plan_storage import SearchPlanStore, packed, decoded
 from ..ports import MvpError
 from ..investigation_contracts import InvestigationOrigin
 
-TABLES = ('mvp_investigations', 'mvp_investigation_previews', 'mvp_investigation_decisions', 'mvp_investigation_attempts')
+TABLES = ('mvp_investigations', 'mvp_investigation_previews', 'mvp_investigation_decisions', 'mvp_investigation_attempts', 'mvp_investigation_handoffs', 'mvp_investigation_inspections', 'mvp_research_evaluation_notes')
 
 def investigation_bytes(db, workspace_id):
     existing = {r[0] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
@@ -43,6 +43,21 @@ class InvestigationStore(SearchPlanStore):
                     id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL,investigation_id TEXT NOT NULL,
                     candidate_id TEXT NOT NULL,version INTEGER NOT NULL,payload TEXT NOT NULL,sha256 TEXT NOT NULL,
                     UNIQUE(investigation_id,candidate_id,version),
+                    FOREIGN KEY(workspace_id) REFERENCES mvp_workspaces(id) ON DELETE CASCADE,
+                    FOREIGN KEY(investigation_id) REFERENCES mvp_investigations(id) ON DELETE CASCADE);
+                CREATE TABLE IF NOT EXISTS mvp_investigation_handoffs(
+                    id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL,investigation_id TEXT NOT NULL,
+                    payload TEXT NOT NULL,sha256 TEXT NOT NULL,
+                    FOREIGN KEY(workspace_id) REFERENCES mvp_workspaces(id) ON DELETE CASCADE,
+                    FOREIGN KEY(investigation_id) REFERENCES mvp_investigations(id) ON DELETE CASCADE);
+                CREATE TABLE IF NOT EXISTS mvp_investigation_inspections(
+                    id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL,investigation_id TEXT NOT NULL,
+                    payload TEXT NOT NULL,sha256 TEXT NOT NULL,
+                    FOREIGN KEY(workspace_id) REFERENCES mvp_workspaces(id) ON DELETE CASCADE,
+                    FOREIGN KEY(investigation_id) REFERENCES mvp_investigations(id) ON DELETE CASCADE);
+                CREATE TABLE IF NOT EXISTS mvp_research_evaluation_notes(
+                    id TEXT PRIMARY KEY,workspace_id TEXT NOT NULL,investigation_id TEXT NOT NULL,
+                    payload TEXT NOT NULL,sha256 TEXT NOT NULL,
                     FOREIGN KEY(workspace_id) REFERENCES mvp_workspaces(id) ON DELETE CASCADE,
                     FOREIGN KEY(investigation_id) REFERENCES mvp_investigations(id) ON DELETE CASCADE);
             ''')

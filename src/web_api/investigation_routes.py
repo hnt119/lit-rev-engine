@@ -11,6 +11,12 @@ from src.mvp.investigation_contracts import (
 from src.mvp.search_plan_contracts import (
     UpdateSearchPlanRequest, ApproveSearchPlanRequest, DiagnoseSearchPlanRequest, ExecuteSearchPlanRequest,
 )
+from src.mvp.investigation_research import InvestigationResearchService
+from src.mvp.investigation_research_contracts import (
+    InvestigationHandoffRequest, InvestigationHandoffPreview, InvestigationHandoff,
+    InvestigationInspectionRequest, InvestigationInspection, ResearchEvaluationNoteRequest,
+    ResearchEvaluationNote, InvestigationResearchState,
+)
 from .settings_routes import engine_for
 
 
@@ -29,7 +35,9 @@ def install_investigation_routes(app, *, owned, session_for, dependencies):
                 planning.diagnostics = PubMedSearchDiagnostics.from_provider(planning.engine._discovery)
         store = InvestigationStore(planning.engine._storage)
         planning.store = store
-        return mode, handle, InvestigationService(app.state.boards, planning, store)
+        service = InvestigationService(app.state.boards, planning, store)
+        service.research = InvestigationResearchService(service, app.state.collections_for(mode))
+        return mode, handle, service
 
     @app.get(prefix, response_model=InvestigationListing, dependencies=dependencies)
     def listing(workspace_id: str, board_id: str | None = Query(default=None, max_length=200),
@@ -77,3 +85,30 @@ def install_investigation_routes(app, *, owned, session_for, dependencies):
     def export(workspace_id: str, investigation_id: str, session=Depends(session_for)):
         _, handle, service = selected(workspace_id, session)
         return service.export(handle, investigation_id)
+
+    app.state.investigations_selected = selected
+
+    @app.get(prefix+'/{investigation_id}/research', response_model=InvestigationResearchState, dependencies=dependencies)
+    def research(workspace_id: str, investigation_id: str, session=Depends(session_for)):
+        _, handle, service = selected(workspace_id, session)
+        return service.research.state(handle, investigation_id)
+
+    @app.post(prefix+'/{investigation_id}/handoff-preview', response_model=InvestigationHandoffPreview, dependencies=dependencies)
+    def handoff_preview(workspace_id: str, investigation_id: str, request: InvestigationHandoffRequest, session=Depends(session_for)):
+        mode, handle, service = selected(workspace_id, session)
+        return service.research.preview(mode, handle, investigation_id, request)
+
+    @app.post(prefix+'/{investigation_id}/handoffs', response_model=InvestigationHandoff, dependencies=dependencies)
+    def handoff(workspace_id: str, investigation_id: str, request: InvestigationHandoffRequest, session=Depends(session_for)):
+        mode, handle, service = selected(workspace_id, session)
+        return service.research.commit(mode, handle, investigation_id, request)
+
+    @app.post(prefix+'/{investigation_id}/inspections', response_model=InvestigationInspection, dependencies=dependencies)
+    def inspect(workspace_id: str, investigation_id: str, request: InvestigationInspectionRequest, session=Depends(session_for)):
+        mode, handle, service = selected(workspace_id, session)
+        return service.research.inspect(mode, handle, investigation_id, request)
+
+    @app.post(prefix+'/{investigation_id}/notes', response_model=ResearchEvaluationNote, dependencies=dependencies)
+    def note(workspace_id: str, investigation_id: str, request: ResearchEvaluationNoteRequest, session=Depends(session_for)):
+        mode, handle, service = selected(workspace_id, session)
+        return service.research.note(mode, handle, investigation_id, request)
