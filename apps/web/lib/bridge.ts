@@ -13,6 +13,7 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${w}/preparation-jobs$`),new RegExp(`^${w}/preparation-jobs/${id}$`),
       new RegExp(`^${w}/collection-preparation-jobs$`),new RegExp(`^${w}/collection-preparation-jobs/${id}$`),
       new RegExp(`^${w}/search-plan-capabilities$`),new RegExp(`^${w}/search-plans$`),new RegExp(`^${w}/search-plans/${id}$`),
+      new RegExp(`^${w}/investigations$`),new RegExp(`^${w}/investigations/${id}$`),new RegExp(`^${w}/investigations/${id}/export$`),
       new RegExp(`^${w}/collection-maps$`),new RegExp(`^${w}/collection-maps/${id}$`),new RegExp(`^${w}/collection-maps/${id}/neighbors/${id}$`),new RegExp(`^${w}/collection-map-jobs/${id}$`),
       new RegExp(`^${w}/imports$`),new RegExp(`^${w}/imports/${id}$`),new RegExp(`^${w}/imports/${id}/rows$`),
       new RegExp(`^${w}/collections$`),new RegExp(`^${w}/collections/${id}$`),new RegExp(`^${w}/collections/${id}/(papers|paper)$`),
@@ -28,11 +29,12 @@ export function allowedRoute(method: string, path: string): boolean {
       new RegExp(`^${w}/preparation-jobs/${id}/cancel$`),new RegExp(`^${w}/(hybrid-index|hybrid-index/status|hybrid-runs)$`),new RegExp(`^${w}/hybrid-jobs/${id}/cancel$`),
       new RegExp(`^${w}/(collection-preparation-jobs|collection-maps)$`),new RegExp(`^${w}/collection-preparation-jobs/${id}/cancel$`),new RegExp(`^${w}/collection-map-jobs/${id}/cancel$`),
       new RegExp(`^${w}/search-plans$`),new RegExp(`^${w}/search-plans/${id}/(approve|diagnose|execute|propose|prepare-generation)$`),
+      new RegExp(`^${w}/investigations$`),new RegExp(`^${w}/investigations/${id}/(approve|diagnose|execute|decisions)$`),
       new RegExp(`^${w}/imports/(csv|ris|identifiers)$`),new RegExp(`^${w}/imports/${id}/(mapping|resolve|edit-row|commit)$`),
       new RegExp(`^${w}/collections/(combine-preview|combine)$`),
       new RegExp(`^${w}/jobs/${id}/cancel$`),new RegExp(`^${w}/boards$`),new RegExp(`^${b}/(revisions|candidates|cell-revisions|proposal-runs|prepare-generation)$`),
       new RegExp(`^${b}/proposals/${id}/(adopt|dismiss)$`) ],
-    PUT: [/^settings$/,new RegExp(`^${w}/drafts/${id}$`),new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${w}/search-plans/${id}$`)],
+    PUT: [/^settings$/,new RegExp(`^${w}/drafts/${id}$`),new RegExp(`^${b}/drafts/${id}/${id}$`),new RegExp(`^${w}/search-plans/${id}$`),new RegExp(`^${w}/investigations/${id}/plan$`)],
     DELETE: [new RegExp(`^${w}$`)],
   };
   return !!rules[method]?.some(rule => rule.test(path));
@@ -50,6 +52,7 @@ export function browserBoundary(host: string | null, origin: string | null, expe
 }
 export function allowedQuery(path:string,query:URLSearchParams,method="GET"):boolean {
   if(method!=="GET")return [...query.keys()].length===0;
+  if(/\/investigations$/.test(path))return [...query.keys()].every((key,index,keys)=>['board_id','paper_id','field_id'].includes(key)&&keys.indexOf(key)===index&&!!query.get(key)&&query.get(key)!.length<=200);
   if(/\/search-plans\/[^/]+$/.test(path))return [...query.keys()].every((key,index,keys)=>key==='revision_id'&&keys.indexOf(key)===index);
   if(/\/imports\/[^/]+\/rows$/.test(path))return [...query.keys()].every((key,index,keys)=>['offset','limit'].includes(key)&&keys.indexOf(key)===index);
   if(/\/collections\/[^/]+\/papers$/.test(path))return [...query.keys()].every((key,index,keys)=>['offset','limit','filter'].includes(key)&&keys.indexOf(key)===index);

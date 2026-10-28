@@ -99,19 +99,22 @@ class SearchPlanService:
             self.engine.get_workspace(handle)
             with self.store.connection() as db:
                 db.execute('BEGIN')
-                current = self.store.revision(db, handle.workspace_id, plan_id)
-                selected = current if revision_id is None else self.store.revision(db, handle.workspace_id, plan_id, revision_id)
-                identifiers = db.execute('SELECT id FROM mvp_search_plan_revisions WHERE workspace_id=? AND plan_id=? ORDER BY revision DESC', (handle.workspace_id, plan_id)).fetchall()
-                events = db.execute('SELECT id,kind FROM mvp_search_plan_events WHERE workspace_id=? AND plan_id=? AND revision_id=? ORDER BY created_at DESC,id DESC', (handle.workspace_id, plan_id, selected.revision_id)).fetchall()
-                groups = {'approval': [], 'diagnostic': [], 'execution': [], 'proposal': []}
-                models = {'approval': SearchApprovalReceipt, 'diagnostic': SearchPlanDiagnostic, 'execution': SearchPlanExecution, 'proposal': SearchPlanProposalReceipt}
-                for row in events:
-                    if row['kind'] not in models:
-                        raise MvpError('search_plan_integrity', 'Unsupported retained planning receipt.')
-                    groups[row['kind']].append(self.store.event(db, handle.workspace_id, plan_id, row['id'], row['kind'], models[row['kind']]))
-                return SearchPlanView(revision=selected, current_revision_id=current.revision_id,
-                    revisions=[_summary(self.store.revision(db, handle.workspace_id, plan_id, row['id'])) for row in identifiers],
-                    approvals=groups['approval'], diagnostics=groups['diagnostic'], executions=groups['execution'], proposals=groups['proposal'])
+                return self.view_in_transaction(db, handle.workspace_id, plan_id, revision_id)
+
+    def view_in_transaction(self, db, workspace_id, plan_id, revision_id=None):
+        current = self.store.revision(db, workspace_id, plan_id)
+        selected = current if revision_id is None else self.store.revision(db, workspace_id, plan_id, revision_id)
+        identifiers = db.execute('SELECT id FROM mvp_search_plan_revisions WHERE workspace_id=? AND plan_id=? ORDER BY revision DESC', (workspace_id, plan_id)).fetchall()
+        events = db.execute('SELECT id,kind FROM mvp_search_plan_events WHERE workspace_id=? AND plan_id=? AND revision_id=? ORDER BY created_at DESC,id DESC', (workspace_id, plan_id, selected.revision_id)).fetchall()
+        groups = {'approval': [], 'diagnostic': [], 'execution': [], 'proposal': []}
+        models = {'approval': SearchApprovalReceipt, 'diagnostic': SearchPlanDiagnostic, 'execution': SearchPlanExecution, 'proposal': SearchPlanProposalReceipt}
+        for row in events:
+            if row['kind'] not in models:
+                raise MvpError('search_plan_integrity', 'Unsupported retained planning receipt.')
+            groups[row['kind']].append(self.store.event(db, workspace_id, plan_id, row['id'], row['kind'], models[row['kind']]))
+        return SearchPlanView(revision=selected, current_revision_id=current.revision_id,
+            revisions=[_summary(self.store.revision(db, workspace_id, plan_id, row['id'])) for row in identifiers],
+            approvals=groups['approval'], diagnostics=groups['diagnostic'], executions=groups['execution'], proposals=groups['proposal'])
 
     def create(self, handle, request):
         compiled = compile_search_plan(request.draft)
@@ -177,6 +180,13 @@ class SearchPlanService:
                     revision = self._head(db, workspace_id, plan_id, request.expected_revision_id)
                     capture = checker(db, revision)
                     self.store.save_request(db, workspace_id, operation, request.request_id, fingerprint, 'pending', {})
+                    from .adapters.investigation_storage import is_investigation_plan
+                    from .adapters.search_plan_storage import packed
+                    if is_investigation_plan(db, workspace_id, plan_id):
+                        payload, checksum = packed(request.model_dump(mode='json'))
+                        db.execute('INSERT INTO mvp_investigation_attempts VALUES(?,?,?,?,?,?,?)',
+                            (digest([workspace_id, operation, request.request_id]), workspace_id, plan_id,
+                             operation, request.request_id, payload, checksum))
                     self.store.limits(db, workspace_id)
                     db.execute('COMMIT')
                     return (revision, capture), None
@@ -222,7 +232,17 @@ class SearchPlanService:
         except MvpError: pass  # A deleted workspace is never recreated for a late result.
         return safe
 
+    def _investigation_plan(self, handle, plan_id):
+        from .adapters.investigation_storage import is_investigation_plan
+        def check(workspace_id):
+            with self.store.connection() as db:
+                self.store.revision(db, workspace_id, plan_id)
+                return is_investigation_plan(db, workspace_id, plan_id)
+        return self._locked(handle, check)
+
     def diagnose(self, handle, plan_id, request):
+        if self._investigation_plan(handle, plan_id) and self.mode != 'live':
+            raise MvpError('investigation_requires_live', 'Saved examples do not send follow-up queries to PubMed. Use a configured live workspace.')
         if not self.diagnostics.enabled:
             self._locked(handle, lambda _: None)
             raise MvpError('query_diagnostics_disabled', self.diagnostics.reason)
@@ -264,6 +284,8 @@ class SearchPlanService:
             raise self._failed(handle, operation, request, fingerprint, error) from None
 
     def propose(self, handle, plan_id, request):
+        if self._investigation_plan(handle, plan_id):
+            raise MvpError('investigation_manual_plan', 'Investigation plans use researcher editing and deterministic compilation.')
         if not self.planner.capability().enabled:
             self._locked(handle, lambda _: None)
             raise MvpError('search_planner_disabled', self.planner.capability().reason)
@@ -300,7 +322,9 @@ class SearchPlanService:
         except Exception as error:
             raise self._failed(handle, operation, request, fingerprint, error) from None
 
-    def execute(self, handle, plan_id, request):
+    def execute(self, handle, plan_id, request, *, isolated=False):
+        if self._investigation_plan(handle, plan_id) != isolated:
+            raise MvpError('investigation_execution_scope', 'Execute an investigation through its isolated candidate workflow.')
         if self.mode != 'live':
             self._locked(handle, lambda _: None)
             raise MvpError('planned_search_requires_live', 'A saved example does not execute supplied queries. Use a configured live workspace.')
@@ -319,6 +343,28 @@ class SearchPlanService:
                 research_question=revision.draft.original_question or None, max_results=request.max_results,
                 date_from=candidate.date_from, date_to=candidate.date_to, sort=candidate.sort)
             preview = self.engine._discovery.search(search_request)
+            if isolated:
+                from .adapters.search_plan_storage import packed
+                preview = self.engine.validate_planned_search(search_request, preview)
+                preview = preview.model_copy(update={'research_question': revision.draft.original_question or None,
+                    'requested_max_results': request.max_results,
+                    'configuration_profile': getattr(self.engine._discovery, 'configuration_profile', None)})
+                execution = SearchPlanExecution(plan_id=plan_id, revision_id=revision.revision_id,
+                    candidate_id=candidate.id, candidate_sha256=candidate.candidate_sha256,
+                    approval_id=request.approval_id, search_id=preview.id,
+                    search_snapshot_sha256=digest(preview.model_dump(mode='json')),
+                    requested_max_results=request.max_results,
+                    configuration_profile=getattr(self.engine._discovery, 'configuration_profile', None))
+                def publish(db, current):
+                    check(db, current)
+                    payload, checksum = packed(preview.model_dump(mode='json'))
+                    db.execute('INSERT INTO mvp_investigation_previews VALUES(?,?,?,?,?)',
+                        (execution.id, handle.workspace_id, plan_id, payload, checksum))
+                    self.store.insert_event(db, handle.workspace_id, plan_id, revision.revision_id,
+                        'execution', execution.id, execution.model_dump(mode='json'))
+                    return {'id': execution.id}
+                result = self._finish(handle, plan_id, request, operation, fingerprint, publish)
+                return self._execution_result(handle, plan_id, result['id'])
             def guard(db, value, replaying):
                 if replaying:
                     raise MvpError('search_plan_integrity', 'An approved capture exists without its matching planning receipt.')
@@ -347,7 +393,15 @@ class SearchPlanService:
         execution = self._read_event(handle, plan_id, identifier, 'execution', SearchPlanExecution)
         with self._lifecycle(handle):
             state = self.engine.get_workspace(handle)
-            preview = next((item for item in state.searches if item.id == execution.search_id), None)
+            from .adapters.investigation_storage import is_investigation_plan
+            from .adapters.search_plan_storage import decoded
+            with self.store.connection() as db:
+                if is_investigation_plan(db, handle.workspace_id, plan_id):
+                    row = db.execute('SELECT payload,sha256 FROM mvp_investigation_previews WHERE workspace_id=? AND plan_id=? AND id=?',
+                        (handle.workspace_id, plan_id, execution.id)).fetchone()
+                    preview = decoded(row, SearchPreview) if row else None
+                else:
+                    preview = next((item for item in state.searches if item.id == execution.search_id), None)
             if preview is None or digest(preview.model_dump(mode='json')) != execution.search_snapshot_sha256:
                 raise MvpError('search_plan_integrity', 'The original approved capture no longer matches its immutable planning receipt.')
             return PlannedSearchResult(execution=execution, search=preview)

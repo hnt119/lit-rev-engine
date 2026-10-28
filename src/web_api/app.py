@@ -589,6 +589,8 @@ def create_app(data_dir=None, *, allowed_host="127.0.0.1:8765",
     from .preparation_routes import install_preparation_routes
     install_preparation_routes(app, registry=registry, service=service, owned=owned,
                                session_for=session_for, dependencies=dependencies, additional_domains=(collection_jobs,))
+    from .investigation_routes import install_investigation_routes
+    install_investigation_routes(app, owned=owned, session_for=session_for, dependencies=dependencies)
     return app
 
 

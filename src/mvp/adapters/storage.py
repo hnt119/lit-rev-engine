@@ -139,6 +139,8 @@ class SQLiteWorkspaceStorage:
             total += compatibility_backup_bytes(connection, workspace_id)
         from .search_plan_storage import search_plan_auxiliary_bytes
         total += search_plan_auxiliary_bytes(connection, workspace_id)
+        from .investigation_storage import investigation_bytes
+        total += investigation_bytes(connection, workspace_id)
         return total
 
     def _transact(self, handle, operation, request_id, fingerprint, callback, commit_guard=None):

@@ -27,6 +27,9 @@ def search_plan_auxiliary_bytes(db, workspace_id):
         total += db.execute(f'SELECT COALESCE(SUM({expression}),0) FROM {table} WHERE workspace_id=?', (workspace_id,)).fetchone()[0]
     if 'mvp_search_plan_requests' in tables:
         total += CALL_RESERVATION_BYTES * db.execute("SELECT COUNT(*) FROM mvp_search_plan_requests WHERE workspace_id=? AND status='pending'", (workspace_id,)).fetchone()[0]
+        if 'mvp_investigations' in tables:
+            # An isolated execution also retains its full provider preview.
+            total += MAX_PLAN_RECORD_BYTES * db.execute("SELECT COUNT(*) FROM mvp_search_plan_requests r JOIN mvp_investigations i ON i.workspace_id=r.workspace_id AND r.operation='execute:'||i.plan_id WHERE r.workspace_id=? AND r.status='pending'", (workspace_id,)).fetchone()[0]
     return total
 
 
@@ -85,9 +88,10 @@ class SearchPlanStore:
             raise MvpError('unknown_workspace', 'This workspace is unavailable.')
         research = original[0] + db.execute('SELECT COALESCE(SUM(length(CAST(result AS BLOB))),0) FROM mvp_requests WHERE workspace_id=?', (workspace_id,)).fetchone()[0]
         pending = db.execute("SELECT COUNT(*) FROM mvp_search_plan_requests WHERE workspace_id=? AND status='pending'", (workspace_id,)).fetchone()[0]
+        from .investigation_storage import investigation_bytes
         if (counts[TABLES[0]] > MAX_SEARCH_PLANS or counts[TABLES[2]] + pending > MAX_PLAN_RECEIPTS
                 or counts[TABLES[3]] > MAX_PLAN_REQUESTS
-                or search_plan_auxiliary_bytes(db, workspace_id) > MAX_PLAN_AUXILIARY_BYTES
+                or search_plan_auxiliary_bytes(db, workspace_id) + investigation_bytes(db, workspace_id) > MAX_PLAN_AUXILIARY_BYTES
                 or research + self.storage._auxiliary_bytes(db, workspace_id) > self.storage._max_workspace_bytes):
             raise MvpError('search_plan_storage_limit', 'Planning history reached its bounded capacity. Existing research and plans remain readable.')
 
