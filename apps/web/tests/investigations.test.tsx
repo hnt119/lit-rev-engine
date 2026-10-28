@@ -4,7 +4,7 @@ import {act,create,type ReactTestInstance,type ReactTestRenderer} from "react-te
 import InvestigationNavigator,{type InvestigationContext} from "../components/investigation-navigator.tsx";
 import {allowedRoute,allowedQuery} from "../lib/bridge.ts";
 import {emptyCell} from "../lib/board-drafts.tsx";
-import {unresolvedCell} from "../lib/investigations.ts";
+import {unresolvedCell,unresolvedInvestigationDraft} from "../lib/investigations.ts";
 import type {Schema} from "../lib/api.ts";
 import {saved,draft,approval,capability,response,stamp} from "./search-planner-fixtures.ts";
 
@@ -66,6 +66,19 @@ test("investigation bridge exposes only bounded owned methods and filters",()=>{
   for(const query of ["board_id=b&board_id=other","paper_id=","token=secret"])assert.equal(allowedQuery(base,new URLSearchParams(query)),false);
   assert.equal(allowedQuery(base+"/i/export",new URLSearchParams("workspace_id=other")),false);
   assert.equal(allowedQuery(base+"/i/execute",new URLSearchParams("approval_id=a"),"POST"),false);
+});
+
+test("local investigation drafts use the backend's meaningful unresolved condition",()=>{
+  assert.equal(unresolvedInvestigationDraft(null),false);
+  for(const data of [emptyCell(),{...emptyCell(),value:"  ",reason:"\n",missing_information:" "},{...emptyCell(),semantic_assessment:"partial" as const}])assert.equal(unresolvedInvestigationDraft(data),false,"Empty draft state alone is not a new unresolved assessment");
+  const supported={...emptyCell(),value:"Supported answer",reason:"Inspected source",semantic_assessment:"human_supported" as const,scope_result:"value_found" as const};
+  assert.equal(unresolvedInvestigationDraft(supported),false);
+  assert.equal(unresolvedInvestigationDraft({...supported,missing_information:"  "}),false);
+  for(const changes of [{semantic_assessment:"partial" as const},{semantic_assessment:"unsupported" as const},{scope_result:"not_found_in_inspected_material" as const},{value:null},{missing_information:"Unresolved subgroup"}])assert.equal(unresolvedInvestigationDraft({...supported,...changes}),true);
+  assert.equal(unresolvedInvestigationDraft({...emptyCell(),reason:"Need more context"}),true);
+  const reference={source_id:"source",source_version:"v1",source_sha256:"a".repeat(64),blocks_sha256:"b".repeat(64),block_id:"block",start:0,end:1};
+  assert.equal(unresolvedInvestigationDraft({...emptyCell(),references:[reference]}),true);
+  assert.equal(unresolvedInvestigationDraft({...emptyCell(),inspected_ranges:[reference]}),true);
 });
 
 test("create captures the original draft without any comparison, source or provider mutation",async()=>{

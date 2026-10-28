@@ -100,7 +100,7 @@ for(const mobile of [false,true])test(`inspector sequence follows filtered order
 
 test("empty and singleton previews have no invented or wrapping inspector neighbors",async()=>{
   const empty=await fixture(false,0);
-  try{assert.equal(empty.renderer.root.findAllByProps({"aria-label":"Paper inspector navigation"}).length,0);assert.match(content(empty.renderer.root),/No records/);}finally{await empty.cleanup();}
+  try{assert.equal(empty.renderer.root.findAllByProps({"aria-label":"Paper inspector navigation"}).length,0);assert.match(content(empty.renderer.root),/provider reported no matches/i);}finally{await empty.cleanup();}
   const singleton=await fixture(false,1);
   try{await singleton.inspect(0);const r=singleton.renderer;assert.equal(previous(r).props.disabled,true);assert.equal(next(r).props.disabled,true);assert.match(content(r.root.findByProps({"aria-label":"Paper inspector navigation"})),/1 of 1/);await act(async()=>{previous(r).props.onClick();next(r).props.onClick();});assert.match(content(inspector(r)),/SOFTWARE PAPER 0 visible/);}finally{await singleton.cleanup();}
 });

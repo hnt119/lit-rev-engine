@@ -50,7 +50,7 @@ test("exact duplicates require a deliberate policy; commit uses reviewed row IDs
   const harness=await render(s,[row(1),{...row(2),duplicate_of:"software-row:1"}],call=>{assert.match(call.path,/\/commit$/);assert.deepEqual(call.body.accepted_row_ids,["software-row:1","software-row:2"]);assert.equal(call.body.duplicate_policy,"keep_separate");assert.equal(call.body.expected_revision,1);return response(collection());});
   const {renderer,calls,chosen}=harness;
   try{
-    await harness.open();await act(async()=>button(renderer,"Accept all eligible records").props.onClick());
+    await harness.open();await act(async()=>button(renderer,"Accept all import-ready records").props.onClick());
     assert.equal(button(renderer,"Commit 2 accepted records").props.disabled,true);
     await act(async()=>label(renderer,"Exact-identifier duplicate policy").findByType("select").props.onChange({target:{value:"keep_separate"}}));
     assert.equal(calls.filter(call=>call.method!=="GET").length,0);

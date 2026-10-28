@@ -62,7 +62,7 @@ test("result focus is exact and one-shot across edits and reopen, and zero resul
   const zero={...search,id:"zero-results",papers:[],fetched_count:0,total_reported:0,ordered_identifiers:[]};
   globalThis.fetch=async input=>{const path=String(input);if(path.includes("/drafts/"))return response({scope:"discover",version:0,data:{},expected_assessment_head:null,updated_at:null});if(path.endsWith("/papers"))return response(zero);if(path.includes("/maps?"))return response({maps:[],jobs:[]});throw new Error(path);};
   await act(async()=>{renderer=create(<Discover {...props} workspace={{...state,id:"zero-results",searches:[{...zero,distinct_count:0}]}} requestedFocusResult={undefined}/>);});
-  try{assert.match(text(renderer.root),/No papers matched this query/);assert.ok(renderer.root.findAllByType("a").some(node=>text(node)==="Edit query"));assert.equal(renderer.root.findAllByType("button").some(node=>text(node).startsWith("Prepare & compare")),false);}
+  try{assert.match(text(renderer.root),/provider reported no matches/i);assert.ok(renderer.root.findAllByType("a").some(node=>text(node)==="Edit query"));assert.equal(renderer.root.findAllByType("button").some(node=>text(node).startsWith("Prepare & compare")),false);}
   finally{await act(async()=>renderer.unmount());}
 });
 
@@ -96,5 +96,14 @@ test("reopened completed jobs stay ready and exact current reuse adds no source/
   globalThis.fetch=async(input,options)=>{const path=String(input),method=options?.method??"GET",body=options?.body?JSON.parse(String(options.body)):undefined;calls.push({path,method});if(path.endsWith("/session"))return response({csrf_token:"software"});if(path.includes("/drafts/"))return response(draft(path,method,body));if(path.includes("/collection-preparation-jobs?"))return response({jobs:[f.job({status:"succeeded",result_preparation_id:f.preparation.id,result_source_revision:1})]});if(path.includes("/source-preparations/"))return response(f.preparation);if(path.endsWith("/"+f.state.id))return response(f.state);throw new Error(path);};
   let renderer!:ReactTestRenderer;await act(async()=>{renderer=create(<CollectionPreparationJobs workspace={f.state} collectionRef={f.collectionRef} papers={f.papers} selectedPaperIds={f.preparation.selected_paper_ids} selectionReady maxSources={30} flushSelection={async()=>{}} refresh={async()=>{}} onPublished={()=>{}} navigate={async next=>{destinations.push(next);}}/>);});
   try{assert.equal(destinations.length,0);assert.ok(calls.every(call=>call.method==="GET"));const readCount=calls.filter(call=>call.path.includes("/source-preparations/")).length;await act(async()=>button(renderer,"Continue to comparison (3)").props.onClick());assert.equal(destinations.length,1);assert.equal(calls.some(call=>call.method==="POST"),false);assert.equal(calls.filter(call=>call.path.includes("/source-preparations/")).length,readCount);}
+  finally{await act(async()=>renderer.unmount());}
+});
+
+
+test("reported matches with failed citation retrieval stay distinct from zero matches",async()=>{
+  const search={...savedSearch("failed-citation-capture"),papers:[],fetched_count:0,total_reported:12,ordered_identifiers:[],errors:[{code:"synthetic_metadata_failure",message:"Synthetic citation retrieval failure",retryable:true}]},state={...workspace("failed-citation-capture"),searches:[{...search,distinct_count:0}]};
+  globalThis.fetch=async input=>{const path=String(input);if(path.includes("/drafts/"))return response({scope:"discover",version:0,data:{},expected_assessment_head:null,updated_at:null});if(path.endsWith("/papers"))return response(search);if(path.includes("/maps?"))return response({maps:[],jobs:[]});throw new Error(path);};
+  let renderer!:ReactTestRenderer;await act(async()=>{renderer=create(<Discover workspace={state} capabilities={capabilities} refresh={async()=>{}} navigate={async()=>{}}/>);});
+  try{const displayed=text(renderer.root);assert.match(displayed,/No citation records were loaded/);assert.match(displayed,/12 provider-reported matches/);assert.match(displayed,/Synthetic citation retrieval failure/);assert.doesNotMatch(displayed,/No papers matched|No records matched this preview/);assert.match(displayed,/failed retrieval does not establish/);}
   finally{await act(async()=>renderer.unmount());}
 });

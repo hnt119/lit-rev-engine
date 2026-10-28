@@ -35,9 +35,10 @@ export async function navigationBarrier(operation:()=>Promise<void>) {
   const task=operation();navigationBarriers.add(task);
   try{await task;}finally{navigationBarriers.delete(task);}
 }
-export async function flushDrafts(){
+/** A form committing itself may skip only its own unsaved-edit guard. */
+export async function flushDrafts(except?:()=>Promise<void>){
   await Promise.all([...navigationBarriers]);
-  await Promise.all([...flushers].map(flush=>flush()));
+  await Promise.all([...flushers].filter(flush=>flush!==except).map(flush=>flush()));
 }
 
 /** Server CAS is authoritative. The memory cache retains failed edits during navigation only. */
