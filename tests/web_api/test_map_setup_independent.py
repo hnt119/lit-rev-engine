@@ -293,3 +293,110 @@ def test_verification_has_global_operation_slot_and_revision_publication_fence(t
     status=client.get(P+'/settings/maps').json()
     assert status['configuration']['enabled'] is False and status['computation']['state']=='not_tested'
     assert offline==[]
+
+
+def test_warm_model_same_size_same_mtime_corruption_fails_before_inference_or_submission(tmp_path,monkeypatch,offline):
+    import os
+    monkeypatch.setattr(maps,'runtime_status',available)
+    payloads={name:('SYNTHETIC PINNED FILE '+name).encode() for name in REQUIRED_FILES}
+    manifest=deepcopy(maps.MANIFEST)
+    manifest['files']=[dict(path=name,bytes=len(data),sha256=sha256(data).hexdigest()) for name,data in payloads.items()]
+    monkeypatch.setattr(maps,'MANIFEST',manifest)
+    cache=tmp_path/'models';folder=cache/'models--BAAI--bge-small-en-v1.5'/'snapshots'/BGE_REVISION
+    for name,data in payloads.items():
+        file=folder/name;file.parent.mkdir(parents=True,exist_ok=True);file.write_bytes(data)
+    app=create_app(tmp_path/'app');client=client_for(app);save(client,cache_dir=cache)
+    setup=app.state.map_setup
+    owner=next(setup.settings.directory.glob('*.json')).stem
+    class WarmSynthetic(maps.PinnedSetupEmbedder):
+        calls=[]
+        forward_calls=0
+        def embed(self,representation,checkpoint):
+            self.forward_calls+=1
+            return SyntheticEmbedder.embed(self,representation,checkpoint)
+    setup.factory=WarmSynthetic;setup._adapters.clear()
+    adapter=setup.adapter(owner)[0]
+    adapter.profile  # cached identity; no real model construction in this test
+    adapter._model=object()
+    monkeypatch.setattr(maps,'projection',lambda vectors:None)
+    monkeypatch.setitem(sys.modules,'numpy',SimpleNamespace(random=SimpleNamespace(default_rng=lambda seed:SimpleNamespace(normal=lambda size:SimpleNamespace(tolist=lambda:[])))))
+    monkeypatch.setitem(sys.modules,'umap',SimpleNamespace())
+    first=client.post(P+'/settings/maps/verify',json={'expected_revision':1})
+    assert first.status_code==200 and first.json()['computation']['state']=='succeeded'
+    calls=adapter.forward_calls
+    target=folder/'config.json';old=target.stat()
+    target.write_bytes(b'x'*old.st_size)
+    os.utime(target,ns=(old.st_atime_ns,old.st_mtime_ns))
+    assert setup.adapter(owner)[0] is adapter  # retain the warmed model/profile path
+    response=client.post(P+'/settings/maps/verify',json={'expected_revision':1})
+    assert response.status_code==200 and response.json()['computation']['state']=='failed'
+    assert response.json()['computation']['error_code']=='map_weights_invalid'
+    assert adapter.forward_calls==calls  # corrupt bytes are rejected before another forward call
+    with pytest.raises(MvpError) as error:
+        setup.bound_service(app.state.maps,owner)
+    assert error.value.code=='map_weights_invalid' and adapter.forward_calls==calls
+    # Readiness is metadata-only, including after a failed explicit verification.
+    monkeypatch.setattr(adapter,'_file_hashes',lambda:pytest.fail('GET unexpectedly hashed model files'))
+    assert client.get(P+'/settings/maps').status_code==200
+    assert offline==[]
+
+
+def test_cache_change_during_verification_cannot_publish_a_success_for_new_files(tmp_path,monkeypatch,offline):
+    monkeypatch.setattr(maps,'runtime_status',available)
+    cache=tmp_path/'models';folder=snapshot(cache)
+    app=create_app(tmp_path/'app');client=client_for(app);save(client,cache_dir=cache)
+    setup=app.state.map_setup
+    class Changed(SyntheticEmbedder):
+        first=True
+        def embed(self,representation,checkpoint):
+            if self.first:
+                self.first=False
+                (folder/'config.json').write_bytes(b'Changed synthetic snapshot')
+            return super().embed(representation,checkpoint)
+    setup.factory=Changed;setup._adapters.clear()
+    monkeypatch.setattr(maps,'projection',lambda vectors:None)
+    monkeypatch.setitem(sys.modules,'numpy',SimpleNamespace(random=SimpleNamespace(default_rng=lambda seed:SimpleNamespace(normal=lambda size:SimpleNamespace(tolist=lambda:[])))))
+    monkeypatch.setitem(sys.modules,'umap',SimpleNamespace())
+    response=client.post(P+'/settings/maps/verify',json={'expected_revision':1})
+    assert response.status_code==409 and response.json()['error']['code']=='stale_map_setup'
+    state=client.get(P+'/settings/maps').json()
+    assert state['computation']['state']=='not_tested' and state['weights']['state']=='missing'
+    assert offline==[]
+
+
+def test_download_publication_and_settings_revision_share_one_short_lock(tmp_path,monkeypatch,offline):
+    import io
+    from threading import Event,Thread
+    monkeypatch.setattr(maps,'runtime_status',available)
+    payloads={name:('SYNTHETIC INSTALL FILE '+name).encode() for name in REQUIRED_FILES}
+    manifest=deepcopy(maps.MANIFEST)
+    manifest['files']=[dict(path=name,bytes=len(data),sha256=sha256(data).hexdigest()) for name,data in payloads.items()]
+    monkeypatch.setattr(maps,'MANIFEST',manifest)
+    app=create_app(tmp_path/'app');client=client_for(app);cache=tmp_path/'models';save(client,cache_dir=cache)
+    setup=app.state.map_setup;owner=next(setup.settings.directory.glob('*.json')).stem
+    class Files:
+        def open(self,request,**kwargs):
+            return io.BytesIO(payloads[request.full_url.split('/'+BGE_REVISION+'/',1)[1]])
+    monkeypatch.setattr(maps,'build_opener',lambda *args:Files())
+    original=maps.atomic_replace;attempted,done=Event(),Event();threads=[]
+    def publish(source,destination):
+        saved=setup.settings.get(owner)
+        pref=deepcopy(saved['preferences']);pref['maps']['enabled']=False
+        request=SettingsPut(expected_revision=saved['revision'],preferences=pref)
+        def edit():
+            attempted.set()
+            setup.settings.put(owner,request)
+            done.set()
+        thread=Thread(target=edit);threads.append(thread);thread.start()
+        assert attempted.wait(1)
+        assert not done.wait(.05),'Settings changed after the revision fence but before snapshot publication'
+        return original(source,destination)
+    monkeypatch.setattr(maps,'atomic_replace',publish)
+    current=client.get(P+'/settings/maps').json()
+    response=client.post(P+'/settings/maps/install',json=dict(expected_revision=1,manifest_sha256=current['download']['manifest_sha256'],accept_download=True))
+    for thread in threads: thread.join(timeout=2)
+    assert response.status_code==200,response.text
+    assert done.is_set() and setup.settings.get(owner)['preferences']['maps']['enabled'] is False
+    assert Path(current['download']['destination']).is_dir()
+    assert not list(cache.rglob('.map-setup-*'))
+    assert offline==[]

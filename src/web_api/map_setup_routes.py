@@ -144,11 +144,16 @@ class MapSetup:
 
     def verify(self,owner,expected):
         with self.operation():
-            adapter,snap,_=self.adapter(owner,expected)
-            before=self.status(owner)
-            if not before['ready']:
-                raise MvpError('map_setup_required',before['reason'])
+            with self.settings._lock:
+                adapter,snap,_=self.adapter(owner,expected)
+                before=self.status(owner)
+                if not before['ready']:
+                    raise MvpError('map_setup_required',before['reason'])
+                signature=self._signature(owner)
             try:
+                # Recheck current bytes even when the profile/model is warm.
+                # These reads and all model/projection work stay outside locks.
+                adapter._file_hashes()
                 vectors=[]
                 # Synthetic, bounded input only; no workspace/source content.
                 for index,text in enumerate(('Synthetic plant growth experiment.','Synthetic astronomy spectrum measurement.','Synthetic coastal water monitoring.')):
@@ -166,9 +171,12 @@ class MapSetup:
                 result=dict(state='failed',tested_at=now(),error_code=error.code,message=safe)
             except Exception:
                 result=dict(state='failed',tested_at=now(),message='Local BGE/projection verification failed. No model fallback was attempted. Research data and saved maps are unchanged; review the runtime and cached weights, then retry explicitly.')
-            self.settings.assert_current(owner,snap['revision'])
-            self._tests[owner]={'signature':self._signature(owner),'result':result}
-            return self.status(owner)
+            with self.settings._lock:
+                self.settings.assert_current(owner,snap['revision'])
+                if self._signature(owner)!=signature:
+                    raise MvpError('stale_map_setup','The local model cache changed during verification. Review readiness and retry explicitly; no result was published.')
+                self._tests[owner]={'signature':signature,'result':result}
+                return self.status(owner)
 
     def _signature(self,owner):
         adapter,snap,config=self.adapter(owner)
@@ -192,8 +200,9 @@ class MapSetup:
                 try: adapter._file_hashes()
                 except (MvpError,OSError):
                     raise MvpError('map_weights_invalid','Existing BGE files are incomplete or invalid and were preserved. Choose another model-cache directory and save settings before retrying the download.') from None
-                self.settings.assert_current(owner,snap['revision'])
-                return self.status(owner)
+                with self.settings._lock:
+                    self.settings.assert_current(owner,snap['revision'])
+                    return self.status(owner)
             from src.mvp.retrieval_packs import _Redirects
             opener=build_opener(HTTPSHandler(),_Redirects())
             repository=adapter.snapshot.parent.parent
@@ -218,11 +227,13 @@ class MapSetup:
                         out.flush();os.fsync(out.fileno())
                     if count!=item['bytes'] or hasher.hexdigest()!=item['sha256']:
                         raise MvpError('map_download_failed','A BGE download did not match the declared bytes/hash. No snapshot was installed; retry explicitly.')
-                self.settings.assert_current(owner,snap['revision'])
                 adapter.snapshot.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
                 assert_no_links(adapter.snapshot.parent)
-                if adapter.snapshot.exists(): raise MvpError('map_setup_busy','Another process installed this BGE snapshot; refresh readiness.',True)
-                atomic_replace(staging,adapter.snapshot)
+                # Downloading/hashing precedes this short publication fence.
+                with self.settings._lock:
+                    self.settings.assert_current(owner,snap['revision'])
+                    if adapter.snapshot.exists(): raise MvpError('map_setup_busy','Another process installed this BGE snapshot; refresh readiness.',True)
+                    atomic_replace(staging,adapter.snapshot)
             except MvpError: raise
             except Exception:
                 raise MvpError('map_download_failed','The BGE download failed. No complete snapshot was installed and no research data changed. Retry explicitly when the network is available.') from None
@@ -236,7 +247,8 @@ class MapSetup:
             raise MvpError('map_setup_required',runtime_status()['message'])
         ready,reason=adapter.readiness()
         if not ready: raise MvpError('map_setup_required',reason)
-        adapter.profile  # hash/validate before acquiring a research mutation lock
+        adapter._file_hashes()  # always recheck warm-cache bytes outside research locks
+        adapter.profile
         result=copy(service);result.embedder=adapter
         return result
 
