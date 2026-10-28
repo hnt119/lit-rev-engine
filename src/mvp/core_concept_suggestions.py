@@ -12,10 +12,15 @@ from typing import Literal
 from pydantic import Field, field_validator
 
 from .contracts import Model
-from .query_suggestions import _Concept, _extract, _FIELD_TAG, _BOOLEAN, _NEGATION, _separate_preferences
+from .query_suggestions import _Concept, _extract, _NEGATION, _separate_preferences
 from .search_plan_contracts import MAX_CONCEPTS, QuestionSpan, SearchConcept, SearchPlanDraft, SearchTerm
 
 GENERATOR_VERSION = 'mvp.core-concept-suggestions.v1'
+
+# Treat punctuation/Boolean tokens conservatively, including adjacent operators
+# and incomplete specialist input. Natural-language parentheses also take this
+# exact unparsed path rather than losing grouping or wildcard semantics.
+_SPECIALIST_SYNTAX = re.compile(r'[\[\]()*]|\b(?:AND|OR|NOT)\b')
 
 
 class CoreConceptSuggestionRequest(Model):
@@ -109,9 +114,9 @@ def suggest_core_concepts(question: str) -> CoreConceptSuggestion:
     result = CoreConceptSuggestion(question_sha256=sha256(question.encode('utf-8')).hexdigest(), draft=draft, notices=notices)
     # Preserve structured text as a whole. In particular, do not strip quote,
     # field-tag, Boolean grouping, whitespace or Unicode semantics to extract it.
-    if _FIELD_TAG.search(question) or _BOOLEAN.search(question) or '"' in question or '“' in question or '”' in question:
+    if _SPECIALIST_SYNTAX.search(question) or '"' in question or '“' in question or '”' in question:
         result = result.model_copy(update={'draft': SearchPlanDraft(original_question=question, input_mode='manual_strategy', manual_strategy=question)})
-        result.notices.append('Quoted phrases or specialist syntax were detected. The entire text is preserved exactly as an unparsed specialist strategy; edit question framing yourself if this was a natural-language question.')
+        result.notices.append('Quoted phrases or specialist syntax (including parentheses or wildcards) were detected. The entire text is preserved exactly as an unparsed specialist strategy; edit question framing yourself if this was a natural-language question.')
         return result
     if _NEGATION.search(re.sub(r'\bwhether\s+or\s+not\b', '', question, flags=re.I)):
         result.notices.append('Negation was detected. No exclusion, NOT operator or positive replacement is inferred. Review the wording explicitly in the concept editor before building a strategy.')

@@ -106,3 +106,27 @@ def test_combining_mark_entities_keep_exact_non_normalized_unicode():
     assert concept.label=='cafe\u0301 signaling'
     assert concept.terms[0].text==q[concept.source_span.start:concept.source_span.end]
     assert 'café' not in concept.label
+
+
+@pytest.mark.parametrize('q', [
+    '  (cancer)OR(tumor)\r\n',
+    'cancer AND(women)',
+    'breast cancer NOT(mice)',
+    '  cancer*  ',
+    'NOT cancer',
+    '(αβ OR(γδ))AND(women*)',
+    '(incomplete specialist strategy',
+    'cancer[tiab',
+    'How does diet (especially fibre intake) affect women?',
+])
+def test_parentheses_wildcards_adjacent_booleans_and_incomplete_syntax_stay_exact(q):
+    result=suggest_core_concepts(q)
+    assert result.draft.original_question==q
+    assert result.draft.input_mode=='manual_strategy'
+    assert result.draft.manual_strategy==q
+    assert not result.draft.concepts and not result.draft.variants
+    assert result.question_sha256==sha256(q.encode('utf-8')).hexdigest()
+    compiled=compile_search_plan(result.draft)
+    assert compiled.candidates[0].query==q
+    assert compiled.candidates[0].unparsed_constraints
+    assert any(issue.code=='manual_strategy_unparsed' for issue in compiled.issues)
