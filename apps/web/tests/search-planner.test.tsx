@@ -64,7 +64,7 @@ test("manual strategy preserves raw bytes, compiles without a model, and require
     const editorSave=calls.find(call=>call.method==="PUT"&&call.path.includes("/drafts/"))!;
     assert.equal(editorSave.body.data.draft.manual_strategy,raw);assert.equal(calls.some(call=>call.method==="POST"),false);
     await act(async()=>renderer.root.findByType("form").props.onSubmit({preventDefault(){}}));
-    assert.equal(calls.find(call=>call.method==="POST")!.body.draft.manual_strategy,raw);assert.equal(button(renderer,"Build search").props.disabled,true);
+    assert.equal(calls.find(call=>call.method==="POST")!.body.draft.manual_strategy,raw);assert.equal(button(renderer,"Propose search with optional AI").props.disabled,true);
     assert.equal(button(renderer,"Approve this candidate").props.disabled,true);assert.equal(button(renderer,"Search papers").props.disabled,true);
     await act(async()=>checkbox(renderer,"Acknowledge that this exact specialist strategy").props.onChange({target:{checked:true}}));
     await act(async()=>button(renderer,"Approve this candidate").props.onClick());
@@ -74,7 +74,7 @@ test("manual strategy preserves raw bytes, compiles without a model, and require
   }finally{await act(async()=>renderer.unmount());}
 });
 
-test("Build search saves the exact question and requests one proposal without hand-authored concepts or automatic approvals",async()=>{
+test("Propose search with optional AI saves the exact question and requests one proposal without hand-authored concepts or automatic approvals",async()=>{
   let current:Schema<"SearchPlanView">|null=null;
   const calls=mock(null,call=>{
     if(call.path.endsWith("/search-plans")&&call.method==="POST"){assert.deepEqual(call.body.draft.concepts,[]);assert.deepEqual(call.body.draft.variants,[]);current=saved(call.body.draft);current.revision.compiled.candidates=[];return response(current);}
@@ -86,9 +86,9 @@ test("Build search saves the exact question and requests one proposal without ha
   try{
     const exact="How does 日本 rainfall affect lichen’s pigments? Preserve alternatives and exclusions.";
     await act(async()=>field(renderer,"Original research question").props.onChange({target:{value:exact}}));
-    assert.equal(button(renderer,"Build search").props.disabled,false);
-    let ancestor=button(renderer,"Build search").parent;while(ancestor){assert.notEqual(ancestor.type,"details","Build search must be available in the primary flow");ancestor=ancestor.parent;}
-    await act(async()=>button(renderer,"Build search").props.onClick());
+    assert.equal(button(renderer,"Propose search with optional AI").props.disabled,false);
+    let ancestor=button(renderer,"Propose search with optional AI").parent;while(ancestor){assert.notEqual(ancestor.type,"details","Propose search with optional AI must be available in the primary flow");ancestor=ancestor.parent;}
+    await act(async()=>button(renderer,"Propose search with optional AI").props.onClick());
     assert.deepEqual(calls.filter(call=>call.method==="POST").map(call=>call.path.split("/").at(-1)),["search-plans","propose"]);
     assert.equal(current!.revision.draft.original_question,exact);assert.match(text(renderer.root.findByProps({"aria-label":"Proposed search"})),/Lichen pigments/);
     assert.equal(calls.some(call=>/approve|diagnose|execute|query-suggestions/.test(call.path)),false);
@@ -102,10 +102,10 @@ test("Build search saves the exact question and requests one proposal without ha
 test("disabled planning keeps an exact manual query first-class without fallback calls",async()=>{
   const calls=mock(null,call=>{throw new Error("No implicit fallback "+call.path);});const renderer=await mount(null);
   try{
-    assert.equal(button(renderer,"Build search").props.disabled,true);assert.match(text(renderer.root),/Build search is unavailable: Disabled by default/);
+    assert.equal(button(renderer,"Propose search with optional AI").props.disabled,true);assert.match(text(renderer.root),/Optional AI proposals are unavailable: Disabled by default/);
     await act(async()=>button(renderer,"Paste my own query").props.onClick());const exact='  日本[tiab]\r\nAND (rainfall OR "lichen’s pigments")\r  ';
     await act(async()=>field(renderer,"Specialist PubMed strategy").props.onPaste({clipboardData:{getData:()=>exact},currentTarget:{selectionStart:0,selectionEnd:0},preventDefault(){}}));
-    assert.equal(field(renderer,"Specialist PubMed strategy").props.value,exact);await act(async()=>button(renderer,"Plan from my question").props.onClick());assert.equal(button(renderer,"Build search").props.disabled,true);assert.match(text(renderer.root),/Your separate pasted query is retained/);await act(async()=>button(renderer,"Paste my own query").props.onClick());assert.equal(field(renderer,"Specialist PubMed strategy").props.value,exact);assert.equal(calls.filter(call=>call.method==="POST").length,0);
+    assert.equal(field(renderer,"Specialist PubMed strategy").props.value,exact);await act(async()=>button(renderer,"Plan from my question").props.onClick());assert.equal(button(renderer,"Propose search with optional AI").props.disabled,true);assert.match(text(renderer.root),/Your separate pasted query is retained/);await act(async()=>button(renderer,"Paste my own query").props.onClick());assert.equal(field(renderer,"Specialist PubMed strategy").props.value,exact);assert.equal(calls.filter(call=>call.method==="POST").length,0);
   }finally{await act(async()=>renderer.unmount());}
 });
 
@@ -158,7 +158,7 @@ test("late local-model proposals cannot overwrite edits and require explicit ado
   const calls=mock(view,call=>{if(call.path.endsWith("/propose"))return new Promise<Response>(resolve=>{finish=resolve;});throw new Error("Unexpected "+call.path);},true);
   const renderer=await mount(view);
   try{
-    await act(async()=>{pending=button(renderer,"Build search").props.onClick();});
+    await act(async()=>{pending=button(renderer,"Propose search with optional AI").props.onClick();});
     await act(async()=>field(renderer,"Original research question").props.onChange({target:{value:"Newer local question survives the slow model"}}));
     await act(async()=>{finish(response(proposal(view)));await pending;});
     assert.equal(field(renderer,"Original research question").props.value,"Newer local question survives the slow model");assert.equal(button(renderer,"Use as editable draft").props.disabled,true);assert.equal(calls.filter(call=>call.method!=="GET").length,1);
@@ -170,7 +170,7 @@ test("late local-model proposals cannot overwrite edits and require explicit ado
 test("model provider failure preserves the manual plan without invoking a fallback",async()=>{
   const view=saved(),calls=mock(view,call=>call.path.endsWith("/propose")?response({detail:{code:"planner_provider_failure",message:"Synthetic local planner unavailable"}},502):Promise.reject(new Error("No fallback "+call.path)),true);
   const renderer=await mount(view);
-  try{await act(async()=>button(renderer,"Build search").props.onClick());assert.match(text(renderer.root),/Synthetic local planner unavailable/);assert.equal(field(renderer,"Original research question").props.value,view.revision.draft.original_question);assert.deepEqual(calls.filter(call=>call.method!=="GET").map(call=>call.path.split("/").at(-1)),["propose"]);assert.equal(renderer.root.findAllByType("button").some(node=>text(node)==="Use as editable draft"),false);}finally{await act(async()=>renderer.unmount());}
+  try{await act(async()=>button(renderer,"Propose search with optional AI").props.onClick());assert.match(text(renderer.root),/Synthetic local planner unavailable/);assert.equal(field(renderer,"Original research question").props.value,view.revision.draft.original_question);assert.deepEqual(calls.filter(call=>call.method!=="GET").map(call=>call.path.split("/").at(-1)),["propose"]);assert.equal(renderer.root.findAllByType("button").some(node=>text(node)==="Use as editable draft"),false);}finally{await act(async()=>renderer.unmount());}
 });
 
 test("editing approved terms resets approval, AND/OR switching preserves references, and manual raw strategy survives mode changes",async()=>{
