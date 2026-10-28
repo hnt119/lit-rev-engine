@@ -1,4 +1,57 @@
-# PubMed keyword proposals
+# Editable Core search concepts — v0.2 development
+
+This section describes the Evidence Gap Navigator v0.2 development branch, not
+a published desktop release. Discover and follow-up investigations use the same
+**Core concept builder**, existing Boolean compiler and saved-query approval
+services. Core suggestions do not call PubMed or a model.
+
+1. Enter the research question or follow-up objective and choose **Suggest editable
+   concepts**. The preview identifies source phrases and labels added wording
+   suggestions. It leaves the current plan untouched.
+2. Choose **Use suggestions as editable draft**. Replacing an existing specialist
+   strategy or concept plan requires explicit acknowledgment of that current
+   content. Terms are still unapproved and no Boolean strategy is inserted.
+3. Review each concept's role and search use: required in the query, an optional
+   preference to review later, or a required screening criterion to review later.
+   Edit or remove terms, including unwanted suggested synonyms. Then explicitly
+   approve the displayed terms for compilation.
+4. Choose **Build reviewed Boolean strategies**. Reviewed terms within each
+   concept use OR; required query concepts use AND. Optionally create a broader
+   strategy that retains the topic (or first required concept) and records the
+   others as deferred criteria. Broader retrieval may add unrelated records;
+   recall and precision have not been measured.
+5. Save the plan, inspect the exact compiled query and approve that saved
+   revision. Any edit requires saving and reviewing the changed revision.
+   Diagnostics and paper search remain separate explicit provider operations.
+
+The deterministic vocabulary is deliberately bounded. Unknown scientific phrases
+remain editable with an unresolved role. Intervention, specimen/site and
+investigation-focus labels are suggestions; the existing wire roles retain them
+as Exposure or Other with their suggested role in provenance. Exact original
+Unicode code-point spans are retained without normalizing the question.
+
+The small versioned wording table is not a validated synonym or MeSH registry.
+Quoted text, field tags and uppercase Boolean syntax take the exact-preservation
+specialist path; Core does not reinterpret that text. A quoted natural-language
+question may therefore need manual removal of framing words. Negation creates an
+unresolved review item and never inserts NOT. Preferences and study-design
+criteria start outside retrieval. Questions exceeding the concept bound are
+refused as a whole rather than silently truncated. More complex relationships,
+explicit exclusions and uncertainty resolutions remain in the advanced editor.
+
+Optional AI planning retains its existing separate provider configuration and
+one-run consent. Neither Core nor AI suggestions establish scientific validity,
+relevance, eligibility or a research gap. Saved examples support Core drafting;
+their existing restrictions on live execution remain unchanged.
+
+---
+
+## Historical keyword-proposal workflow and evidence — 21 October 2026
+
+The material below records the earlier keyword workflow and its original
+validation. It is not a v0.2 test result and does not describe the new Core UI.
+
+### PubMed keyword proposals
 
 Use **Live PubMed** for a live exploratory search. A **saved example** reopens a
 recorded capture. Query proposals are local and never run a search or call a
