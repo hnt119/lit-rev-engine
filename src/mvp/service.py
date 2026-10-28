@@ -230,12 +230,9 @@ class MVPService:
         self._ensure_current_revision(handle, result.source_revision)
         return result
 
-    def publish_planned_search(self, handle, request, preview, *, plan_id, fingerprint, commit_guard):
-        """Publish an already fetched preview and its approval link atomically.
-
-        The planning service performs provider I/O before this method. Existing
-        direct-search behavior and SearchPreview serialization stay unchanged.
-        """
+    @staticmethod
+    def validate_planned_search(request, preview):
+        """Exact query, bound and identity validation shared by isolated follow-ups."""
         preview = SearchPreview.model_validate(preview)
         if (preview.query != request.query or preview.sort != request.sort
                 or preview.date_from != request.date_from or preview.date_to != request.date_to
@@ -244,6 +241,16 @@ class MVPService:
         if len(preview.papers) > request.max_results or preview.fetched_count > request.max_results:
             raise MvpError('discovery_limit_exceeded', 'Discovery exceeded the approved exploratory sample limit.')
         preview = _deduplicate(preview)
+
+        return preview
+
+    def publish_planned_search(self, handle, request, preview, *, plan_id, fingerprint, commit_guard):
+        """Publish an already fetched preview and its approval link atomically.
+
+        The planning service performs provider I/O before this method. Existing
+        direct-search behavior and SearchPreview serialization stay unchanged.
+        """
+        preview = self.validate_planned_search(request, preview)
 
         def execute(state):
             question = request.research_question if request.research_question is not None else state.question
