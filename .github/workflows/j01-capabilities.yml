@@ -1,0 +1,37 @@
+name: J01 remote capability discovery
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/j01-capabilities.yml
+      - scripts/ci/remote_j01_capabilities.py
+
+permissions:
+  contents: read
+
+concurrency:
+  group: j01-capabilities-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  capabilities:
+    if: github.repository == 'hnt119/lit-rev-engine' && github.event.repository.private == false && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-26.04
+    timeout-minutes: 5
+    steps:
+      - name: Read exact infrastructure commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: infrastructure
+          persist-credentials: false
+      - name: Read exact reviewed main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: a54cd9acc9cca860acc0e2aabcee01f9329276c4
+          path: reviewed-source
+          persist-credentials: false
+      - name: Record capabilities without claiming isolation or J01 acceptance
+        env:
+          J01_REVIEWED_SOURCE: ${{ github.workspace }}/reviewed-source
+        run: python3 -B infrastructure/scripts/ci/remote_j01_capabilities.py
