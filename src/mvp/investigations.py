@@ -34,7 +34,7 @@ def draft_snapshot_lines(label, data):
     lines = ['', f'{label} (unsubmitted; captured at investigation creation):']
     if data is None:
         return lines + ['Absent']
-    lines += [f'Value: {json.dumps(data.value, ensure_ascii=False)}',
+    lines += [f'Producer: {data.producer}', f'Value: {json.dumps(data.value, ensure_ascii=False)}',
         f'Semantic assessment: {data.semantic_assessment}', f'Scope result: {data.scope_result}',
         f'Reason: {data.reason}', f'Missing information: {data.missing_information}']
     for heading, ranges in [('Attached references', data.references), ('Inspected ranges', data.inspected_ranges)]:

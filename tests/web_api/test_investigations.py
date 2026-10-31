@@ -290,6 +290,7 @@ def test_export_separates_captured_drafts_and_preserves_literal_provenance(case)
     assert 'Semantic assessment: unsupported' in local_section and 'Scope result: value_found' in local_section
     assert 'Missing information: Saved missing' in saved_section and 'Missing information: Local missing' in local_section
     for section in (saved_section,local_section):
+        assert 'Producer: manual' in section
         for key in ('source_id','source_version','source_sha256','blocks_sha256','block_id'):
             assert ref[key] in section
         assert f"half-open Unicode code-point range: [{ref['start']}, {ref['end']})" in section
