@@ -30,6 +30,23 @@ def meaningful_draft(data):
         or data.missing_information.strip() or data.references or data.inspected_ranges)
 
 
+def draft_snapshot_lines(label, data):
+    lines = ['', f'{label} (unsubmitted; captured at investigation creation):']
+    if data is None:
+        return lines + ['Absent']
+    lines += [f'Producer: {data.producer}', f'Value: {json.dumps(data.value, ensure_ascii=False)}',
+        f'Semantic assessment: {data.semantic_assessment}', f'Scope result: {data.scope_result}',
+        f'Reason: {data.reason}', f'Missing information: {data.missing_information}']
+    for heading, ranges in [('Attached references', data.references), ('Inspected ranges', data.inspected_ranges)]:
+        lines.append(f'{heading}:')
+        if not ranges:
+            lines.append('  None')
+        for ref in ranges:
+            lines += [f'  Source: {ref.source_id} / {ref.source_version}; SHA256: {ref.source_sha256}; block hash: {ref.blocks_sha256}',
+                f'  Block: {ref.block_id}; half-open Unicode code-point range: [{ref.start}, {ref.end})']
+    return lines
+
+
 class InvestigationService:
     def __init__(self, boards, planning, store):
         self.boards, self.planning, self.store = boards, planning, store
@@ -205,6 +222,8 @@ class InvestigationService:
             f'Cell revision: {origin.cell.id if origin.cell else "No submitted revision"}',
             f'Saved draft version: {origin.draft.version}', f'Source manifest: {origin.board.source_manifest_sha256}',
             '', 'Researcher reason:', origin.reason, '', '## Scientific boundaries', *['- '+item for item in SAFEGUARDS]]
+        lines += draft_snapshot_lines('Saved draft snapshot', origin.draft.data if origin.draft.version > 0 else None)
+        lines += draft_snapshot_lines('Local editor snapshot', origin.local_draft)
         if origin.cell:
             lines += ['', 'Retained original judgment:', f'Assessment: {origin.cell.semantic_assessment}; inspected scope: {origin.cell.scope_result}',
                 f'Value: {origin.cell.value}', f'Missing information: {origin.cell.missing_information}', f'Reason: {origin.cell.reason}']

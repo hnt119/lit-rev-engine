@@ -263,6 +263,49 @@ def test_exact_submitted_cell_saved_draft_and_historical_references_survive(case
     assert export['investigation']['origin']['cell']==cell
     assert any(op['request_id']=='execute' and op['status']=='succeeded' for op in export['operations'])
 
+def test_export_separates_captured_drafts_and_preserves_literal_provenance(case):
+    d=case.board['definition']; board=case.root+'/boards/'+d['board_id']; paper=d['paper_ids'][0]
+    candidate=ok(case.client.post(board+'/candidates',json={'request_id':'passage','expected_revision_id':d['revision_id'],'paper_id':paper,'field_id':'field'}))['candidates'][0]['reference']
+    ref={k:candidate[k] for k in ['source_id','source_version','source_sha256','blocks_sha256','block_id','start','end']}
+    saved_data={'value':None,'references':[ref], 'semantic_assessment':'partial', 'scope_result':'not_found_in_inspected_material',
+        'reason':'Saved 雪 ~~~~ reason', 'missing_information':'Saved missing'}
+    local_data={'value':'', 'inspected_ranges':[ref], 'semantic_assessment':'unsupported', 'scope_result':'value_found',
+        'reason':'Local 🧪 ~~~~~ reason', 'missing_information':'Local missing'}
+    saved=ok(case.client.put(board+'/drafts/'+paper+'/field',json={'expected_revision_id':d['revision_id'],'version':0,'data':saved_data}))
+    view=ok(create(case,expected_draft_version=1,local_draft=local_data))
+    before=original(case)
+    first=ok(case.client.get(path(case,view)+'/export'))
+    second=ok(case.client.get(path(case,view)+'/export'))
+    assert first['json_text']==second['json_text']
+    audit=json.loads(first['json_text'])
+    assert audit['investigation']['origin']['draft']==saved
+    assert audit['investigation']['origin']['local_draft']==view['origin']['local_draft']
+    assert original(case)==before
+    markdown=first['markdown_text']
+    saved_section=markdown.split('Saved draft snapshot (unsubmitted; captured at investigation creation):')[1].split('Local editor snapshot')[0]
+    local_section=markdown.split('Local editor snapshot (unsubmitted; captured at investigation creation):')[1].split('## Search plan')[0]
+    assert 'Value: null' in saved_section and 'Value: ""' in local_section
+    assert 'Saved 雪 ~~~~ reason' in saved_section and 'Local 🧪 ~~~~~ reason' in local_section
+    assert 'Semantic assessment: partial' in saved_section and 'Scope result: not_found_in_inspected_material' in saved_section
+    assert 'Semantic assessment: unsupported' in local_section and 'Scope result: value_found' in local_section
+    assert 'Missing information: Saved missing' in saved_section and 'Missing information: Local missing' in local_section
+    for section in (saved_section,local_section):
+        assert 'Producer: manual' in section
+        for key in ('source_id','source_version','source_sha256','blocks_sha256','block_id'):
+            assert ref[key] in section
+        assert f"half-open Unicode code-point range: [{ref['start']}, {ref['end']})" in section
+    assert 'Attached references:\n  Source:' in saved_section and 'Inspected ranges:\n  None' in saved_section
+    assert 'Attached references:\n  None' in local_section and 'Inspected ranges:\n  Source:' in local_section
+    assert markdown.splitlines()[2]=='~~~~~~text' and markdown.splitlines()[-1]=='~~~~~~'
+
+
+def test_export_explicitly_marks_absent_draft_snapshots(case):
+    view=ok(create(case,local_draft=None))
+    markdown=ok(case.client.get(path(case,view)+'/export'))['markdown_text']
+    assert 'Saved draft snapshot (unsubmitted; captured at investigation creation):\nAbsent' in markdown
+    assert 'Local editor snapshot (unsubmitted; captured at investigation creation):\nAbsent' in markdown
+
+
 def test_foreign_local_draft_anchors_rejected_without_creating_plan(case):
     bad={'source_id':'foreign','source_version':'1','source_sha256':'a'*64,'blocks_sha256':'b'*64,'block_id':'foreign','start':0,'end':1}
     for key in ['references','inspected_ranges']:
