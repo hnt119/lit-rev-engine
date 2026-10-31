@@ -1,0 +1,51 @@
+name: Remote web functional acceptance candidate
+on:
+  pull_request:
+    types: [opened]
+permissions:
+  contents: read
+jobs:
+  functional:
+    if: github.repository == 'hnt119/lit-rev-engine' && github.event.repository.private == false && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'codex/remote-web-functional' && github.event.pull_request.base.ref == github.event.repository.default_branch
+    runs-on: ubuntu-26.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: infra
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: a54cd9acc9cca860acc0e2aabcee01f9329276c4
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.7'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.19.0'
+      - name: Install pinned tooling and build locked source
+        shell: bash
+        run: |
+          set -eu
+          mkdir -m 700 "$RUNNER_TEMP/functional-setup"
+          export HOME="$RUNNER_TEMP/functional-setup"
+          export NEXT_TELEMETRY_DISABLED=1 PYTHONNOUSERSITE=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+          python -m venv "$RUNNER_TEMP/functional-python"
+          "$RUNNER_TEMP/functional-python/bin/python" -m pip install -r source/requirements-web-lock.txt > /dev/null 2>&1
+          npm install --prefix "$RUNNER_TEMP/functional-tools" --ignore-scripts --no-audit --no-fund --save-exact playwright-core@1.62.1 pnpm@10.20.0 > /dev/null 2>&1
+          "$RUNNER_TEMP/functional-tools/node_modules/.bin/pnpm" --dir source/apps/web install --frozen-lockfile --ignore-scripts > /dev/null 2>&1
+          "$RUNNER_TEMP/functional-tools/node_modules/.bin/pnpm" --dir source/apps/web build > /dev/null 2>&1
+      - name: Run bounded public saved-example journey
+        env:
+          EXPECTED_INFRA_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          mkdir -m 700 "$RUNNER_TEMP/functional-evidence"
+          python infra/scripts/remote-web-functional/runner.py "$GITHUB_WORKSPACE/source" "$GITHUB_WORKSPACE/infra/scripts/remote-web-functional" "$RUNNER_TEMP/functional-evidence/receipt.json" "$RUNNER_TEMP/functional-python/bin/python" "$(command -v node)" "$RUNNER_TEMP/functional-tools/node_modules/playwright-core/index.mjs"
+      - name: Validate fixed receipt
+        id: receipt
+        if: always()
+        run: |
+          "$RUNNER_TEMP/functional-python/bin/python" infra/scripts/remote-web-functional/validate.py "$RUNNER_TEMP/functional-evidence/receipt.json" "$GITHUB_WORKSPACE/source"
