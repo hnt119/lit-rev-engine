@@ -37,7 +37,6 @@ def install_map_routes(app, *, directory, registry, service, owned, session_for,
         setup=getattr(app.state,'map_setup',None)
         selected=setup.bound_service(maps,session['token_hash']) if setup else maps
         result=selected.submit(mode, handle, request)
-        if setup: setup.remember(result,selected.embedder)
         if setup: worker.start(force=True)
         return result
 

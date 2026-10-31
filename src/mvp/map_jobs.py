@@ -69,7 +69,7 @@ class PaperMapService:
             search = find_search(state, request.search_id)
             if len(search.papers) > 50:
                 raise MvpError("map_input_limit", "A map is limited to the existing 50-record search preview.")
-            return self.store.submit(handle.workspace_id, search, profile, request)
+            return self.store.submit(handle.workspace_id, search, profile, request, getattr(self, "adapter_config_json", None))
         with self.registry.lifecycle_guard(handle.workspace_id):
             return self.service_for(mode).with_workspace_state(handle, record)
 

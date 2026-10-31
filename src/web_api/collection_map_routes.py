@@ -29,7 +29,6 @@ def install_collection_map_routes(app, *, registry, service, owned, session_for,
         setup=getattr(app.state,'map_setup',None)
         selected=setup.bound_service(maps,session['token_hash']) if setup else maps
         result=selected.submit(mode, handle, request)
-        if setup: setup.remember(result,selected.embedder)
         if setup: shared_worker.start(force=True)
         return result
 

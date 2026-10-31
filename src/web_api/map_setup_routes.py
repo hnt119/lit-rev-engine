@@ -79,7 +79,7 @@ class MapSetup:
     def __init__(self, settings, registry, base, *, embedder_factory=None):
         self.settings,self.registry,self.base = settings,registry,base
         self.factory = embedder_factory or PinnedSetupEmbedder
-        self._adapters,self._submitted,self._tests = {},{},{}
+        self._adapters,self._tests = {},{}
         self._lock,self._slot = Lock(),BoundedSemaphore(1)
 
     def configuration(self, owner, expected=None):
@@ -242,26 +242,35 @@ class MapSetup:
             return self.status(owner)
 
     def bound_service(self,service,owner):
-        adapter,_,_=self.adapter(owner)
+        adapter,_,config=self.adapter(owner)
         if runtime_status()['state']!='available':
             raise MvpError('map_setup_required',runtime_status()['message'])
         ready,reason=adapter.readiness()
         if not ready: raise MvpError('map_setup_required',reason)
         adapter._file_hashes()  # always recheck warm-cache bytes outside research locks
         adapter.profile
+        binding = {"version": 1, "enabled": config["enabled"], "cache_dir": config["cache_dir"]}
         result=copy(service);result.embedder=adapter
+        result.adapter_config_json=canonical({"binding": binding, "sha256": digest(binding)})
         return result
 
-    def remember(self,submission,adapter):
-        with self._lock: self._submitted[submission.job.id]=adapter
-
     def for_job(self,job):
-        with self._lock: adapter=self._submitted.get(job['id'])
-        if adapter is not None: return adapter
-        with self.registry.connection() as db:
-            row=db.execute('SELECT session_hash FROM web_workspaces WHERE workspace_id=?',(job['workspace_id'],)).fetchone()
-        if row is None: raise MvpError('unknown_workspace','The map workspace is unavailable.')
-        return self.adapter(row['session_hash'])[0]
+        # Old jobs have no submission-time binding. Fail closed rather than silently
+        # substituting current preferences; the owner can explicitly submit again.
+        raw = job.get('adapter_config_json')
+        if not raw:
+            raise MvpError('map_setup_required', 'This older map job has no saved setup. Submit a new map explicitly.')
+        try:
+            envelope = json.loads(raw)
+            binding = envelope['binding']
+            if (set(envelope) != {'binding', 'sha256'} or set(binding) != {'version', 'enabled', 'cache_dir'}
+                    or type(binding['version']) is not int or binding['version'] != 1 or type(binding['enabled']) is not bool
+                    or not isinstance(binding['cache_dir'], str) or digest(binding) != envelope['sha256']):
+                raise ValueError()
+            cache = safe_cache(binding['cache_dir'])
+        except (ValueError, TypeError, KeyError, MvpError):
+            raise MvpError('map_setup_required', 'The saved map setup is invalid. Submit a new map explicitly.') from None
+        return self.factory(enabled=binding['enabled'], cache_dir=str(cache))
 
 
 def install_map_setup_routes(app,*,registry,session_for,dependencies):
