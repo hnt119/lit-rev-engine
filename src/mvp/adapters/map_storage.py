@@ -70,6 +70,9 @@ class MapStore:
                     PRIMARY KEY(map_id,paper_id));
                 CREATE TABLE IF NOT EXISTS paper_map_deleted(workspace_id TEXT PRIMARY KEY);
             ''')
+        with self.transaction() as db:
+            if 'adapter_config_json' not in {row['name'] for row in db.execute('PRAGMA table_info(paper_map_jobs)')}:
+                db.execute('ALTER TABLE paper_map_jobs ADD COLUMN adapter_config_json TEXT')
 
     @contextmanager
     def connection(self):
@@ -101,11 +104,11 @@ class MapStore:
         # logical map and metadata/link rows. Reserve bounded future lease/error
         # metadata so a quota failure itself can always be recorded safely.
         tables = {
-            "paper_map_jobs": "id workspace_id search_id map_id logical_key search_json profile_json status attempt max_attempts lease_owner lease_expires progress_completed progress_total interrupted_count error_json created_at updated_at",
+            "paper_map_jobs": "id workspace_id search_id map_id logical_key search_json profile_json adapter_config_json status attempt max_attempts lease_owner lease_expires progress_completed progress_total interrupted_count error_json created_at updated_at",
             "paper_maps": "map_id workspace_id search_id artifact_json artifact_sha256 counts_json",
             "paper_embeddings": "workspace_id cache_key payload_json payload_sha256",
             "paper_map_requests": "workspace_id request_id fingerprint job_id",
-            "collection_map_jobs": "id workspace_id collection_id collection_snapshot_sha256 map_id logical_key input_json input_sha256 profile_json status attempt max_attempts lease_owner lease_expires progress_completed progress_total interrupted_count error_json created_at updated_at",
+            "collection_map_jobs": "id workspace_id collection_id collection_snapshot_sha256 map_id logical_key input_json input_sha256 profile_json adapter_config_json status attempt max_attempts lease_owner lease_expires progress_completed progress_total interrupted_count error_json created_at updated_at",
             "collection_maps": "map_id workspace_id collection_id artifact_json artifact_sha256 counts_json",
             "collection_map_requests": "workspace_id request_id fingerprint job_id",
         }
@@ -115,7 +118,8 @@ class MapStore:
             if table not in existing:
                 numbers[table], sizes[table] = 0, 0
                 continue
-            expression = "+".join("COALESCE(length(CAST(" + name + " AS BLOB)),0)" for name in names.split())
+            columns = {row["name"] for row in db.execute(f"PRAGMA table_info({table})")}
+            expression = "+".join("COALESCE(length(CAST(" + name + " AS BLOB)),0)" for name in names.split() if name in columns)
             row = db.execute("SELECT COUNT(*),COALESCE(SUM(" + expression + "),0) FROM " + table + " WHERE workspace_id=?", (workspace_id,)).fetchone()
             numbers[table], sizes[table] = row
         links = 0
@@ -134,7 +138,7 @@ class MapStore:
         return MapJobView(**{key: row[key] for key in MapJobView.model_fields if key != "error"},
                           error=StructuredError.model_validate_json(row["error_json"]) if row["error_json"] else None)
 
-    def submit(self, workspace_id, search, profile, request):
+    def submit(self, workspace_id, search, profile, request, adapter_config_json=None):
         timestamp = now()
         logical = digest({"search": digest(search.model_dump(mode="json")), "profile": digest(profile.model_dump(mode="json"))})
         fingerprint = digest(request.model_dump(mode="json"))
@@ -153,8 +157,8 @@ class MapStore:
                 identifier, reused = reusable["id"], True
             else:
                 identifier, reused = new_id(), False
-                db.execute("INSERT INTO paper_map_jobs(id,workspace_id,search_id,map_id,logical_key,search_json,profile_json,status,progress_total,created_at,updated_at) VALUES(?,?,?,?,?,?,?,'queued',?,?,?)",
-                    (identifier, workspace_id, search.id, new_id(), logical, search.model_dump_json(), profile.model_dump_json(), len(search.papers), timestamp, timestamp))
+                db.execute("INSERT INTO paper_map_jobs(id,workspace_id,search_id,map_id,logical_key,search_json,profile_json,adapter_config_json,status,progress_total,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,'queued',?,?,?)",
+                    (identifier, workspace_id, search.id, new_id(), logical, search.model_dump_json(), profile.model_dump_json(), adapter_config_json, len(search.papers), timestamp, timestamp))
             db.execute("INSERT INTO paper_map_requests VALUES(?,?,?,?)", (workspace_id, request.request_id, fingerprint, identifier))
             self._limits(db, workspace_id)
             job = db.execute("SELECT * FROM paper_map_jobs WHERE id=?", (identifier,)).fetchone()

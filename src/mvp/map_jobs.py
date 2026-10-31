@@ -5,6 +5,7 @@ preparation, passage retrieval, assessments or exports are performed here.
 """
 from __future__ import annotations
 from src.platform_support import locks as fcntl
+from copy import copy
 import math
 import os
 from src.platform_support import open_private
@@ -68,7 +69,7 @@ class PaperMapService:
             search = find_search(state, request.search_id)
             if len(search.papers) > 50:
                 raise MvpError("map_input_limit", "A map is limited to the existing 50-record search preview.")
-            return self.store.submit(handle.workspace_id, search, profile, request)
+            return self.store.submit(handle.workspace_id, search, profile, request, getattr(self, "adapter_config_json", None))
         with self.registry.lifecycle_guard(handle.workspace_id):
             return self.service_for(mode).with_workspace_state(handle, record)
 
@@ -141,6 +142,7 @@ class MapWorker:
         self.poll_seconds, self.heartbeat_seconds, self.lease_seconds = poll_seconds, heartbeat_seconds, lease_seconds
         self._stop, self._thread, self._descriptor = threading.Event(), None, None
         self._queue_cursor = 0
+        self._start_lock = threading.Lock()
 
     def add_domain(self, domain):
         if getattr(self, '_thread', None) and self._thread.is_alive():
@@ -178,15 +180,16 @@ class MapWorker:
             os.close(self._descriptor)
             self._descriptor = None
 
-    def start(self):
-        if self._thread and self._thread.is_alive():
+    def start(self, *, force=False):
+        with self._start_lock:
+            if self._thread and self._thread.is_alive():
+                return True
+            if (not force and not self.maps.readiness()[0]) or not self._acquire():
+                return False
+            self._stop.clear()
+            self._thread = threading.Thread(target=self._loop, name="paper-map-worker", daemon=True)
+            self._thread.start()
             return True
-        if not self.maps.readiness()[0] or not self._acquire():
-            return False
-        self._stop.clear()
-        self._thread = threading.Thread(target=self._loop, name="paper-map-worker", daemon=True)
-        self._thread.start()
-        return True
 
     def stop(self):
         self._stop.set()
@@ -253,6 +256,10 @@ class MapWorker:
             engine = maps.service_for(mode)
             captured = maps.input_for_job(engine, handle, job)
             profile = EmbeddingProfile.model_validate_json(job["profile_json"])
+            if hasattr(maps,'embedder_for_job'):
+                selected=copy(maps)
+                selected.embedder=maps.embedder_for_job(job)
+                maps=selected
             if maps.embedder.profile != profile:
                 raise MvpError("embedding_profile_changed", "Configured local embedding profile changed; explicitly build a new map.")
             embedded, excluded = [], []

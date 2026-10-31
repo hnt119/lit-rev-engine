@@ -981,6 +981,57 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/settings/maps": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Status */
+        get: operations["status_api_v1_settings_maps_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/settings/maps/verify": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Verify */
+        post: operations["verify_api_v1_settings_maps_verify_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/settings/maps/install": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Install */
+        post: operations["install_api_v1_settings_maps_install_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/workspaces/{workspace_id}/boards/{board_id}/passage-search-context": {
         parameters: {
             query?: never;
@@ -5059,6 +5110,18 @@ export interface components {
             /** Map Points */
             map_points: number;
         };
+        /** MapInstallAction */
+        MapInstallAction: {
+            /** Expected Revision */
+            expected_revision: number;
+            /** Manifest Sha256 */
+            manifest_sha256: string;
+            /**
+             * Accept Download
+             * @constant
+             */
+            accept_download: true;
+        };
         /** MapJobView */
         MapJobView: {
             /** Id */
@@ -5099,11 +5162,18 @@ export interface components {
         };
         /** MapPreferences */
         MapPreferences: {
+            /** Enabled */
+            enabled?: boolean | null;
             /**
              * Cache Dir
              * @default
              */
             cache_dir: string;
+        };
+        /** MapSetupAction */
+        MapSetupAction: {
+            /** Expected Revision */
+            expected_revision: number;
         };
         /** MapSubmission */
         MapSubmission: {
@@ -9497,6 +9567,92 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["CollectionMapJobView"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    status_api_v1_settings_maps_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    verify_api_v1_settings_maps_verify_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MapSetupAction"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    install_api_v1_settings_maps_install_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MapInstallAction"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
                 };
             };
             /** @description Validation Error */

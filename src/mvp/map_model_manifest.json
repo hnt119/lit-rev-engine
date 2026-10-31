@@ -1,0 +1,19 @@
+{
+  "schema_version": "mvp.map-model-manifest.v1",
+  "model": "BAAI/bge-small-en-v1.5",
+  "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "source": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+  "license": "MIT",
+  "files": [
+    {"path":"config.json","bytes":743,"sha256":"094f8e891b932f2000c92cfc663bac4c62069f5d8af5b5278c4306aef3084750"},
+    {"path":"model.safetensors","bytes":133466304,"sha256":"3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad"},
+    {"path":"tokenizer.json","bytes":711396,"sha256":"d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"},
+    {"path":"tokenizer_config.json","bytes":366,"sha256":"9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3"},
+    {"path":"modules.json","bytes":349,"sha256":"84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf"},
+    {"path":"1_Pooling/config.json","bytes":190,"sha256":"d1caf60c96f5fba2157c0c26b76d80818fad6cf0b8eb5e73ec372ff9818eba5c"},
+    {"path":"sentence_bert_config.json","bytes":52,"sha256":"84e39fda68ccbff05bfa723ae9c0e70e23e2ec373b76e0f8c6e71af72a693cbf"},
+    {"path":"config_sentence_transformers.json","bytes":124,"sha256":"940d5f50db195fa6e5e6a4f122c095f77880de259d74b14a65779ed48bdd7c56"},
+    {"path":"special_tokens_map.json","bytes":125,"sha256":"b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"},
+    {"path":"vocab.txt","bytes":231508,"sha256":"07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"}
+  ]
+}

@@ -26,7 +26,11 @@ def install_collection_map_routes(app, *, registry, service, owned, session_for,
     @app.post(prefix + '/collection-maps', response_model=CollectionMapSubmission, dependencies=dependencies)
     def submit(workspace_id: str, request: CreateCollectionMapRequest, session=Depends(session_for)):
         mode, handle, _ = owned(workspace_id, session)
-        return maps.submit(mode, handle, request)
+        setup=getattr(app.state,'map_setup',None)
+        selected=setup.bound_service(maps,session['token_hash']) if setup else maps
+        result=selected.submit(mode, handle, request)
+        if setup: shared_worker.start(force=True)
+        return result
 
     @app.get(prefix + '/collection-maps', response_model=CollectionMapListing, dependencies=dependencies)
     def listing(workspace_id: str, collection_id: str | None = Query(default=None, min_length=1, max_length=200),

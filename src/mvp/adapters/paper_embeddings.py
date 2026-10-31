@@ -19,7 +19,7 @@ REQUIRED_FILES = ("config.json", "model.safetensors", "tokenizer.json", "tokeniz
 
 def runtime_versions():
     versions = {}
-    for name in ("sentence-transformers", "torch", "transformers", "huggingface-hub", "numpy", "scikit-learn", "umap-learn"):
+    for name in ("sentence-transformers", "torch", "transformers", "huggingface-hub", "numpy", "scikit-learn", "umap-learn", "scipy", "numba", "pynndescent", "llvmlite", "tokenizers", "safetensors"):
         try:
             versions[name] = metadata.version(name)
         except metadata.PackageNotFoundError:
@@ -38,7 +38,7 @@ class LocalPaperEmbedder:
 
     def readiness(self):
         if not self.enabled:
-            return False, "Setup required: opt in with MVP_MAP_ENABLED=1 after installing optional dependencies and pinned local weights."
+            return False, "Setup required: enable Semantic Maps in Settings, then check the mapping runtime and pinned BGE weights."
         if any(self._versions[name] == "not-installed" for name in self._versions):
             return False, "Setup required: install the isolated optional mapping requirements."
         if not all((self.snapshot / name).is_file() for name in REQUIRED_FILES):

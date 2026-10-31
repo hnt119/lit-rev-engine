@@ -22,7 +22,7 @@ def install_map_routes(app, *, directory, registry, service, owned, session_for,
     async def lifespan(application):
         async with previous_lifespan(application):
             if not hosted:
-                worker.start()
+                worker.start(force=getattr(app.state,'map_setup',None) is not None)
             try:
                 yield
             finally:
@@ -34,7 +34,11 @@ def install_map_routes(app, *, directory, registry, service, owned, session_for,
     @app.post(prefix + "/maps", response_model=MapSubmission, dependencies=dependencies)
     def submit(workspace_id: str, request: CreateMapRequest, session=Depends(session_for)):
         mode, handle, _ = owned(workspace_id, session)
-        return maps.submit(mode, handle, request)
+        setup=getattr(app.state,'map_setup',None)
+        selected=setup.bound_service(maps,session['token_hash']) if setup else maps
+        result=selected.submit(mode, handle, request)
+        if setup: worker.start(force=True)
+        return result
 
     @app.get(prefix + "/maps", response_model=MapListing, dependencies=dependencies)
     def listing(workspace_id: str, search_id: str, session=Depends(session_for)):

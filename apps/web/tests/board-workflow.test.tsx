@@ -94,7 +94,7 @@ test("nine-cell board performs only explicit per-cell retrieval, inspection, man
     await act(async()=>button(renderer,"Review entry before saving").props.onClick());
     await observed(()=>!disabled(button(renderer,revisions.length?"Save revision":"Save reviewed entry")));
     await act(async()=>button(renderer,revisions.length?"Save revision":"Save reviewed entry").props.onClick());
-    await observed(()=>revisions.length>0);
+    await observed(()=>revisions.length===2);
     assert.equal(revisions.length,2);assert.equal(revisions[1].supersedes_id,"cell-1");
     await act(async()=>button(renderer,"Load immutable cell history").props.onClick());assert.ok(content(renderer.root.findByProps({"aria-label":"Immutable cell history"})).includes("2 of 2 revisions"));
     const csv=renderer.root.findAllByType("a").find(link=>content(link)==="Download board CSV")!;assert.ok(csv.props.href.includes("/boards/b/exports?format=csv"));
