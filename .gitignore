@@ -85,3 +85,6 @@ apps/desktop/node_modules/
 
 # Explicit Windows launcher bootstrap; never a release asset.
 .venv-bootstrap/
+
+# Private project coordination and verification evidence, never public source.
+/.litrev-engineering-state/

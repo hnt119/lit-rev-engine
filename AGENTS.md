@@ -158,6 +158,8 @@ Website/README downloads must reference actual qualified artifacts, with correct
 
 Keep the README for users, a canonical version-matched manual, and the current architecture/model explanation. Preserve historical guides with scope labels. Update existing relevant documents rather than generating another permanent handoff for each small task. Private QA records stay outside public guides.
 
+Follow the [workspace retention and cleanup policy](docs/development.md#workspace-retention-and-cleanup): reuse verified environments, retain essential evidence outside tracked source, and verify ownership, dependencies and inactivity before removing temporary resources.
+
 Use one compact task/PR record:
 
 ```text
