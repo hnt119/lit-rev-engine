@@ -69,6 +69,42 @@ Source beta.4 needs Python 3.12, Node.js 24 and pnpm 10.20.0. It is separate fro
 
 </details>
 
+## Find your way around the source
+
+Published downloads above have their own versioned guides. A checkout of `main` can contain newer work; it does not replace an installed release.
+
+```text
+apps/          Web UI, desktop shell and Streamlit surfaces
+src/           Python services, HTTP API and research modules
+config/        Checked-in configuration and release metadata
+docs/          User, architecture, development and versioned release guides
+scripts/       Launch, validation, packaging and maintenance commands
+tests/         Automated checks and recorded/public/synthetic fixtures
+examples/      Example inputs and workflows
+notebooks/     Research notebooks
+tools/         Supporting developer utilities
+workflow/      Research workflow and interoperability planning documents
+showcase/      Prepared public projections; the live website is a separate repo
+```
+
+Research workspaces, credentials, model caches and private agent records belong outside tracked source. See the [folder guide and retention policy](docs/development.md#workspace-retention-and-cleanup).
+
+## Develop from source
+
+Use Python **3.12**, Node.js **24** and pnpm **10.20.0**. The existing source launcher installs dependencies and builds the UI during setup:
+
+```sh
+python3.12 scripts/local_preview.py setup
+python3.12 scripts/local_preview.py launch
+```
+
+Setup requires dependency downloads; optional model weights and paid providers need separate, explicit setup. See [source development](docs/development.md) for stopping/reopening, reusable environments, focused tests and the branch/PR/agent workflow. For example, in a prepared development environment:
+
+```sh
+python -m pytest -q tests/mvp
+pnpm --dir apps/web typecheck
+```
+
 ## Help, privacy and status
 
 Research stays outside application files. Explicit searches and optional cloud AI transmit disclosed inputs; cloud calls may cost money. Keys are session-scoped. Read [backup and access-recovery limits](docs/user_manual.md#export-back-up-and-replace-the-app).
