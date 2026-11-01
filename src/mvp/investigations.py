@@ -30,8 +30,8 @@ def meaningful_draft(data):
         or data.missing_information.strip() or data.references or data.inspected_ranges)
 
 
-def draft_snapshot_lines(label, data):
-    lines = ['', f'{label} (unsubmitted; captured at investigation creation):']
+def draft_snapshot_lines(label, data, *, submitted=False):
+    lines = ['', f'{label}:' if submitted else f'{label} (unsubmitted; captured at investigation creation):']
     if data is None:
         return lines + ['Absent']
     lines += [f'Producer: {data.producer}', f'Value: {json.dumps(data.value, ensure_ascii=False)}',
@@ -218,31 +218,65 @@ class InvestigationService:
         field = next(f for f in origin.board.fields if f.id == origin.field_id)
         lines = ['# Literature investigation audit', '', '## Original comparison',
             f'Investigation: {identifier}', f'Board: {origin.board.board_id} / {origin.board.revision_id}',
-            f'Paper: {paper.title} ({paper.id})', f'Field: {field.label}', f'Question: {field.subquestion}',
+            f'Paper: {paper.title} ({paper.id})', f'Field: {field.label} ({field.id})', f'Question: {field.subquestion}',
             f'Cell revision: {origin.cell.id if origin.cell else "No submitted revision"}',
             f'Saved draft version: {origin.draft.version}', f'Source manifest: {origin.board.source_manifest_sha256}',
             '', 'Researcher reason:', origin.reason, '', '## Scientific boundaries', *['- '+item for item in SAFEGUARDS]]
         lines += draft_snapshot_lines('Saved draft snapshot', origin.draft.data if origin.draft.version > 0 else None)
         lines += draft_snapshot_lines('Local editor snapshot', origin.local_draft)
         if origin.cell:
-            lines += ['', 'Retained original judgment:', f'Assessment: {origin.cell.semantic_assessment}; inspected scope: {origin.cell.scope_result}',
-                f'Value: {origin.cell.value}', f'Missing information: {origin.cell.missing_information}', f'Reason: {origin.cell.reason}']
+            lines += draft_snapshot_lines('Retained original judgment', origin.cell, submitted=True)
+            lines += [f'Field revision: {origin.cell.field_revision_id}',
+                'Inspection and support are self-declared, not independently verified.']
         for item in history:
             lines += ['', f'## Search plan revision {item.revision.revision}', f'Revision: {item.revision.revision_id}']
+            lines.append('Plan issues:')
+            lines += [f'  {issue.severity}: {issue.code}: {issue.message}; concept: {issue.concept_id}; variant: {issue.variant_id}'
+                      for issue in item.revision.compiled.issues] or ['  None']
             for candidate in item.revision.compiled.candidates:
                 # Indentation keeps arbitrary researcher text readable as literal
                 # query content, including Markdown fence-like input.
                 lines += ['', 'Exact executable query:', *['    '+line for line in candidate.query.splitlines()],
+                    f'JSON-escaped exact query: {json.dumps(candidate.query, ensure_ascii=True)}',
                     f'Query candidate hash: {candidate.candidate_sha256}',
                     f'Dates: {candidate.date_from} to {candidate.date_to}; sort: {candidate.sort}']
+                lines += [f'Candidate: {candidate.id}; label: {candidate.label}; kind: {candidate.kind}; status: {candidate.status}',
+                    f'Requires split approval: {str(candidate.requires_split_approval).lower()}']
+                if item.revision.draft.input_mode == 'natural_question':
+                    variants = [variant for variant in item.revision.draft.variants if variant.id == candidate.id]
+                    if len(variants) == 1:
+                        lines += [f'Deferral reason: {variants[0].deferral_reason}',
+                            f'Split explanation: {variants[0].split_explanation}']
+                for label, values in [('Deferred constraints', candidate.deferred_constraints),
+                                      ('Unparsed constraints', candidate.unparsed_constraints),
+                                      ('Differences', candidate.differences)]:
+                    lines += [f'{label}:', *(['  '+value for value in values] or ['  None'])]
+                lines.append('Issues:')
+                lines += [f'  {issue.severity}: {issue.code}: {issue.message}; concept: {issue.concept_id}; variant: {issue.variant_id}'
+                          for issue in candidate.issues] or ['  None']
             for approval in item.approvals:
-                lines += [f'Approval: {approval.id}; candidate hash: {approval.candidate_sha256}; {approval.created_at}']
+                lines += [f'Approval: {approval.id}; candidate: {approval.candidate_id}; candidate hash: {approval.candidate_sha256}; {approval.created_at}',
+                    f'Acknowledged deferred concept IDs: {json.dumps(approval.acknowledged_deferred_concept_ids, ensure_ascii=False)}',
+                    f'Accept subquestion split: {str(approval.accept_subquestion_split).lower()}',
+                    f'Acknowledge unparsed strategy: {str(approval.acknowledge_unparsed_strategy).lower()}',
+                    f'Approval meaning: {approval.meaning}']
             for diagnostic in item.diagnostics:
-                lines += [f'Diagnostic: {diagnostic.receipt.id}; status: {diagnostic.receipt.status}; reported count: {diagnostic.receipt.reported_count}']
+                receipt = diagnostic.receipt
+                lines += [f'Diagnostic: {receipt.id}; plan: {diagnostic.plan_id}; revision: {diagnostic.revision_id}; candidate: {diagnostic.candidate_id}; candidate hash: {diagnostic.candidate_sha256}',
+                    f'Provider: {receipt.provider}; status: {receipt.status}; reported count: {receipt.reported_count}; truncated sample: {receipt.truncated_sample}',
+                    f'Query hash: {receipt.query_sha256}; dates: {receipt.date_from} to {receipt.date_to}; sort: {receipt.sort}',
+                    f'Query translation (JSON): {json.dumps(receipt.query_translation, ensure_ascii=True)}',
+                    f'Diagnostic meaning: {receipt.meaning}', 'Diagnostic messages:']
+                lines += [f'  {message.severity}: {message.code}: {message.message}' for message in receipt.messages] or ['  None']
+                lines += [f'Diagnostic error (JSON): {json.dumps(receipt.error.model_dump(mode="json") if receipt.error else None, ensure_ascii=True)}']
         for result in view.executions:
             lines += ['', '## Candidate execution', f'Execution: {result.execution.id}; approval: {result.execution.approval_id}',
+                f'Plan: {result.execution.plan_id}; revision: {result.execution.revision_id}; candidate: {result.execution.candidate_id}; candidate hash: {result.execution.candidate_sha256}',
                 f'Saved search: {result.search.id}; hash: {result.execution.search_snapshot_sha256}',
-                f'Provider: {result.search.provider}; reported: {result.search.total_reported}; fetched: {result.search.fetched_count}; capped: {result.search.truncated}']
+                f'Provider: {result.search.provider}; reported: {result.search.total_reported}; fetched: {result.search.fetched_count}; capped: {result.search.truncated}',
+                f'Query translation (JSON): {json.dumps(result.search.query_translation, ensure_ascii=True)}', 'Search warnings:']
+            lines += ['  '+warning for warning in result.search.warnings] or ['  None']
+            lines += [f'Search errors (JSON): {json.dumps([error.model_dump(mode="json") for error in result.search.errors], ensure_ascii=True)}']
             for candidate in result.candidates:
                 lines += [f'- {candidate.paper.title} ({candidate.paper.id}): {candidate.decision}']
         lines += ['', '## Decision history']
