@@ -25,7 +25,7 @@ class CollectionMapService(PaperMapService):
             if not ready:
                 raise MvpError('map_setup_required', reason)
             captured = CollectionMapInput(collection_ref=request.collection_ref, members=list(resolved.members))
-            return self.store.submit(handle.workspace_id, captured, self.embedder.profile, request)
+            return self.store.submit(handle.workspace_id, captured, self.embedder.profile, request, getattr(self, "adapter_config_json", None))
         with self.registry.lifecycle_guard(handle.workspace_id):
             return self.service_for(mode).with_workspace_state(handle, record)
 

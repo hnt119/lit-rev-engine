@@ -71,6 +71,8 @@ class SearchDefaults(Model):
 
 
 class MapPreferences(Model):
+    # None preserves an existing explicit launch configuration for old settings.
+    enabled: bool | None = None
     cache_dir: str = Field(default='', max_length=1000)
 
 
@@ -151,8 +153,8 @@ class RuntimeSettings:
             result = deepcopy(value)
             result.update(schema_version='runtime-settings.v1', credentials={k: bool(keys.get(k)) for k in ('ncbi_api_key', 'ai_api_key')},
                 status={'pubmed': status('pubmed', pref['pubmed']['enabled']), 'ai': status('ai', ai_enabled),
-                        'maps': {'state': 'Operator configuration',
-                                 'message': 'Saved cache preference is inactive. Set maps.cache_dir in the existing private --config launch file and restart to apply it. No models are downloaded or maps refitted by Settings.'}},
+                        'maps': {'state': 'Configuration saved' if pref['maps']['enabled'] is not None else 'Launch configuration',
+                                 'message': 'Semantic Maps settings apply to future explicit map calculations. Inspect the dedicated Semantic Maps readiness section; saving does not download or execute a model.'}},
                 operator_configuration='unchanged')
             if ai_enabled and pref['ai']['provider'] in {'openai', 'deepseek'} and not keys.get('ai_api_key'):
                 result['status']['ai'] = {'state': 'Configuration valid', 'tested_at': None,
@@ -168,6 +170,9 @@ class RuntimeSettings:
             previous = self._read(owner)
             if previous['revision'] != request.expected_revision:
                 raise MvpError('stale_settings', 'Settings changed in another tab. Keep edits and reload before saving.')
+            if request.preferences.maps.cache_dir:
+                from .map_setup_routes import safe_cache
+                safe_cache(request.preferences.maps.cache_dir)
             keys = dict(self._secrets.get(owner, {}))
             if previous['preferences']['ai']['provider'] != request.preferences.ai.provider:
                 keys.pop('ai_api_key', None)

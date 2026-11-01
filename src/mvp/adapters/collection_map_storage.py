@@ -44,6 +44,9 @@ class CollectionMapStore(MapStore):
                     PRIMARY KEY(map_id,paper_id));
                 CREATE INDEX IF NOT EXISTS collection_map_queue ON collection_map_jobs(status,created_at,id);
             ''')
+        with self.transaction() as db:
+            if 'adapter_config_json' not in {row['name'] for row in db.execute('PRAGMA table_info(collection_map_jobs)')}:
+                db.execute('ALTER TABLE collection_map_jobs ADD COLUMN adapter_config_json TEXT')
 
     @staticmethod
     def input(job):
@@ -62,7 +65,7 @@ class CollectionMapStore(MapStore):
             collection_ref=CollectionInputRef(collection_id=row['collection_id'], collection_snapshot_sha256=row['collection_snapshot_sha256']),
             error=StructuredError.model_validate_json(row['error_json']) if row['error_json'] else None)
 
-    def submit(self, workspace_id, captured, profile, request):
+    def submit(self, workspace_id, captured, profile, request, adapter_config_json=None):
         timestamp = now()
         checksum = digest(captured.model_dump(mode='json'))
         logical = digest({'collection_input': checksum, 'profile': digest(profile.model_dump(mode='json'))})
@@ -83,10 +86,10 @@ class CollectionMapStore(MapStore):
             else:
                 identifier, reused = new_id(), False
                 db.execute('''INSERT INTO collection_map_jobs(id,workspace_id,collection_id,collection_snapshot_sha256,
-                    map_id,logical_key,input_json,input_sha256,profile_json,status,progress_total,created_at,updated_at)
-                    VALUES(?,?,?,?,?,?,?,?,?,'queued',?,?,?)''',
+                    map_id,logical_key,input_json,input_sha256,profile_json,adapter_config_json,status,progress_total,created_at,updated_at)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,'queued',?,?,?)''',
                     (identifier, workspace_id, captured.collection_ref.collection_id, captured.collection_ref.collection_snapshot_sha256,
-                     new_id(), logical, captured.model_dump_json(), checksum, profile.model_dump_json(), len(captured.members), timestamp, timestamp))
+                     new_id(), logical, captured.model_dump_json(), checksum, profile.model_dump_json(), adapter_config_json, len(captured.members), timestamp, timestamp))
             db.execute('INSERT INTO collection_map_requests VALUES(?,?,?,?)', (workspace_id, request.request_id, fingerprint, identifier))
             self._limits(db, workspace_id)
             job = db.execute('SELECT * FROM collection_map_jobs WHERE id=?', (identifier,)).fetchone()

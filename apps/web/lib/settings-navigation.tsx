@@ -2,7 +2,7 @@
 import {createContext,useContext} from "react";
 import type {LocationState} from "../components/workspace-app";
 
-export type SettingsSection="sources"|"retrieval"|"ai"|"privacy";
+export type SettingsSection="sources"|"retrieval"|"maps"|"ai"|"privacy";
 export const SettingsNavigationContext=createContext<((section?:SettingsSection)=>Promise<void>)|null>(null);
 export const SearchDefaultsContext=createContext<{max_results:number;sort:"relevance"|"pub_date"}>({max_results:30,sort:"relevance"});
 export function settingsDestination(current:LocationState,section:SettingsSection="ai"):LocationState {
