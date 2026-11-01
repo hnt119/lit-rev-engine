@@ -261,6 +261,13 @@ def test_exact_submitted_cell_saved_draft_and_historical_references_survive(case
     assert context['reference']['quote']==cell['references'][0]['quote']
     export=json.loads(ok(case.client.get(path(case,view)+'/export'))['json_text'])
     assert export['investigation']['origin']['cell']==cell
+    markdown=ok(case.client.get(path(case,view)+'/export'))['markdown_text']
+    section=markdown.split('Retained original judgment:')[1].split('## Search plan')[0]
+    assert 'Producer: manual' in section
+    assert 'Attached references:' in section and 'Inspected ranges:' in section
+    for key in ('source_id','source_version','source_sha256','blocks_sha256','block_id'):
+        assert section.count(str(ref[key])) >= 2
+    assert section.count(f"half-open Unicode code-point range: [{ref['start']}, {ref['end']})") == 2
     assert any(op['request_id']=='execute' and op['status']=='succeeded' for op in export['operations'])
 
 def test_export_separates_captured_drafts_and_preserves_literal_provenance(case):
@@ -407,3 +414,120 @@ def test_resolved_cell_requires_actual_unresolved_draft_not_mere_presence(case):
     assert create(case,expected_cell_head_id=cell['id'],expected_draft_version=1,local_draft={}).json()['error']['code']=='investigation_origin_resolved'
     view=ok(create(case,expected_cell_head_id=cell['id'],expected_draft_version=1,local_draft={'value':'Unresolved new draft question'}))
     assert view['origin']['cell']==cell
+
+
+def test_export_search_context_is_attributed_to_recorded_revision_and_approval(case):
+    view=save(case,ok(create(case)),query='first ~~~~ query')
+    first=view['plan']['revision']
+    view,_=approve(case,view)
+    approval=view['plan']['approvals'][0]
+    view=save(case,view,key='second',query='second ~~~~~ query')
+    second=view['plan']['revision']
+    before=original(case)
+    exported=ok(case.client.get(path(case,view)+'/export'))
+    audit=json.loads(exported['json_text'])
+    assert original(case)==before
+    assert [x['revision']['revision_id'] for x in audit['plan_history']][-2:]==[first['revision_id'],second['revision_id']]
+    markdown=exported['markdown_text']
+    one=markdown.split(f"Revision: {first['revision_id']}")[1].split('## Search plan revision')[0]
+    two=markdown.split(f"Revision: {second['revision_id']}")[1].split('## Candidate execution')[0]
+    for section,revision in ((one,first),(two,second)):
+        c=revision['compiled']['candidates'][0]
+        assert c['candidate_sha256'] in section
+        for value in c['unparsed_constraints']+c['differences']:
+            assert value in section
+        for issue in c['issues']:
+            assert issue['code'] in section and issue['message'] in section
+        assert 'Requires split approval: false' in section
+    assert f"Approval: {approval['id']}" in one
+    assert 'Accept subquestion split: false' in one
+    assert 'Acknowledge unparsed strategy: true' in one
+    assert 'Approval:' not in two
+    assert markdown.splitlines()[2]=='~~~~~~text' and markdown.splitlines()[-1]=='~~~~~~'
+
+
+def test_export_recorded_deferred_constraint_acknowledgement(case):
+    view=ok(create(case))
+    draft={'original_question':'Question','input_mode':'manual_strategy','manual_strategy':'query',
+        'concepts':[{'id':'later','label':'Deferred ~~~~~~ criterion','role':'population',
+                     'requirement':'required','retrieval_use':'screen_later'}]}
+    view=ok(case.client.put(path(case,view)+'/plan',json={'request_id':'defer','expected_revision_id':view['plan']['revision']['revision_id'],'draft':draft}))
+    revision=view['plan']['revision']; compiled=revision['compiled']['candidates'][0]
+    assert compiled['deferred_constraints']
+    view=ok(case.client.post(path(case,view)+'/approve',json={**candidate(view,'defer-approve'),
+        'acknowledged_deferred_concept_ids':['later'],'acknowledge_unparsed_strategy':True}))
+    before=original(case)
+    out=ok(case.client.get(path(case,view)+'/export'))
+    assert original(case)==before
+    assert json.loads(out['json_text'])['plan_history'][-1]['revision']==revision
+    section=out['markdown_text'].split(f"Revision: {revision['revision_id']}")[1]
+    assert compiled['deferred_constraints'][0] in section
+    assert 'Acknowledged deferred concept IDs: ["later"]' in section
+    assert out['markdown_text'].splitlines()[2]=='~~~~~~~text'
+
+
+def test_export_recorded_split_approval(case):
+    view=ok(create(case))
+    draft={'original_question':'Microbiome in women', 'concepts':[
+        {'id':'topic','label':'Microbiome','role':'topic','requirement':'required','retrieval_use':'query',
+         'terms':[{'id':'term','text':'microbiome','state':'approved'}]},
+        {'id':'population','label':'Women','role':'population','requirement':'required','retrieval_use':'screen_later'}],
+        'variants':[{'id':'split','label':'Subquestion','kind':'subquestion',
+            'expression':{'op':'concept_ref','concept_id':'topic'},'deferred_concept_ids':['population'],
+            'deferral_reason':'Screen population later','split_explanation':'Separate exploratory question'}]}
+    view=ok(case.client.put(path(case,view)+'/plan',json={'request_id':'split','expected_revision_id':view['plan']['revision']['revision_id'],'draft':draft}))
+    revision=view['plan']['revision']; c=revision['compiled']['candidates'][0]
+    assert c['requires_split_approval'] and c['status']=='ready_for_approval'
+    view=ok(case.client.post(path(case,view)+'/approve',json={**candidate(view,'split-approve'),
+        'acknowledged_deferred_concept_ids':['population'],'accept_subquestion_split':True}))
+    before=original(case)
+    out=ok(case.client.get(path(case,view)+'/export'))
+    assert original(case)==before
+    assert json.loads(out['json_text'])['plan_history'][-1]['approvals'][0]['accept_subquestion_split'] is True
+    section=out['markdown_text'].split(f"Revision: {revision['revision_id']}")[1]
+    assert 'Requires split approval: true' in section
+    assert 'Accept subquestion split: true' in section
+    assert 'Acknowledge unparsed strategy: false' in section
+    assert c['differences'][-1] in section
+
+
+def test_export_variant_reasons_match_exact_candidate_and_revision(case):
+    view=ok(create(case))
+    draft={'original_question':'Microbiome in women', 'concepts':[
+        {'id':'topic','label':'Microbiome','role':'topic','requirement':'required','retrieval_use':'query',
+         'terms':[{'id':'term','text':'microbiome','state':'approved'}]},
+        {'id':'population','label':'Women','role':'population','requirement':'required','retrieval_use':'screen_later'}],
+        'variants':[]}
+    for ident in ('one','two'):
+        draft['variants'].append({'id':ident,'label':ident,'kind':'subquestion',
+            'expression':{'op':'concept_ref','concept_id':'topic'},'deferred_concept_ids':['population'],
+            'deferral_reason':f'first {ident} deferral ~~~~~~~~', 'split_explanation':f'first {ident} split'})
+    view=ok(case.client.put(path(case,view)+'/plan',json={'request_id':'variant-first','expected_revision_id':view['plan']['revision']['revision_id'],'draft':draft}))
+    first=view['plan']['revision']
+    draft['variants'][0]['deferral_reason']='second one deferral'
+    draft['variants'][0]['split_explanation']='second one split'
+    draft['variants'][1]['deferral_reason']='second two deferral'
+    draft['variants'][1]['split_explanation']='second two split'
+    view=ok(case.client.put(path(case,view)+'/plan',json={'request_id':'variant-second','expected_revision_id':first['revision_id'],'draft':draft}))
+    second=view['plan']['revision']; before=original(case)
+    out=ok(case.client.get(path(case,view)+'/export'))
+    assert original(case)==before
+    for revision,prefix in ((first,'first'),(second,'second')):
+        section=out['markdown_text'].split(f"Revision: {revision['revision_id']}")[1].split('## Search plan revision')[0].split('## Candidate execution')[0]
+        one=section.split('Candidate: one;')[1].split('Candidate: two;')[0]
+        two=section.split('Candidate: two;')[1]
+        assert f'{prefix} one deferral' in one and f'{prefix} one split' in one
+        assert f'{prefix} two deferral' in two and f'{prefix} two split' in two
+        assert f'{prefix} two deferral' not in one and f'{prefix} one deferral' not in two
+    assert out['markdown_text'].splitlines()[2]=='~~~~~~~~~text'
+
+
+def test_export_manual_candidate_does_not_inherit_variant_reasons(case):
+    view=ok(create(case))
+    draft={'original_question':'Question','input_mode':'manual_strategy','manual_strategy':'query',
+        'variants':[{'id':'manual_strategy','label':'Unrelated','kind':'subquestion',
+            'expression':{'op':'concept_ref','concept_id':'unused'},'deferral_reason':'unrelated reason',
+            'split_explanation':'unrelated split'}]}
+    view=ok(case.client.put(path(case,view)+'/plan',json={'request_id':'manual-variant','expected_revision_id':view['plan']['revision']['revision_id'],'draft':draft}))
+    out=ok(case.client.get(path(case,view)+'/export'))['markdown_text']
+    assert 'unrelated reason' not in out and 'unrelated split' not in out
