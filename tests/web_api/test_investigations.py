@@ -531,3 +531,63 @@ def test_export_manual_candidate_does_not_inherit_variant_reasons(case):
     view=ok(case.client.put(path(case,view)+'/plan',json={'request_id':'manual-variant','expected_revision_id':view['plan']['revision']['revision_id'],'draft':draft}))
     out=ok(case.client.get(path(case,view)+'/export'))['markdown_text']
     assert 'unrelated reason' not in out and 'unrelated split' not in out
+
+
+def test_export_zero_candidate_plan_issues(case):
+    view=ok(create(case))
+    view=ok(case.client.put(path(case,view)+'/plan',json={'request_id':'empty-plan','expected_revision_id':view['plan']['revision']['revision_id'],'draft':{'original_question':'Question'}}))
+    revision=view['plan']['revision']; assert not revision['compiled']['candidates']
+    section=ok(case.client.get(path(case,view)+'/export'))['markdown_text'].split('Revision: '+revision['revision_id'])[1].split('## Candidate execution')[0]
+    for issue in revision['compiled']['issues']:
+        assert issue['severity'] in section and issue['code'] in section and issue['message'] in section
+        assert f"concept: {issue['concept_id']}; variant: {issue['variant_id']}" in section
+
+
+def test_export_lossless_json_encoded_query(case):
+    query='  "quoted" ~~~~~\r\nΩ\u2028end\u2029  \r\n'
+    view=save(case,ok(create(case)),query=query)
+    out=ok(case.client.get(path(case,view)+'/export'))
+    section=out['markdown_text'].split('Revision: '+view['plan']['revision']['revision_id'])[1]
+    encoded=section.split('JSON-escaped exact query: ')[1].split('\n')[0]
+    assert json.loads(encoded)==query and json.loads(encoded).encode()==query.encode()
+    assert json.loads(out['json_text'])['plan_history'][-1]['revision']['draft']['manual_strategy']==query
+
+
+def test_export_recorded_diagnostic_and_search_qualifications(case):
+    from src.mvp.search_plan_contracts import QueryDiagnosticMessage
+    from src.mvp.contracts import StructuredError
+    view,request=approve(case,save(case,ok(create(case))))
+    old=case.diagnostics.check
+    case.diagnostics.check=lambda query,**kw: old(query,**kw).model_copy(update={
+        'query_translation':'diagnostic translation ~~~~~',
+        'messages':[QueryDiagnosticMessage(code='warning-code',message='diagnostic warning',severity='warning'),
+                    QueryDiagnosticMessage(code='error-code',message='diagnostic error message',severity='error')],
+        'error':StructuredError(code='diagnostic-error',message='diagnostic qualification',retryable=True)})
+    view=ok(case.client.post(path(case,view)+'/diagnose',json=candidate(view,'diagnostic-qualifications')))
+    case.provider.transform=lambda result: result.model_copy(update={'warnings':['execution warning'],
+        'query_translation':'execution translation','errors':[StructuredError(code='execution-error',message='execution qualification')]})
+    view=ok(case.client.post(path(case,view)+'/execute',json=request))
+    before=original(case); out=ok(case.client.get(path(case,view)+'/export')); assert original(case)==before
+    audit=json.loads(out['json_text']); revision=audit['plan_history'][-1]; diag=revision['diagnostics'][0]; execution=audit['investigation']['executions'][0]
+    markdown=out['markdown_text']; dsection=markdown.split('Diagnostic: '+diag['receipt']['id'])[1].split('## Candidate execution')[0]
+    esection=markdown.split('Execution: '+execution['execution']['id'])[1].split('## Decision history')[0]
+    for text in ('diagnostic translation ~~~~~','warning-code','diagnostic warning','diagnostic-error','diagnostic qualification',diag['candidate_id'],diag['candidate_sha256'],diag['receipt']['provider']): assert text in dsection
+    for text in ('execution warning','execution translation','execution-error','execution qualification',execution['execution']['revision_id'],execution['execution']['candidate_id'],execution['execution']['candidate_sha256']): assert text in esection
+    for message in diag['receipt']['messages']:
+        assert f"{message['severity']}: {message['code']}: {message['message']}" in dsection
+    for warning in execution['search']['warnings']:
+        assert warning in esection
+    assert markdown.splitlines()[2]=='~~~~~~text'
+
+
+def test_export_empty_diagnostic_qualifications_are_explicit(case):
+    view,request=approve(case,save(case,ok(create(case))))
+    view=ok(case.client.post(path(case,view)+'/diagnose',json=candidate(view,'empty-diagnostic')))
+    view=ok(case.client.post(path(case,view)+'/execute',json=request))
+    out=ok(case.client.get(path(case,view)+'/export'))
+    data=json.loads(out['json_text']); diagnostic=data['plan_history'][-1]['diagnostics'][0]
+    section=out['markdown_text'].split('Diagnostic: '+diagnostic['receipt']['id'])[1].split('## Candidate execution')[0]
+    assert 'Query translation (JSON): null' in section
+    assert 'Diagnostic messages:\n  None' in section and 'Diagnostic error (JSON): null' in section
+    execution=out['markdown_text'].split('## Candidate execution')[1].split('## Decision history')[0]
+    assert 'Query translation (JSON): null' in execution and 'Search errors (JSON): []' in execution

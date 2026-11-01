@@ -230,10 +230,14 @@ class InvestigationService:
                 'Inspection and support are self-declared, not independently verified.']
         for item in history:
             lines += ['', f'## Search plan revision {item.revision.revision}', f'Revision: {item.revision.revision_id}']
+            lines.append('Plan issues:')
+            lines += [f'  {issue.severity}: {issue.code}: {issue.message}; concept: {issue.concept_id}; variant: {issue.variant_id}'
+                      for issue in item.revision.compiled.issues] or ['  None']
             for candidate in item.revision.compiled.candidates:
                 # Indentation keeps arbitrary researcher text readable as literal
                 # query content, including Markdown fence-like input.
                 lines += ['', 'Exact executable query:', *['    '+line for line in candidate.query.splitlines()],
+                    f'JSON-escaped exact query: {json.dumps(candidate.query, ensure_ascii=True)}',
                     f'Query candidate hash: {candidate.candidate_sha256}',
                     f'Dates: {candidate.date_from} to {candidate.date_to}; sort: {candidate.sort}']
                 lines += [f'Candidate: {candidate.id}; label: {candidate.label}; kind: {candidate.kind}; status: {candidate.status}',
@@ -257,11 +261,22 @@ class InvestigationService:
                     f'Acknowledge unparsed strategy: {str(approval.acknowledge_unparsed_strategy).lower()}',
                     f'Approval meaning: {approval.meaning}']
             for diagnostic in item.diagnostics:
-                lines += [f'Diagnostic: {diagnostic.receipt.id}; status: {diagnostic.receipt.status}; reported count: {diagnostic.receipt.reported_count}']
+                receipt = diagnostic.receipt
+                lines += [f'Diagnostic: {receipt.id}; plan: {diagnostic.plan_id}; revision: {diagnostic.revision_id}; candidate: {diagnostic.candidate_id}; candidate hash: {diagnostic.candidate_sha256}',
+                    f'Provider: {receipt.provider}; status: {receipt.status}; reported count: {receipt.reported_count}; truncated sample: {receipt.truncated_sample}',
+                    f'Query hash: {receipt.query_sha256}; dates: {receipt.date_from} to {receipt.date_to}; sort: {receipt.sort}',
+                    f'Query translation (JSON): {json.dumps(receipt.query_translation, ensure_ascii=True)}',
+                    f'Diagnostic meaning: {receipt.meaning}', 'Diagnostic messages:']
+                lines += [f'  {message.severity}: {message.code}: {message.message}' for message in receipt.messages] or ['  None']
+                lines += [f'Diagnostic error (JSON): {json.dumps(receipt.error.model_dump(mode="json") if receipt.error else None, ensure_ascii=True)}']
         for result in view.executions:
             lines += ['', '## Candidate execution', f'Execution: {result.execution.id}; approval: {result.execution.approval_id}',
+                f'Plan: {result.execution.plan_id}; revision: {result.execution.revision_id}; candidate: {result.execution.candidate_id}; candidate hash: {result.execution.candidate_sha256}',
                 f'Saved search: {result.search.id}; hash: {result.execution.search_snapshot_sha256}',
-                f'Provider: {result.search.provider}; reported: {result.search.total_reported}; fetched: {result.search.fetched_count}; capped: {result.search.truncated}']
+                f'Provider: {result.search.provider}; reported: {result.search.total_reported}; fetched: {result.search.fetched_count}; capped: {result.search.truncated}',
+                f'Query translation (JSON): {json.dumps(result.search.query_translation, ensure_ascii=True)}', 'Search warnings:']
+            lines += ['  '+warning for warning in result.search.warnings] or ['  None']
+            lines += [f'Search errors (JSON): {json.dumps([error.model_dump(mode="json") for error in result.search.errors], ensure_ascii=True)}']
             for candidate in result.candidates:
                 lines += [f'- {candidate.paper.title} ({candidate.paper.id}): {candidate.decision}']
         lines += ['', '## Decision history']
