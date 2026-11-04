@@ -5,9 +5,7 @@ name: Issue 18 installed Windows trial
 on:
   push:
     branches:
-      - codex/issue-18-windows-run-1
-      - codex/issue-18-windows-run-2
-      - codex/issue-18-windows-run-3
+      - codex/issue-18-windows-run-4
 
 permissions:
   contents: read
@@ -18,7 +16,7 @@ concurrency:
 
 jobs:
   installed:
-    if: github.repository == 'hnt119/lit-rev-engine' && github.event.repository.private == false
+    if: github.repository == 'hnt119/lit-rev-engine' && github.event.repository.private == false && github.event.created == true && github.run_attempt == 1
     runs-on: windows-2025
     timeout-minutes: 60
     defaults:
@@ -59,23 +57,17 @@ jobs:
           npm.cmd install --prefix "$env:RUNNER_TEMP\issue18-node" --ignore-scripts --no-audit --no-fund --save-exact playwright@1.62.1
           exit $LASTEXITCODE
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        if: github.ref_name == 'codex/issue-18-windows-run-3'
         with:
           ref: 664b86d4ed510c3d16982b5813b27e6bd1150129
           path: release-source
           persist-credentials: false
       - name: Native root regression and distinct installer-only candidate
-        if: github.ref_name == 'codex/issue-18-windows-run-3'
         run: |
           & "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe" tests/windows/installed/build_candidate.py release-source
           exit $LASTEXITCODE
       - name: Native desktop preflight, interactive installer and installed application
         run: |
-          $candidateArgs = @()
-          if ('${{ github.ref_name }}' -eq 'codex/issue-18-windows-run-3') {
-            $candidateArgs = @('--candidate', "$env:RUNNER_TEMP\issue18-candidate\candidate.json")
-          }
-          & "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe" tests/windows/installed/trial.py --tools "$env:RUNNER_TEMP\issue18-node" --output "$env:RUNNER_TEMP\issue18-report" @candidateArgs
+          & "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe" tests/windows/installed/trial.py --tools "$env:RUNNER_TEMP\issue18-node" --output "$env:RUNNER_TEMP\issue18-report" --candidate "$env:RUNNER_TEMP\issue18-candidate\candidate.json"
           exit $LASTEXITCODE
       - name: Independent existing native boundary checks (source, not installed-app credit)
         if: always()
@@ -87,6 +79,16 @@ jobs:
       - name: Allowlisted summary only (no profile, cookies, database or raw logs)
         if: always()
         run: |
-          $report = "$env:RUNNER_TEMP\issue18-report\summary.md"
-          if (Test-Path $report) { Get-Content -LiteralPath $report | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8 }
-          else { 'BLOCKED: trial report absent; inspect toolchain step. No acceptance pass.' | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8 }
+          foreach ($name in @('build-summary.md', 'summary.md')) {
+            $report = "$env:RUNNER_TEMP\issue18-report\$name"
+            if (Test-Path $report) { Get-Content -LiteralPath $report | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8 }
+            else {
+              $folder = "$env:RUNNER_TEMP\issue18-report"
+              New-Item -ItemType Directory -Force -Path $folder | Out-Null
+              $fallback = @{schema='litrev.issue18.not-started.v1'; stage=$name; status='BLOCKED'; checks='All checks in this stage NOT_RUN'; infrastructure_sha='${{ github.sha }}'; run_id='${{ github.run_id }}'} | ConvertTo-Json -Compress
+              $jsonName = if ($name -eq 'summary.md') { 'report.json' } else { 'build-report.json' }
+              $fallback | Out-File -LiteralPath "$folder\$jsonName" -Encoding utf8
+              $fallback | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+              Write-Output $fallback
+            }
+          }

@@ -47,6 +47,8 @@ CHECKS = ('native_desktop_control', 'installer_visible', 'agreement_unchecked',
           'reinstall_preservation', 'permission_failure', 'parent_failure',
           'interrupted_optional_setup', 'cleared_cookie_recovery', 'upgrade',
           'non_ascii_username', 'consumer_windows_11', 'browser_download_trust')
+CHECKS += ('fresh_root_guard', 'unrelated_existing_guard', 'unregistered_existing_guard',
+           'disallowed_destination_guard', 'reparse_guard', 'existing_version_guard')
 
 
 class TrialFailure(Exception):
@@ -176,12 +178,10 @@ class Trial:
         self.owns_installation = False
         self.phase = 'initialization'
         self.args.output.mkdir(parents=True, exist_ok=True)
-        self.candidate = None
-        if args.candidate:
-            self.candidate = json.loads(args.candidate.read_text(encoding='utf-8'))
-            check(self.candidate['application_source'] == SOURCE and self.candidate['application_version'] == VERSION)
-            self.report['candidate'] = {k: v for k, v in self.candidate.items() if k != 'candidate_path'}
-            self.report['installer_sha256'] = self.candidate['installer_sha256']
+        from candidate_receipt import load_candidate
+        self.candidate = load_candidate(args.candidate)
+        self.report['candidate'] = {k: v for k, v in self.candidate.items() if k != 'candidate_path'}
+        self.report['installer_sha256'] = self.candidate['installer_sha256']
 
     def begin(self, name):
         self.phase = name
@@ -203,7 +203,46 @@ class Trial:
         dlg.wait('visible', timeout=60)
         return dlg
 
-    def installer(self, accept):
+    def rejection(self):
+        from pywinauto import Desktop
+        for win in Desktop(backend='win32').windows(title='Literature Review Engine Setup'):
+            for child in win.descendants():
+                code = INSTALLER_ERRORS.get(child.window_text())
+                if code:
+                    return code, Desktop(backend='win32').window(handle=win.handle)
+        return None
+
+    def acknowledge_refusal(self, proc, found):
+        code, dlg = found
+        # MessageBox OK is IDOK=1; NSIS may expose Cancel=2 for MB_ICONSTOP.
+        for control_id in (1, 2):
+            button = dlg.child_window(control_id=control_id)
+            if button.exists() and button.is_visible() and button.window_text() == 'OK':
+                button.click_input()
+                break
+        try:
+            exit_code = proc.wait(timeout=3)
+        except subprocess.TimeoutExpired:
+            # A Section Abort can leave NSIS's failed-install page open.
+            from pywinauto import Desktop
+            for win in Desktop(backend='win32').windows(title='Literature Review Engine Setup'):
+                for control_id in (1, 2):
+                    close = Desktop(backend='win32').window(handle=win.handle).child_window(control_id=control_id)
+                    if close.exists() and close.is_visible() and close.is_enabled() and close.window_text() in ('Close', '&Close', 'Cancel', '&Cancel'):
+                        close.click_input()
+                        break
+            exit_code = proc.wait(timeout=30)
+        return code, exit_code
+
+    def expect_refusal(self, expected, extra=()):
+        proc = self.spawn([self.installer_file, *extra])
+        found = wait(self.rejection, 40)
+        check(found[0] == expected)
+        code, exit_code = self.acknowledge_refusal(proc, found)
+        check(exit_code != 0)
+        self.report.setdefault('guard_refusals', []).append({'check': self.phase, 'code': code, 'exit_code': exit_code})
+
+    def installer(self, accept, existing=False):
         proc = self.spawn([self.installer_file])
         dlg = self.window(r'Literature Review Engine Setup')
         self.passed('installer_visible')
@@ -214,9 +253,10 @@ class Trial:
             self.report['checks']['decline_cancel'] = 'BLOCKED'
             self.report['checks']['affirmative_install'] = 'BLOCKED'
             # Acknowledge the refusal; never bypass the installer guard.
-            dlg.child_window(control_id=2).click_input()
-            self.report['installer_exit_code'] = proc.wait(timeout=30)
+            _, self.report['installer_exit_code'] = self.acknowledge_refusal(proc, (rejection, dlg))
             raise TrialFailure('installer_refused')
+        if not self.root.exists():
+            self.passed('fresh_root_guard')
         dlg.child_window(control_id=1).click_input()
         agreement = dlg.child_window(control_id=1034)
         agreement.wait('visible', timeout=20)
@@ -233,14 +273,27 @@ class Trial:
                 if yes.exists() and yes.is_visible():
                     yes.click_input()
             wait(lambda: not dlg.exists())
-            check(not self.app.exists())
+            proc.wait(timeout=30)
+            check(not self.root.exists() and not self.app.exists())
             self.passed('decline_cancel')
             return
         agreement.click_input()
         check(agreement.get_check_state() == 1)
         check(dlg.child_window(control_id=1).is_enabled())
         dlg.child_window(control_id=1).click_input()
-        wait(lambda: self.app.is_file(), 180)
+        def installed_or_rejected():
+            found = self.rejection()
+            if found:
+                code, exit_code = self.acknowledge_refusal(proc, found)
+                if existing and found[0] == 'root_acl_or_existing_version':
+                    self.report.setdefault('guard_refusals', []).append({'check': self.phase, 'code': code, 'exit_code': exit_code})
+                    return 'existing_refused'
+                self.report['installer_rejection'], self.report['installer_exit_code'] = code, exit_code
+                raise TrialFailure('installer_refused_after_agreement')
+            return 'installed' if self.app.is_file() and not existing else None
+        outcome = wait(installed_or_rejected, 180)
+        if outcome == 'existing_refused':
+            return
         wait(lambda: dlg.child_window(control_id=1).is_enabled(), 180)
         # Finish page run checkbox must remain unselected.
         run = dlg.child_window(control_id=1204)
@@ -248,7 +301,71 @@ class Trial:
             check(run.get_check_state() == 0)
         dlg.child_window(control_id=1).click_input()
         wait(lambda: not dlg.exists())
+        check(proc.wait(timeout=30) == 0)
         self.passed('affirmative_install')
+
+    def guard_cases(self):
+        # These are disposable adversarial fixtures. The fresh-path cancellation
+        # has already completed, and each fixture is removed before installation.
+        check(not self.root.exists())
+        parent_created = not self.root.parent.exists()
+        self.root.mkdir(parents=True)
+        sentinel = self.root / 'issue18-public-sentinel.txt'
+        sentinel.write_bytes(b'public disposable sentinel')
+        try:
+            self.begin('unrelated_existing_guard')
+            self.expect_refusal('unrecognized_root')
+            check(sentinel.read_bytes() == b'public disposable sentinel')
+            self.passed('unrelated_existing_guard')
+            marker = self.root / '.litrev-install.ini'
+            marker.write_text('[Product]\nID=org.hnt119.litrev.desktop\n', encoding='ascii')
+            try:
+                self.begin('unregistered_existing_guard')
+                self.expect_refusal('unregistered_root')
+                check(sentinel.read_bytes() == b'public disposable sentinel')
+                self.passed('unregistered_existing_guard')
+            finally:
+                marker.unlink()
+        finally:
+            sentinel.unlink()
+            self.root.rmdir()
+        target = self.args.output / 'guard-target'
+        target.mkdir()
+        target_file = target / 'sentinel.txt'
+        target_file.write_bytes(b'protected target')
+        try:
+            self.begin('disallowed_destination_guard')
+            check(' ' not in str(target))  # NSIS /D must be last and unquoted.
+            self.expect_refusal('unexpected_root', ['/D=' + str(target)])
+            check(target_file.read_bytes() == b'protected target' and not self.root.exists())
+            self.passed('disallowed_destination_guard')
+            self.begin('reparse_guard')
+            result = subprocess.run(['cmd.exe', '/d', '/c', 'mklink', '/J', str(self.root), str(target)],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=20)
+            check(result.returncode == 0)
+            try:
+                self.expect_refusal('reparse_path')
+                check(target_file.read_bytes() == b'protected target')
+                self.passed('reparse_guard')
+            finally:
+                os.rmdir(self.root)  # Remove our junction only; never recurse.
+        finally:
+            target_file.unlink()
+            target.rmdir()
+            if parent_created:
+                self.root.parent.rmdir()
+        check(not self.root.exists())
+        self.require_no_registration()
+
+    def require_no_registration(self):
+        import winreg
+        for name in (r'Software\hnt119\LiteratureReviewEngineDesktop',
+                     r'Software\Microsoft\Windows\CurrentVersion\Uninstall\org.hnt119.litrev.desktop'):
+            try:
+                with winreg.OpenKey(winreg.HKEY_CURRENT_USER, name):
+                    raise TrialFailure('unexpected_registration')
+            except FileNotFoundError:
+                pass
 
     def app_window(self):
         from pywinauto import Desktop
@@ -275,6 +392,7 @@ class Trial:
         return result
 
     def launch(self, instrumented=True):
+        self.begin('bundled_runtime_execution')
         # Keep system/user directory variables only. Developer tools remain on
         # the runner, but are not exposed through the app's inherited PATH.
         env = {k: os.environ[k] for k in ('SystemRoot', 'WINDIR', 'TEMP', 'TMP',
@@ -354,13 +472,8 @@ class Trial:
         self.report['run_id'] = os.environ.get('GITHUB_RUN_ID', 'local')
         self.report['run_attempt'] = os.environ.get('GITHUB_RUN_ATTEMPT', 'local')
         self.begin('download_checksum')
-        if self.candidate:
-            self.installer_file = Path(self.candidate['candidate_path'])
-            check(self.installer_file.stat().st_size == self.candidate['installer_bytes'] and digest(self.installer_file) == self.candidate['installer_sha256'])
-        else:
-            self.installer_file = Path(os.environ['RUNNER_TEMP']) / 'Issue 18 Setup.exe'
-            urllib.request.urlretrieve(BASE + f'lit-rev-engine-{VERSION}-windows-x64-Setup.exe', self.installer_file)
-            check(self.installer_file.stat().st_size == BYTES and digest(self.installer_file) == SHA)
+        self.installer_file = Path(self.candidate['candidate_path'])
+        check(self.installer_file.stat().st_size == self.candidate['installer_bytes'] and digest(self.installer_file) == self.candidate['installer_sha256'])
         zone = Path(str(self.installer_file) + ':Zone.Identifier')
         self.report['scripted_download_has_zone_identifier'] = zone.exists()
         self.begin('native_desktop_control')
@@ -390,9 +503,12 @@ class Trial:
         self.passed('native_desktop_control')
         self.report['host']['interactive_desktop_control'] = True
         check(not self.root.exists() and not self.data.exists())
+        self.require_no_registration()
         self.owns_installation = True
         self.begin('decline_cancel')
         self.installer(False)
+        self.require_no_registration()
+        self.guard_cases()
         self.begin('affirmative_install')
         self.installer(True)
         if not elevated:
@@ -427,6 +543,16 @@ class Trial:
         self.app_window().wait('visible', timeout=180)
         self.passed('start_shortcut_launch')
         self.quit()
+        self.begin('existing_version_guard')
+        unchanged = digest(self.app.parent / 'INSTALLATION.json')
+        retained = {p.relative_to(self.data): digest(p) for p in self.data.rglob('*') if p.is_file()}
+        self.installer(True, existing=True)
+        check(digest(self.app.parent / 'INSTALLATION.json') == unchanged)
+        for relative, identity in manifest['files'].items():
+            target = self.app.parent / relative
+            check(target.stat().st_size == identity['bytes'] and digest(target) == identity['sha256'])
+        check(all((self.data / p).is_file() and digest(self.data / p) == h for p, h in retained.items()))
+        self.passed('existing_version_guard')
         self.launch()
         observed = json.loads((self.data / 'desktop-status.json').read_text(encoding='utf-8'))
         self.report['observed_runtime_versions'] = {key: observed.get(key) for key in ('electron', 'chrome', 'node')}
@@ -494,6 +620,9 @@ class Trial:
                          'label': child.window_text() if child.window_text() in labels else 'redacted'}
                         for child in win.descendants()[:40]]}
                     for win in Desktop(backend='win32').windows() if win.window_text() in allowed]
+                self.report['observed_refusals'] = [INSTALLER_ERRORS[child.window_text()]
+                    for win in Desktop(backend='win32').windows() if win.window_text() in allowed
+                    for child in win.descendants() if child.window_text() in INSTALLER_ERRORS]
             except Exception:
                 self.report['native_diagnostics'] = 'unavailable'
         # Cleanup is constrained to actual installed executable paths and our
@@ -572,7 +701,19 @@ def main():
         return 0
     if sys.platform != 'win32':
         parser.error('Native Windows required; Linux is not an acceptance substitute')
-    trial = Trial(args)
+    try:
+        check(args.candidate is not None and args.output is not None)
+        trial = Trial(args)
+    except Exception as error:
+        output = args.output or Path(os.environ['RUNNER_TEMP']) / 'issue18-report'
+        output.mkdir(exist_ok=True)
+        report = {'schema': 'litrev.issue18.installed-trial.v1', 'phase': 'candidate_validation',
+            'checks': {name: 'NOT_RUN' for name in CHECKS}, 'status': 'BLOCKED',
+            'failure_type': type(error).__name__, 'infrastructure_sha': os.environ.get('GITHUB_SHA')}
+        (output / 'report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+        (output / 'summary.md').write_text('BLOCKED: candidate validation failed. No installer launched.', encoding='utf-8')
+        print(json.dumps(report), flush=True)
+        return 1
     trial.started = time.monotonic()
     result = 0
     try:

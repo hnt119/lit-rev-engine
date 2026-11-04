@@ -163,3 +163,37 @@ Mac access, paid infrastructure or merge is currently needed. Do not rerun a job
 or push any numbered execution branch without renewed run authorization. Current
 PR-branch documentation pushes do not trigger Windows jobs. Keep all historical
 failure records; start from the final PR head and the immutable release source.
+
+## Additional authorization: run 4 preparation
+
+The owner authorized exactly one further standard hosted Windows job, 60 minutes,
+following focused independent review. Earlier run records and their failures are
+unchanged. PR head at resumption was `7051b3663db6f200a364aee46122080e67a44ec7`.
+
+The current workflow triggers only creation of `codex/issue-18-windows-run-4`
+and permits attempt 1 only. Release checkout, candidate build and `--candidate`
+selection are unconditional: no run-3 selector or published-installer fallback.
+The candidate receipt must bind this run/attempt/infrastructure SHA, exact patch,
+source, original installer, compiler ZIP, payload manifest and actual new EXE
+bytes. Missing/invalid/stale metadata stops before launch.
+
+Compiler preprocessor and full build use the exact release helper's defines and
+`-NOCD`, NSISDIR and `apps/desktop` working directory; preprocessing adds `-PPO`.
+The include file is compared with committed bytes before compilation. Build
+reports are emitted even on failure. Candidate identity is now
+`issue18-installer-root-rc2` (no build success claimed by this preparation).
+
+Actual Setup guard cases precede installation: fresh absent path/cancel, unknown
+folder, known marker without registration, alternate destination, and junction.
+Only disposable sentinel fixtures are created, after the initial fresh-path
+check, and removed before affirmative installation. No pre-created final root
+hides the missing-leaf defect. Same-version rejection after normal quit is
+followed by a complete installed-file and retained-data hash check. Success then
+continues the existing installed research/export/persistence sequence.
+
+Pre-execution checks: 18 receipt/parser regressions, Python/Node syntax, workflow
+structure, patch application to exact release files, actual agreement include,
+and official compiler ZIP integrity. These checks do not establish compilation
+or Windows acceptance. The independent reviewer checked NSIS include resolution,
+compiler flags/working directory and failed-install page button behavior against
+upstream source. All final native outcomes remain pending the one authorized run.
