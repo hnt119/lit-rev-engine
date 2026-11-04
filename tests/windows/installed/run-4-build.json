@@ -1,0 +1,23 @@
+{
+  "schema": "litrev.issue18.build.v2",
+  "phase": "build",
+  "checks": {
+    "source": "PASS",
+    "original_installer": "PASS",
+    "compiler": "PASS",
+    "native_path_regression": "PASS",
+    "payload": "PASS",
+    "agreement_include": "PASS",
+    "preprocessor": "PASS",
+    "build": "FAIL",
+    "receipt": "NOT_RUN"
+  },
+  "infrastructure_sha": "b79e9164b46e4e85e4782e07ec448d6f6bf7eebf",
+  "run_id": "41796027624",
+  "original_download_zone_identifier": false,
+  "payload_file_count": 7451,
+  "command_exit_code": 1,
+  "diagnostic": "compiler_error",
+  "failure_type": "RuntimeError",
+  "elapsed_seconds": 83.7
+}
