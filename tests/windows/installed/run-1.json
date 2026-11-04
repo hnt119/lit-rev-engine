@@ -1,0 +1,115 @@
+{
+  "schema": "litrev.issue18.installed-trial.v1",
+  "source_commit": "664b86d4ed510c3d16982b5813b27e6bd1150129",
+  "installer_sha256": "75595d013fbdf4694301a00dd0e233a6b53e47c6cf5fb3713d0d0e7aa1e58359",
+  "version": "0.3.0-windows-experimental-beta.2",
+  "checks": {
+    "native_desktop_control": "PASS",
+    "installer_visible": "PASS",
+    "agreement_unchecked": "NOT_RUN",
+    "decline_cancel": "FAIL",
+    "affirmative_install": "NOT_RUN",
+    "installed_files": "NOT_RUN",
+    "start_shortcut": "NOT_RUN",
+    "uninstall_registration": "NOT_RUN",
+    "non_admin_install": "NOT_RUN",
+    "start_shortcut_launch": "NOT_RUN",
+    "bundled_runtime_execution": "NOT_RUN",
+    "installed_driver_compatibility": "NOT_RUN",
+    "saved_example_offline": "NOT_RUN",
+    "source_preparation": "NOT_RUN",
+    "three_papers_three_fields": "NOT_RUN",
+    "exact_excerpt_attach": "NOT_RUN",
+    "interpretation_submit": "NOT_RUN",
+    "missing_information": "NOT_RUN",
+    "draft_distinct": "NOT_RUN",
+    "native_json_export": "NOT_RUN",
+    "native_csv_export": "NOT_RUN",
+    "independent_export_parse": "NOT_RUN",
+    "normal_quit_cleanup": "NOT_RUN",
+    "reopen_persistence": "NOT_RUN",
+    "single_instance": "NOT_RUN",
+    "foreign_listener_refusal": "NOT_RUN",
+    "unicode_path": "NOT_RUN",
+    "uninstall_preservation": "NOT_RUN",
+    "reinstall_preservation": "NOT_RUN",
+    "permission_failure": "NOT_RUN",
+    "parent_failure": "NOT_RUN",
+    "interrupted_optional_setup": "NOT_RUN",
+    "cleared_cookie_recovery": "NOT_RUN",
+    "upgrade": "NOT_RUN",
+    "non_ascii_username": "NOT_RUN",
+    "consumer_windows_11": "NOT_RUN",
+    "browser_download_trust": "NOT_RUN"
+  },
+  "phase": "decline_cancel",
+  "instrumentation": [
+    "pywinauto 0.6.9 win32 native controls",
+    "Playwright 1.62.1 connectOverCDP; no Electron launcher",
+    "--remote-debugging-address=127.0.0.1",
+    "--remote-debugging-port=49228"
+  ],
+  "model_downloads": "disabled",
+  "live_pubmed": "NOT_RUN",
+  "generation": "NOT_RUN",
+  "host": {
+    "os": "Windows-2022Server-10.0.26100-SP0",
+    "edition": "ServerDatacenter",
+    "architecture": "AMD64",
+    "elevated": true,
+    "runner_image_os": "win25-vs2026",
+    "runner_image_version": "20261030.294.1",
+    "developer_tools_present": true,
+    "input_desktop": "Default",
+    "session_id": 2,
+    "interactive_desktop_control": true
+  },
+  "infrastructure_sha": "afb1a439a9316e7ef5b02656a1918cb4bf8c0ebf",
+  "run_id": "41782543569",
+  "run_attempt": "1",
+  "scripted_download_has_zone_identifier": false,
+  "failure": {
+    "phase": "decline_cancel",
+    "type": "ElementNotFoundError",
+    "winerror": null,
+    "category": "unclassified; inspect before repair"
+  },
+  "native_failure_controls": [
+    {
+      "window": "Literature Review Engine Setup",
+      "controls": [
+        {
+          "id": 2,
+          "class": "Button",
+          "visible": true,
+          "enabled": true,
+          "label": "OK"
+        },
+        {
+          "id": 20,
+          "class": "Static",
+          "visible": true,
+          "enabled": true,
+          "label": "redacted"
+        },
+        {
+          "id": 65535,
+          "class": "Static",
+          "visible": true,
+          "enabled": true,
+          "label": "redacted"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "installed_processes_remaining": 0,
+    "forced_owned_cleanup": false,
+    "processes_after_cleanup": 0
+  },
+  "resource_usage": {
+    "elapsed_seconds": 11.9,
+    "installer_bytes": 195492146,
+    "installed_file_bytes": 0
+  }
+}
