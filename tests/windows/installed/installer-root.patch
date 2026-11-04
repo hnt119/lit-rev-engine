@@ -1,0 +1,31 @@
+diff --git a/apps/desktop/installer.nsi b/apps/desktop/installer.nsi
+index a5946e9..579039e 100644
+--- a/apps/desktop/installer.nsi
++++ b/apps/desktop/installer.nsi
+@@ -86,11 +86,23 @@ FunctionEnd
+ 
+ !macro RootGuard PREFIX
+ Function ${PREFIX}ValidateRoot
+-  GetFullPathName $0 "$LOCALAPPDATA\Programs\Literature Review Engine"
+-  GetFullPathName $1 "$INSTDIR"
+-  StrCmp $0 $1 +3
++  ; NSIS GetFullPathName clears missing final components. Use the Windows
++  ; lexical path API, checking failure/truncation before comparing either path.
++  StrCpy $0 ""
++  StrCpy $1 ""
++  System::Call 'kernel32::GetFullPathNameW(w "$LOCALAPPDATA\Programs\Literature Review Engine", i ${NSIS_MAX_STRLEN}, w .r0, p 0)i.r5'
++  IntCmp $5 0 root_invalid_${PREFIX} root_invalid_${PREFIX} +1
++  IntCmp $5 ${NSIS_MAX_STRLEN} root_invalid_${PREFIX} +1 root_invalid_${PREFIX}
++  System::Call 'kernel32::GetFullPathNameW(w "$INSTDIR", i ${NSIS_MAX_STRLEN}, w .r1, p 0)i.r5'
++  IntCmp $5 0 root_invalid_${PREFIX} root_invalid_${PREFIX} +1
++  IntCmp $5 ${NSIS_MAX_STRLEN} root_invalid_${PREFIX} +1 root_invalid_${PREFIX}
++  StrCmp $0 "" root_invalid_${PREFIX}
++  StrCmp $1 "" root_invalid_${PREFIX}
++  StrCmp $0 $1 root_valid_${PREFIX}
++  root_invalid_${PREFIX}:
+     MessageBox MB_ICONSTOP "Only this user's fixed Programs application directory is accepted. No research directory was changed."
+     Abort
++  root_valid_${PREFIX}:
+   StrCpy $INSTDIR $0
+   StrCpy $2 $0
+   root_loop_${PREFIX}:

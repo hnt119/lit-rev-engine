@@ -176,6 +176,12 @@ class Trial:
         self.owns_installation = False
         self.phase = 'initialization'
         self.args.output.mkdir(parents=True, exist_ok=True)
+        self.candidate = None
+        if args.candidate:
+            self.candidate = json.loads(args.candidate.read_text(encoding='utf-8'))
+            check(self.candidate['application_source'] == SOURCE and self.candidate['application_version'] == VERSION)
+            self.report['candidate'] = {k: v for k, v in self.candidate.items() if k != 'candidate_path'}
+            self.report['installer_sha256'] = self.candidate['installer_sha256']
 
     def begin(self, name):
         self.phase = name
@@ -348,9 +354,13 @@ class Trial:
         self.report['run_id'] = os.environ.get('GITHUB_RUN_ID', 'local')
         self.report['run_attempt'] = os.environ.get('GITHUB_RUN_ATTEMPT', 'local')
         self.begin('download_checksum')
-        self.installer_file = Path(os.environ['RUNNER_TEMP']) / 'Issue 18 Setup.exe'
-        urllib.request.urlretrieve(BASE + f'lit-rev-engine-{VERSION}-windows-x64-Setup.exe', self.installer_file)
-        check(self.installer_file.stat().st_size == BYTES and digest(self.installer_file) == SHA)
+        if self.candidate:
+            self.installer_file = Path(self.candidate['candidate_path'])
+            check(self.installer_file.stat().st_size == self.candidate['installer_bytes'] and digest(self.installer_file) == self.candidate['installer_sha256'])
+        else:
+            self.installer_file = Path(os.environ['RUNNER_TEMP']) / 'Issue 18 Setup.exe'
+            urllib.request.urlretrieve(BASE + f'lit-rev-engine-{VERSION}-windows-x64-Setup.exe', self.installer_file)
+            check(self.installer_file.stat().st_size == BYTES and digest(self.installer_file) == SHA)
         zone = Path(str(self.installer_file) + ':Zone.Identifier')
         self.report['scripted_download_has_zone_identifier'] = zone.exists()
         self.begin('native_desktop_control')
@@ -511,12 +521,12 @@ class Trial:
         except OSError:
             installed_bytes = None
         self.report['resource_usage'] = {'elapsed_seconds': round(time.monotonic() - self.started, 1),
-            'installer_bytes': BYTES, 'installed_file_bytes': installed_bytes}
+            'installer_bytes': self.candidate['installer_bytes'] if self.candidate else BYTES, 'installed_file_bytes': installed_bytes}
         self.args.output.joinpath('report.json').write_text(json.dumps(self.report, indent=2), encoding='utf-8')
         lines = ['# Issue 18 installed Windows trial', '',
             f'Infrastructure: `{self.report.get("infrastructure_sha", "unknown")}`',
             f'Application source: `{SOURCE}`; version `{VERSION}`',
-            f'Installer SHA-256: `{SHA}`', '',
+            f'Installer SHA-256: `{self.report["installer_sha256"]}`', '',
             '```json', json.dumps({k: v for k, v in self.report.items() if k != 'checks'}, indent=2), '```', '',
             '| Acceptance check | Actual result |', '| --- | --- |']
         lines += [f'| {k} | {v} |' for k, v in self.report['checks'].items()]
@@ -536,6 +546,7 @@ def main():
     parser.add_argument('--private-export-directory', type=Path)
     parser.add_argument('--tools', type=Path)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--candidate', type=Path)
     args = parser.parse_args()
     if args.preflight_window:
         preflight_window()

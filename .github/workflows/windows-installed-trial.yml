@@ -33,6 +33,8 @@ jobs:
       HF_HUB_DISABLE_TELEMETRY: '1'
       NEXT_TELEMETRY_DISABLED: '1'
     steps:
+      - name: Preserve exact committed source bytes
+        run: git config --global core.autocrlf false
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
@@ -56,9 +58,24 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           npm.cmd install --prefix "$env:RUNNER_TEMP\issue18-node" --ignore-scripts --no-audit --no-fund --save-exact playwright@1.62.1
           exit $LASTEXITCODE
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        if: github.ref_name == 'codex/issue-18-windows-run-3'
+        with:
+          ref: 664b86d4ed510c3d16982b5813b27e6bd1150129
+          path: release-source
+          persist-credentials: false
+      - name: Native root regression and distinct installer-only candidate
+        if: github.ref_name == 'codex/issue-18-windows-run-3'
+        run: |
+          & "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe" tests/windows/installed/build_candidate.py release-source
+          exit $LASTEXITCODE
       - name: Native desktop preflight, interactive installer and installed application
         run: |
-          & "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe" tests/windows/installed/trial.py --tools "$env:RUNNER_TEMP\issue18-node" --output "$env:RUNNER_TEMP\issue18-report"
+          $candidateArgs = @()
+          if ('${{ github.ref_name }}' -eq 'codex/issue-18-windows-run-3') {
+            $candidateArgs = @('--candidate', "$env:RUNNER_TEMP\issue18-candidate\candidate.json")
+          }
+          & "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe" tests/windows/installed/trial.py --tools "$env:RUNNER_TEMP\issue18-node" --output "$env:RUNNER_TEMP\issue18-report" @candidateArgs
           exit $LASTEXITCODE
       - name: Independent existing native boundary checks (source, not installed-app credit)
         if: always()

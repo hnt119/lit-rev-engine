@@ -202,3 +202,45 @@ bytes/processes; scripted download had no Zone.Identifier (not browser trust).
 No artifact/cache upload. A second run adds fixed installer-refusal enums and
 independent native OS/architecture readback, repairing the automation's failure
 to handle a refusal dialog. It will not bypass any installer/security guard.
+
+## Attempt 2 and bounded installer-only repair
+
+Infrastructure `4a788d6e866ae23167cf2d4540d7def544bd2419`;
+[run 41782980639](https://github.com/hnt119/lit-rev-engine/actions/runs/41782980639),
+[job 126418580980](https://github.com/hnt119/lit-rev-engine/actions/runs/41782980639/job/126418580980).
+[run-2.json](run-2.json) preserves the exact controlled report. Reproduced the
+published installer's refusal before agreement: `unrecognized_root`, exit 2,
+although the expected install root was absent. Native processor architecture 9,
+RtlGetVersion success with 10.0.26100, actual registry Server 2025 Datacenter
+24H2/build 26100.33674. GUI PASS; install/decline BLOCKED, all downstream paths
+NOT_RUN. Five source checks PASS in 0.98s; zero installed bytes/owned processes.
+
+Independent source diagnosis: NSIS 3.13 `Source/exehead/exec.c` lines 466–490
+(`EW_GETFULLPATHNAME`) clears its result for a missing final path component.
+Release RootGuard applies that instruction to both absent install paths, allowing
+empty strings to compare equal and assigning empty INSTDIR. The subsequent
+`IfFileExists "$INSTDIR\*"` observes a drive-root wildcard, producing the refusal.
+This is a packaging defect; no Windows protection needs weakening.
+
+The exact release repair is [installer-root.patch](installer-root.patch), against
+`664b86d`, not a claim that this installer file exists on current main. It calls
+Windows GetFullPathNameW directly, checks failure/truncation/empty strings, then
+keeps path equality, reparse, ownership, agreement and lifecycle checks intact.
+
+Final attempt builds **issue18-installer-root-rc1-Setup.exe**, a distinct ephemeral
+installer-only candidate. `build_candidate.py` checks out the exact release,
+verifies the original installer, extracts and verifies the complete existing
+installed-file manifest, applies only this patch, and calls the release's
+existing `make_windows_installer`. Every application payload byte, version,
+source binding and licensing notice stays unchanged. This is explicitly **not**
+a current-main build or an upgrade test. The receipt records separate installer
+patch/infrastructure identity, original and new hashes, manifest hash and the
+actual official Windows NSIS 3.13 compiler ZIP hash. No published asset is changed.
+The extracted app is never launched; only the newly compiled interactive Setup
+is launched for acceptance.
+
+A separate tiny native NSIS regression executable installs nothing. It requires
+original missing-leaf canonicalization to reproduce empty output and the checked
+Windows API to return exact missing/existing paths. It tests path mechanics,
+not all RootGuard ACL/reparse cases. Public payload/compiler downloads remain
+on the disposable runner; no installer upload is configured.
