@@ -111,7 +111,8 @@ function command(args) {
     assert.ok((await cells.nth(2).innerText()).includes('SAVED DRAFT'));
     pass('draft_distinct');
     await page.getByText('Comparison tools and revision history',{exact:true}).click();
-    const folder=path.join(output,'exports with spaces 亚洲');fs.mkdirSync(folder,{recursive:true});
+    const folder=path.join(output,'exports with spaces 亚洲');
+    await command([path.join(__dirname,'trial.py'),'--private-export-directory',folder]);
     for(const [extension,name] of [['json','Download board audit JSON'],['csv','Download board CSV']]){
       checkpoint(`native_${extension}_export`);
       const save=command([path.join(__dirname,'trial.py'),'--save-dialog',path.join(folder,`comparison.${extension}`)]);
@@ -139,6 +140,12 @@ function command(args) {
     assert.ok((await cells.nth(2).innerText()).includes('Not yet submitted'));
     await cells.first().click();
     await page.getByText(submitted,{exact:true}).first().waitFor();
+    const more=page.locator('details').filter({has:page.getByText('More evidence tools, proposals and history',{exact:true})});
+    await more.locator('summary').click();
+    await button('Load immutable cell history').click();
+    const history=page.locator('[aria-label="Immutable cell history"]');
+    await history.getByText(submitted,{exact:true}).waitFor();
+    assert.equal(await history.locator('article.history-item').count(),1);
     pass('reopen_persistence');
   }
   assert.equal(forbidden.length,0);

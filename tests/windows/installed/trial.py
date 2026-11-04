@@ -472,6 +472,7 @@ def main():
     parser.add_argument('--save-dialog', type=Path)
     parser.add_argument('--export-ack', action='store_true')
     parser.add_argument('--parse-exports', type=Path)
+    parser.add_argument('--private-export-directory', type=Path)
     parser.add_argument('--tools', type=Path)
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
@@ -486,6 +487,16 @@ def main():
         return 0
     if args.parse_exports:
         parse_exports(args.parse_exports)
+        return 0
+    if args.private_export_directory:
+        destination = args.private_export_directory.resolve()
+        expected = Path(os.environ['RUNNER_TEMP']).resolve() / 'issue18-report' / 'exports with spaces 亚洲'
+        check(destination == expected and not destination.exists())
+        # Create only our new disposable output directory with the current SID
+        # and protected ACL. Never relax the native writer's destination checks.
+        sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+        from src.platform_support import private_directory
+        private_directory(destination)
         return 0
     if sys.platform != 'win32':
         parser.error('Native Windows required; Linux is not an acceptance substitute')
