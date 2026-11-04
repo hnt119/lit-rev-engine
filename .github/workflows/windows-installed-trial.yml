@@ -1,0 +1,75 @@
+name: Issue 18 installed Windows trial
+
+# Push each numbered execution branch ONCE. The preparation/PR branch never
+# triggers this workflow. No dispatch registration or merge is required.
+on:
+  push:
+    branches:
+      - codex/issue-18-windows-run-1
+      - codex/issue-18-windows-run-2
+      - codex/issue-18-windows-run-3
+
+permissions:
+  contents: read
+
+concurrency:
+  group: issue-18-windows-installed-trial
+  cancel-in-progress: false
+
+jobs:
+  installed:
+    if: github.repository == 'hnt119/lit-rev-engine' && github.event.repository.private == false
+    runs-on: windows-2025
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PIP_NO_CACHE_DIR: '1'
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+      HF_HUB_OFFLINE: '1'
+      TRANSFORMERS_OFFLINE: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.7'
+          architecture: x64
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.19.0'
+          architecture: x64
+      - name: Verify official pinned driver availability and install test-only tools
+        run: |
+          python -m venv "$env:RUNNER_TEMP\issue18-tools"
+          $py = "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe"
+          & $py -m pip install --dry-run --only-binary=:all: pywinauto==0.6.9 pywin32==312 psutil==7.2.2 pytest==9.1.0
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          & $py -m pip install --only-binary=:all: pywinauto==0.6.9 pywin32==312 psutil==7.2.2 pytest==9.1.0
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          npm.cmd view playwright@1.62.1 version
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          npm.cmd install --prefix "$env:RUNNER_TEMP\issue18-node" --ignore-scripts --no-audit --no-fund --save-exact playwright@1.62.1
+          exit $LASTEXITCODE
+      - name: Native desktop preflight, interactive installer and installed application
+        run: |
+          & "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe" tests/windows/installed/trial.py --tools "$env:RUNNER_TEMP\issue18-node" --output "$env:RUNNER_TEMP\issue18-report"
+          exit $LASTEXITCODE
+      - name: Independent existing native boundary checks (source, not installed-app credit)
+        if: always()
+        run: |
+          $py = "$env:RUNNER_TEMP\issue18-tools\Scripts\python.exe"
+          if (-not (Test-Path $py)) { throw 'Toolchain absent; native source checks NOT_RUN' }
+          & $py -m pytest -q -p no:cacheprovider -p tests.windows.native_fixtures tests/windows/test_native_boundary.py::test_private_current_sid_acl_strict_read_and_atomic_replace tests/windows/test_native_boundary.py::test_real_lockfileex_cross_process_shared_exclusive_and_nonblocking tests/windows/test_native_boundary.py::test_long_unicode_private_path_and_process_arguments tests/windows/test_native_boundary.py::test_job_kills_only_owned_children_and_exact_listener_required tests/windows/test_native_boundary.py::test_parent_crash_closes_job_and_children
+          exit $LASTEXITCODE
+      - name: Allowlisted summary only (no profile, cookies, database or raw logs)
+        if: always()
+        run: |
+          $report = "$env:RUNNER_TEMP\issue18-report\summary.md"
+          if (Test-Path $report) { Get-Content -LiteralPath $report | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8 }
+          else { 'BLOCKED: trial report absent; inspect toolchain step. No acceptance pass.' | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8 }
