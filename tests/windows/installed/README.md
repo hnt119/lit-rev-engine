@@ -1,246 +1,165 @@
-# Issue 18: installed Windows acceptance trial
+# Issue 18 — actual hosted Windows trial
 
-## Resumed execution — 4 November 2026
+**Result: BLOCKED. Three of three authorized attempts completed.** The published
+Setup.exe ran twice on real Windows, but refused before its agreement page.
+Nothing was installed and the application never launched. A native regression
+confirmed a packaging defect. Its proposed repair remains unqualified because
+candidate compilation hit a second Windows build-path failure. No candidate EXE
+or checksum was produced. No further runs, merge, release, tag or issue closure.
 
-The prior preparation below is retained as history. API access now works with
-Codex Cloud's authorized network permission. Repository read/write is reported;
-Actions run/status reads work, and actual historical job logs were read through
-the GitHub connector. The CLI log redirect receives 403; use the connector.
-The Actions settings endpoint alone returns integration 403; no settings change
-is required. A numbered branch push will establish actual trigger permission.
-No Windows attempt has yet been triggered at this checkpoint.
+[Draft PR #31](https://github.com/hnt119/lit-rev-engine/pull/31) ·
+[Issue #18](https://github.com/hnt119/lit-rev-engine/issues/18).
+One Codex Cloud implementer and a fresh independent native agent reviewed exact
+source, actual streamed installer bytes, real job logs, assertions and artifacts.
+Independent review is source/evidence review, not a separate Windows execution.
 
-Current main remains `abd529dbb6dabc94312ebb5e7d4a7909d44d629d`. Independent
-verifier re-streamed and hashed the published Setup.exe and checked annotated
-tag/source/manifests. Official Python 3.12.7 win32 x64 manifest entry, Node
-24.19.0 win-x64 release, Playwright 1.62.1 registry entry and CPython 3.12 x64
-pywin32/psutil wheels were checked before execution. The installer OS gate accepts
-AMD64 NT 10 build >=22000; actual Server 2025 behavior still needs the run.
-No old workflow is dispatched: its model defaults are unsafe for this task.
-The existing three numbered push routes prevent automatic PR-trigger duplicates.
-Bounded native control diagnostics were added; no application code was changed.
+## Exact identities and access
 
-## Historical preparation record — execution was blocked
-
-Goal: test the published installer on standard public GitHub-hosted x64 Windows;
-no Mac, Linux substitute GUI, paid infrastructure, model download, live PubMed,
-generation, release publication, tag, merge, or issue closure.
-
-Integration owner: Codex Cloud implementer. A separate native Codex agent has
-independently checked release/source identities and reviewed the harness.
-Its review is **source review**, not an independent Windows execution.
-The verifier independently rehashed the actual downloaded Setup.exe, reran the
-six parser tests, and found a failure-status mapping bug in the unexecuted
-harness; that mapping was corrected before any Windows attempt.
-
-| Identity | Observed value |
+| Identity | Value |
 | --- | --- |
-| Infrastructure base/current main at start | `abd529dbb6dabc94312ebb5e7d4a7909d44d629d` |
+| Current main / infrastructure base | `abd529dbb6dabc94312ebb5e7d4a7909d44d629d` |
 | Accepted Core MVP ancestor, preserved | `1c6744de2ae0149f96f2063120b629a1f0eb17c7` |
-| Published installer application source/tag commit | `664b86d4ed510c3d16982b5813b27e6bd1150129` |
-| Published version | `0.3.0-windows-experimental-beta.2`, build 3003 |
-| Setup.exe size | 195492146 bytes |
-| Setup.exe SHA-256, actual anonymous download verified on Linux | `75595d013fbdf4694301a00dd0e233a6b53e47c6cf5fb3713d0d0e7aa1e58359` |
-| Declared bundled Electron | 45.0.0, Windows x64 |
-| Declared bundled Python | 3.12.15+20261021, x86_64-pc-windows-msvc |
-| Codex execution machine | Linux 6.18.57, x86_64; not Windows |
-| Remote Windows OS/image/account/desktop/runtime execution | NOT_RUN |
-| Windows attempts used | **0 of 3**; no execution branch pushed |
-| Workflow/run/job links | NOT_RUN; no run ID exists for this trial |
+| Published application source / release tag commit | `664b86d4ed510c3d16982b5813b27e6bd1150129` |
+| Published version / native build | `0.3.0-windows-experimental-beta.2` / 3003 |
+| Published Setup.exe bytes | 195492146 |
+| Published Setup.exe SHA-256 | `75595d013fbdf4694301a00dd0e233a6b53e47c6cf5fb3713d0d0e7aa1e58359` |
+| Published installed-file manifest SHA-256 | `7c6a2627831f1082a9163e599415c1f1f239036a3713912609fd95e5a68e5e34` |
+| Declared bundled runtimes | Electron 45.0.0 Windows x64; Python 3.12.15+20261021 x86_64-pc-windows-msvc |
+| Actual bundled runtime execution | NOT_RUN |
+| Attempted replacement installer identity | `issue18-installer-root-rc1`; build FAIL, no final hash |
 
-Installer:
-<https://github.com/hnt119/lit-rev-engine/releases/download/v0.3.0-windows-experimental-beta.2/lit-rev-engine-0.3.0-windows-experimental-beta.2-windows-x64-Setup.exe>
+[Published release and companions](https://github.com/hnt119/lit-rev-engine/releases/tag/v0.3.0-windows-experimental-beta.2).
+Actual anonymous installer GET/hash, annotated tag, SOURCE_AND_BUILD.json,
+WINDOWS_BUILD_METADATA.json and repository release records agree. Issue #18's
+historical “no public EXE” statement is obsolete. Current main's desktop sources
+differ materially: **these installer observations do not qualify current main**.
+Licensing texts, agreement and published assets were not changed.
 
-Source-bound release instructions:
-[installation](../../../docs/releases/v0.3.0-windows-experimental-beta.2/INSTALL_WINDOWS.md),
-[historical validation](../../../docs/releases/v0.3.0-windows-experimental-beta.2/VALIDATION.md).
-Downloaded SOURCE_AND_BUILD.json and WINDOWS_BUILD_METADATA.json agree with the
-installer identity. The tag resolves to the stated source. Current main has a
-different desktop source tree: **a test of this installer is not a test of main**.
-Any application repair must reuse the release branch/tag's existing Windows
-build path and receive a distinct candidate identity/hash; no repair binary
-has been built here.
+Codex is Debian 13 x86_64, Linux 6.18.57. Native commands ran only on standard
+GitHub-hosted windows-2025. No Mac, Wine, Linux GUI substitute or paid VM.
+Repository read/write, workflow push, actual Actions trigger, status and logs:
+PASS. Actions settings endpoint returns integration 403, but no settings change
+was needed. CLI log redirect returns 403; GitHub connector job-log access works.
+No credentials were printed or requested. Runtime policy was enforced unrestricted.
 
-## Access and blocker evidence
+## Completed runs
 
-- Repository read/fetch and new feature-branch push: PASS using injected HTTPS
-  Git authentication. No token values inspected or printed.
-- Issue #18 and its visible comment, published release assets, current branch
-  refs and public PR listing: read through GitHub's public pages/Git transport.
-  Historical issue statement that no public EXE exists is superseded by the
-  actual downloadable beta.2 release. No duplicate open Windows trial PR was
-  visible in the public PR listing.
-- GitHub API, Actions authorization/trigger/log access, draft PR creation and
-  issue comment: BLOCKED. `gh api repos/hnt119/lit-rev-engine` and the issues,
-  Actions and permission endpoints receive proxy CONNECT 403, before a GitHub
-  authorization decision. This does not establish missing token scopes.
-- Runtime network status: enforced restricted policy, revision 1, package-manager
-  preset, no custom domains; `api.github.com` absent. Owner reported enabling
-  public Internet; a retry still observed the old active policy and CONNECT 403.
-- Saving the specific `api.github.com` addition through the environment draft
-  tool failed with `stale_base` / CONFLICT. Persistence is unconfirmed; rereading
-  and resubmitting the same stale draft is explicitly unsupported.
-- Public historical run pages require sign-in for step logs. No blind trial
-  was launched without a usable route to inspect real logs/results.
+| Run / job | Infrastructure SHA | Actual result | Job duration |
+| --- | --- | --- | --- |
+| [1: 41782543569](https://github.com/hnt119/lit-rev-engine/actions/runs/41782543569) / [126417197788](https://github.com/hnt119/lit-rev-engine/actions/runs/41782543569/job/126417197788) | `afb1a439a9316e7ef5b02656a1918cb4bf8c0ebf` | FAIL: automation expected Next on an installer refusal dialog | 110s |
+| [2: 41782980639](https://github.com/hnt119/lit-rev-engine/actions/runs/41782980639) / [126418580980](https://github.com/hnt119/lit-rev-engine/actions/runs/41782980639/job/126418580980) | `4a788d6e866ae23167cf2d4540d7def544bd2419` | BLOCKED/Actions failure: reproduced `unrecognized_root`, installer exit 2 | 103s |
+| [3: 41783896262](https://github.com/hnt119/lit-rev-engine/actions/runs/41783896262) / [126421475782](https://github.com/hnt119/lit-rev-engine/actions/runs/41783896262/job/126421475782) | `62767ddc037b381e63f87ae784fff3d9f66cc155` | FAIL: native path regression PASS, candidate compile exit 1; installed trial skipped | 122s |
 
-Minimum external action: apply Internet/API access to **this running task**, or
-reconnect it from the updated environment. Retry the existing integration after
-that change; request only any permission actually denied by GitHub. Do not paste
-tokens into chat, extract Git-proxy credentials, bypass the proxy, or use the Mac.
+Controlled evidence: [run-1.json](run-1.json), [run-2.json](run-2.json),
+[run-3.json](run-3.json). Run 3 JSON is a sanitized transcription of reviewed
+build logs, not a nonexistent application report. All were push event attempt 1;
+no automatic PR run, dispatch, retry or parallel Windows job was triggered.
 
-## Harness and commands
+Observed Windows: **Server 2025 Datacenter 24H2, 10.0.26100.33674**, AMD64,
+image windows-2025-vs2026 `20261030.294.1`, runner `2.338.2`. Native architecture
+9 and RtlGetVersion `[10,0,26100]`/status 0. Python platform.platform incorrectly
+labels the server Windows-2022Server; registry and runner image identify 2025.
+Account elevated; interactive input desktop `Default`, session 2, real checkbox
+click/readback PASS. Developer tools were present. Non-admin behavior is unproven.
 
-The new workflow is [windows-installed-trial.yml](../../../.github/workflows/windows-installed-trial.yml).
-It runs only when one of these dedicated execution branches is pushed:
-`codex/issue-18-windows-run-1`, `codex/issue-18-windows-run-2`,
-`codex/issue-18-windows-run-3`. Each branch must be created **once**, sequentially.
-The PR/preparation branch `codex/issue-18-windows-trial` does not trigger it.
-There is no workflow_dispatch registration dependency, PR trigger,
-pull_request_target, automatic merge, or automatic model step.
+## Defects, repairs and exact limits
 
-Before spending a run, verify repository public status, Actions permission,
-real run/log read access, official pinned dependencies, the exact infrastructure
-commit, and absence of the chosen numbered branch/run. Establish a focused draft
-PR through the authorized integration once API access works.
+1. **Automation defect:** attempt 1 treated a refusal modal as the wizard and
+   looked for Next (ElementNotFoundError). Attempt 2 added fixed refusal enums,
+   acknowledged the real OK button and recorded installer exit 2. That diagnostic
+   correction worked; decline/acceptance was never exercised.
+2. **Confirmed packaging defect:** on a fresh absent installation directory,
+   the published installer reports an unrecognized existing folder. NSIS 3.13
+   [EW_GETFULLPATHNAME](https://github.com/kichik/nsis/blob/v313/Source/exehead/exec.c#L466)
+   clears its result for a missing final path component. Release RootGuard lets
+   two empty paths compare equal and sets empty INSTDIR; `IfFileExists "$INSTDIR\*"`
+   then examines a drive-root wildcard. Attempt 3 natively reproduced the empty
+   result and verified GetFullPathNameW for missing and existing directories.
+   [installer-root.patch](installer-root.patch) checks Windows API error/length,
+   empty output and equality while preserving all reparse/ACL/agreement guards.
+   **The API regression passed; the complete repaired installer did not run.**
+3. **Toolchain/setup / Windows build-path portability failure:** attempt 3's
+   exact-release builder failed to resolve `...desktop/windows-license-page.nsh`
+   at installer.nsi line 5. Candidate compilation stopped with exit 1. After the
+   budget ended, the patch was extended to use `!addincludedir "${__FILEDIR__}"`
+   and the plain include filename. This proposed correction is **NOT_RUN** on
+   Windows; no claim that it fixes the compiler failure.
 
-```sh
-# Read-only access checks; never dump credentials.
-gh api repos/hnt119/lit-rev-engine --jq '{private,permissions}'
-gh api repos/hnt119/lit-rev-engine/actions/permissions
-gh api repos/hnt119/lit-rev-engine/actions/runs --jq '.total_count'
-git ls-remote --heads origin 'codex/issue-18-windows-run-*'
+The attempted build reused the release's `make_windows_installer`, official
+Windows NSIS 3.13 ZIP SHA-256
+`ba63dffc4410ee89193e1cb5a41989991bd77c61068da17e3156d136b7b0b3d8`, and all
+verified original application payload files. Extraction was only a build input;
+no extracted application was launched. Payload assertions completed before the
+compile error. This was intended as an installer-only candidate, with unchanged
+application version/source, **not** an upgrade or current-main application build.
 
-# Only after reviewing access, diff and run budget; push the selected run branch ONCE.
-git push origin HEAD:refs/heads/codex/issue-18-windows-run-1
-gh run list --repo hnt119/lit-rev-engine --branch codex/issue-18-windows-run-1
-# Record the returned run ID immediately. Follow to completion, inspect job
-# summary and real logs, then update this record with exact SHA/run/job URLs.
-gh run view RUN_ID --repo hnt119/lit-rev-engine --log
+## Acceptance matrix
+
+| Requested item | Actual result |
+| --- | --- |
+| Published bytes/source identity; real installer launch/visible controls | PASS |
+| Native desktop control | PASS on hosted Server |
+| Agreement default-unchecked, decline/cancel, affirmative acceptance | BLOCKED before agreement; NOT_RUN interactions |
+| Per-user install/files, Start shortcut, uninstall registration | BLOCKED; nothing installed |
+| Ordinary non-elevated installation/execution | NOT_RUN; runner elevated |
+| Bundled runtimes, Start launch, Electron driver compatibility | NOT_RUN |
+| Saved example; 3 public papers/3 fields; exact excerpt/attach/interpretation | NOT_RUN |
+| Draft save versus explicit submit; legitimate missing-information case | NOT_RUN |
+| Actual native CSV/JSON dialogs, file parsing and source/value/limitation readback | NOT_RUN |
+| Normal quit, owned runtime cleanup, relaunch, drafts/submissions/history | NOT_RUN |
+| Installed reinstall/uninstall preservation; two-version upgrade | NOT_RUN |
+| Installed Unicode/space paths, foreign ports, permissions, single instance | NOT_RUN |
+| Installed parent interruption, optional setup interruption, cleared cookies | NOT_RUN |
+| Five current-source native ACL/lock/Unicode/job/listener/parent-crash checks | PASS each run, separately from installed acceptance |
+| Native NSIS missing/existing-path mechanics regression | PASS in attempt 3 |
+| Repaired installer build and exact-artifact retest | FAIL build / NOT_RUN retest |
+| Consumer Windows 11, non-ASCII username, physical device, human usefulness | NOT_RUN |
+| Ordinary browser download, SmartScreen/Defender warning experience | NOT_RUN |
+
+Scripted original downloads had no Zone.Identifier; none was removed. This is
+not browser-download trust evidence. No protections, security fuses, Host/Origin,
+CSRF, ACL, UAC, Defender or Chromium sandbox settings were disabled. Neural/model,
+live PubMed and generation paths were off. Existing source-workflow model defaults
+were inspected and that workflow was never dispatched.
+
+## Reproduction, storage and next decision
+
+The exact [workflow](../../../.github/workflows/windows-installed-trial.yml)
+contains all commands. Python 3.12.7 x64 and Node 24.19.0 availability were checked
+before running; pywinauto 0.6.9, pywin32 312, psutil 7.2.2, pytest 9.1.0 and
+Playwright 1.62.1 installed successfully. Native control used pywinauto win32.
+Planned CDP flags `--remote-debugging-address=127.0.0.1` and
+`--remote-debugging-port=49228` were **never used**, since no app launched.
+Playwright's Electron launcher is deliberately not used.
+
+Core executed commands (PowerShell workflow supplies absolute task-tool paths):
+
+```text
+python tests/windows/installed/trial.py --tools <task-node> --output <task-report>
+python tests/windows/installed/build_candidate.py release-source
+python -m pytest -q -p no:cacheprovider -p tests.windows.native_fixtures <five explicitly named native tests in workflow>
 ```
 
-Workflow commands use official setup-python 3.12.7 x64, Node 24.19.0, isolated
-pywinauto 0.6.9 / pywin32 312 / psutil 7.2.2 / pytest 9.1.0 and Playwright 1.62.1.
-Windows CPython 3.12 x64 driver wheels and official setup-python manifest entry
-were checked before proposing a hosted job. The job repeats availability checks.
-It does **not** install Chromium or use Playwright's Electron launcher: that
-launcher was inspected and rejected because it injects weaker browser switches.
+The cloud parser regressions passed **6 tests**, independently rerun; Python/JS
+syntax and workflow YAML checks passed. The same five native source tests passed
+in each Windows job (1.07s, 0.98s, 0.84s); these are **five unique cases**, not 15
+new coverage items. No real app/export regression passed.
 
-`trial.py` performs native desktop control/readback; checksum/download-origin
-observation; real interactive NSIS decline/accept; exact installed-file hash and
-terms/source verification; shortcut/registry checks; installed launch; runtime
-path inspection; single-instance; normal quit/reopen; same-version uninstall and
-reinstall preservation; owned occupied-port refusal. `journey.cjs` attaches via
-explicit loopback CDP, performs UI actions and uses native Save dialogs through
-the Python helper. No API performs the research actions under test. Independent
-parsing compares submitted values, unresolved limitations, source bindings and
-Unicode ranges to source responses actually read by the UI. Draft data is never
-treated as submitted evidence.
+Total observed Windows job time **335 seconds (5m35s)**, sequential standard
+public runners, each limited to 60 minutes. Account billing was not queried.
+All three run artifact counts are **0**; no cache/artifact upload, video, profile,
+cookies, credentials, database or research payload was retained in GitHub artifacts.
+Only small sanitized reports and source are committed. Runs 1–2 observed zero
+installed bytes/processes; run 2 confirmed zero owned child processes after cleanup.
+Run 3 launched only a completed no-install regression executable; no application
+ran. Hosted checkout/orphan cleanup completed; temporary downloads/extracted build
+inputs remain subject to ephemeral runner disposal, not an asserted secure erase.
+Peak RAM/disk and network totals were not instrumented. No live monitor remains.
 
-Five existing native **source** boundary tests run independently even when GUI
-acceptance fails. These are separately labeled and cannot qualify the installed
-binary. Critical steps left unexecuted are NOT_RUN, never a complete pass.
-
-## Actual checks so far
-
-| Check | Result |
-| --- | --- |
-| Exact installer anonymous full download, bytes and SHA-256 | PASS on Linux; not execution |
-| Source/tag/main/Core ancestry and release/runtime metadata binding | PASS, independently reviewed |
-| Python harness syntax / Node driver syntax / workflow YAML parse | PASS on Linux only |
-| Independent export parser including Unicode range, wrong-source, leaked-draft, invented-value and revision-count rejection | 6 passed on Linux |
-| Native desktop preflight and installer agreement behavior | NOT_RUN |
-| Per-user/non-elevated install, installed files, shortcut/registry | NOT_RUN |
-| Installed saved example, 3 papers/3 fields, exact source, attach, draft/submit, missing information | NOT_RUN |
-| Native CSV/JSON dialogs and parsing of actual app exports | NOT_RUN |
-| Normal quit/process cleanup, relaunch/history, reinstall/uninstall preservation | NOT_RUN |
-| Paths with spaces/non-ASCII; ports, permissions, single instance, interrupted-operation recovery | NOT_RUN |
-| Non-ASCII Windows username, cleared-cookie recovery, two-version upgrade | NOT_RUN; not established by directory/reopen/reinstall checks |
-| Consumer Windows 11, browser MOTW/SmartScreen experience, physical device, human usefulness | NOT_RUN |
-
-No application defect has been observed or repaired. This is preparatory
-automation, not a replacement qualification result. The harness does not yet
-implement every interrupted-operation case: permission failure, parent failure,
-optional setup interruption and cleared-cookie recovery remain explicit
-NOT_RUN until a focused implementation and real artifact retest establish them.
-
-## Evidence retention and cleanup
-
-Only allowlisted JSON/Markdown summaries reach job logs/summary. No artifact or
-cache upload is configured. No profiles, cookies, tokens, research databases,
-raw traces, video, environment dumps or private documents are uploaded. Installer
-and retained public fixture data stay on the ephemeral runner. Cleanup stops
-only owned installed-path processes and child processes; forced cleanup remains
-distinct from a normal quit pass. No Windows compute/storage has been consumed
-by this trial yet. Prepared Linux installer download is 195492146 bytes.
-
-After access is restored: inspect independent review findings, record exact
-infrastructure commit, establish the draft PR, execute initial run, inspect its
-actual logs, classify failures, and use at most two justified focused repair runs
-(60 minutes each). Do not repeat an unchanged failure or mark a critical skip as
-passed. Update issue #18 factually; do not close it or publish anything.
-
-## Attempt 1 — actual Windows result
-
-Infrastructure `afb1a439a9316e7ef5b02656a1918cb4bf8c0ebf`;
-[run 41782543569](https://github.com/hnt119/lit-rev-engine/actions/runs/41782543569),
-[job 126417197788](https://github.com/hnt119/lit-rev-engine/actions/runs/41782543569/job/126417197788).
-Completed FAILURE in 110 seconds; trial itself 11.9 seconds. Raw controlled
-summary preserved in [run-1.json](run-1.json). Independent verifier read real logs.
-
-Windows Server 2025 Datacenter build 26100, image windows-2025-vs2026
-20261030.294.1, runner 2.338.2; AMD64 elevated account, Default desktop session 2.
-Python platform.platform() mislabels it Windows-2022Server; runner OS identity
-is Server 2025. PASS: pinned tools, actual download/hash, native checkbox control,
-installer-visible. FAIL: automation expected Next but a blocking modal had only
-OK (control 2); ElementNotFoundError. Agreement/installation BLOCKED, subsequent
-installed-app paths NOT_RUN. No application defect is established yet.
-
-Five independent native source boundary checks PASS (1.07s): current SID ACL,
-LockFileEx, Unicode path/arguments, owned job/listener, parent-crash cleanup.
-These test current main's inherited source, not installed beta.2. Zero installed
-bytes/processes; scripted download had no Zone.Identifier (not browser trust).
-No artifact/cache upload. A second run adds fixed installer-refusal enums and
-independent native OS/architecture readback, repairing the automation's failure
-to handle a refusal dialog. It will not bypass any installer/security guard.
-
-## Attempt 2 and bounded installer-only repair
-
-Infrastructure `4a788d6e866ae23167cf2d4540d7def544bd2419`;
-[run 41782980639](https://github.com/hnt119/lit-rev-engine/actions/runs/41782980639),
-[job 126418580980](https://github.com/hnt119/lit-rev-engine/actions/runs/41782980639/job/126418580980).
-[run-2.json](run-2.json) preserves the exact controlled report. Reproduced the
-published installer's refusal before agreement: `unrecognized_root`, exit 2,
-although the expected install root was absent. Native processor architecture 9,
-RtlGetVersion success with 10.0.26100, actual registry Server 2025 Datacenter
-24H2/build 26100.33674. GUI PASS; install/decline BLOCKED, all downstream paths
-NOT_RUN. Five source checks PASS in 0.98s; zero installed bytes/owned processes.
-
-Independent source diagnosis: NSIS 3.13 `Source/exehead/exec.c` lines 466–490
-(`EW_GETFULLPATHNAME`) clears its result for a missing final path component.
-Release RootGuard applies that instruction to both absent install paths, allowing
-empty strings to compare equal and assigning empty INSTDIR. The subsequent
-`IfFileExists "$INSTDIR\*"` observes a drive-root wildcard, producing the refusal.
-This is a packaging defect; no Windows protection needs weakening.
-
-The exact release repair is [installer-root.patch](installer-root.patch), against
-`664b86d`, not a claim that this installer file exists on current main. It calls
-Windows GetFullPathNameW directly, checks failure/truncation/empty strings, then
-keeps path equality, reparse, ownership, agreement and lifecycle checks intact.
-
-Final attempt builds **issue18-installer-root-rc1-Setup.exe**, a distinct ephemeral
-installer-only candidate. `build_candidate.py` checks out the exact release,
-verifies the original installer, extracts and verifies the complete existing
-installed-file manifest, applies only this patch, and calls the release's
-existing `make_windows_installer`. Every application payload byte, version,
-source binding and licensing notice stays unchanged. This is explicitly **not**
-a current-main build or an upgrade test. The receipt records separate installer
-patch/infrastructure identity, original and new hashes, manifest hash and the
-actual official Windows NSIS 3.13 compiler ZIP hash. No published asset is changed.
-The extracted app is never launched; only the newly compiled interactive Setup
-is launched for acceptance.
-
-A separate tiny native NSIS regression executable installs nothing. It requires
-original missing-leaf canonicalization to reproduce empty output and the checked
-Windows API to return exact missing/existing paths. It tests path mechanics,
-not all RootGuard ACL/reparse cases. Public payload/compiler downloads remain
-on the disposable runner; no installer upload is configured.
+**Recommendation: Windows qualification BLOCKED; repair packet ready for source
+review.** Smallest owner decision: authorize one additional bounded hosted-Windows
+build/install attempt after reviewing the include-path correction. No new token,
+Mac access, paid infrastructure or merge is currently needed. Do not rerun a job
+or push any numbered execution branch without renewed run authorization. Current
+PR-branch documentation pushes do not trigger Windows jobs. Keep all historical
+failure records; start from the final PR head and the immutable release source.

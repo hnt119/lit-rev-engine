@@ -1,0 +1,32 @@
+{
+  "schema": "litrev.issue18.build-result.v1",
+  "run_id": "41783896262",
+  "job_id": "126421475782",
+  "infrastructure_sha": "62767ddc037b381e63f87ae784fff3d9f66cc155",
+  "application_source": "664b86d4ed510c3d16982b5813b27e6bd1150129",
+  "published_installer_sha256": "75595d013fbdf4694301a00dd0e233a6b53e47c6cf5fb3713d0d0e7aa1e58359",
+  "native_path_regression": "PASS",
+  "published_payload_verification": "PASS; completed all manifest assertions before compiler invocation",
+  "installation_manifest_sha256": "7c6a2627831f1082a9163e599415c1f1f239036a3713912609fd95e5a68e5e34",
+  "compiler": "official NSIS 3.13 Windows portable",
+  "compiler_zip_sha256": "ba63dffc4410ee89193e1cb5a41989991bd77c61068da17e3156d136b7b0b3d8",
+  "candidate_build": "FAIL",
+  "candidate_id": "issue18-installer-root-rc1",
+  "candidate_sha256": null,
+  "failure": {
+    "category": "toolchain/setup (Windows build-path portability)",
+    "stage": "NSIS compile",
+    "exit_code": 1,
+    "source_file": "apps/desktop/installer.nsi",
+    "line": 5,
+    "message": "could not find include: ${__FILEDIR__}/windows-license-page.nsh"
+  },
+  "candidate_installed_acceptance": "NOT_RUN",
+  "source_boundary_tests": {
+    "passed": 5,
+    "seconds": 0.84
+  },
+  "job_seconds": 122,
+  "artifacts": 0,
+  "cleanup": "checkout post-cleanup and hosted orphan cleanup completed; no application launched"
+}

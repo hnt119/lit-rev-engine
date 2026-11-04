@@ -1,8 +1,18 @@
 diff --git a/apps/desktop/installer.nsi b/apps/desktop/installer.nsi
-index a5946e9..579039e 100644
+index a5946e9..b0a1359 100644
 --- a/apps/desktop/installer.nsi
 +++ b/apps/desktop/installer.nsi
-@@ -86,11 +86,23 @@ FunctionEnd
+@@ -2,7 +2,8 @@
+ Unicode true
+ !include "MUI2.nsh"
+ !include "FileFunc.nsh"
+-!include "${__FILEDIR__}/windows-license-page.nsh"
++!addincludedir "${__FILEDIR__}"
++!include "windows-license-page.nsh"
+ !ifndef PRODUCT_VERSION
+ !error "Pass the exact reviewed product version"
+ !endif
+@@ -86,11 +87,23 @@ FunctionEnd
  
  !macro RootGuard PREFIX
  Function ${PREFIX}ValidateRoot
