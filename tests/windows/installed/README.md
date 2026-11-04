@@ -178,3 +178,27 @@ infrastructure commit, establish the draft PR, execute initial run, inspect its
 actual logs, classify failures, and use at most two justified focused repair runs
 (60 minutes each). Do not repeat an unchanged failure or mark a critical skip as
 passed. Update issue #18 factually; do not close it or publish anything.
+
+## Attempt 1 — actual Windows result
+
+Infrastructure `afb1a439a9316e7ef5b02656a1918cb4bf8c0ebf`;
+[run 41782543569](https://github.com/hnt119/lit-rev-engine/actions/runs/41782543569),
+[job 126417197788](https://github.com/hnt119/lit-rev-engine/actions/runs/41782543569/job/126417197788).
+Completed FAILURE in 110 seconds; trial itself 11.9 seconds. Raw controlled
+summary preserved in [run-1.json](run-1.json). Independent verifier read real logs.
+
+Windows Server 2025 Datacenter build 26100, image windows-2025-vs2026
+20261030.294.1, runner 2.338.2; AMD64 elevated account, Default desktop session 2.
+Python platform.platform() mislabels it Windows-2022Server; runner OS identity
+is Server 2025. PASS: pinned tools, actual download/hash, native checkbox control,
+installer-visible. FAIL: automation expected Next but a blocking modal had only
+OK (control 2); ElementNotFoundError. Agreement/installation BLOCKED, subsequent
+installed-app paths NOT_RUN. No application defect is established yet.
+
+Five independent native source boundary checks PASS (1.07s): current SID ACL,
+LockFileEx, Unicode path/arguments, owned job/listener, parent-crash cleanup.
+These test current main's inherited source, not installed beta.2. Zero installed
+bytes/processes; scripted download had no Zone.Identifier (not browser trust).
+No artifact/cache upload. A second run adds fixed installer-refusal enums and
+independent native OS/architecture readback, repairing the automation's failure
+to handle a refusal dialog. It will not bypass any installer/security guard.

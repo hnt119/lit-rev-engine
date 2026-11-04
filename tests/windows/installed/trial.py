@@ -23,6 +23,17 @@ VERSION = '0.3.0-windows-experimental-beta.2'
 SOURCE = '664b86d4ed510c3d16982b5813b27e6bd1150129'
 SHA = '75595d013fbdf4694301a00dd0e233a6b53e47c6cf5fb3713d0d0e7aa1e58359'
 BYTES = 195492146
+INSTALLER_ERRORS = {
+    'This candidate targets Windows 11 x64 only. Windows ARM and 32-bit Windows are not supported.': 'unsupported_architecture',
+    'Windows version could not be verified. Nothing was installed.': 'version_query_failed',
+    'This experimental release targets Windows 11 x64. Other Windows versions are unqualified.': 'unsupported_version',
+    'Installation paths cannot contain links or reparse points. Nothing was changed.': 'reparse_path',
+    'An unrecognized folder already uses this application path. Its contents were preserved; inspect it before installing.': 'unrecognized_root',
+    'The existing folder has no matching per-user installation record. Nothing was changed.': 'unregistered_root',
+    'Only this user\'s fixed Programs application directory is accepted. No research directory was changed.': 'unexpected_root',
+    'Save and quit Literature Review Engine before changing the installation. Nothing was stopped.': 'installation_busy',
+    'The fixed directory is unsafe, its ACL could not be verified, or this exact app version already exists. Preserve your data and uninstall that version before reinstalling. Nothing was unpacked there.': 'root_acl_or_existing_version',
+}
 BASE = f'https://github.com/hnt119/lit-rev-engine/releases/download/v{VERSION}/'
 CHECKS = ('native_desktop_control', 'installer_visible', 'agreement_unchecked',
           'decline_cancel', 'affirmative_install', 'installed_files', 'start_shortcut',
@@ -187,9 +198,19 @@ class Trial:
         return dlg
 
     def installer(self, accept):
-        self.spawn([self.installer_file])
+        proc = self.spawn([self.installer_file])
         dlg = self.window(r'Literature Review Engine Setup')
         self.passed('installer_visible')
+        texts = [x.window_text() for x in dlg.descendants()]
+        rejection = next((INSTALLER_ERRORS[x] for x in texts if x in INSTALLER_ERRORS), None)
+        if rejection:
+            self.report['installer_rejection'] = rejection
+            self.report['checks']['decline_cancel'] = 'BLOCKED'
+            self.report['checks']['affirmative_install'] = 'BLOCKED'
+            # Acknowledge the refusal; never bypass the installer guard.
+            dlg.child_window(control_id=2).click_input()
+            self.report['installer_exit_code'] = proc.wait(timeout=30)
+            raise TrialFailure('installer_refused')
         dlg.child_window(control_id=1).click_input()
         agreement = dlg.child_window(control_id=1034)
         agreement.wait('visible', timeout=20)
@@ -308,6 +329,21 @@ class Trial:
             'runner_image_os': os.environ.get('ImageOS', 'unknown'),
             'runner_image_version': os.environ.get('ImageVersion', 'unknown'),
             'developer_tools_present': True}
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r'SOFTWARE\Microsoft\Windows NT\CurrentVersion') as key:
+            versions = {}
+            for name in ('ProductName', 'CurrentBuildNumber', 'UBR', 'DisplayVersion'):
+                try:
+                    versions[name] = winreg.QueryValueEx(key, name)[0]
+                except OSError:
+                    versions[name] = 'unavailable'
+            self.report['host']['registry_version'] = versions
+        system_info = ctypes.create_string_buffer(64)
+        ctypes.windll.kernel32.GetNativeSystemInfo(ctypes.byref(system_info))
+        self.report['host']['native_processor_architecture'] = ctypes.c_ushort.from_buffer(system_info).value
+        version = ctypes.create_string_buffer(284)
+        ctypes.c_uint32.from_buffer(version).value = 284
+        self.report['host']['rtl_version_status'] = ctypes.windll.ntdll.RtlGetVersion(ctypes.byref(version))
+        self.report['host']['rtl_version'] = [ctypes.c_uint32.from_buffer(version, offset).value for offset in (4, 8, 12)]
         self.report['infrastructure_sha'] = os.environ.get('GITHUB_SHA', 'local-uncommitted')
         self.report['run_id'] = os.environ.get('GITHUB_RUN_ID', 'local')
         self.report['run_attempt'] = os.environ.get('GITHUB_RUN_ATTEMPT', 'local')
@@ -463,7 +499,12 @@ class Trial:
                 pass
         for proc in self.owned:
             if proc.poll() is None:
-                proc.terminate()
+                try:
+                    proc.terminate()
+                    proc.wait(timeout=10)
+                except (OSError, subprocess.TimeoutExpired):
+                    self.report['cleanup']['owned_child_cleanup'] = 'BLOCKED'
+        self.report['cleanup']['owned_direct_children_remaining'] = sum(proc.poll() is None for proc in self.owned)
         self.report['cleanup']['processes_after_cleanup'] = len(self.app_processes()) if self.owns_installation else 0
         try:
             installed_bytes = sum(p.stat().st_size for p in self.root.rglob('*') if p.is_file())
@@ -527,11 +568,13 @@ def main():
         trial.run()
     except Exception as error:
         result = 1
-        if trial.phase in CHECKS:
+        if trial.phase in CHECKS and trial.report['checks'][trial.phase] != 'BLOCKED':
             trial.report['checks'][trial.phase] = 'FAIL'
         trial.report['failure'] = {'phase': trial.phase, 'type': type(error).__name__,
             'winerror': getattr(error, 'winerror', None),
             'category': 'runner/GUI limitation' if trial.phase == 'native_desktop_control' else 'unclassified; inspect before repair'}
+        if trial.report.get('installer_rejection'):
+            trial.report['failure']['category'] = 'installer boundary; compare native facts before classifying'
     finally:
         trial.finish()
     return result
