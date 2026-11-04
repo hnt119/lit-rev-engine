@@ -431,6 +431,25 @@ class Trial:
         self.passed('foreign_listener_refusal')
 
     def finish(self):
+        # Fixed native labels only; never dump arbitrary window text, URLs or
+        # renderer contents. Preserve control IDs for diagnosing automation.
+        if 'failure' in self.report:
+            try:
+                from pywinauto import Desktop
+                allowed = {'Literature Review Engine Setup', 'Literature Review Engine Uninstall',
+                           'Issue 18 native desktop preflight', 'Desktop Preview stopped',
+                           'Literature Review Engine'}
+                labels = {'&Next >', 'Next >', 'Install', '&Install', 'Cancel', '&Cancel',
+                          'Finish', '&Finish', 'OK', '&Yes', '&No'}
+                self.report['native_failure_controls'] = [
+                    {'window': win.window_text(), 'controls': [
+                        {'id': child.control_id(), 'class': child.class_name(),
+                         'visible': child.is_visible(), 'enabled': child.is_enabled(),
+                         'label': child.window_text() if child.window_text() in labels else 'redacted'}
+                        for child in win.descendants()[:40]]}
+                    for win in Desktop(backend='win32').windows() if win.window_text() in allowed]
+            except Exception:
+                self.report['native_diagnostics'] = 'unavailable'
         # Cleanup is constrained to actual installed executable paths and our
         # child processes. No arbitrary PID kill or recursive research upload.
         remaining = self.app_processes() if self.owns_installation else []

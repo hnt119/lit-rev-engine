@@ -1,6 +1,26 @@
 # Issue 18: installed Windows acceptance trial
 
-## Current record — execution blocked, not Windows qualification
+## Resumed execution — 4 November 2026
+
+The prior preparation below is retained as history. API access now works with
+Codex Cloud's authorized network permission. Repository read/write is reported;
+Actions run/status reads work, and actual historical job logs were read through
+the GitHub connector. The CLI log redirect receives 403; use the connector.
+The Actions settings endpoint alone returns integration 403; no settings change
+is required. A numbered branch push will establish actual trigger permission.
+No Windows attempt has yet been triggered at this checkpoint.
+
+Current main remains `abd529dbb6dabc94312ebb5e7d4a7909d44d629d`. Independent
+verifier re-streamed and hashed the published Setup.exe and checked annotated
+tag/source/manifests. Official Python 3.12.7 win32 x64 manifest entry, Node
+24.19.0 win-x64 release, Playwright 1.62.1 registry entry and CPython 3.12 x64
+pywin32/psutil wheels were checked before execution. The installer OS gate accepts
+AMD64 NT 10 build >=22000; actual Server 2025 behavior still needs the run.
+No old workflow is dispatched: its model defaults are unsafe for this task.
+The existing three numbered push routes prevent automatic PR-trigger duplicates.
+Bounded native control diagnostics were added; no application code was changed.
+
+## Historical preparation record — execution was blocked
 
 Goal: test the published installer on standard public GitHub-hosted x64 Windows;
 no Mac, Linux substitute GUI, paid infrastructure, model download, live PubMed,
