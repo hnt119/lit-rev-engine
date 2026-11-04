@@ -9,6 +9,9 @@ generation, release publication, tag, merge, or issue closure.
 Integration owner: Codex Cloud implementer. A separate native Codex agent has
 independently checked release/source identities and reviewed the harness.
 Its review is **source review**, not an independent Windows execution.
+The verifier independently rehashed the actual downloaded Setup.exe, reran the
+six parser tests, and found a failure-status mapping bug in the unexecuted
+harness; that mapping was corrected before any Windows attempt.
 
 | Identity | Observed value |
 | --- | --- |

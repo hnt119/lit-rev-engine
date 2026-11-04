@@ -8,6 +8,17 @@ const {spawn} = require('node:child_process');
 const [tools, output, mode, python] = process.argv.slice(2);
 const {chromium} = require(path.join(tools, 'node_modules/playwright'));
 const report = {checks:{}, phase:'cdp-attach', error_type:'none'};
+const acceptancePhase = {
+  'cdp-attach':'installed_driver_compatibility',
+  'saved-example':'saved_example_offline',
+  'prepare-three':'source_preparation',
+  exact_excerpt_attach:'exact_excerpt_attach',
+  interpretation_submit:'interpretation_submit',
+  missing_information:'missing_information',
+  draft_distinct:'draft_distinct',
+  native_json_export:'native_json_export', native_csv_export:'native_csv_export',
+  independent_export_parse:'independent_export_parse', reopen_persistence:'reopen_persistence',
+};
 const stateFile = path.join(output, 'private-journey-position.json');
 const submitted = 'SOFTWARE TRIAL: retained microbiome excerpt; support remains unassessed';
 const draft = 'UNSUBMITTED SOFTWARE TRIAL DRAFT';
@@ -29,6 +40,7 @@ function command(args) {
   assert.equal(contexts.length,1);
   const page=contexts[0].pages().find(p=>p.url().startsWith('http://127.0.0.1:43000/'));
   assert.ok(page,'Installed production page required');
+  pass('installed_driver_compatibility');
   page.setDefaultTimeout(45000);
   const button=name=>page.getByRole('button',{name,exact:true});
   const text=name=>page.getByRole('textbox',{name,exact:true});
@@ -57,6 +69,7 @@ function command(args) {
     checkpoint('saved-example');
     await button('Try the saved example').click();
     await page.locator('article[data-paper-id]').nth(29).waitFor();
+    pass('saved_example_offline');
     for(let i=0;i<3;i++)await page.locator('article[data-paper-id]').nth(i).getByRole('checkbox',{name:'Select for exploration',exact:true}).check();
     checkpoint('prepare-three');
     await button('Prepare & compare (3)').click();
@@ -64,6 +77,9 @@ function command(args) {
     const ready=page.getByRole('button',{name:/^(?:Open ready comparison|Continue to comparison) \(3\)$/});
     await Promise.race([form.waitFor({timeout:120000}),ready.waitFor({timeout:120000})]);
     if(!await form.isVisible())await ready.click();
+    await form.waitFor();
+    pass('source_preparation');
+    checkpoint('three_papers_three_fields');
     const labels=['Study focus','Allocation concealment details','Reviewer notes'];
     for(let i=1;i<=3;i++){
       await text(`Field ${i} label`).fill(labels[i-1]);
@@ -153,7 +169,8 @@ function command(args) {
   // Exiting this driver disconnects CDP. Python performs WM_CLOSE afterwards.
 })().catch(error=>{
   report.error_type=['AssertionError','TimeoutError','Error','TypeError'].includes(error.name)?error.name:'unknown';
-  if(report.phase in report.checks)report.checks[report.phase]='FAIL';
+  const failedCheck=acceptancePhase[report.phase]??report.phase;
+  report.checks[failedCheck]='FAIL';
   process.exitCode=1;
 }).finally(()=>{
   fs.writeFileSync(path.join(output,'journey-result.json'),JSON.stringify(report));
