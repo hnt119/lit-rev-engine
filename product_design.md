@@ -20,6 +20,7 @@ The product promise is not “automatic systematic reviews” or “a model bett
 | One application and one research engine | Browser/source and desktop distributions reuse the interface, services, and evidence contracts. |
 | Evidence before submitted interpretation | The ordinary path is inspect → select → comment → review/save, in one editor. |
 | Core works without AI | Models, keys, neural indexing, and paid services are not prerequisites for a useful saved-example comparison. |
+| Optional future MacRelay integration | Preserve existing service/provider boundaries and local data ownership. Any future remote adapter is separately scoped; core research remains usable without it. |
 | Free, open-source distribution | Original engine code is MIT. Third-party code, binaries, articles, and models retain their own terms. |
 | Native downloads are the intended main entry | macOS Apple Silicon DMG and Windows x64 Setup.exe become primary only when their exact artifacts are qualified and public. Source downloads remain available. |
 | No paid Apple membership requirement | An honestly labeled unnotarized Mac beta is acceptable after applicable redistribution and actual downloaded-launch checks. Do not require a signing purchase as a product-policy gate. |

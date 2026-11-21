@@ -31,6 +31,31 @@ The arrows show dependencies and explicit operations, not work triggered by visi
 
 Implementation: [launcher](../scripts/local_preview.py), [web workspace](../apps/web), [same-origin bridge](../apps/web/lib/bridge.ts), [FastAPI adapter](../src/web_api), [service assembly](../src/mvp/bootstrap.py).
 
+### Optional future MacRelay integration
+
+LitRev continues to own the local research workspace, retained sources, drafts,
+submitted revisions and storage migrations. Its manual comparison/export workflow
+must remain usable without MacRelay or any generation provider.
+
+The existing application-service and generation-adapter boundaries are the intended
+extension points if MacRelay integration is later scoped:
+
+- A generation adapter may submit an explicitly approved, bounded evidence packet
+  and return a typed, unreviewed proposal. Qualify the actual endpoint, model,
+  protocol, source-binding checks, usage reporting and failure behavior before
+  adding it; today's fixed cloud/loopback restrictions remain in force.
+- An optional project association may reference a LitRev workspace by opaque IDs.
+  Association does not grant access, transmit sources or move research authority.
+- Read-only snapshots/exports require explicit selection and a schema/manifest
+  describing their coverage. A database-only copy does not cover every retained
+  source or provide workspace access recovery.
+
+No MacRelay endpoint, connection UI, remote job executor or synchronization path is
+implemented by this development change. Research operations continue through the
+existing typed local API and services. Future adapters should preserve explicit
+consent, request provenance and uncertain usage, without replaying a failed request
+or converting generated output into a human judgment.
+
 ## Discovery, import and source acquisition
 
 | Path | Role and boundary |

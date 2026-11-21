@@ -1,10 +1,10 @@
 "use client";
 import {useEffect,useRef,useState} from 'react';
-import type {Destination,Navigate} from './workspace-app';
+import type {Destination,LocationState,Navigate} from './workspace-app';
 import {availableWorkspaceSections,currentWorkspaceSection,sectionHash,visitWorkspaceSection,type WorkspaceSection} from '../lib/workspace-sections';
 
 const pages=[['workspaces','Workspaces'],['discover','Discover & explore'],['compare','Comparison board'],['evidence','Passage search'],['history','History & export'],['settings','Research & AI Settings']] as const;
-export default function WorkspaceNavigation({page,workspaceId,hosted,navigate,openSettings}:{page:Destination;workspaceId?:string;hosted:boolean;navigate:Navigate;openSettings:()=>Promise<void>}){
+export default function WorkspaceNavigation({page,workspaceId,hosted,navigate,openSettings,destinationFor}:{page:Destination;workspaceId?:string;hosted:boolean;navigate:Navigate;openSettings:()=>Promise<void>;destinationFor?:(page:Destination)=>LocationState}){
   const [expanded,setExpanded]=useState(false),[sections,setSections]=useState<WorkspaceSection[]>([]),[active,setActive]=useState<string|null>(null);
   const current=useRef<WorkspaceSection[]>([]);
   useEffect(()=>{
@@ -33,7 +33,7 @@ export default function WorkspaceNavigation({page,workspaceId,hosted,navigate,op
   async function changePage(next:Destination){
     setExpanded(false);
     if(next===page){const main=document.getElementById('main');main?.focus({preventScroll:true});main?.scrollIntoView({block:'start',behavior:'instant'});return;}
-    if(next==='settings')await openSettings();else await navigate({page:next,...(next==='workspaces'?{}:{workspace:workspaceId})});
+    if(next==='settings')await openSettings();else await navigate(destinationFor?.(next)??{page:next,...(next==='workspaces'?{}:{workspace:workspaceId})});
   }
   const label=pages.find(([id])=>id===page)![1];
   return <aside className="workspace-navigation" aria-label="Workspace navigation"><button type="button" className="workspace-navigation-toggle" aria-expanded={expanded} aria-controls="research-workflow-navigation" onClick={()=>setExpanded(value=>!value)}><span>Navigate · {label}</span><span aria-hidden="true">{expanded?'−':'+'}</span></button>
