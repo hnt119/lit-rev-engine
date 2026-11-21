@@ -74,6 +74,7 @@ test("nine-cell board performs only explicit per-cell retrieval, inspection, man
     await act(async()=>renderer.root.findByProps({"aria-label":"Exposure for SOFTWARE TEST Report 3"}).props.onClick());
     assert.ok(JSON.stringify(renderer.toJSON()).includes("Only the retained abstract is available"));
     await act(async()=>button(renderer,"Find excerpts in this paper").props.onClick());
+    await observed(()=>renderer.root.findAllByType("button").some(node=>content(node)==="Read in source · passage 1"));
     const retrieval=requests.find(request=>request.path.endsWith("/candidates"))!;assert.equal(retrieval.body?.paper_id,"p3");assert.equal(retrieval.body?.field_id,"exposure");assert.equal(retrieval.body?.top_k,3);
     assert.equal(drafts.size,0,"candidate retrieval does not create an inspection or judgment");
     await act(async()=>button(renderer,"Read in source · passage 1").props.onClick());
@@ -86,6 +87,7 @@ test("nine-cell board performs only explicit per-cell retrieval, inspection, man
     await act(async()=>control(renderer,"Inspected scope result","select").props.onChange({target:{value:"value_found"}}));
     await act(async()=>button(renderer,"Review entry before saving").props.onClick());
     await act(async()=>button(renderer,"Save reviewed entry").props.onClick());
+    await observed(()=>revisions.length===1&&renderer.root.findAllByType("button").some(node=>content(node)==="Save revision"));
     assert.equal(revisions.length,1);assert.equal(revisions[0].semantic_assessment,"unassessed");assert.equal((revisions[0].references as unknown[]).length,1);assert.equal(drafts.size,0,"submission consumes acknowledged draft");
     assert.equal(control(renderer,"Manual cell value").parent?.props.disabled,undefined);
     assert.equal(disabled(button(renderer,"Save revision")),true,"submitted cell stays read-only until explicit revision");

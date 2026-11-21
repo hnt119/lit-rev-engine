@@ -9,6 +9,13 @@ import {saved,draft,capability,response,stamp,workspace} from "./search-planner-
 
 const storage=new Map<string,string>();
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true,sessionStorage:{getItem:(key:string)=>storage.get(key)??null,setItem:(key:string,value:string)=>storage.set(key,value),removeItem:(key:string)=>storage.delete(key)}});
+async function observed(check:()=>boolean,description:string){
+  const deadline=Date.now()+5000;
+  while(!check()){
+    assert.ok(Date.now()<deadline,"Unobserved acknowledgment: "+description);
+    await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});
+  }
+}
 const text=(node:ReactTestInstance):string=>node.children.map(child=>typeof child==="string"?child:text(child)).join("");
 function button(renderer:ReactTestRenderer,label:string){const node=renderer.root.findAllByType("button").find(item=>text(item)===label);assert.ok(node,`Missing button: ${label}`);return node;}
 function control(renderer:ReactTestRenderer,label:string,type:"textarea"|"input"|"select"="textarea"){const node=renderer.root.findAllByType("label").find(item=>item.children.some(child=>child===label));assert.ok(node,`Missing control: ${label}`);return node.findByType(type);}
@@ -115,7 +122,7 @@ test("an immediate evaluation edit is flushed by the parent list and return cont
 test("failure and two-tab conflict retain research text and block leaving until explicit inspected resolution",async()=>{
   const f=await mount("research-failure",{handler:(call)=>call.path.endsWith("/handoff-preview")?response({detail:{code:"selection_failed",message:"Synthetic preview unavailable; selection retained"}},502):undefined});
   try{
-    await openResearch(f.renderer);await click(f.renderer,"Shortlist");await check(f.renderer,"Paper B · related candidate · shortlisted candidate");await click(f.renderer,"Review selected papers for comparison");assert.match(text(f.renderer.root),/Synthetic preview unavailable/);assert.equal(checkbox(f.renderer,"Paper B · related candidate · shortlisted candidate").props.checked,true);assert.equal(f.calls.some(call=>call.path.endsWith("/handoffs")),false);
+    await openResearch(f.renderer);await click(f.renderer,"Shortlist");await observed(()=>text(f.renderer.root).includes("Decision: shortlist"),"shortlist decision installed");await check(f.renderer,"Paper B · related candidate · shortlisted candidate");await click(f.renderer,"Review selected papers for comparison");await observed(()=>text(f.renderer.root).includes("Synthetic preview unavailable"),"preview failure displayed");assert.match(text(f.renderer.root),/Synthetic preview unavailable/);assert.equal(checkbox(f.renderer,"Paper B · related candidate · shortlisted candidate").props.checked,true);assert.equal(f.calls.some(call=>call.path.endsWith("/handoffs")),false);
     const previous=f.drafts.get(f.researchPath);f.drafts.set(f.researchPath,{...previous,version:previous.version+1,data:{...previous.data,interpretation:"OTHER TAB'S SAVED INTERPRETATION"}});
     await edit(f.renderer,"My research interpretation","MY LOCAL RESEARCH TEXT");await click(f.renderer,"Return to original cell");assert.equal(f.returned(),undefined);assert.equal(control(f.renderer,"My research interpretation").props.value,"MY LOCAL RESEARCH TEXT");assert.match(text(f.renderer.root),/Another tab saved this research draft/);
     await click(f.renderer,"Inspect latest research draft");assert.match(text(f.renderer.root),/OTHER TAB'S SAVED INTERPRETATION/);const inspected=f.drafts.get(f.researchPath);f.drafts.set(f.researchPath,{...inspected,version:inspected.version+1});await click(f.renderer,"Keep my research edits against this inspected draft");assert.match(text(f.renderer.root),/inspected draft changed again/);assert.equal(control(f.renderer,"My research interpretation").props.value,"MY LOCAL RESEARCH TEXT");
@@ -127,9 +134,9 @@ test("failure and two-tab conflict retain research text and block leaving until 
 test("a selected candidate dismissed later remains visible for explicit removal",async()=>{
   const f=await mount("research-dismissed-selection");
   try{
-    await openResearch(f.renderer);await click(f.renderer,"Shortlist");await check(f.renderer,"Paper B · related candidate · shortlisted candidate");await click(f.renderer,"Dismiss");
+    await openResearch(f.renderer);await click(f.renderer,"Shortlist");await observed(()=>text(f.renderer.root).includes("Decision: shortlist"),"shortlist decision installed");await check(f.renderer,"Paper B · related candidate · shortlisted candidate");await click(f.renderer,"Dismiss");await observed(()=>text(f.renderer.root).includes("Some selected candidates are no longer shortlisted"),"dismissed selection retained");
     assert.match(text(f.renderer.root),/Some selected candidates are no longer shortlisted/);assert.equal(button(f.renderer,"Review selected papers for comparison").props.disabled,true);
-    await click(f.renderer,"Remove unavailable selection · Paper B · related candidate");assert.doesNotMatch(text(f.renderer.root),/Some selected candidates are no longer shortlisted/);await click(f.renderer,"Shortlist");assert.equal(checkbox(f.renderer,"Paper B · related candidate · shortlisted candidate").props.checked,false);assert.equal(button(f.renderer,"Review selected papers for comparison").props.disabled,true);
+    await click(f.renderer,"Remove unavailable selection · Paper B · related candidate");assert.doesNotMatch(text(f.renderer.root),/Some selected candidates are no longer shortlisted/);await click(f.renderer,"Shortlist");await observed(()=>text(f.renderer.root).includes("Decision: shortlist"),"shortlist decision installed");assert.equal(checkbox(f.renderer,"Paper B · related candidate · shortlisted candidate").props.checked,false);assert.equal(button(f.renderer,"Review selected papers for comparison").props.disabled,true);
     await check(f.renderer,"Paper B · related candidate · shortlisted candidate");assert.equal(button(f.renderer,"Review selected papers for comparison").props.disabled,false);assert.equal(providerCalls(f.calls).length,0);assert.equal(f.calls.some(call=>call.path.endsWith("/handoffs")),false);
   }finally{await act(async()=>f.renderer.unmount());}
 });

@@ -10,6 +10,13 @@ import {saved,draft,approval,capability,response,stamp} from "./search-planner-f
 
 const storage=new Map<string,string>();
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true,sessionStorage:{getItem:(key:string)=>storage.get(key)??null,setItem:(key:string,value:string)=>storage.set(key,value),removeItem:(key:string)=>storage.delete(key)}});
+async function observed(check:()=>boolean,description:string){
+  const deadline=Date.now()+5000;
+  while(!check()){
+    assert.ok(Date.now()<deadline,"Unobserved acknowledgment: "+description);
+    await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});
+  }
+}
 const text=(node:ReactTestInstance):string=>node.children.map(child=>typeof child==="string"?child:text(child)).join("");
 function button(renderer:ReactTestRenderer,label:string){const found=renderer.root.findAllByType("button").find(item=>text(item)===label);assert.ok(found,`Missing button ${label}`);return found;}
 function control(renderer:ReactTestRenderer,label:string,type:"textarea"|"input"|"select"="textarea"){const found=renderer.root.findAllByType("label").find(item=>item.children.some(child=>child===label));assert.ok(found,`Missing control ${label}`);return found.findByType(type);}
@@ -88,6 +95,7 @@ test("create captures the original draft without any comparison, source or provi
     await act(async()=>control(f.renderer,"Reason for investigating").props.onChange({target:{value:"Researcher-authored reason"}}));
     assert.equal(f.calls.some(call=>call.method!=="GET"),false);
     await act(async()=>button(f.renderer,"Create investigation draft").props.onClick());
+    await observed(()=>text(f.renderer.root).includes("SAVED PLAN REVISION 1"),"created investigation installed");
     const request=f.calls.find(call=>call.method==="POST")!;
     assert.deepEqual({...request.body,request_id:undefined},{...f.context,reason:"Researcher-authored reason",request_id:undefined});
     assert.equal(JSON.stringify(f.context),before);
