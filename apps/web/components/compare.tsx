@@ -1,5 +1,5 @@
 "use client";
-import {useCallback,useEffect,useLayoutEffect,useRef,useState} from "react";
+import {useCallback,useEffect,useLayoutEffect,useRef,useState,type FocusEvent} from "react";
 import {api,requestId,acknowledgeRequest,workspacePath,type Schema} from "../lib/api";
 import {DraftStatus,flushDrafts,navigationBarrier,registerDraftFlusher,registerDraftRecovery,registerUnloadGuard,useDraft} from "../lib/drafts";
 import {emptyCell,useBoardDraft,type CellData} from "../lib/board-drafts";
@@ -40,6 +40,20 @@ function fromHead(head:CellHead|null):CellData {return head?{value:head.value,re
 function sameRange(a:ReferenceInput,b:ReferenceInput){return canonical(a)===canonical(b);}
 function sourceLabel(source:{source_type:string}|undefined){return source?.source_type==="full_text"?"Full text":source?.source_type==="abstract"?"Abstract only":"Unavailable";}
 function words(value:string){return value.replaceAll("_"," ");}
+
+/** Reveal keyboard focus inside the compact table without moving the page. */
+export function revealComparisonKeyboardFocus(scroller:HTMLDivElement,target:HTMLElement){
+  if(!target.matches(".board-cell:focus-visible, .board-investigate-action:focus-visible"))return;
+  const frame=scroller.getBoundingClientRect();
+  const cell=target.getBoundingClientRect();
+  const left=frame.left+scroller.clientLeft+12;
+  const right=frame.left+scroller.clientLeft+scroller.clientWidth-12;
+  if(cell.left<left){
+    scroller.scrollLeft+=cell.left-left;
+  }else if(cell.right>right){
+    scroller.scrollLeft+=Math.min(cell.right-right,cell.left-left);
+  }
+}
 
 export default function Compare({workspace,requestedBoard,requestedRevision,requestedPaper,requestedField,requestedRun,requestedPassage,requestedReturn,requestedPreparation,requestedHandoff,requestedSetup,navigate,onOriginChange,retrievalCapability}:{workspace:Schema<"WorkspaceSummary">;requestedBoard?:string;requestedRevision?:string;requestedPaper?:string;requestedField?:string;requestedRun?:string;requestedPassage?:string;requestedReturn?:"cell"|"comparison";requestedPreparation?:string;requestedHandoff?:string;requestedSetup?:"new";navigate:Navigate;onOriginChange?:(collection:boolean)=>void;retrievalCapability?:Schema<"BoardSpanCapability">}) {
   const endpoint=workspacePath(workspace.id)+"/boards";
@@ -148,8 +162,33 @@ function BoardWorkspace({workspace,view,requestedPaper,requestedField,requestedR
   const [needsReview,setNeedsReview]=useState(false),[investigateSelected,setInvestigateSelected]=useState(false);
   const [includeHistory,setIncludeHistory]=useState(false),[proposalRefresh,setProposalRefresh]=useState(0);
   const editor=useRef<HTMLDivElement>(null),table=useRef<HTMLDivElement>(null);
+  const restoringTableFocus=useRef(false);
   const returnCell=useRef<{paper:string;field:string}|null>(null);const [tableReturn,setTableReturn]=useState(0);
-  useLayoutEffect(()=>{if(selection||!tableReturn||!returnCell.current)return;const restored=returnCell.current;const position=typeof window!=="undefined"?comparisonTablePosition(window.history?.state?.comparisonPosition,workspace.id,definition.board_id,definition.revision_id):null;if(position&&table.current)table.current.scrollLeft=position.left;const button=Array.from(table.current?.querySelectorAll<HTMLButtonElement>("[data-board-cell]")??[]).find(item=>item.dataset.boardCell===restored.paper+":"+restored.field);button?.focus({preventScroll:true});if(position)window.scrollTo({top:position.top,behavior:"instant"});else button?.scrollIntoView({block:"nearest",inline:"nearest",behavior:"instant"});},[selection,tableReturn,workspace.id,definition.board_id,definition.revision_id]);
+  function revealFocusedCell(event:FocusEvent<HTMLDivElement>){
+    if(restoringTableFocus.current||!window.matchMedia("(max-width: 520px)").matches)return;
+    const scroller=event.currentTarget;
+    const target=event.target as HTMLElement;
+    window.requestAnimationFrame(()=>{
+      if(scroller.isConnected&&document.activeElement===target){
+        revealComparisonKeyboardFocus(scroller,target);
+      }
+    });
+  }
+  useLayoutEffect(()=>{
+    if(selection||!tableReturn||!returnCell.current)return;
+    const restored=returnCell.current;
+    const position=typeof window!=="undefined"?comparisonTablePosition(window.history?.state?.comparisonPosition,workspace.id,definition.board_id,definition.revision_id):null;
+    if(position&&table.current)table.current.scrollLeft=position.left;
+    const button=Array.from(table.current?.querySelectorAll<HTMLButtonElement>("[data-board-cell]")??[]).find(item=>item.dataset.boardCell===restored.paper+":"+restored.field);
+    restoringTableFocus.current=true;
+    try{
+      button?.focus({preventScroll:true});
+    }finally{
+      restoringTableFocus.current=false;
+    }
+    if(position)window.scrollTo({top:position.top,behavior:"instant"});
+    else button?.scrollIntoView({block:"nearest",inline:"nearest",behavior:"instant"});
+  },[selection,tableReturn,workspace.id,definition.board_id,definition.revision_id]);
   const [editorFocus,setEditorFocus]=useState(0);
   useLayoutEffect(()=>{if(editorFocus&&editor.current){editor.current.focus({preventScroll:true});editor.current.scrollIntoView({block:"nearest",behavior:"instant"});}},[editorFocus,selection]);
   useEffect(()=>{setSelection(requestedPaper&&requestedField&&definition.paper_ids.includes(requestedPaper)&&definition.fields.some(field=>field.id===requestedField)?{paper:requestedPaper,field:requestedField}:null);},[requestedPaper,requestedField,definition.revision_id]);
@@ -189,7 +228,7 @@ function BoardWorkspace({workspace,view,requestedPaper,requestedField,requestedR
   {revising&&<DefinitionForm workspace={workspace} endpoint={endpoint} original={definition} retrievalCapability={retrievalCapability} done={async next=>{setRevising(false);await navigate({page:"compare",workspace:workspace.id,board:definition.board_id,revision:next.definition.revision_id});}}/>}
   <p className="board-guide">Open a cell, select an exact excerpt, then comment and save. Draft notes stay separate from entries saved to the table.</p>{(editorView.state==="error"||editorView.state==="conflict")&&<aside className="notice error" role="alert"><p>The editor view changed or could not be saved. {editorView.error} Your research text and evidence remain in their separate cell draft.</p><button onClick={()=>void editorView.restore().catch(error=>setError(error.message))}>Restore latest editor view — keep research draft</button></aside>}<p className="meta" role="status">{submitted} / {pairs.length} cells saved to the table · {supported} human-supported · drafts and unreviewed values are counted separately.</p><div className={"comparison-layout"+(selection?" has-editor":"")}><section className="comparison-table-pane" hidden={!!selection}><h2 id="comparison-table" data-workspace-section="Comparison table" tabIndex={-1}>Paper × field comparison</h2><p className="muted">Reports are not assumed to be independent studies. Opening the board does not retrieve evidence.</p>
     <div className="actions" aria-label="Comparison views"><button aria-pressed={!needsReview} onClick={()=>setNeedsReview(false)}>Overview</button><button aria-pressed={needsReview} onClick={()=>setNeedsReview(true)}>Needs review</button></div>{needsReview&&<p className="muted">Showing reports with unsubmitted, unresolved, missing-information or outdated cells, or unavailable sources. This view does not establish a research gap.</p>}{!visiblePapers.length&&<p>No reports match this view.</p>}
-    <div ref={table} className="board-table-scroll" tabIndex={0} role="region" aria-label="Comparison table · scroll horizontally on small screens"><table className="board-table" style={{minWidth:210+definition.fields.length*180}}><thead><tr><th scope="col">Retained report</th>{definition.fields.map(field=><th scope="col" key={field.id}><span>{field.label}</span><span className="meta">{field.subquestion}</span></th>)}</tr></thead><tbody>{visiblePapers.map(paper=>{const source=definition.sources.find(source=>source.paper_id===paper.id);return <tr key={paper.id}><th scope="row"><span>{paper.title}</span><span className="meta">PMID {paper.pmid??"unavailable"} · {sourceLabel(source)} · {source?.status??"unavailable"}</span></th>{definition.fields.map(field=>{const cell=view.cells.find(cell=>cell.paper_id===paper.id&&cell.field_id===field.id);return <td key={field.id}><button className="board-cell" data-board-cell={paper.id+":"+field.id} aria-label={`${field.label} for ${paper.title}`} aria-pressed={selection?.paper===paper.id&&selection.field===field.id} onClick={()=>choose(paper.id,field.id)}><span className="board-cell-value">{!cell?.head?"Not yet submitted":cell.head.value??(cell.head.scope_result==="not_found_in_inspected_material"?"Not found in inspected material":"No value recorded")}</span><span className="meta">JUDGMENT · {words(cell?.head?.semantic_assessment??"unassessed")}</span><span className="meta">SCOPE · {words(cell?.head?.scope_result??"not_assessed")}</span><span className="meta">{cell?.head?.reference_integrity==="checked"?"EXACT REFERENCES CHECKED":"NO CHECKED REFERENCES"} · {view.freshness.toUpperCase()}</span>{!!cell?.draft_version&&<span className="meta">SAVED DRAFT · v{cell.draft_version}</span>}</button>{unresolvedCell(view,paper.id,field.id)&&<button className="board-investigate-action" onClick={()=>choose(paper.id,field.id,true)}>Investigate related literature<span className="visually-hidden"> · {field.label} · {paper.title}</span></button>}</td>;})}</tr>;})}</tbody></table></div>
+    <div ref={table} className="board-table-scroll" onFocusCapture={revealFocusedCell} tabIndex={0} role="region" aria-label="Comparison table · scroll horizontally on small screens"><table className="board-table" style={{minWidth:210+definition.fields.length*180}}><thead><tr><th scope="col">Retained report</th>{definition.fields.map(field=><th scope="col" key={field.id}><span>{field.label}</span><span className="meta">{field.subquestion}</span></th>)}</tr></thead><tbody>{visiblePapers.map(paper=>{const source=definition.sources.find(source=>source.paper_id===paper.id);return <tr key={paper.id}><th scope="row"><span>{paper.title}</span><span className="meta">PMID {paper.pmid??"unavailable"} · {sourceLabel(source)} · {source?.status??"unavailable"}</span></th>{definition.fields.map(field=>{const cell=view.cells.find(cell=>cell.paper_id===paper.id&&cell.field_id===field.id);return <td key={field.id}><button className="board-cell" data-board-cell={paper.id+":"+field.id} aria-label={`${field.label} for ${paper.title}`} aria-pressed={selection?.paper===paper.id&&selection.field===field.id} onClick={()=>choose(paper.id,field.id)}><span className="board-cell-value">{!cell?.head?"Not yet submitted":cell.head.value??(cell.head.scope_result==="not_found_in_inspected_material"?"Not found in inspected material":"No value recorded")}</span><span className="meta">JUDGMENT · {words(cell?.head?.semantic_assessment??"unassessed")}</span><span className="meta">SCOPE · {words(cell?.head?.scope_result??"not_assessed")}</span><span className="meta">{cell?.head?.reference_integrity==="checked"?"EXACT REFERENCES CHECKED":"NO CHECKED REFERENCES"} · {view.freshness.toUpperCase()}</span>{!!cell?.draft_version&&<span className="meta">SAVED DRAFT · v{cell.draft_version}</span>}</button>{unresolvedCell(view,paper.id,field.id)&&<button className="board-investigate-action" onClick={()=>choose(paper.id,field.id,true)}>Investigate related literature<span className="visually-hidden"> · {field.label} · {paper.title}</span></button>}</td>;})}</tr>;})}</tbody></table></div>
   </section>
   {selection&&<div className="board-editor-anchor" ref={editor} tabIndex={-1}><div className="actions board-editor-navigation"><button onClick={()=>backToTable()}>Back to table</button></div><CellEditor consumeInvestigationLaunch={()=>setInvestigateSelected(false)} initiallyInvestigating={investigateSelected} navigate={navigate} key={definition.revision_id+":"+selection.paper+":"+selection.field} endpoint={endpoint} view={view} paperId={selection.paper} fieldId={selection.field} requestedRun={requestedRun} requestedPassage={requestedPassage} openPassageSearch={()=>openPassageSearch(selection.paper,selection.field)} reload={reload} proposalRefresh={proposalRefresh} savedStep={editorView.ready&&editorView.state==="saved"?editorView.data.cells.find(cell=>cell.paper_id===selection.paper&&cell.field_id===selection.field)?.step:undefined} navigationReady={editorView.ready} saveStep={step=>saveStep(selection.paper,selection.field,step)} backToTable={backToTable} nextIncomplete={nextIncomplete?()=>choose(nextIncomplete.paper,nextIncomplete.field):undefined} nextCell={nextCell}/></div>}
   </div><details className="comparison-secondary-tools"><summary>Optional AI proposals for this comparison</summary><ProposalControls endpoint={endpoint} view={view} changed={()=>setProposalRefresh(value=>value+1)}/></details><section><h2 id="comparison-export" data-workspace-section="Export comparison" tabIndex={-1}>Export this board</h2><p className="muted">Audit JSON always includes the selected definition’s immutable cell history and candidate retrieval audit. The history option includes every saved board definition, including revisions after the one shown.</p><p className="muted">Board exports use separate schemas and retain null values, inspected scope, source anchors and human judgment states. Private source-linked exports stay local unless you choose to share them.</p><label className="check"><input type="checkbox" checked={includeHistory} onChange={event=>setIncludeHistory(event.target.checked)}/>Include all saved board definitions in audit JSON</label><div className="actions"><a className="button primary" download href={`/api/v1/${endpoint}/exports?format=csv&history=${includeHistory}&revision_id=${encoded(definition.revision_id)}`}>Download board CSV</a><a className="button" download href={`/api/v1/${endpoint}/exports?format=json&history=${includeHistory}&revision_id=${encoded(definition.revision_id)}`}>Download board audit JSON</a></div></section>

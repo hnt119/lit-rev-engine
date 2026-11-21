@@ -153,7 +153,7 @@ footer { max-width: 1380px; margin: 0 auto; padding: 24px 36px; border-top: 1px 
 /* Comparison boards reuse the editorial paper/ink/olive tokens. */
 .board-paper-choice { align-items: flex-start; }
 .board-field-editor { border-top: 1px solid var(--line); padding: 20px 0; }
-.board-table-scroll { width: 100%; max-height: 72vh; overflow: auto; margin-top: 24px; scroll-padding: 64px 12px; }
+.board-table-scroll { position: relative; width: 100%; max-height: 72vh; overflow: auto; margin-top: 24px; scroll-padding: 64px 12px; }
 .board-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 880px; font-size: 13px; table-layout: fixed; }
 .board-table th, .board-table td { text-align: left; vertical-align: top; padding: 14px 12px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); overflow-wrap: anywhere; }
 .board-table th:last-child, .board-table td:last-child { border-right: 0; }
@@ -188,6 +188,7 @@ footer { max-width: 1380px; margin: 0 auto; padding: 24px 36px; border-top: 1px 
 .board-range { border-bottom: 1px solid var(--line); padding: 12px 0; }
 .board-cell-editor h4 { font-size: 13px; font-weight: 500; margin-top: 24px; }
 @media(max-width:900px) { .board-workspace-columns { grid-template-columns: minmax(0,1fr); gap: 36px; } .board-judgment-column { border-top: 1px solid var(--line); padding-top: 28px; } .board-table { min-width: 620px; } }
+@media(max-width:520px) { .board-table th:first-child { left: auto; } }
 .proposal-controls > details > summary { font-size: 14px; }
 .proposal-card { padding: 24px 0; border-top: 1px solid var(--line); }
 .proposal-card .eyebrow { color: var(--accent); }
