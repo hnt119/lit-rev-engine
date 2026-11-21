@@ -46,7 +46,8 @@ or their version-matched manuals.
    and browser history. No persistent browser bookmark or new recovery credential
    is created; existing cookie/access-recovery limits still apply.
 4. **History & export → Saved comparisons** offers each board's CSV and audit JSON,
-   pinned to its listed definition. Audit JSON can also include earlier definitions.
+   pinned to its listed definition. The optional history section in audit JSON
+   includes every saved board definition, including revisions after the selected one.
    These submitted comparison entries are separate from saved drafts and from
    **Export passage evidence**. Empty passage-assessment history says nothing about
    whether a comparison has submitted entries.
