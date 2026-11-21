@@ -37,4 +37,3 @@ for(const staleFailure of [false,true])test(`late workspace ${staleFailure?'fail
     assert.doesNotMatch(text(renderer.root),/Stale first workspace error|Loading the authorized workspace/);
   }finally{if(renderer)await act(async()=>renderer.unmount());Object.assign(globalThis,original);}
 });
-
