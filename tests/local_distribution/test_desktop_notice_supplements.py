@@ -18,11 +18,12 @@ def fixture(tmp_path, monkeypatch):
     shutil.copytree(notices.SUPPLEMENTS, supplements)
     manifest = json.loads((supplements / 'web-supplements.json').read_text())
     dependencies = {item['name']: item['reviewed_version'] for item in manifest['packages']}
-    parent_raw = metadata('next', '16.4.2', dependencies={'@next/env': '16.4.2'})
+    parent_version = manifest['packages'][0]['parent']['version']
+    parent_raw = metadata('next', parent_version, dependencies={'@next/env': dependencies['@next/env']})
     parent_source, parent_bundle = package(standalone, installed, 'next', parent_raw)
     write(parent_source / 'LICENSE', 'SYNTHETIC parent permission\n')
-    context_raw = metadata('next', '16.4.2', dependencies=dependencies, devDependencies=dependencies, fixture='SYNTHETIC SOURCE CONTEXT')
-    context_path = supplements / 'next-16.4.2-upstream-package.json'; context_path.write_bytes(context_raw)
+    context_raw = metadata('next', parent_version, dependencies=dependencies, devDependencies=dependencies, fixture='SYNTHETIC SOURCE CONTEXT')
+    context_path = supplements / manifest['packages'][0]['parent']['dependency_manifest']['file']; context_path.write_bytes(context_raw)
     sources, bundles = {}, {}
     for item in manifest['packages']:
         relative = item['parent']['relative_package_json']
@@ -84,7 +85,7 @@ def test_wrong_parent_version_hash_payload_or_source_fails_before_output(tmp_pat
         row=next(x for x in manifest['packages'] if x['name']=='@next/env');raw=metadata('@next/env','16.4.3');write(c[5]['@next/env'],raw);write(c[6]['@next/env'],raw);row['package_json_sha256']=sha256(raw).hexdigest()
     elif change=='env_source':write(c[5]['@next/env'].parent/'dist/index.js','SYNTHETIC wrong env code')
     elif change in {'extra_source','extra_bundle'}:write((c[5] if change=='extra_source' else c[6])['@edge-runtime/cookies'].parent/'unexpected.js','SYNTHETIC extra code')
-    elif change=='dependency_source':(c[3]/'next-16.4.2-upstream-package.json').write_bytes(b'{}')
+    elif change=='dependency_source':(c[3]/item['parent']['dependency_manifest']['file']).write_bytes(b'{}')
     elif change=='dependency_provenance':item['parent']['dependency_manifest']['source_url']='https://github.com/unrelated/other/blob/main/package.json'
     elif change=='notice_hash':(c[3]/item['notices'][0]['file']).write_bytes(b'SYNTHETIC changed permission')
     elif change=='notice_source_identity':item['notices'][0]['provenance']['package']='another-package'

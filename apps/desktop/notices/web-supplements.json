@@ -21,16 +21,16 @@
       "package_version": "6.0.0",
       "parent": {
         "dependency_manifest": {
-          "file": "next-16.4.2-upstream-package.json",
-          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
-          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
-          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+          "file": "next-16.4.6-upstream-package.json",
+          "sha256": "47ba4667e4904b7810b1533629969569b0e31663d81a0e8ec1f942b23b95917a",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.6/packages/next/package.json",
+          "upstream_blob_sha1": "104984276a2f0aa1a63df5f504db971d9a21f22b"
         },
         "dependency_section": "devDependencies",
         "name": "next",
-        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "package_json_sha256": "ed29e68845a44d4cd30518dd0df0554fcf6f6ada99b81f4e8798d26dc6964f82",
         "relative_package_json": "dist/compiled/@edge-runtime/cookies/package.json",
-        "version": "16.4.2"
+        "version": "16.4.6"
       },
       "reviewed_version": "6.0.0",
       "runtime_files": {
@@ -58,16 +58,16 @@
       "package_version": "4.0.0",
       "parent": {
         "dependency_manifest": {
-          "file": "next-16.4.2-upstream-package.json",
-          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
-          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
-          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+          "file": "next-16.4.6-upstream-package.json",
+          "sha256": "47ba4667e4904b7810b1533629969569b0e31663d81a0e8ec1f942b23b95917a",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.6/packages/next/package.json",
+          "upstream_blob_sha1": "104984276a2f0aa1a63df5f504db971d9a21f22b"
         },
         "dependency_section": "devDependencies",
         "name": "next",
-        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "package_json_sha256": "ed29e68845a44d4cd30518dd0df0554fcf6f6ada99b81f4e8798d26dc6964f82",
         "relative_package_json": "dist/compiled/@edge-runtime/ponyfill/package.json",
-        "version": "16.4.2"
+        "version": "16.4.6"
       },
       "reviewed_version": "4.0.0",
       "runtime_files": {
@@ -95,16 +95,16 @@
       "package_version": "6.0.0",
       "parent": {
         "dependency_manifest": {
-          "file": "next-16.4.2-upstream-package.json",
-          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
-          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
-          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+          "file": "next-16.4.6-upstream-package.json",
+          "sha256": "47ba4667e4904b7810b1533629969569b0e31663d81a0e8ec1f942b23b95917a",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.6/packages/next/package.json",
+          "upstream_blob_sha1": "104984276a2f0aa1a63df5f504db971d9a21f22b"
         },
         "dependency_section": "devDependencies",
         "name": "next",
-        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "package_json_sha256": "ed29e68845a44d4cd30518dd0df0554fcf6f6ada99b81f4e8798d26dc6964f82",
         "relative_package_json": "dist/compiled/@edge-runtime/primitives/package.json",
-        "version": "16.4.2"
+        "version": "16.4.6"
       },
       "reviewed_version": "6.0.0",
       "runtime_files": {
@@ -124,35 +124,35 @@
       "name": "@next/env",
       "notices": [
         {
-          "file": "next-16.4.2-MIT.txt",
+          "file": "next-16.4.6-MIT.txt",
           "kind": "matching_monorepo_notice",
           "provenance": {
             "package": "@next/env",
-            "tarball_integrity": "sha512-nTUTFH7G5/J/fmpkjVLegOkqyKOP0CEsJcMsyO4UCYeN1su+YMW/MfaSErnJskL7XM+UDK6aTvslxsRCyya/sA==",
-            "tarball_sha256": "3689438a836af5958bea785eda04689932c819dc25b7a1e4833d4a32951bd935",
-            "tarball_url": "https://registry.npmjs.org/@next/env/-/env-16.4.2.tgz",
-            "version": "16.4.2"
+            "tarball_integrity": "sha512-SunBjJ6t+oBtecS3dTjdVuMhUogP5wD/vrGL5EVuQYM1iS4O5ilL51HkiJ3sPjMzRHiCChvr4dbaSJbR7F3lxA==",
+            "tarball_sha256": "5f4bef2762c82df93bcebb536a261db6b93011de61077c10553110b955f6bab0",
+            "tarball_url": "https://registry.npmjs.org/@next/env/-/env-16.4.6.tgz",
+            "version": "16.4.6"
           },
           "sha256": "ee765244e2d59f5234d474f62e0766fa0c8b99af967fdd4c0cb8dcb0c76ea224",
-          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/license.md"
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.6/license.md"
         }
       ],
-      "package_json_sha256": "890f8f188a008f05020375b9ed0d499244e55a3e59cebc00f76b4047c51afb88",
-      "package_version": "16.4.2",
+      "package_json_sha256": "21b69ed9b6c706fe13652d69e366d17d1a78708678dfb8d319650513fd737c54",
+      "package_version": "16.4.6",
       "parent": {
         "dependency_manifest": {
-          "file": "next-16.4.2-upstream-package.json",
-          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
-          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
-          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+          "file": "next-16.4.6-upstream-package.json",
+          "sha256": "47ba4667e4904b7810b1533629969569b0e31663d81a0e8ec1f942b23b95917a",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.6/packages/next/package.json",
+          "upstream_blob_sha1": "104984276a2f0aa1a63df5f504db971d9a21f22b"
         },
         "dependency_section": "dependencies",
         "name": "next",
-        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "package_json_sha256": "ed29e68845a44d4cd30518dd0df0554fcf6f6ada99b81f4e8798d26dc6964f82",
         "relative_package_json": null,
-        "version": "16.4.2"
+        "version": "16.4.6"
       },
-      "reviewed_version": "16.4.2",
+      "reviewed_version": "16.4.6",
       "runtime_files": {
         "dist/index.js": "c3100f65b6072118fb1bc458c8cdcb9c5dc9d7c6f07128a91e7baa61423ec2c4"
       }
@@ -188,16 +188,16 @@
       "package_version": null,
       "parent": {
         "dependency_manifest": {
-          "file": "next-16.4.2-upstream-package.json",
-          "sha256": "8e90c279a244a25402bbd3fac266e9fa01fadb421ab4915df2310b5934d882ed",
-          "source_url": "https://github.com/vercel/next.js/blob/v16.4.2/packages/next/package.json",
-          "upstream_blob_sha1": "e35d66847e3fa0113f330c145158dd74a40abf41"
+          "file": "next-16.4.6-upstream-package.json",
+          "sha256": "47ba4667e4904b7810b1533629969569b0e31663d81a0e8ec1f942b23b95917a",
+          "source_url": "https://github.com/vercel/next.js/blob/v16.4.6/packages/next/package.json",
+          "upstream_blob_sha1": "104984276a2f0aa1a63df5f504db971d9a21f22b"
         },
         "dependency_section": "devDependencies",
         "name": "next",
-        "package_json_sha256": "e84ada0a68191fed192392bfb8ee35ad4ed8e7439f645a40dd48cf139588ddc5",
+        "package_json_sha256": "ed29e68845a44d4cd30518dd0df0554fcf6f6ada99b81f4e8798d26dc6964f82",
         "relative_package_json": "dist/compiled/string-hash/package.json",
-        "version": "16.4.2"
+        "version": "16.4.6"
       },
       "reviewed_version": "1.1.3",
       "runtime_files": {
