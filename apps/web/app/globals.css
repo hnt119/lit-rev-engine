@@ -62,6 +62,11 @@ main { min-width: 0; }
 .draft-status { margin-bottom: 18px; }
 .draft-status button { margin-left: 12px; font: 11px/1.5 Arial, sans-serif; min-height: 36px; padding: 4px 8px; }
 .muted { color: var(--muted); font-size: 13px; }
+.workspace-artifacts { font-size: 13px; margin-bottom: 12px; }
+.workspace-continuation { border-left: 2px solid var(--accent); padding: 8px 16px; margin: 16px 0; overflow-wrap: anywhere; }
+.workspace-continuation p { font-size: 13px; margin-bottom: 12px; }
+.workspace-entry-actions { margin-top: 16px; }
+.workspace-entry-actions button { white-space: normal; text-align: left; }
 .notice { border-left: 2px solid var(--accent); padding: 10px 14px; font-size: 13px; overflow-wrap: anywhere; }
 .error { border: 1px solid var(--line); border-left: 2px solid var(--accent); }
 .actions, .control-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }

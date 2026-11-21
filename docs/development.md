@@ -23,6 +23,38 @@ Reopen through the same supported launcher, host name and browser profile. Sessi
 
 For frontend/backend development, consult [local source operation](local_preview.md) and [application architecture](application_architecture.md). The lower-level `scripts/run_web.py` launcher has its own development defaults, including `.mvp-web-state/`; do not confuse that state with the distribution launcher's external directory.
 
+## Continue research in the development UI
+
+The source development UI now helps researchers return to comparisons and export
+their submitted work. This does not change the published source/desktop artifacts
+or their version-matched manuals.
+
+1. On **Workspaces**, existing research appears before the new-workspace form.
+   Each card shows saved comparison, preparation and passage-run counts, including
+   comparisons built from imported collections. **Open latest comparison** opens
+   the most recently created saved definition; it is not a last-edited timestamp
+   or an assertion that its sources are still current.
+2. Within the running UI, sidebar navigation remembers each workspace's comparison
+   board, definition, paper and field; passage-search and discovery context are
+   retained separately. Leaving for History and returning to Compare restores that
+   context through the existing draft-save guard. A failed draft save still blocks
+   navigation and keeps edits. One-shot preparation, new-board and passage-inspection
+   handoffs are not replayed by these shortcuts.
+3. **Return to comparison** on a workspace card uses that same-session context.
+   After refreshing or reopening the application, **Open latest comparison** uses
+   saved board metadata instead. The current URL still supports ordinary refresh
+   and browser history. No persistent browser bookmark or new recovery credential
+   is created; existing cookie/access-recovery limits still apply.
+4. **History & export → Saved comparisons** offers each board's CSV and audit JSON,
+   pinned to its listed definition. Audit JSON can also include earlier definitions.
+   These submitted comparison entries are separate from saved drafts and from
+   **Export passage evidence**. Empty passage-assessment history says nothing about
+   whether a comparison has submitted entries.
+
+The added metadata reads perform no paper-provider request, source preparation,
+retrieval, model inference or research mutation. Loading failures have a retry;
+manual navigation and existing passage exports remain available.
+
 ## Folder guide
 
 | Path | Responsibility |
