@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import {observed,clickAcknowledged,comparisonActionsSettled} from "./action-acknowledgment";
 import test from "node:test";
 import {act,create,type ReactTestInstance,type ReactTestRenderer} from "react-test-renderer";
 import Compare from "../components/compare.tsx";
@@ -8,10 +9,12 @@ import {saved as savedPlan,draft as planDraft,capability as investigationCapabil
 const pending=new Map<string,string>();
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true,sessionStorage:{getItem:(key:string)=>pending.get(key)??null,setItem:(key:string,value:string)=>pending.set(key,value),removeItem:(key:string)=>pending.delete(key)}});
 const response=(value:unknown,status=200)=>new Response(JSON.stringify(value),{status,headers:{"Content-Type":"application/json"}});
+async function click(renderer:ReactTestRenderer,label:string){
+  await clickAcknowledged(renderer,label,()=>comparisonActionsSettled(renderer));
+}
 function content(node:ReactTestInstance):string{return node.children.map(child=>typeof child==="string"?child:content(child)).join("");}
 function button(renderer:ReactTestRenderer,label:string){const value=renderer.root.findAllByType("button").find(item=>content(item)===label);assert.ok(value,`Missing button: ${label}`);return value;}
 function disabled(node:ReactTestInstance):boolean {let current:ReactTestInstance|null=node;while(current){if(current.props.disabled)return true;current=current.parent;}return false;}
-async function observed(check:()=>boolean){const deadline=Date.now()+5000;while(!check()){assert.ok(Date.now()<deadline,"Expected acknowledgment was not observed");await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});}}
 function control(renderer:ReactTestRenderer,label:string,type:"textarea"|"select"|"input"="textarea"){const value=renderer.root.findAllByType("label").find(item=>item.children.some(child=>typeof child==="string"&&child===label));assert.ok(value,`Missing control: ${label}`);return value.findByType(type);}
 const text="女性😀 participants were Chinese women. Diet was assessed using a questionnaire.";
 const fieldList=[{id:"population",revision_id:"fp",label:"Population",subquestion:"What participants were studied?"},{id:"design",revision_id:"fd",label:"Design",subquestion:"What design was used?"},{id:"exposure",revision_id:"fe",label:"Exposure",subquestion:"What diet was measured?"}];
@@ -73,32 +76,32 @@ test("nine-cell board performs only explicit per-cell retrieval, inspection, man
     assert.equal(requests.some(request=>request.method!=="GET"),false,"opening a board is read-only");
     await act(async()=>renderer.root.findByProps({"aria-label":"Exposure for SOFTWARE TEST Report 3"}).props.onClick());
     assert.ok(JSON.stringify(renderer.toJSON()).includes("Only the retained abstract is available"));
-    await act(async()=>button(renderer,"Find excerpts in this paper").props.onClick());
+    await click(renderer,"Find excerpts in this paper");
     await observed(()=>renderer.root.findAllByType("button").some(node=>content(node)==="Read in source · passage 1"));
     const retrieval=requests.find(request=>request.path.endsWith("/candidates"))!;assert.equal(retrieval.body?.paper_id,"p3");assert.equal(retrieval.body?.field_id,"exposure");assert.equal(retrieval.body?.top_k,3);
     assert.equal(drafts.size,0,"candidate retrieval does not create an inspection or judgment");
-    await act(async()=>button(renderer,"Read in source · passage 1").props.onClick());
+    await click(renderer,"Read in source · passage 1");
     assert.equal(drafts.size,0,"opening canonical source does not declare inspection");
     assert.equal(renderer.root.findByType("mark").children.join(""),text,"Unicode code points highlight the exact canonical range");
-    await act(async()=>button(renderer,"I have read this excerpt — use it").props.onClick());
+    await click(renderer,"I have read this excerpt — use it");
     assert.equal(control(renderer,"Human support judgment","select").props.value,"unassessed","attaching evidence never auto-sets human support");
     await act(async()=>control(renderer,"Manual cell value").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: diet questionnaire"}}));
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: inspected exact abstract range; support remains unassessed"}}));
     await act(async()=>control(renderer,"Inspected scope result","select").props.onChange({target:{value:"value_found"}}));
-    await act(async()=>button(renderer,"Review entry before saving").props.onClick());
-    await act(async()=>button(renderer,"Save reviewed entry").props.onClick());
+    await click(renderer,"Review entry before saving");
+    await click(renderer,"Save reviewed entry");
     await observed(()=>revisions.length===1&&renderer.root.findAllByType("button").some(node=>content(node)==="Save revision"));
     assert.equal(revisions.length,1);assert.equal(revisions[0].semantic_assessment,"unassessed");assert.equal((revisions[0].references as unknown[]).length,1);assert.equal(drafts.size,0,"submission consumes acknowledged draft");
     assert.equal(control(renderer,"Manual cell value").parent?.props.disabled,undefined);
     assert.equal(disabled(button(renderer,"Save revision")),true,"submitted cell stays read-only until explicit revision");
-    await act(async()=>button(renderer,"Edit saved cell").props.onClick());
+    await click(renderer,"Edit saved cell");
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: explicit second revision"}}));
-    await act(async()=>button(renderer,"Review entry before saving").props.onClick());
+    await click(renderer,"Review entry before saving");
     await observed(()=>!disabled(button(renderer,revisions.length?"Save revision":"Save reviewed entry")));
-    await act(async()=>button(renderer,revisions.length?"Save revision":"Save reviewed entry").props.onClick());
+    await click(renderer,revisions.length?"Save revision":"Save reviewed entry");
     await observed(()=>revisions.length===2);
     assert.equal(revisions.length,2);assert.equal(revisions[1].supersedes_id,"cell-1");
-    await act(async()=>button(renderer,"Load immutable cell history").props.onClick());assert.ok(content(renderer.root.findByProps({"aria-label":"Immutable cell history"})).includes("2 of 2 revisions"));
+    await click(renderer,"Load immutable cell history");assert.ok(content(renderer.root.findByProps({"aria-label":"Immutable cell history"})).includes("2 of 2 revisions"));
     const csv=renderer.root.findAllByType("a").find(link=>content(link)==="Download board CSV")!;assert.ok(csv.props.href.includes("/boards/b/exports?format=csv"));
     await act(async()=>renderer.unmount());renderer=await fixtureState.mount();
     assert.ok(JSON.stringify(renderer.toJSON()).includes("SOFTWARE WALKTHROUGH: diet questionnaire"));
@@ -112,14 +115,14 @@ test("abstract-only missing information stays null and does not become an unsupp
   const {renderer,revisions}=await fixture("board-missing");
   try{
     await act(async()=>renderer.root.findByProps({"aria-label":"Design for SOFTWARE TEST Report 3"}).props.onClick());
-    await act(async()=>button(renderer,"Browse this source").props.onClick());
-    await act(async()=>button(renderer,"Mark inspected without attaching").props.onClick());
+    await click(renderer,"Browse this source");
+    await click(renderer,"Mark inspected without attaching");
     await act(async()=>control(renderer,"Inspected scope result","select").props.onChange({target:{value:"not_found_in_inspected_material"}}));
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"SOFTWARE WALKTHROUGH: no allocation detail in the inspected abstract range"}}));
     await act(async()=>control(renderer,"Missing information").props.onChange({target:{value:"Allocation method; full text not retained"}}));
-    await act(async()=>button(renderer,"Review entry before saving").props.onClick());
+    await click(renderer,"Review entry before saving");
     await observed(()=>!disabled(button(renderer,revisions.length?"Save revision":"Save reviewed entry")));
-    await act(async()=>button(renderer,revisions.length?"Save revision":"Save reviewed entry").props.onClick());
+    await click(renderer,revisions.length?"Save revision":"Save reviewed entry");
     await observed(()=>revisions.length>0);
     assert.equal(revisions.length,1);assert.equal(revisions[0].value,null);assert.equal(revisions[0].semantic_assessment,"unassessed");assert.equal(revisions[0].scope_result,"not_found_in_inspected_material");
     assert.ok(content(renderer.root.findByProps({"aria-label":"Design for SOFTWARE TEST Report 3"})).includes("Not found in inspected material"));assert.ok(content(renderer.root.findByProps({"aria-label":"Population for SOFTWARE TEST Report 1"})).includes("Not yet submitted"));
@@ -131,7 +134,7 @@ test("historical definitions permit inspection and exports while edits and retri
   try{
     await act(async()=>renderer.root.findByProps({"aria-label":"Population for SOFTWARE TEST Report 1"}).props.onClick());
     assert.equal(button(renderer,"Find excerpts in this paper").props.disabled,true);
-    await act(async()=>button(renderer,"Browse this source").props.onClick());
+    await click(renderer,"Browse this source");
     assert.ok(renderer.root.findByType("mark"));assert.equal(disabled(button(renderer,"Mark inspected without attaching")),true);assert.equal(requests.some(request=>request.method!=="GET"),false);
   }finally{await act(async()=>renderer.unmount());}
 });
@@ -197,13 +200,13 @@ test("a 30 by 6 table mounts one guided editor and performs no per-cell retrieva
     assert.equal(disabled(button(renderer,"Save reviewed entry")),true,"missing null-value explanation is guided before submission");
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"Source has no usable answer for this field"}}));
     await act(async()=>control(renderer,"Missing information").props.onChange({target:{value:"Field details are not provided in retained material"}}));
-    await act(async()=>button(renderer,"Review entry before saving").props.onClick());
+    await click(renderer,"Review entry before saving");
     await observed(()=>!disabled(button(renderer,revisions.length?"Save revision":"Save reviewed entry")));
-    await act(async()=>button(renderer,revisions.length?"Save revision":"Save reviewed entry").props.onClick());
+    await click(renderer,revisions.length?"Save revision":"Save reviewed entry");
     await observed(()=>revisions.length>0);
     assert.match(content(renderer.root),/Saved to comparison/);
     assert.match(content(renderer.root),/1 \/ 180 cells saved to the table/);
-    await act(async()=>button(renderer,"Next unfinished cell").props.onClick());
+    await click(renderer,"Next unfinished cell");
     assert.equal(renderer.root.findAllByProps({className:"board-cell-editor"}).length,1);
     assert.equal(control(renderer,"Manual cell value").props.value,"");
   }finally{await act(async()=>renderer.unmount());}
@@ -217,16 +220,16 @@ test("Needs review filters the existing table and investigation return preserves
     view.cells.filter(cell=>cell.paper_id==="p1").forEach(cell=>{cell.head={value:"Supported entry",semantic_assessment:"human_supported",scope_result:"value_found",missing_information:"",references:[],inspected_ranges:[]};});
     await act(async()=>renderer.update(<Compare workspace={workspace} navigate={async()=>{}}/>));
     await act(async()=>renderer.update(<Compare workspace={workspace} requestedBoard="b" navigate={async()=>{}}/>));
-    await act(async()=>button(renderer,"Needs review").props.onClick());
+    await click(renderer,"Needs review");
     assert.equal(renderer.root.findAllByProps({className:"board-cell"}).length,6);
     assert.equal(requests.some(request=>request.method!=="GET"),false,"filtering never mutates or calls providers");
     await act(async()=>renderer.root.findByProps({"aria-label":"Exposure for SOFTWARE TEST Report 3"}).props.onClick());
     await act(async()=>control(renderer,"Manual cell value").props.onChange({target:{value:"KEEP ORIGINAL DRAFT"}}));
     const before=requests.length;
-    await act(async()=>button(renderer,"Investigate related literature").props.onClick());
+    await click(renderer,"Investigate related literature");
     assert.equal(renderer.root.findByProps({className:"board-cell-editor"}).props.hidden,true);
     assert.ok(renderer.root.findByProps({"aria-label":"Evidence Gap Navigator"}));
-    await act(async()=>button(renderer,"Return to original cell").props.onClick());
+    await click(renderer,"Return to original cell");
     assert.equal(renderer.root.findByProps({className:"board-cell-editor"}).props.hidden,false);
     assert.equal(control(renderer,"Manual cell value").props.value,"KEEP ORIGINAL DRAFT");
     assert.equal(requests.slice(before).some(request=>request.method!=="GET"),false,"opening and returning do not save, submit, retrieve or prepare sources");
@@ -250,17 +253,17 @@ test("an unresolved revision draft can start an investigation without resubmitti
   };
   try{
     await act(async()=>renderer.root.findByProps({"aria-label":"Population for SOFTWARE TEST Report 1"}).props.onClick());
-    await act(async()=>button(renderer,"Find excerpts in this paper").props.onClick());
-    await act(async()=>button(renderer,"Read in source · passage 1").props.onClick());
-    await act(async()=>button(renderer,"I have read this excerpt — use it").props.onClick());
+    await click(renderer,"Find excerpts in this paper");
+    await click(renderer,"Read in source · passage 1");
+    await click(renderer,"I have read this excerpt — use it");
     await act(async()=>control(renderer,"Manual cell value").props.onChange({target:{value:"Original supported population answer"}}));
     await act(async()=>control(renderer,"Reason").props.onChange({target:{value:"Supported by the retained source excerpt"}}));
     await act(async()=>control(renderer,"Human support judgment","select").props.onChange({target:{value:"human_supported"}}));
     await act(async()=>control(renderer,"Inspected scope result","select").props.onChange({target:{value:"value_found"}}));
-    await act(async()=>button(renderer,"Review entry before saving").props.onClick());
-    await act(async()=>button(renderer,"Save reviewed entry").props.onClick());
+    await click(renderer,"Review entry before saving");
+    await click(renderer,"Save reviewed entry");
     assert.equal(revisions.length,1);const original=JSON.stringify(view.cells[0].head);
-    await act(async()=>button(renderer,"Edit saved cell").props.onClick());
+    await click(renderer,"Edit saved cell");
     assert.equal(content(renderer.root.findByProps({className:"cell-follow-up"}).findAllByType("button")[0]),"Reopen cell investigations","An unchanged supported revision is not unresolved merely because a draft exists");
     await act(async()=>control(renderer,"Human support judgment","select").props.onChange({target:{value:"partial"}}));
     await act(async()=>control(renderer,"Missing information").props.onChange({target:{value:"The inspected excerpt leaves the population subgroup unresolved"}}));
@@ -270,7 +273,7 @@ test("an unresolved revision draft can start an investigation without resubmitti
     await act(async()=>trigger.props.onClick());
     await act(async()=>control(renderer,"Reason for investigating").props.onChange({target:{value:"Find related reports for broader population context"}}));
     assert.equal(button(renderer,"Create investigation draft").props.disabled,false,"The current unresolved editor draft must enable investigation creation without a board reload");
-    await act(async()=>button(renderer,"Create investigation draft").props.onClick());
+    await click(renderer,"Create investigation draft");
     const capture=requests.find(request=>request.path.endsWith("/investigations")&&request.method==="POST")!;
     assert.ok(capture);assert.equal(capture.body?.expected_cell_head_id,"cell-1");
     assert.equal(capture.body?.expected_draft_version,drafts.get("p1/population")!.version);

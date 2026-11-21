@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import {observed,clickAcknowledged,researchActionsSettled} from "./action-acknowledgment";
 import test from "node:test";
 import {act,create,type ReactTestInstance,type ReactTestRenderer} from "react-test-renderer";
 import InvestigationNavigator,{type InvestigationContext} from "../components/investigation-navigator.tsx";
@@ -9,18 +10,13 @@ import {saved,draft,capability,response,stamp,workspace} from "./search-planner-
 
 const storage=new Map<string,string>();
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true,sessionStorage:{getItem:(key:string)=>storage.get(key)??null,setItem:(key:string,value:string)=>storage.set(key,value),removeItem:(key:string)=>storage.delete(key)}});
-async function observed(check:()=>boolean,description:string){
-  const deadline=Date.now()+5000;
-  while(!check()){
-    assert.ok(Date.now()<deadline,"Unobserved acknowledgment: "+description);
-    await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});
-  }
+async function click(renderer:ReactTestRenderer,label:string){
+  await clickAcknowledged(renderer,label,()=>researchActionsSettled(renderer));
 }
 const text=(node:ReactTestInstance):string=>node.children.map(child=>typeof child==="string"?child:text(child)).join("");
 function button(renderer:ReactTestRenderer,label:string){const node=renderer.root.findAllByType("button").find(item=>text(item)===label);assert.ok(node,`Missing button: ${label}`);return node;}
 function control(renderer:ReactTestRenderer,label:string,type:"textarea"|"input"|"select"="textarea"){const node=renderer.root.findAllByType("label").find(item=>item.children.some(child=>child===label));assert.ok(node,`Missing control: ${label}`);return node.findByType(type);}
 function checkbox(renderer:ReactTestRenderer,label:string){const node=renderer.root.findAllByType("label").find(item=>text(item).includes(label));assert.ok(node,`Missing checkbox: ${label}`);return node.findByType("input");}
-async function click(renderer:ReactTestRenderer,label:string){const node=button(renderer,label);assert.equal(!!node.props.disabled,false,`${label} must be available`);await act(async()=>{node.props.onClick();});}
 async function edit(renderer:ReactTestRenderer,label:string,value:string,type:"textarea"|"input"|"select"="textarea"){await act(async()=>control(renderer,label,type).props.onChange({target:{value}}));}
 async function check(renderer:ReactTestRenderer,label:string,checked=true){await act(async()=>checkbox(renderer,label).props.onChange({target:{checked}}));}
 type Call={path:string;method:string;body:any};

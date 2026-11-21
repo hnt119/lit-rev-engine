@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import {observed,clickAcknowledged,researchActionsSettled} from "./action-acknowledgment";
 import test from "node:test";
 import {act,create,type ReactTestInstance,type ReactTestRenderer} from "react-test-renderer";
 import InvestigationNavigator,{type InvestigationContext} from "../components/investigation-navigator.tsx";
@@ -10,12 +11,8 @@ import {saved,draft,approval,capability,response,stamp} from "./search-planner-f
 
 const storage=new Map<string,string>();
 Object.assign(globalThis,{IS_REACT_ACT_ENVIRONMENT:true,sessionStorage:{getItem:(key:string)=>storage.get(key)??null,setItem:(key:string,value:string)=>storage.set(key,value),removeItem:(key:string)=>storage.delete(key)}});
-async function observed(check:()=>boolean,description:string){
-  const deadline=Date.now()+5000;
-  while(!check()){
-    assert.ok(Date.now()<deadline,"Unobserved acknowledgment: "+description);
-    await act(async()=>{await new Promise<void>(resolve=>setImmediate(resolve));});
-  }
+async function click(renderer:ReactTestRenderer,label:string){
+  await clickAcknowledged(renderer,label,()=>researchActionsSettled(renderer));
 }
 const text=(node:ReactTestInstance):string=>node.children.map(child=>typeof child==="string"?child:text(child)).join("");
 function button(renderer:ReactTestRenderer,label:string){const found=renderer.root.findAllByType("button").find(item=>text(item)===label);assert.ok(found,`Missing button ${label}`);return found;}
@@ -55,11 +52,11 @@ async function mount(id:string,{live=true,existing=true,handler}:{live?:boolean;
   await act(async()=>{renderer=create(<InvestigationNavigator workspaceId={id} context={f.context} canCreate onReturn={async origin=>{returned=origin;}}/>);});
   return {renderer,calls,state,context:f.context,drafts,returned:()=>returned};
 }
-async function open(renderer:ReactTestRenderer){await act(async()=>button(renderer,"Reopen investigation").props.onClick());}
+async function open(renderer:ReactTestRenderer){await click(renderer,"Reopen investigation");}
 async function approve(renderer:ReactTestRenderer){
   await act(async()=>checkbox(renderer,"Acknowledge that this specialist strategy is unparsed").props.onChange({target:{checked:true}}));
   await act(async()=>checkbox(renderer,"I reviewed this exact query").props.onChange({target:{checked:true}}));
-  await act(async()=>button(renderer,"Approve exact investigation query").props.onClick());
+  await click(renderer,"Approve exact investigation query");
 }
 
 test("investigation bridge exposes only bounded owned methods and filters",()=>{
@@ -94,14 +91,14 @@ test("create captures the original draft without any comparison, source or provi
     assert.equal(f.calls.some(call=>call.method!=="GET"),false);
     await act(async()=>control(f.renderer,"Reason for investigating").props.onChange({target:{value:"Researcher-authored reason"}}));
     assert.equal(f.calls.some(call=>call.method!=="GET"),false);
-    await act(async()=>button(f.renderer,"Create investigation draft").props.onClick());
+    await click(f.renderer,"Create investigation draft");
     await observed(()=>text(f.renderer.root).includes("SAVED PLAN REVISION 1"),"created investigation installed");
     const request=f.calls.find(call=>call.method==="POST")!;
     assert.deepEqual({...request.body,request_id:undefined},{...f.context,reason:"Researcher-authored reason",request_id:undefined});
     assert.equal(JSON.stringify(f.context),before);
     assert.match(text(f.renderer.root),/SAVED PLAN REVISION 1/);
     assert.equal(f.calls.some(call=>/\/boards\/|\/source-preparations|\/execute|\/diagnose/.test(call.path)),false);
-    await act(async()=>button(f.renderer,"Return to original cell").props.onClick());assert.equal(f.returned()?.board.revision_id,"revision");
+    await click(f.renderer,"Return to original cell");assert.equal(f.returned()?.board.revision_id,"revision");
   }finally{await act(async()=>f.renderer.unmount());}
 });
 
@@ -118,9 +115,9 @@ test("query edits invalidate execution locally, a new saved revision needs appro
   try{
     await open(f.renderer);assert.equal(button(f.renderer,"Run approved PubMed search").props.disabled,true);await approve(f.renderer);assert.equal(button(f.renderer,"Run approved PubMed search").props.disabled,false);
     await act(async()=>control(f.renderer,"Specialist PubMed strategy").props.onChange({target:{value:query+" AND population"}}));assert.equal(button(f.renderer,"Run approved PubMed search").props.disabled,true);
-    await act(async()=>button(f.renderer,"Save revised investigation plan").props.onClick());assert.match(text(f.renderer.root),/SAVED PLAN REVISION 2/);assert.equal(button(f.renderer,"Run approved PubMed search").props.disabled,true);
+    await click(f.renderer,"Save revised investigation plan");assert.match(text(f.renderer.root),/SAVED PLAN REVISION 2/);assert.equal(button(f.renderer,"Run approved PubMed search").props.disabled,true);
     const put=f.calls.find(call=>call.path.endsWith("/plan"))!;assert.equal(put.body.expected_revision_id,"software-revision-1");
-    await act(async()=>control(f.renderer,"Specialist PubMed strategy").props.onChange({target:{value:"LOCAL EDIT SURVIVES CONFLICT"}}));stale=true;await act(async()=>button(f.renderer,"Save revised investigation plan").props.onClick());
+    await act(async()=>control(f.renderer,"Specialist PubMed strategy").props.onChange({target:{value:"LOCAL EDIT SURVIVES CONFLICT"}}));stale=true;await click(f.renderer,"Save revised investigation plan");
     assert.equal(control(f.renderer,"Specialist PubMed strategy").props.value,"LOCAL EDIT SURVIVES CONFLICT");assert.match(text(f.renderer.root),/A newer saved plan exists/);assert.equal(f.calls.some(call=>call.path.endsWith("/execute")),false);
   }finally{await act(async()=>f.renderer.unmount());}
 });
@@ -133,7 +130,7 @@ test("saved examples reopen, approve and export without making a provider call",
   }});
   try{
     await open(f.renderer);await approve(f.renderer);assert.equal(button(f.renderer,"Run approved PubMed search").props.disabled,true);assert.equal(button(f.renderer,"Check PubMed matches").props.disabled,true);assert.match(text(f.renderer.root),/Saved examples cannot execute PubMed queries/);
-    await act(async()=>button(f.renderer,"Prepare readable audit export").props.onClick());assert.equal(f.renderer.root.findAllByType("a").filter(link=>link.props.download).length,2);assert.match(text(f.renderer.root),/# Investigation audit/);
+    await click(f.renderer,"Prepare readable audit export");assert.equal(f.renderer.root.findAllByType("a").filter(link=>link.props.download).length,2);assert.match(text(f.renderer.root),/# Investigation audit/);
     assert.equal(f.calls.some(call=>/\/(execute|diagnose|propose)$/.test(call.path)),false);
   }finally{await act(async()=>f.renderer.unmount());}
 });
@@ -146,27 +143,42 @@ test("failed provider requests replay safely and only an explicit new attempt ge
   }});
   try{
     await open(f.renderer);await approve(f.renderer);
-    await act(async()=>button(f.renderer,"Run approved PubMed search").props.onClick());assert.match(text(f.renderer.root),/Offline provider failure/);
-    await act(async()=>button(f.renderer,"Run approved PubMed search").props.onClick());
+    await click(f.renderer,"Run approved PubMed search");assert.match(text(f.renderer.root),/Offline provider failure/);
+    await click(f.renderer,"Run approved PubMed search");
     let calls=f.calls.filter(call=>call.path.endsWith("/execute"));assert.equal(calls[0].body.request_id,calls[1].body.request_id);
-    await act(async()=>button(f.renderer,"Start a new PubMed search attempt").props.onClick());calls=f.calls.filter(call=>call.path.endsWith("/execute"));assert.notEqual(calls[2].body.request_id,calls[1].body.request_id);
+    await click(f.renderer,"Start a new PubMed search attempt");calls=f.calls.filter(call=>call.path.endsWith("/execute"));assert.notEqual(calls[2].body.request_id,calls[1].body.request_id);
     assert.equal(control(f.renderer,"Specialist PubMed strategy").props.value,query);assert.equal(f.calls.some(call=>call.path.endsWith("/propose")),false);
   }finally{await act(async()=>f.renderer.unmount());}
 });
 
 test("manual candidate decisions are versioned and remain separate when reopened",async()=>{
-  const f=await mount("investigation-decisions",{handler:(call,state)=>{
-    if(call.path.endsWith("/decisions")){const candidate=state.view.executions[0].candidates[0];assert.equal(call.body.expected_version,candidate.decision_version);state.view={...state.view,executions:[{...state.view.executions[0],candidates:[{...candidate,decision:call.body.decision,decision_version:candidate.decision_version+1}]}]};return response(state.view);}
+  let releaseDecision!:()=>void;
+  let decisionStarted!:()=>void;
+  const firstDecision=new Promise<void>(resolve=>{releaseDecision=resolve;});
+  const started=new Promise<void>(resolve=>{decisionStarted=resolve;});
+  const f=await mount("investigation-decisions",{handler:async(call,state)=>{
+    if(call.path.endsWith("/decisions")){
+      if(call.body.expected_version===0){decisionStarted();await firstDecision;}
+      const candidate=state.view.executions[0].candidates[0];assert.equal(call.body.expected_version,candidate.decision_version);state.view={...state.view,executions:[{...state.view.executions[0],candidates:[{...candidate,decision:call.body.decision,decision_version:candidate.decision_version+1}]}]};return response(state.view);}
     throw new Error("Unexpected "+call.path);
   }});
   f.state.view.executions=[{execution:{id:"execution"},search:{searched_at:stamp,query,total_reported:1,fetched_count:1,truncated:false,warnings:[],errors:[]},candidates:[{id:"candidate",paper:{id:"pmid:1",title:"Another report",authors:[],year:2026,pmid:"1",doi:null,pmcid:null,abstract:"Candidate abstract",url:""},decision:"unassessed",decision_version:0}]}] as unknown as Schema<"InvestigationView">["executions"];
   try{
-    await open(f.renderer);await act(async()=>button(f.renderer,"Shortlist").props.onClick());assert.match(text(f.renderer.root),/Decision: shortlist · version 1/);
-    await act(async()=>button(f.renderer,"Dismiss").props.onClick());assert.match(text(f.renderer.root),/Decision: dismiss · version 2/);
-    await act(async()=>button(f.renderer,"Leave unassessed").props.onClick());assert.match(text(f.renderer.root),/Decision: unassessed · version 3/);
-    await act(async()=>button(f.renderer,"All investigations for this cell").props.onClick());await open(f.renderer);assert.match(text(f.renderer.root),/Decision: unassessed · version 3/);
+    await open(f.renderer);
+    let acknowledged=false;
+    const shortlist=click(f.renderer,"Shortlist").then(()=>{acknowledged=true;});
+    await started;
+    assert.equal(acknowledged,false,"the driver cannot finish before the decision response");
+    assert.match(text(f.renderer.root),/Decision: unassessed · version 0/);
+    releaseDecision();
+    await shortlist;
+    assert.equal(acknowledged,true);
+    assert.match(text(f.renderer.root),/Decision: shortlist · version 1/);
+    await click(f.renderer,"Dismiss");assert.match(text(f.renderer.root),/Decision: dismiss · version 2/);
+    await click(f.renderer,"Leave unassessed");assert.match(text(f.renderer.root),/Decision: unassessed · version 3/);
+    await click(f.renderer,"All investigations for this cell");await open(f.renderer);assert.match(text(f.renderer.root),/Decision: unassessed · version 3/);
     assert.equal(f.calls.some(call=>/\/boards\/|\/source-preparations/.test(call.path)),false);
-  }finally{await act(async()=>f.renderer.unmount());}
+  }finally{releaseDecision();await act(async()=>f.renderer.unmount());}
 });
 
 test("Needs review uses workflow state, not a scientific gap judgment",()=>{
@@ -194,14 +206,14 @@ test("two-tab editor draft conflicts require inspecting its exact version before
       return originalFetch(input,options);
     };
     await act(async()=>control(f.renderer,"Specialist PubMed strategy").props.onChange({target:{value:"MY RETAINED QUERY"}}));
-    await act(async()=>button(f.renderer,"Save revised investigation plan").props.onClick());
+    await click(f.renderer,"Save revised investigation plan");
     assert.match(text(f.renderer.root),/Another tab saved this draft/);assert.equal(button(f.renderer,"Save revised investigation plan").props.disabled,true);
-    await act(async()=>button(f.renderer,"Inspect latest investigation").props.onClick());assert.match(text(f.renderer.root),/OTHER TAB DRAFT/);
+    await click(f.renderer,"Inspect latest investigation");assert.match(text(f.renderer.root),/OTHER TAB DRAFT/);
     f.drafts.set(draftPath,{...stored,version:3});
-    await act(async()=>button(f.renderer,"Keep my edits against this inspected revision").props.onClick());assert.match(text(f.renderer.root),/inspected draft changed again/);assert.equal(control(f.renderer,"Specialist PubMed strategy").props.value,"MY RETAINED QUERY");
-    await act(async()=>button(f.renderer,"Inspect latest investigation").props.onClick());
-    await act(async()=>button(f.renderer,"Keep my edits against this inspected revision").props.onClick());assert.equal(button(f.renderer,"Save revised investigation plan").props.disabled,false);
-    await act(async()=>button(f.renderer,"Save revised investigation plan").props.onClick());assert.match(text(f.renderer.root),/SAVED PLAN REVISION 2/);assert.equal(f.state.view.plan.revision.draft.manual_strategy,"MY RETAINED QUERY");
+    await click(f.renderer,"Keep my edits against this inspected revision");assert.match(text(f.renderer.root),/inspected draft changed again/);assert.equal(control(f.renderer,"Specialist PubMed strategy").props.value,"MY RETAINED QUERY");
+    await click(f.renderer,"Inspect latest investigation");
+    await click(f.renderer,"Keep my edits against this inspected revision");assert.equal(button(f.renderer,"Save revised investigation plan").props.disabled,false);
+    await click(f.renderer,"Save revised investigation plan");assert.match(text(f.renderer.root),/SAVED PLAN REVISION 2/);assert.equal(f.state.view.plan.revision.draft.manual_strategy,"MY RETAINED QUERY");
     assert.equal(f.calls.some(call=>/\/(execute|diagnose)$/.test(call.path)),false);
   }finally{await act(async()=>f.renderer.unmount());}
 });
