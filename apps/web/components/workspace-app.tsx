@@ -67,9 +67,18 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
     if(mode==="restore"&&!window.confirm("Discard unsaved local edits and restore the latest saved drafts before leaving? Saved research records are retained."))return;
     setRecovering(true);try{await recoverDrafts(mode);await navigate(blocked.next);}catch(error){setBlocked(previous=>previous?{...previous,message:(error as Error).message}:previous);}finally{setRecovering(false);}
   }
+  const refreshAttempt=useRef(0);
   const refresh=useCallback(async()=>{
-    const list=await api<Schema<"WorkspaceList">>("workspaces");navigationMemory.current.retain(list.workspaces.map(item=>item.id));setWorkspaces(list.workspaces);
-    if(location.workspace)setWorkspace(await api<Schema<"WorkspaceSummary">>(workspacePath(location.workspace)));
+    const workspaceId=location.workspace;
+    if(currentLocation.current.workspace!==workspaceId)return;
+    const attempt=++refreshAttempt.current;
+    const current=()=>attempt===refreshAttempt.current&&currentLocation.current.workspace===workspaceId;
+    try{
+      const list=await api<Schema<"WorkspaceList">>("workspaces");
+      if(!current())return;
+      navigationMemory.current.retain(list.workspaces.map(item=>item.id));setWorkspaces(list.workspaces);
+      if(workspaceId){const next=await api<Schema<"WorkspaceSummary">>(workspacePath(workspaceId));if(current())setWorkspace(next);}
+    }catch(error){if(current()){setError((error as Error).message);setWorkspace(null);throw error;}}
   },[location.workspace]);
   useEffect(()=>{
     historyIndex.current=window.history.state?.index??0;
@@ -89,7 +98,7 @@ export default function WorkspaceApp({hosted=false}:{hosted?:boolean}={}) {
     };window.addEventListener("popstate",back);
     return()=>window.removeEventListener("popstate",back);
   },[]);
-  useEffect(()=>{if(ready)refresh().catch(error=>{setError(error.message);setWorkspace(null);});},[ready,refresh]);
+  useEffect(()=>{if(ready)void refresh().catch(()=>{});},[ready,refresh]);
   async function create() {
     setBusy(true);setError("");try {
       const payload={question:newQuestion,mode:newMode};
