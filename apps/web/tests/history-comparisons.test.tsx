@@ -38,7 +38,7 @@ test("board-only history reads summaries, exposes pinned comparison exports and 
     assert.equal(link(renderer,"Download passage audit JSON").props.href,"/api/v1/workspaces/history%3Aworkspace/exports?format=json");
     await act(async()=>button(renderer,"Open comparison board").props.onClick());
     assert.deepEqual(destinations,[{page:"compare",workspace:w.id,board:saved.board_id,revision:saved.revision_id}]);
-    const history=renderer.root.findAllByType("input").find(input=>input.parent?.type==="label"&&text(input.parent).includes("earlier board definitions"))!;
+    const history=renderer.root.findAllByType("input").find(input=>input.parent?.type==="label"&&text(input.parent).includes("all saved board definitions"))!;
     await act(async()=>history.props.onChange({target:{checked:true}}));
     assert.equal(link(renderer,"Download board audit JSON").props.href,prefix+"json&history=true&revision_id=revision%3Aa%3Fb");
     assert.equal(link(renderer,"Download board CSV").props.href,prefix+"csv&history=true&revision_id=revision%3Aa%3Fb");

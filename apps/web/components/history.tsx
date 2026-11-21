@@ -15,7 +15,7 @@ function SavedComparisons({workspaceId,navigate}:{workspaceId:string;navigate:Na
   return <section aria-labelledby="history-comparisons"><h2 id="history-comparisons" data-workspace-section="Saved comparisons" tabIndex={-1}>Saved comparisons</h2>
     <p>Reopen a comparison or export its saved entries, source references and judgment states. Drafts are separate and are not included in these exports.</p>
     <Failure message={error}/>{error?<button type="button" onClick={()=>setAttempt(value=>value+1)}>Retry loading comparisons</button>:!listing?<p role="status">Loading saved comparisons…</p>:!listing.boards.length?<><p>No saved comparison boards yet.</p><button type="button" onClick={()=>void navigate({page:"compare",workspace:workspaceId})}>Open comparison workspace</button></>:<>
-      <label className="check"><input type="checkbox" checked={includeHistory} onChange={event=>setIncludeHistory(event.target.checked)}/>Include earlier board definitions in audit JSON</label>
+      <label className="check"><input type="checkbox" checked={includeHistory} onChange={event=>setIncludeHistory(event.target.checked)}/>Include all saved board definitions in audit JSON</label>
       <p className="muted">Each download uses the definition listed below. Audit JSON includes its immutable cell history and candidate retrieval audit. To inspect another definition or check source freshness, open the comparison.</p>
       {listing.boards.map(board=>{
         const endpoint=workspacePath(workspaceId)+"/boards/"+encodeURIComponent(board.board_id),query=`history=${includeHistory}&revision_id=${encodeURIComponent(board.revision_id)}`;
